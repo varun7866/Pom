@@ -1,0 +1,9 @@
+﻿<Properties>
+  <WatchEntry0 value="strDomain" />
+  <WatchEntry1 value="strTask" />
+  <WatchEntry2 value="strOutErrorDesc" />
+  <WatchEntry3 value="Replace(strTaskName,&quot; &quot;,&quot;&quot;,1,-1,1)" />
+  <WatchEntry4 value="Replace(strTask,&quot; &quot;,&quot;&quot;,1,-1,1)" />
+  <WatchEntry5 value="Flag" />
+  <WatchEntry6 value="strTask" />
+</Properties>

@@ -1,0 +1,782 @@
+﻿<?xml version="1.0"?>
+<!DOCTYPE Report
+[
+<!ELEMENT Report (General ,(Doc|BPT)) >
+<!ATTLIST Report ver CDATA #REQUIRED tmZone CDATA #REQUIRED>
+
+<!ELEMENT General ( DocLocation ) >
+<!ATTLIST General productName CDATA #REQUIRED productVer CDATA #REQUIRED os CDATA #REQUIRED host CDATA #REQUIRED qcserver CDATA #IMPLIED qcproject CDATA #IMPLIED SolManSolutionId CDATA #IMPLIED SolManProjectId CDATA #IMPLIED SolManTestPlanId CDATA #IMPLIED SolManTestPackageId CDATA #IMPLIED SolManUserInfoData CDATA #IMPLIED  >
+
+<!ELEMENT BPT (DName,Res,DVer?,TSet?,TInst?,NodeArgs,AdditionalInfo*,Doc*) >
+<!ATTLIST BPT rID ID #REQUIRED >
+
+<!ELEMENT Doc (DName,ConfName?,Res,DVer?,TSet?,TInst?,RunType?,DT?,AdditionalInfo*,Step*,DIter*,Step*,Action*,Doc*,Summary?,TestMaintenanceSummary*,NodeArgs?) >
+<!ATTLIST Doc rID ID #REQUIRED type (Test|BC|BPTWrapperTest|Flow|Group|Action) "Test" productName CDATA #REQUIRED BCIter CDATA #IMPLIED >
+
+<!ELEMENT RunType ( #PCDATA )>
+<!ATTLIST RunType fmStep (False|True) "False" batch (False|True) "False" upDesc (False|True) "False" upChk (False|True) "False" upAS (False|True) "False">
+
+<!ELEMENT DName ( #PCDATA ) >
+
+<!ELEMENT ConfName ( #PCDATA ) >
+
+<!ELEMENT Res ( #PCDATA ) >
+
+<!ELEMENT AdditionalInfo (AdditionalDataName,AdditionalDataValue ) >
+
+<!ELEMENT AdditionalDataName ( #PCDATA ) >
+
+<!ELEMENT AdditionalDataValue ( #PCDATA ) >
+
+<!ELEMENT DVer ( #PCDATA ) >
+
+<!ELEMENT TSet ( #PCDATA ) >
+
+<!ELEMENT TInst ( #PCDATA ) >
+
+<!ELEMENT DIter (Step*,Action+,Summary?,NodeArgs)>
+<!ATTLIST DIter rID ID #REQUIRED iterID CDATA #REQUIRED>
+
+<!ELEMENT DocLocation ( #PCDATA )>
+
+<!ELEMENT Action (AName,AIter*,(Step|HtmlStep|Action)*, Summary,ActionMaintenanceSummary*, NodeArgs ) >
+<!ATTLIST Action rID ID #REQUIRED>
+
+<!ELEMENT AIter ((Step|HtmlStep|Action)*,DataMapping?, Summary?,NodeArgs) >
+<!ATTLIST AIter rID ID #REQUIRED iterID CDATA #REQUIRED isCountable (False|True) "False" >
+
+<!ELEMENT AName ( #PCDATA ) >
+
+<!ELEMENT TestMaintenanceSummary (ActionMaintenanceSummary*) >
+<!ATTLIST TestMaintenanceSummary ObjectsAdded CDATA #REQUIRED ObjectsUpdated CDATA #REQUIRED StepsUpdated CDATA #REQUIRED StepsComments CDATA #REQUIRED><!ELEMENT ActionMaintenanceSummary (ObjectChange* ) >
+<!ATTLIST ActionMaintenanceSummary Action CDATA #REQUIRED Objects CDATA #REQUIRED Updated CDATA #REQUIRED LinesTotal CDATA #REQUIRED Added CDATA #REQUIRED LinesUpdated CDATA #REQUIRED>
+
+<!ELEMENT ObjectChange  (Hierarchy, PropertyChangeList* ) >
+<!ATTLIST ObjectChange Operation CDATA #IMPLIED OriginalRepository CDATA #IMPLIED>
+
+<!ELEMENT PropertyChangeList (PropertyDef*) >
+
+<!ELEMENT PropertyDef (OriginalValue, NewValue) >
+<!ATTLIST PropertyDef PropName CDATA #REQUIRED OriginRegularExpression (True|False) "False" NewRegularExpression (True|False) "False" AddedProperty (True|False) "False" >
+
+<!ELEMENT OriginalValue ( #PCDATA )>
+
+<!ELEMENT NewValue ( #PCDATA )>
+
+<!ELEMENT Hierarchy  (ObjectName, Hierarchy*) >
+<!ATTLIST Hierarchy MicClass CDATA #REQUIRED>
+
+<!ELEMENT ObjectName  ( #PCDATA ) >
+
+<!ELEMENT Step (Obj,Details,Time,TimeTick* ,(Step|HtmlStep|Doc)*, DataMapping?, NodeArgs) >
+<!ATTLIST Step rID ID #REQUIRED retval CDATA #IMPLIED>
+
+<!ELEMENT HtmlStep (HTML,TimeTick*,(Step|HtmlStep|Doc)*,NodeArgs) >
+<!ATTLIST HtmlStep rID ID #REQUIRED >
+
+<!ELEMENT Obj ( #PCDATA ) >
+<!ATTLIST Obj plainTxt (False|True) "True">
+
+<!ELEMENT Details ( #PCDATA ) >
+<!ATTLIST Details plainTxt (False|True) "True">
+
+<!ELEMENT Time ( #PCDATA ) >
+
+<!ELEMENT HTML ( #PCDATA ) >
+
+<!ELEMENT Disp ( #PCDATA ) >
+
+<!ELEMENT TimeTick ( #PCDATA ) >
+
+<!ELEMENT DataMapping ( DataMappedItem* )>
+<!ELEMENT DataMappedItem EMPTY >
+<!ATTLIST DataMappedItem dsName CDATA #REQUIRED >
+<!ATTLIST DataMappedItem rowId CDATA #REQUIRED >
+
+<!ELEMENT NodeArgs (Disp,TopPane?,BtmPane?,ExtendedInfo? )>
+<!ATTLIST NodeArgs eType CDATA #REQUIRED icon CDATA #REQUIRED nRep CDATA #REQUIRED UserNote CDATA #IMPLIED filter (False|True) "True">
+<!ATTLIST NodeArgs status (Passed|Failed|Done|Warning|Information) "Done">
+<!ATTLIST NodeArgs iconSel CDATA #IMPLIED nType CDATA #IMPLIED MovieMarker CDATA "">
+<!ATTLIST NodeArgs Source CDATA #IMPLIED SourceLine CDATA #IMPLIED StepFlowItemKey CDATA #IMPLIED >
+
+<!ELEMENT TopPane (Path)>
+
+<!ELEMENT BtmPane ( (Path|WR)?,ASHilite?)>
+<!ATTLIST BtmPane vType CDATA "HTML">
+
+<!ELEMENT Path ( #PCDATA ) >
+
+<!ELEMENT ASHilite ( #PCDATA ) >
+
+<!ELEMENT WR ( #PCDATA ) >
+
+<!ELEMENT ExtendedInfo ( StepData ) >
+
+<!ATTLIST ExtendedInfo StepType CDATA #REQUIRED>
+<!ELEMENT DT (NodeArgs) >
+<!ATTLIST DT rID ID #REQUIRED>
+
+<!ELEMENT Summary (Param*)>
+<!ATTLIST Summary sTime CDATA #IMPLIED eTime CDATA #IMPLIED passed CDATA #IMPLIED failed CDATA #IMPLIED warnings CDATA #IMPLIED retval CDATA #IMPLIED stopped (False|True) "False" >
+
+<!ELEMENT Param (ParamName,ParamVal)+ >
+<!ATTLIST Param paramInOut (In|Out) "In">
+
+<!ELEMENT ParamName ( #PCDATA ) >
+
+<!ELEMENT ParamVal ( #PCDATA ) >
+
+]
+>
+<Report ver="2.0" tmZone="India Standard Time">
+<General productName="HP Unified Functional Testing" productVer="12.02" os="Windows 7" host="GREGORYJ01"><DocLocation><![CDATA[D:\PROJECT_FOLDER\Testscripts\LabTask]]></DocLocation></General>
+<Doc rID="T1"   productName= "HP Unified Functional Testing"  >
+<DName><![CDATA[LabTask]]></DName>
+<Res><![CDATA[Res1]]></Res>
+<DT rID="T2">
+<NodeArgs eType="Table" icon="2" nRep="4" filter="False" >
+<Disp><![CDATA[Run-Time Data Table]]></Disp>
+<BtmPane vType="Table" >
+<Path><![CDATA[Default.xls]]></Path>
+</BtmPane>
+</NodeArgs>
+</DT>
+<DIter rID="T3" iterID="1" >
+<Action rID="T4">
+<AName><![CDATA[Action1]]></AName>
+<Step rID="T5">
+<Obj plainTxt="False" ><![CDATA[LoadFunctionLibrary]]></Obj>
+<Details plainTxt="False" ><![CDATA[LoadFunctionLibrary function passed]]></Details>
+<Time><![CDATA[12/7/2015 - 19:37:46]]></Time>
+<TimeTick>1449497266</TimeTick>
+<NodeArgs eType="Replay" icon="5" nRep="8" status="Passed" Source="Action1" SourceLine="21" >
+<Disp><![CDATA[LoadFunctionLibrary]]></Disp>
+</NodeArgs>
+</Step>
+<Step rID="T6">
+<Obj plainTxt="False" ><![CDATA[LoadFunctionLibrary]]></Obj>
+<Details plainTxt="False" ><![CDATA[LoadFunctionLibrary function passed]]></Details>
+<Time><![CDATA[12/7/2015 - 19:37:46]]></Time>
+<TimeTick>1449497266</TimeTick>
+<NodeArgs eType="Replay" icon="5" nRep="9" status="Passed" Source="Action1" SourceLine="21" >
+<Disp><![CDATA[LoadFunctionLibrary]]></Disp>
+</NodeArgs>
+</Step>
+<Step rID="T7">
+<Obj plainTxt="False" ><![CDATA[LoadFunctionLibrary]]></Obj>
+<Details plainTxt="False" ><![CDATA[LoadFunctionLibrary function passed]]></Details>
+<Time><![CDATA[12/7/2015 - 19:37:46]]></Time>
+<TimeTick>1449497266</TimeTick>
+<NodeArgs eType="Replay" icon="5" nRep="10" status="Passed" Source="Action1" SourceLine="21" >
+<Disp><![CDATA[LoadFunctionLibrary]]></Disp>
+</NodeArgs>
+</Step>
+<Step rID="T8">
+<Obj plainTxt="False" ><![CDATA[LoadFunctionLibrary]]></Obj>
+<Details plainTxt="False" ><![CDATA[LoadFunctionLibrary function passed]]></Details>
+<Time><![CDATA[12/7/2015 - 19:37:47]]></Time>
+<TimeTick>1449497267</TimeTick>
+<NodeArgs eType="Replay" icon="5" nRep="11" status="Passed" Source="Action1" SourceLine="45" >
+<Disp><![CDATA[LoadFunctionLibrary]]></Disp>
+</NodeArgs>
+</Step>
+<Step rID="T9">
+<Obj plainTxt="False" ><![CDATA[SystemUtil]]></Obj>
+<Details plainTxt="False" ><![CDATA[SystemUtil]]></Details>
+<Time><![CDATA[12/7/2015 - 19:37:47]]></Time>
+<TimeTick>1449497267</TimeTick>
+<Step rID="T10">
+<Obj plainTxt="False" ><![CDATA[Run "iexplore.exe",3]]></Obj>
+<Details plainTxt="False" ><![CDATA[Run "iexplore.exe",3]]></Details>
+<Time><![CDATA[12/7/2015 - 19:37:47]]></Time>
+<TimeTick>1449497267</TimeTick>
+<NodeArgs eType="Replay" icon="6" nRep="15" status="Passed" >
+<Disp><![CDATA[Run "iexplore.exe",3]]></Disp>
+</NodeArgs>
+</Step>
+<NodeArgs eType="Replay" icon="6" nRep="14" status="Passed" >
+<Disp><![CDATA[SystemUtil]]></Disp>
+</NodeArgs>
+</Step>
+<Step rID="T11">
+<Obj plainTxt="False" ><![CDATA[[ DaVita VillageHealth Capella ].Exist]]></Obj>
+<Details plainTxt="False" ><![CDATA["Object exists"]]></Details>
+<Time><![CDATA[12/7/2015 - 19:37:53]]></Time>
+<TimeTick>1449497273</TimeTick>
+<NodeArgs eType="Replay" icon="7" nRep="16" >
+<Disp><![CDATA[[ DaVita VillageHealth Capella ].Exist]]></Disp>
+</NodeArgs>
+</Step>
+<Step rID="T12">
+<Obj plainTxt="False" ><![CDATA[[  Internet Explorer ].Activate]]></Obj>
+<Details plainTxt="False" ><![CDATA[]]></Details>
+<Time><![CDATA[12/7/2015 - 19:37:53]]></Time>
+<TimeTick>1449497273</TimeTick>
+<NodeArgs eType="Replay" icon="8" nRep="18" >
+<Disp><![CDATA[[  Internet Explorer ].Activate]]></Disp>
+</NodeArgs>
+</Step>
+<Step rID="T13">
+<Obj plainTxt="False" ><![CDATA[[ WebElement ].GetROProperty "visible"]]></Obj>
+<Details plainTxt="False" ><![CDATA[]]></Details>
+<Time><![CDATA[12/7/2015 - 19:37:54]]></Time>
+<TimeTick>1449497274</TimeTick>
+<NodeArgs eType="Replay" icon="9" nRep="25" status="Warning" >
+<Disp><![CDATA[[ WebElement ].GetROProperty "visible"]]></Disp>
+</NodeArgs>
+</Step>
+<Step rID="T14">
+<Obj plainTxt="False" ><![CDATA[[ WebElement ]]]></Obj>
+<Details plainTxt="False" ><![CDATA[Cannot identify the object "[ WebElement ]" (of class WebElement). Verify that this object's properties match an object currently displayed in your application.]]></Details>
+<Time><![CDATA[12/7/2015 - 19:37:54]]></Time>
+<TimeTick>1449497274</TimeTick>
+<Step rID="T15">
+<Obj plainTxt="False" ><![CDATA[[ WebElement ]]]></Obj>
+<Details plainTxt="False" ><![CDATA[Object's physical description:<br>Mercury Class = WebElement<br>innerhtml = Loading config parameters...<br>Html Tag = SPAN<br>]]></Details>
+<Time><![CDATA[12/7/2015 - 19:37:54]]></Time>
+<TimeTick>1449497274</TimeTick>
+<NodeArgs eType="Replay" icon="10" nRep="27" status="Warning" nType="Description" >
+<Disp><![CDATA[[ WebElement ]]]></Disp>
+</NodeArgs>
+</Step>
+<NodeArgs eType="Replay" icon="9" nRep="26" status="Failed" nType="Run Error" >
+<Disp><![CDATA[[ WebElement ]]]></Disp>
+</NodeArgs>
+</Step>
+<Step rID="T16">
+<Obj plainTxt="False" ><![CDATA[[ DaVita VillageHealth Capella ].Sync]]></Obj>
+<Details plainTxt="False" ><![CDATA[]]></Details>
+<Time><![CDATA[12/7/2015 - 19:37:54]]></Time>
+<TimeTick>1449497274</TimeTick>
+<NodeArgs eType="Replay" icon="11" nRep="30" >
+<Disp><![CDATA[[ DaVita VillageHealth Capella ].Sync]]></Disp>
+</NodeArgs>
+</Step>
+<Step rID="T17">
+<Obj plainTxt="False" ><![CDATA[[ WebEdit ].WaitProperty]]></Obj>
+<Details plainTxt="False" ><![CDATA["visible", True, 2000]]></Details>
+<Time><![CDATA[12/7/2015 - 19:37:56]]></Time>
+<TimeTick>1449497276</TimeTick>
+<NodeArgs eType="Replay" icon="12" nRep="36" status="Warning" >
+<Disp><![CDATA[[ WebEdit ].WaitProperty]]></Disp>
+</NodeArgs>
+</Step>
+<Step rID="T18">
+<Obj plainTxt="False" ><![CDATA[[ Browser ].Refresh All Tabs]]></Obj>
+<Details plainTxt="False" ><![CDATA[]]></Details>
+<Time><![CDATA[12/7/2015 - 19:37:56]]></Time>
+<TimeTick>1449497276</TimeTick>
+<NodeArgs eType="Replay" icon="7" nRep="38" >
+<Disp><![CDATA[[ Browser ].Refresh All Tabs]]></Disp>
+</NodeArgs>
+</Step>
+<Step rID="T19">
+<Obj plainTxt="False" ><![CDATA[[ DaVita VillageHealth Capella ]]]></Obj>
+<Details plainTxt="False" ><![CDATA[The UFT Browser Helper Object is required for this step. Make sure BHOManager Class add-on is enabled in Internet Explorer.]]></Details>
+<Time><![CDATA[12/7/2015 - 19:37:56]]></Time>
+<TimeTick>1449497276</TimeTick>
+<Step rID="T20">
+<Obj plainTxt="False" ><![CDATA[[ DaVita VillageHealth Capella ]]]></Obj>
+<Details plainTxt="False" ><![CDATA[Object's physical description:<br>Mercury Class = Browser<br>]]></Details>
+<Time><![CDATA[12/7/2015 - 19:37:56]]></Time>
+<TimeTick>1449497276</TimeTick>
+<NodeArgs eType="Replay" icon="10" nRep="40" status="Warning" nType="Description" >
+<Disp><![CDATA[[ DaVita VillageHealth Capella ]]]></Disp>
+</NodeArgs>
+</Step>
+<NodeArgs eType="Replay" icon="7" nRep="39" status="Failed" nType="Run Error" >
+<Disp><![CDATA[[ DaVita VillageHealth Capella ]]]></Disp>
+</NodeArgs>
+</Step>
+<Step rID="T21">
+<Obj plainTxt="False" ><![CDATA[[ WebEdit ].WaitProperty]]></Obj>
+<Details plainTxt="False" ><![CDATA["visible", True, 2000]]></Details>
+<Time><![CDATA[12/7/2015 - 19:38:03]]></Time>
+<TimeTick>1449497283</TimeTick>
+<NodeArgs eType="Replay" icon="12" nRep="46" status="Warning" >
+<Disp><![CDATA[[ WebEdit ].WaitProperty]]></Disp>
+</NodeArgs>
+</Step>
+<Step rID="T22">
+<Obj plainTxt="False" ><![CDATA[[ Browser ].Refresh All Tabs]]></Obj>
+<Details plainTxt="False" ><![CDATA[]]></Details>
+<Time><![CDATA[12/7/2015 - 19:38:03]]></Time>
+<TimeTick>1449497283</TimeTick>
+<NodeArgs eType="Replay" icon="7" nRep="48" >
+<Disp><![CDATA[[ Browser ].Refresh All Tabs]]></Disp>
+</NodeArgs>
+</Step>
+<Step rID="T23">
+<Obj plainTxt="False" ><![CDATA[[ DaVita VillageHealth Capella ]]]></Obj>
+<Details plainTxt="False" ><![CDATA[The UFT Browser Helper Object is required for this step. Make sure BHOManager Class add-on is enabled in Internet Explorer.]]></Details>
+<Time><![CDATA[12/7/2015 - 19:38:03]]></Time>
+<TimeTick>1449497283</TimeTick>
+<Step rID="T24">
+<Obj plainTxt="False" ><![CDATA[[ DaVita VillageHealth Capella ]]]></Obj>
+<Details plainTxt="False" ><![CDATA[Object's physical description:<br>Mercury Class = Browser<br>]]></Details>
+<Time><![CDATA[12/7/2015 - 19:38:03]]></Time>
+<TimeTick>1449497283</TimeTick>
+<NodeArgs eType="Replay" icon="10" nRep="50" status="Warning" nType="Description" >
+<Disp><![CDATA[[ DaVita VillageHealth Capella ]]]></Disp>
+</NodeArgs>
+</Step>
+<NodeArgs eType="Replay" icon="7" nRep="49" status="Failed" nType="Run Error" >
+<Disp><![CDATA[[ DaVita VillageHealth Capella ]]]></Disp>
+</NodeArgs>
+</Step>
+<Step rID="T25">
+<Obj plainTxt="False" ><![CDATA[[ WebEdit ].WaitProperty]]></Obj>
+<Details plainTxt="False" ><![CDATA["visible", True, 2000]]></Details>
+<Time><![CDATA[12/7/2015 - 19:38:09]]></Time>
+<TimeTick>1449497289</TimeTick>
+<NodeArgs eType="Replay" icon="12" nRep="56" status="Warning" >
+<Disp><![CDATA[[ WebEdit ].WaitProperty]]></Disp>
+</NodeArgs>
+</Step>
+<Step rID="T26">
+<Obj plainTxt="False" ><![CDATA[[ Browser ].Refresh All Tabs]]></Obj>
+<Details plainTxt="False" ><![CDATA[]]></Details>
+<Time><![CDATA[12/7/2015 - 19:38:09]]></Time>
+<TimeTick>1449497289</TimeTick>
+<NodeArgs eType="Replay" icon="7" nRep="58" >
+<Disp><![CDATA[[ Browser ].Refresh All Tabs]]></Disp>
+</NodeArgs>
+</Step>
+<Step rID="T27">
+<Obj plainTxt="False" ><![CDATA[[ Browser ]]]></Obj>
+<Details plainTxt="False" ><![CDATA[The "[ Browser ]" object's description matches more than one of the objects currently displayed in your application. Add additional properties to the object description in order to uniquely identify the object.]]></Details>
+<Time><![CDATA[12/7/2015 - 19:38:09]]></Time>
+<TimeTick>1449497289</TimeTick>
+<Step rID="T28">
+<Obj plainTxt="False" ><![CDATA[[ Browser ]]]></Obj>
+<Details plainTxt="False" ><![CDATA[Object's physical description:<br>Mercury Class = Browser<br>]]></Details>
+<Time><![CDATA[12/7/2015 - 19:38:09]]></Time>
+<TimeTick>1449497289</TimeTick>
+<NodeArgs eType="Replay" icon="10" nRep="61" status="Warning" nType="Description" >
+<Disp><![CDATA[[ Browser ]]]></Disp>
+</NodeArgs>
+</Step>
+<NodeArgs eType="Replay" icon="7" nRep="60" status="Failed" nType="Run Error" >
+<Disp><![CDATA[[ Browser ]]]></Disp>
+</NodeArgs>
+</Step>
+<Step rID="T29">
+<Obj plainTxt="False" ><![CDATA[[ username ].WaitProperty]]></Obj>
+<Details plainTxt="False" ><![CDATA["visible", True, True, 2000]]></Details>
+<Time><![CDATA[12/7/2015 - 19:38:14]]></Time>
+<TimeTick>1449497294</TimeTick>
+<NodeArgs eType="Replay" icon="12" nRep="63" >
+<Disp><![CDATA[[ username ].WaitProperty]]></Disp>
+</NodeArgs>
+</Step>
+<Step rID="T30">
+<Obj plainTxt="False" ><![CDATA[[ username ].Set]]></Obj>
+<Details plainTxt="False" ><![CDATA["VHN1"]]></Details>
+<Time><![CDATA[12/7/2015 - 19:38:14]]></Time>
+<TimeTick>1449497294</TimeTick>
+<NodeArgs eType="Replay" icon="12" nRep="65" >
+<Disp><![CDATA[[ username ].Set]]></Disp>
+</NodeArgs>
+</Step>
+<Step rID="T31">
+<Obj plainTxt="False" ><![CDATA[[ WebEdit ].Set]]></Obj>
+<Details plainTxt="False" ><![CDATA["test123"]]></Details>
+<Time><![CDATA[12/7/2015 - 19:38:14]]></Time>
+<TimeTick>1449497294</TimeTick>
+<NodeArgs eType="Replay" icon="12" nRep="67" >
+<Disp><![CDATA[[ WebEdit ].Set]]></Disp>
+</NodeArgs>
+</Step>
+<Step rID="T32">
+<Obj plainTxt="False" ><![CDATA[[ WebEdit ].Set]]></Obj>
+<Details plainTxt="False" ><![CDATA["123123"]]></Details>
+<Time><![CDATA[12/7/2015 - 19:38:15]]></Time>
+<TimeTick>1449497295</TimeTick>
+<NodeArgs eType="Replay" icon="12" nRep="69" >
+<Disp><![CDATA[[ WebEdit ].Set]]></Disp>
+</NodeArgs>
+</Step>
+<Step rID="T33">
+<Obj plainTxt="False" ><![CDATA[[ Login ].Click]]></Obj>
+<Details plainTxt="False" ><![CDATA[]]></Details>
+<Time><![CDATA[12/7/2015 - 19:38:15]]></Time>
+<TimeTick>1449497295</TimeTick>
+<NodeArgs eType="Replay" icon="13" nRep="71" >
+<Disp><![CDATA[[ Login ].Click]]></Disp>
+</NodeArgs>
+</Step>
+<Step rID="T34">
+<Obj plainTxt="False" ><![CDATA[[ WebElement ].GetROProperty "visible"]]></Obj>
+<Details plainTxt="False" ><![CDATA[]]></Details>
+<Time><![CDATA[12/7/2015 - 19:38:53]]></Time>
+<TimeTick>1449497333</TimeTick>
+<NodeArgs eType="Replay" icon="9" nRep="80" status="Warning" >
+<Disp><![CDATA[[ WebElement ].GetROProperty "visible"]]></Disp>
+</NodeArgs>
+</Step>
+<Step rID="T35">
+<Obj plainTxt="False" ><![CDATA[[ WebElement ]]]></Obj>
+<Details plainTxt="False" ><![CDATA[Cannot identify the object "[ WebElement ]" (of class WebElement). Verify that this object's properties match an object currently displayed in your application.]]></Details>
+<Time><![CDATA[12/7/2015 - 19:38:53]]></Time>
+<TimeTick>1449497333</TimeTick>
+<Step rID="T36">
+<Obj plainTxt="False" ><![CDATA[[ WebElement ]]]></Obj>
+<Details plainTxt="False" ><![CDATA[Object's physical description:<br>Mercury Class = WebElement<br>innerhtml = Authenticating...<br>Html Tag = SPAN<br>]]></Details>
+<Time><![CDATA[12/7/2015 - 19:38:53]]></Time>
+<TimeTick>1449497333</TimeTick>
+<NodeArgs eType="Replay" icon="10" nRep="82" status="Warning" nType="Description" >
+<Disp><![CDATA[[ WebElement ]]]></Disp>
+</NodeArgs>
+</Step>
+<NodeArgs eType="Replay" icon="9" nRep="81" status="Failed" nType="Run Error" >
+<Disp><![CDATA[[ WebElement ]]]></Disp>
+</NodeArgs>
+</Step>
+<Step rID="T37">
+<Obj plainTxt="False" ><![CDATA[[ DaVita VillageHealth Capella ].Sync]]></Obj>
+<Details plainTxt="False" ><![CDATA[]]></Details>
+<Time><![CDATA[12/7/2015 - 19:39:03]]></Time>
+<TimeTick>1449497343</TimeTick>
+<NodeArgs eType="Replay" icon="11" nRep="85" >
+<Disp><![CDATA[[ DaVita VillageHealth Capella ].Sync]]></Disp>
+</NodeArgs>
+</Step>
+<Step rID="T38">
+<Obj plainTxt="False" ><![CDATA[[ WinButton ].Exist]]></Obj>
+<Details plainTxt="False" ><![CDATA["Object does not exist"]]></Details>
+<Time><![CDATA[12/7/2015 - 19:39:24]]></Time>
+<TimeTick>1449497364</TimeTick>
+<NodeArgs eType="Replay" icon="14" nRep="90" >
+<Disp><![CDATA[[ WinButton ].Exist]]></Disp>
+</NodeArgs>
+</Step>
+<Step rID="T39">
+<Obj plainTxt="False" ><![CDATA[[      SIG  L PAM   Combes, Nivedita    (1)        SIG   L PAM    Combes, Nivedita    (1)     ].Exist]]></Obj>
+<Details plainTxt="False" ><![CDATA["Object exists"]]></Details>
+<Time><![CDATA[12/7/2015 - 19:39:27]]></Time>
+<TimeTick>1449497367</TimeTick>
+<NodeArgs eType="Replay" icon="9" nRep="95" >
+<Disp><![CDATA[[      SIG  L PAM   Combes, Nivedita    (1)        SIG   L PAM    Combes, Nivedita    (1)     ].Exist]]></Disp>
+</NodeArgs>
+</Step>
+<Step rID="T40">
+<Obj plainTxt="False" ><![CDATA[[ WebElement ].Exist]]></Obj>
+<Details plainTxt="False" ><![CDATA["Object exists"]]></Details>
+<Time><![CDATA[12/7/2015 - 19:39:27]]></Time>
+<TimeTick>1449497367</TimeTick>
+<NodeArgs eType="Replay" icon="9" nRep="97" >
+<Disp><![CDATA[[ WebElement ].Exist]]></Disp>
+</NodeArgs>
+</Step>
+<Step rID="T41">
+<Obj plainTxt="False" ><![CDATA[[ WinButton ].Exist]]></Obj>
+<Details plainTxt="False" ><![CDATA["Object does not exist"]]></Details>
+<Time><![CDATA[12/7/2015 - 19:39:27]]></Time>
+<TimeTick>1449497367</TimeTick>
+<NodeArgs eType="Replay" icon="14" nRep="102" >
+<Disp><![CDATA[[ WinButton ].Exist]]></Disp>
+</NodeArgs>
+</Step>
+<Step rID="T42">
+<Obj plainTxt="False" ><![CDATA[[ WebElement ].Click]]></Obj>
+<Details plainTxt="False" ><![CDATA[]]></Details>
+<Time><![CDATA[12/7/2015 - 19:39:27]]></Time>
+<TimeTick>1449497367</TimeTick>
+<NodeArgs eType="Replay" icon="9" nRep="108" >
+<Disp><![CDATA[[ WebElement ].Click]]></Disp>
+</NodeArgs>
+</Step>
+<Step rID="T43">
+<Obj plainTxt="False" ><![CDATA[[ (1)  ].Exist]]></Obj>
+<Details plainTxt="False" ><![CDATA["Object exists"]]></Details>
+<Time><![CDATA[12/7/2015 - 19:39:28]]></Time>
+<TimeTick>1449497368</TimeTick>
+<NodeArgs eType="Replay" icon="9" nRep="111" >
+<Disp><![CDATA[[ (1)  ].Exist]]></Disp>
+</NodeArgs>
+</Step>
+<Step rID="T44">
+<Obj plainTxt="False" ><![CDATA[[ Combes, Nivedita  ].Click]]></Obj>
+<Details plainTxt="False" ><![CDATA[]]></Details>
+<Time><![CDATA[12/7/2015 - 19:39:28]]></Time>
+<TimeTick>1449497368</TimeTick>
+<NodeArgs eType="Replay" icon="9" nRep="114" >
+<Disp><![CDATA[[ Combes, Nivedita  ].Click]]></Disp>
+</NodeArgs>
+</Step>
+<Step rID="T45">
+<Obj plainTxt="False" ><![CDATA[[ WebElement ].Click]]></Obj>
+<Details plainTxt="False" ><![CDATA[]]></Details>
+<Time><![CDATA[12/7/2015 - 19:39:28]]></Time>
+<TimeTick>1449497368</TimeTick>
+<NodeArgs eType="Replay" icon="9" nRep="118" >
+<Disp><![CDATA[[ WebElement ].Click]]></Disp>
+</NodeArgs>
+</Step>
+<Step rID="T46">
+<Obj plainTxt="False" ><![CDATA[[ Finalize  ].Exist]]></Obj>
+<Details plainTxt="False" ><![CDATA["Object exists"]]></Details>
+<Time><![CDATA[12/7/2015 - 19:39:28]]></Time>
+<TimeTick>1449497368</TimeTick>
+<NodeArgs eType="Replay" icon="13" nRep="121" >
+<Disp><![CDATA[[ Finalize  ].Exist]]></Disp>
+</NodeArgs>
+</Step>
+<Step rID="T47">
+<Obj plainTxt="False" ><![CDATA[[ Finalize  ].Click]]></Obj>
+<Details plainTxt="False" ><![CDATA[]]></Details>
+<Time><![CDATA[12/7/2015 - 19:39:28]]></Time>
+<TimeTick>1449497368</TimeTick>
+<NodeArgs eType="Replay" icon="13" nRep="123" >
+<Disp><![CDATA[[ Finalize  ].Click]]></Disp>
+</NodeArgs>
+</Step>
+<Step rID="T48">
+<Obj plainTxt="False" ><![CDATA[[ Finalize  ].Exist]]></Obj>
+<Details plainTxt="False" ><![CDATA["Object exists"]]></Details>
+<Time><![CDATA[12/7/2015 - 19:39:29]]></Time>
+<TimeTick>1449497369</TimeTick>
+<NodeArgs eType="Replay" icon="13" nRep="125" >
+<Disp><![CDATA[[ Finalize  ].Exist]]></Disp>
+</NodeArgs>
+</Step>
+<Step rID="T49">
+<Obj plainTxt="False" ><![CDATA[[ Save  ].Exist]]></Obj>
+<Details plainTxt="False" ><![CDATA["Object exists"]]></Details>
+<Time><![CDATA[12/7/2015 - 19:39:29]]></Time>
+<TimeTick>1449497369</TimeTick>
+<NodeArgs eType="Replay" icon="13" nRep="127" >
+<Disp><![CDATA[[ Save  ].Exist]]></Disp>
+</NodeArgs>
+</Step>
+<Step rID="T50">
+<Obj plainTxt="False" ><![CDATA[[ Close Patient Record? ].Exist]]></Obj>
+<Details plainTxt="False" ><![CDATA["Object exists"]]></Details>
+<Time><![CDATA[12/7/2015 - 19:39:29]]></Time>
+<TimeTick>1449497369</TimeTick>
+<NodeArgs eType="Replay" icon="9" nRep="130" >
+<Disp><![CDATA[[ Close Patient Record? ].Exist]]></Disp>
+</NodeArgs>
+</Step>
+<Step rID="T51">
+<Obj plainTxt="False" ><![CDATA[[ Ok ].Click]]></Obj>
+<Details plainTxt="False" ><![CDATA[]]></Details>
+<Time><![CDATA[12/7/2015 - 19:39:29]]></Time>
+<TimeTick>1449497369</TimeTick>
+<NodeArgs eType="Replay" icon="13" nRep="133" >
+<Disp><![CDATA[[ Ok ].Click]]></Disp>
+</NodeArgs>
+</Step>
+<Step rID="T52">
+<Obj plainTxt="False" ><![CDATA[[ WebElement ].Exist]]></Obj>
+<Details plainTxt="False" ><![CDATA["Object does not exist"]]></Details>
+<Time><![CDATA[12/7/2015 - 19:39:29]]></Time>
+<TimeTick>1449497369</TimeTick>
+<NodeArgs eType="Replay" icon="9" nRep="137" >
+<Disp><![CDATA[[ WebElement ].Exist]]></Disp>
+</NodeArgs>
+</Step>
+<Step rID="T53">
+<Obj plainTxt="False" ><![CDATA[[ WinButton ].Exist]]></Obj>
+<Details plainTxt="False" ><![CDATA["Object does not exist"]]></Details>
+<Time><![CDATA[12/7/2015 - 19:39:30]]></Time>
+<TimeTick>1449497370</TimeTick>
+<NodeArgs eType="Replay" icon="14" nRep="143" >
+<Disp><![CDATA[[ WinButton ].Exist]]></Disp>
+</NodeArgs>
+</Step>
+<Step rID="T54">
+<Obj plainTxt="False" ><![CDATA[[ WebElement ].Click]]></Obj>
+<Details plainTxt="False" ><![CDATA[]]></Details>
+<Time><![CDATA[12/7/2015 - 19:39:30]]></Time>
+<TimeTick>1449497370</TimeTick>
+<NodeArgs eType="Replay" icon="9" nRep="150" >
+<Disp><![CDATA[[ WebElement ].Click]]></Disp>
+</NodeArgs>
+</Step>
+<Step rID="T55">
+<Obj plainTxt="False" ><![CDATA[[ WebElement ].Click]]></Obj>
+<Details plainTxt="False" ><![CDATA[]]></Details>
+<Time><![CDATA[12/7/2015 - 19:39:30]]></Time>
+<TimeTick>1449497370</TimeTick>
+<NodeArgs eType="Replay" icon="9" nRep="153" >
+<Disp><![CDATA[[ WebElement ].Click]]></Disp>
+</NodeArgs>
+</Step>
+<Step rID="T56">
+<Obj plainTxt="False" ><![CDATA[[ icon_vh_switchUser ].Exist]]></Obj>
+<Details plainTxt="False" ><![CDATA["Object exists"]]></Details>
+<Time><![CDATA[12/7/2015 - 19:39:31]]></Time>
+<TimeTick>1449497371</TimeTick>
+<NodeArgs eType="Replay" icon="15" nRep="156" >
+<Disp><![CDATA[[ icon_vh_switchUser ].Exist]]></Disp>
+</NodeArgs>
+</Step>
+<Step rID="T57">
+<Obj plainTxt="False" ><![CDATA[[ icon_vh_switchUser ].Exist]]></Obj>
+<Details plainTxt="False" ><![CDATA["Object exists"]]></Details>
+<Time><![CDATA[12/7/2015 - 19:39:31]]></Time>
+<TimeTick>1449497371</TimeTick>
+<NodeArgs eType="Replay" icon="15" nRep="157" >
+<Disp><![CDATA[[ icon_vh_switchUser ].Exist]]></Disp>
+</NodeArgs>
+</Step>
+<Step rID="T58">
+<Obj plainTxt="False" ><![CDATA[[ icon_vh_switchUser ].Click]]></Obj>
+<Details plainTxt="False" ><![CDATA[]]></Details>
+<Time><![CDATA[12/7/2015 - 19:39:31]]></Time>
+<TimeTick>1449497371</TimeTick>
+<NodeArgs eType="Replay" icon="15" nRep="159" >
+<Disp><![CDATA[[ icon_vh_switchUser ].Click]]></Disp>
+</NodeArgs>
+</Step>
+<Step rID="T59">
+<Obj plainTxt="False" ><![CDATA[[ WebButton ].Exist]]></Obj>
+<Details plainTxt="False" ><![CDATA["Object does not exist"]]></Details>
+<Time><![CDATA[12/7/2015 - 19:39:31]]></Time>
+<TimeTick>1449497371</TimeTick>
+<NodeArgs eType="Replay" icon="13" nRep="162" >
+<Disp><![CDATA[[ WebButton ].Exist]]></Disp>
+</NodeArgs>
+</Step>
+<Step rID="T60">
+<Obj plainTxt="False" ><![CDATA[[ Image ].Exist]]></Obj>
+<Details plainTxt="False" ><![CDATA["Object does not exist"]]></Details>
+<Time><![CDATA[12/7/2015 - 19:39:31]]></Time>
+<TimeTick>1449497371</TimeTick>
+<NodeArgs eType="Replay" icon="15" nRep="165" >
+<Disp><![CDATA[[ Image ].Exist]]></Disp>
+</NodeArgs>
+</Step>
+<Step rID="T61">
+<Obj plainTxt="False" ><![CDATA[[ Image ].Exist]]></Obj>
+<Details plainTxt="False" ><![CDATA["Object does not exist"]]></Details>
+<Time><![CDATA[12/7/2015 - 19:39:31]]></Time>
+<TimeTick>1449497371</TimeTick>
+<NodeArgs eType="Replay" icon="15" nRep="167" >
+<Disp><![CDATA[[ Image ].Exist]]></Disp>
+</NodeArgs>
+</Step>
+<Step rID="T62">
+<Obj plainTxt="False" ><![CDATA[[ Image ].Exist]]></Obj>
+<Details plainTxt="False" ><![CDATA["Object does not exist"]]></Details>
+<Time><![CDATA[12/7/2015 - 19:39:31]]></Time>
+<TimeTick>1449497371</TimeTick>
+<NodeArgs eType="Replay" icon="15" nRep="169" >
+<Disp><![CDATA[[ Image ].Exist]]></Disp>
+</NodeArgs>
+</Step>
+<Step rID="T63">
+<Obj plainTxt="False" ><![CDATA[[ Image ].Exist]]></Obj>
+<Details plainTxt="False" ><![CDATA["Object does not exist"]]></Details>
+<Time><![CDATA[12/7/2015 - 19:39:31]]></Time>
+<TimeTick>1449497371</TimeTick>
+<NodeArgs eType="Replay" icon="15" nRep="171" >
+<Disp><![CDATA[[ Image ].Exist]]></Disp>
+</NodeArgs>
+</Step>
+<Step rID="T64">
+<Obj plainTxt="False" ><![CDATA[[ Image ].Exist]]></Obj>
+<Details plainTxt="False" ><![CDATA["Object does not exist"]]></Details>
+<Time><![CDATA[12/7/2015 - 19:39:31]]></Time>
+<TimeTick>1449497371</TimeTick>
+<NodeArgs eType="Replay" icon="15" nRep="173" >
+<Disp><![CDATA[[ Image ].Exist]]></Disp>
+</NodeArgs>
+</Step>
+<Step rID="T65">
+<Obj plainTxt="False" ><![CDATA[[ Image ].Exist]]></Obj>
+<Details plainTxt="False" ><![CDATA["Object does not exist"]]></Details>
+<Time><![CDATA[12/7/2015 - 19:39:31]]></Time>
+<TimeTick>1449497371</TimeTick>
+<NodeArgs eType="Replay" icon="15" nRep="175" >
+<Disp><![CDATA[[ Image ].Exist]]></Disp>
+</NodeArgs>
+</Step>
+<Step rID="T66">
+<Obj plainTxt="False" ><![CDATA[[ Image ].Exist]]></Obj>
+<Details plainTxt="False" ><![CDATA["Object does not exist"]]></Details>
+<Time><![CDATA[12/7/2015 - 19:39:31]]></Time>
+<TimeTick>1449497371</TimeTick>
+<NodeArgs eType="Replay" icon="15" nRep="177" >
+<Disp><![CDATA[[ Image ].Exist]]></Disp>
+</NodeArgs>
+</Step>
+<Step rID="T67">
+<Obj plainTxt="False" ><![CDATA[[ Image ].Exist]]></Obj>
+<Details plainTxt="False" ><![CDATA["Object does not exist"]]></Details>
+<Time><![CDATA[12/7/2015 - 19:39:31]]></Time>
+<TimeTick>1449497371</TimeTick>
+<NodeArgs eType="Replay" icon="15" nRep="179" >
+<Disp><![CDATA[[ Image ].Exist]]></Disp>
+</NodeArgs>
+</Step>
+<Step rID="T68">
+<Obj plainTxt="False" ><![CDATA[[ Image ].Exist]]></Obj>
+<Details plainTxt="False" ><![CDATA["Object does not exist"]]></Details>
+<Time><![CDATA[12/7/2015 - 19:39:31]]></Time>
+<TimeTick>1449497371</TimeTick>
+<NodeArgs eType="Replay" icon="15" nRep="181" >
+<Disp><![CDATA[[ Image ].Exist]]></Disp>
+</NodeArgs>
+</Step>
+<Step rID="T69">
+<Obj plainTxt="False" ><![CDATA[[ Image ].Exist]]></Obj>
+<Details plainTxt="False" ><![CDATA["Object does not exist"]]></Details>
+<Time><![CDATA[12/7/2015 - 19:39:31]]></Time>
+<TimeTick>1449497371</TimeTick>
+<NodeArgs eType="Replay" icon="15" nRep="183" >
+<Disp><![CDATA[[ Image ].Exist]]></Disp>
+</NodeArgs>
+</Step>
+<Step rID="T70">
+<Obj plainTxt="False" ><![CDATA[[ Image ].Exist]]></Obj>
+<Details plainTxt="False" ><![CDATA["Object does not exist"]]></Details>
+<Time><![CDATA[12/7/2015 - 19:39:31]]></Time>
+<TimeTick>1449497371</TimeTick>
+<NodeArgs eType="Replay" icon="15" nRep="185" >
+<Disp><![CDATA[[ Image ].Exist]]></Disp>
+</NodeArgs>
+</Step>
+<Step rID="T71">
+<Obj plainTxt="False" ><![CDATA[[ Image ].Exist]]></Obj>
+<Details plainTxt="False" ><![CDATA["Object does not exist"]]></Details>
+<Time><![CDATA[12/7/2015 - 19:39:31]]></Time>
+<TimeTick>1449497371</TimeTick>
+<NodeArgs eType="Replay" icon="15" nRep="187" >
+<Disp><![CDATA[[ Image ].Exist]]></Disp>
+</NodeArgs>
+</Step>
+<Step rID="T72">
+<Obj plainTxt="False" ><![CDATA[Stop Run]]></Obj>
+<Details plainTxt="False" ><![CDATA[Run stopped by user.]]></Details>
+<Time><![CDATA[12/7/2015 - 19:39:32]]></Time>
+<TimeTick>1449497372</TimeTick>
+<NodeArgs eType="General" icon="16" nRep="189" >
+<Disp><![CDATA[Stop Run]]></Disp>
+</NodeArgs>
+</Step>
+<Summary sTime="12/7/2015 - 19:37:46" eTime="12/7/2015 - 19:39:32" passed="5" failed="5" warnings="10" ></Summary>
+<NodeArgs eType="StartAction" icon="4" nRep="7" status="Failed" >
+<Disp><![CDATA[Action1 Summary]]></Disp>
+</NodeArgs>
+</Action>
+<NodeArgs eType="StartIteration" icon="3" nRep="6" status="Failed" >
+<Disp><![CDATA[LabTask Iteration 1 (Row 1)]]></Disp>
+</NodeArgs>
+</DIter>
+<Step rID="T73">
+<Obj plainTxt="False" ><![CDATA[Stop Run]]></Obj>
+<Details plainTxt="False" ><![CDATA[Run stopped by user.]]></Details>
+<Time><![CDATA[12/7/2015 - 19:39:32]]></Time>
+<TimeTick>1449497372</TimeTick>
+<NodeArgs eType="General" icon="17" nRep="192" >
+<Disp><![CDATA[Stop Run]]></Disp>
+</NodeArgs>
+</Step>
+<Summary sTime="12/7/2015 - 19:37:45" eTime="12/7/2015 - 19:39:32" passed="5" failed="5" warnings="10" stopped="True" ></Summary>
+<NodeArgs eType="StartTest" icon="1" nRep="3" status="Failed" >
+<Disp><![CDATA[Test LabTask Summary]]></Disp>
+</NodeArgs>
+</Doc>
+</Report>

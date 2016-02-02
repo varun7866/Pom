@@ -1,0 +1,5 @@
+﻿<Properties>
+  <WatchEntry0 value="strMemberID" />
+  <WatchEntry1 value="strPatientProfileValue" />
+  <WatchEntry2 value="intRowCout" />
+</Properties>

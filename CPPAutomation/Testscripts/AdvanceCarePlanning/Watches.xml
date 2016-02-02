@@ -1,0 +1,5 @@
+﻿<Properties>
+  <WatchEntry0 value="lngMemberID" />
+  <WatchEntry1 value="blnAdvanceCarePlanning" />
+  <WatchEntry2 value="strOutErrorDesc" />
+</Properties>

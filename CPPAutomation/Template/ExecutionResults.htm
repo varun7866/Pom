@@ -1,0 +1,198 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+
+<script type="text/javascript">
+    function toggle(id, val) {
+        if (val == "open") {
+            document.getElementById("subItem" + id).style.display = "block";
+            document.getElementById("main" + id).innerHTML = '&nbsp;<a href="javascript:void(0)" onclick="toggle(' + id + ', \'close\')" class="style7">-</a>&nbsp;';
+        } else {
+            document.getElementById("subItem" + id).style.display = "none";
+            document.getElementById("main" + id).innerHTML = '&nbsp;<a href="javascript:void(0)" onclick="toggle(' + id + ', \'open\')" class="style7">+</a>&nbsp;';
+        }
+    }
+</script>
+<!-- Bar Graph Script Starting -->
+<script type="text/javascript" src="https://www.google.com/jsapi"></script>
+<script type="text/javascript">
+	google.load("visualization", "1", {packages:["corechart"]});
+	google.setOnLoadCallback(drawChart);
+	function drawChart() {
+		var passed = parseInt(document.getElementById('hdpassed').value);  
+		var failed = parseInt(document.getElementById('hdfailed').value);  
+		var totaltestcases = parseInt(document.getElementById('hdTotal').value);
+		var data = google.visualization.arrayToDataTable([
+			["Element", "Test Cases", { role: "style" } ],
+			["Total", totaltestcases, "Blue"],
+			["Passed", passed, "Green"],
+			["Failed", failed, "Red"]]);
+ 
+		var view = new google.visualization.DataView(data);
+		view.setColumns([0, 1,
+			{ calc: "stringify",
+			  sourceColumn: 1,
+			  type: "string",
+			  role: "annotation" },
+			  2]);
+		var options = {
+			title: "Batch Result Summary",
+			width: 600,
+			height: 400,
+			bar: {groupWidth: "30%"},
+			legend: { position: "none" },
+		};
+		var chart = new google.visualization.ColumnChart(document.getElementById("columnchart_values"));
+		chart.draw(view, options);
+	}
+</script> 
+<!-- Bar Graph Script Ending -->
+<title></title>
+    <style type="text/css">
+        .style1
+        {
+            width: 163px;
+        }
+        .style2
+        {
+            width: 230px;
+        }
+        .style3
+        {
+            width: 140px;
+        }
+        .style4
+        {
+            width: 233px;
+        }
+        .style5
+        {
+            width: 45px;
+        }
+        .style6
+        {
+            width: 32px;
+        }
+        .style8
+        {
+            width: 273px;
+        }
+        .style7
+        {
+            text-decoration: none;
+        }
+        </style>
+</head>
+<body>
+
+    <p style="font-family: 'Microsoft Sans Serif'; font-size: xx-large; font-weight: bolder; height: 19px;">
+        Test 
+        Execution Report
+    </p>
+    <hr style="color: #800000" />
+    <p style="font-family: 'Microsoft Sans Serif'; font-size: x-large; font-weight: bolder">
+        Summary</p>
+    <table style="width: 100%; font-family: Calibri; font-size: medium;">
+        <tr>
+            <td class="style1" style="background-color: #D6EBFC">
+                Host</td>
+            <td class="style2">
+                &amp;Host&amp;</td>
+            <td class="style3" style="background-color: #D6EBFC">
+                Total Test Scripts</td>
+            <td class="style2">
+                &amp;Total TC&amp;</td>
+			<td class="style3" style="background-color: #D6EBFC">
+                Total Test Cases</td>
+            <td class="style2">
+                &amp;Total Manual TC&amp;</td>
+        </tr>
+        <tr>
+            <td class="style1" style="background-color: #D6EBFC">
+                Executed By</td>
+            <td class="style2" >
+                &amp;Executed By&amp;</td>
+            <td class="style3" style="background-color: #D6EBFC">
+                Scripts Passed</td>
+            <td class="style2">
+                &amp;Passed&amp;</td>
+			<td class="style3" style="background-color: #D6EBFC">
+                TestCases Passed</td>
+            <td class="style2">
+                &amp;Manual Passed&amp;</td>
+        </tr>
+        <tr>
+            <td class="style1" style="background-color: #D6EBFC">
+                Operating System</td>
+            <td class="style2" >
+                &amp;OS&amp;</td>
+            <td class="style3" style="background-color: #D6EBFC">
+                Scripts Failed</td>
+            <td class="style2">
+                &amp;Failed&amp;</td>
+			<td class="style3" style="background-color: #D6EBFC">
+                TestCases Failed</td>
+            <td class="style2">
+                &amp;Manual Failed&amp;</td>
+        </tr>
+        <tr>
+            <td class="style1" style="background-color: #D6EBFC">
+                Start Time</td>
+            <td class="style2">
+                &amp;Start Time&amp;</td>    
+        </tr>
+        <tr>
+            <td class="style1" style="background-color: #D6EBFC">
+                Total Execution Duration</td>
+            <td class="style2">
+                &amp;Execution Duration&amp;</td>
+			<td class="style3" style="background-color: #D6EBFC">
+                Build Details</td>
+            <td class="style2">
+                &amp;Build Details&amp;</td>
+            <td class="style3">
+                &nbsp;</td>
+            <td>
+                &nbsp;</td>
+        </tr>
+		<tr><!-- Bar Graph Starting Row -->
+        	<td></td>
+	        <td colspan = "4">
+	        <div id="columnchart_values" align= "center" style="width: 900px; height: 100%;"></div>
+	        </td>
+	        <td></td>
+        </tr>
+        <tr>
+	        <td colspan = "6">
+	        </td>
+        </tr>
+         <tr>
+	        <td colspan = "6">
+	        </td>
+        </tr>
+         <tr>
+	        <td colspan = "6">
+	        </td>
+        </tr><!-- Bar Graph Ending Row -->
+    </table>
+    <p style="font-family: 'Microsoft Sans Serif'; font-size: x-large; font-weight: bolder; text-decoration: underline;">
+        Overview - Test Suites</p>
+    
+    <table style="padding: 0px; width:100%; border-spacing: 0px;">
+        <tr>
+            <th style="vertical-align: middle; text-align: center; font-family: Calibri; padding: 0px; margin: 0px; background-color: #007CA6; color: #FFFFFF; font-weight: bold; font-size: x-large;" 
+                class="style6">
+                &nbsp;</th>
+            <th style="vertical-align: middle; text-align: center; font-family: Calibri; padding: 0px; margin: 0px; background-color: #007CA6; color: #FFFFFF; font-weight: bold; font-size: large;" 
+                class="style5">
+                S.No</th>
+            <th style="vertical-align: middle; text-align: center; font-family: Calibri; padding: 0px; margin: 0px; background-color: #007CA6; color: #FFFFFF; font-weight: bold; font-size: large;" 
+                class="style7">
+                Test Script Name</th>
+            <th style="vertical-align: middle; text-align: center; font-family: Calibri; padding: 0px; margin: 0px; background-color: #007CA6; color: #FFFFFF; font-weight: bold; font-size: large;" 
+                class="style4">
+                Result</th>
+            <th style="vertical-align: middle; text-align: center; font-family: Calibri; padding: 0px; margin: 0px; background-color: #007CA6; color: #FFFFFF; font-weight: bold; font-size: large;">
+                Duration (Seconds)</th>
+        </tr>
+ 

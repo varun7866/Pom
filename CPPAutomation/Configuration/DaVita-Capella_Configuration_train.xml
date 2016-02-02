@@ -1,0 +1,138 @@
+<Environment>
+	<Variable>
+		<Name>strUrl</Name>
+		<Value>https://capellawebtrain.com/cppmaint/index.html</Value>
+	</Variable>
+	<!-- Below is the current build details -->
+	<Variable>
+		<Name>strBuildNumber</Name>
+		<Value>DB Env:  Capella-Dev | UI Build:  37 | Services Build:1.3</Value>
+	</Variable>
+	<!-- The below user is valid username for VHN role -->
+	<Variable>
+		<Name>strVHNUserName</Name>
+		<Value>VHNAUT|VHN</Value>
+	</Variable>
+	<!-- The below password is valid password for VHN role -->
+	<Variable>
+		<Name>strVHNPassword</Name>
+		<Value>test123</Value>
+	</Variable>
+	<!-- The below user is valid username for ARN role -->
+	<Variable>
+		<Name>strARNUserName</Name>
+		<Value>arn1|ARN</Value>
+	</Variable>
+	<!-- The below password is valid password for ARN role -->
+	<Variable>
+		<Name>strARNPassword</Name>
+		<Value>test123</Value>
+	</Variable>
+	<!-- The below user is valid username for PTC role -->
+	<Variable>
+		<Name>strPTCUserName</Name>
+		<Value>PTCAUT|PTC</Value>
+	</Variable>
+	<!-- The below password is valid password for PTC role -->
+	<Variable>
+		<Name>strPTCPassword</Name>
+		<Value>test123</Value>
+	</Variable>
+	<!-- The below user is valid username for PHM role -->
+	<Variable>
+		<Name>strPHMUserName</Name>
+		<Value>phm|PHM</Value>
+	</Variable>
+	<!-- The below password is valid password for PHM role -->
+	<Variable>
+		<Name>strPHMPassword</Name>
+		<Value>test123</Value>
+	</Variable>
+	<!-- The below user is valid username for RCM role -->
+	<Variable>
+		<Name>strRCMUserName</Name>
+		<Value>RCMAUT|RCM</Value>
+	</Variable>
+	<!-- The below password is valid password for ARN role -->
+	<Variable>
+		<Name>strRCMPassword</Name>
+		<Value>test123</Value>
+	</Variable>
+	<!-- The below user is valid username for VHES role -->
+	<Variable>
+		<Name>strVHESUserName</Name>
+		<Value>VHESAUT|VHES</Value>
+	</Variable>
+	<!-- The below password is valid password for VHES role -->
+	<Variable>
+		<Name>strVHESPassword</Name>
+		<Value>test123</Value>
+	</Variable>
+	<!-- The below user is valid username for PRL role -->
+	<Variable>
+		<Name>strPRLUserName</Name>
+		<Value>prl1|PRL</Value>
+	</Variable>
+	<!-- The below password is valid password for PRL role -->
+	<Variable>
+		<Name>strPRLPassword</Name>
+		<Value>test123</Value>
+	</Variable>
+	<!-- The below is the username for EPS role -->
+	<Variable>
+		<Name>strEPSUserName</Name>
+		<Value>EPSAUT|EPS</Value>
+	</Variable>
+	<!-- The below password is valid password for PRL role -->
+	<Variable>
+		<Name>strEPSPassword</Name>
+		<Value>test123</Value>
+	</Variable>
+	<!-- The below OTP is valid OTP -->
+	<Variable>
+		<Name>strOTP</Name>
+		<Value>123123</Value>
+	</Variable>
+	<!-- The below variable contains name of Test Data sheet with extension -->
+	<Variable>
+		<Name>TestDataFileName</Name>
+		<Value>Testdata.xls</Value>
+	</Variable>
+	<!-- The below variable contains name of Generic FL (Framework related functions) with extension -->
+	<Variable>
+		<Name>GenericFL</Name>
+		<Value>Generic_Functions.qfl</Value>
+	</Variable>
+	<!-- The below variable contains global wait time which can be used at script, function level if required -->
+	<Variable>
+		<Name>WaitTime</Name>
+		<Value>20</Value>
+	</Variable>
+	<!-- The below variable contains name of Repository file with extension -->
+	<Variable>
+		<Name>RepositoryFileName</Name>
+		<Value>ObjectMappingSheet.xml</Value>
+	</Variable>
+	<!-- Start of SYS database details -->
+	<Variable>
+		<Name>HostName</Name>
+		<Value>172.16.38.165</Value>
+	</Variable>
+	<Variable>
+		<Name>DBPortNumber</Name>
+		<Value>1526</Value>
+	</Variable>
+	<Variable>
+		<Name>DBServiceName</Name>
+		<Value>CAPTRN</Value>
+	</Variable>
+	<Variable>
+		<Name>DBUserName</Name>
+		<Value>CAPELLA</Value>
+	</Variable>
+	<Variable>
+		<Name>DBPassword</Name>
+		<Value/>
+	</Variable>
+	<!-- End of SYS database details -->
+</Environment>

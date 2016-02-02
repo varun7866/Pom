@@ -1,0 +1,6 @@
+﻿<Properties>
+  <WatchEntry0 value="ObjStaticTextMsg" />
+  <WatchEntry1 value="ObjStaticTextMsg" />
+  <WatchEntry2 value="ObjStaticTextMsg.getROProperty(&quot;outertext&quot;)" />
+  <WatchEntry3 value="ObjStaticTextMsg.getROProperty(&quot;outertext&quot;)" />
+</Properties>

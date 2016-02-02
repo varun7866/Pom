@@ -1,0 +1,5 @@
+﻿<Properties>
+  <WatchEntry0 value="dtLADfromPatientGrid" />
+  <WatchEntry1 value="dtLCDfromPatientGrid" />
+  <WatchEntry2 value="dtLastAttemptedDate" />
+</Properties>

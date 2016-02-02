@@ -1,0 +1,5 @@
+﻿<Properties>
+  <WatchEntry0 value="arrScreeningHistoryInfo(k)" />
+  <WatchEntry1 value="dtFRACompletedDate" />
+  <WatchEntry2 value="intFRAscore" />
+</Properties>
