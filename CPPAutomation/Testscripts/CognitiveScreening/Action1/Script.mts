@@ -423,7 +423,10 @@ Function cognitiveScreening()
 	waitTillLoads "Loading..."
 	wait 2
 	
-	isPass = cognitive_ValidateHistory(date, "Testing..")
+	Execute "Set objCognitiveScreeningDate = " & Environment("WE_CognitiveScreening_ScreeningDate")
+	screeningDate = objCognitiveScreeningDate.getROProperty("value")
+	
+	isPass = cognitive_ValidateHistory(screeningDate, "Testing..")
 	If not isPass Then
 		Call WriteToLog("Fail", "Failed to update history.")
 '		Exit Function
@@ -602,7 +605,8 @@ Function cognitive_ValidateHistory(Byval dtScreeningCompletedDate, ByVal message
 	End If
 	
 	columnNames = objHeaderTable.GetROProperty("column names")
-	If columnNames = "Completed Date;Score;Screening Level;Level Comments;Comments;" Then
+	reqColNames = DataTable.Value("HistoryColumnNames", "CurrentTestCaseData")
+	If trim(columnNames) = trim(reqColNames) Then
 		Call WriteToLog("Pass", "Required columns exist in history table.")
 	Else
 		Call WriteToLog("Fail", "Required columns does not exist in history table. The columns are - " & columnNames)

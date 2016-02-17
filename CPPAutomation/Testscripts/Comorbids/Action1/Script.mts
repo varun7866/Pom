@@ -696,7 +696,7 @@ blnReturnValue = ClickButton("Complaint History section",objComplaintsHistory,st
 
 	Execute "Set objComorbidType = " & Environment("WB_ComorbidType")
 	Call selectComboBoxItem(objComorbidType, strComorbidType)
-	reqComorbid = "Asthma"
+	reqComorbid = strComorbidType	'"Asthma"
 	
 	Execute "Set objProvider = " & Environment("WB_ComorbidProvider")
     Call selectComboBoxItem(objProvider, strProvider)
@@ -728,7 +728,7 @@ blnReturnValue = ClickButton("Complaint History section",objComplaintsHistory,st
 	End If
 	
 '	Verify the comorbids group
-	strComorbidGroup = objComorbidGroup.GetROProperty("innertext")
+	strComorbidGroup = 	objComorbidListTable.getCellData(1, 2)	'objComorbidGroup.GetROProperty("innertext")
 	If StrComp(strComorbidGroup,strExpectedComorbidGroup,vbTextCompare) = 0 Then
 		Call WriteToLog("Pass","Comorbids group displayed is correct")
 	Else
@@ -792,7 +792,7 @@ blnReturnValue = ClickButton("Complaint History section",objComplaintsHistory,st
 
 	Execute "Set objComorbidType = " & Environment("WB_ComorbidType")
 	Call selectComboBoxItem(objComorbidType, strComorbidType)
-	reqComorbid = "Asthma"
+	reqComorbid = strComorbidType	'"Asthma"
 	
 	Execute "Set objProvider = " & Environment("WB_ComorbidProvider")
     Call selectComboBoxItem(objProvider, strProvider)
@@ -863,6 +863,7 @@ intComorbidsTableCount = objComorbidListTable.RowCount
 'Delete added comorbid
 '======================
 
+reqReportDate = objComorbidListTable.GetCellData(1,4)
 objComorbidListTable.ChildItem(1,6,"WebElement",0).click
 wait 1
 waitTillLoads "Loading..."
@@ -928,6 +929,32 @@ Else
 	CloseAllBrowsers
 	Call WriteLogFooter()
 	ExitAction
+End If
+
+On Error Resume Next
+Err.Clear
+
+reqComorbidType = reqComorbid
+'reqReportDate = "02/16/2016"
+
+Set objTable = getPageObject().WebTable("class:=k-selectable", "cols:=4")
+maxRows = CInt(objTable.getroproperty("rows"))
+
+Dim isFound : isFound = false
+For row = 1 to maxRows
+	cType = objTable.GetCellData(row, 1)
+	reportDate = objTable.GetCellData(row, 3)
+	
+	If trim(cType) = reqComorbidType and CDate(reportDate) = CDate(reqReportDate) Then
+		isFound = true
+		Exit For
+	End If
+Next
+
+If isFound Then
+	Call WriteToLog("Pass", "Recently deactivated comorbid is found in the Comorbid History table")
+Else
+	Call WriteToLog("Fail", "Recently deactivated comorbid is NOT found in the Comorbid History table")
 End If
 
 On Error Resume Next

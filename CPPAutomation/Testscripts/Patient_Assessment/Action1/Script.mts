@@ -95,7 +95,7 @@ strMember = DataTable.Value("MemberID","CurrentTestCaseData")
 isPass = selectPatientFromGlobalSearch(strMember)
 'isPass = selectPatientFromGlobalSearch("145137")
 If Not isPass Then
-	Call WriteToLog("Fail", "OpenPatientProfileFromActionItemsList return: " & strOutErrorDesc)
+	Call WriteToLog("Fail", "Failed to open member " & strMember & " from global search.")
 	Logout
 	CloseAllBrowsers
 	killAllObjects

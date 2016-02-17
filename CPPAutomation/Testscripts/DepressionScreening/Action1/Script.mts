@@ -140,7 +140,7 @@ For RowNumber = 1 to intRowCount step 1
 Next
 
 If not isRun Then
-	Call WriteToLog("info", "There are rows marked Y(Yes) for execution.")
+	Call WriteToLog("info", "There are NO rows marked Y(Yes) for execution.")
 End If
 
 killAllObjects
@@ -426,7 +426,9 @@ Function depressionScreening()
 	wait 2
 	
 	'verify history
-	isPass = depression_ValidateHistory(date, surveyMsg)
+	Execute "Set objDepressionScreeningDate = " & Environment("WE_DepressionScreening_ScreeningDate")
+	screeningDate = objDepressionScreeningDate.getroproperty("value")
+	isPass = depression_ValidateHistory(screeningDate, surveyMsg)
 	
 	killAllObjects
 	loadObjects
@@ -742,6 +744,21 @@ Function depression_ValidateHistory(Byval dtScreeningCompletedDate, ByVal messag
 		Exit Function
 	End If
 	Call WriteToLog("Pass", "History table is populated with screening details and number of entries are :"&RowCount)
+
+
+	Execute "Set objHeaderTable = " & Environment("WT_HistoryHeaderTable")
+	If not objHeaderTable.Exist(10) Then
+		Call WriteToLog("Fail", "Failed to find history table header.")
+		Exit Function
+	End If
+	
+	columnNames = objHeaderTable.GetROProperty("column names")
+	reqColNames = DataTable.Value("HistoryColumnNames", "CurrentTestCaseData")
+	If trim(columnNames) = trim(reqColNames) Then
+		Call WriteToLog("Pass", "Required columns exist in history table.")
+	Else
+		Call WriteToLog("Fail", "Required columns does not exist in history table. The columns are - " & columnNames)
+	End If
 
 	'Get current and previous screening	information from screening history table	
 	For R = 1 To RowCount Step 1

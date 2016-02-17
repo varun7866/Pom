@@ -710,8 +710,9 @@ Function ADLScreening(strOutErrorDesc)
 	'==========================================================================================================================
 	
 	Call WriteToLog("Info","==========Testcase - Verify the Screening history is updated with the newly added screening details.==========")
-	
-	blnReturnValue  = ADLScreening_ValidateHistory(date, intADLScreeningScore)
+	Execute "Set objScreeningDate = " & Environment("WE_ADLSCreening_ScreeningDate")
+	screeningdate = objScreeningDate.GetROProperty("value")
+	blnReturnValue  = ADLScreening_ValidateHistory(screeningdate, intADLScreeningScore)
 	
 	If blnReturnValue Then
 	
@@ -790,11 +791,15 @@ Function ADLScreening_ValidateHistory(Byval dtScreeningCompletedDate, Byval dtSc
 	Call waitTillLoads("Loading...")
 	Wait 2
 	
-	'Set objDS_ScrHtryTable = Browser("name:=DaVita VillageHealth Capella").Page("title:=DaVita VillageHealth Capella").WebTable("class:=k-selectable","html tag:=TABLE","cols:=5","visible:=True")
+	Execute "Set objDS_ScrHtryTableHdr = " & Environment("WT_ADLSCreening_HistoryTableHdr")
+	columnNames = objDS_ScrHtryTableHdr.getroproperty("column names")
 	
-	'WebTable("class:=k-grid k-widget k-reorderable.*","html tag:=DIV", "data-capella-automation-id:=ADL-Screening-ADLgrid","visible:=True")
-	
-	
+	reqColNames = DataTable.Value("HistoryColumnNames", "CurrentTestCaseData")
+	If trim(columnNames) = trim(reqColNames) Then
+		Call WriteToLog("Pass", "Required columns exist in the History Table")
+	Else
+		Call WriteToLog("Fail", "Required columns does not exist in the History Table")
+	End If
 	'Validate the history table entries
 	RowCount = objDS_ScrHtryTable.RowCount
 	If RowCount = "" OR RowCount = 0 Then
@@ -828,17 +833,19 @@ Function ADLScreening_ValidateHistory(Byval dtScreeningCompletedDate, Byval dtSc
 	Dim isFound : isFound = false
 	For i = 0 To UBound(arrScreeningHistoryInfo)
 		hist = split(arrScreeningHistoryInfo(i),"|")
-		If CDate(hist(0)) = dtScreeningCompletedDate Then
+		If CDate(hist(0)) = CDate(dtScreeningCompletedDate) Then
 			If dtScreeningScore = hist(1) Then
 				Call WriteToLog("Pass", "Recently added screening details found in history table - 'Score: " & hist(1) & "' for the date - '" & hist(0) & "'")
 				isFound = true
 				Exit For
 			End If
+		Else
+			Call WriteToLog("Pass", "Screening details in history table - 'Score: " & hist(1) & "' for the date - '" & hist(0) & "'")
 		End If
 	Next
 	
 	If not isFound Then
-		Call WriteToLog("Fail", "Recently added screening details with Score - '" & dtScreeningScore & "' for the date - '" & dtScreeningCompletedDate & "' is not found in history table.")
+		Call WriteToLog("info", "Recently added screening details with Score - '" & dtScreeningScore & "' for the date - '" & dtScreeningCompletedDate & "' is not found in history table.")
 	End If
 		
 	ADLScreening_ValidateHistory = True
