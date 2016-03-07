@@ -3,7 +3,7 @@
 ' Purpose of TC				: Validate Initial Fall Risk due task for enrolled patient under SNP payor
 ' Author               		: Gregory
 ' Date                 		: 18 September 2015
-' Date Modified       		: October 2015
+' Date Modified       		: 25 February 2016
 ' Environment				: QA/Train/Stage (url as described in Config file)
 ' Comments					: This script covers test case scenarios corresponding to userstory : B-04978
 '**************************************************************************************************************************************************************************
@@ -101,7 +101,6 @@ If not blnHandleWrongDashboardNavigation Then
     Call WriteToLog("Fail","Unable to provide proper navigation after patient selection "&strOutErrorDesc)
 End If
 Call WriteToLog("Pass","Provided proper navigation after patient selection")
-Wait 2
 
 'Check whether Enrolled date is <=89 OR >=90
 EnrolledDateStatus = DateDiff("d",CDate(dtEnrolledDate),Date)
@@ -132,37 +131,14 @@ If EnrolledDateStatus <= 89 Then
 	Call WriteToLog("Pass", "Validated Fall Risk Assessment screen navigation and Fall Risk Assessment screening")
 	Wait 2
 
-'--------------------------------------------
-	'Logout and login  for changes to happen	
-	Call WriteToLog("Info","-------------------Logout of application-------------------")
-	Call Logout()
-	Wait 2
-	
-	'Navigation: Login to app > CloseAllOpenPatients > SelectUserRoster 
-	blnNavigator = Navigator("vhn", strOutErrorDesc)
-	If not blnNavigator Then
-		Call WriteToLog("Fail","Expected Result: User should be able to navigate required user dashboard.  Actual Result: Unable to navigate required user dashboard."&strOutErrorDesc)
-		Call Terminator											
-	End If
-	Call WriteToLog("Pass","Navigated to user dashboard")
-
-	'Open required patient in assigned VHN user
-	strGetAssingnedUserDashboard = GetAssingnedUserDashboard(lngMemberID, strOutErrorDesc)
-	If strGetAssingnedUserDashboard = "" Then
-		Call WriteToLog("Fail","Expected Result: User should be able to open required patient in assigned VHN user.  Actual Result: Unable to open required patient in assigned VHN user."&strOutErrorDesc)
+	'Close patient record and re-open patient through global search (to get changes reflected)
+	Call WriteToLog("Info","------Close patient record and re-open patient through global search------")
+	blnClosePatientAndReopenThroughGlobalSearch = ClosePatientAndReopenThroughGlobalSearch(strPatientName,lngMemberID,strOutErrorDesc)
+	If not blnClosePatientAndReopenThroughGlobalSearch Then
+		Call WriteToLog("Fail","Unable to close patient record and re-open patient through global search. "&strOutErrorDesc)
 		Call Terminator
 	End If
-	Call WriteToLog("Pass","Opened required patient in assigned VHN user "&strGetAssingnedUserDashboard&"'s dashboard")
-	Wait 2
-	
-	'Handle navigation error if exists
-	blnHandleWrongDashboardNavigation = HandleWrongDashboardNavigation(strPatientName,strOutErrorDesc)
-	If not blnHandleWrongDashboardNavigation Then
-	    Call WriteToLog("Fail","Unable to provide proper navigation after patient selection "&strOutErrorDesc)
-	End If
-	Call WriteToLog("Pass","Provided proper navigation after patient selection")
-	Wait 2
-'--------------------------------------------
+	Call WriteToLog("Pass","Closed patient record and re-opened patient through global search")
 
 	'Testcase: Verify the task gets closed when user performs 'Fall Risk Assessment' screening
 	blnDomainTasks = DomainTasks(strDomain, strTask, strOutErrorDesc)

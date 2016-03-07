@@ -1,3 +1,5 @@
 ﻿<Properties>
   <WatchEntry0 value="Err.Description" />
+  <WatchEntry1 value="strDesiredPermanentValue" />
+  <WatchEntry2 value="strStopReason" />
 </Properties>

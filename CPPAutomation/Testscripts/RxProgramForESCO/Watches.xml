@@ -1,0 +1,5 @@
+﻿<Properties>
+  <WatchEntry0 value="intCloseIconsInOPW" />
+  <WatchEntry1 value="objOPWcis" />
+  <WatchEntry2 value="objOPWcis.Count" />
+</Properties>

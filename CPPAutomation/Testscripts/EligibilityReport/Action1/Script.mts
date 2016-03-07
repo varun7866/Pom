@@ -47,7 +47,7 @@ For RowNumber = 1 to intRowCout: Do
 '------------------------
 ' Variable initialization
 '------------------------
-lngMemberID = DataTable.Value("PatientMemberID","CurrentTestCaseData")
+lngMemberID = DataTable.Value("MemberID","CurrentTestCaseData")
 strPatientName = DataTable.Value("PatientName","CurrentTestCaseData")
 strUser = DataTable.Value("User","CurrentTestCaseData")
 strExecutionFlag = DataTable.Value("ExecutionFlag","CurrentTestCaseData")
@@ -61,6 +61,7 @@ strExternalTeamddvals = DataTable.Value("ExternalTeamddvals","CurrentTestCaseDat
 strInternalTeamddvals = DataTable.Value("InternalTeamddvals","CurrentTestCaseData") 
 dtExistingContactAttemptedDate = DataTable.Value("ExistingContactAttemptedDate","CurrentTestCaseData") 
 dtExistingContactCompletedDate = DataTable.Value("ExistingContactCompletedDate","CurrentTestCaseData") 
+strCacheClear = DataTable.Value("CacheClear","CurrentTestCaseData") 
 
 '-----------------------------------
 'Objects required for test execution
@@ -106,18 +107,6 @@ If not blnNavigator Then
 End If
 Call WriteToLog("Pass","Navigated to user dashboard")
 
-''Select patient from MyPatient list
-'Call WriteToLog("Info","----------------Select required patient from MyPatient List----------------")
-'blnSelectPatientFromPatientList = SelectPatientFromPatientList(strUser, strPatientName)
-'If blnSelectPatientFromPatientList Then
-'	Call WriteToLog("Pass","Selected required patient from MyPatient list")
-'Else
-'	strOutErrorDesc = "Unable to select required patient"
-'	Call WriteToLog("Fail","Expected Result: Should be able to select required patient from MyPatient list.  Actual Result: "&strOutErrorDesc)
-'	Call Terminator
-'End If
-'Wait 2
-
 Call WriteToLog("Info","----------------Select required patient through Global Search----------------")
 blnGlobalSearchUsingMemID = GlobalSearchUsingMemID(lngMemberID, strOutErrorDesc)
 If Not blnGlobalSearchUsingMemID Then
@@ -137,7 +126,6 @@ If not blnHandleWrongDashboardNavigation Then
     Call WriteToLog("Fail","Unable to provide proper navigation after patient selection "&strOutErrorDesc)
 End If
 Call WriteToLog("Pass","Provided proper navigation after patient selection")
-Wait 2
 
 Call WriteToLog("Info","------------Adding contact for selected patient------------")
 CMdetails = 0
@@ -156,7 +144,7 @@ For CMdetails = 0 To ubound(arrContactMethod) Step 1
 		Call WriteToLog("Pass","Added contact with required values")
 	End If
 Next
-Wait 5
+Wait 3
 
 Call WriteToLog("Info","----------Finalizing and closing record for required patient and navigating to Dashboard----------")
 'Closing patient record
@@ -168,9 +156,8 @@ Else
 	Call WriteToLog("Pass","Closed patient record")
 End If
 Wait 2
-
 Call waitTillLoads("Loading...")
-Wait 2
+Wait 1
 
 'FILTERING --------------------------------------------------------------------
 strContactMethods = DataTable.Value("ContactMethods","CurrentTestCaseData")
@@ -271,35 +258,13 @@ If intLCDval >= 0 Then
 	dtLastCompletedDate = dtExistingContactCompletedDate
 End If
 
-'-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-Call WriteToLog("Info","----------------Logout and login for changes to happen in Eligibility Report----------------") 
-
-'Logout
-Call Logout()
-Wait 2
-
-'Login 
-Call WriteToLog("Info","------------------Login to VHN--------------------")
-blnLogin = Login("vhn")
-If not blnLogin Then
-	Call WriteToLog("Fail","Failed to Login to VHN role.")
+'Close patient record and re-open patient through global search (to get changes reflected)
+blnClosePatientAndReopenThroughGlobalSearch = ClosePatientAndReopenThroughGlobalSearch(strPatientName,lngMemberID,strOutErrorDesc)
+If not blnClosePatientAndReopenThroughGlobalSearch Then
+	Call WriteToLog("Fail","Unable to close patient record and re-open patient through global search. "&strOutErrorDesc)
 	Call Terminator
 End If
-Call WriteToLog("Pass","Successfully logged into VHN role")
-Wait 2
-Call waitTillLoads("Loading...")
-Wait 2
-
-'Select user roster
-blnSelectUserRoster = SelectUserRoster(strOutErrorDesc)
-If Not blnSelectUserRoster Then
-	Call WriteToLog("Fail","SelectUserRoster returned error: "&strOutErrorDesc)
-	Call Terminator
-End If
-Call WriteToLog("PASS","Successfully selected user roster")
-Wait 2
-Call waitTillLoads("Loading...")
-Wait 2
+Call WriteToLog("Pass","Closed patient record and re-opened patient through global search")
 
 '-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
@@ -312,12 +277,16 @@ Call WriteToLog("Info","------Navigating to My Patients screen, searching for re
 '---------------------------------------------------------------------------
 Err.Clear
 'Click on MyPatients Tab
-Call clickOnMainMenu("My Patients")
-Wait 20 '2 App performance
-
+blnclickOnMainMenu = clickOnMainMenu("My Patients")
+If not blnclickOnMainMenu Then
+	Call WriteToLog("Fail","Unable to navigate to MyPatients screen. "&strOutErrorDesc)
+	Call Terminator
+End If
+Wait 5
 Call waitTillLoads("Loading...")
-Wait 2
+Wait 1
 
+'clk on all patients button
 Execute "Set objAllMyPatients ="&Environment("WB_AllMyPatients")
 blnAllMyPatientsClicked = ClickButton("All My Patients",objAllMyPatients,strOutErrorDesc)
 If not blnAllMyPatientsClicked Then
@@ -327,9 +296,10 @@ End If
 Call WriteToLog("Pass","Clicked 'All My Patients' button")
 Wait 2
 Call waitTillLoads("Loading...")
-wait 2
+wait 1
 Execute "Set objAllMyPatients = Nothing"
 
+'select name from patient search dropdown
 blnselectComboBoxItem = selectComboBoxItem(objPatientSearchDD, "Name")
 If Not blnselectComboBoxItem Then
 	strOutErrorDesc = "Unable to select required value from patient search dropdown: "&strOutErrorDesc
@@ -357,15 +327,35 @@ If err.number <> 0 Then
 End If
 wait 2
 
-'Select required patient from PatientList grid
+'Click check box for required patient	
+Execute "Set objCBforPatient_UnChecked = "&Environment("WE_CBforPatient_UnChecked")	
 Err.Clear
-objPatientSearchGridCB.Click
-If err.number <> 0 Then
-	strOutErrorDesc = "Unable to mark required patient from PatientList grid: "& Err.Description
+objCBforPatient_UnChecked.Click
+Err.Clear
+If Err.Number <> 0 Then
+	strOutErrorDesc = "Unable to click Patient check box: "& Err.Description
 	Call WriteToLog("Fail", strOutErrorDesc)
 	Call Terminator
 End If
-wait 1	
+
+'Sometimes after clicking also checkbox won't get checked (and no error is captured).
+'So first check 'checked' check box is existing or not. If not existing, then check the check box again.
+Execute "Set objCBforPatient_Checked = "&Environment("WE_CBforPatient_Checked")
+If not objCBforPatient_Checked.Exist(2) Then
+	Execute "Set objCBforPatient_UnChecked = Nothing"
+	Execute "Set objCBforPatient_UnChecked = "&Environment("WE_CBforPatient_UnChecked")
+	Err.Clear
+	objCBforPatient_UnChecked.Click		
+End If
+If Err.Number <> 0 Then
+	strOutErrorDesc = "Unable to click Patient check box: "& Err.Description
+	Call WriteToLog("Fail", strOutErrorDesc)
+	Call Terminator
+End If
+Call WriteToLog("Pass", "Clicked check box for patient in patient list")
+Execute "Set objCBforPatient_UnChecked = Nothing"
+Execute "Set objCBforPatient_Checked = Nothing"
+Wait 1
 
 '---------------------------------------------------------------------
 'Generate Patient Eligibility Report by selecting required report type
@@ -412,8 +402,8 @@ If err.number <> 0 Then
 End If
 Call WriteToLog("Pass","Clicked ChooseReports OK btn")
 
-Wait 300
-Call WriteToLog("Info","============Validate implementation of Last completed and Last attempted or incomplete / message in Eligibility Report============") 
+Wait 100
+Call WriteToLog("Info","--------Validate implementation of Last completed and Last attempted or incomplete / message in Eligibility Report--------") 
 
 '----------------------------------------------------------------------------------------------------------
 'Validate implementation of Last completed and Last attempted or incomplete / message in Eligibility Report
@@ -421,7 +411,7 @@ Call WriteToLog("Info","============Validate implementation of Last completed an
 'Getting date format for report
 dtLastAttemptedDate = DateFormatForReport(dtLastAttemptedDate)
 dtLastCompletedDate = DateFormatForReport(dtLastCompletedDate)
-strLCDLAD ="Last Completed Contact : "&Trim(dtLastCompletedDate)&" Last Aí¯€í¶©empted Contact : "&Trim(dtLastAttemptedDate)
+strLCDLAD ="Last Completed Contact : "&Trim(dtLastCompletedDate)&" Last Aï¿½ï¿½ï¿½ï¿½empted Contact : "&Trim(dtLastAttemptedDate)
 
 'Object for PDF report
 Set objReportPDF = objParent.WinObject("object class:=AVL_AVView","regexpwndclass:=AVL_AVView","text:=AVPageView","visible:=True")
@@ -474,7 +464,7 @@ If err.number <> 0 Then
 	Call Terminator
 End If 
 Call WriteToLog("Pass","Closed Patient Eligibility Report ")
-Wait 5
+Wait 2
 
 '---------------------
 'Logout of application
@@ -525,5 +515,5 @@ Function Terminator()
 	CloseAllBrowsers
 	WriteLogFooter
 	ExitAction
-	
+
 End Function

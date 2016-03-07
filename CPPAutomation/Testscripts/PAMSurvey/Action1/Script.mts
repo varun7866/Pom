@@ -1,5 +1,4 @@
-﻿'mem id: 177870
-' TestCase Name			: PAM Survey
+﻿' TestCase Name			: PAM Survey
 ' Purpose of TC			: To perform PAM Survey
 ' Author                : Sudheer
 ' Comments				: 
@@ -221,14 +220,16 @@ Function pamSurvey()
 		waitTillLoads "Loading..."
 		wait 2
 	End If
-	wait 2
+	wait 5
 	'verify add button disabled after clicking on Add button
-	If Not CheckObjectExistence(objPAMSurveyAddButton,5) Then
-		Call WriteToLog("Pass","Add button is disabled")
+	Execute "Set objPAMSurveyAddButton= "  &Environment.Value("WEL_PAMSurvey_AddButton") 'PAM Survey screen Add button
+	If CheckObjectExistence(objPAMSurveyAddButton,5) Then
+		Call WriteToLog("Fail","Add button is enabled")
 	Else
-		Call WriteToLog("Fail","Add button is enabled.")
+		Call WriteToLog("Pass","Add button is disabled.")
 	End If
 	'Verify the existence of postpone button
+	Execute "Set objPAMSurveyPostponeButton= "  &Environment.Value("WEL_PAMSurvey_PostponeButton") 'PAM Survey screen postpone button
 	If CheckObjectExistence(objPAMSurveyPostponeButton,5) Then
 		Call WriteToLog("Pass","Postpone button is enabled")
 	Else
@@ -236,6 +237,7 @@ Function pamSurvey()
 	End If
 	
 	'Verify the existence of Save button
+	Execute "Set objPAMSurveySaveButton= "  &Environment.Value("WEL_PAMSurvey_SaveButton")	'PAM Survey screen Save button
 	If not CheckObjectExistence(objPAMSurveySaveButton,5) Then
 		Call WriteToLog("Pass","Save button is disabled")
 	Else

@@ -187,10 +187,23 @@ If not Lcase(strExecutionFlag) = "y" Then Exit Do
 		Call waitTillLoads("Loading...")
 		Wait 2
 		
-	
+		'Handle navigation error if exists
+		blnHandleWrongDashboardNavigation = HandleWrongDashboardNavigation(strPatientName,strOutErrorDesc)
+		If not blnHandleWrongDashboardNavigation Then
+		    Call WriteToLog("Fail","Unable to provide proper navigation after patient selection "&strOutErrorDesc)
+		End If
+		Call WriteToLog("Pass","Provided proper navigation after patient selection")
+		Wait 2
+			
 		'Testcase: Comorbid add for SNP patient validation-------------------------------------------
-		clickOnSubMenu("Clinical Management->Comorbids")
-		wait 2
+		'Navigate to ClinicalManagement > Comorbids
+		blnScreenNavigation = clickOnSubMenu_WE("Clinical Management->Comorbids")
+		If not blnScreenNavigation Then
+			Call WriteToLog("Fail","Unable to navigate to Clinical Management > Comorbids screen "&strOutErrorDesc)
+			Call Terminator
+		End If
+		Call WriteToLog("Pass","Navigated to Clinical Management > Comorbids screen")
+		wait 5
 		Call waitTillLoads("Loading...")
 		Wait 1
 		

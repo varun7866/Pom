@@ -1,0 +1,4 @@
+﻿<Properties>
+  <WatchEntry0 value="strPatientRefusedPlan_Status" />
+  <WatchEntry1 value="strMedicalEquipment_Status" />
+</Properties>

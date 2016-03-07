@@ -401,6 +401,9 @@ Function depressionScreening()
 	killAllObjects
 	loadObjects
 	
+	Execute "Set objDepressionScreeningDate = " & Environment("WE_DepressionScreening_ScreeningDate")
+	screeningDate = objDepressionScreeningDate.getroproperty("value")
+	Print screeningDate
 	'click on save button
 	blnReturnValue = ClickButton("Save",objDepressionScreeningSaveButton,strOutErrorDesc)
 	Wait intWaitTime/2
@@ -426,8 +429,6 @@ Function depressionScreening()
 	wait 2
 	
 	'verify history
-	Execute "Set objDepressionScreeningDate = " & Environment("WE_DepressionScreening_ScreeningDate")
-	screeningDate = objDepressionScreeningDate.getroproperty("value")
 	isPass = depression_ValidateHistory(screeningDate, surveyMsg)
 	
 	killAllObjects
@@ -759,7 +760,7 @@ Function depression_ValidateHistory(Byval dtScreeningCompletedDate, ByVal messag
 	Else
 		Call WriteToLog("Fail", "Required columns does not exist in history table. The columns are - " & columnNames)
 	End If
-
+	
 	'Get current and previous screening	information from screening history table	
 	For R = 1 To RowCount Step 1
 		ReDim Preserve arrScreeningHistoryInfo(RowCount-1)
@@ -783,18 +784,22 @@ Function depression_ValidateHistory(Byval dtScreeningCompletedDate, ByVal messag
 	Dim isFound : isFound = false
 	For i = 0 To UBound(arrScreeningHistoryInfo)
 		hist = split(arrScreeningHistoryInfo(i),"|")
-		If CDate(hist(0)) = dtScreeningCompletedDate Then
+		If CDate(hist(0)) = CDate(dtScreeningCompletedDate) Then
 			If message = hist(4) Then
 				Call WriteToLog("Pass", "Required survey comments found in history table - '" & hist(4) & "' for the date - '" & hist(0) & "'")
-				isFound = true
-				Exit For
+'				isFound = true
+'				Exit For
+			Else
+				Call WriteToLog("Info", "The data in history table - '" & hist(4) & "' for the date - '" & hist(0) & "'")
 			End If
+		Else
+			Call WriteToLog("Info", "The data in history table - '" & hist(4) & "' for the date - '" & hist(0) & "'")
 		End If
 	Next
 	
-	If not isFound Then
-		Call WriteToLog("Fail", "Required survey comments - '" & message & "' for the date - '" & date & "' is not found in history table.")
-	End If
+'	If not isFound Then
+'		Call WriteToLog("Fail", "Required survey comments - '" & message & "' for the date - '" & date & "' is not found in history table.")
+'	End If
 		
 	Depression_ValidateHistory = True
 	

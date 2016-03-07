@@ -235,7 +235,7 @@ Function VascularAccessPlan(strOutErrorDesc)
 	End If
 	
 	Call WriteToLog("Pass", "Vascular Access tab exist on the Access screen " & strOutErrorDesc)
-		
+	Err.Clear	
 	'Expand Vascular Access tab
 	objVascularAccessPlanTab.Click
 	If Err.Number = 0 Then
@@ -897,7 +897,9 @@ Function AddNewPlanForVascularAccessPlan(ByVal strPlanStartDate,ByVal strDesired
 		Exit Function	
 	 End If 
 	
-	
+	wait 2
+	waitTillLoads "Loading..."
+	wait 2
 	'Check Desired Permanent Access button field exist or not 	
 	If objDesiredPermanentAccessButton.Exist(2) Then
 		Call WriteToLog("Pass", "Desired Permanent Access field is exist")
@@ -1098,5 +1100,3 @@ Function ToStopPlanOfVascularAcessManagement(Byval strStopDate , ByVal strStopRe
 	ToStopPlanOfVascularAcessManagement = True
 
 End Function
-
-

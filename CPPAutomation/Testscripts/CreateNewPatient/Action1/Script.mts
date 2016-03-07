@@ -12,7 +12,7 @@ Environment.Value("PROJECT_FOLDER") = objFso.GetParentFolderName(driverScriptFol
 
 'load environment file
 Environment.LoadFromFile Environment.Value("PROJECT_FOLDER") & "\Configuration\DaVita-Capella_Configuration.xml",True 	'Import environment file
-Environment.LoadFromFile "C:\Project_Management\2.Automation\workflow_automation\Configuration\DaVita-Capella_Configuration.xml",True 
+'Environment.LoadFromFile "C:\Project_Management\2.Automation\workflow_automation\Configuration\DaVita-Capella_Configuration.xml",True 
 'MsgBox Environment.ExternalFileName
 'load all functional libraries
 functionalLibFolder = Environment.Value("PROJECT_FOLDER") & "\Library\generic_functions"
@@ -55,31 +55,31 @@ For each objFile in objFso.GetFolder(consentsLibFolder).Files
 Next
 Set objFso = Nothing
 
-Call WriteToLog("info", "Test case - Create a new patient using EPS role")
-'Login to Capella as EPS
-isPass = Login("eps")
-If not isPass Then
-	Call WriteToLog("Fail","Failed to Login to EPS role.")
-	CloseAllBrowsers
-	Call WriteLogFooter()
-	ExitAction
-End If
-
-'close all open patients
-isPass = CloseAllOpenPatient(strOutErrorDesc)
-If Not isPass Then
-	strOutErrorDesc = "CloseAllOpenPatient returned error: "&strOutErrorDesc
-	Call WriteToLog("Fail", strOutErrorDesc)
-	Call WriteLogFooter()
-	ExitAction
-End If
-
-Call WriteToLog("Pass","Successfully logged into EPS role")
-
-Call clickOnMainMenu("My Dashboard")
-wait 2
-Call waitTillLoads("Loading...")
-wait 2
+'Call WriteToLog("info", "Test case - Create a new patient using EPS role")
+''Login to Capella as EPS
+'isPass = Login("eps")
+'If not isPass Then
+'	Call WriteToLog("Fail","Failed to Login to EPS role.")
+'	CloseAllBrowsers
+'	Call WriteLogFooter()
+'	ExitAction
+'End If
+'
+''close all open patients
+'isPass = CloseAllOpenPatient(strOutErrorDesc)
+'If Not isPass Then
+'	strOutErrorDesc = "CloseAllOpenPatient returned error: "&strOutErrorDesc
+'	Call WriteToLog("Fail", strOutErrorDesc)
+'	Call WriteLogFooter()
+'	ExitAction
+'End If
+'
+'Call WriteToLog("Pass","Successfully logged into EPS role")
+'
+'Call clickOnMainMenu("My Dashboard")
+'wait 2
+'Call waitTillLoads("Loading...")
+'wait 2
 
 strMember = createNewPatient()
 
@@ -87,23 +87,23 @@ Print strMember
 
 If trim(strMember) = "" or trim(strMember) = "NA" Then
 	Call WriteToLog("Fail", "There was an error retrieving member id.")
-	Logout
-	CloseAllBrowsers
-	WriteLogFooter
+'	Logout
+'	CloseAllBrowsers
+'	WriteLogFooter
 	ExitAction
 End If
 'Call WriteToLog("Pass", "A new patient has been created with member Id - '" & strMember & "'")
 
 strEnrollmentStatus = DataTable.Value("ExpectedEPSStatus", "CurrentTestCaseData")
 If strEnrollmentStatus = "Enrolled" Then
-	Logout
-	CloseAllBrowsers
-	WriteLogFooter
+'	Logout
+'	CloseAllBrowsers
+'	WriteLogFooter
 	ExitAction
 End If
-Logout
-CloseAllBrowsers
-
+'Logout
+'CloseAllBrowsers
+ExitAction
 Call WriteToLog("info", "Test case - Do Enrollment Screening, so the eligibility status changes to 'Enrolled'")
 'Login to Capella as VHES
 isPass = Login("vhes")

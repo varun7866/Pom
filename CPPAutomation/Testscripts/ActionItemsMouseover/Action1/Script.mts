@@ -47,6 +47,7 @@ For RowNumber = 1 to intRowCout: Do
 '------------------------
 ' Variable initialization
 '------------------------
+lngMemberID = DataTable.Value("MemberID","CurrentTestCaseData")
 strPatientNameExternal = DataTable.Value("PatientNameExternal","CurrentTestCaseData")
 strCreateContact = DataTable.Value("CreateContact","CurrentTestCaseData")
 strPreviousContact = DataTable.Value("PreviousContact","CurrentTestCaseData")
@@ -67,6 +68,38 @@ dtExistingContactCompletedDate = DataTable.Value("ExistingContactCompletedDate",
 '-----------------------------------
 Execute "Set objParent ="&Environment("WPG_AppParent")	'page object
 Execute "Set objMyDashboard = "&Environment("WL_DashBoard") ' MyDashboard
+
+
+'((((((((((((((((((((
+
+	isPass = ConnectDB()
+	If not isPass Then
+	    Print "Fail"
+	    ExitAction
+	End If
+
+
+strQuery = "Select MEM_FIRST_NAME from MEM_MEMBER where MEM_UID = 513"
+
+
+
+	
+	isPass = RunQueryRetrieveRecordSet(strQuery)
+	If not isPass Then
+	    Call CloseDBConnection()
+	    ExitAction
+	End If
+
+	
+	Do until objDBRecordSet.EOF
+		strFirstName = objDBRecordSet("MEM_FIRST_NAME")  
+		objDBRecordSet.MoveNext
+	Loop
+	
+		Call CloseDBConnection()
+
+MsgBox strFirstName
+')))))))))))))))))))))
 
 '-----------------------EXECUTION-------------------------------------------------------------------------------------------------------------------------------------------------------
 On Error Resume Next
@@ -197,8 +230,8 @@ ElseIf Lcase(Trim(strCreateContact)) = "yes" Then
 	End If
 	wait 2
 
-	Call waitTillLoads("Saving contact for "&strPatientName)
-	Wait 2
+	Call waitTillLoads("Saving contact for "&strPatientNameExternal)
+	Wait 1
 	
 	'FILTERING --------------------------------------------------------------------
 	strContactMethods = DataTable.Value("ContactMethods","CurrentTestCaseData")
@@ -300,27 +333,17 @@ ElseIf Lcase(Trim(strCreateContact)) = "yes" Then
 		dtLastCompletedDate = dtExistingContactCompletedDate
 	End If
 	
-	'-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-	Call WriteToLog("Info","----------------Logout and login for changes to happen in mousehover message contact dates----------------") 
-
-	'Logout
-	Call Logout()
-	Wait 2
-
-	'Login 
-	Call WriteToLog("Info","------------------Login to VHN--------------------")
-	blnLogin = Login("vhn")
-	If not blnLogin Then
-	Call WriteToLog("Fail","Failed to Login to VHN role.")
-	Call Terminator
+	'Close patient record and re-open patient through global search (to get changes reflected)
+	Call WriteToLog("Info","------Close patient record and re-open patient through global search------")
+	strPatientName = strPatientNameExternal
+	blnClosePatientAndReopenThroughGlobalSearch = ClosePatientAndReopenThroughGlobalSearch(strPatientName,lngMemberID,strOutErrorDesc)
+	If not blnClosePatientAndReopenThroughGlobalSearch Then
+		Call WriteToLog("Fail","Unable to close patient record and re-open patient through global search. "&strOutErrorDesc)
+		Call Terminator
 	End If
-	
-	Call WriteToLog("Pass","Successfully logged into VHN role")
-	
-	'-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+	Call WriteToLog("Pass","Closed patient record and re-opened patient through global search")
 
 	Call WriteToLog("Info","--------------------Mousehover over patient named '"&strPatientNameExternal&"' and retrieving LastAttempted and LastCompleted contact dates, then validating both on required filters--------------------")
-		
 	'cLick Dashboard
 	Err.Clear
 	objMyDashboard.Click

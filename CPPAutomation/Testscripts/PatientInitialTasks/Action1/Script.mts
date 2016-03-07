@@ -247,7 +247,7 @@ If not Lcase(strExecutionFlag) = "y" Then Exit Do
 	'Get task due date from UI
 	dtDueDate = getDueDateOfTaskinActionItemsList(strPatientName, "Initial HRA Due")
 	If LCase(dtDueDate) = "na" Then
-		Call WriteToLog("Fail","Expected Result:Should be able to retrieve Initial HRA Task due date from ActionItems.  Actual Result:able to retrieve Initial HRA Task due date from ActionItems")
+		Call WriteToLog("Fail","Expected Result:Should be able to retrieve Initial HRA Task due date from ActionItems.  Actual Result:Unable to retrieve Initial HRA Task due date from ActionItems")
 		Call Terminator	
 	End If	
 	

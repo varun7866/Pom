@@ -126,9 +126,14 @@ Wait 2
 '---------------------------------------------------------------------------------
 'Navigating to Clinical Management > Hospitalizations and following business logic
 '---------------------------------------------------------------------------------
-Call clickOnSubMenu("Clinical Management->Hospitalizations")
-Wait 2
-
+'Navigate to ClinicalManagement > Hospitalizations
+blnScreenNavigation = clickOnSubMenu_WE("Clinical Management->Hospitalizations")
+If not blnScreenNavigation Then
+	Call WriteToLog("Fail","Unable to navigate to Clinical Management > Hospitalizations "&strOutErrorDesc)
+	Call Terminator
+End If
+Call WriteToLog("Pass","Navigated to Clinical Management > Hospitalizations")
+wait 4
 Call waitTillLoads("Loading...")
 Wait 2
 
@@ -333,9 +338,14 @@ Wait 2
 		'Discharging the patient to send alert to assigned VHN
 		'-----------------------------------------------------
 		Call WriteToLog("Info","------------------Discharging the patient to send alert to assigned VHN------------------")
-		Call clickOnSubMenu("Clinical Management->Hospitalizations")
-		Wait 2
-		
+		'Navigate to ClinicalManagement > Hospitalizations
+		blnScreenNavigation = clickOnSubMenu_WE("Clinical Management->Hospitalizations")
+		If not blnScreenNavigation Then
+			Call WriteToLog("Fail","Unable to navigate to Clinical Management > Hospitalizations "&strOutErrorDesc)
+			Call Terminator
+		End If
+		Call WriteToLog("Pass","Navigated to Clinical Management > Hospitalizations")
+		wait 4
 		Call waitTillLoads("Loading...")
 		Wait 2
 		

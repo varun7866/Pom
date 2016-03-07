@@ -48,6 +48,7 @@ For RowNumber = 1 to intRowCout: Do
 '------------------------
 ' Variable initialization
 '------------------------
+lngMemberID = DataTable.Value("MemberID","CurrentTestCaseData")
 strPatientName = DataTable.Value("PatientName","CurrentTestCaseData")
 strExecutionFlag = DataTable.Value("ExecutionFlag","CurrentTestCaseData")
 strUser = DataTable.Value("User","CurrentTestCaseData")
@@ -80,7 +81,7 @@ Execute "Set objPatientListGridTableRight = "&Environment("WT_PatientListGridTab
 Execute "Set objPatientSearchDD ="&Environment("WB_PatientSearchDD") 'PatientSearch dropdown
 Execute "Set objPatientSearchTxtBx ="&Environment("WE_PatientSearchTxtBx") 'MyRoster patient search
 Execute "Set objPatientSearchImage ="&Environment("WEL_PatientSearchImage") 'Patient search image
-Execute "Set objPatientSearchGridCB ="&Environment("WEL_PatientSearchGridCB") 'Patient List grid
+'Execute "Set objPatientSearchGridCB ="&Environment("WEL_PatientSearchGridCB") 'Patient List grid
 
 'Getting equired iterations
 If not Lcase(strExecutionFlag) = "y" Then Exit Do
@@ -110,9 +111,14 @@ Call WriteToLog("Pass","Navigated to user dashboard")
 
 '--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 'Call WriteToLog("Info","----------------Validating contact date columns in 'Patient List' grid----------------") 
-'click on My Patients Tab
-Call clickOnMainMenu("My Patients")
-Wait 2
+
+'Click on MyPatients Tab
+blnclickOnMainMenu = clickOnMainMenu("My Patients")
+If not blnclickOnMainMenu Then
+	Call WriteToLog("Fail","Unable to navigate to MyPatients screen. "&strOutErrorDesc)
+	Call Terminator
+End If
+Wait 5
 
 Call waitTillLoads("Loading...")
 Wait 2
@@ -155,16 +161,6 @@ Call WriteToLog("Pass","Clicked 'OK' button in 'Customize View' popup")
 Wait 2
 Call waitTillLoads("Loading...")
 Wait 3
-
-''Clk on 'OK' button of 'Changes Saved' popup
-'Err.Clear
-'objChangesSavedOKBtn.Click
-'If Err.number <> 0 Then
-'	Call WriteToLog("Fail","Expected Result: User should be able to click on 'OK' button of 'Changes Saved' popup.  Actual Result: Unable to click 'OK' button of 'Changes Saved' popup. "&Err.Description)
-'	Call Terminator	
-'End If	
-'Call WriteToLog("Pass","Clicked 'OK' button of 'Changes Saved' popup")
-'Wait 2
 
 strMessageTitle = "Changes Saved"
 strMessageBoxText = "Changes saved successfully"
@@ -342,31 +338,26 @@ If intLCDval >= 0 Then
 	dtLastCompletedDate = dtExistingContactCompletedDate
 End If
 
-'-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-Call WriteToLog("Info","----------------Logout and login for changes to happen in contact date columns of MyPatient list----------------") 
-
-'Logout
-Call Logout()
-Wait 2
-
-'Navigation: Login to app > CloseAllOpenPatients > SelectUserRoster  
-Call WriteToLog("Info","------------------Login to VHN > CloseAllOpenPatients > SelectUserRoster--------------------")
-blnNavigator = Navigator("vhn", strOutErrorDesc)
-If not blnNavigator Then
-	Call WriteToLog("Fail","Expected Result: User should be able to navigate required user dashboard.  Actual Result: Unable to navigate required user dashboard."&strOutErrorDesc)
-	Call Terminator											
+'Close patient record and re-open patient through global search (to get changes reflected)
+Call WriteToLog("Info","------Close patient record and re-open patient through global search------")
+blnClosePatientAndReopenThroughGlobalSearch = ClosePatientAndReopenThroughGlobalSearch(strPatientName,lngMemberID,strOutErrorDesc)
+If not blnClosePatientAndReopenThroughGlobalSearch Then
+	Call WriteToLog("Fail","Unable to close patient record and re-open patient through global search. "&strOutErrorDesc)
+	Call Terminator
 End If
-Call WriteToLog("Pass","Navigated to user dashboard")
+Call WriteToLog("Pass","Closed patient record and re-opened patient through global search")
 
-'-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 Call WriteToLog("Info","----------------Navigating to My Patients screen, Validating Contact date columns of MyPatient list----------------") 
 '-----------------------------------------
 'Navigate to MyPatients > PatientList grid
 '-----------------------------------------
 'Click on MyPatients Tab
-Err.Clear
-Call clickOnMainMenu("My Patients")
-Wait 2
+blnclickOnMainMenu = clickOnMainMenu("My Patients")
+If not blnclickOnMainMenu Then
+	Call WriteToLog("Fail","Unable to navigate to MyPatients screen. "&strOutErrorDesc)
+	Call Terminator
+End If
+Wait 5
 
 Call waitTillLoads("Loading...")
 Wait 2
@@ -380,7 +371,7 @@ End If
 Call WriteToLog("Pass","Clicked 'All My Patients' button")
 Wait 2
 Call waitTillLoads("Loading...")
-wait 2
+wait 1
 Execute "Set objAllMyPatients = Nothing"
 
 blnselectComboBoxItem = selectComboBoxItem(objPatientSearchDD, "Name")
@@ -409,16 +400,6 @@ If err.number <> 0 Then
 	Call Terminator
 End If
 wait 2
-
-'Select required patient from PatientList grid
-Err.Clear
-objPatientSearchGridCB.Click
-If err.number <> 0 Then
-	strOutErrorDesc = "Unable to mark required patient from PatientList grid: "& Err.Description
-	Call WriteToLog("Fail", strOutErrorDesc)
-	Call Terminator
-End If
-wait 1	
 
 'Validation of dates
 dtLADfromPatientGrid = Trim(objPatientListGridTableRight.ChildItem(1,intLastAttemptedColumnNumber,"WebElement",0).GetROProperty("outertext"))

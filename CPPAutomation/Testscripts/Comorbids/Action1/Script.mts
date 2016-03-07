@@ -682,130 +682,146 @@ blnReturnValue = ClickButton("Complaint History section",objComplaintsHistory,st
 '==============================
 'Add new Comorbid type
 '=============================
-	Call WriteToLog("info", "Test Case - Add a new Comorbid and verify")
+Call WriteToLog("info", "Test Case - Add a new Comorbid and verify")
 
+'before adding deactivate the comorbid if it already exists
+Execute "Set objComorbidListTable = " & Environment("WB_ComorbidListTable")
+maxRows = CInt(objComorbidListTable.getROproperty("rows"))
 
-	Execute "Set objAddButton = " & Environment("WB_ComorbidDetailsAdd")
-	objAddButton.Click
-	
-	wait 2
-	Call waitTillLoads("Loading...")
-
-	
-	Dim reqComorbid
-
-	Execute "Set objComorbidType = " & Environment("WB_ComorbidType")
-	Call selectComboBoxItem(objComorbidType, strComorbidType)
-	reqComorbid = strComorbidType	'"Asthma"
-	
-	Execute "Set objProvider = " & Environment("WB_ComorbidProvider")
-    Call selectComboBoxItem(objProvider, strProvider)
-
-	
-	wait 2
-	
-	Execute "Set objSaveButton = " & Environment("WB_ComorbidDetailsSave")
-	objSaveButton.Click
-	
-	wait 2
-	Call waitTillLoads("Loading...")
-	
-	Execute "Set objComorbidListTable = " & Environment("WB_ComorbidListTable")
-
-	If not waitUntilExist(objComorbidListTable,10) Then
-		
+For row = 1 To maxRows
+	cType = objComorbidListTable.GetCellData(row, 1)
+	If strComorbidType = trim(cType) Then
+		isPass = deactivateComorbid(strComorbidType, row)
+		If Not isPass Then
+			Logout
+			closeAllBrowsers
+			WriteLogFooter
+			ExitAction
+		End If
 	End If
-	Dim tabVal
-	tabVal = objComorbidListTable.getCellData(1, 1)
-	If trim(tabVal) = reqComorbid then
-		Call WriteToLog("Pass", "The comorbid type'" & reqComorbid & "'is added")
-	Else
-		Call WriteToLog("Fail", "The comorbid type" & reqComorbid & "' was not added, but the value in table is - '" & tabVal & "'")
-		Logout
-		Closeallbrowsers
-		writelogfooter
-		ExitAction
-	End If
+Next
+
+Execute "Set objAddButton = " & Environment("WB_ComorbidDetailsAdd")
+objAddButton.Click
+
+wait 2
+Call waitTillLoads("Loading...")
+
+
+Dim reqComorbid
+
+Execute "Set objComorbidType = " & Environment("WB_ComorbidType")
+Call selectComboBoxItem(objComorbidType, strComorbidType)
+reqComorbid = strComorbidType	'"Asthma"
+
+Execute "Set objProvider = " & Environment("WB_ComorbidProvider")
+Call selectComboBoxItem(objProvider, strProvider)
+
+
+wait 2
+
+Execute "Set objSaveButton = " & Environment("WB_ComorbidDetailsSave")
+objSaveButton.Click
+
+wait 2
+Call waitTillLoads("Loading...")
+
+Execute "Set objComorbidListTable = " & Environment("WB_ComorbidListTable")
+
+If not waitUntilExist(objComorbidListTable,10) Then
 	
+End If
+Dim tabVal
+tabVal = objComorbidListTable.getCellData(1, 1)
+If trim(tabVal) = reqComorbid then
+	Call WriteToLog("Pass", "The comorbid type'" & reqComorbid & "'is added")
+Else
+	Call WriteToLog("Fail", "The comorbid type" & reqComorbid & "' was not added, but the value in table is - '" & tabVal & "'")
+	Logout
+	Closeallbrowsers
+	writelogfooter
+	ExitAction
+End If
+
 '	Verify the comorbids group
-	strComorbidGroup = 	objComorbidListTable.getCellData(1, 2)	'objComorbidGroup.GetROProperty("innertext")
-	If StrComp(strComorbidGroup,strExpectedComorbidGroup,vbTextCompare) = 0 Then
-		Call WriteToLog("Pass","Comorbids group displayed is correct")
-	Else
-		Call WriteToLog("Fail","Comorbids group displayed is not correct")
-	End If
+strComorbidGroup = 	objComorbidListTable.getCellData(1, 2)	'objComorbidGroup.GetROProperty("innertext")
+If StrComp(strComorbidGroup,strExpectedComorbidGroup,vbTextCompare) = 0 Then
+	Call WriteToLog("Pass","Comorbids group displayed is correct")
+Else
+	Call WriteToLog("Fail","Comorbids group displayed is not correct")
+End If
 
 '================================================================
 'Verify the text message when you select Comorbid type depression
 '================================================================
-	Call WriteToLog("info", "Test Case - Add Comorbid Depression and verify the text message below comorbid type")
+Call WriteToLog("info", "Test Case - Add Comorbid Depression and verify the text message below comorbid type")
 
-	Execute "Set objAddButton = " & Environment("WB_ComorbidDetailsAdd")
-	objAddButton.Click
+Execute "Set objAddButton = " & Environment("WB_ComorbidDetailsAdd")
+objAddButton.Click
+
+wait 2
+Call waitTillLoads("Loading...")
+
+Execute "Set objComorbidType = " & Environment("WB_ComorbidType")
+Call selectComboBoxItem(objComorbidType, strComorbidTypeDepression)
+
+wait 2
+'Verify the message displayed when depression is selected as the comorbids type
+Execute "Set objComorbidMessage = " & Environment("WB_ComorbidMessage")
+strMessage = objComorbidMessage.GetROProperty("innertext")
+
+If StrComp(strMessage, StrComorbidMessage, vbTextCompare) = 0 Then
+	Call WriteToLog("Pass","Comorbids Message displayed for Depression is correct")
+Else
+	Call WriteToLog("Fail","Comorbids Message displayed for Depression is not correct")
+	Logout
+	Closeallbrowsers
+	writelogfooter
+	ExitAction
+End If
+
+wait 2
 	
-	wait 2
-	Call waitTillLoads("Loading...")
-	
-	Execute "Set objComorbidType = " & Environment("WB_ComorbidType")
-	Call selectComboBoxItem(objComorbidType, strComorbidTypeDepression)
-	
-	wait 2
-	'Verify the message displayed when depression is selected as the comorbids type
-	Execute "Set objComorbidMessage = " & Environment("WB_ComorbidMessage")
-	strMessage = objComorbidMessage.GetROProperty("innertext")
-	
-	If StrComp(strMessage, StrComorbidMessage, vbTextCompare) = 0 Then
-		Call WriteToLog("Pass","Comorbids Message displayed for Depression is correct")
-	Else
-		Call WriteToLog("Fail","Comorbids Message displayed for Depression is not correct")
-		Logout
-		Closeallbrowsers
-		writelogfooter
-		ExitAction
-	End If
-	
-	wait 2
-		
-	'Verify the Comorbids group for Depression comorbid type
-	Execute "Set objComorbidGroup = " & Environment("WE_ComorbidGroup")
-	strComorbidGroup = objComorbidGroup.GetROProperty("innertext")
-	If StrComp(strComorbidGroup,strExpectedComorbidGroupDep,vbTextCompare) = 0 Then
-		Call WriteToLog("Pass","Comorbids group displayed is correct")
-	Else
-		Call WriteToLog("Fail","Comorbids group displayed is not correct")
-	End If
-	
-	Execute "Set objCancelButton = " & Environment("WB_ComorbidDetailsCancel")
-	objCancelButton.Click
+'Verify the Comorbids group for Depression comorbid type
+Execute "Set objComorbidGroup = " & Environment("WE_ComorbidGroup")
+strComorbidGroup = objComorbidGroup.GetROProperty("innertext")
+If StrComp(strComorbidGroup,strExpectedComorbidGroupDep,vbTextCompare) = 0 Then
+	Call WriteToLog("Pass","Comorbids group displayed is correct")
+Else
+	Call WriteToLog("Fail","Comorbids group displayed is not correct")
+End If
+
+Execute "Set objCancelButton = " & Environment("WB_ComorbidDetailsCancel")
+objCancelButton.Click
 
 '================================
 'Add the same Comorbid type again
 '================================
-	Call WriteToLog("info", "Test Case - Add the same comorbid and verify the error")
+Call WriteToLog("info", "Test Case - Add the same comorbid and verify the error")
 
 
-	Execute "Set objAddButton = " & Environment("WB_ComorbidDetailsAdd")
-	objAddButton.Click
-	
-	wait 2
-	Call waitTillLoads("Loading...")
+Execute "Set objAddButton = " & Environment("WB_ComorbidDetailsAdd")
+objAddButton.Click
 
-	Execute "Set objComorbidType = " & Environment("WB_ComorbidType")
-	Call selectComboBoxItem(objComorbidType, strComorbidType)
-	reqComorbid = strComorbidType	'"Asthma"
-	
-	Execute "Set objProvider = " & Environment("WB_ComorbidProvider")
-    Call selectComboBoxItem(objProvider, strProvider)
+wait 2
+Call waitTillLoads("Loading...")
 
-	
-	wait 2
-	
-	Execute "Set objSaveButton = " & Environment("WB_ComorbidDetailsSave")
-	objSaveButton.Click
-	
-	wait 2
-	waitTillLoads "Saving..."
-	wait 2
+Execute "Set objComorbidType = " & Environment("WB_ComorbidType")
+Call selectComboBoxItem(objComorbidType, strComorbidType)
+reqComorbid = strComorbidType	'"Asthma"
+
+Execute "Set objProvider = " & Environment("WB_ComorbidProvider")
+Call selectComboBoxItem(objProvider, strProvider)
+
+
+wait 2
+
+Execute "Set objSaveButton = " & Environment("WB_ComorbidDetailsSave")
+objSaveButton.Click
+
+wait 2
+waitTillLoads "Saving..."
+wait 2
 	
 '========================
 'Validate the error popup
@@ -849,43 +865,41 @@ Dim intComorbidsTableCount
 
 intComorbidsTableCount = objComorbidListTable.RowCount
 	
-	If intActiveComorbidCount = intComorbidsTableCount Then
-		Call WriteToLog("Pass","Active comorbids count is "&intComorbidsTableCount&"")	
-	Else
-		Call WriteToLog("Fail","Comorbids count does not match")
-		Logout
-		CloseAllBrowsers
-	 	Call WriteLogFooter()
-		ExitAction
-	End If
+If intActiveComorbidCount = intComorbidsTableCount Then
+	Call WriteToLog("Pass","Active comorbids count is "&intComorbidsTableCount&"")	
+Else
+	Call WriteToLog("Fail","Comorbids count does not match")
+	Logout
+	CloseAllBrowsers
+ 	Call WriteLogFooter()
+	ExitAction
+End If
 	
 '======================	
 'Delete added comorbid
 '======================
+Dim reqReportDate
+Execute "Set objComorbidListTable = " & Environment("WB_ComorbidListTable")
+maxRows = CInt(objComorbidListTable.getROproperty("rows"))
 
-reqReportDate = objComorbidListTable.GetCellData(1,4)
-objComorbidListTable.ChildItem(1,6,"WebElement",0).click
-wait 1
-waitTillLoads "Loading..."
-wait 1
+For row = 1 To maxRows
+	cType = objComorbidListTable.GetCellData(row, 1)
+	If strComorbidType = trim(cType) Then
+		reqReportDate = objComorbidListTable.GetCellData(row,4)
+		isPass = deactivateComorbid(strComorbidType, row)
+		If Not isPass Then
+			Logout
+			closeAllBrowsers
+			WriteLogFooter
+			ExitAction
+		End If
+	End If
+Next
 
-blnReturnValue = checkForPopup("Comorbids", "Yes", "Are you sure you want to deactivate this Comorbid?", strOutErrorDesc)
-If blnReturnValue Then
-	Call WriteToLog("Pass","Comorbid Asthma is deleted")
-Else
-	Call WriteToLog("Fail","Unable to delete the comorbid Asthma")
-	Logout
-	CloseAllBrowsers
-	Call WriteLogFooter()
-	ExitAction
-End If
-
-wait 1
-waitTillLoads "Loading..."
-wait 1
 '============================================================================
 'Validate the active and inactive comorbids count after deleting the comorbid
 '============================================================================
+Call WriteToLog("info", "Test Case - Validate the active and inactive comorbids count after deleting the comorbid")
 
 Set objHeader = Browser("name:=DaVita VillageHealth Capella").Page("title:=DaVita VillageHealth Capella").WebElement("class:=row displayComorbidsRows headingDisplayComorbids")
 
@@ -960,6 +974,7 @@ End If
 On Error Resume Next
 Err.Clear
 'validate review functionality
+Call WriteToLog("info", "Test Case - validate review functionality")
 Set objPage = getPageObject()
 
 Set objReviewAddButton = objPage.WebButton("outerhtml:=.*data-capella-automation-id=""_Add"".*", "html id:=lastComorbidBtn")	'"class:=btn btn-success.*",
@@ -1060,3 +1075,28 @@ Function killAllObjects()
 	
 End Function
 
+
+Function deactivateComorbid(ByVal strComorbidType, ByVal rowNum)
+	
+	deactivateComorbid = false
+	objComorbidListTable.ChildItem(rowNum, 6, "WebElement", 0).click
+	
+	wait 1
+	waitTillLoads "Loading..."
+	wait 1
+	
+	blnReturnValue = checkForPopup("Comorbids", "Yes", "Are you sure you want to deactivate this Comorbid?", strOutErrorDesc)
+	If blnReturnValue Then
+		Call WriteToLog("Pass","Comorbid " & strComorbidType & " is deleted")
+	Else
+		Call WriteToLog("Fail","Unable to delete the comorbid " & strComorbidType)
+		Exit Function
+	End If
+	
+	wait 1
+	waitTillLoads "Loading..."
+	wait 1
+	
+	deactivateComorbid = true
+	
+End Function

@@ -3,7 +3,7 @@
 ' Purpose of TC	: Validate functionalities of 'Medications Management > Review' screen
 ' Author        : Gregory
 ' Date          : December 04, 2105
-' Comments 		: See extreme below - Validations which are performed in the script.
+' Comments 		:  
 '**************************************************************************************************************************************************************************
 '--------------
 'Initialization
@@ -59,96 +59,134 @@ strUser = DataTable.Value("User","CurrentTestCaseData")
 strPatientName = DataTable.Value("PatientName","CurrentTestCaseData")
 lngMemberID = DataTable.Value("MemberID","CurrentTestCaseData")
 
-'-----------------------EXECUTION-------------------------------------------------------------------------------------------------------------------------------------------------------
-
-On Error Resume Next
-Err.Clear
-'If not Lcase(strExecutionFlag) = "y" Then Exit Do
-Call WriteToLog("Info","----------------Iteration for patient named '"&strPatientName&"'----------------") 
-
-'Navigation: Login to app > CloseAllOpenPatients > SelectUserRoster 
-blnNavigator = Navigator("vhn", strOutErrorDesc)
-If not blnNavigator Then
-	Call WriteToLog("Fail","Expected Result: User should be able to navigate required user dashboard.  Actual Result: Unable to navigate required user dashboard."&strOutErrorDesc)
-	Call Terminator											
-End If
-Call WriteToLog("Pass","Navigated to user dashboard")
-
-''Select patient from MyPatient list
-'Call WriteToLog("Info","----------------Select required patient from MyPatient List----------------")
-'blnSelectPatientFromPatientList = SelectPatientFromPatientList(strUser, strPatientName)
-'If blnSelectPatientFromPatientList Then
-'	Call WriteToLog("Pass","Selected required patient from MyPatient list")
-'Else
-'	strOutErrorDesc = "Unable to select required patient"
-'	Call WriteToLog("Fail","Expected Result: Should be able to select required patient from MyPatient list.  Actual Result: "&strOutErrorDesc)
+''-----------------------EXECUTION-------------------------------------------------------------------------------------------------------------------------------------------------------
+'
+'On Error Resume Next
+'Err.Clear
+''If not Lcase(strExecutionFlag) = "y" Then Exit Do
+'Call WriteToLog("Info","----------------Iteration for patient named '"&strPatientName&"'----------------") 
+'
+''Navigation: Login to app > CloseAllOpenPatients > SelectUserRoster 
+'blnNavigator = Navigator("vhn", strOutErrorDesc)
+'If not blnNavigator Then
+'	Call WriteToLog("Fail","Expected Result: User should be able to navigate required user dashboard.  Actual Result: Unable to navigate required user dashboard."&strOutErrorDesc)
+'	Call Terminator											
+'End If
+'Call WriteToLog("Pass","Navigated to user dashboard")
+'
+'''Select patient from MyPatient list
+''Call WriteToLog("Info","----------------Select required patient from MyPatient List----------------")
+''blnSelectPatientFromPatientList = SelectPatientFromPatientList(strUser, strPatientName)
+''If blnSelectPatientFromPatientList Then
+''	Call WriteToLog("Pass","Selected required patient from MyPatient list")
+''Else
+''	strOutErrorDesc = "Unable to select required patient"
+''	Call WriteToLog("Fail","Expected Result: Should be able to select required patient from MyPatient list.  Actual Result: "&strOutErrorDesc)
+''	Call Terminator
+''End If
+'
+'Call WriteToLog("Info","----------------Select required patient through Global Search----------------")
+'blnGlobalSearchUsingMemID = GlobalSearchUsingMemID(lngMemberID, strOutErrorDesc)
+'If Not blnGlobalSearchUsingMemID Then
+'	strOutErrorDesc = "Select patient through global search returned error: "&strOutErrorDesc
+'	Call WriteToLog("Fail", "Expected Result: User should be able to select patient through global search; Actual Result: "&strOutErrorDesc)
 '	Call Terminator
 'End If
+'Call WriteToLog("Pass","Successfully selected required patient through global search")
+'Wait 3
+'
+'Call waitTillLoads("Loading...")
+'Wait 1
+'
+''Handle navigation error if exists
+'blnHandleWrongDashboardNavigation = HandleWrongDashboardNavigation(strPatientName,strOutErrorDesc)
+'If not blnHandleWrongDashboardNavigation Then
+'    Call WriteToLog("Fail","Unable to provide proper navigation after patient selection "&strOutErrorDesc)
+'End If
+'Call WriteToLog("Pass","Provided proper navigation after patient selection")
+'
+''Navigate to ClinicalManagement > Medications
+'blnScreenNavigation = clickOnSubMenu_WE("Clinical Management->Medications")
+'If not blnScreenNavigation Then
+'	Call WriteToLog("Fail","Unable to navigate to Medication screens "&strOutErrorDesc)
+'	Call Terminator
+'End If
+'Call WriteToLog("Pass","Navigated to Medication screens")
+'wait 3
+'
+'Call waitTillLoads("Loading...")
+'Wait 1
+'
+'Call ClosePopups()
+'
+''Click on Review tab
+'Execute "Set objMedicationsReviewTab = "&Environment("WE_MedicationReviewTab")
+'blnClickedMedicationsReviewTab = ClickButton("Review",objMedicationsReviewTab,strOutErrorDesc)
+'If not blnClickedMedicationsReviewTab Then
+'	Call WriteToLog("Fail","Unable to click Medications > Review tab. "&strOutErrorDesc)
+'	Call Terminator											
+'End If
+'Call WriteToLog("Pass","Clicked Medications > Review tab")
+'Execute "Set objMedicationsReviewTab = Nothing"
+'Wait 2
+'Call waitTillLoads("Loading...")
+'Wait 1
+'
+'Call ClosePopups()
+'
+''Check whether user landed on Medications Management screen
+'Execute "Set objMedMagtitle = "&Environment("WEL_MedMagTitle")	'Medications Management screen title
+'If not objMedMagtitle.Exist(3) Then
+'	Call WriteToLog("Fail","Expected Result: User should be on Medications screen.  Actual Result: Unable to land on Medications screen "&Err.Description)
+'	Call Terminator
+'End If
+'Call WriteToLog("Pass","Landed on Medications screen")
+'Execute "Set objMedMagtitle = Nothing"
+'wait 1
 
-Call WriteToLog("Info","----------------Select required patient through Global Search----------------")
-blnGlobalSearchUsingMemID = GlobalSearchUsingMemID(lngMemberID, strOutErrorDesc)
-If Not blnGlobalSearchUsingMemID Then
-	strOutErrorDesc = "Select patient through global search returned error: "&strOutErrorDesc
-	Call WriteToLog("Fail", "Expected Result: User should be able to select patient through global search; Actual Result: "&strOutErrorDesc)
-	Call Terminator
-End If
-Call WriteToLog("Pass","Successfully selected required patient through global search")
-Wait 3
+''------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+''*Validation 1==============================================Validate Medication add by providing values for all fields
+''------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+''strMedicationDetails = "yes,Hematide,4,3,2,1,GTTS,AS NEEDED,5,DT,(123)456-7890,Patient Reported,Alpine,CA,91901,Acute Abdominal Pain,Afrin Allergy Nasal Solution 0.5 %,MedicationScreen testing,Pharm1,Testing1,Med1"
+'strMedicationDetails = "yes,Hematide,4,3,2,1,GTTS,AS NEEDED,5,DT,(123)456-7890,Pharmacist Recommended,Alpine,CA,91901,Acute Abdominal Pain,Afrin Allergy Nasal Solution 0.5 %,MedicationScreen testing,Pharm1,Testing1,Med1"
+'dtWrittenDate = DateAdd("d",-1,Date)
+'dtFilledDate = DateAdd("d",-1,Date)
+'Call WriteToLog("Info","---Validate Medication add by providing values for all fields---") 
+'strAddedMedicationRx = AddMedicationWithAllDetails(strMedicationDetails,dtWrittenDate,dtFilledDate,strOutErrorDesc)	
+'If strAddedMedicationRx = "" Then
+'	Call WriteToLog("Fail","Expected Result: Should be able to add new medication by providing values to all the fields. Actual Result: Unable to add required medication. "&strOutErrorDesc)
+'	Call Terminator
+'Else
+'	Call WriteToLog("Pass","Successfully added new medication by providing values to all the fields")
+'End If
+''------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------			
+'
+''*==============================================Validate availability of newly added medication in Medication table under active medications. Select the medication for validating all entries made during mediation add
+'Call WriteToLog("Info","---Validate - Availability of newly added medication without discontinue date under active list of Medications - Should be available---") 
+''------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+''*Validation 2 - This medication should be available under Active list of Medications
+''------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
-Call waitTillLoads("Loading...")
-Wait 2
 
-'Handle navigation error if exists
-blnHandleWrongDashboardNavigation = HandleWrongDashboardNavigation(strPatientName,strOutErrorDesc)
-If not blnHandleWrongDashboardNavigation Then
-    Call WriteToLog("Fail","Unable to provide proper navigation after patient selection "&strOutErrorDesc)
-End If
-Call WriteToLog("Pass","Provided proper navigation after patient selection")
-Wait 2
 
-'Navigate to ClinicalManagement > Medications
-clickOnSubMenu_WE("Clinical Management->Medications")
-wait 5
 
-Call waitTillLoads("Loading...")
-Wait 2
 
-Call ClosePopups()
-Wait 2
+'Execute "Set objMedicationReviewMedTable = "&Environment("WT_MedicationReviewMedTable")
+'objMedicationReviewMedTable.highlight
+'
+'strRxNumber = "D011916215931"
+'Execute "Set objMedDetails = "&Environment("WE_MedScr_MedDetails")
+'strMedicationDetails = LCase(Replace(objMedDetails.GetROProperty("outertext")," ","",1,-1,1))
+'strRequiredRxNumber = "rxnumber"&LCase(Trim(strRxNumber))
+'If Instr(1,strMedicationDetails,strRequiredRxNumber,1) Then
+'	msgbox "t"
+'End If
+'Execute "Set objMedDetails = Nothing"
 
-'Check whether user landed on Medications Management screen
-Execute "Set objMedMagtitle = "&Environment("WEL_MedMagTitle")	'Medications Management screen title
-If not objMedMagtitle.Exist(3) Then
-	Call WriteToLog("Fail","Expected Result: User should be on Medications screen.  Actual Result: Unable to land on Medications screen "&Err.Description)
-	Call Terminator
-End If
-Call WriteToLog("Pass","Landed on Medications screen")
-Execute "Set objMedMagtitle = Nothing"
-wait 2
 
-'------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-'*Validation 1==============================================Validate Medication add by providing values for all fields
-'------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-'strMedicationDetails = "yes,Hematide,4,3,2,1,GTTS,AS NEEDED,5,DT,(123)456-7890,Patient Reported,Alpine,CA,91901,Acute Abdominal Pain,Afrin Allergy Nasal Solution 0.5 %,MedicationScreen testing,Pharm1,Testing1,Med1"
-strMedicationDetails = "yes,Hematide,4,3,2,1,GTTS,AS NEEDED,5,DT,(123)456-7890,Pharmacist Recommended,Alpine,CA,91901,Acute Abdominal Pain,Afrin Allergy Nasal Solution 0.5 %,MedicationScreen testing,Pharm1,Testing1,Med1"
-dtWrittenDate = DateAdd("d",-1,Date)
-dtFilledDate = DateAdd("d",-1,Date)
-Call WriteToLog("Info","---Validate Medication add by providing values for all fields---") 
-strAddedMedicationRx = AddMedicationWithAllDetails(strMedicationDetails,dtWrittenDate,dtFilledDate,strOutErrorDesc)	
-If strAddedMedicationRx = "" Then
-	Call WriteToLog("Fail","Expected Result: Should be able to add new medication by providing values to all the fields. Actual Result: Unable to add required medication. "&strOutErrorDesc)
-	Call Terminator
-Else
-	Call WriteToLog("Pass","Successfully added new medication by providing values to all the fields")
-End If
-'------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------			
-
-'*==============================================Validate availability of newly added medication in Medication table under active medications. Select the medication for validating all entries made during mediation add
-Call WriteToLog("Info","---Validate - Availability of newly added medication without discontinue date under active list of Medications - Should be available---") 
-'------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-'*Validation 2 - This medication should be available under Active list of Medications
-'------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-strValidateMedicationStatus = ValidateMedicationStatus("Active",strAddedMedicationRx,strOutErrorDesc)
+strAddedMedicationRx =  "D011916215931"
+blnSelectSpecificMedicationFromMedTable = SelectSpecificMedicationFromMedTable(strAddedMedicationRx,strOutErrorDesc)
+	strValidateMedicationStatus = ValidateMedicationStatus("Active",strAddedMedicationRx,strOutErrorDesc)
 If Instr(1,strValidateMedicationStatus,"NOT available",1) > 0 Then
 	Call WriteToLog("Fail","Newly added medication is NOT available under active list of Medications")
 	Call Terminator
@@ -1022,8 +1060,6 @@ Wait 1
 Call WriteToLog("Info","-------------Logout from application-------------")
 Call Logout()
 
-
-
 'Iteration loop
 Loop While False: Next
 wait 2
@@ -1032,92 +1068,12 @@ wait 2
 Call CloseAllBrowsers()
 Call WriteLogFooter()
 
-
 Function Terminator()
 	
 	On Error Resume Next	
-	Call WriteToLog("Fail",strOutErrorDesc)
-	
+	Logout
+	CloseAllBrowsers
+	WriteLogFooter
+	ExitAction
+
 End Function
-
-
-
-
-'-------------------------------
-
-' Validations which are performed in the script.
-
-'Validate Medication add by providing values for all fields
-'Validate - Availability of newly added medication without discontinue date under active list of Medications - Should be available
-'Validate - Availability of newly added medication without discontinue date under discontinued list of Medications - Should NOT be available
-'Validate - Availability of newly added medication without discontinue date under 'All' list of Medications - Should be available
-'Validate all entries for the newly added medication
-'Validate editing all entries for the newly added medication
-'Validate - Edited medication without discontinuing should be available under Active list of Medications
-'Validate all entries for the edited medication
-'Validation - Edit medication with discontinued date less than sys date
-'Validation - Edit medication with discontinued date less than sys date - This medication should NOT be available under Active list of Medications
-'Validation - Edit medication with discontinued date less than sys date - This medication should be available under Discontinued list of Medications
-'Validation - Add medication without mandatory field (frequency)- Should not be able to save- error message validation
-'Validation - Add medication with Written date greater than sys date-Should not be able to save- error message validation
-'Validation - Add medication with Filled date greater than sys date-Should not be able to save- error message validation
-'Validation - Add medication with Written date less than 365 days from sys date-Should not be able to save- error message validation
-'Validation - Add medication with Filled date less than 365 days from sys date-Should not be able to save- error message validation
-'Validation - Add medication without mandatory field (Label)- Should not be able to save- error message validation
-'Validation - Add medication with only mandatory fields-Should be able to save
-'Validation - Add duplicate medication-Should be able to save
-'Validation - Edit medication with discontinued greater than sys date
-'Validation - Edit medication with discontinued date greater than sys date - This medication should be available under Active list of Medications
-'Validation - Edit medication with discontinued date greater than sys date - This medication should NOT be available under Discontinued list of Medications
-'Validation - Edit medication with discontinued date equal to sys date
-'Validation - Edit medication with discontinued date equal to sys date - This medication should NOT be under Active medications
-'Validation - Edit medication with discontinued date equal to sys date - This medication should be available under Discontinued list of Medications
-'Validation - Add ESA medication without providing Dose. Should be able to save
-'Validation - Add NonESA medication with frequency other than 'SLIDE SCALE' and without providing Dose - Error popup should be available
-'Validation - Add NonESA medication with Route other than 'TP' and without providing Dose - Error popup should be available
-'Validation - Add NonESA medication with Route as 'TP' and without providing Dose - should be able to save medication
-'Validation - Add NonESA medication with frequency as 'SLIDE SCALE' and without providing Dose - should be able to save medication
-'Validation - Add medication with discontinued date less than sys date
-'Validation - Add medication with discontinued date less than sys date-This medication should NOT be available under Active list of Medications
-'Validation - Add medication with discontinued date less than sys date-This medication should be available under Discontinued list of Medications
-'Validation - For discontinued medication 'Edit' option should not be available
-'Validation - Add medication with discontinued date equal to sys date
-'Validation - Add medication with discontinued date equal to sys date-This medication should NOT be available under Active list of Medications
-'Validation - Add medication with discontinued date equal to sys date-This medication should be available under Discontinued list of Medications
-'Validation - Add medication with discontinued greater than sys date
-'Validation - Add medication with discontinued greater than sys date-This medication should be available under Active list of Medications
-'Validation - Add medication with discontinued greater than sys date-This medication should NOT be available under Discontinued list of Medications
-'Validation - Trying to add 'Medication History Not Known' while there are active medications- Error message validation
-'Validation - Add 'Medication History Not Known' discontinuing all active medications
-'Validation - Trying to add new medication when 'Medication History Not Known' is present-Error messsage validation
-'Validation - Add medication after discontinuing 'Medication History Not Known'
-'Validation - Edit ESA medication without dose - should save medication
-'Validation - Edit nonESA medication without dose and Route not as 'TP'- should not save - error msg validation
-'Validation - Edit nonESA medication without dose and Frequency not as 'SLIDING SCALE'- should not save - error msg validation
-'Validation - Edit nonESA medication without dose and Route as TP- should not save - error msg validation
-'Validation - Edit nonESA medication without dose and Frequency as 'SLIDING SCALE'- should not save - error msg validation
-'Validating Review check boxes on Medication add
-'Validating Medication Review header and order of check boxes
-'Validating Medication Review check boxes oder - Ascending
-'Validating Medication Review check boxes - Descending
-'Validating Medication Review check boxes - After completing review
-'Validating Medication Review check boxes while editing existing medication
-'Validating Medication Review check boxes while Cancelling patient medication
-'Validating Medication Review check boxes while switching screens
-'Validate Medication screening
-'Validate - Availability of Problems section
-'Validation- Delete All Allergies
-'Validate addition of Allergy
-'Validate deletion of a specfic allergy
-'Validate addition of Mediction type allergy
-'Validate deletion of a specfic Medication type allergy
-'Validate - User cannot add duplicate allergy
-'Validate - User cannot add duplicate Medication type allergy
-'Validate - User is able to add any other Allergy even if the 'Allergy History Not Known' allergy is active
-'Validate - In order to add a 'No known drug allergy record' user should first delete all the 'Known drug allergy record(s)'
-'Validate - In order to add a 'known drug allergy record' user should first delete the 'No Known drug allergy record'
-'Validate -'Add 'Medication' class allergy after deleting 'No Known drug allergy record'
-'Validation - 'Add allergy (of allergy type) without mandatory field (name) - error message validation
-'Validation - 'Add allergy (of medication type) without mandatory field (name) - error message validation
-'Validate Allergy dropdown sorting - for Allergy of Allergy type
-'Validate Allergy dropdown sorting - for Allergy of Medication type

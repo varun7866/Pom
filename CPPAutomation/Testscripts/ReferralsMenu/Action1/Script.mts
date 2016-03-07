@@ -57,7 +57,7 @@ Execute "Set objDepressionScreeningLink = "&Environment("WL_DepressionScreeningL
 Execute "Set objMaterialsLink = "&Environment("WEL_MaterialsLink") 'Meterials link
 Execute "Set objScreeningLink = "&Environment("WEL_ScreeningLink") 'Screening link
 Execute "Set objReferralsLink = "&Environment("WEL_ReferralsLink") 'Referrals link
-Execute "Set objRefHeaderInPage = "&Environment("WEL_RefHeaderInPage") 'Referrals link
+Execute "Set objRefHeaderInPage = "&Environment("WEL_RefHeaderInPage") 'Referrals page header name
 
 On Error Resume Next
 Err.Clear
@@ -144,10 +144,14 @@ Wait 1
 
 If objReferralsPageComp.Exist(5) Then
 	
-	'Navigate to  Screenings > Depression Screening
-	Call clickOnSubMenu_WE("Screenings->Depression Screening")
-	Wait 2
-	
+	'Navigate to ClinicalManagement > Medications
+	blnScreenNavigation = clickOnSubMenu_WE("Screenings->Depression Screening")
+	If not blnScreenNavigation Then
+		Call WriteToLog("Fail","Unable to navigate to Screenings > Depression screen "&strOutErrorDesc)
+		Call Terminator
+	End If
+	Call WriteToLog("Pass","Navigated to Screenings > Depression screen")
+	wait 3
 	Call waitTillLoads("Loading...")
 	Call waitTillLoads("Loading Materials...")
 	Call waitTillLoads("Loading...")
@@ -253,35 +257,35 @@ Function Terminator()
 	
 End Function
 
-Function clickOnSubMenu_WE(ByVal menu)
-
-	On Error Resume Next
-	Err.Clear	
-	Set objPage = getPageObject()
-	
-	menuArr = Split(menu,"->")
-	
-	For i = 0 To UBound(menuArr)
-		Set menuDesc = Description.Create
-		menuDesc("micclass").Value = "WebElement"
-		menuDesc("html tag").Value = "A"
-		menuDesc("innertext").Value = ".*" & trim(menuArr(i)) & ".*"
-		menuDesc("innertext").regularexpression = true
-		
-		Set objMenu = objPage.ChildObjects(menuDesc)
-		If objMenu.Count = 2 Then
-			objMenu(1).Click
-		Else
-			objMenu(0).Click
-		End If
-		
-		Set menuDesc = Nothing
-		Set objMenu = Nothing
-	Next
-	
-	Call WriteToLog("info", "Clicked on the submenu '" & Trim(menu) & "'.")
-	
-	Set objPage = Nothing
-	Err.Clear
-	
-End Function
+'Function clickOnSubMenu_WE(ByVal menu)
+'
+'	On Error Resume Next
+'	Err.Clear	
+'	Set objPage = getPageObject()
+'	
+'	menuArr = Split(menu,"->")
+'	
+'	For i = 0 To UBound(menuArr)
+'		Set menuDesc = Description.Create
+'		menuDesc("micclass").Value = "WebElement"
+'		menuDesc("html tag").Value = "A"
+'		menuDesc("innertext").Value = ".*" & trim(menuArr(i)) & ".*"
+'		menuDesc("innertext").regularexpression = true
+'		
+'		Set objMenu = objPage.ChildObjects(menuDesc)
+'		If objMenu.Count = 2 Then
+'			objMenu(1).Click
+'		Else
+'			objMenu(0).Click
+'		End If
+'		
+'		Set menuDesc = Nothing
+'		Set objMenu = Nothing
+'	Next
+'	
+'	Call WriteToLog("info", "Clicked on the submenu '" & Trim(menu) & "'.")
+'	
+'	Set objPage = Nothing
+'	Err.Clear
+'	
+'End Function

@@ -110,49 +110,49 @@ For RowNumber = 1 to intRowCout: Do
 			Wait 2	
 			'----------------
 		
-			'-------------------------------------------
-			'*Login as VHN and get the assigned VHN name
-			'-------------------------------------------
-			'Login with required role
-			Call WriteToLog("Info","----------Login as VHN and get the assigned VHN name----------")
-			blnLogin = Login("vhn")
-			If not blnLogin Then
-				Call WriteToLog("Fail","Failed to Login to 'vhn' user.")
-				Call Terminator
-			End If
-			Call WriteToLog("PASS","Successfully logged into 'vhn' user")
-			Wait 2
-			Call waitTillLoads("Loading...")
-			Wait 2	
-			
-			'Get assigned VHN name
-			strAssignedVHN = GetAssingnedUserName(lngMemberID, strOutErrorDesc)
-			If strAssignedVHN = "" Then
-				Call WriteToLog("Fail","Expected Result: User should be able to open required patient in assigned VHN user.  Actual Result: Unable to open required patient in assigned VHN user."&strOutErrorDesc)
-				Call Terminator
-			End If
-			
-			If LCase(Trim(strPatientType)) = "snp" Then			
-				Call WriteToLog("Pass","Validated assigned VHN for newly created SNP patient")	
-			ElseIf LCase(Trim(strPatientType)) = "esco" Then			
-				Call WriteToLog("Pass","Validated assigned VHN for newly created ESCO patient")
-			End If	
-		
-			Wait 2	
-			
-			strPatient = arrPatientNames(P-1)
-			strScriptOutput = "'"&strAssignedVHN &"' is the assigned VHN for "&strPatientType&" patient: '"& strPatient & "' [Member ID: "& lngMemberID & "] ----- " & NOW & vbNewLine
-			RequiredTextFilePath = strScriptPath&"\AssignedVHNs.txt"	
-			
-			Call WriteOutputToText(strScriptOutput, RequiredTextFilePath)
-		
-			'----------------
-			Call WriteToLog("Info","--------------------------------------------Logout--------------------------------------------") 
-			'log out from vhn
-			Call Logout()
-			Wait 2	
-			'----------------
-			
+'			'-------------------------------------------
+'			'*Login as VHN and get the assigned VHN name
+'			'-------------------------------------------
+'			'Login with required role
+'			Call WriteToLog("Info","----------Login as VHN and get the assigned VHN name----------")
+'			blnLogin = Login("vhn")
+'			If not blnLogin Then
+'				Call WriteToLog("Fail","Failed to Login to 'vhn' user.")
+'				Call Terminator
+'			End If
+'			Call WriteToLog("PASS","Successfully logged into 'vhn' user")
+'			Wait 2
+'			Call waitTillLoads("Loading...")
+'			Wait 2	
+'			
+'			'Get assigned VHN name
+'			strAssignedVHN = GetAssingnedUserName(lngMemberID, strOutErrorDesc)
+'			If strAssignedVHN = "" Then
+'				Call WriteToLog("Fail","Expected Result: User should be able to open required patient in assigned VHN user.  Actual Result: Unable to open required patient in assigned VHN user."&strOutErrorDesc)
+'				Call Terminator
+'			End If
+'			
+'			If LCase(Trim(strPatientType)) = "snp" Then			
+'				Call WriteToLog("Pass","Validated assigned VHN for newly created SNP patient")	
+'			ElseIf LCase(Trim(strPatientType)) = "esco" Then			
+'				Call WriteToLog("Pass","Validated assigned VHN for newly created ESCO patient")
+'			End If	
+'		
+'			Wait 2	
+'			
+'			strPatient = arrPatientNames(P-1)
+'			strScriptOutput = "'"&strAssignedVHN &"' is the assigned VHN for "&strPatientType&" patient: '"& strPatient & "' [Member ID: "& lngMemberID & "] ----- " & NOW & vbNewLine
+'			RequiredTextFilePath = strScriptPath&"\AssignedVHNs.txt"	
+'			
+'			Call WriteOutputToText(strScriptOutput, RequiredTextFilePath)
+'		
+'			'----------------
+'			Call WriteToLog("Info","--------------------------------------------Logout--------------------------------------------") 
+'			'log out from vhn
+'			Call Logout()
+'			Wait 2	
+'			'----------------
+'			
 		Next
 
 'Iteration loop
