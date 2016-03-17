@@ -1,5 +1,0 @@
-﻿<Properties>
-  <WatchEntry0 value="strEnrollmentStatus" />
-  <WatchEntry1 value="strPatientStatus" />
-  <WatchEntry2 value="Environment.Value(&quot;PROJECT_FOLDER&quot;) &amp; &quot;\Testdata\&quot; &amp; Environment.Value(&quot;TestDataFileName&quot;)" />
-</Properties>

@@ -243,11 +243,11 @@
 	</Variable>
 	<Variable>
 		<Name>WE_GloSearch</Name>
-		<Value>Browser("name:=DaVita VillageHealth Capella").Page("title:=DaVita VillageHealth Capella").WebEdit("name:=WebEdit","outerhtml:=.*global-search.*","visible:=True")</Value>
+		<Value>Browser("name:=DaVita VillageHealth Capella").Page("title:=DaVita VillageHealth Capella").WebEdit("attribute/data-capella-automation-id:=Keyword","visible:=True")</Value>
 	</Variable>
 	<Variable>
 		<Name>WI_SearchIcon</Name>
-		<Value>Browser("name:=DaVita VillageHealth Capella").Page("title:=DaVita VillageHealth Capella").Image("file name:=icon_vh_search\.png","html tag:=IMG","image type:=Plain Image","name:=Image","outerhtml:=.*Global-Patient-Search-Icon.*","src:=https://capellawebqa\.com/cpp/Resources/Icons/icon_vh_search\.png","visible:=True")</Value>
+		<Value>Browser("name:=DaVita VillageHealth Capella").Page("title:=DaVita VillageHealth Capella").WebElement("attribute/data-capella-automation-id:=Global-Patient-Search-Icon")</Value>
 	</Variable>
 	<Variable>
 		<Name>WEL_PatSeResPP</Name>
@@ -1304,7 +1304,7 @@
 	</Variable>
 	<Variable>
 		<Name>WEL_TerminatePatientWindow</Name>
-		<Value>Browser("name:=DaVita VillageHealth Capella").Page("title:=DaVita VillageHealth Capella").WebElement("class:=col-md-12 modal-header title-gradient mymodel-header ng-scope", "innertext:=.*Terminate Patient.*")</Value>
+		<Value>Browser("name:=DaVita VillageHealth Capella").Page("title:=DaVita VillageHealth Capella").WebElement("class:=col-md-12 modal-header title-gradient mymodel-header.*", "innertext:=.*Terminate Patient.*")</Value>
 	</Variable>
 	<Variable>
 		<Name>WEL_ReferralManagementTitle</Name>
@@ -1889,7 +1889,7 @@
 	</Variable>
 	<Variable>
 		<Name>WEL_RosterName</Name>
-		<Value>Browser("name:=DaVita VillageHealth Capella").Page("title:=DaVita VillageHealth Capella").WebElement("class:=middle-align","html tag:=SPAN","visible:=True")</Value>
+		<Value>Browser("name:=DaVita VillageHealth Capella").Page("title:=DaVita VillageHealth Capella").WebElement("class:=middle-align","html tag:=SPAN","visible:=True","index:=0")</Value>
 	</Variable>
 	<Variable>
 		<Name>WT_ProgramsAdded</Name>
@@ -1905,7 +1905,7 @@
 	</Variable>
 	<Variable>
 		<Name>WI_GlobalSearchIcon</Name>
-		<Value>Browser("name:=DaVita VillageHealth Capella").Page("title:=DaVita VillageHealth Capella").Image("file name:=icon_vh_search.*","html tag:=IMG","image type:=Plain Image","outerhtml:=.*Global-Patient-Search-Icon.*","visible:=True")</Value>
+		<Value>Browser("name:=DaVita VillageHealth Capella").Page("title:=DaVita VillageHealth Capella").WebElement("attribute/data-capella-automation-id:=Global-Patient-Search-Icon")</Value>
 	</Variable>
 	<Variable>
 		<Name>WB_GlobalGridCancel</Name>
@@ -2399,10 +2399,6 @@
 	<Variable>
 		<Name>WEL_ClsInterCB</Name>
 		<Value>Browser("name:=DaVita VillageHealth Capella").Page("title:=DaVita VillageHealth Capella").WebElement("class:=col-md-2 remove-padding","html tag:=DIV","innerhtml:=.*CloseIntervention.*","visible:=True")</Value>
-	</Variable>
-	<Variable>
-		<Name>WI_GlobalSearchIcon</Name>
-		<Value>Browser("name:=DaVita VillageHealth Capella").Page("title:=DaVita VillageHealth Capella").Image("file name:=icon_vh_search.*","html tag:=IMG","image type:=Plain Image","outerhtml:=.*Global-Patient-Search-Icon.*","visible:=True")</Value>
 	</Variable>
 	<Variable>
 		<Name>WEL_TechAssessmentHeader</Name>
@@ -3589,10 +3585,12 @@
 		<Value>Browser("name:=DaVita VillageHealth Capella").Page("title:=DaVita VillageHealth Capella").WebElement("html tag:=PRE","innertext:=An internal error occured due to null value\. Please contact your administrator if the problem persists\.","visible:=True")</Value>
 	</Variable>
 	<!--
-<Variable>
+    <Variable>
 		<Name>WB_Destination_Dropdown</Name>
 		<Value>Browser("name:=DaVita VillageHealth Capella").Page("title:=DaVita VillageHealth Capella").WebButton("html id:=domain","html tag:=BUTTON","innertext:=Select a Value\s*","visible:=True")</Value>
 	
+
+
 
 
 
@@ -3613,6 +3611,8 @@
 
 
 <Value>Browser("name:=DaVita 
+
+
 
 
 
@@ -3644,6 +3644,8 @@ tag:=INPUT","name:=WebEdit","outerhtml:=.*FaxAttention.*","visible:=True")</Valu
 
 
 
+
+
 </Variable>
 	
 
@@ -3651,6 +3653,8 @@ tag:=INPUT","name:=WebEdit","outerhtml:=.*FaxAttention.*","visible:=True")</Valu
 <Variable>
 		<Name>WE_FaxNumber_Textbox</Name>
 		<Value>Browser("name:=DaVita 
+
+
 
 
 
@@ -3685,10 +3689,14 @@ VillageHealth Capella").WebEdit("html tag:=INPUT","name:=WebEdit","outerhtml:=.*
 
 
 
+
+
 </Variable>
 	<Variable>
 		<Name>WE_Preview_Button</Name>
 		<Value>Browser("name:=DaVita 
+
+
 
 
 
@@ -3706,6 +3714,8 @@ VillageHealth
 
 
 Capella").Page("title:=DaVita VillageHealth Capella").WebElement("html 
+
+
 tag:=DIV","innertext:=Preview.*","visible:=True")</Value>
 	
 
@@ -3727,6 +3737,8 @@ tag:=DIV","innertext:=Preview.*","visible:=True")</Value>
 	
 	<Variable>
 		
+
+
 <Name>WE_PreviewICRReport_ScreenTitle</Name>
 		<Value>Browser("name:=DaVita 
 
@@ -3745,6 +3757,8 @@ tag:=DIV","innertext:=Preview.*","visible:=True")</Value>
 
 
 VillageHealth 
+
+
 Capella").Page("title:=DaVita VillageHealth Capella").WebElement("class:=col-md-10 
 
 
@@ -3758,6 +3772,8 @@ Capella").Page("title:=DaVita VillageHealth Capella").WebElement("class:=col-md-
 
 
 ng-binding","html 
+
+
 
 
 
@@ -3780,6 +3796,8 @@ Report.*","visible:=True")</Value>
 
 
 
+
+
 </Variable>
 	<Variable>
 		<Name>WE_SendFax_Button</Name>
@@ -3793,6 +3811,8 @@ Report.*","visible:=True")</Value>
 
 
 <Value>Browser("name:=DaVita 
+
+
 VillageHealth 
 
 
@@ -3812,6 +3832,8 @@ Capella").WebElement("class:=.*btn-success.*","html
 
 
 
+
+
 tag:=DIV","innertext:=Send 
 
 
@@ -3820,7 +3842,9 @@ tag:=DIV","innertext:=Send
 Fax.*","outertext:=Send 
 
 Fax.*","visible:=True")</Value>
-	</Variable>
+	
+
+</Variable>
 	
 
 
@@ -3840,7 +3864,9 @@ Fax.*","visible:=True")</Value>
 
 
 
-<Value>Browser("name:=DaVita VillageHealth 
+<Value>Browser("name:=DaVita 
+
+VillageHealth 
 
 
 
@@ -3858,6 +3884,8 @@ Capella").WebElement("html
 
 
 tag:=DIV","innertext:=Fax 
+
+
 
 
 
@@ -4323,4 +4351,42 @@ Report","outertext:=Fax Report","visible:=True")</Value>
 		<Name>WT_MedicationReviewMedTable</Name>
 		<Value>Browser("name:=DaVita VillageHealth Capella").Page("title:=DaVita VillageHealth Capella").WebTable("class:=k-selectable","html tag:=TABLE","cols:=10","visible:=True")</Value>
 	</Variable>
+	<!-- Objects for ESCO Fall Risk Assessment Screen -->
+	<Variable>
+		<Name>WEL_EFRA_Header</Name>
+		<Value>Browser("name:=DaVita VillageHealth Capella").Page("title:=DaVita VillageHealth Capella").WebElement("class:=row headerGrad top-header.*","html tag:=DIV","outertext:=ESCO Fall Risk Assessment ","visible:=True")</Value>
+	</Variable>
+	<Variable>
+		<Name>WEL_EFRA_Add</Name>
+		<Value>Browser("name:=DaVita VillageHealth Capella").Page("title:=DaVita VillageHealth Capella").WebElement("html tag:=DIV","innertext:=Add","outerhtml:=.*data-capella-automation-id=""fallRiskAssessmentAddBtn.*","outertext:=Add","visible:=True")</Value>
+	</Variable>
+	<Variable>
+		<Name>WE_EFRA_ScrDt</Name>
+		<Value>Browser("name:=DaVita VillageHealth Capella").Page("title:=DaVita VillageHealth Capella").WebEdit("class:=screening-date-textbox.*","html tag:=INPUT","name:=WebEdit","visible:=True")</Value>
+	</Variable>
+	<Variable>
+		<Name>WEL_EFRA_Postpone</Name>
+		<Value>Browser("name:=DaVita VillageHealth Capella").Page("title:=DaVita VillageHealth Capella").WebElement("html tag:=DIV","outerhtml:=.*data-capella-automation-id=""fallRiskAssessmentPostponeBtn.*","outertext:= Postpone","visible:=True")</Value>
+	</Variable>
+	<Variable>
+		<Name>WEL_EFRA_RiskScore</Name>
+		<Value>Browser("name:=DaVita VillageHealth Capella").Page("title:=DaVita VillageHealth Capella").WebElement("class:=col-xs-12 height-100-percent adl-score.*","html tag:=DIV","outerhtml:=.*data-capella-automation-id=""fallRiskAssessmentScore.*","visible:=True")</Value>
+	</Variable>
+	<Variable>
+		<Name>WEL_EFRA_Save</Name>
+		<Value>Browser("name:=DaVita VillageHealth Capella").Page("title:=DaVita VillageHealth Capella").WebElement("html tag:=DIV","innertext:=Save","outerhtml:=.*data-capella-automation-id=""fallRiskAssessmentSaveBtn.*","outertext:=Save","visible:=True")</Value>
+	</Variable>
+	<Variable>
+		<Name>WI_EFRA_ScrHistUpArw</Name>
+		<Value>Browser("name:=DaVita VillageHealth Capella").Page("title:=DaVita VillageHealth Capella").Image("file name:=uparrow.*","html tag:=IMG","outerhtml:=.*padding-bottom.*","image type:=Plain Image","visible:=True")</Value>
+	</Variable>
+	<Variable>
+		<Name>WT_EFRA_ScrHtryTable</Name>
+		<Value>Browser("name:=DaVita VillageHealth Capella").Page("title:=DaVita VillageHealth Capella").WebTable("class:=k-selectable","html tag:=TABLE","cols:=5","visible:=True")</Value>
+	</Variable>
+	<Variable>
+		<Name>WEL_EFRA_ScrnQuestions</Name>
+		<Value>Browser("name:=DaVita VillageHealth Capella").Page("title:=DaVita VillageHealth Capella").WebElement("attribute/data-capella-automation-id:=label-question.Text")</Value>
+	</Variable>
+	<!-- End of Objects for ESCO Fall Risk Assessment screen -->
 </Environment>

@@ -1,8 +1,8 @@
 ﻿' TestCase Name			: FluidManagement
-' Purpose of TC			: To perform Depression screening
+' Purpose of TC			: To perform Fluid Management Pathway
 ' Author                : Sudheer
-' Date					: 25-Aug-2015
-' Comments				: 
+' Date					: 02/29/2016
+' Comments				: Fluid Management uses few objects of Diabetes Pathway
 '**************************************************************************************************************************************************************************
 '***********************************************************************************************************************************************************************\
 'Initialization steps for current script
@@ -44,98 +44,89 @@ Environment.LoadFromFile orfilePath
 'End of Initialization steps for the current script
 '***********************************************************************************************************************************************************************
 '=====================================
-' Objects required for test execution
-'=====================================
-Function loadObjects()
-	
-End Function
-
-'=====================================
 'start test execution
 '=====================================
-'Call WriteToLog("info", "Test case - Login to Capella using VHN role")
-''Login to Capella as VHN
-'isPass = Login("vhn")
-'If not isPass Then
-'	Call WriteToLog("Fail","Failed to Login to VHN role.")
-'	CloseAllBrowsers
-'	killAllObjects
-'	Call WriteLogFooter()
-'	ExitAction
-'End If
-'
-'Call WriteToLog("Pass","Successfully logged into VHN role")
-'Dim isRun
-'isRun = false
-'intRowCount = DataTable.GetSheet("CurrentTestCaseData").GetRowCount
-'For RowNumber = 1 to intRowCount step 1
-'	DataTable.SetCurrentRow(RowNumber)
-'	
-'	runflag = DataTable.Value("ExecutionFlag","CurrentTestCaseData")
-'	
-'	If trim(lcase(runflag)) = "y" Then
-'		'close all open patients
-'		isRun = true
-'		isPass = CloseAllOpenPatient(strOutErrorDesc)
-'		If Not isPass Then
-'			strOutErrorDesc = "CloseAllOpenPatient returned error: " & strOutErrorDesc
-'			Call WriteToLog("Fail", strOutErrorDesc)
-'			Logout
-'			CloseAllBrowsers
-'			Call WriteLogFooter()
-'			ExitAction
-'		End If
-'	
-'		strMemberID = DataTable.Value("MemberID","CurrentTestCaseData")
-'		isPass = selectPatientFromGlobalSearch(strMemberID)
-'		If Not isPass Then
-'			strOutErrorDesc = "CloseAllOpenPatient returned error: "&strOutErrorDesc
-'			Call WriteToLog("Fail", strOutErrorDesc)
-'			Logout
-'			CloseAllBrowsers
-'			Call WriteLogFooter()
-'			ExitAction
-'		End If
-'		
-'		'wait till the member loads
-'		wait 2
-'		waitTillLoads "Loading..."
-'		wait 2
-'		
-'		Call WriteToLog("info", "Test Case - Depression Screening for the member id - " & strMemberID)
+Call WriteToLog("info", "Test case - Login to Capella using VHN role")
+'Login to Capella as VHN
+isPass = Login("vhn")
+If not isPass Then
+	Call WriteToLog("Fail","Failed to Login to VHN role.")
+	CloseAllBrowsers
+	Call WriteLogFooter()
+	ExitAction
+End If
+
+Call WriteToLog("Pass","Successfully logged into VHN role")
+Dim isRun
+isRun = false
+intRowCount = DataTable.GetSheet("CurrentTestCaseData").GetRowCount
+For RowNumber = 1 to intRowCount step 1
+	DataTable.SetCurrentRow(RowNumber)
+	
+	runflag = DataTable.Value("ExecutionFlag","CurrentTestCaseData")
+	
+	If trim(lcase(runflag)) = "y" Then
+		'close all open patients
+		isRun = true
+		isPass = CloseAllOpenPatient(strOutErrorDesc)
+		If Not isPass Then
+			strOutErrorDesc = "CloseAllOpenPatient returned error: " & strOutErrorDesc
+			Call WriteToLog("Fail", strOutErrorDesc)
+			Logout
+			CloseAllBrowsers
+			Call WriteLogFooter()
+			ExitAction
+		End If
+	
+		strMemberID = DataTable.Value("MemberID","CurrentTestCaseData")
+		isPass = selectPatientFromGlobalSearch(strMemberID)
+		If Not isPass Then
+			strOutErrorDesc = "CloseAllOpenPatient returned error: "&strOutErrorDesc
+			Call WriteToLog("Fail", strOutErrorDesc)
+			Logout
+			CloseAllBrowsers
+			Call WriteLogFooter()
+			ExitAction
+		End If
+		
+		'wait till the member loads
+		wait 2
+		waitTillLoads "Loading..."
+		wait 2
+		
+		Call WriteToLog("info", "Test Case - Depression Screening for the member id - " & strMemberID)
 		
 		isPass = fluidManagement()
-'		If not isPass Then
-'			clickOnSubMenu "Patient Snapshot"
-'
-'			wait 2
-'			waitTillLoads "Loading..."
-'			wait 2
-'			
-'			isPass = checkForPopup("Depression Screening", "Yes", "Your current changes will be lost. Do you want to continue ?", strOutErrorDesc)
-'			If not isPass Then
-'				Call WriteToLog("Fail", "Expected Message box does not appear.")
-'			End If
-'		
-'			
-'			wait 2
-'			waitTillLoads "Loading..."
-'			wait 2
-'		End If
-'		If Not isPass Then
-'			Call WriteToLog("Fail", "Depression Screening failed for the member - " & strMemberID)
-'		End If
-'	End If	
-'Next
-'
-'If not isRun Then
-'	Call WriteToLog("info", "There are NO rows marked Y(Yes) for execution.")
-'End If
-'
-'killAllObjects
-'Logout
-'CloseAllBrowsers
-'WriteLogFooter
+		If not isPass Then
+			clickOnSubMenu "Patient Snapshot"
+
+			wait 2
+			waitTillLoads "Loading..."
+			wait 2
+			
+			isPass = checkForPopup("Depression Screening", "Yes", "Your current changes will be lost. Do you want to continue ?", strOutErrorDesc)
+			If not isPass Then
+				Call WriteToLog("Fail", "Expected Message box does not appear.")
+			End If
+		
+			
+			wait 2
+			waitTillLoads "Loading..."
+			wait 2
+		End If
+		If Not isPass Then
+			Call WriteToLog("Fail", "Depression Screening failed for the member - " & strMemberID)
+		End If
+	End If	
+Next
+
+If not isRun Then
+	Call WriteToLog("info", "There are NO rows marked Y(Yes) for execution.")
+End If
+
+Logout
+CloseAllBrowsers
+WriteLogFooter
 
 Function fluidManagement()
 	On Error Resume Next
@@ -355,9 +346,9 @@ Function fluidManagement()
 			dbQuestion = getSurveyQuestionText(58, i + 1)
 			
 			If trim(dbQuestion) = trim(uiQuestion) Then
-				Call WriteToLog("Pass","Question no. " & i + 1 & " of Diabetes Pathway exists and is - " & uiQuestion)
+				Call WriteToLog("Pass","Question no. " & i + 1 & " of Fluid Management Pathway exists and is - " & uiQuestion)
 			Else
-				Call WriteToLog("Fail","Question no. " & i + 1 & " of Diabetes Pathway is not as required - " & uiQuestion & ". Required Question - " & dbQuestion)
+				Call WriteToLog("Fail","Question no. " & i + 1 & " of Fluid Management Pathway is not as required - " & uiQuestion & ". Required Question - " & dbQuestion)
 			End If		
 		Next
 	Else
@@ -365,9 +356,9 @@ Function fluidManagement()
 			uiQuestion = Trim(objQuestions(i).GetROProperty("innertext"))
 			
 			If uiQuestion <> "" Then
-				Call WriteToLog("Pass","Question no. " & i + 1 & " of Diabetes Pathway exists and is - " & uiQuestion)
+				Call WriteToLog("Pass","Question no. " & i + 1 & " of Fluid Management Pathway exists and is - " & uiQuestion)
 			Else
-				Call WriteToLog("Fail","Question no. " & i + 1 & " of Diabetes Pathway is not as required - " & uiQuestion)
+				Call WriteToLog("Fail","Question no. " & i + 1 & " of Fluid Management Pathway is not as required - " & uiQuestion)
 			End If		
 		Next
 	End If
