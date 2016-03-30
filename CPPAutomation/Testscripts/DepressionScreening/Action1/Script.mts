@@ -117,6 +117,8 @@ For RowNumber = 1 to intRowCount step 1
 		
 		isPass = depressionScreening()
 		If not isPass Then
+			Call WriteToLog("Fail", "Depression Screening failed for the member - " & strMemberID)
+			
 			clickOnSubMenu "Patient Snapshot"
 
 			wait 2
@@ -132,9 +134,6 @@ For RowNumber = 1 to intRowCount step 1
 			wait 2
 			waitTillLoads "Loading..."
 			wait 2
-		End If
-		If Not isPass Then
-			Call WriteToLog("Fail", "Depression Screening failed for the member - " & strMemberID)
 		End If
 	End If	
 Next

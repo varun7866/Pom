@@ -94,28 +94,26 @@ For RowNumber = 1 to intRowCount step 1
 		waitTillLoads "Loading..."
 		wait 2
 		
-		Call WriteToLog("info", "Test Case - Depression Screening for the member id - " & strMemberID)
+		Call WriteToLog("info", "Test Case - Fluid Management Pathway for the member id - " & strMemberID)
 		
 		isPass = fluidManagement()
 		If not isPass Then
+			Call WriteToLog("Fail", "Fluid Management Pathway failed for the member - " & strMemberID)
+			
 			clickOnSubMenu "Patient Snapshot"
 
 			wait 2
 			waitTillLoads "Loading..."
 			wait 2
 			
-			isPass = checkForPopup("Depression Screening", "Yes", "Your current changes will be lost. Do you want to continue ?", strOutErrorDesc)
+			isPass = checkForPopup("Fluid Management", "Yes", "Your current changes will be lost. Do you want to continue ?", strOutErrorDesc)
 			If not isPass Then
 				Call WriteToLog("Fail", "Expected Message box does not appear.")
 			End If
-		
 			
 			wait 2
 			waitTillLoads "Loading..."
 			wait 2
-		End If
-		If Not isPass Then
-			Call WriteToLog("Fail", "Depression Screening failed for the member - " & strMemberID)
 		End If
 	End If	
 Next

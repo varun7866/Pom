@@ -549,7 +549,7 @@ Function ADLScreening(strOutErrorDesc)
 			If objADLScreeningAddButton.Exist(3) and objCalenderDisable.Exist(3) and not objADLScreeningSaveButton.Exist(3) and not objADLScreeningPostponeButton.Exist(3) Then
 				Call WriteToLog("Pass","Add button is enabled. Save button, Screening Date and Postpone button are disabled")
 			Else
-				Call WriteToLog("Fail","Add button is enabled. Save button, Screening Date and Postpone button are disabled")
+				Call WriteToLog("Fail","Add button is disabled. Save button, Screening Date and Postpone button are enabled")
 			End If
 			
 			'====================================================================
@@ -764,9 +764,9 @@ Function ADLScreening_ValidateHistory(Byval dtScreeningCompletedDate, Byval dtSc
 	'=========================
 	'Objects Initialization
 	'=========================
-	Execute "Set objDS_ScrHistUpArw = "  &Environment.Value("Img_ADLSCreening_HistoryUpArrow") 'ADL screening History tab up arrow
+	Execute "Set objDS_ScrHistUpArw = "  &Environment.Value("WEL_ADLSCreening_HistoryUpArrow") 'ADL screening History tab up arrow
 	Execute "Set objDS_ScrHtryTable= "  &Environment.Value("WT_ADLSCreening_HistoryTable") 'ADL Screening History table
-	Execute "Set objDS_ScrHistDnArw= "  &Environment.Value("Img_ADLSCreening_HistoryDwnArrow") 'ADL screening History tab down arrow
+	Execute "Set objDS_ScrHistDnArw= "  &Environment.Value("WEL_ADLSCreening_HistoryDwnArrow") 'ADL screening History tab down arrow
 	
 	
 	'Set objDS_ScrHistUpArw = Browser("name:=DaVita VillageHealth Capella").Page("title:=DaVita VillageHealth Capella").Image("file name:=uparrow.*","html tag:=IMG","outerhtml:=.*padding-bottom.*","image type:=Plain Image","visible:=True")
