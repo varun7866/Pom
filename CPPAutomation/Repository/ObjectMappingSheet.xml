@@ -3589,8 +3589,10 @@
 		<Name>WB_Destination_Dropdown</Name>
 		<Value>Browser("name:=DaVita VillageHealth Capella").Page("title:=DaVita 
 
+
 VillageHealth Capella").WebButton("html id:=domain","html tag:=BUTTON","innertext:=Select a Value\s*","visible:=True")</Value>
 	
+
 
 
 
@@ -3615,6 +3617,7 @@ VillageHealth Capella").WebButton("html id:=domain","html tag:=BUTTON","innertex
 
 
 <Value>Browser("name:=DaVita 
+
 
 
 
@@ -3654,6 +3657,7 @@ tag:=INPUT","name:=WebEdit","outerhtml:=.*FaxAttention.*","visible:=True")</Valu
 
 
 
+
 </Variable>
 	
 
@@ -3661,6 +3665,7 @@ tag:=INPUT","name:=WebEdit","outerhtml:=.*FaxAttention.*","visible:=True")</Valu
 <Variable>
 		<Name>WE_FaxNumber_Textbox</Name>
 		<Value>Browser("name:=DaVita 
+
 
 
 
@@ -3682,6 +3687,7 @@ Capella").Page("title:=DaVita
 
 
 VillageHealth Capella").WebEdit("html 
+
 
 tag:=INPUT","name:=WebEdit","outerhtml:=.*FaxNumber.*","visible:=True")</Value>
 	
@@ -3706,6 +3712,7 @@ tag:=INPUT","name:=WebEdit","outerhtml:=.*FaxNumber.*","visible:=True")</Value>
 </Variable>
 	
 
+
 <Variable>
 		<Name>WE_Preview_Button</Name>
 		<Value>Browser("name:=DaVita 
@@ -3729,11 +3736,13 @@ VillageHealth
 
 Capella").Page("title:=DaVita 
 
+
 VillageHealth Capella").WebElement("html 
 
 
 tag:=DIV","innertext:=Preview.*","visible:=True")</Value>
 	
+
 
 
 
@@ -3776,10 +3785,12 @@ tag:=DIV","innertext:=Preview.*","visible:=True")</Value>
 
 
 
+
 VillageHealth 
 
 
 Capella").Page("title:=DaVita VillageHealth Capella").WebElement("class:=col-md-10 
+
 
 
 
@@ -3801,6 +3812,7 @@ ng-binding","html
 
 
 tag:=DIV","innertext:=Integrated Care Report.*","outertext:=Integrated 
+
 
 
 
@@ -3836,6 +3848,7 @@ Report.*","visible:=True")</Value>
 
 
 
+
 <Value>Browser("name:=DaVita 
 
 
@@ -3847,6 +3860,7 @@ VillageHealth
 
 
 Capella").Page("title:=DaVita VillageHealth 
+
 
 
 
@@ -3868,6 +3882,7 @@ tag:=DIV","innertext:=Send
 
 
 Fax.*","outertext:=Send 
+
 
 
 
@@ -3896,6 +3911,7 @@ Fax.*","visible:=True")</Value>
 
 
 
+
 <Value>Browser("name:=DaVita 
 
 VillageHealth 
@@ -3909,6 +3925,7 @@ VillageHealth
 
 Capella").Page("title:=DaVita 
 VillageHealth 
+
 
 
 
@@ -3930,6 +3947,7 @@ tag:=DIV","innertext:=Fax
 
 Report","outertext:=Fax Report","visible:=True")</Value>
 	
+
 
 
 
@@ -4425,4 +4443,46 @@ Report","outertext:=Fax Report","visible:=True")</Value>
 		<Value>Browser("name:=DaVita VillageHealth Capella").Page("title:=DaVita VillageHealth Capella").WebElement("attribute/data-capella-automation-id:=label-question.Text")</Value>
 	</Variable>
 	<!-- End of Objects for ESCO Fall Risk Assessment screen -->
+	<!-- Objects for Snippets screen -->
+	<Variable>
+		<Name>WEL_Snippet_MySnippets</Name>
+		<Value>Browser("name:=DaVita VillageHealth Capella").Page("title:=DaVita VillageHealth Capella").WebElement("innertext:=My Snippets", "html tag:=SPAN")</Value>
+	</Variable>
+	<Variable>
+		<Name>WB_Snippet_EditButton</Name>
+		<Value>Browser("name:=DaVita VillageHealth Capella").Page("title:=DaVita VillageHealth Capella").WebButton("html id:=Recap_Snippet_Edit_Button")</Value>
+	</Variable>
+	<Variable>
+		<Name>WB_Snippet_DoneButton</Name>
+		<Value>Browser("name:=DaVita VillageHealth Capella").Page("title:=DaVita VillageHealth Capella").WebButton("html id:=Recap_Snippet_Done_Button")</Value>
+	</Variable>
+	<Variable>
+		<Name>WB_Snippet_CreateSnippetButton</Name>
+		<Value>Browser("name:=DaVita VillageHealth Capella").Page("title:=DaVita VillageHealth Capella").WebButton("html id:=Recap_Snippet_Create_Button")</Value>
+	</Variable>
+	<Variable>
+		<Name>WE_Snippet_NewSnippet</Name>
+		<Value>Browser("name:=DaVita VillageHealth Capella").Page("title:=DaVita VillageHealth Capella").WebEdit("html id:=Recap_NewSnippet_New_TextArea")</Value>
+	</Variable>
+	<Variable>
+		<Name>WB_Snippet_NewSnippet_Save</Name>
+		<Value>Browser("name:=DaVita VillageHealth Capella").Page("title:=DaVita VillageHealth Capella").WebButton("html id:=Recap_NewSnippet_Save_Button")</Value>
+	</Variable>
+	<Variable>
+		<Name>WB_Snippet_NewSnippet_Cancel</Name>
+		<Value>Browser("name:=DaVita VillageHealth Capella").Page("title:=DaVita VillageHealth Capella").WebButton("html id:=Recap_NewSnippet_Cancel_Button")</Value>
+	</Variable>
+	<Variable>
+		<Name>WEL_Snippet_Snippet_TextArea</Name>
+		<Value>Browser("name:=DaVita VillageHealth Capella").Page("title:=DaVita VillageHealth Capella").WebEdit("html id:=Recap_Snippet_SnippetText_.*")</Value>
+	</Variable>
+	<Variable>
+		<Name>WEL_Contact_TextArea</Name>
+		<Value>Browser("name:=DaVita VillageHealth Capella").Page("title:=DaVita VillageHealth Capella").WebEdit("attribute/data-capella-automation-id:=recapNoteContactNotes.NoteDetail_0_0")</Value>
+	</Variable>
+	<Variable>
+		<Name>WEL_Recap_DraggableSnippet</Name>
+		<Value>Browser("name:=DaVita VillageHealth Capella").Page("title:=DaVita VillageHealth Capella").WebElement("html id:=Recap_Snippet_SnippetText_Draggable")</Value>
+	</Variable>
+	<!-- End of Objects for Snippets screen -->
 </Environment>
