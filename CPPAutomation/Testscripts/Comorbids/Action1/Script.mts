@@ -67,7 +67,7 @@ Environment.LoadFromFile orfilePath
 '=====================================
 ' Objects required for test execution
 '=====================================
- Execute "Set objComorbidHistoryExpandIcon = "  &Environment("WI_ComorbidHistoryExpand_Icon")
+ Execute "Set objComorbidHistoryExpandIcon = "  &Environment("WEL_ComorbidHistoryHeader")
  Execute "Set objComorbidHistoryTableHeader = "  &Environment("WT_ComorbidHistoryTableHeader")
  Execute "Set objAscendingOrderIcon = "  &Environment("WEL_TableAscendingOrder_Icon")
  Execute "Set objComplaintsAddButton = " & Environment("WB_Comorbid_Complaints_AddButton")
@@ -75,7 +75,7 @@ Environment.LoadFromFile orfilePath
  Execute "Set objComplaintsHistory =" & Environment("WEL_Comorbid_ComplaintsHistory")
  Execute "Set objComplaintHistoryTable =" & Environment("WEL_Comorbid_ComplaintsHistoryTable")
  Execute "Set objEditComplaintIcon = " & Environment("WI_Comorbid_EditIcon")
- Execute "Set objDeleteComplaintIcon = " & Environment("WI_Comorbid_DeleteIcon")
+ Execute "Set objDeleteComplaintIcon = " & Environment("WEL_Comorbid_DeleteIcon")
  Execute "Set objComorbidGroup = " & Environment("WE_ComorbidGroup")
  Execute "Set objComorbidListTable = " & Environment("WB_ComorbidListTable")
 
@@ -356,6 +356,7 @@ For i = 0 To objExpandActiveComplaintsIcon.Count -1  Step 1
 		'===============================================================
 		'Verify that edit complaints icon exist and clicked successfully
 		'===============================================================
+		Execute "Set objEditComplaintIcon = " & Environment("WI_Comorbid_EditIcon")
 		If CheckObjectExistence(objEditComplaintIcon,intWaitTime/2) Then
 			Call WriteToLog("Pass",i+1&" Edit complaints icon exist")
 			
@@ -378,6 +379,7 @@ For i = 0 To objExpandActiveComplaintsIcon.Count -1  Step 1
 			Call WriteLogFooter()
 			ExitAction	
 		End If
+		Execute "Set objEditComplaintIcon = Nothing"
 	Else
 		Call WriteToLog("Fail","Complaint expand icon does not exist")
 		Logout
@@ -438,10 +440,11 @@ Next
 '=====================
 'Click on save button
 '=====================
-Set objSaveButton = GetChildObject("html tag;outerhtml","IMG;.*Complaints List.*")
-'Set objSaveButton = GetChildObject("micclass;title","Image;Save Complaint")
+'Set objSaveButton = GetChildObject("html tag;outerhtml","IMG;.*Complaints List.*")
+Set objSaveButton = GetChildObject("attribute/data-capella-automation-id","Complaints List_Save_Img.*")
 For i = 0 To objSaveButton.Count - 1 Step 1
 	If objSaveButton(i).Exist(10) Then
+		objSaveButton(i).highlight
 		objSaveButton(i).Click
 		Wait 1
 	Else
@@ -490,7 +493,7 @@ End If
 			End If
 			
 			'Delete complaints icon exist and clicked successfully
-			Set objDeleteComplaintIcon = GetChildObject("micclass;class;file name;html tag","Image;.*complainListIcons.*;icon_vh_closeSmall\.png;IMG")
+			Set objDeleteComplaintIcon = GetChildObject("attribute/data-capella-automation-id","Complaints List_Delete_Img_.*")
 			blnReturnValue = objDeleteComplaintIcon(0).Exist
 			If blnReturnValue Then
 				Call WriteToLog("Pass","Delete complaints icon exist")	
@@ -1039,7 +1042,15 @@ wait 2
 waitTillLoads "Loading..."
 wait 2
 
-x = objPage.WebElement("class:=ng-binding.*", "html tag:=SPAN", "outertext:=None.*").GetROProperty("outertext")
+Set oObj = getPageObject().WebElement("class:=ic-grp.*")
+oObj.highlight
+
+Set oDesc = Description.Create
+oDesc("micclass").Value = "WebElement"
+oDesc("html tag").Value = "SPAN"
+Set oChild = oObj.ChildObjects(oDesc)
+x = oChild(1).GetROProperty("outertext")
+
 If len(x) > 5 Then
 	revDate = mid(x, 5)
 	Call writeToLog("Pass","Comorbid review is done on " & revDate)

@@ -55,8 +55,6 @@ Environment.LoadFromFile orfilePath
 'Variable Initialization
 strPatientName = DataTable.Value("PatientName","CurrentTestCaseData") 			'Fetch patient name from test data
 
-
-
 '#################################################	Start: Test Case Execution	#################################################
 '==========================================================================================================
 'Login to Capella, verify the successful loading of the dashboard page and verify My Patient Census widget
@@ -546,7 +544,7 @@ Function ADLScreening(strOutErrorDesc)
 			Execute "Set objADLScreeningPostponeButton= "  &Environment.Value("WEL_ADLScreening_PostponeButton") 'ADL screening screen postpone button
 			Execute "Set objCalenderDisable= "  &Environment.Value("WI_ADLScreening_CalenderIcon_Disable") 'Disable Calender icon
 			
-			If objADLScreeningAddButton.Exist(3) and objCalenderDisable.Exist(3) and not objADLScreeningSaveButton.Exist(3) and not objADLScreeningPostponeButton.Exist(3) Then
+			If objADLScreeningAddButton.Exist(3) and not objADLScreeningSaveButton.Exist(3) and not objADLScreeningPostponeButton.Exist(3) Then
 				Call WriteToLog("Pass","Add button is enabled. Save button, Screening Date and Postpone button are disabled")
 			Else
 				Call WriteToLog("Fail","Add button is disabled. Save button, Screening Date and Postpone button are enabled")
@@ -693,7 +691,7 @@ Function ADLScreening(strOutErrorDesc)
 				
 				Set objAnswerSelectedGreen = GetChildObject("micclass;outerhtml;html tag","WebElement;.*radio-button-ADL-1 acp-radio.*;DIV")
 				
-				If intADLScreeningScore = (objAnswerSelectedGreen.Count/3) Then
+				If Cint(intADLScreeningScore) = Cint((objAnswerSelectedGreen.Count/3)) Then
 					Call WriteToLog("Pass","ADL score is same as number of green color boxes in screening")
 				Else
 					Call WriteToLog("Fail","ADL score is not same as number of green color boxes in screening")	

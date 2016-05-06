@@ -333,7 +333,6 @@ Function painAssessmentScreening()
 		Call WriteToLog("Fail","No radio buttons/questions present on the screening page")
 		Exit Function
 	End If
-	Print objRadioOptions.Count
 	
 	'=======================================
 	'Verify the postpone functionality
@@ -367,7 +366,7 @@ Function painAssessmentScreening()
 			End If
 			
 			'navigate to other screen and come back to verify if same options are checked.
-			clickOnMainMenu "PatientSnapshot"
+			clickOnMainMenu "Patient Snapshot"
 			wait 2
 			waitTillLoads "Loading..."
 			wait 1
@@ -396,7 +395,6 @@ Function painAssessmentScreening()
 			
 			Set objObject = objRadioOptions(0).ChildObjects(oDesc)
 			classProp = objObject(0).getROProperty("class")
-			Print classProp
 			
 			Call WriteToLog("Pass", "Postpone functionality working correctly")
 		End If
@@ -491,6 +489,8 @@ Function painAssessmentScreening()
 	'========================
 	'Now Click on Save button
 	'=========================
+	wait 2
+	Execute "Set objPainAssessmentScreeningSaveButton= " & Environment("WB_PainAssessmentScreen_SaveButton") 'PainAssessment screening screen Save button
 	blnReturnValue = ClickButton("Save",objPainAssessmentScreeningSaveButton,strOutErrorDesc)
 	Wait intWaitTime/2
 	If not blnReturnValue Then
@@ -541,38 +541,34 @@ Function validateScreeningHistory()
 '	On Error Resume Next
 '	Err.Clear
 	Dim columnHeaders
-	columnHeaders = "Completed Date;Score;Screening Level;Level Comments;"
-	Set objScreeningHistoryTab = Browser("name:=DaVita VillageHealth Capella").Page("title:=DaVita VillageHealth Capella").WebElement("outertext:=.*Screening History.*","html tag:=DIV","visible:=True", "class:=col-xs-12 heading")
+	columnHeaders = "Screening Date;Score;Screening Level;Level Comments;"
+	Execute "Set objScreeningHistoryTab = " & Environment("WB_PainAssessmentScreen_HistoryAccordian")
 	objScreeningHistoryTab.Click
 	Set objScreeningHistoryTab = Nothing
 	wait 2
 	
-	Set objHistoryPanel = Browser("name:=DaVita VillageHealth Capella").Page("title:=DaVita VillageHealth Capella").WebElement("html id:=adl-screening", "html tag:=DIV")
+	Execute "Set objHistoryPanel = " & Environment("WB_PainAssessmentScreen_HistoryPanel")
 	objHistoryPanel.highlight
 	
 	Set tableDesc = Description.Create
 	tableDesc("micclass").Value = "WebTable"
 	
 	Set objTables = objHistoryPanel.ChildObjects(tableDesc)
-	Print objTables.Count
 	
 	Set objTableHeader = objTables(0)
 	objTableHeader.highlight
 	
 	columnNames = objTableHeader.GetROProperty("column names")
-	Print columnNames
 	If columnHeaders = trim(columnNames) Then
-		Print "Pass"
+		Call WriteToLog("Pass", "Column Headers in History are as expected - " & columnNames)
 	Else 
-		Print "Fail"
+		Call WriteToLog("Fail", "Column Headers in History are NOT as expected - " & columnNames)
 	End If
 	
 	Set objTable = objTables(1)
 	
-	Print objTable.RowCount
-	
 	If objTable.RowCount = 0 Then
-		Print "No screening history found."
+		Call WriteToLog("Fail", "No screening history found.")
 		Exit Function
 	End If
 	
@@ -580,11 +576,10 @@ Function validateScreeningHistory()
 	For row = 1 To objTable.RowCount
 		For col = 1 To colCount
 			x = objTable.GetCellData(row, col)
-			Print x
 		Next
 	Next
 	
-	Set objScreeningHistoryTab = Browser("name:=DaVita VillageHealth Capella").Page("title:=DaVita VillageHealth Capella").WebElement("outertext:=.*Screening History.*","html tag:=DIV","visible:=True", "class:=col-xs-12 heading")
+	Execute "Set objScreeningHistoryTab = " & Environment("WB_PainAssessmentScreen_HistoryAccordian")
 	objScreeningHistoryTab.Click
 	Set objScreeningHistoryTab = Nothing
 	

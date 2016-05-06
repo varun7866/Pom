@@ -574,7 +574,7 @@ Function cognitive_ValidateHistory(Byval dtScreeningCompletedDate, ByVal message
 	strOutErrorDesc = ""
 	cognitive_ValidateHistory = False
 	
-	Execute "Set objDS_ScrHistUpArw = " & Environment("Im_HistoryUpArrow")
+	Execute "Set objDS_ScrHistUpArw = " & Environment("WEL_HistoryUpArrow")
 	
 	'click on screening history expand arrow icon
 	Err.Clear
@@ -650,7 +650,7 @@ Function cognitive_ValidateHistory(Byval dtScreeningCompletedDate, ByVal message
 		
 	cognitive_ValidateHistory = True
 	
-	Execute "Set objDS_ScrHistDnArw = " & Environment("Im_HistoryDownArrow")
+	Execute "Set objDS_ScrHistDnArw = " & Environment("WEL_HistoryDownArrow")
 	objDS_ScrHistDnArw.Click
 	
 	wait 2

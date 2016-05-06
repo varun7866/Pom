@@ -801,10 +801,10 @@ Call WriteToLog("Info","==========Testcase - Verify the Order placed is updated 
 'TestCase - Verify the Order placed is updated under Materials Fulfillment History
 '======================================================================================
 'after the HF 11/18 fix, kendo upgrade, the history screen is not automatically loaded. so these changes
-Set objPage = getPageObject()
-Set upArrow = objPage.Image("file name:=arrow-up.png","html tag:=IMG")
-
-upArrow.Click
+'Set objPage = getPageObject()
+'Set upArrow = objPage.Image("file name:=arrow-up.png","html tag:=IMG")
+'
+'upArrow.Click
 
 wait 2
 waitTillLoads "Loading..."

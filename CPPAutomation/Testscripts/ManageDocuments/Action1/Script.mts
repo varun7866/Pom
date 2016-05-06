@@ -454,7 +454,6 @@ Function ManageDocuments()
 	Dim diseaseState
 	while not objDBRecordSet.EOF
 		diseaseState = objDBRecordSet("PCMB_CMBD_CODE")
-		Print diseaseState
 		objDBRecordSet.MoveNext
 	Wend
 	
@@ -550,7 +549,7 @@ Function ManageDocuments()
 	    Call WriteToLog("Fail","UploadManageDocuments returned error for PNG File: "&strOutErrorDesc)
 	    Exit Function        
 	End If
-	
+	wait 2
 	'=========================================================================================
 	'Verify that after attaching the document grid successfully contains the document details
 	'=========================================================================================
@@ -574,7 +573,6 @@ Function ManageDocuments()
 				Dim expirationDate
 				expirationDate = objManageDocumentDataGrid.ChildItem(i, 8, "WebElement", 0).GetROProperty("innertext")
 				strExpirationDate = CDate(strSignatureDate) + 365
-				Print "Expiration Date :: " & strExpirationDate
 				If strComp(trim(expirationDate), strExpirationDate, 1) = 0 Then
 					Call WriteToLog("Pass", "Expiration date for the document type '" & docType & "' is " & expirationDate & " is as expected.")
 				Else
@@ -596,7 +594,7 @@ Function ManageDocuments()
 			Execute "Set objViewDocumentClose = " &Environment("IMG_ViewDocumentClose")
 			Err.Clear
 			'Open the document
-			objManageDocumentDataGrid.ChildItem(i,2,"Image",0).Click
+			objManageDocumentDataGrid.ChildItem(i,2,"WebElement",0).Click
 			If Err.Number<>0 Then
 				Call WriteToLog("Fail","Unable to click on the uploaded document" &Err.Description)
 				Exit Function

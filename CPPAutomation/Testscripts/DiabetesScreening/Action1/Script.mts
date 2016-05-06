@@ -478,10 +478,8 @@ Function validateInHistory(ByVal reqType, ByVal results, ByVal reqDate)
 			'validate given value in history
 			If trim(tabResults) = results Then
 				Call WriteToLog("Pass", "The type '" & reqType & "' for the date '" & reqDate & "' with the results '" & results & "' is updated in history.")
-				Print "The type '" & reqType & "' for the date '" & reqDate & "' with the results '" & results & "' is updated in history."
 			Else
 				Call WriteToLog("Fail", "The type '" & reqType & "' for the date '" & reqDate & "' with the results '" & results & "' is NOT updated in history.")
-				Print "The type '" & reqType & "' for the date '" & reqDate & "' with the results '" & results & "' is NOT updated in history."
 			End If
 			
 			Exit For

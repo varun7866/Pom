@@ -402,7 +402,7 @@ Function depressionScreening()
 	
 	Execute "Set objDepressionScreeningDate = " & Environment("WE_DepressionScreening_ScreeningDate")
 	screeningDate = objDepressionScreeningDate.getroproperty("value")
-	Print screeningDate
+
 	'click on save button
 	blnReturnValue = ClickButton("Save",objDepressionScreeningSaveButton,strOutErrorDesc)
 	Wait intWaitTime/2
@@ -604,98 +604,6 @@ Function depressionScreening()
 		Call WriteToLog("Fail","Current screening score is not a Numeric value. Actual value is: " & intScore)
 		Exit Function
 	End If
-
-	'new skip to logic story B-06326
-'	Call WriteToLog("info", "Test Case - verify skip-to logic for story B-06326")
-'	killAllObjects
-'	loadObjects
-'	
-'	'====================================================
-'	'Click on Add button to enable new screening activity
-'	'====================================================
-'	blnReturnValue = ClickButton("Add",objDepressionScreeningAddButton,strOutErrorDesc)
-'	Wait intWaitTime/2
-'	If not blnReturnValue Then
-'		Call WriteToLog("Fail","ClickButton return: "&strOutErrorDesc)
-'		Exit Function
-'	End If
-'	
-'	wait 2
-'	waitTillLoads "Loading..."
-'	wait 2
-'	
-'	'================================================================
-'	'Verify the number of radio button on Depresion screening screen
-'	'================================================================
-'	Set objRadioOptions = GetChildObject("micclass;html tag;cols","WebTable;TABLE;3")
-'	objRadioOptions(2).ChildItem(1,1,"WebElement",0).Click
-'	objRadioOptions(5).ChildItem(1,1,"WebElement",0).Click
-'	objRadioOptions(8).ChildItem(1,1,"WebElement",0).Click
-'	
-'	quest = 4
-'	optionCount = 1
-'	For i  = 10 To objRadioOptions.Count-6 Step 1
-'		Err.Clear
-'		if not objRadioOptions(i).ChildItem(1,1,"WebElement",0).Object.isDisabled then
-''			Call WriteToLog("Fail", "Question " & quest & "- Option " & optionNo & " is enabled. It should be disabled.")
-'			Print "Question " & quest & "- Option " & optionCount & " is enabled. It should be disabled."
-'		End If
-'		If quest <= 10 and optionCount = 4  Then
-'			optionCount = 0
-'			quest = quest + 1
-'		ElseIf quest > 10 and optionCount = 3 Then
-'			optionCount = 0
-'			quest = quest + 1
-'		End If
-'		optionCount = optionCount + 1
-'		wait intWaitTime/10
-'	Next
-'	
-'	'========================
-'	'Now verify if save button is enabled and Click on Save button 
-'	'=========================
-'	blnReturnValue = objDepressionScreeningSaveButton.Object.isDisabled
-'	If not blnReturnValue Then
-'		Call WriteToLog("Pass","Save button is enabled")
-'		'click on save button
-'		blnReturnValue = ClickButton("Save",objDepressionScreeningSaveButton,strOutErrorDesc)
-'		Wait intWaitTime/2
-'		If not blnReturnValue Then
-'			Call WriteToLog("Fail","ClickButton return: "&strOutErrorDesc)
-'			Exit Function
-'		End If
-'		
-'	Else
-'		Call WriteToLog("Fail","Save button is disabled")
-'		Exit Function
-'	End If
-'	
-'	wait 2
-'	waitTillLoads "Loading..."
-'	wait 2
-'	'====================================================================================================
-'	'Verify that Success message stating 'Screening has been completed successfully' should get displayed
-'	'====================================================================================================
-'	isPass = checkForPopup("Depression Screening", "Ok", "Screening has been completed successfully", strOutErrorDesc)
-'	If not isPass Then
-'		Call WriteToLog("Fail", "Expected Message box does not appear.")
-'		Exit Function
-'	End If
-'	
-'	wait 2 
-'	waitTillLoads "Loading..."
-'	wait 2
-'	
-'	'==================================================================
-'	'Verify the Depression screening score is getting display on screen
-'	'==================================================================
-'	intScore = Trim(objDepressionScore.GetROProperty("innertext"))
-'	If IsNumeric(intScore) Then
-'		Call WriteToLog("Pass","Current screening score is: "&intScore)
-'	Else
-'		Call WriteToLog("Fail","Current screening score is not a Numeric value. Actual value is: " & intScore)
-'		Exit Function
-'	End If
 
 	depressionScreening = true
 End Function

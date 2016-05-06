@@ -424,9 +424,7 @@ Function fluidManagement()
 		Call WriteToLog("Fail", "History button is disabled")
 	End If
 	objHistoryBtn.Click
-	wait 2
-	waitTillLoads "Loading..."
-	wait 2
+	wait 10
 	
 	Execute "Set objPathwayReportWindow = " & Environment("WE_FluidPathway_Report")
 	If CheckObjectExistence(objPathwayReportWindow, 10) Then
@@ -436,7 +434,7 @@ Function fluidManagement()
 		Exit Function
 	End If
 	objPathwayReportWindow.highlight
-	objPathwayReportWindow.Image("file name:=cross-orig.png", "html tag:=IMG").Click
+	objPathwayReportWindow.WebElement("class:=.*glyphicon-remove.*", "html tag:=SPAN").Click
 	
 	fluidManagement = true
 
@@ -493,9 +491,7 @@ Function validateSkipToLogic()
 		End If
 		
 		For i = 1 To Cint(count)
-			Print qnNo
 			labelText = oObj(k).GetROProperty("innertext")
-			Print labelText
 			survey_option_uid = getQuesOptionUid(survey_ques_uid, labelText)
 			If survey_option_uid = "NA" Then
 				CloseDBConnection
@@ -623,7 +619,7 @@ Function validateSkipToLogic()
 						End If
 					End If
 				
-				Case 715
+				Case 716
 					If labelText = "Yes" Then
 						Set objInfoText = getPageObject().WebElement("outertext:=Discuss the importance of weighing daily and buying a scale is recommended", "html tag:=DIV")
 						If CheckObjectExistence(objInfoText, 10) Then
@@ -632,7 +628,7 @@ Function validateSkipToLogic()
 							Call WriteToLog("Pass", "Info text - 'Discuss the importance of weighing daily and buying a scale is recommended' does NOT exist for question 4 and option 'Yes'")
 						End If
 						
-						Set objNavigate = getPageObject().WebElement("attribute/data-capella-automation-id:=Fluid Management_716_1799_Navigate")
+						Set objNavigate = getPageObject().WebElement("attribute/data-capella-automation-id:=Fluid Management_716_1799_Navigate", "visible:=True")
 						If CheckObjectExistence(objNavigate, 10) Then
 							Call WriteToLog("Fail", "Navigate to Medical Equipment screen button exists for question 4 and option 'Yes'")
 						Else
@@ -711,7 +707,7 @@ Function validateSkipToLogic()
 							Call WriteToLog("Fail", "Info text - 'Encourage patient to monitor their blood pressure at home and review the results with their healthcare provider and obtain/buy a blood pressure cuff' does NOT exist for question 9 and option 'Yes'")
 						End If
 						
-						Set objNavigate = getPageObject().WebElement("attribute/data-capella-automation-id:=Fluid Management_721_1813_Navigate")
+						Set objNavigate = getPageObject().WebElement("attribute/data-capella-automation-id:=Fluid Management_721_1813_Navigate", "visible:=True")
 						If CheckObjectExistence(objNavigate, 10) Then
 							Call WriteToLog("Fail", "Navigate to Medical Equipment screen button exists for question 9 and option 'Yes'")
 						Else

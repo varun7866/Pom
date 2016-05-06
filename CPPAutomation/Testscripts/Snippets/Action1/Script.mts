@@ -42,14 +42,6 @@ Environment.LoadFromFile orfilePath
 '***********************************************************************************************************************************************************************
 'End of Initialization steps for the current script
 '***********************************************************************************************************************************************************************
-'=====================================
-' Objects required for test execution
-'=====================================
-Function loadObjects()
-End Function
-
-Function killAllObjects()
-End Function
 
 '=====================================
 'start test execution
@@ -61,7 +53,6 @@ If not isPass Then
 	Call WriteToLog("Fail","Failed to Login to VHN role.")
 	Logout
 	CloseAllBrowsers
-	killAllObjects
 	Call WriteLogFooter()
 	ExitAction
 End If
@@ -130,8 +121,15 @@ Function validateSnippets()
 	validateSnippets = false
 	
 	'navigate to Recap screen
-	Set objPanel = getPageObject().WebElement("class:=.*patient-name", "index:=0")
-	objPanel.Image("file name:=Browse_Small.png").Click
+	Set objPatientPanel = getPageObject().WebElement("class:=.*patient-name.*", "index:=0")
+	objPatientPanel.WebElement("html tag:=DIV", "index:=0").click
+	
+	wait 2
+	waitTillLoads "Loading..."
+	wait 1
+	
+	Set obj = getPageObject().WebElement("class:=.*patient-name.*", "index:=1")
+	obj.WebElement("html tag:=SPAN", "index:=0").Click
 	
 	wait 2
 	waitTillLoads "Loading..."

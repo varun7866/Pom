@@ -339,7 +339,7 @@ Function Stratification(strOutErrorDesc)
 				
 				'Query to retrieve the records from the HRA table in the database.
 				'strSQLQuery = "select * from HRA_HEALTH_RISK_ASSESSMENT Where HRA_MEM_UID IN (Select mem_uid from mem_member where mem_id = '" & strMemberID & "')"
-				strSQLQuery = "select LOOKUP_VALUE_TEXT, HRA_DATE_END from HRA_HEALTH_RISK_ASSESSMENT, LOOKUP_VALUES Where HRA_MEM_UID IN (Select mem_uid from mem_member where mem_id = '" & strMemberID & "') AND HRA_STATUS IN ('C','I') AND HRA_TYPE = LOOKUP_VALUE_CODE AND LOOKUP_VALUE_TYPE_UID = '213' AND TRUNC(HRA_DATE_BEGIN) >= (SELECT TRUNC(MAX(MRP_REFERRAL_DATE)) FROM MRP_MEM_REFERRAL_PERIOD WHERE MRP_MEM_UID=HRA_MEM_UID) order by HRA_DATE_END Desc"
+				strSQLQuery = "select LOOKUP_VALUE_TEXT, HRA_DATE_END from HRA_HEALTH_RISK_ASSESSMENT, LOOKUP_VALUES Where HRA_MEM_UID IN (Select mem_uid from mem_member where mem_id = '" & strMemberID & "') AND HRA_STATUS IN ('C','I') AND HRA_TYPE = LOOKUP_VALUE_CODE AND LOOKUP_VALUE_TYPE_UID = '217' AND TRUNC(HRA_DATE_BEGIN) >= (SELECT TRUNC(MAX(MRP_REFERRAL_DATE)) FROM MRP_MEM_REFERRAL_PERIOD WHERE MRP_MEM_UID=HRA_MEM_UID) order by HRA_DATE_END Desc"
 				isPass = RunQueryRetrieveRecordSet(strSQLQuery)
 				If isPass and objDBRecordSet.EOF = false Then
 					err.clear

@@ -13,7 +13,7 @@ Environment.Value("PROJECT_FOLDER") = objFso.GetParentFolderName(driverScriptFol
 'load environment file
 Environment.LoadFromFile Environment.Value("PROJECT_FOLDER") & "\Configuration\DaVita-Capella_Configuration.xml",True 	'Import environment file
 'Environment.LoadFromFile "C:\Project_Management\2.Automation\workflow_automation\Configuration\DaVita-Capella_Configuration.xml",True 
-'MsgBox Environment.ExternalFileName
+
 'load all functional libraries
 functionalLibFolder = Environment.Value("PROJECT_FOLDER") & "\Library\generic_functions"
 For each objFile in objFso.GetFolder(functionalLibFolder).Files

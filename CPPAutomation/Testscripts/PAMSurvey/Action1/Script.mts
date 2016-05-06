@@ -404,7 +404,7 @@ Function pamSurvey()
 	'===========================================================================
 	'Verify the number of radio button on PAM Survey screening screen
 	'===========================================================================
-	Set objRadioOptions = GetChildObject("micclass;class;html tag;outerhtml","WebElement;screening-radio.*;DIV;.*screening-radio.*")
+	Set objRadioOptions = GetChildObject("micclass;class;html tag;outerhtml","WebElement;.*screening-radio.*;DIV;.*screening-radio.*")
 	For i  = 5 To objRadioOptions.Count-1 Step 1
 		Err.Clear
 		objRadioOptions(i).Click
@@ -449,7 +449,7 @@ Function pamSurvey()
 	
 	Call WriteToLog("info", "Test Case - Validate PAM Survey View Trending accordian")
 	'verify View Trending
-	Set objViewTrending = getPageObject().WebElement("outertext:=View Trending", "class:=col-xs-6.*")
+	Set objViewTrending = getPageObject().WebElement("outertext:=.*View Trending.*", "class:=.*accordion.*")
 	If CheckObjectExistence(objViewTrending, 5) Then
 		Call WriteToLog("Pass", "View Trending accordian exists.")
 	Else
