@@ -678,7 +678,7 @@
 	</Variable>
 	<Variable>
 		<Name>WB_ManageDocument_FileSelection_DocumentType</Name>
-		<Value>Browser("name:=DaVita VillageHealth Capella").Page("title:=DaVita VillageHealth Capella").WebButton("html tag:=BUTTON","value:=\s*Select a value\s*","visible:=True")</Value>
+		<Value>Browser("name:=DaVita VillageHealth Capella").Page("title:=DaVita VillageHealth Capella").WebButton("html tag:=BUTTON","html id:=data-range","visible:=True")</Value>
 	</Variable>
 	<Variable>
 		<Name>WiE_ChooseFileToUpload_Dialog_FileNameField</Name>
@@ -703,6 +703,10 @@
 	<Variable>
 		<Name>WE_DeleteFile_CheckBox</Name>
 		<Value>Browser("name:=DaVita VillageHealth Capella").Page("title:=DaVita VillageHealth Capella").WebElement("html tag:=TD","visible:=True")</Value>
+	</Variable>
+	<Variable>
+		<Name>WB_CancelButton</Name>
+		<Value>Browser("name:=DaVita VillageHealth Capella").Page("title:=DaVita VillageHealth Capella").WebButton("html tag:=INPUT|BUTTON","attribute/data-capella-automation-id:=Manage-Document-Upload-Cancel")</Value>
 	</Variable>
 	<!-- End of Manage Documents Screen Objects -->
 	<!-- Objects for Medical Equipment -->

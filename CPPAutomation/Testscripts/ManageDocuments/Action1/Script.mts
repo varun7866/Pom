@@ -219,6 +219,9 @@ Function ManageDocuments()
 	
 	Call WriteToLog("Pass","Upload button exist on manage document screen")
 	
+	Call WriteToLog("info", "Test Case - Verify document types in the drop down.")
+	isPass = validateDocumentTypes()
+	
 	'=========================================================
 	'Upload different file types : TIF File
 	'=========================================================
@@ -653,4 +656,127 @@ Function killAllObjects()
 	Execute "Set objOKButton= Nothing"  
 	Execute "Set objDeleteButton = Nothing"  
 	
+End Function
+
+Function validateDocumentTypes()
+	validateDocumentTypes = false
+	
+	'==========================================================
+    'Verify that manage document screen contain button Upload 
+    '==========================================================
+    Execute "Set objUploadButton = "  &Environment("WB_ManageDocument_UploadButton")
+    If not waitUntilExist(objUploadButton,10) Then
+        strOutErrorDesc = "Upload button does not exist on manage document screen" &strOutErrorDesc
+        Exit Function
+    End If
+    
+    Call WriteToLog("Info","Upload button exist on manage document screen")
+    
+    '=======================================================================
+    'Click on Upload button and verify that File Seletion popup should open
+    '=======================================================================
+    blnReturnValue = ClickButton("Upload button",objUploadButton,strOutErrorDesc)
+    If Not blnReturnValue Then
+        strOutErrorDesc =  "ClickButton returned error: "&strOutErrorDesc
+        Exit Function
+        
+    End If
+    
+    wait 2
+    waitTillLoads "Loading..."
+    wait 2
+    
+    'Verify the file popup dialog exists
+    Execute "Set objFileSelectionPopup = "  &Environment("WEL_ManageDocument_FileSelection_PopupTitle")
+    If not waitUntilExist(objFileSelectionPopup,10) Then
+        strOutErrorDesc = "File Seletion popup does not open successfully after clicking on upload button"  &strOutErrorDesc
+        Exit Function
+    End If
+    
+    Call WriteToLog("Pass","File Seletion popup open successfully after clicking on upload button")
+	
+	'validate the document types in the dropdown
+	Execute "Set objFileSelectionDocumentTypeDropdown = "  &Environment("WB_ManageDocument_FileSelection_DocumentType")
+	If not waitUntilExist(objFileSelectionDocumentTypeDropdown,10) Then
+		Call WriteToLog("Fail","Document Type dropdown does not exist on File Selection popup")
+		Exit Function
+	End If
+
+	Call WriteToLog("Pass","Document Type dropdown exist on File Selection popup")
+	
+	isPass = validateValueExistInDropDown(objFileSelectionDocumentTypeDropdown, "Pneumococcal Verification")
+	If not isPass Then
+		Call WriteToLog("Fail", "Pneumococcal Verification does not exist in document type drop down ")
+	Else
+		Call WriteToLog("Pass", "Pneumococcal Verification exists in document type drop down as expected")
+	End If
+	
+	
+	isPass = validateValueExistInDropDown(objFileSelectionDocumentTypeDropdown, "Influenza Verification")
+	If not isPass Then
+		Call WriteToLog("Fail", "Influenza Verification does not exist in document type drop down ")
+	Else
+		Call WriteToLog("Pass", "Influenza Verification exists in document type drop down as expected")
+	End If
+	
+	isPass = validateValueExistInDropDown(objFileSelectionDocumentTypeDropdown, "ACP")
+	If not isPass Then
+		Call WriteToLog("Fail", "ACP does not exist in document type drop down ")
+	Else
+		Call WriteToLog("Pass", "ACP exists in document type drop down as expected")
+	End If
+	
+	isPass = validateValueExistInDropDown(objFileSelectionDocumentTypeDropdown, "Humana Member Summary")
+	If not isPass Then
+		Call WriteToLog("Fail", "Humana Member Summary does not exist in document type drop down ")
+	Else
+		Call WriteToLog("Pass", "Humana Member Summary exists in document type drop down as expected")
+	End If
+	
+	isPass = validateValueExistInDropDown(objFileSelectionDocumentTypeDropdown, "Diabetic Retinal Eye Exam Verification")
+	If not isPass Then
+		Call WriteToLog("Fail", "Diabetic Retinal Eye Exam Verification does not exist in document type drop down ")
+	Else
+		Call WriteToLog("Pass", "Diabetic Retinal Eye Exam Verification exists in document type drop down as expected")
+	End If
+	
+	isPass = validateValueExistInDropDown(objFileSelectionDocumentTypeDropdown, "Florida HIE Consent Form")
+	If not isPass Then
+		Call WriteToLog("Fail", "Florida HIE Consent Form does not exist in document type drop down ")
+	Else
+		Call WriteToLog("Pass", "Florida HIE Consent Form exists in document type drop down as expected")
+	End If
+	
+	isPass = validateValueExistInDropDown(objFileSelectionDocumentTypeDropdown, "Medical Attestation")
+	If not isPass Then
+		Call WriteToLog("Fail", "Medical Attestation Form does not exist in document type drop down ")
+	Else
+		Call WriteToLog("Pass", "Medical Attestation Form exists in document type drop down as expected")
+	End If
+	
+	wait 2
+	waitTillLoads "Loading..."
+	wait 2
+	
+	blnReturnValue = checkForPopup("Medical Attestation", "No", "This document type is specific to ESCO patients. This is not an ESCO patient. Are you sure you would like to choose this document type?", strOutErrorDesc)
+	If Not blnReturnValue Then
+		Call WriteToLog("Fail", "Failed to click on No in message Box")
+		Exit Function
+	End If    
+	
+	wait 2
+    
+    selectedVal = getComboBoxSelectedValue(objFileSelectionDocumentTypeDropdown)
+    If trim(selectedVal) = "Select a value" Then
+    	Call WriteToLog("Pass", "Value of Document Type changed to 'Select a value' on clicking 'No' in the Medical Attestation window.")
+    Else
+    	Call WriteToLog("Fail", "Value of Document Type did not change to 'Select a value' on clicking 'No' in the Medical Attestation window.")
+    End If
+    
+    Execute "Set objCancelBtn = " & Environment("WB_CancelButton")
+    objCancelBtn.Click
+    
+    wait 2
+	
+	validateDocumentTypes = true
 End Function
