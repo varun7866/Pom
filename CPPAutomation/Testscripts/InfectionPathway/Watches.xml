@@ -1,0 +1,12 @@
+﻿<Properties>
+  <WatchEntry0 value="strOptionRequired" />
+  <WatchEntry1 value="uiQuestion" />
+  <WatchEntry2 value="quesText" />
+  <WatchEntry3 value="qnNo" />
+  <WatchEntry4 value="uid" />
+  <WatchEntry5 value="DisplayQuestion" />
+  <WatchEntry6 value="count" />
+  <WatchEntry7 value="oRadio.Count" />
+  <WatchEntry8 value="survey_option_uid" />
+  <WatchEntry9 value="survey_ques_uid" />
+</Properties>

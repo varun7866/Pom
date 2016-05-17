@@ -399,6 +399,50 @@ Function pamSurvey()
 		Exit Function
 	End If
 	
+	'CPP-100 modification on 05/17/2016
+	'answer few questions
+	Call WriteToLog("info", "Test Case - Validate CPP-100 defect. After selecting patient refused survey, system does not prompt the message")
+	Set objRadioOptions = GetChildObject("micclass;class;html tag;outerhtml","WebElement;.*screening-radio.*;DIV;.*screening-radio.*")
+	For i  = 5 To objRadioOptions.Count-1 Step 1
+		Err.Clear
+		objRadioOptions(i).Click
+		If Err.Number<>0 Then
+			Call WriteToLog("Fail",i + 1 & " button is not clicked")
+			Exit Function
+		End If	
+		i = i + 4
+	Next
+	
+	'click on postpone button
+	Execute "Set objPAMSurveyPostponeButton= "  &Environment.Value("WEL_PAMSurvey_PostponeButton") 'PAM Survey screen postpone button
+	objPAMSurveyPostponeButton.Click
+	wait 2
+	waitTillLoads "Loading..."
+	wait 2
+	
+	isPass = checkForPopup("PAM Survey", "Ok", "Survey has been saved successfully", strOutErrorDesc)
+	If not isPass Then
+		Call writeToLog("Fail", "Failed to click OK on message box.")
+		Exit Function
+	End If
+	
+	'click on patient refused survey check box
+	Execute "Set objPR = " & Environment.Value("WEL_PAM_PatientRefused")
+	objPR.click
+	
+	wait 2
+	waitTillLoads "Loading..."
+	wait 2
+	
+	isPass = checkForPopup("PAM Survey", "Yes", "Your current response will be lost. Do you want to continue ?", strOutErrorDesc)
+	If not isPass Then
+		Call writeToLog("Fail", "Failed to click OK on message box.")
+		Exit Function
+	End If
+	
+	objPR.Click
+	
+	Call WriteToLog("Pass", "After selecting patient refused survey, system does prompt the message")
 	
 	Call WriteToLog("info", "Test Case - Validate PAM Survey answer all questions and save")
 	'===========================================================================
