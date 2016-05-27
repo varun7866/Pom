@@ -1,3 +1,4 @@
 ﻿<Properties>
-  <WatchEntry0 value="strPayor" />
+  <WatchEntry0 value="CInt(strMember)" />
+  <WatchEntry1 value="strMember" />
 </Properties>

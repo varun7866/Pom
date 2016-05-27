@@ -532,7 +532,7 @@
 	<!-- Objects for Material Fulfillment -->
 	<Variable>
 		<Name>WEL_MaterialFulFillment_ReviewOrder</Name>
-		<Value>Browser("name:=DaVita VillageHealth Capella").Page("title:=DaVita VillageHealth Capella").WebElement("class:=btn btn-reviewOrder.*","html tag:=DIV","innertext:=Review Order","visible:=True")</Value>
+		<Value>Browser("name:=DaVita VillageHealth Capella").Page("title:=DaVita VillageHealth Capella").WebElement("attribute/data-capella-automation-id:=__Materials_Review_Order","visible:=True")</Value>
 	</Variable>
 	<Variable>
 		<Name>WT_MaterialFulFillment_SelectTable</Name>
@@ -2117,6 +2117,10 @@
 		<Value>Browser("name:=DaVita VillageHealth Capella").Page("title:=DaVita VillageHealth Capella").WebEdit("type:=text", "html tag:=INPUT", "name:=WebEdit", "index:=1")</Value>
 	</Variable>
 	<Variable>
+		<Name>WE_PatientAssessment_ICDCodeType9</Name>
+		<Value>Browser("name:=DaVita VillageHealth Capella").Page("title:=DaVita VillageHealth Capella").WebElement("html id:=ICD9CodeTypeId","visible:=True")</Value>
+	</Variable>
+	<Variable>
 		<Name>WE_PatientAssessment_FirstEverDialysisDate</Name>
 		<Value>Browser("name:=DaVita VillageHealth Capella").Page("title:=DaVita VillageHealth Capella").WebEdit("outerhtml:=.*FirstEverDialysisDate.*","html tag:=INPUT","visible:=True")</Value>
 	</Variable>
@@ -3456,7 +3460,7 @@
 	</Variable>
 	<Variable>
 		<Name>WEL_PatientAssessmentSave</Name>
-		<Value>Browser("name:=DaVita VillageHealth Capella").Page("title:=DaVita VillageHealth Capella").WebElement("class:=.*save-btn.*","html tag:=DIV","outerhtml:=.*Save.*")</Value>
+		<Value>Browser("name:=DaVita VillageHealth Capella").Page("title:=DaVita VillageHealth Capella").WebElement("attribute/data-capella-automation-id:=baselineSaveButton","html tag:=DIV")</Value>
 	</Variable>
 	<Variable>
 		<Name>WEL_PatientAssessmentmessagepopup</Name>
@@ -3492,11 +3496,11 @@
 	</Variable>
 	<Variable>
 		<Name>WT_ProviderInfoTable</Name>
-		<Value>Browser("name:=DaVita VillageHealth Capella").Page("title:=DaVita VillageHealth Capella").WebTable("innertext:=.*TypeDetailsBegin DateEnd.*", "html tag:=TABLE", "cols:=10", "visible:=True")</Value>
+		<Value>Browser("name:=DaVita VillageHealth Capella").Page("title:=DaVita VillageHealth Capella").WebTable("class:=k-selectable", "html tag:=TABLE", "cols:=7", "visible:=True")</Value>
 	</Variable>
 	<Variable>
 		<Name>WEL_SelectionYes</Name>
-		<Value>Browser("name:=DaVita VillageHealth Capella").Page("title:=DaVita VillageHealth Capella").WebElement("class:=.*acp-radio blue-btn.*", "html id:=799_2048", "html tag:=DIV", "outerhtml:=.*class=""acp-radio blue-btn"" id=""799_2048"".*", "visible:=True")</Value>
+		<Value>Browser("name:=DaVita VillageHealth Capella").Page("title:=DaVita VillageHealth Capella").WebElement("attribute/data-capella-automation-id:=Patient Assessment_PathWay_809_2085", "visible:=True")</Value>
 	</Variable>
 	<Variable>
 		<Name>WEL_BackToPatientAssessment</Name>
@@ -3504,7 +3508,7 @@
 	</Variable>
 	<Variable>
 		<Name>WEL_SelectionNo</Name>
-		<Value>Browser("name:=DaVita VillageHealth Capella").Page("title:=DaVita VillageHealth Capella").WebElement("class:=.*acp-radio blue-btn.*", "html id:=799_2049", "html tag:=DIV", "outerhtml:=.*class=""acp-radio blue-btn"" id=""799_2049""", "visible:=True")</Value>
+		<Value>Browser("name:=DaVita VillageHealth Capella").Page("title:=DaVita VillageHealth Capella").WebElement("attribute/data-capella-automation-id:=Patient Assessment_PathWay_809_2086", "visible:=True")</Value>
 	</Variable>
 	<Variable>
 		<Name>WEL_ProviderIcon</Name>
@@ -3596,30 +3600,36 @@
     <Variable>
 		<Name>WB_Destination_Dropdown</Name>
 		<Value>Browser("name:=DaVita VillageHealth Capella").Page("title:=DaVita VillageHealth Capella").WebButton("html id:=domain","html tag:=BUTTON","innertext:=Select a Value\s*","visible:=True")</Value>
-	</Variable>
+	
+    </Variable>
 	<Variable>
 		<Name>WE_Attention_Textbox</Name>
 		<Value>Browser("name:=DaVita VillageHealth Capella").Page("title:=DaVita VillageHealth Capella").WebEdit("html tag:=INPUT","name:=WebEdit","outerhtml:=.*FaxAttention.*","visible:=True")</Value>
-	</Variable>
+	
+    </Variable>
 	<Variable>
 		<Name>WE_FaxNumber_Textbox</Name>
 		<Value>Browser("name:=DaVita VillageHealth Capella").Page("title:=DaVita VillageHealth Capella").WebEdit("html tag:=INPUT","name:=WebEdit","outerhtml:=.*FaxNumber.*","visible:=True")</Value>
-	</Variable>
+	
+    </Variable>
 	<Variable>
 		<Name>WE_Preview_Button</Name>
 		<Value>Browser("name:=DaVita VillageHealth Capella").Page("title:=DaVita VillageHealth Capella").WebElement("html tag:=DIV","innertext:=Preview.*","visible:=True")</Value>
-	</Variable>
+	
+    </Variable>
 	<Variable>
 		<Name>WE_PreviewICRReport_ScreenTitle</Name>
 		<Value>Browser("name:=DaVita VillageHealth Capella").Page("title:=DaVita VillageHealth Capella").WebElement("class:=col-md-10 ng-binding","html tag:=DIV","innertext:=Integrated Care Report.*","outertext:=Integrated Care Report.*","visible:=True")</Value>
-	</Variable>
+	
+    </Variable>
 	<Variable>
 		<Name>WE_SendFax_Button</Name>
 		<Value>Browser("name:=DaVita VillageHealth Capella").Page("title:=DaVita VillageHealth Capella").WebElement("class:=.*btn-success.*","html tag:=DIV","innertext:=Send Fax.*","outertext:=Send Fax.*","visible:=True")</Value>
 	</Variable>
 	<Variable>
 		<Name>WE_FaxReport_PopupTitle</Name>
-		<Value>Browser("name:=DaVita VillageHealth Capella").Page("title:=DaVita VillageHealth Capella").WebElement("html tag:=DIV","innertext:=Fax Report","outertext:=Fax Report","visible:=True")</Value>
+		
+        <Value>Browser("name:=DaVita VillageHealth Capella").Page("title:=DaVita VillageHealth Capella").WebElement("html tag:=DIV","innertext:=Fax Report","outertext:=Fax Report","visible:=True")</Value>
 	</Variable> 
 	-->
 	<!-- End of objects for Printer Dialog -->

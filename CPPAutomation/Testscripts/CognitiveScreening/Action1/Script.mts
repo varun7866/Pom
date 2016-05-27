@@ -612,6 +612,64 @@ Function cognitive_ValidateHistory(Byval dtScreeningCompletedDate, ByVal message
 		Call WriteToLog("Fail", "Required columns does not exist in history table. The columns are - " & columnNames)
 	End If
 	
+	'validate the count of history records is correct with db
+	isPass = ConnectDB()
+	If Not isPass Then
+		Call WriteToLog("Fail", "Connect to Database failed.")
+		Call CloseDBConnection()
+		Exit Function
+	End If
+	strMemberID = DataTable.Value("MemberID","CurrentTestCaseData")
+	getRowCount = getScreeningHistoryCount(3, strMemberID)
+	
+	If CInt(getRowCount)  = CInt(RowCount) Then
+		Call WriteToLog("Pass", "History row count is as required : " & RowCount)
+	Else
+		Call WriteToLog("Fail", "History row count is NOT as required. History in UI has " & RowCount & ", where as required is " & getRowCount)
+	End If
+	
+	'validate current screening data with UI and DB
+	
+	Set recordData = getScreeningHistory(3, strMemberID, dtScreeningCompletedDate)
+	Dim recordExists : recordExists = false
+	If not isObject(recordData) Then
+		Call WriteToLog("Fail", "No records in DB with given screening date " & dtScreeningCompletedDate & " for the member " & strMemberID)
+	Else
+		Call CloseDBConnection()
+		recordExists = true
+	End If
+	Dim dbRecordMatch : dbRecordMatch = False
+	If recordExists Then
+		For i = 1 To RowCount
+			screenDate = objDS_ScrHtryTable.GetCellData(i, 1)
+			If CDate(screenDate) = CDate(dtScreeningCompletedDate) Then
+				If FormatDateTime(CDate(screenDate),2) = FormatDateTime(CDate(recordData.Item("MEM_SRV_SURVEY_DATE")), 2) Then
+					Score = objDS_ScrHtryTable.GetCellData(i, 2)
+					ScreeningLevel = objDS_ScrHtryTable.GetCellData(i, 3)
+					
+					dbScore = recordData.Item("MEM_SRV_SCORE")
+					dbLevel = recordData.Item("MEM_SRV_LEVEL")
+					If Not CInt(Score) = Cint(dbScore) Then
+						Call WriteToLog("Fail", "Scores does not match between history(" & Score & ") and DB(" & dbScore & ")")
+					End If
+					
+					If not Cint(ScreeningLevel) = Cint(dbLevel) Then
+						Call WriteToLog("Fail", "Levels does not match between history(" & ScreeningLevel & ") and DB(" & dbLevel & ")")
+					End If
+					dbRecordMatch = true
+					Exit For
+				Else
+					Call WriteToLog("Fail", "Screening date in DB does not match the required screening date")
+					Exit For
+				End If
+			End If
+		Next
+	End If
+	
+	If not dbRecordMatch Then
+		Call WriteToLog("Fail", "No record found in screening history with screening completed date as - " & dtScreeningCompletedDate)
+	End If
+	
 	'Get current and previous screening	information from screening history table	
 '	For R = 1 To RowCount Step 1
 '		ReDim Preserve arrScreeningHistoryInfo(RowCount-1)

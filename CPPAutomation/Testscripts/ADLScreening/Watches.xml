@@ -1,0 +1,8 @@
+﻿<Properties>
+  <WatchEntry0 value="screenDate" />
+  <WatchEntry1 value="dtScreeningCompletedDate" />
+  <WatchEntry2 value="FormatDateTime(CDate(recordData.Item(&quot;MEM_SRV_SURVEY_DATE&quot;)),2)" />
+  <WatchEntry3 value="strMemberID" />
+  <WatchEntry4 value="dtScreeningCompletedDate" />
+  <WatchEntry5 value="CDate(recordData.Item(&quot;MEM_SRV_SURVEY_DATE&quot;))" />
+</Properties>

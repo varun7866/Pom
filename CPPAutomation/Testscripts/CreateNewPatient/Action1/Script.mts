@@ -55,334 +55,370 @@ For each objFile in objFso.GetFolder(consentsLibFolder).Files
 Next
 Set objFso = Nothing
 
-'Call WriteToLog("info", "Test case - Create a new patient using EPS role")
-''Login to Capella as EPS
-'isPass = Login("eps")
-'If not isPass Then
-'	Call WriteToLog("Fail","Failed to Login to EPS role.")
-'	CloseAllBrowsers
-'	Call WriteLogFooter()
-'	ExitAction
-'End If
-'
-''close all open patients
-'isPass = CloseAllOpenPatient(strOutErrorDesc)
-'If Not isPass Then
-'	strOutErrorDesc = "CloseAllOpenPatient returned error: "&strOutErrorDesc
-'	Call WriteToLog("Fail", strOutErrorDesc)
-'	Call WriteLogFooter()
-'	ExitAction
-'End If
-'
-'Call WriteToLog("Pass","Successfully logged into EPS role")
-'
-'Call clickOnMainMenu("My Dashboard")
-'wait 2
-'Call waitTillLoads("Loading...")
-'wait 2
-
-strMember = createNewPatient()
-
-Print strMember
-
-If trim(strMember) = "" or trim(strMember) = "NA" Then
-	Call WriteToLog("Fail", "There was an error retrieving member id.")
-'	Logout
-'	CloseAllBrowsers
-'	WriteLogFooter
-	ExitAction
-End If
-'Call WriteToLog("Pass", "A new patient has been created with member Id - '" & strMember & "'")
-
-strEnrollmentStatus = DataTable.Value("ExpectedEPSStatus", "CurrentTestCaseData")
-If strEnrollmentStatus = "Enrolled" Then
-'	Logout
-'	CloseAllBrowsers
-'	WriteLogFooter
-	ExitAction
-End If
-'Logout
-'CloseAllBrowsers
-ExitAction
-Call WriteToLog("info", "Test case - Do Enrollment Screening, so the eligibility status changes to 'Enrolled'")
-'Login to Capella as VHES
-isPass = Login("vhes")
-If not isPass Then
-	Call WriteToLog("Fail","Failed to Login to VHES role.")
-	CloseAllBrowsers
-	Call WriteLogFooter()
-	ExitAction
-End If
-
-Call WriteToLog("Pass","Successfully logged into VHES role")
-isPass = CloseAllOpenPatient(strOutErrorDesc)
-If Not isPass Then
-	strOutErrorDesc = "CloseAllOpenPatient returned error: "&strOutErrorDesc
-	Call WriteToLog("Fail", strOutErrorDesc)
-	Call WriteLogFooter()
-	ExitAction
-End If
-
-'Search for the patient
-selectPatientFromGlobalSearch strMember
-wait 2
-Call waitTillLoads("Loading...")
-
-'Do enrollment screening for the patient
-Call clickOnSubMenu("Screenings->Enrollment Screening")
-
-wait 2
-Call waitTillLoads("Loading...")
-isPass = enrollmentScreening()
-If not isPass Then
-	Logout
-	CloseAllBrowsers
-	WriteLogFooter
-End If
-
-'verify status changed to Enrolled
-wait 2
-waitTillLoads "Loading..."
-wait 2
-
-Call clickOnSubMenu("Member Info->Patient Info")
-
-wait 2
-waitTillLoads "Loading..."
-wait 2
-
-Execute "Set objEnrollmentStatus = " & Environment("WEL_EnrollStatus")
-If not objEnrollmentStatus.Exist(intWaitTime) Then
-	Call WriteToLog("Fail", "Status field on Enrollment screen does not exist")
-End If
-
-'Check the patient status should be reffered 
-strEnrollmentStatus = "Enrolled"
-strPatientStatus = objEnrollmentStatus.getRoProperty("innertext")
-If Trim(strPatientStatus) = Trim(strEnrollmentStatus) Then
-	Call WriteToLog("Pass","Patient eligibility status is changed as expected to - " & strPatientStatus)
-Else	
-	Call WriteToLog("Fail","Patient eligibility status is changed to Enrolled as expected. It is - "& strPatientStatus)
-End If
-
-Logout
-CloseAllBrowsers
-
-Call WriteToLog("info", "Test case - Complete the initial IPE tasks using VHN role")
-'Login to Capella as VHN
-isPass = Login("vhn")
-If not isPass Then
-	Call WriteToLog("Fail","Failed to Login to VHN role.")
-	CloseAllBrowsers
-	Call WriteLogFooter()
-	ExitAction
-End If
-
-Call WriteToLog("Pass","Successfully logged into VHN role")
-
-'close all open patients
-isPass = CloseAllOpenPatient(strOutErrorDesc)
-If Not isPass Then
-	strOutErrorDesc = "CloseAllOpenPatient returned error: "&strOutErrorDesc
-	Call WriteToLog("Fail", strOutErrorDesc)
-	Logout
-	CloseAllBrowsers
-	Call WriteLogFooter()
-	ExitAction
-End If
-
-isPass = selectPatientFromGlobalSearch(strMember)
-If Not isPass Then
-	strOutErrorDesc = "selectPatientFromGlobalSearch returned error: "&strOutErrorDesc
-	Call WriteToLog("Fail", strOutErrorDesc)
-	Logout
-	CloseAllBrowsers
-	Call WriteLogFooter()
-	ExitAction
-End If
-
-'click on Menu of Actions panel
-Set objPage = getPageObject()
-Set objMOARightArrow = objPage.Image("class:=a-2 left moa-ribbon-expand-collapse-img")
-objMOARightArrow.highlight
-objMOARightArrow.Click
-Set objMOARightArrow = Nothing
-wait 1
-Set objMOAPanel = objPage.WebElement("class:=moa-container background row height-100-percent action-item-border remove-margin moa-background ng-scope")
-objMOAPanel.highlight
-
-Set moaIndividualDesc = Description.Create
-moaIndividualDesc("micclass").Value = "WebElement"
-moaIndividualDesc("class").Value = "moa-item.*"
-
-Set objMOAIndi = objMOAPanel.ChildObjects(moaIndividualDesc)
-Print objMOAIndi.Count
-
-Dim objReqTab
-Dim isFound : isFound = false
-For i = 0 To objMOAIndi.Count - 1
-	objMOAIndi(i).highlight
-	outerText = objMOAIndi(i).getROProperty("outertext")
-	If instr(lcase(outerText), "patient assessment") > 0 Then
-		Print objMOAIndi(i).getROProperty("outertext")
-		isFound = true
-		Set objReqTab = objMOAIndi(i)
-		Exit For
-	End If
+Dim isRun
+isRun = false
+Dim strMember
+intRowCount = DataTable.GetSheet("CurrentTestCaseData").GetRowCount
+For RowNumber = 1 to intRowCount step 1
+	DataTable.SetCurrentRow(RowNumber)
+	
+	runflag = DataTable.Value("ExecutionFlag","CurrentTestCaseData")
+	
+	If trim(lcase(runflag)) = "y" Then
+		'close all open patients
+		isRun = true
+			
+		strMember = createPatient()
+		If strMember = "NA" Then
+			Call WriteToLog("Fail", "Failed to create a new patient")
+		Else
+			Call WriteToLog("Pass", "Successfully created a new patient")
+		End If
+	End If	
 Next
 
-If not isFound Then
-	'exit function
+If not isRun Then
+	Call WriteToLog("info", "There are rows marked Y(Yes) for execution.")
 End If
 
-objReqTab.highlight
-outerText = trim(objReqTab.getROProperty("outertext"))
-outerText = Split(outerText, " ")
-noOfTasks = outerText(Ubound(outerText))
-Print noOfTasks
+'strMember = "178143"
 
-If noOfTasks = 0 Then
-	Call WriteToLog("Fail", "There are no tasks to perform")
-Else
-	Call WriteToLog("Pass", "There are " & noOfTasks & " open tasks.")
+Environment("TESTDATA_PATH") = strTestDataFileName
+If strMember = "NA" Then
+	ExitAction
 End If
-
-'click on the arrow to expand
-objReqTab.Image("class:=moa-expand-collapse-img moa-tile-img").Click
-
-wait 2
-
-Set objDescPanel = objReqTab.WebElement("class:=moa-description moa-group-description.*")
-Set taskDesc = Description.Create
-taskDesc("micclass").Value = "WebElement"
-taskDesc("html id").Value = "closeTaskId-.*"
-
-Set objTask = objDescPanel.ChildObjects(taskDesc)
-
-For k = 0 To objTask.Count - 1
-	task = objTask(k).getROPRoperty("outertext")
-	Select Case trim(task)
-		Case "*Initial Medications Required"
-			Print task
-			objTask(k).Click
-			wait 2
-			waitTillLoads "Loading..."
-			wait 2
-			isPass = medicationsManagement()
-		Case "*Initial Allergies Record"
-			Print task
-			objTask(k).Click
-			wait 2
-			waitTillLoads "Loading..."
-			wait 2
-			isPass = addAllergiesRecord()
-		Case "*Initial IPE Base Line due"
-			Print task
-			objTask(k).Click
-			wait 2
-			waitTillLoads "Loading..."
-			wait 2
-			isPass = patientAssessmentBaseLine()
-		Case "*IPE Minimum Data Due"
-			Print task
-			objTask(k).Click
-			wait 2
-			waitTillLoads "Loading..."
-			wait 2
-'			isPass = addAllergiesRecord()
-	End Select
-Next
-
-'click on the arrow to collapse
-objReqTab.Image("class:=moa-expand-collapse-img moa-tile-img").Click
-Set objPage = getPageObject()
-Set objMOALeftArrow = objPage.Image("file name:=arrow-left-white.png")
-objMOALeftArrow.highlight
-objMOALeftArrow.Click
-
-Set objMOALeftArrow = Nothing
-Set objReqTab = Nothing
-Set objMOAPanel = Nothing
-Set objPage = Nothing
-
-'close all open patients
-Call writetolog("info", "Test Case - Close and re-open the patient to verify if all IPE tasks are cleared and eligibility status changed to Assessed")
-isPass = CloseAllOpenPatient(strOutErrorDesc)
-
-selectPatientFromGlobalSearch strMember
-
-Set objPage = getPageObject()
-Set objMOARightArrow = objPage.Image("class:=a-2 left moa-ribbon-expand-collapse-img")
-objMOARightArrow.highlight
-objMOARightArrow.Click
-Set objMOARightArrow = Nothing
-wait 1
-Set objMOAPanel = objPage.WebElement("class:=moa-container background row height-100-percent action-item-border remove-margin moa-background ng-scope")
-objMOAPanel.highlight
-
-Set moaIndividualDesc = Description.Create
-moaIndividualDesc("micclass").Value = "WebElement"
-moaIndividualDesc("class").Value = "moa-item.*"
-
-Set objMOAIndi = objMOAPanel.ChildObjects(moaIndividualDesc)
-Print objMOAIndi.Count
-
-isFound = false
-For i = 0 To objMOAIndi.Count - 1
-	objMOAIndi(i).highlight
-	outerText = objMOAIndi(i).getROProperty("outertext")
-	If instr(lcase(outerText), "patient assessment") > 0 Then
-		Print objMOAIndi(i).getROProperty("outertext")
-		isFound = true
-		Set objReqTab = objMOAIndi(i)
-		Exit For
-	End If
-Next
-
-If not isFound Then
-	'exit function
-End If
-
-objReqTab.highlight
-outerText = trim(objReqTab.getROProperty("outertext"))
-outerText = Split(outerText, " ")
-noOfTasks = outerText(Ubound(outerText))
-
-If noOfTasks = 0 Then
-	Call WriteToLog("Pass", "All the initial tasks are cleared.")
-Else
-	Call WriteToLog("Fail", "Not all the initial tasks are cleared.")
-End If
-
-'verify status changed to Enrolled
-wait 2
-waitTillLoads "Loading..."
-wait 2
-
-Call clickOnSubMenu("Member Info->Patient Info")
-
-wait 2
-waitTillLoads "Loading..."
-wait 2
-
-Execute "Set objEnrollmentStatus = " & Environment("WEL_EnrollStatus")
-If not objEnrollmentStatus.Exist(intWaitTime) Then
-	Call WriteToLog("Fail", "Status field on Patinet Info screen does not exist")
-End If
-
-'Check the patient status should be assessed 
-strEnrollmentStatus = "Assessed"
-strPatientStatus = objEnrollmentStatus.getRoProperty("innertext")
-If Trim(strPatientStatus) = Trim(strEnrollmentStatus) Then
-	Call WriteToLog("Pass","Patient eligibility status changed successfully to " & strPatientStatus )
-Else	
-	Call WriteToLog("Fail","Patient is not enrolled successfully.It is giving status " & strPatientStatus)
-End If
+strMember = CInt(strMember)
+writeMemberIDToTestData strMember, "EPSTerminatePatient", "MemberID"
+writeMemberIDToTestData strMember, "ADLScreening", "MemberID"
+writeMemberIDToTestData strMember, "CognitiveScreening", "MemberID"
+writeMemberIDToTestData strMember, "DepressionScreening", "MemberID"
+writeMemberIDToTestData strMember, "PAMSurvey", "MemberID"
+writeMemberIDToTestData strMember, "DiabetesScreening", "MemberID"
 
 Logout
 CloseAllBrowsers
 WriteLogFooter
 
+Function createPatient()
+	On Error Resume Next
+	Err.Clear
+	
+	createPatient = "NA"
+	
+	Call WriteToLog("info", "Test case - Create a new patient using EPS role")
+	'Login to Capella as EPS
+	isPass = Login("eps")
+	If not isPass Then
+		Call WriteToLog("Fail","Failed to Login to EPS role.")
+		Exit Function
+	End If
+	
+	'close all open patients
+	isPass = CloseAllOpenPatient(strOutErrorDesc)
+	If Not isPass Then
+		strOutErrorDesc = "CloseAllOpenPatient returned error: "&strOutErrorDesc
+		Call WriteToLog("Fail", strOutErrorDesc)
+		Exit Function
+	End If
+	
+	Call WriteToLog("Pass","Successfully logged into EPS role")
+	
+	Call clickOnMainMenu("My Dashboard")
+	wait 2
+	Call waitTillLoads("Loading...")
+	wait 2
+	
+	strMember = createNewPatient()
+	
+	Print strMember
+	
+	If trim(strMember) = "" or trim(strMember) = "NA" Then
+		Call WriteToLog("Fail", "There was an error retrieving member id.")
+		Exit Function
+	End If
+	Call WriteToLog("Pass", "A new patient has been created with member Id - '" & strMember & "'")
+	
+	strEnrollmentStatus = DataTable.Value("ExpectedEPSStatus", "CurrentTestCaseData")
+	If strEnrollmentStatus = "Enrolled" Then
+		createPatient = strMember
+		Exit Function
+	End If
+	Logout
+	CloseAllBrowsers
+
+	Call WriteToLog("info", "Test case - Do Enrollment Screening, so the eligibility status changes to 'Enrolled'")
+	'Login to Capella as VHES
+	isPass = Login("vhes")
+	If not isPass Then
+		Call WriteToLog("Fail","Failed to Login to VHES role.")
+		Exit Function
+	End If
+	
+	Call WriteToLog("Pass","Successfully logged into VHES role")
+	isPass = CloseAllOpenPatient(strOutErrorDesc)
+	If Not isPass Then
+		strOutErrorDesc = "CloseAllOpenPatient returned error: "&strOutErrorDesc
+		Call WriteToLog("Fail", strOutErrorDesc)
+		Exit Function
+	End If
+	
+	'Search for the patient
+	selectPatientFromGlobalSearch strMember
+	wait 2
+	Call waitTillLoads("Loading...")
+	
+	'Do enrollment screening for the patient
+	Call clickOnSubMenu("Screenings->Enrollment Screening")
+	
+	wait 2
+	Call waitTillLoads("Loading...")
+	isPass = enrollmentScreening()
+	If not isPass Then
+		Exit Function
+	End If
+	
+	'verify status changed to Enrolled
+	wait 2
+	waitTillLoads "Loading..."
+	wait 2
+	
+	Call clickOnSubMenu("Member Info->Patient Info")
+	
+	wait 2
+	waitTillLoads "Loading..."
+	wait 2
+	
+	Execute "Set objEnrollmentStatus = " & Environment("WEL_EnrollStatus")
+	If not objEnrollmentStatus.Exist(intWaitTime) Then
+		Call WriteToLog("Fail", "Status field on Enrollment screen does not exist")
+	End If
+	
+	'Check the patient status should be reffered 
+	strEnrollmentStatus = "Enrolled"
+	strPatientStatus = objEnrollmentStatus.getRoProperty("innertext")
+	If Trim(strPatientStatus) = Trim(strEnrollmentStatus) Then
+		Call WriteToLog("Pass","Patient eligibility status is changed as expected to - " & strPatientStatus)
+	Else	
+		Call WriteToLog("Fail","Patient eligibility status is changed to Enrolled as expected. It is - "& strPatientStatus)
+	End If
+	
+'	Logout
+'	CloseAllBrowsers
+	
+	'Call WriteToLog("info", "Test case - Complete the initial IPE tasks using VHN role")
+	''Login to Capella as VHN
+	'isPass = Login("vhn")
+	'If not isPass Then
+	'	Call WriteToLog("Fail","Failed to Login to VHN role.")
+	'	CloseAllBrowsers
+	'	Call WriteLogFooter()
+	'	ExitAction
+	'End If
+	'
+	'Call WriteToLog("Pass","Successfully logged into VHN role")
+	'
+	''close all open patients
+	'isPass = CloseAllOpenPatient(strOutErrorDesc)
+	'If Not isPass Then
+	'	strOutErrorDesc = "CloseAllOpenPatient returned error: "&strOutErrorDesc
+	'	Call WriteToLog("Fail", strOutErrorDesc)
+	'	Logout
+	'	CloseAllBrowsers
+	'	Call WriteLogFooter()
+	'	ExitAction
+	'End If
+	'
+	'isPass = selectPatientFromGlobalSearch(strMember)
+	'If Not isPass Then
+	'	strOutErrorDesc = "selectPatientFromGlobalSearch returned error: "&strOutErrorDesc
+	'	Call WriteToLog("Fail", strOutErrorDesc)
+	'	Logout
+	'	CloseAllBrowsers
+	'	Call WriteLogFooter()
+	'	ExitAction
+	'End If
+	'
+	''click on Menu of Actions panel
+	'Set objPage = getPageObject()
+	'Set objMOARightArrow = objPage.Image("class:=a-2 left moa-ribbon-expand-collapse-img")
+	'objMOARightArrow.highlight
+	'objMOARightArrow.Click
+	'Set objMOARightArrow = Nothing
+	'wait 1
+	'Set objMOAPanel = objPage.WebElement("class:=moa-container background row height-100-percent action-item-border remove-margin moa-background ng-scope")
+	'objMOAPanel.highlight
+	'
+	'Set moaIndividualDesc = Description.Create
+	'moaIndividualDesc("micclass").Value = "WebElement"
+	'moaIndividualDesc("class").Value = "moa-item.*"
+	'
+	'Set objMOAIndi = objMOAPanel.ChildObjects(moaIndividualDesc)
+	'Print objMOAIndi.Count
+	'
+	'Dim objReqTab
+	'Dim isFound : isFound = false
+	'For i = 0 To objMOAIndi.Count - 1
+	'	objMOAIndi(i).highlight
+	'	outerText = objMOAIndi(i).getROProperty("outertext")
+	'	If instr(lcase(outerText), "patient assessment") > 0 Then
+	'		Print objMOAIndi(i).getROProperty("outertext")
+	'		isFound = true
+	'		Set objReqTab = objMOAIndi(i)
+	'		Exit For
+	'	End If
+	'Next
+	'
+	'If not isFound Then
+	'	'exit function
+	'End If
+	'
+	'objReqTab.highlight
+	'outerText = trim(objReqTab.getROProperty("outertext"))
+	'outerText = Split(outerText, " ")
+	'noOfTasks = outerText(Ubound(outerText))
+	'Print noOfTasks
+	'
+	'If noOfTasks = 0 Then
+	'	Call WriteToLog("Fail", "There are no tasks to perform")
+	'Else
+	'	Call WriteToLog("Pass", "There are " & noOfTasks & " open tasks.")
+	'End If
+	'
+	''click on the arrow to expand
+	'objReqTab.Image("class:=moa-expand-collapse-img moa-tile-img").Click
+	'
+	'wait 2
+	'
+	'Set objDescPanel = objReqTab.WebElement("class:=moa-description moa-group-description.*")
+	'Set taskDesc = Description.Create
+	'taskDesc("micclass").Value = "WebElement"
+	'taskDesc("html id").Value = "closeTaskId-.*"
+	'
+	'Set objTask = objDescPanel.ChildObjects(taskDesc)
+	'
+	'For k = 0 To objTask.Count - 1
+	'	task = objTask(k).getROPRoperty("outertext")
+	'	Select Case trim(task)
+	'		Case "*Initial Medications Required"
+	'			Print task
+	'			objTask(k).Click
+	'			wait 2
+	'			waitTillLoads "Loading..."
+	'			wait 2
+	'			isPass = medicationsManagement()
+	'		Case "*Initial Allergies Record"
+	'			Print task
+	'			objTask(k).Click
+	'			wait 2
+	'			waitTillLoads "Loading..."
+	'			wait 2
+	'			isPass = addAllergiesRecord()
+	'		Case "*Initial IPE Base Line due"
+	'			Print task
+	'			objTask(k).Click
+	'			wait 2
+	'			waitTillLoads "Loading..."
+	'			wait 2
+	'			isPass = patientAssessmentBaseLine()
+	'		Case "*IPE Minimum Data Due"
+	'			Print task
+	'			objTask(k).Click
+	'			wait 2
+	'			waitTillLoads "Loading..."
+	'			wait 2
+	''			isPass = addAllergiesRecord()
+	'	End Select
+	'Next
+	'
+	''click on the arrow to collapse
+	'objReqTab.Image("class:=moa-expand-collapse-img moa-tile-img").Click
+	'Set objPage = getPageObject()
+	'Set objMOALeftArrow = objPage.Image("file name:=arrow-left-white.png")
+	'objMOALeftArrow.highlight
+	'objMOALeftArrow.Click
+	'
+	'Set objMOALeftArrow = Nothing
+	'Set objReqTab = Nothing
+	'Set objMOAPanel = Nothing
+	'Set objPage = Nothing
+	'
+	''close all open patients
+	'Call writetolog("info", "Test Case - Close and re-open the patient to verify if all IPE tasks are cleared and eligibility status changed to Assessed")
+	'isPass = CloseAllOpenPatient(strOutErrorDesc)
+	'
+	'selectPatientFromGlobalSearch strMember
+	'
+	'Set objPage = getPageObject()
+	'Set objMOARightArrow = objPage.Image("class:=a-2 left moa-ribbon-expand-collapse-img")
+	'objMOARightArrow.highlight
+	'objMOARightArrow.Click
+	'Set objMOARightArrow = Nothing
+	'wait 1
+	'Set objMOAPanel = objPage.WebElement("class:=moa-container background row height-100-percent action-item-border remove-margin moa-background ng-scope")
+	'objMOAPanel.highlight
+	'
+	'Set moaIndividualDesc = Description.Create
+	'moaIndividualDesc("micclass").Value = "WebElement"
+	'moaIndividualDesc("class").Value = "moa-item.*"
+	'
+	'Set objMOAIndi = objMOAPanel.ChildObjects(moaIndividualDesc)
+	'Print objMOAIndi.Count
+	'
+	'isFound = false
+	'For i = 0 To objMOAIndi.Count - 1
+	'	objMOAIndi(i).highlight
+	'	outerText = objMOAIndi(i).getROProperty("outertext")
+	'	If instr(lcase(outerText), "patient assessment") > 0 Then
+	'		Print objMOAIndi(i).getROProperty("outertext")
+	'		isFound = true
+	'		Set objReqTab = objMOAIndi(i)
+	'		Exit For
+	'	End If
+	'Next
+	'
+	'If not isFound Then
+	'	'exit function
+	'End If
+	'
+	'objReqTab.highlight
+	'outerText = trim(objReqTab.getROProperty("outertext"))
+	'outerText = Split(outerText, " ")
+	'noOfTasks = outerText(Ubound(outerText))
+	'
+	'If noOfTasks = 0 Then
+	'	Call WriteToLog("Pass", "All the initial tasks are cleared.")
+	'Else
+	'	Call WriteToLog("Fail", "Not all the initial tasks are cleared.")
+	'End If
+	'
+	''verify status changed to Enrolled
+	'wait 2
+	'waitTillLoads "Loading..."
+	'wait 2
+	'
+	'Call clickOnSubMenu("Member Info->Patient Info")
+	'
+	'wait 2
+	'waitTillLoads "Loading..."
+	'wait 2
+	'
+	'Execute "Set objEnrollmentStatus = " & Environment("WEL_EnrollStatus")
+	'If not objEnrollmentStatus.Exist(intWaitTime) Then
+	'	Call WriteToLog("Fail", "Status field on Patinet Info screen does not exist")
+	'End If
+	'
+	''Check the patient status should be assessed 
+	'strEnrollmentStatus = "Assessed"
+	'strPatientStatus = objEnrollmentStatus.getRoProperty("innertext")
+	'If Trim(strPatientStatus) = Trim(strEnrollmentStatus) Then
+	'	Call WriteToLog("Pass","Patient eligibility status changed successfully to " & strPatientStatus )
+	'Else	
+	'	Call WriteToLog("Fail","Patient is not enrolled successfully.It is giving status " & strPatientStatus)
+	'End If
+	
+	createPatient = strMember
+	
+End Function
 
 Function patientAssessmentBaseLine()
 	On Error Resume Next
