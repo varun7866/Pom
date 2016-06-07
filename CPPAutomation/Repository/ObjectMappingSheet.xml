@@ -41,7 +41,7 @@
 	</Variable>
 	<Variable>
 		<Name>WI_ACMBrowser</Name>
-		<Value>Browser("name:=DaVita VillageHealth Capella").Page("title:=DaVita VillageHealth Capella").Image("outerhtml:=.*contactMethod in contactMethods track by.*","file name:=Browse_Small.*","html tag:=IMG","image type:=Plain Image","name:=Image","visible:=True")</Value>
+		<Value>Browser("name:=DaVita VillageHealth Capella").Page("title:=DaVita VillageHealth Capella").WebElement("class:=.*recap-contact.*", "html tag:=SPAN","index:=0")</Value>
 	</Variable>
 	<Variable>
 		<Name>WEL_ACMBrowserTA</Name>
@@ -129,11 +129,11 @@
 	</Variable>
 	<Variable>
 		<Name>WEL_MedAddBtn</Name>
-		<Value>Browser("name:=DaVita VillageHealth Capella").Page("title:=DaVita VillageHealth Capella").WebElement("class:=.*success btn-mini blue-button.*","html tag:=DIV","innerhtml:=.*Add","innertext:=.*Add","outerhtml:=.*InitializeNewMedication.*","outertext:=.*Add","title:=Add Medication","visible:=True")</Value>
+		<Value>Browser("name:=DaVita VillageHealth Capella").Page("title:=DaVita VillageHealth Capella").WebElement("attribute/data-capella-automation-id:=Medications Management__Tab_Body_Add","visible:=True")</Value>
 	</Variable>
 	<Variable>
 		<Name>WEL_ESAcb</Name>
-		<Value>Browser("name:=DaVita VillageHealth Capella").Page("title:=DaVita VillageHealth Capella").WebElement("html id:=app-sch","html tag:=DIV","innerhtml:=.*ESA.*","outerhtml:=.*ESA.*","visible:=True")</Value>
+		<Value>Browser("name:=DaVita VillageHealth Capella").Page("title:=DaVita VillageHealth Capella").WebElement("attribute/data-capella-automation-id:=model.ESA","visible:=True")</Value>
 	</Variable>
 	<Variable>
 		<Name>WEL_SDMBOFDpptle</Name>
@@ -153,11 +153,11 @@
 	</Variable>
 	<Variable>
 		<Name>WE_WrittenDate</Name>
-		<Value>Browser("name:=DaVita VillageHealth Capella").Page("title:=DaVita VillageHealth Capella").WebEdit("html tag:=INPUT","name:=WebEdit","outerhtml:=.*WrittenDate.*","type:=text","visible:=True")</Value>
+		<Value>Browser("name:=DaVita VillageHealth Capella").Page("title:=DaVita VillageHealth Capella").WebEdit("attribute/data-capella-automation-id:=Medications Management__SelectedMed.WrittenDate","visible:=True")</Value>
 	</Variable>
 	<Variable>
 		<Name>WE_FilledDate</Name>
-		<Value>Browser("name:=DaVita VillageHealth Capella").Page("title:=DaVita VillageHealth Capella").WebEdit("html tag:=INPUT","name:=WebEdit","outerhtml:=.*FilledDate.*","type:=text","visible:=True")</Value>
+		<Value>Browser("name:=DaVita VillageHealth Capella").Page("title:=DaVita VillageHealth Capella").WebEdit("attribute/data-capella-automation-id:=Medications Management__SelectedMed.FilledDate","visible:=True")</Value>
 	</Variable>
 	<Variable>
 		<Name>WEL_MedicationsDose</Name>
@@ -165,7 +165,7 @@
 	</Variable>
 	<Variable>
 		<Name>WEL_MedFreq</Name>
-		<Value>Browser("name:=DaVita VillageHealth Capella").Page("title:=DaVita VillageHealth Capella").WebElement("class:=.*frequency-dropdowname.*","html tag:=DIV","outerhtml:=.*frequency-dropdowname.*","visible:=True")</Value>
+		<Value>Browser("name:=DaVita VillageHealth Capella").Page("title:=DaVita VillageHealth Capella").WebElement("html id:=frequency-dropdown","visible:=True")</Value>
 	</Variable>
 	<!--
 <Variable>
@@ -175,7 +175,7 @@
 	-->
 	<Variable>
 		<Name>WEL_MedSave</Name>
-		<Value>Browser("name:=DaVita VillageHealth Capella").Page("title:=DaVita VillageHealth Capella").WebElement("html tag:=DIV","innerhtml:=.*icon-white icon-save.*","innertext:= Save","outertext:= Save","visible:=True")</Value>
+		<Value>Browser("name:=DaVita VillageHealth Capella").Page("title:=DaVita VillageHealth Capella").WebElement("attribute/data-capella-automation-id:=.*_Save.*","visible:=True")</Value>
 	</Variable>
 	<Variable>
 		<Name>WT_MedTable</Name>
@@ -203,7 +203,7 @@
 	</Variable>
 	<Variable>
 		<Name>WI_AlgrySavebtn</Name>
-		<Value>Browser("name:=DaVita VillageHealth Capella").Page("title:=DaVita VillageHealth Capella").Image("file name:=icon_vh_saveSmall.*","html tag:=IMG","name:=Image","outerhtml:=.*saveAllergy.*","visible:=True")</Value>
+		<Value>Browser("name:=DaVita VillageHealth Capella").Page("title:=DaVita VillageHealth Capella").WebElement("attribute/data-capella-automation-id:=.*_SaveAllergy.*","visible:=True")</Value>
 	</Variable>
 	<Variable>
 		<Name>WEL_SavAlgryPP</Name>
@@ -211,7 +211,7 @@
 	</Variable>
 	<Variable>
 		<Name>WI_DelAgy</Name>
-		<Value>Browser("name:=DaVita VillageHealth Capella").Page("title:=DaVita VillageHealth Capella").Image("class:=deactivateButtons","file name:=.*loseSmall.*","html tag:=IMG","name:=Image","outerhtml:=.*showDelete.*","src:=.*closeSmall.*","visible:=True","index:=0")</Value>
+		<Value>Browser("name:=DaVita VillageHealth Capella").Page("title:=DaVita VillageHealth Capella").WebElement("class:=deactivateButtons","file name:=.*loseSmall.*","html tag:=IMG","name:=Image","outerhtml:=.*showDelete.*","src:=.*closeSmall.*","visible:=True","index:=0")</Value>
 	</Variable>
 	<Variable>
 		<Name>WEL_DelAgyPP</Name>
@@ -243,11 +243,11 @@
 	</Variable>
 	<Variable>
 		<Name>WE_GloSearch</Name>
-		<Value>Browser("name:=DaVita VillageHealth Capella").Page("title:=DaVita VillageHealth Capella").WebEdit("attribute/data-capella-automation-id:=Keyword","visible:=True")</Value>
+		<Value>Browser("name:=DaVita VillageHealth Capella").Page("title:=DaVita VillageHealth Capella").WebEdit("name:=WebEdit","outerhtml:=.*global-search.*","visible:=True")</Value>
 	</Variable>
 	<Variable>
 		<Name>WI_SearchIcon</Name>
-		<Value>Browser("name:=DaVita VillageHealth Capella").Page("title:=DaVita VillageHealth Capella").WebElement("attribute/data-capella-automation-id:=Global-Patient-Search-Icon")</Value>
+		<Value>Browser("name:=DaVita VillageHealth Capella").Page("title:=DaVita VillageHealth Capella").Image("file name:=icon_vh_search\.png","html tag:=IMG","image type:=Plain Image","name:=Image","outerhtml:=.*Global-Patient-Search-Icon.*","src:=https://capellawebqa\.com/cpp/Resources/Icons/icon_vh_search\.png","visible:=True")</Value>
 	</Variable>
 	<Variable>
 		<Name>WEL_PatSeResPP</Name>
@@ -375,11 +375,11 @@
 	</Variable>
 	<Variable>
 		<Name>WEL_OpenPatientList_ExpandIcon</Name>
-		<Value>Browser("name:=DaVita VillageHealth Capella").Page("title:=DaVita VillageHealth Capella").WebElement("attribute/data-capella-automation-id:=expandDiv-OpenPatients")</Value>
+		<Value>Browser("name:=DaVita VillageHealth Capella").Page("title:=DaVita VillageHealth Capella").WebElement("attribute/data-capella-automation-id:=expandDiv-OpenPatients","visible:=True")</Value>
 	</Variable>
 	<Variable>
 		<Name>WEL_OpenPatientList_CollapseIcon</Name>
-		<Value>Browser("name:=DaVita VillageHealth Capella").Page("title:=DaVita VillageHealth Capella").WebElement("attribute/data-capella-automation-id:=collapseDiv-OpenPatients")</Value>
+		<Value>Browser("name:=DaVita VillageHealth Capella").Page("title:=DaVita VillageHealth Capella").WebElement("attribute/data-capella-automation-id:=collapseDiv-OpenPatients","visible:=True")</Value>
 	</Variable>
 	<Variable>
 		<Name>WEL_OpenPatientList_NoOfPatientOpen</Name>
@@ -391,7 +391,7 @@
 	</Variable>
 	<Variable>
 		<Name>WB_RecapScreen_Save</Name>
-		<Value>Browser("name:=DaVita VillageHealth Capella").Page("title:=DaVita VillageHealth Capella").WebButton("outerhtml:=.*saveRecap.*","html tag:=BUTTON","value:=Save.*","type:=submit")</Value>
+		<Value>Browser("name:=DaVita VillageHealth Capella").Page("title:=DaVita VillageHealth Capella").WebButton("attribute/data-capella-automation-id:=Save","visible:=True")</Value>
 	</Variable>
 	<Variable>
 		<Name>WEL_ClosePatientRecord_PopupTitle</Name>
@@ -461,9 +461,15 @@
 		<Name>WEL_MedDetailLst</Name>
 		<Value>Browser("name:=DaVita VillageHealth Capella").Page("title:=DaVita VillageHealth Capella").WebElement("html id:=medicationDetail","html tag:=DIV","visible:=True","visible:=True")</Value>
 	</Variable>
+	<!--
 	<Variable>
 		<Name>WEL_MedEdit</Name>
 		<Value>Browser("name:=DaVita VillageHealth Capella").Page("title:=DaVita VillageHealth Capella").WebElement("html tag:=DIV","innerhtml:=.*Edit.*","innertext:=.*Edit.*","outerhtml:=.*Edit.*","outertext:=.*Edit","visible:=True")</Value>
+	</Variable>
+	-->
+	<Variable>
+		<Name>WEL_MedEdit</Name>
+		<Value>Browser("name:=DaVita VillageHealth Capella").Page("title:=DaVita VillageHealth Capella").WebElement("attribute/data-capella-automation-id:=.*_Edit.*","visible:=True")</Value>
 	</Variable>
 	<Variable>
 		<Name>WEL_MedFreq</Name>
@@ -475,7 +481,7 @@
 	</Variable>
 	<Variable>
 		<Name>WEL_PatCaPlnAdd</Name>
-		<Value>Browser("name:=DaVita VillageHealth Capella").Page("title:=DaVita VillageHealth Capella").WebElement("html tag:=DIV","innerhtml:=.*Add.*","innertext:=.*Add.*","outerhtml:=.*Add.*","outertext:=.*Add ","visible:=True")</Value>
+		<Value>Browser("name:=DaVita VillageHealth Capella").Page("title:=DaVita VillageHealth Capella").WebElement("attribute/data-capella-automation-id:=Patient_Care_Plan_Add","visible:=True")</Value>
 	</Variable>
 	<Variable>
 		<Name>WB_PatCaPlnTopic</Name>
@@ -515,19 +521,19 @@
 	</Variable>
 	<Variable>
 		<Name>WE_PatCaPlnName</Name>
-		<Value>Browser("name:=DaVita VillageHealth Capella").Page("title:=DaVita VillageHealth Capella").WebEdit("html tag:=INPUT","name:=WebEdit","outerhtml:=.*CarePlanName.*","visible:=True")</Value>
+		<Value>Browser("name:=DaVita VillageHealth Capella").Page("title:=DaVita VillageHealth Capella").WebEdit("attribute/data-capella-automation-id:=PatientCarePlanModel\.SelectedCarePlan\.GoalName","visible:=True")</Value>
 	</Variable>
 	<Variable>
 		<Name>WE_PatCaPlnBePln</Name>
-		<Value>Browser("name:=DaVita VillageHealth Capella").Page("title:=DaVita VillageHealth Capella").WebEdit("html tag:=TEXTAREA","name:=WebEdit","outerhtml:=.*BehavioralPlan.*","type:=textarea","visible:=True")</Value>
+		<Value>Browser("name:=DaVita VillageHealth Capella").Page("title:=DaVita VillageHealth Capella").WebEdit("attribute/data-capella-automation-id:=PatientCarePlanModel\.SelectedCarePlan\.BehavioralPlan","visible:=True")</Value>
 	</Variable>
 	<Variable>
 		<Name>WE_PatCaPlnSlfMng</Name>
 		<Value>Browser("name:=DaVita VillageHealth Capella").Page("title:=DaVita VillageHealth Capella").WebEdit("html tag:=INPUT","name:=WebEdit","outerhtml:=.*FreeFormResponse.*","type:=text","visible:=True")</Value>
 	</Variable>
 	<Variable>
-		<Name>WE_PatCaPlnSave</Name>
-		<Value>Browser("name:=DaVita VillageHealth Capella").Page("title:=DaVita VillageHealth Capella").WebElement("html tag:=DIV","innerhtml:=.*Save.*","innertext:=.*Save.*","outerhtml:=.*EnableSaveButton.*","visible:=True")</Value>
+		<Name>WEL_PatCaPlnSave</Name>
+		<Value>Browser("name:=DaVita VillageHealth Capella").Page("title:=DaVita VillageHealth Capella").WebElement("attribute/data-capella-automation-id:=Patient_Care_Plan_Save","visible:=True")</Value>
 	</Variable>
 	<!-- Objects for Material Fulfillment -->
 	<Variable>
@@ -808,19 +814,19 @@
 	</Variable>
 	<Variable>
 		<Name>WEL_HospitalizationAddBtn</Name>
-		<Value>Browser("name:=DaVita VillageHealth Capella").Page("title:=DaVita VillageHealth Capella").WebElement("attribute/data-capella-automation-id:=Hospitalization_Management_Add","visible:=True")</Value>
+		<Value>Browser("name:=DaVita VillageHealth Capella").Page("title:=DaVita VillageHealth Capella").WebElement("html id:= Hospitalization_Review_Add_Button","visible:=True")</Value>
 	</Variable>
 	<Variable>
 		<Name>WE_DischargeDateTxt</Name>
-		<Value>Browser("name:=DaVita VillageHealth Capella").Page("title:=DaVita VillageHealth Capella").WebEdit("attribute/data-capella-automation-id:=HospitalizationModel\.PtDischargePlan\.DischargeDate","visible:=True")</Value>
+		<Value>Browser("name:=DaVita VillageHealth Capella").Page("title:=DaVita VillageHealth Capella").WebEdit("html id:=Hospitalization_Review_DischargeDate_DatePicker","visible:=True")</Value>
 	</Variable>
 	<Variable>
 		<Name>WE_DischargeNotificationDateTxt</Name>
-		<Value>Browser("name:=DaVita VillageHealth Capella").Page("title:=DaVita VillageHealth Capella").WebEdit("attribute/data-capella-automation-id:=HospitalizationModel\.PtDischargePlan\.DischargeNotificationDate","visible:=True")</Value>
+		<Value>Browser("name:=DaVita VillageHealth Capella").Page("title:=DaVita VillageHealth Capella").WebEdit("html id:=Hospitalization_Review_DischargeNotification_DatePicker","visible:=True")</Value>
 	</Variable>
 	<Variable>
 		<Name>WB_DispositionDD</Name>
-		<Value>Browser("name:=DaVita VillageHealth Capella").Page("title:=DaVita VillageHealth Capella").WebElement("attribute/data-capella-automation-id:=Hospitalization_Management_Disposition","visible:=True")</Value>
+		<Value>Browser("name:=DaVita VillageHealth Capella").Page("title:=DaVita VillageHealth Capella").WebButton("html id:=Hospitalization_Review_DischargePlan_Button","visible:=True")</Value>
 	</Variable>
 	<Variable>
 		<Name>WEL_DispositionVal</Name>
@@ -836,15 +842,15 @@
 	</Variable>
 	<Variable>
 		<Name>WE_AdmitDateTxt</Name>
-		<Value>Browser("name:=DaVita VillageHealth Capella").Page("title:=DaVita VillageHealth Capella").WebEdit("attribute/data-capella-automation-id:=HospitalizationModel\.PtDischargePlan\.AdmitDate","visible:=True")</Value>
+		<Value>Browser("name:=DaVita VillageHealth Capella").Page("title:=DaVita VillageHealth Capella").WebEdit("html id:=Hospitalization_Review_AdmitDate_DatePicker","visible:=True")</Value>
 	</Variable>
 	<Variable>
 		<Name>WE_NotificationDateTxt</Name>
-		<Value>Browser("name:=DaVita VillageHealth Capella").Page("title:=DaVita VillageHealth Capella").WebEdit("html id:=NotificationDateOpened","html tag:=INPUT","name:=WebEdit","outerhtml:=.*NotificationDateOpened.*","type:=text","visible:=True")</Value>
+		<Value>Browser("name:=DaVita VillageHealth Capella").Page("title:=DaVita VillageHealth Capella").WebEdit("html id:=Hospitalization_Review_NotificationDate_DatePicker","visible:=True")</Value>
 	</Variable>
 	<Variable>
 		<Name>WB_NotifiedByDD</Name>
-		<Value>Browser("name:=DaVita VillageHealth Capella").Page("title:=DaVita VillageHealth Capella").WebElement("attribute/data-capella-automation-id:=Hospitalization_Management_NotifiedBy","visible:=True")</Value>
+		<Value>Browser("name:=DaVita VillageHealth Capella").Page("title:=DaVita VillageHealth Capella").WebButton("html id:= Hospitalization_Review_NotifyBy_Button","visible:=True")</Value>
 	</Variable>
 	<Variable>
 		<Name>WEL_NotifiedByVal</Name>
@@ -852,7 +858,7 @@
 	</Variable>
 	<Variable>
 		<Name>WB_AdmitTypeDD</Name>
-		<Value>Browser("name:=DaVita VillageHealth Capella").Page("title:=DaVita VillageHealth Capella").WebElement("attribute/data-capella-automation-id:=Hospitalization_Management_AdmitType","visible:=True")</Value>
+		<Value>Browser("name:=DaVita VillageHealth Capella").Page("title:=DaVita VillageHealth Capella").WebButton("html id:=Hospitalization_Review_AdmitType_Button","visible:=True")</Value>
 	</Variable>
 	<Variable>
 		<Name>WEL_AdmitTypeVal</Name>
@@ -860,7 +866,7 @@
 	</Variable>
 	<Variable>
 		<Name>WB_SourceOfAdmitDD</Name>
-		<Value>Browser("name:=DaVita VillageHealth Capella").Page("title:=DaVita VillageHealth Capella").WebElement("attribute/data-capella-automation-id:=Hospitalization_Management_Source_Of_Admit","visible:=True")</Value>
+		<Value>Browser("name:=DaVita VillageHealth Capella").Page("title:=DaVita VillageHealth Capella").WebButton("html id:=Hospitalization_Review_NatureOfAdmitText_Button","visible:=True")</Value>
 	</Variable>
 	<Variable>
 		<Name>WEL_SourceOfAdmitVal</Name>
@@ -868,11 +874,11 @@
 	</Variable>
 	<Variable>
 		<Name>WE_AdmittingDiagnosisTxt</Name>
-		<Value>Browser("name:=DaVita VillageHealth Capella").Page("title:=DaVita VillageHealth Capella").WebEdit("attribute/data-capella-automation-id:=HospitalizationModel\.PtDischargePlan\.AdmittingDXDesc","visible:=True")</Value>
+		<Value>Browser("name:=DaVita VillageHealth Capella").Page("title:=DaVita VillageHealth Capella").WebEdit("html id:=Hospitalization_Review_AdmittingDXDesc_TextArea","visible:=True")</Value>
 	</Variable>
 	<Variable>
 		<Name>WE_WorkingDiagnosisTxt</Name>
-		<Value>Browser("name:=DaVita VillageHealth Capella").Page("title:=DaVita VillageHealth Capella").WebEdit("attribute/data-capella-automation-id:=HospitalizationModel\.PtDischargePlan\.WorkingDiagnosis","visible:=True")</Value>
+		<Value>Browser("name:=DaVita VillageHealth Capella").Page("title:=DaVita VillageHealth Capella").WebEdit("html id:=Hospitalization_Review_WorkingDiagnosis_TextArea","visible:=True")</Value>
 	</Variable>
 	<Variable>
 		<Name>WE_PatientProfileExpandIcon</Name>
@@ -882,9 +888,15 @@
 		<Name>WEL_PatientMemID</Name>
 		<Value>Browser("name:=DaVita VillageHealth Capella").Page("title:=DaVita VillageHealth Capella").WebElement("html tag:=DIV","outerhtml:=.*Demographics\.ID.*","visible:=True")</Value>
 	</Variable>
+	<!--
 	<Variable>
 		<Name>WI_HospHistoryArrow</Name>
-		<Value>Browser("name:=DaVita VillageHealth Capella").Page("title:=DaVita VillageHealth Capella").Image("file name:=uparrow.*","html tag:=IMG","image type:=Plain Image","outerhtml:=.*HospitalizationModel.*","visible:=True")</Value>
+		<Value>Browser("name:=DaVita VillageHealth Capella").Page("title:=DaVita VillageHealth Capella").Image("file name:=uparrow.png","html tag:=IMG","image type:=Plain Image","outerhtml:=.*AccordionState.*","visible:=True")</Value>
+	 </Variable>
+	-->
+	<Variable>
+		<Name>WI_HospHistoryArrow</Name>
+		<Value>Browser("name:=DaVita VillageHealth Capella").Page("title:=DaVita VillageHealth Capella").WebElement("class:=glyphicon glyphicon-eject.*","html tag:=SPAN","visible:=True","index:=1")</Value>
 	</Variable>
 	<Variable>
 		<Name>WEL_LDDonPP</Name>
@@ -896,7 +908,7 @@
 	</Variable>
 	<Variable>
 		<Name>WEL_AlertUpArrow</Name>
-		<Value>Browser("name:=DaVita VillageHealth Capella").Page("title:=DaVita VillageHealth Capella").WebElement("class:=left poa-a f1 sp-u","html tag:=DIV","outerhtml:=.*Alerts.*","visible:=True")</Value>
+		<Value>Browser("name:=DaVita VillageHealth Capella").Page("title:=DaVita VillageHealth Capella").WebElement("attribute/data-capella-automation-id:=expandDiv-Alerts","visible:=True")</Value>
 	</Variable>
 	<Variable>
 		<Name>WI_DischargeSaveBtn</Name>
@@ -1068,7 +1080,7 @@
 		<Value>Browser("name:=DaVita VillageHealth Capella").Page("title:=DaVita VillageHealth Capella").WebButton("html tag:=BUTTON","innertext:=Save","name:=Save","type:=submit","value:=Save","visible:=True")</Value>
 	</Variable>
 	<Variable>
-		<Name>WEL_MedAddBtn</Name>
+		<Name>WEL_MedAddBtn1</Name>
 		<Value>Browser("name:=DaVita VillageHealth Capella").Page("title:=DaVita VillageHealth Capella").WebElement("html tag:=DIV","innertext:=  Add","outerhtml:=.*Add Medication.*","title:=Add Medication","visible:=True")</Value>
 	</Variable>
 	<Variable>
@@ -1109,7 +1121,7 @@
 	</Variable>
 	<Variable>
 		<Name>WEL_EditCarePlanBtn</Name>
-		<Value>Browser("name:=DaVita VillageHealth Capella").Page("title:=DaVita VillageHealth Capella").WebElement("html tag:=DIV","innertext:= Edit ","innerhtml:=.*Edit            ","outertext:= Edit ","visible:=True")</Value>
+		<Value>Browser("name:=DaVita VillageHealth Capella").Page("title:=DaVita VillageHealth Capella").WebElement("attribute/data-capella-automation-id:=Patient_Care_Plan_Edit","visible:=True")</Value>
 	</Variable>
 	<Variable>
 		<Name>WB_CompletedDate</Name>
@@ -1117,7 +1129,7 @@
 	</Variable>
 	<Variable>
 		<Name>WE_EngagementPlan</Name>
-		<Value>Browser("name:=DaVita VillageHealth Capella").Page("title:=DaVita VillageHealth Capella").WebEdit("html tag:=TEXTAREA","name:=WebEdit","outerhtml:=.*EngagementGoal.*","type:=textarea","visible:=True")</Value>
+		<Value>Browser("name:=DaVita VillageHealth Capella").Page("title:=DaVita VillageHealth Capella").WebEdit("attribute/data-capella-automation-id:=PatientCarePlanModel\.SelectedCarePlan\.EngagementGoal","visible:=True")</Value>
 	</Variable>
 	<Variable>
 		<Name>WL_MYDashboardPHM</Name>
@@ -1525,9 +1537,15 @@
 		<Name>WT_PatientListGridTableRight</Name>
 		<Value>Browser("name:=DaVita VillageHealth Capella").Page("title:=DaVita VillageHealth Capella").WebTable("class:=k-selectable","html tag:=TABLE","name:=WebTable","visible:=True")</Value>
 	</Variable>
+	<!--
 	<Variable>
 		<Name>WEL_CancelMed</Name>
-		<Value>Browser("name:=DaVita VillageHealth Capella").Page("title:=DaVita VillageHealth Capella").WebElement("html tag:=DIV","innertext:= Cancel","outertext:= Cancel","visible:=True")</Value>
+		<Value>Browser("name:=DaVita VillageHealth Capella").Page("title:=DaVita VillageHealth Capella").WebElement("attribute/data-capella-automation-id:=Medications Management_Review_Cancel_Medication_Details","visible:=True")</Value>
+	</Variable>
+	-->
+	<Variable>
+		<Name>WEL_CancelMed</Name>
+		<Value>Browser("name:=DaVita VillageHealth Capella").Page("title:=DaVita VillageHealth Capella").WebElement("attribute/data-capella-automation-id:=.*_Cancel.*","visible:=True")</Value>
 	</Variable>
 	<Variable>
 		<Name>WB_MedicationReviewAdd</Name>
@@ -1539,7 +1557,7 @@
 	</Variable>
 	<Variable>
 		<Name>WEL_MedReviewSave</Name>
-		<Value>Browser("name:=DaVita VillageHealth Capella").Page("title:=DaVita VillageHealth Capella").WebElement("html tag:=DIV","outerhtml:=.*data-capella-automation-id=""MedReview_SavePtSurvey.*","outertext:= Save","visible:=True")</Value>
+		<Value>Browser("name:=DaVita VillageHealth Capella").Page("title:=DaVita VillageHealth Capella").WebElement("attribute/data-capella-automation-id:=MedReview_SavePtSurvey","visible:=True")</Value>
 	</Variable>
 	<Variable>
 		<Name>WEL_PharmacistMedReviewTab</Name>
@@ -2294,15 +2312,15 @@
 	<!-- Objects for TMR work flow -->
 	<Variable>
 		<Name>WEL_WarmTransfer</Name>
-		<Value>Browser("name:=DaVita VillageHealth Capella").Page("title:=DaVita VillageHealth Capella").WebElement("class:=warm-transfer","html tag:=DIV","outerhtml:=.*data-capella-automation-id=""warmTransferPopup.*","visible:=True")</Value>
+		<Value>Browser("name:=DaVita VillageHealth Capella").Page("title:=DaVita VillageHealth Capella").WebElement("html id:=Pharmacy_TechScreening_WarmTransferBtn","visible:=True")</Value>
 	</Variable>
 	<Variable>
 		<Name>WEL_WarmTransferSave</Name>
-		<Value>Browser("name:=DaVita VillageHealth Capella").Page("title:=DaVita VillageHealth Capella").WebElement("html tag:=DIV","innerhtml:=.*data-capella-automation-id=""Warm-Transfer-Save.*","outertext:= Save","visible:=True")</Value>
+		<Value>Browser("name:=DaVita VillageHealth Capella").Page("title:=DaVita VillageHealth Capella").WebElement("html id:=TechScreening_WarmTransfer_SaveBtn","visible:=True")</Value>
 	</Variable>
 	<Variable>
 		<Name>WEL_PharTechScrSaveBtn</Name>
-		<Value>Browser("name:=DaVita VillageHealth Capella").Page("title:=DaVita VillageHealth Capella").WebElement("html tag:=DIV","outerhtml:=.*data-capella-automation-id=""pharTechScrSaveBtn.*","outertext:= Save","visible:=True")</Value>
+		<Value>Browser("name:=DaVita VillageHealth Capella").Page("title:=DaVita VillageHealth Capella").WebElement("html id:=Pharmacy_TechScreening_SaveBtn","visible:=True")</Value>
 	</Variable>
 	<Variable>
 		<Name>WEL_SchedulePHMAppnt</Name>
@@ -2326,7 +2344,7 @@
 	</Variable>
 	<Variable>
 		<Name>WEL_MedReviewTab</Name>
-		<Value>Browser("name:=DaVita VillageHealth Capella").Page("title:=DaVita VillageHealth Capella").WebElement("html tag:=LI","innertext:=Review ","outerhtml:=.*data-capella-automation-id=""Medications Management_Review.*","visible:=True")</Value>
+		<Value>Browser("name:=DaVita VillageHealth Capella").Page("title:=DaVita VillageHealth Capella").WebElement("html id:= Review","visible:=True")</Value>
 	</Variable>
 	<Variable>
 		<Name>WB_PHMmedRevRefToDD</Name>
@@ -2348,9 +2366,15 @@
 		<Name>WB_InterventionEdit</Name>
 		<Value>Browser("name:=DaVita VillageHealth Capella").Page("title:=DaVita VillageHealth Capella").WebButton("html tag:=BUTTON","outerhtml:=.*onEditInterventionClick.*","outertext:=Edit","visible:=True")</Value>
 	</Variable>
+	<!--
 	<Variable>
 		<Name>WB_InterventionSaveEdit</Name>
 		<Value>Browser("name:=DaVita VillageHealth Capella").Page("title:=DaVita VillageHealth Capella").WebButton("html tag:=BUTTON","innertext:=Save","outerhtml:=.*enableInterventionEditSaveFlag.*","outertext:=Save","type:=button","value:=Save","visible:=True")</Value>
+	</Variable>
+	-->
+	<Variable>
+		<Name>WB_InterventionSaveEdit</Name>
+		<Value>Browser("name:=DaVita VillageHealth Capella").Page("title:=DaVita VillageHealth Capella").WebButton("html id:=PharmacistMedReview_Intervention_EditMode_SaveBtn","html tag:=BUTTON","visible:=True")</Value>
 	</Variable>
 	<Variable>
 		<Name>WB_ReviewerCoding</Name>
@@ -2382,7 +2406,7 @@
 	</Variable>
 	<Variable>
 		<Name>WEL_SendAllMDFax</Name>
-		<Value>Browser("name:=DaVita VillageHealth Capella").Page("title:=DaVita VillageHealth Capella").WebElement("html tag:=DIV","innerhtml:=    Send All.*","innertext:=Send All ","outertext:=Send All ","visible:=True")</Value>
+		<Value>Browser("name:=DaVita VillageHealth Capella").Page("title:=DaVita VillageHealth Capella").WebElement("attribute/data-capella-automation-id:=MD Fax Report_Btn_SendAll","visible:=True")</Value>
 	</Variable>
 	<Variable>
 		<Name>WB_AddTeamBtn</Name>
@@ -2434,7 +2458,7 @@
 	</Variable>
 	<Variable>
 		<Name>WB_TechAssessmentSave</Name>
-		<Value>Browser("name:=DaVita VillageHealth Capella").Page("title:=DaVita VillageHealth Capella").WebButton("class:=btn btn-custom title-gradient","html tag:=BUTTON","outerhtml:=.*data-capella-automation-id=""Add-Appointment-Btn-Save.*","outertext:=Save ","visible:=True")</Value>
+		<Value>Browser("name:=DaVita VillageHealth Capella").Page("title:=DaVita VillageHealth Capella").WebButton("html id:=TechAssessmentScreen_SaveBtn","visible:=True")</Value>
 	</Variable>
 	<!-- End of Objects for TMR work flow -->
 	<!-- Objects for Menu of Actions pane -->
@@ -2506,7 +2530,7 @@
 	</Variable>
 	<Variable>
 		<Name>WI_FRA_ScrHistUpArw</Name>
-		<Value>Browser("name:=DaVita VillageHealth Capella").Page("title:=DaVita VillageHealth Capella").Image("file name:=uparrow.*","html tag:=IMG","outerhtml:=.*padding-bottom.*","image type:=Plain Image","visible:=True")</Value>
+		<Value>Browser("name:=DaVita VillageHealth Capella").Page("title:=DaVita VillageHealth Capella").WebElement("class:=da-arrow","outertext:=  Screening History ","html tag:=DIV","innertext:=  Screening History ","visible:=True")</Value>
 	</Variable>
 	<Variable>
 		<Name>WT_FRA_ScrHtryTable</Name>
@@ -2966,7 +2990,7 @@
 	</Variable>
 	<Variable>
 		<Name>WI_HSS_ScrHistUpArw</Name>
-		<Value>Browser("creationtime:=0").Page("title:=DaVita VillageHealth Capella").Image("html tag:=IMG","visible:=True","file name:=uparrow\.png","outerhtml:=.*padding-bottom.*")</Value>
+		<Value>Browser("creationtime:=0").Page("title:=DaVita VillageHealth Capella").WebElement("class:=da-arrow.*","html tag:=DIV","outertext:=  Screening History ","visible:=True")</Value>
 	</Variable>
 	<Variable>
 		<Name>WT_HSS_ScrHtryTable</Name>
@@ -3288,7 +3312,7 @@
 	</Variable>
 	<Variable>
 		<Name>WE_Address1</Name>
-		<Value>Browser("name:=DaVita VillageHealth Capella").Page("title:=DaVita VillageHealth Capella").WebEdit("attribute/data-capella-automation-id:=provider\.ProviderAddress\.Address")</Value>
+		<Value>Browser("name:=DaVita VillageHealth Capella").Page("title:=DaVita VillageHealth Capella").WebEdit("attribute/data-capella-automation-id:=provider.ProviderAddress.Address")</Value>
 	</Variable>
 	<Variable>
 		<Name>WE_ZIP1</Name>
@@ -3380,7 +3404,7 @@
 	</Variable>
 	<Variable>
 		<Name>WE_MedScr_MapDiagnosis</Name>
-		<Value>Browser("name:=DaVita VillageHealth Capella").Page("title:=DaVita VillageHealth Capella").WebEdit("html tag:=TEXTAREA","name:=WebEdit","outerhtml:=.*data-capella-automation-id=""Medications Management_Review_selectedMed\.MapDiagnosis.*","type:=textarea","visible:=True")</Value>
+		<Value>Browser("name:=DaVita VillageHealth Capella").Page("title:=DaVita VillageHealth Capella").WebEdit("attribute/data-capella-automation-id:=Medications Management__selectedMed\.MapDiagnosis","visible:=True")</Value>
 	</Variable>
 	<Variable>
 		<Name>WE_MedScr_MedDetails</Name>
@@ -3599,56 +3623,351 @@
 	<!--
     <Variable>
 		<Name>WB_Destination_Dropdown</Name>
-		<Value>Browser("name:=DaVita VillageHealth Capella").Page("title:=DaVita VillageHealth Capella").WebButton("html id:=domain","html tag:=BUTTON","innertext:=Select a Value\s*","visible:=True")</Value>
+		<Value>Browser("name:=DaVita VillageHealth Capella").Page("title:=DaVita 
+VillageHealth Capella").WebButton("html id:=domain","html tag:=BUTTON","innertext:=Select 
+
+
+
+
+
+
+
+
+
+a 
+
+
+Value\s*","visible:=True")</Value>
 	
-    </Variable>
+
+
+
+
+
+
+
+
+</Variable>
 	<Variable>
 		<Name>WE_Attention_Textbox</Name>
-		<Value>Browser("name:=DaVita VillageHealth Capella").Page("title:=DaVita VillageHealth Capella").WebEdit("html tag:=INPUT","name:=WebEdit","outerhtml:=.*FaxAttention.*","visible:=True")</Value>
+		
+
+
+
+
+
+
+
+
+
+
+
+
+<Value>Browser("name:=DaVita VillageHealth 
+
+
+
+
+
+
+
+
+Capella").Page("title:=DaVita VillageHealth 
+
+
+
+
+
+
+
+Capella").WebEdit("html 
+
+
+
+
+tag:=INPUT","name:=WebEdit","outerhtml:=.*FaxAttention.*","visible:=True")</Value>
 	
-    </Variable>
-	<Variable>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</Variable>
+	
+
+
+
+
+<Variable>
 		<Name>WE_FaxNumber_Textbox</Name>
-		<Value>Browser("name:=DaVita VillageHealth Capella").Page("title:=DaVita VillageHealth Capella").WebEdit("html tag:=INPUT","name:=WebEdit","outerhtml:=.*FaxNumber.*","visible:=True")</Value>
+		<Value>Browser("name:=DaVita 
+
+
+
+
+
+
+
+VillageHealth 
+
+
+
+
+
+
+
+
+Capella").Page("title:=DaVita 
+
+
+
+
+VillageHealth Capella").WebEdit("html 
+
+
+tag:=INPUT","name:=WebEdit","outerhtml:=.*FaxNumber.*","visible:=True")</Value>
 	
-    </Variable>
-	<Variable>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</Variable>
+	
+
+
+<Variable>
 		<Name>WE_Preview_Button</Name>
-		<Value>Browser("name:=DaVita VillageHealth Capella").Page("title:=DaVita VillageHealth Capella").WebElement("html tag:=DIV","innertext:=Preview.*","visible:=True")</Value>
+		<Value>Browser("name:=DaVita 
+
+
+
+
+
+VillageHealth 
+
+
+
+
+
+
+
+
+
+
+
+
+Capella").Page("title:=DaVita 
+
+
+VillageHealth Capella").WebElement("html 
+
+
+tag:=DIV","innertext:=Preview.*","visible:=True")</Value>
 	
-    </Variable>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</Variable>
 	<Variable>
-		<Name>WE_PreviewICRReport_ScreenTitle</Name>
-		<Value>Browser("name:=DaVita VillageHealth Capella").Page("title:=DaVita VillageHealth Capella").WebElement("class:=col-md-10 ng-binding","html tag:=DIV","innertext:=Integrated Care Report.*","outertext:=Integrated Care Report.*","visible:=True")</Value>
+		
+
+
+<Name>WE_PreviewICRReport_ScreenTitle</Name>
+		<Value>Browser("name:=DaVita 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+VillageHealth 
+
+
+Capella").Page("title:=DaVita VillageHealth Capella").WebElement("class:=col-md-10 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ng-binding","html 
+
+
+
+
+
+
+tag:=DIV","innertext:=Integrated Care Report.*","outertext:=Integrated 
+
+
+
+
+
+
+Care 
+
+
+
+
+Report.*","visible:=True")</Value>
 	
-    </Variable>
+
+
+
+
+
+
+
+
+
+</Variable>
 	<Variable>
 		<Name>WE_SendFax_Button</Name>
-		<Value>Browser("name:=DaVita VillageHealth Capella").Page("title:=DaVita VillageHealth Capella").WebElement("class:=.*btn-success.*","html tag:=DIV","innertext:=Send Fax.*","outertext:=Send Fax.*","visible:=True")</Value>
-	</Variable>
-	<Variable>
-		<Name>WE_FaxReport_PopupTitle</Name>
 		
-        <Value>Browser("name:=DaVita VillageHealth Capella").Page("title:=DaVita VillageHealth Capella").WebElement("html tag:=DIV","innertext:=Fax Report","outertext:=Fax Report","visible:=True")</Value>
+
+
+
+
+
+
+
+
+
+
+
+<Value>Browser("name:=DaVita 
+
+
+VillageHealth 
+
+
+
+
+
+
+Capella").Page("title:=DaVita VillageHealth 
+
+
+
+
+Capella").WebElement("class:=.*btn-success.*","html 
+
+
+
+
+
+
+
+
+
+
+
+tag:=DIV","innertext:=Send 
+
+
+
+
+Fax.*","outertext:=Send 
+
+
+
+
+Fax.*","visible:=True")</Value>
+	
+
+</Variable>
+	
+
+
+
+
+
+
+
+
+
+<Variable>
+		<Name>WE_FaxReport_PopupTitle</Name>
+		<Value>Browser("name:=DaVita VillageHealth Capella").Page("title:=DaVita VillageHealth Capella").WebElement("html tag:=DIV","innertext:=Fax Report","outertext:=Fax Report","visible:=True")</Value>
 	</Variable> 
 	-->
 	<!-- End of objects for Printer Dialog -->
 	<!--Additional objects for Hospitalization screen-->
 	<Variable>
 		<Name>WB_AdmitCalendarBtn</Name>
-		<Value>Browser("name:=DaVita VillageHealth Capella").Page("title:=DaVita VillageHealth Capella").WebButton("attribute/data-capella-automation-id:=Hospitalization_Management_AdmitDate","visible:=True")</Value>
+		<Value>Browser("name:=DaVita VillageHealth Capella").Page("title:=DaVita VillageHealth Capella").WebButton("html id:=Hospitalization_Review_AdmitDate_Button","visible:=True")</Value>
 	</Variable>
 	<Variable>
 		<Name>WB_AdmitNotificationCalendarBtn</Name>
-		<Value>Browser("name:=DaVita VillageHealth Capella").Page("title:=DaVita VillageHealth Capella").WebButton("class:=btn btn-default btn-dt-icon","html tag:=BUTTON","outerhtml:=.*'NotificationDateOpened'.*","type:=button","visible:=True")</Value>
+		<Value>Browser("name:=DaVita VillageHealth Capella").Page("title:=DaVita VillageHealth Capella").WebButton("html id:=Hospitalization_Review_NotificationDate_Button","visible:=True")</Value>
 	</Variable>
 	<Variable>
 		<Name>WB_DischargeCalendarBtn</Name>
-		<Value>Browser("name:=DaVita VillageHealth Capella").Page("title:=DaVita VillageHealth Capella").WebButton("attribute/data-capella-automation-id:=Hospitalization_Management_DischargeDate","visible:=True")</Value>
+		<Value>Browser("name:=DaVita VillageHealth Capella").Page("title:=DaVita VillageHealth Capella").WebButton("html id:=Hospitalization_Review_IsDischargeDateEnabled_Button","visible:=True")</Value>
 	</Variable>
 	<Variable>
 		<Name>WB_DischargeNotificationCalendarBtn</Name>
-		<Value>Browser("name:=DaVita VillageHealth Capella").Page("title:=DaVita VillageHealth Capella").WebButton("class:=btn btn-default btn-dt-icon","html tag:=BUTTON","outerhtml:=.*'DischargeNotificationDateOpened'.*","type:=button","visible:=True")</Value>
+		<Value>Browser("name:=DaVita VillageHealth Capella").Page("title:=DaVita VillageHealth Capella").WebButton("html id:=Hospitalization_Review_DischargeNotificationDate_Button","visible:=True")</Value>
 	</Variable>
 	<Variable>
 		<Name>WB_CalendarHeader</Name>
@@ -3668,19 +3987,19 @@
 	</Variable>
 	<Variable>
 		<Name>WI_SaveAdmission</Name>
-		<Value>Browser("name:=DaVita VillageHealth Capella").Page("title:=DaVita VillageHealth Capella").WebElement("attribute/data-capella-automation-id:=Hospitalization_Management_Save","visible:=True")</Value>
+		<Value>Browser("name:=DaVita VillageHealth Capella").Page("title:=DaVita VillageHealth Capella").WebElement("html id:=Hospitalization_Review_Save_Button","visible:=True")</Value>
 	</Variable>
 	<Variable>
 		<Name>WE_AvoidableAdmitComment</Name>
-		<Value>Browser("name:=DaVita VillageHealth Capella").Page("title:=DaVita VillageHealth Capella").WebEdit("attribute/data-capella-automation-id:=HospitalizationModel\.PtDischargePlan\.AvoidableAdmitComment","visible:=True")</Value>
+		<Value>Browser("name:=DaVita VillageHealth Capella").Page("title:=DaVita VillageHealth Capella").WebEdit("html id:=Hospitalization_Review_AvoidableAdmitComment_Input","visible:=True")</Value>
 	</Variable>
 	<Variable>
 		<Name>WEL_HospitalizationHeader</Name>
-		<Value>Browser("name:=DaVita VillageHealth Capella").Page("title:=DaVita VillageHealth Capella").WebElement("class:=.*page-title-intervention containerHeader.*","html tag:=DIV","innertext:=Hospitalization Management.*","visible:=True")</Value>
+		<Value>Browser("name:=DaVita VillageHealth Capella").Page("title:=DaVita VillageHealth Capella").WebElement("html id:=Header_Hospitalization Management","visible:=True")</Value>
 	</Variable>
 	<Variable>
 		<Name>WEL_HospitalizationReviewHeader</Name>
-		<Value>Browser("name:=DaVita VillageHealth Capella").Page("title:=DaVita VillageHealth Capella").WebElement("outerhtml:=.*data-capella-automation-id=""Hospitalization Management_Review.*","visible:=True")</Value>
+		<Value>Browser("name:=DaVita VillageHealth Capella").Page("title:=DaVita VillageHealth Capella").WebElement("html id:=Review","visible:=True")</Value>
 	</Variable>
 	<Variable>
 		<Name>WEL_LengthOfStayHeader</Name>
@@ -3708,15 +4027,15 @@
 	</Variable>
 	<Variable>
 		<Name>WE_FacilityName</Name>
-		<Value>Browser("name:=DaVita VillageHealth Capella").Page("title:=DaVita VillageHealth Capella").WebEdit("attribute/data-capella-automation-id:=HospitalizationModel\.PtDischargePlan\.FacilityName1","visible:=True")</Value>
+		<Value>Browser("name:=DaVita VillageHealth Capella").Page("title:=DaVita VillageHealth Capella").WebEdit("html id:=Hospitalization_Review_FacilityName_Input","visible:=True")</Value>
 	</Variable>
 	<Variable>
 		<Name>WE_FacilityPhone</Name>
-		<Value>Browser("name:=DaVita VillageHealth Capella").Page("title:=DaVita VillageHealth Capella").WebEdit("attribute/data-capella-automation-id:=HospitalizationModel\.PtDischargePlan\.FacilityPhone1","visible:=True")</Value>
+		<Value>Browser("name:=DaVita VillageHealth Capella").Page("title:=DaVita VillageHealth Capella").WebEdit("html id:=Hospitalization_Review_FacilityPhone1_Input","visible:=True")</Value>
 	</Variable>
 	<Variable>
 		<Name>WE_FacilityFax</Name>
-		<Value>Browser("name:=DaVita VillageHealth Capella").Page("title:=DaVita VillageHealth Capella").WebEdit("attribute/data-capella-automation-id:=HospitalizationModel\.PtDischargePlan\.FacilityFax1","visible:=True")</Value>
+		<Value>Browser("name:=DaVita VillageHealth Capella").Page("title:=DaVita VillageHealth Capella").WebEdit("html id:=Hospitalization_Review_FacilityFax1_Input","visible:=True")</Value>
 	</Variable>
 	<Variable>
 		<Name>WEL_ReadmitSpace</Name>
@@ -3724,15 +4043,15 @@
 	</Variable>
 	<Variable>
 		<Name>WE_PlannedAdmission</Name>
-		<Value>Browser("name:=DaVita VillageHealth Capella").Page("title:=DaVita VillageHealth Capella").WebElement("class:=screening-check-box-no float-left whitebg","html tag:=DIV","visible:=True")</Value>
+		<Value>Browser("name:=DaVita VillageHealth Capella").Page("title:=DaVita VillageHealth Capella").WebElement("class:=screening-check-box-no float-left whitebg","html tag:=DIV","visible:=True","Index:=0")</Value>
 	</Variable>
 	<Variable>
 		<Name>WE_AvoidableAdmission_Unchecked</Name>
-		<Value>Browser("name:=DaVita VillageHealth Capella").Page("title:=DaVita VillageHealth Capella").WebElement("html tag:=DIV","outerhtml:=.*IsAvoidableAdmit.*","visible:=True")</Value>
+		<Value>Browser("name:=DaVita VillageHealth Capella").Page("title:=DaVita VillageHealth Capella").WebElement("html id:=Hospitalization_Review_IsAvoidableAdmit_Div","visible:=True")</Value>
 	</Variable>
 	<Variable>
 		<Name>WE_AvoidableAdmission_Checked</Name>
-		<Value>Browser("name:=DaVita VillageHealth Capella").Page("title:=DaVita VillageHealth Capella").WebElement("class:=screening-check-box-yes.*","html tag:=DIV","outerhtml:=.*IsAvoidableAdmit.*","visible:=True")</Value>
+		<Value>Browser("name:=DaVita VillageHealth Capella").Page("title:=DaVita VillageHealth Capella").WebElement("html id:=Hospitalization_Review_IsAvoidableAdmit_Div","visible:=True")</Value>
 	</Variable>
 	<Variable>
 		<Name>WE_LenghtOfStayBeforeAdmit0Days</Name>
@@ -3740,75 +4059,71 @@
 	</Variable>
 	<Variable>
 		<Name>WB_TransferCalendarBtn</Name>
-		<Value>Browser("name:=DaVita VillageHealth Capella").Page("title:=DaVita VillageHealth Capella").WebButton("attribute/data-capella-automation-id:=Hospitalization_Management_Transfer_Date","visible:=True")</Value>
+		<Value>Browser("name:=DaVita VillageHealth Capella").Page("title:=DaVita VillageHealth Capella").WebButton("html id:=Hospitalization_Review_TransferDate_Button","visible:=True")</Value>
 	</Variable>
 	<Variable>
 		<Name>WE_AdmitDateTxBx_NonEditable</Name>
-		<Value>Browser("name:=DaVita VillageHealth Capella").Page("title:=DaVita VillageHealth Capella").WebEdit("html id:=AdmitDateOpened","html tag:=INPUT","name:=WebEdit","visible:=True")</Value>
+		<Value>Browser("name:=DaVita VillageHealth Capella").Page("title:=DaVita VillageHealth Capella").WebEdit("html id:=Hospitalization_Review_AdmitDate_DatePicker","visible:=True")</Value>
 	</Variable>
 	<Variable>
 		<Name>WE_TransferFacilityName</Name>
-		<Value>Browser("name:=DaVita VillageHealth Capella").Page("title:=DaVita VillageHealth Capella").WebEdit("attribute/data-capella-automation-id:=HospitalizationModel\.PtDischargePlan\.FacilityName2","visible:=True")</Value>
+		<Value>Browser("name:=DaVita VillageHealth Capella").Page("title:=DaVita VillageHealth Capella").WebEdit("html id:=Hospitalization_Review_FacilityName2_Input","visible:=True")</Value>
 	</Variable>
 	<Variable>
 		<Name>WE_TransferFacilityPhone</Name>
-		<Value>Browser("name:=DaVita VillageHealth Capella").Page("title:=DaVita VillageHealth Capella").WebEdit("attribute/data-capella-automation-id:=HospitalizationModel\.PtDischargePlan\.FacilityPhone2","visible:=True")</Value>
+		<Value>Browser("name:=DaVita VillageHealth Capella").Page("title:=DaVita VillageHealth Capella").WebEdit("html id:=Hospitalization_Review_FacilityPhone2_Input","visible:=True")</Value>
 	</Variable>
 	<Variable>
 		<Name>WB_PlanDateCalendarBtn</Name>
-		<Value>Browser("name:=DaVita VillageHealth Capella").Page("title:=DaVita VillageHealth Capella").WebButton("attribute/data-capella-automation-id:=Hospitalization_Management_Planned_Date","visible:=True")</Value>
+		<Value>Browser("name:=DaVita VillageHealth Capella").Page("title:=DaVita VillageHealth Capella").WebButton("html id:=Hospitalization_Review_DischargePlanInitDate_Button","visible:=True")</Value>
 	</Variable>
 	<Variable>
 		<Name>WEL_PlanRefusedRadio_Yes</Name>
-		<Value>Browser("name:=DaVita VillageHealth Capella").Page("title:=DaVita VillageHealth Capella").WebElement("outerhtml:=.*data-capella-automation-id=""Hospitalization_Management_Plan_Refused_Yes.*","html tag:=DIV","visible:=True")</Value>
+		<Value>Browser("name:=DaVita VillageHealth Capella").Page("title:=DaVita VillageHealth Capella").WebElement("html id:=Hospitalization_Review_IsPlanRefusedYes_Radio","visible:=True")</Value>
 	</Variable>
 	<Variable>
 		<Name>WEL_PlanRefusedRadio_No</Name>
-		<Value>Browser("name:=DaVita VillageHealth Capella").Page("title:=DaVita VillageHealth Capella").WebElement("outerhtml:=.*data-capella-automation-id=""Hospitalization_Management_Plan_Refused_No.*","html tag:=DIV","visible:=True")</Value>
+		<Value>Browser("name:=DaVita VillageHealth Capella").Page("title:=DaVita VillageHealth Capella").WebElement("html id:=Hospitalization_Review_IsPlanRefusedNo_Radio","visible:=True")</Value>
 	</Variable>
 	<Variable>
 		<Name>WE_HomeHealthName</Name>
-		<Value>Browser("name:=DaVita VillageHealth Capella").Page("title:=DaVita VillageHealth Capella").WebEdit("attribute/data-capella-automation-id:=HospitalizationModel\.PtDischargePlan\.HomeHealthName","visible:=True")</Value>
+		<Value>Browser("name:=DaVita VillageHealth Capella").Page("title:=DaVita VillageHealth Capella").WebEdit("html id:=Hospitalization_Review_HomeHealthName_Input","visible:=True")</Value>
 	</Variable>
 	<Variable>
 		<Name>WEL_MedicalEquipment_Yes</Name>
-		<Value>Browser("name:=DaVita VillageHealth Capella").Page("title:=DaVita VillageHealth Capella").WebElement("attribute/data-capella-automation-id:=Hospitalization_Management_Medical_Equipment_Yes","visible:=True")</Value>
+		<Value>Browser("name:=DaVita VillageHealth Capella").Page("title:=DaVita VillageHealth Capella").WebElement("html id:=Hospitalization_Review_IsDMEProvidedYes_CheckBox","visible:=True")</Value>
 	</Variable>
 	<Variable>
 		<Name>WEL_MedicalEquipment_No</Name>
-		<Value>Browser("name:=DaVita VillageHealth Capella").Page("title:=DaVita VillageHealth Capella").WebElement("attribute/data-capella-automation-id:=Hospitalization_Management_Medical_Equipment_No","visible:=True")</Value>
+		<Value>Browser("name:=DaVita VillageHealth Capella").Page("title:=DaVita VillageHealth Capella").WebElement("html id:=Hospitalization_Review_IsDMEProvidedNo_CheckBox","visible:=True")</Value>
 	</Variable>
 	<Variable>
 		<Name>WE_DischargeDiagnosis</Name>
-		<Value>Browser("name:=DaVita VillageHealth Capella").Page("title:=DaVita VillageHealth Capella").WebEdit("attribute/data-capella-automation-id:=HospitalizationModel\.PtDischargePlan\.DischargeDiagnosis","visible:=True")</Value>
+		<Value>Browser("name:=DaVita VillageHealth Capella").Page("title:=DaVita VillageHealth Capella").WebEdit("html id:=Hospitalization_Review_DischargeDiagnosis_TextArea","visible:=True")</Value>
 	</Variable>
 	<Variable>
 		<Name>WI_HospHistoryDownArrow</Name>
-		<Value>Browser("name:=DaVita VillageHealth Capella").Page("title:=DaVita VillageHealth Capella").Image("file name:=downarrow.*","html tag:=IMG","image type:=Plain Image","outerhtml:=.*HospitalizationModel.*","visible:=True")</Value>
+		<Value>Browser("name:=DaVita VillageHealth Capella").Page("title:=DaVita VillageHealth Capella").Image("file name:=downarrow.*","html tag:=IMG","image type:=Plain Image","outerhtml:=.*AccordionState.*","visible:=True")</Value>
 	</Variable>
 	<Variable>
 		<Name>WE_DischargeDateTxBx_NonEditable</Name>
-		<Value>Browser("name:=DaVita VillageHealth Capella").Page("title:=DaVita VillageHealth Capella").WebEdit("html id:=DischargeDateOpened","html tag:=INPUT","name:=WebEdit","visible:=True")</Value>
+		<Value>Browser("name:=DaVita VillageHealth Capella").Page("title:=DaVita VillageHealth Capella").WebEdit("html id:=Hospitalization_Review_DischargeDate_DatePicker","visible:=True")</Value>
 	</Variable>
 	<Variable>
 		<Name>WE_AdmitNotificationDateTxBx_AfAd</Name>
-		<Value>Browser("name:=DaVita VillageHealth Capella").Page("title:=DaVita VillageHealth Capella").WebEdit("html id:=NotificationDateOpened","html tag:=INPUT","name:=WebEdit","visible:=True")</Value>
-	</Variable>
-	<Variable>
-		<Name>WEL_LengthOfStayHeader</Name>
-		<Value>Browser("name:=DaVita VillageHealth Capella").Page("title:=DaVita VillageHealth Capella").WebElement("class:=hrdHeader","html tag:=DIV","visible:=True")</Value>
+		<Value>Browser("name:=DaVita VillageHealth Capella").Page("title:=DaVita VillageHealth Capella").WebEdit("html id:=Hospitalization_Review_NotificationDate_DatePicker","visible:=True")</Value>
 	</Variable>
 	<Variable>
 		<Name>WEL_ReadmitCB_checked</Name>
-		<Value>Browser("name:=DaVita VillageHealth Capella").Page("title:=DaVita VillageHealth Capella").WebElement("html tag:=DIV","outerhtml:=.*IsReAdmit.*","visible:=True")</Value>
+		<Value>Browser("name:=DaVita VillageHealth Capella").Page("title:=DaVita VillageHealth Capella").WebElement("html tag:=DIV","outerhtml:=.*model\.PtDischargePlan\.IsReAdmit.*","visible:=True")</Value>
 	</Variable>
 	<Variable>
 		<Name>WE_TransferDateTxBx</Name>
-		<Value>Browser("name:=DaVita VillageHealth Capella").Page("title:=DaVita VillageHealth Capella").WebEdit("html id:=TransferDateOpened","html tag:=INPUT","name:=WebEdit","visible:=True")</Value>
+		<Value>Browser("name:=DaVita VillageHealth Capella").Page("title:=DaVita VillageHealth Capella").WebEdit("html id:=Hospitalization_Review_TransferDate_DatePicker","visible:=True")</Value>
 	</Variable>
 	<Variable>
 		<Name>WE_PlanDateTxBx</Name>
-		<Value>Browser("name:=DaVita VillageHealth Capella").Page("title:=DaVita VillageHealth Capella").WebEdit("attribute/data-capella-automation-id:=HospitalizationModel\.PtDischargePlan\.DischargePlanInitDate","visible:=True")</Value>
+		<Value>Browser("name:=DaVita VillageHealth Capella").Page("title:=DaVita VillageHealth Capella").WebEdit("html id:=Hospitalization_Review_PlanDate_DatePicker","visible:=True")</Value>
 	</Variable>
 	<Variable>
 		<Name>WB_CalendarToday_H</Name>
@@ -3816,35 +4131,35 @@
 	</Variable>
 	<Variable>
 		<Name>WB_RDMedication_TxBx</Name>
-		<Value>Browser("name:=DaVita VillageHealth Capella").Page("title:=DaVita VillageHealth Capella").WebButton("html tag:=INPUT","outerhtml:=.*HospitalizationModel\.MDLabel.*","visible:=True")</Value>
+		<Value>Browser("name:=DaVita VillageHealth Capella").Page("title:=DaVita VillageHealth Capella").WebEdit("html id:=Hospitalization_Review_DomainComments_21_Input","visible:=True")</Value>
 	</Variable>
 	<Variable>
 		<Name>WEL_LocPriorHospVisit</Name>
-		<Value>Browser("name:=DaVita VillageHealth Capella").Page("title:=DaVita VillageHealth Capella").WebElement("attribute/data-capella-automation-id:=Hospitalization_Management_Admission_Pt_Loc","visible:=True")</Value>
+		<Value>Browser("name:=DaVita VillageHealth Capella").Page("title:=DaVita VillageHealth Capella").WebButton("html id:=Hospitalization_Review_PreAdmissionPtLocText_Button","visible:=True")</Value>
 	</Variable>
 	<Variable>
 		<Name>WEL_PrimaryDiagnosis</Name>
-		<Value>Browser("name:=DaVita VillageHealth Capella").Page("title:=DaVita VillageHealth Capella").WebElement("attribute/data-capella-automation-id:=Hospitalization_Management_Primary_Diagnosis","visible:=True")</Value>
+		<Value>Browser("name:=DaVita VillageHealth Capella").Page("title:=DaVita VillageHealth Capella").WebButton("html id:=Hospitalization_Review_PrimaryDxText_Button","visible:=True")</Value>
 	</Variable>
 	<Variable>
 		<Name>WEL_RelatedSubCategory</Name>
-		<Value>Browser("name:=DaVita VillageHealth Capella").Page("title:=DaVita VillageHealth Capella").WebElement("attribute/data-capella-automation-id:=Hospitalization_Management_Related_SubCategory","visible:=True")</Value>
+		<Value>Browser("name:=DaVita VillageHealth Capella").Page("title:=DaVita VillageHealth Capella").WebButton("html id:=Hospitalization_Review_PrimaryDxSubCategoryText_Button","visible:=True")</Value>
 	</Variable>
 	<Variable>
 		<Name>WEL_ReAdmitReason</Name>
-		<Value>Browser("name:=DaVita VillageHealth Capella").Page("title:=DaVita VillageHealth Capella").WebElement("attribute/data-capella-automation-id:=Hospitalization_Management_Reason","visible:=True")</Value>
+		<Value>Browser("name:=DaVita VillageHealth Capella").Page("title:=DaVita VillageHealth Capella").WebButton("html id:=Hospitalization_Review_ReadmitReasonText_Button","visible:=True")</Value>
 	</Variable>
 	<Variable>
 		<Name>WEL_HomeHealthReason</Name>
-		<Value>Browser("name:=DaVita VillageHealth Capella").Page("title:=DaVita VillageHealth Capella").WebElement("attribute/data-capella-automation-id:=Hospitalization_Management_Home_Health","visible:=True")</Value>
+		<Value>Browser("name:=DaVita VillageHealth Capella").Page("title:=DaVita VillageHealth Capella").WebButton("html id:=Hospitalization_Review_HomeHealthReason_Button","visible:=True")</Value>
 	</Variable>
 	<Variable>
 		<Name>WE_RD_Med_TxBx</Name>
-		<Value>Browser("name:=DaVita VillageHealth Capella").Page("title:=DaVita VillageHealth Capella").WebEdit("attribute/data-capella-automation-id:=domain.Comments","visible:=True")</Value>
+		<Value>Browser("name:=DaVita VillageHealth Capella").Page("title:=DaVita VillageHealth Capella").WebEdit("html id:=Hospitalization_Review_DomainComments_21_Input","visible:=True")</Value>
 	</Variable>
 	<Variable>
 		<Name>WE_PatientRefusedPlan_Status</Name>
-		<Value>Browser("name:=DaVita VillageHealth Capella").Page("title:=DaVita VillageHealth Capella").WebElement("html tag:=DIV","innerhtml:=.*data-capella-automation-id=""Hospitalization_Management_Plan_Refused.*","outertext:=NoYes","visible:=True")</Value>
+		<Value>Browser("name:=DaVita VillageHealth Capella").Page("title:=DaVita VillageHealth Capella").WebElement("html tag:=DIV","outertext:=NoYes","visible:=True")</Value>
 	</Variable>
 	<Variable>
 		<Name>WE_MedicalEquipment_Status</Name>
@@ -3999,9 +4314,19 @@
 		<Name>WEL_ScoreCardContentMedication</Name>
 		<Value>Browser("name:=DaVita VillageHealth Capella").Page("title:=DaVita VillageHealth Capella").WebElement("attribute/data-capella-automation-id:=Scorecard-Content-Medication","visible:=True")</Value>
 	</Variable>
+	<!--
 	<Variable>
 		<Name>WI_InterventionAddIcon</Name>
 		<Value>Browser("name:=DaVita VillageHealth Capella").Page("title:=DaVita VillageHealth Capella").Image("file name:=icon_vh_plusSmall.*","html tag:=IMG","title:=Add Intervention","visible:=True")</Value>
+	</Variable>
+	-->
+	<Variable>
+		<Name>WI_InterventionAddIcon</Name>
+		<Value>Browser("name:=DaVita VillageHealth Capella").Page("title:=DaVita VillageHealth Capella").WebElement("class:=glyphicon glyphicon-plus","html tag:=SPAN","visible:=True")</Value>
+	</Variable>
+	<Variable>
+		<Name>WE_InterventionAddIcon_MNI</Name>
+		<Value>Browser("name:=DaVita VillageHealth Capella").Page("title:=DaVita VillageHealth Capella").WebElement("class:=glyphicon glyphicon-plus","html tag:=SPAN","visible:=True","index:=1")</Value>
 	</Variable>
 	<Variable>
 		<Name>WEL_InterventionSlider</Name>
@@ -4029,11 +4354,11 @@
 	</Variable>
 	<Variable>
 		<Name>WE_MedicationReviewTab</Name>
-		<Value>Browser("name:=DaVita VillageHealth Capella").Page("title:=DaVita VillageHealth Capella").WebElement("attribute/data-capella-automation-id:=Medications Management_Review","visible:=True")</Value>
+		<Value>Browser("name:=DaVita VillageHealth Capella").Page("title:=DaVita VillageHealth Capella").WebElement("html id:=Review","visible:=True")</Value>
 	</Variable>
 	<Variable>
 		<Name>WE_HospitalizationReviewTab</Name>
-		<Value>Browser("name:=DaVita VillageHealth Capella").Page("title:=DaVita VillageHealth Capella").WebElement("attribute/data-capella-automation-id:=Hospitalization Management_Review","visible:=True")</Value>
+		<Value>Browser("name:=DaVita VillageHealth Capella").Page("title:=DaVita VillageHealth Capella").WebElement("html id:=Review","visible:=True")</Value>
 	</Variable>
 	<Variable>
 		<Name>WE_PatientListCheckBox</Name>
@@ -4245,4 +4570,355 @@
 		<Value>Browser("name:=DaVita VillageHealth Capella").Page("title:=DaVita VillageHealth Capella").WebElement("class:=pathway-date.*", "html tag:=DIV")</Value>
 	</Variable>
 	<!-- End of Objects for Infection Pathway -->
+	<Variable>
+		<Name>WI_PatientProfileExpand_New</Name>
+		<Value>Browser("name:=DaVita VillageHealth Capella").Page("title:=DaVita VillageHealth Capella").WebElement("class:=glyphicon glyphicon-new-window nav-cursor right","html tag:=SPAN","visible:=True")</Value>
+	</Variable>
+	<Variable>
+		<Name>WE_SearchMemberLastName</Name>
+		<Value>Browser("name:=DaVita VillageHealth Capella").Page("title:=DaVita VillageHealth Capella").WebEdit("attribute/data-capella-automation-id:=model\.SearchFilter\.LastName","visible:=True")</Value>
+	</Variable>
+	<Variable>
+		<Name>WEL_Admit_VerbalContact_CB</Name>
+		<Value>Browser("name:=DaVita VillageHealth Capella").Page("title:=DaVita VillageHealth Capella").WebElement("html id:=Hospitalization_Review_IsVerbalContact_Div","visible:=True")</Value>
+	</Variable>
+	<Variable>
+		<Name>WEL_LengthOfStayValue</Name>
+		<Value>Browser("name:=DaVita VillageHealth Capella").Page("title:=DaVita VillageHealth Capella").WebElement("html tag:=SPAN","outertext:=.*Days","visible:=True")</Value>
+	</Variable>
+	<Variable>
+		<Name>WB_MRP_DD</Name>
+		<Value>Browser("name:=DaVita VillageHealth Capella").Page("title:=DaVita VillageHealth Capella").WebButton("html id:=sideDropDown","visible:=True","index:=1")</Value>
+	</Variable>
+	<Variable>
+		<Name>WB_ChangeRecommended_DD</Name>
+		<Value>Browser("name:=DaVita VillageHealth Capella").Page("title:=DaVita VillageHealth Capella").WebButton("html id:=sideDropDown","visible:=True","index:=2")</Value>
+	</Variable>
+	<Variable>
+		<Name>WCB_MedRecommended_CB</Name>
+		<Value>Browser("name:=DaVita VillageHealth Capella").Page("title:=DaVita VillageHealth Capella").WebCheckBox("attribute/data-capella-automation-id:=model\.CurrentIntervention\.IsFreeFormTextMedRecommendedDesc","visible:=True")</Value>
+	</Variable>
+	<Variable>
+		<Name>WE_MedRecommended</Name>
+		<Value>Browser("name:=DaVita VillageHealth Capella").Page("title:=DaVita VillageHealth Capella").WebEdit("attribute/data-capella-automation-id:=model.CurrentIntervention.MedRecommendedDesc","visible:=True")</Value>
+	</Variable>
+	<Variable>
+		<Name>WE_DateRecommended</Name>
+		<Value>Browser("name:=DaVita VillageHealth Capella").Page("title:=DaVita VillageHealth Capella").WebEdit("attribute/data-capella-automation-id:=model\.CurrentIntervention\.ChangeRecommendedDate","visible:=True")</Value>
+	</Variable>
+	<Variable>
+		<Name>WE_IndicationDD</Name>
+		<Value>Browser("name:=DaVita VillageHealth Capella").Page("title:=DaVita VillageHealth Capella").WebEdit("attribute/data-capella-automation-id:=model\.CurrentIntervention\.IndicationDescription","visible:=True")</Value>
+	</Variable>
+	<Variable>
+		<Name>WEL_IndicationDDlist</Name>
+		<Value>Browser("name:=DaVita VillageHealth Capella").Page("title:=DaVita VillageHealth Capella").WebElement("html id:=intvind-list","visible:=True")</Value>
+	</Variable>
+	<Variable>
+		<Name>WB_MRPOutcome_DD</Name>
+		<Value>Browser("name:=DaVita VillageHealth Capella").Page("title:=DaVita VillageHealth Capella").WebButton("html id:=sideDropDown","visible:=True","index:=3")</Value>
+	</Variable>
+	<Variable>
+		<Name>WE_PHMCodingDate</Name>
+		<Value>Browser("name:=DaVita VillageHealth Capella").Page("title:=DaVita VillageHealth Capella").WebEdit("attribute/data-capella-automation-id:=model\.CurrentIntervention\.PHMCodingDate","visible:=True")</Value>
+	</Variable>
+	<Variable>
+		<Name>WE_MAPMDRecommendationNotes</Name>
+		<Value>Browser("name:=DaVita VillageHealth Capella").Page("title:=DaVita VillageHealth Capella").WebEdit("attribute/data-capella-automation-id:=model\.CurrentIntervention\.MapMDNotes","visible:=True")</Value>
+	</Variable>
+	<Variable>
+		<Name>WE_MDRecommendationReference</Name>
+		<Value>Browser("name:=DaVita VillageHealth Capella").Page("title:=DaVita VillageHealth Capella").WebEdit("attribute/data-capella-automation-id:=model\.CurrentIntervention\.MDRecomndationREF","visible:=True")</Value>
+	</Variable>
+	<Variable>
+		<Name>WE_PHMNotes</Name>
+		<Value>Browser("name:=DaVita VillageHealth Capella").Page("title:=DaVita VillageHealth Capella").WebEdit("attribute/data-capella-automation-id:=model\.CurrentIntervention\.PHMNotes","visible:=True")</Value>
+	</Variable>
+	<Variable>
+		<Name>WB_ScreeningMethod_DD</Name>
+		<Value>Browser("name:=DaVita VillageHealth Capella").Page("title:=DaVita VillageHealth Capella").WebButton("html id:=sideDropDown","visible:=True","index:=0")</Value>
+	</Variable>
+	<Variable>
+		<Name>WEL_FinalizePatientGlypnInOPW</Name>
+		<Value>Browser("name:=DaVita VillageHealth Capella").Page("title:=DaVita VillageHealth Capella").WebElement("html tag:=DIV","title:=Finalize Patient","visible:=True")</Value>
+	</Variable>
+	<Variable>
+		<Name>WE_ContactNoteDetail_1</Name>
+		<Value>Browser("name:=DaVita VillageHealth Capella").Page("title:=DaVita VillageHealth Capella").WebEdit("html id:=Recap_ContactNote_0_Textarea","visible:=True")</Value>
+	</Variable>
+	<Variable>
+		<Name>WB_ClosePatientOKbutton</Name>
+		<Value>Browser("name:=DaVita VillageHealth Capella").Page("title:=DaVita VillageHealth Capella").WebButton("attribute/data-capella-automation-id:=Close Patient Record\?_Btn_Ok","visible:=True")</Value>
+	</Variable>
+	<Variable>
+		<Name>WEL_ClosePatientRecordHeader</Name>
+		<Value>Browser("name:=DaVita VillageHealth Capella").Page("title:=DaVita VillageHealth Capella").WebElement("outertext:=Close Patient Record\?","visible:=True")</Value>
+	</Variable>
+	<!--Additional objects for Patient Care Plan screen-->
+	<Variable>
+		<Name>WEL_PCP_ACPsection</Name>
+		<Value>Browser("name:=DaVita VillageHealth Capella").Page("title:=DaVita VillageHealth Capella").WebElement("html tag:=DIV","outertext:=Active Care Plans","visible:=True")</Value>
+	</Variable>
+	<Variable>
+		<Name>WEL_PCP_CancelBtn</Name>
+		<Value>Browser("name:=DaVita VillageHealth Capella").Page("title:=DaVita VillageHealth Capella").WebElement("attribute/data-capella-automation-id:=Patient_Care_Plan_Cancel","visible:=True")</Value>
+	</Variable>
+	<Variable>
+		<Name>WE_PCP_StartDateFiled</Name>
+		<Value>Browser("name:=DaVita VillageHealth Capella").Page("title:=DaVita VillageHealth Capella").WebEdit("attribute/data-capella-automation-id:=PatientCarePlanModel\.SelectedCarePlan\.StartDate","visible:=True")</Value>
+	</Variable>
+	<Variable>
+		<Name>WE_PCP_DueDateFiled</Name>
+		<Value>Browser("name:=DaVita VillageHealth Capella").Page("title:=DaVita VillageHealth Capella").WebEdit("attribute/data-capella-automation-id:=PatientCarePlanModel\.SelectedCarePlan\.DueDate","visible:=True")</Value>
+	</Variable>
+	<Variable>
+		<Name>WE_PCP_CompletedDateFiled</Name>
+		<Value>Browser("name:=DaVita VillageHealth Capella").Page("title:=DaVita VillageHealth Capella").WebEdit("attribute/data-capella-automation-id:=PatientCarePlanModel\.SelectedCarePlan\.CompleteDate","visible:=True")</Value>
+	</Variable>
+	<Variable>
+		<Name>WE_PCP_ClinicalRelevanceField</Name>
+		<Value>Browser("name:=DaVita VillageHealth Capella").Page("title:=DaVita VillageHealth Capella").WebEdit("attribute/data-capella-automation-id:=PatientCarePlanModel\.SelectedCarePlan\.ClinicalRelevanceDisplayText","visible:=True")</Value>
+	</Variable>
+	<Variable>
+		<Name>WI_PCP_SendMaterialLink</Name>
+		<Value>Browser("name:=DaVita VillageHealth Capella").Page("title:=DaVita VillageHealth Capella").Image("attribute/data-capella-automation-id:=navigation_MaterialFulfillment","visible:=True")</Value>
+	</Variable>
+	<Variable>
+		<Name>WI_PCP_ReferralLink</Name>
+		<Value>Browser("name:=DaVita VillageHealth Capella").Page("title:=DaVita VillageHealth Capella").Image("attribute/data-capella-automation-id:=navigation_ReferralsTab","visible:=True")</Value>
+	</Variable>
+	<Variable>
+		<Name>WEL_PCP_Ques1UnderstandCP_YesRdBtn</Name>
+		<Value>Browser("name:=DaVita VillageHealth Capella").Page("title:=DaVita VillageHealth Capella").WebElement("attribute/data-capella-automation-id:=1_Yes","visible:=True")</Value>
+	</Variable>
+	<Variable>
+		<Name>WEL_PCP_Ques1UnderstandCP_NoRdBtn</Name>
+		<Value>Browser("name:=DaVita VillageHealth Capella").Page("title:=DaVita VillageHealth Capella").WebElement("attribute/data-capella-automation-id:=1_No","visible:=True")</Value>
+	</Variable>
+	<Variable>
+		<Name>WEL_PCP_Ques2AgreeCP_YesRdBtn</Name>
+		<Value>Browser("name:=DaVita VillageHealth Capella").Page("title:=DaVita VillageHealth Capella").WebElement("attribute/data-capella-automation-id:=2_Yes","visible:=True")</Value>
+	</Variable>
+	<Variable>
+		<Name>WEL_PCP_Ques2AgreeCP_NoRdBtn</Name>
+		<Value>Browser("name:=DaVita VillageHealth Capella").Page("title:=DaVita VillageHealth Capella").WebElement("attribute/data-capella-automation-id:=2_No","visible:=True")</Value>
+	</Variable>
+	<Variable>
+		<Name>WEL_PCP_Ques3SelfManagement_YesRdBtn</Name>
+		<Value>Browser("name:=DaVita VillageHealth Capella").Page("title:=DaVita VillageHealth Capella").WebElement("attribute/data-capella-automation-id:=3_Yes","visible:=True")</Value>
+	</Variable>
+	<Variable>
+		<Name>WEL_PCP_Ques3SelfManagement_NoRdBtn</Name>
+		<Value>Browser("name:=DaVita VillageHealth Capella").Page("title:=DaVita VillageHealth Capella").WebElement("attribute/data-capella-automation-id:=3_No","visible:=True")</Value>
+	</Variable>
+	<Variable>
+		<Name>WEL_PCP_PoorHabits_BarrierCB</Name>
+		<Value>Browser("name:=DaVita VillageHealth Capella").Page("title:=DaVita VillageHealth Capella").WebElement("html id:=poorHabits","visible:=True")</Value>
+	</Variable>
+	<Variable>
+		<Name>WEL_PCP_KnowledgeDeficit_BarrierCB</Name>
+		<Value>Browser("name:=DaVita VillageHealth Capella").Page("title:=DaVita VillageHealth Capella").WebElement("html id:=KnowledgeDeficit","visible:=True")</Value>
+	</Variable>
+	<Variable>
+		<Name>WEL_PCP_EquipmentIssue_BarrierCB</Name>
+		<Value>Browser("name:=DaVita VillageHealth Capella").Page("title:=DaVita VillageHealth Capella").WebElement("html id:=EquipmentIssue","visible:=True")</Value>
+	</Variable>
+	<Variable>
+		<Name>WEL_PCP_Psychological_BarrierCB</Name>
+		<Value>Browser("name:=DaVita VillageHealth Capella").Page("title:=DaVita VillageHealth Capella").WebElement("html id:=Psychological","visible:=True")</Value>
+	</Variable>
+	<Variable>
+		<Name>WEL_PCP_Socioeconomic_BarrierCB</Name>
+		<Value>Browser("name:=DaVita VillageHealth Capella").Page("title:=DaVita VillageHealth Capella").WebElement("html id:=Socioeconomic","visible:=True")</Value>
+	</Variable>
+	<Variable>
+		<Name>WEL_PCP_PhysicalLimitation_BarrierCB</Name>
+		<Value>Browser("name:=DaVita VillageHealth Capella").Page("title:=DaVita VillageHealth Capella").WebElement("html id:=PhysicalLimitation","visible:=True")</Value>
+	</Variable>
+	<Variable>
+		<Name>WEL_PCP_NoSupportSystem_BarrierCB</Name>
+		<Value>Browser("name:=DaVita VillageHealth Capella").Page("title:=DaVita VillageHealth Capella").WebElement("html id:=NoSupportSystem","visible:=True")</Value>
+	</Variable>
+	<Variable>
+		<Name>WEL_PCP_Other_BarrierCB</Name>
+		<Value>Browser("name:=DaVita VillageHealth Capella").Page("title:=DaVita VillageHealth Capella").WebElement("html id:=Other","visible:=True")</Value>
+	</Variable>
+	<Variable>
+		<Name>WE_PCP_OtherTB_BarrierTB</Name>
+		<Value>Browser("name:=DaVita VillageHealth Capella").Page("title:=DaVita VillageHealth Capella").WebEdit("attribute/data-capella-automation-id:=PatientCarePlanModel\.SelectedCarePlan\.OtherBarrierNotes","visible:=True")</Value>
+	</Variable>
+	<Variable>
+		<Name>WEL_PCP_NoBarriers_BarrierCB</Name>
+		<Value>Browser("name:=DaVita VillageHealth Capella").Page("title:=DaVita VillageHealth Capella").WebElement("html id:=NoBarriers","visible:=True")</Value>
+	</Variable>
+	<Variable>
+		<Name>WI_PCP_HistoryTableArrow</Name>
+		<Value>Browser("name:=DaVita VillageHealth Capella").Page("title:=DaVita VillageHealth Capella").Image("file name:=arrow-up\.png","html tag:=IMG","image type:=Plain Image","visible:=True")</Value>
+	</Variable>
+	<Variable>
+		<Name>WE_PCP_1FreeFormResponse</Name>
+		<Value>Browser("name:=DaVita VillageHealth Capella").Page("title:=DaVita VillageHealth Capella").WebEdit("attribute/data-capella-automation-id:=1_option\.FreeFormResponse","visible:=True")</Value>
+	</Variable>
+	<Variable>
+		<Name>WE_PCP_2FreeFormResponse</Name>
+		<Value>Browser("name:=DaVita VillageHealth Capella").Page("title:=DaVita VillageHealth Capella").WebEdit("attribute/data-capella-automation-id:=2_option\.FreeFormResponse","visible:=True")</Value>
+	</Variable>
+	<Variable>
+		<Name>WE_PCP_3FreeFormResponse</Name>
+		<Value>Browser("name:=DaVita VillageHealth Capella").Page("title:=DaVita VillageHealth Capella").WebEdit("attribute/data-capella-automation-id:=3_option\.FreeFormResponse","visible:=True")</Value>
+	</Variable>
+	<Variable>
+		<Name>WT_PCP_CarePlanTable</Name>
+		<Value>Browser("name:=DaVita VillageHealth Capella").Page("title:=DaVita VillageHealth Capella").WebTable("class:=k-selectable","cols:=5","html tag:=TABLE","visible:=True")</Value>
+	</Variable>
+	<Variable>
+		<Name>WT_PCP_HistoryTable</Name>
+		<Value>Browser("name:=DaVita VillageHealth Capella").Page("title:=DaVita VillageHealth Capella").WebTable("class:=k-selectable","cols:=7","html tag:=TABLE","name:=WebTable","visible:=True")</Value>
+	</Variable>
+	<Variable>
+		<Name>WT_PCP_ScrHeader</Name>
+		<Value>Browser("name:=DaVita VillageHealth Capella").Page("title:=DaVita VillageHealth Capella").WebElement("html tag:=SPAN","outertext:=Patient Care Plan","visible:=True")</Value>
+	</Variable>
+	<Variable>
+		<Name>WT_PCPHistoryHeader</Name>
+		<Value>Browser("name:=DaVita VillageHealth Capella").Page("title:=DaVita VillageHealth Capella").WebElement("attribute/data-capella-automation-id:=History-Care-Plan-Grid-OpenOrClose","visible:=True")</Value>
+	</Variable>
+	<Variable>
+		<Name>WEL_BackToPCP</Name>
+		<Value>Browser("name:=DaVita VillageHealth Capella").Page("title:=DaVita VillageHealth Capella").WebElement("class:=back-to-pathway-btn.*","html tag:=DIV","outertext:=Back to Patient Care Plan","visible:=True")</Value>
+	</Variable>
+	<Variable>
+		<Name>WEL_Recap_PCPheader</Name>
+		<Value>Browser("name:=DaVita VillageHealth Capella").Page("title:=DaVita VillageHealth Capella").WebElement("html tag:=DIV","outertext:=Member Care Plan","visible:=True")</Value>
+	</Variable>
+	<Variable>
+		<Name>WEL_PatientSnapshot_Goals</Name>
+		<Value>Browser("name:=DaVita VillageHealth Capella").Page("title:=DaVita VillageHealth Capella").WebElement("class:=.*goals-border","html tag:=DIV","visible:=True")</Value>
+	</Variable>
+	<Variable>
+		<Name>WEL_PatientSnapshot_NoGoalsDefined</Name>
+		<Value>Browser("name:=DaVita VillageHealth Capella").Page("title:=DaVita VillageHealth Capella").WebElement("html tag:=P","outertext:=This patient has no goals defined","visible:=True")</Value>
+	</Variable>
+	<Variable>
+		<Name>WEL_PrintReportMain</Name>
+		<Value>Browser("name:=DaVita VillageHealth Capella").Page("title:=DaVita VillageHealth Capella").WebElement("html tag:=A","title:=Print Report","visible:=True")</Value>
+	</Variable>
+	<Variable>
+		<Name>WEL_ChooseReportsPP</Name>
+		<Value>Browser("name:=DaVita VillageHealth Capella").Page("title:=DaVita VillageHealth Capella").WebElement("html id:=myModal","html tag:=DIV","visible:=True")</Value>
+	</Variable>
+	<Variable>
+		<Name>WEL_ChooseReportsPP_PCP_RB</Name>
+		<Value>Browser("name:=DaVita VillageHealth Capella").Page("title:=DaVita VillageHealth Capella").WebElement("html tag:=DIV","attribute/data-capella-automation-id:=Print_Screen_Patient_Care_Report","visible:=True")</Value>
+	</Variable>
+	<Variable>
+		<Name>WEL_ChooseReportsPP_LanguageDD</Name>
+		<Value>Browser("name:=DaVita VillageHealth Capella").Page("title:=DaVita VillageHealth Capella").WebElement("attribute/data-capella-automation-id:=Print_Screen_Patient_Care_Report-selectedLanguage","visible:=True")</Value>
+	</Variable>
+	<Variable>
+		<Name>WEL_ChooseReportsPP_OK</Name>
+		<Value>Browser("name:=DaVita VillageHealth Capella").Page("title:=DaVita VillageHealth Capella").WebElement("attribute/data-capella-automation-id:=Print_Screen_Btn-Ok","visible:=True")</Value>
+	</Variable>
+	<Variable>
+		<Name>WI_PateintCareReportClose</Name>
+		<Value>Browser("name:=DaVita VillageHealth Capella").Page("title:=DaVita VillageHealth Capella").Image("html tag:=IMG","file name:=cross-orig\.png","visible:=True")</Value>
+	</Variable>
+	<Variable>
+		<Name>WI_PCP_OverDueIcon</Name>
+		<Value>Browser("name:=DaVita VillageHealth Capella").Page("title:=DaVita VillageHealth Capella").Image("file name:=Overdue_Icon\.png","html tag:=IMG","visible:=True")</Value>
+	</Variable>
+	<Variable>
+		<Name>WEL_PCP_Ques4NeedSelfManagement_YesRdBtn</Name>
+		<Value>Browser("name:=DaVita VillageHealth Capella").Page("title:=DaVita VillageHealth Capella").WebElement("attribute/data-capella-automation-id:=4_Yes","visible:=True")</Value>
+	</Variable>
+	<Variable>
+		<Name>WEL_PCP_Ques4NeedSelfManagement_NoRdBtn</Name>
+		<Value>Browser("name:=DaVita VillageHealth Capella").Page("title:=DaVita VillageHealth Capella").WebElement("attribute/data-capella-automation-id:=4_No","visible:=True")</Value>
+	</Variable>
+	<Variable>
+		<Name>WE_PCP_4FreeFormResponse</Name>
+		<Value>Browser("name:=DaVita VillageHealth Capella").Page("title:=DaVita VillageHealth Capella").WebEdit("attribute/data-capella-automation-id:=4_option\.FreeFormResponse","visible:=True")</Value>
+	</Variable>
+	<!--End of additional objects for Patient Care Plan screen-->
+	<!--Additional objects for Pharmacist Med Review screen-->
+	<Variable>
+		<Name>WB_InterventionDelete</Name>
+		<Value>Browser("name:=DaVita VillageHealth Capella").Page("title:=DaVita VillageHealth Capella").WebButton("html tag:=BUTTON","name:=   Delete ","outertext:=   Delete ","type:=button","visible:=True")</Value>
+	</Variable>
+	<Variable>
+		<Name>WB_InterventionDeleteYes</Name>
+		<Value>Browser("name:=DaVita VillageHealth Capella").Page("title:=DaVita VillageHealth Capella").WebButton("attribute/data-capella-automation-id:=Delete Intervention_Btn_yes","visible:=True")</Value>
+	</Variable>
+	<Variable>
+		<Name>WB_InterventionDeleteNo</Name>
+		<Value>Browser("name:=DaVita VillageHealth Capella").Page("title:=DaVita VillageHealth Capella").WebButton("attribute/data-capella-automation-id:=Delete Intervention_Btn_no","visible:=True")</Value>
+	</Variable>
+	<Variable>
+		<Name>WB_PHMedit</Name>
+		<Value>Browser("name:=DaVita VillageHealth Capella").Page("title:=DaVita VillageHealth Capella").WebButton("html tag:=BUTTON","innertext:=Edit","name:=Edit","visible:=True")</Value>
+	</Variable>
+	<Variable>
+		<Name>WT_MedicationData</Name>
+		<Value>Browser("name:=DaVita VillageHealth Capella").Page("title:=DaVita VillageHealth Capella").WebTable("html id:=medication","html tag:=TABLE","visible:=True")</Value>
+	</Variable>
+	<Variable>
+		<Name>WE_MedFrequencyDDlist</Name>
+		<Value>Browser("name:=DaVita VillageHealth Capella").Page("title:=DaVita VillageHealth Capella").WebElement("html tag:=UL","outertext:=.*AS NEEDED.*","visible:=True")</Value>
+	</Variable>
+	<Variable>
+		<Name>WB_ErrorButton</Name>
+		<Value>Browser("name:=DaVita VillageHealth Capella").Page("title:=DaVita VillageHealth Capella").WebButton("attribute/data-capella-automation-id:=Error-Btn-ok","visible:=True")</Value>
+	</Variable>
+	<Variable>
+		<Name>WE_FoundAddress_CB</Name>
+		<Value>Browser("name:=DaVita VillageHealth Capella").Page("title:=DaVita VillageHealth Capella").WebElement("html tag:=LABEL","visible:=True")</Value>
+	</Variable>
+	<Variable>
+		<Name>WB_FoundAddress_OK</Name>
+		<Value>Browser("name:=DaVita VillageHealth Capella").Page("title:=DaVita VillageHealth Capella").WebButton("html tag:=INPUT","type:=button","value:=Ok","visible:=True")</Value>
+	</Variable>
+	<Variable>
+		<Name>WI_MedListFax</Name>
+		<Value>Browser("name:=DaVita VillageHealth Capella").Page("title:=DaVita VillageHealth Capella").Image("file name:=Fax_Small.png","html tag:=IMG","image type:=Image Link","visible:=True")</Value>
+	</Variable>
+	<Variable>
+		<Name>WE_RxMedListRB</Name>
+		<Value>Browser("name:=DaVita VillageHealth Capella").Page("title:=DaVita VillageHealth Capella").WebElement("attribute/data-capella-automation-id:=Fax-Screen-RX-MedicationList-REPORT","visible:=True")</Value>
+	</Variable>
+	<Variable>
+		<Name>WE_RxMedListPatientRB</Name>
+		<Value>Browser("name:=DaVita VillageHealth Capella").Page("title:=DaVita VillageHealth Capella").WebElement("attribute/data-capella-automation-id:=Fax-Screen-PatientForRxMedicationList-Report","visible:=True")</Value>
+	</Variable>
+	<Variable>
+		<Name>WE_RxFaxPreview</Name>
+		<Value>Browser("name:=DaVita VillageHealth Capella").Page("title:=DaVita VillageHealth Capella").WebElement("attribute/data-capella-automation-id:=Fax-Screen-Btn-Preview","visible:=True")</Value>
+	</Variable>
+	<Variable>
+		<Name>WN_RxMedListReport</Name>
+		<Value>Browser("name:=DaVita VillageHealth Capella").Page("title:=DaVita VillageHealth Capella").WinObject("nativeclass:=AVL_AVView","regexpwndtitle:=AVPageView","text:=AVPageView","visible:=True")</Value>
+	</Variable>
+	<Variable>
+		<Name>WN_Scrollbar_RxMedList</Name>
+		<Value>Browser("name:=DaVita VillageHealth Capella").Page("title:=DaVita VillageHealth Capella").WinScrollBar("nativeclass:=ScrollBar","regexpwndclass:=ScrollBar","visible:=True")</Value>
+	</Variable>
+	<Variable>
+		<Name>WI_RxMedListClose</Name>
+		<Value>Browser("name:=DaVita VillageHealth Capella").Page("title:=DaVita VillageHealth Capella").Image("file name:=cross-orig\.png","image type:=Plain Image","visible:=True")</Value>
+	</Variable>
+	<Variable>
+		<Name>WE_RxMedListProviderRB</Name>
+		<Value>Browser("name:=DaVita VillageHealth Capella").Page("title:=DaVita VillageHealth Capella").WebElement("attribute/data-capella-automation-id:=Fax-Screen-ProviderTeamForRxMedicationList-Report","visible:=True")</Value>
+	</Variable>
+	<Variable>
+		<Name>WE_RxReportDestination</Name>
+		<Value>Browser("name:=DaVita VillageHealth Capella").Page("title:=DaVita VillageHealth Capella").WebElement("attribute/data-capella-automation-id:=label-\(selectedDestinationProvider\.ProviderDescription\) \+ \(selectedDestinationProvider\.ProviderName === '' \? '' : ': '\) \+ \(selectedDestinationProvider\.ProviderName\)","visible:=True")</Value>
+	</Variable>
+	<Variable>
+		<Name>WE_PCP_FallRisk_CR_DDlist</Name>
+		<Value>Browser("name:=DaVita VillageHealth Capella").Page("title:=DaVita VillageHealth Capella").WebElement("html tag:=UL","outertext:=.*Assistive Device.*","visible:=True")</Value>
+	</Variable>
+	<Variable>
+		<Name>WE_PCP_HealthMaint_CR_DDlist</Name>
+		<Value>Browser("name:=DaVita VillageHealth Capella").Page("title:=DaVita VillageHealth Capella").WebElement("html tag:=UL","outertext:=.*Alcohol.*","visible:=True")</Value>
+	</Variable>
 </Environment>

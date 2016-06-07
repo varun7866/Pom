@@ -1,3 +1,4 @@
 ﻿<Properties>
-  <WatchEntry0 value="blnAddProvider" />
+  <WatchEntry0 value="strOutErrorDesc" />
+  <WatchEntry1 value="strValuesForAddingIntervention" />
 </Properties>

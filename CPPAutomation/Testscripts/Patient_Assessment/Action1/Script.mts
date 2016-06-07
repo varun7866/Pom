@@ -107,7 +107,7 @@ Call waitTillLoads("Loading...")
 strMemberID = strMember
 
 
-Call patientassessment() 
+Call patientassessment()
 
 
 

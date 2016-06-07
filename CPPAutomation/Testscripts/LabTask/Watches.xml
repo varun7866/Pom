@@ -1,1 +1,6 @@
-﻿<Properties />
+﻿<Properties>
+  <WatchEntry0 value="strAssignedUser" />
+  <WatchEntry1 value="strAssignedUser" />
+  <WatchEntry2 value="strGetAssingnedUserDashboard" />
+  <WatchEntry3 value="strGetAssingnedUserDashboard" />
+</Properties>

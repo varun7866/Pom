@@ -59,26 +59,67 @@ For RowNumber = 1 to intRowCout: Do
 ' Variable initialization
 '------------------------
 strExecutionFlag = DataTable.Value("ExecutionFlag","CurrentTestCaseData") 
-strUser = DataTable.Value("User","CurrentTestCaseData") 
-strPatientName = DataTable.Value("PatientName","CurrentTestCaseData") 
-lngMemberID = DataTable.Value("MemberID","CurrentTestCaseData")
+strPersonalDetails = DataTable.Value("PersonalDetails","CurrentTestCaseData")
 
 'Getting equired iterations
 If not Lcase(strExecutionFlag) = "y" Then Exit Do
-Call WriteToLog("Info","----------------Iteration for patient named '"&strPatientName&"'----------------") 
 
 '-----------------------EXECUTION-------------------------------------------------------------------------------------------------------------------------------------------------------
 On Error Resume Next
 Err.Clear
 
-'------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-'Navigation: Login to app > CloseAllOpenPatients > SelectUserRoster 
-blnNavigator = Navigator(strUser, strOutErrorDesc)
+'-------------------------------
+'Close all open patients from DB
+Call closePatientsFromDB("eps")
+'-------------------------------
+
+'Login as eps and refer a new member.
+'-----------------------------------------
+'Navigation: Login as eps > CloseAllOpenPatients > SelectUserRoster 
+blnNavigator = Navigator("eps", strOutErrorDesc)
 If not blnNavigator Then
 	Call WriteToLog("Fail","Expected Result: User should be able to navigate required user dashboard.  Actual Result: Unable to navigate required user dashboard."&strOutErrorDesc)
 	Call Terminator											
 End If
-Call WriteToLog("Pass","Navigated to '"&strUser&"' user dashboard")
+Call WriteToLog("Pass","Navigated to user dashboard")											
+
+'Create newpatient
+strNewPatientDetails = CreateNewPatientFromEPS(strPersonalDetails,"NA",strMedicalDetails,strOutErrorDesc)
+If strNewPatientDetails = "" Then
+	Call WriteToLog("Fail","Expected Result: User should be able to create new SNP patient in EPS. Actual Result: Unable to  create new SNP patient in EPS."&strOutErrorDesc)
+	Call Terminator											
+End If
+
+strPatientName = Split(strNewPatientDetails,"|",-1,1)(0)
+lngMemberID = Split(strNewPatientDetails,"|",-1,1)(1)
+strEligibilityStatus = Split(strNewPatientDetails,"|",-1,1)(2)
+
+Call WriteToLog("Pass","Created new patient in EPS with name: '"&strPatientName&"', MemberID: '"&lngMemberID&"' and Eligibility status: '"&strEligibilityStatus&"'")	
+
+strPatientFirstName = Split(strPatientName,", ",-1,1)(1)
+strPatientSecondName = Split(strPatientName,", ",-1,1)(0)
+
+'Logout
+Call WriteToLog("Info","-------------------------------------Logout of eps user--------------------------------------")
+Call Logout()
+Wait 2
+'----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+'------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+'Navigation: Login to app > CloseAllOpenPatients > SelectUserRoster 
+
+'-------------------------------
+'Close all open patients from DB
+Call closePatientsFromDB("vhn")
+'-------------------------------
+
+Call WriteToLog("Info","-------------------------------------Login to vhn user--------------------------------------")
+blnNavigator = Navigator("vhn", strOutErrorDesc)
+If not blnNavigator Then
+	Call WriteToLog("Fail","Expected Result: User should be able to navigate required user dashboard.  Actual Result: Unable to navigate required user dashboard."&strOutErrorDesc)
+	Call Terminator											
+End If
+Call WriteToLog("Pass","Navigated to 'vhn' user dashboard")
 
 'Select patient through global search
 Call WriteToLog("Info","----------------Select required patient through global search----------------")
@@ -94,7 +135,7 @@ Call waitTillLoads("Loading...")
 Wait 2
 
 'Handle navigation error if exists
-blnHandleWrongDashboardNavigation = HandleWrongDashboardNavigation(strPatientName,strOutErrorDesc)
+blnHandleWrongDashboardNavigation = HandleWrongDashboardNavigation(strPatientFirstName,strOutErrorDesc)
 If not blnHandleWrongDashboardNavigation Then
     Call WriteToLog("Fail","Unable to provide proper navigation after patient selection "&strOutErrorDesc)
 End If
@@ -104,7 +145,7 @@ Wait 2
 
 '------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 'Validation - Navigation to Hospitalizations > Hospitalization Management > Review screen
-blnNavigateToHospRwScr = NavigateToHospRwScr()
+blnNavigateToHospRwScr = NavigateToHospRwScr(strOutErrorDesc)
 If not blnNavigateToHospRwScr Then
 	Call WriteToLog("Fail","Unable to validate Hospitalizations > Hospitalization Management > Review screen navigation "&strOutErrorDesc)
 	Call Terminator			
@@ -114,7 +155,7 @@ Wait 1
 
 '------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 'Validation - Availablity of Hospitalization Management > Review screen sections
-blnPreliminaryScenarios = PreliminaryScenarios()
+blnPreliminaryScenarios = PreliminaryScenarios(strOutErrorDesc)
 If not blnPreliminaryScenarios Then
 	Call WriteToLog("Fail","Unable to validate Hospitalization Review screen sections "&strOutErrorDesc)
 	Call Terminator											
@@ -140,7 +181,7 @@ wait 0,250
 
 '------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 'Validation - Admission without providing AdmitDate, AdmitDate < 365 days to sys date, AdmitDate > sys date, AdmitDate > AdmitNotificationDate, Provide AdmitDate <= AdmitNotificationDate  
-blnAdmitDateScenariosPreliminary = AdmitDateScenariosPreliminary()	
+blnAdmitDateScenariosPreliminary = AdmitDateScenariosPreliminary(strOutErrorDesc)	
 If Not blnAdmitDateScenariosPreliminary Then
 	Call WriteToLog("Fail","Unable to validate Admit Date scenarios (preliminary). "&strOutErrorDesc)
 	Call Terminator	
@@ -150,7 +191,7 @@ wait 0,250
 
 '------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 'Validation - Admission without providing AdmitNotificationDate,  AdmitNotificationDate < AdmitDate, AdmitNotificationDate older than 7 days from sys date, AdmitNotificationDate greater than sys date, Provide AdmitNotificationDate less than sys date (not less than 7 days) and >= to admit date   
-blnAdmitNotificationDateScenariosPreliminary = AdmitNotificationDateScenariosPreliminary()	
+blnAdmitNotificationDateScenariosPreliminary = AdmitNotificationDateScenariosPreliminary(strOutErrorDesc)	
 If Not blnAdmitDateScenariosPreliminary Then
 	Call WriteToLog("Fail","Unable to validate Admit Notification Date scenarios (preliminary). "&strOutErrorDesc)
 	Call Terminator	
@@ -160,8 +201,8 @@ wait 0,250
 
 '------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 'Validation - Admission by setting 'Notified By', 'Admit Type', 'Source of Admit', 'Admitting Diagnosis', Working Diagnosis', 'Avoidable Admission' to invalid values
-blnOtherAdmitMandatoryScenarios = OtherAdmitMandatoryScenarios()
-If Not blnAdmitDateScenariosPreliminary Then
+blnOtherAdmitMandatoryScenarios = OtherAdmitMandatoryScenarios(strOutErrorDesc)
+If Not blnOtherAdmitMandatoryScenarios Then
 	Call WriteToLog("Fail","Unable to validate mandatory fields for admittance. "&strOutErrorDesc)
 	Call Terminator	
 End If
@@ -180,13 +221,13 @@ wait 0,250
 
 '------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 'Validation - All admittance fileds after admittance
-Call AdmittanceFieldsStatusAfterAdmission()
+Call AdmittanceFieldsStatusAfterAdmission(strOutErrorDesc)
 wait 0,250	
 '------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 '------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 'Validation - Hospitalization History Table entries after admittance
-blnHistoryTableValidation = HistoryTableValidation()
+blnHistoryTableValidation = HistoryTableValidation(strOutErrorDesc)
 If not blnHistoryTableValidation Then
 	Call WriteToLog("Fail","Unable to validate Hospitalization History Table entries after admittance. "&strOutErrorDesc)
 	Call Terminator	
@@ -196,7 +237,7 @@ Wait 0,250
 
 '------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 'Validation - Transer by providing TransferDate < 365 days to sys date, TransferDate > sys date, TransferDate < Admit date, Transfer date less than sys date but not less than admit date. Also validate 'Transfer Facility name' and 'Transfer Facility phone' fields
-blnTranferScenariosPreliminary = TranferScenariosPreliminary()
+blnTranferScenariosPreliminary = TranferScenariosPreliminary(strOutErrorDesc)
 If Not blnTranferScenariosPreliminary Then
 	Call WriteToLog("Fail","Unable to validate Trafer scenarios. "&strOutErrorDesc)
 	Call Terminator	
@@ -206,13 +247,13 @@ wait 0,250
 
 '------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 'Validation - All transfer fileds after transfer
-Call TransferFieldsStatusAfterTransfer()
+Call TransferFieldsStatusAfterTransfer(strOutErrorDesc)
 wait 0,250	
 '------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 '------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 'Validation - Availability of all Discharge section fields and data entry into all fields
-blnDischarge_AllFields = Discharge_AllFields()
+blnDischarge_AllFields = Discharge_AllFields(strOutErrorDesc)
 If Not blnDischarge_AllFields Then
 	Call WriteToLog("Fail","Unable to validate Discharge fields "&strOutErrorDesc)
 	Call Terminator											
@@ -222,7 +263,7 @@ wait 0,250
 
 '------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 'Validation - Discharge without DischargeDate, DischargeDate > sys date, DischargeDate < 365 days to sys date, DischargeDate < AdmitDate, DischargeDate >= AdmitDate, but <= sys date
-blnDischargeDateScenariosPreliminary = DischargeDateScenariosPreliminary()
+blnDischargeDateScenariosPreliminary = DischargeDateScenariosPreliminary(strOutErrorDesc)
 If Not blnDischargeDateScenariosPreliminary Then
 	Call WriteToLog("Fail","Unable to validate Discharge Date scenarios (preliminary). "&strOutErrorDesc)
 	Call Terminator											
@@ -232,7 +273,7 @@ wait 0,250
 
 '------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 'Validation - Discharge without DischargeNotificationDate, DischargeNotificationDate > sys date, DischargeNotificationDate < AdmitDate, DischargeNotificationDate < DischargeDate, Discharge Notification date greater than Discharge date, but <= sys date
-blnDischargeNotificationDateScenariosPreliminary = DischargeNotificationDateScenariosPreliminary()
+blnDischargeNotificationDateScenariosPreliminary = DischargeNotificationDateScenariosPreliminary(strOutErrorDesc)
 If Not blnDischargeNotificationDateScenariosPreliminary Then
 	Call WriteToLog("Fail","Unable to validate Discharge Notification Date scenarios (preliminary). "&strOutErrorDesc)
 	Call Terminator											
@@ -242,7 +283,7 @@ wait 0,250
 
 '------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 'Validation - Discharge with DischargePlan date > sys date, Discharge Plan date less than Admit date,  Discharge Plan date equal to Discharge Notification date, but <= sys date 
-blnDischargePlanDateScenariosPreliminary = DischargePlanDateScenariosPreliminary()
+blnDischargePlanDateScenariosPreliminary = DischargePlanDateScenariosPreliminary(strOutErrorDesc)
 If Not blnDischargePlanDateScenariosPreliminary Then
 	Call WriteToLog("Fail","Unable to validate Discharge Plan Date scenarios (preliminary). "&strOutErrorDesc)
 	Call Terminator											
@@ -252,7 +293,7 @@ wait 0,250
 
 '------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 'Validation - Discharge by setting 'Disposition' to invalid value and clearing all 'Related Diagnoses' check boxes
-blnOtherDischargeMandatoryScenarios = OtherDischargeMandatoryScenarios()
+blnOtherDischargeMandatoryScenarios = OtherDischargeMandatoryScenarios(strOutErrorDesc)
 If Not blnOtherDischargeMandatoryScenarios Then
 	Call WriteToLog("Fail","Unable to validate Discharge Plan Date scenarios (preliminary). "&strOutErrorDesc)
 	Call Terminator											
@@ -272,13 +313,22 @@ wait 0,250
 
 '------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 'Validation - All discharge fileds after discharge
-Call DischargeFieldsStatusAfterDischarge()
+Call DischargeFieldsStatusAfterDischarge(strOutErrorDesc)
 wait 0,250	
 '------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 '------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+'Clk on Hospitalization History table expand arrow image
+Execute "Set objHospHistoryArrow = " & Environment("WI_HospHistoryArrow")
+If objHospHistoryArrow.Exist(1) Then	
+	objHospHistoryArrow.Click
+End If
+Execute "Set objHospHistoryArrow = Nothing"
+Wait 1
+	
 'Validation - Hospitalization History Table entries after discharge
-blnHistoryTableValidation = HistoryTableValidation()
+blnHistoryTableValidation = HistoryTableValidation(strOutErrorDesc)
 If not blnHistoryTableValidation Then
 	Call WriteToLog("Fail","Unable to validate Hospitalization History Table entries after admittance. "&strOutErrorDesc)
 	Call Terminator	
@@ -288,7 +338,7 @@ wait 0,250
 
 '------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 'Validation - Length of stay after discharge
-blnLengthofStayAfterDischarge = LengthofStayAfterDischarge()
+blnLengthofStayAfterDischarge = LengthofStayAfterDischarge(strOutErrorDesc)
 If not blnLengthofStayAfterDischarge Then
 	Call WriteToLog("Fail","Unable to validate Length of stay after discharge. "&strOutErrorDesc)
 	Call Terminator	
@@ -298,7 +348,15 @@ wait 0,250
 
 '------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 'Validation - Save admittance with admit date less than discharge date, Save admittance with same Admit Date and Admit Type
-blnAdmitDateScenariosWithType = AdmitDateScenariosWithType()
+'Clk on Hospitalization History table expand arrow image
+Execute "Set objHospHistoryArrow = " & Environment("WI_HospHistoryArrow")
+If objHospHistoryArrow.Exist(1) Then	
+	objHospHistoryArrow.Click
+End If
+Execute "Set objHospHistoryArrow = Nothing"
+Wait 1
+
+blnAdmitDateScenariosWithType = AdmitDateScenariosWithType(strOutErrorDesc)
 If not blnAdmitDateScenariosWithType Then
 	Call WriteToLog("Fail","Unable to validate Admit date scenarios with discharge date and admit type "&strOutErrorDesc)
 	Call Terminator											
@@ -308,7 +366,15 @@ wait 0,250
 
 '------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 'Validation - Save admittance with same Admit Date but with different Admit Type, 'NotifiedBy', 'Source of Admit', '(Readmit) Reason', 'Disposition' dropdown status, 'DischargeDateField' status,  'Patient Refused Plan', 'Medical Equipment' radio buttons status - during EDvist admittance, Save ED Visit' Admittance with 'HomeHealthName' and 'HomeHealthReason'
-blnAdmittance_EDvisit = Admittance_EDvisit()
+'Clk on Hospitalization History table expand arrow image
+Execute "Set objHospHistoryArrow = " & Environment("WI_HospHistoryArrow")
+If objHospHistoryArrow.Exist(1) Then	
+	objHospHistoryArrow.Click
+End If
+Execute "Set objHospHistoryArrow = Nothing"
+Wait 1
+
+blnAdmittance_EDvisit = Admittance_EDvisit(strOutErrorDesc)
 If not blnAdmittance_EDvisit Then
 	Call WriteToLog("Fail","Unable to validate ED_Visit admittance and other scenarios "&strOutErrorDesc)
 	Call Terminator											
@@ -346,7 +412,7 @@ Wait 1
 
 '------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 'Validation - Dischage fields with sys date scenarios
-blnDischarge_Final = Discharge_Final()
+blnDischarge_Final = Discharge_Final(strOutErrorDesc)
 If not blnDischarge_Final Then
 	Call WriteToLog("Fail","Unable to validate Dischage fields with sys date scenarios"&strOutErrorDesc)
 	Call Terminator			

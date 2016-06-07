@@ -56,11 +56,12 @@ For RowNumber = 1 to intRowCout: Do
 ' Variable initialization
 '------------------------
 strExecutionFlag = DataTable.Value("ExecutionFlag","CurrentTestCaseData")
-strUser = DataTable.Value("User","CurrentTestCaseData")
 lngMemberID = DataTable.Value("MemberID","CurrentTestCaseData")
-strPatientName = DataTable.Value("PatientName","CurrentTestCaseData")
+strPersonalDetails = DataTable.Value("PersonalDetails","CurrentTestCaseData")
+strSNPpatientTest = DataTable.Value("SNPpatientTest","CurrentTestCaseData")
 dtEnrolledDate = DataTable.Value("EnrolledDate","CurrentTestCaseData")
 dtPathwayDt = DataTable.Value("PathwayDate","CurrentTestCaseData") 'SysDate
+dtPathwayDt = Split(dtPathwayDt," ",-1,1)(0)
 strDomain = DataTable.Value("Domain","CurrentTestCaseData")
 strTask = DataTable.Value("Task","CurrentTestCaseData")
 strDomainNameForScorecard = DataTable.Value("DomainNameForScorecard","CurrentTestCaseData")
@@ -79,13 +80,57 @@ arrDecidingAns(1) = arrTE_AnsBook(3) 'ReferredForRenalTransplantation
 arrDecidingAns(2) = arrTE_AnsBook(6) 'WasAssistanceProvided
 'Note: Find details of 'arrAnswerBook array' and 'pathway deciding answers' extreme down
 
-'Execution as required
+'-----------------------EXECUTION-------------------------------------------------------------------------------------------------------------------------------------------------------
+
+On Error Resume Next
+Err.Clear
 If not Lcase(strExecutionFlag) = "y" Then Exit Do
 
-'-----------------------EXECUTION-------------------------------------------------------------------------------------------------------------------------------------------------------
-	
-	On Error Resume Next
-	Err.Clear
+'Login as eps and refer a new member.
+'-----------------------------------------
+
+'-------------------------------
+'Close all open patients from DB
+Call closePatientsFromDB("eps")
+'-------------------------------
+
+'Navigation: Login as eps > CloseAllOpenPatients > SelectUserRoster 
+blnNavigator = Navigator("eps", strOutErrorDesc)
+If not blnNavigator Then
+	Call WriteToLog("Fail","Expected Result: User should be able to navigate required user dashboard.  Actual Result: Unable to navigate required user dashboard."&strOutErrorDesc)
+	Call Terminator											
+End If
+Call WriteToLog("Pass","Navigated to user dashboard")											
+
+'Create newpatient
+strNewPatientDetails = CreateNewPatientFromEPS(strPersonalDetails,"NA","NA",strOutErrorDesc)
+If strNewPatientDetails = "" Then
+	Call WriteToLog("Fail","Expected Result: User should be able to create new SNP patient in EPS. Actual Result: Unable to  create new SNP patient in EPS."&strOutErrorDesc)
+	Call Terminator											
+End If
+
+strPatientName = Split(strNewPatientDetails,"|",-1,1)(0)
+lngMemberID = Split(strNewPatientDetails,"|",-1,1)(1)
+strEligibilityStatus = Split(strNewPatientDetails,"|",-1,1)(2)
+
+Call WriteToLog("Pass","Created new patient in EPS with name: '"&strPatientName&"', MemberID: '"&lngMemberID&"' and Eligibility status: '"&strEligibilityStatus&"'")	
+
+strPatientFirstName = Split(strPatientName,", ",-1,1)(1)
+strPatientSecondName = Split(strPatientName,", ",-1,1)(0)
+
+'Logout
+Call WriteToLog("Info","-------------------------------------Logout of application--------------------------------------")
+Call Logout()
+Wait 2
+
+'----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+'Navigation: Login to app > CloseAllOpenPatients > SelectUserRoster 
+
+'-------------------------------
+'Close all open patients from DB
+Call closePatientsFromDB("vhn")
+'-------------------------------
 	
 	'Navigation: Login to app > CloseAllOpenPatients > SelectUserRoster 
 	blnNavigator = Navigator("vhn", strOutErrorDesc)
@@ -95,41 +140,111 @@ If not Lcase(strExecutionFlag) = "y" Then Exit Do
 	End If
 	Call WriteToLog("Pass","Navigated to user dashboard")
 	
-	'Open required patient in assigned VHN user
-	strGetAssingnedUserDashboard = GetAssingnedUserDashboard(lngMemberID, strOutErrorDesc)
-	If strGetAssingnedUserDashboard = "" Then
-		Call WriteToLog("Fail","Expected Result: User should be able to open required patient in assigned VHN user.  Actual Result: Unable to open required patient in assigned VHN user."&strOutErrorDesc)
-		Call Terminator
-	End If
-	Call WriteToLog("Pass","Opened required patient in assigned VHN user "&strGetAssingnedUserDashboard&"'s dashboard")
-	Wait 2
+	If LCase(Trim(strSNPpatientTest)) = "yes" Then
+	
+		'Open required patient in assigned VHN user
+		strGetAssingnedUserDashboard = GetAssingnedUserDashboard(lngMemberID, strOutErrorDesc)
+		If strGetAssingnedUserDashboard = "" Then
+			Call WriteToLog("Fail","Expected Result: User should be able to open required patient in assigned VHN user.  Actual Result: Unable to open required patient in assigned VHN user."&strOutErrorDesc)
+			Call Terminator
+		End If
+		Call WriteToLog("Pass","Opened required patient in assigned VHN user "&strGetAssingnedUserDashboard&"'s dashboard")
+		
+	Else
+		
+		'Search patient through global search
+		blnGlobalSearch = GlobalSearchUsingMemID(lngMemberID,strOutErrorDesc)
+		If not blnGlobalSearch Then
+			Call WriteToLog("Fail","Unable to open required patient through global search. "&strOutErrorDesc)
+			Call Terminator
+		End If
+		Call WriteToLog("Pass","Opened required patient through global search")
+		
+	End If	
 	
 	'Handle navigation error if exists
-	blnHandleWrongDashboardNavigation = HandleWrongDashboardNavigation(strPatientName,strOutErrorDesc)
+	blnHandleWrongDashboardNavigation = HandleWrongDashboardNavigation(strPatientFirstName,strOutErrorDesc)
 	If not blnHandleWrongDashboardNavigation Then
 	    Call WriteToLog("Fail","Unable to provide proper navigation after patient selection "&strOutErrorDesc)
 	End If
 	Call WriteToLog("Pass","Provided proper navigation after patient selection")
 	Wait 2
 	
-	'Check whether Enrolled date is <=89 OR >=90
-	EnrolledDateStatus = DateDiff("d",CDate(dtEnrolledDate),Date)
-
-	'Navigate to Menu of Actions > Required domain > select required task
-	blnDomainTasks = DomainTasks(strDomain, strTask, strOutErrorDesc)
-	Wait 2
+	If LCase(Trim(strSNPpatientTest)) = "yes" Then
 	
-	If EnrolledDateStatus <= 89 Then
-		'Testcase: Verify if ‘Initial Transplant Evaluation pathway’ due task is created upon patient enrollment.        
-		If Instr(1,strOutErrorDesc,"Unable to find '"&strTask&"' task",1) > 0 Then
-			Call WriteToLog("Fail", "Expected Result: '"&strTask&"' task should be available under '"&strDomain&"' domain; Actual Result: "&strOutErrorDesc)
-			Call Terminator
-		ElseIf not blnDomainTasks Then
-			Call WriteToLog("Fail", "Expected Result: Should be able to validate '"&strTask&"' task under '"&strDomain&"' domain of MOAN; Actual Result: Unable to perform MOAN task validations: "&strOutErrorDesc)
-			Call Terminator	
+		'Check whether Enrolled date is <=89 OR >=90
+		EnrolledDateStatus = DateDiff("d",CDate(dtEnrolledDate),Date)
+	
+		'Navigate to Menu of Actions > Required domain > select required task
+		blnDomainTasks = DomainTasks(strDomain, strTask, strOutErrorDesc)
+		Wait 2
+		
+		If EnrolledDateStatus <= 89 Then
+			'Testcase: Verify if ‘Initial Transplant Evaluation pathway’ due task is created upon patient enrollment.        
+			If Instr(1,strOutErrorDesc,"Unable to find '"&strTask&"' task",1) > 0 Then
+				Call WriteToLog("Fail", "Expected Result: '"&strTask&"' task should be available under '"&strDomain&"' domain; Actual Result: "&strOutErrorDesc)
+				Call Terminator
+			ElseIf not blnDomainTasks Then
+				Call WriteToLog("Fail", "Expected Result: Should be able to validate '"&strTask&"' task under '"&strDomain&"' domain of MOAN; Actual Result: Unable to perform MOAN task validations: "&strOutErrorDesc)
+				Call Terminator	
+			End If
+					
+			'Testcase: Verify upon clicking 'Initial Transplant Evaluation pathway' task would navigate to 'Transplant Evaluation’ screen. Also perform 'Transplant Evaluation pathway' and save.
+			blnTransplantEvaluation = TransplantEvaluation(arrTE_AnsBook, arrDecidingAns, strTestAllFunctionalities, dtPathwayDt, strOutErrorDesc)
+			If Instr(1,strOutErrorDesc,"Transplant Evaluation screen is not available",1) > 0 Then
+				Call WriteToLog("Fail", "Expected Result: User should be navigated to 'Transplant Evaluation' screen when clicked on '"&strTask&"'; Actual Result: "&strOutErrorDesc)
+				Call Terminator
+			ElseIf not blnTransplantEvaluation Then
+				Call WriteToLog("Fail", "Expected Result: Should be able to perform 'Transplant Evaluation pathway; Actual Result: Unable to perform 'Transplant Evaluation pathway': "&strOutErrorDesc)
+				Call Terminator	
+			End If
+			Call WriteToLog("Pass", "Valiadted Transplant Evaluation pathway screen navigation and Transplant Evaluation pathway")
+			Wait 2
+			
+			'Close patient record and re-open patient through global search (to get changes reflected)
+			Call WriteToLog("Info","------Close patient record and re-open patient through global search------")
+			blnClosePatientAndReopenThroughGlobalSearch = ClosePatientAndReopenThroughGlobalSearch(strPatientFirstName,lngMemberID,strOutErrorDesc)
+			If not blnClosePatientAndReopenThroughGlobalSearch Then
+				Call WriteToLog("Fail","Unable to close patient record and re-open patient through global search. "&strOutErrorDesc)
+				Call Terminator
+			End If
+			Call WriteToLog("Pass","Closed patient record and re-opened patient through global search")
+			
+			'Testcase: Verify the task gets closed when user performs 'Transplant Evaluation' pathway
+			blnDomainTasks = DomainTasks(strDomain, strTask, strOutErrorDesc)
+			If Instr(1,strOutErrorDesc,"Unable to find '"&strTask&"' task",1) > 0 Then
+				Call WriteToLog("Pass", "'"&strTask&"' task under '"&strDomain&"' domain got closed after performing 'Transplant Evaluation pathway' as expected")
+			ElseIf not blnDomainTasks Then
+				Call WriteToLog("Fail", "Expected Result: Should be able to validate '"&strTask&"' task under '"&strDomain&"' domain of MOAN; Actual Result: Unable to perform MOAN task validations: "&strOutErrorDesc)
+				Call Terminator	
+			ElseIf blnDomainTasks Then
+				Call WriteToLog("Fail", "Expected Result: '"&strTask&"' task under '"&strDomain&"' domain should be closed after performing 'Transplant Evaluation pathway'; Actual Result: '"&strTask&"' task is not closed")
+				Call Terminator		
+			End If
+	
+		ElseIf EnrolledDateStatus >= 90 Then
+	
+			If Instr(1,strOutErrorDesc,"Unable to find '"&strTask&"' task",1) > 0 Then
+				Call WriteToLog("Pass", "'"&strTask&"' task is not displayed under '"&strDomain&"' domain as patient is having EnrollmentDate >=90 prior sysdate")
+			ElseIf not blnDomainTasks Then
+				Call WriteToLog("Fail", "Expected Result: Should be able to validate '"&strTask&"' task under '"&strDomain&"' domain of MOAN; Actual Result: Unable to perform MOAN task validations: "&strOutErrorDesc)
+				Call Terminator
+			ElseIf blnDomainTasks Then
+				Call WriteToLog("Fail", "Expected Result: '"&strTask&"' task should not be displayed under '"&strDomain&"' domain as patient is having EnrollmentDate >=90 prior sysdate; Actual Result: '"&strTask&"' task is displayed under '"&strDomain&"' domain")
+				Call Terminator	
+			End If
+	
 		End If
-				
-		'Testcase: Verify upon clicking 'Initial Transplant Evaluation pathway' task would navigate to 'Transplant Evaluation’ screen. Also perform 'Transplant Evaluation pathway' and save.
+
+	Else
+		
+		'Navigate to 'Transplant Evaluation' screen, complete pathway and save.
+		blnClickedSubMenu = clickOnSubMenu_WE("Screenings->Transplant Evaluation")
+		If not blnClickedSubMenu Then
+			Call WriteToLog("Fail", "Unable to click on sub menu 'Screenings->Transplant Evaluation'. "&strOutErrorDesc)
+			Call Terminator			
+		End If
+
 		blnTransplantEvaluation = TransplantEvaluation(arrTE_AnsBook, arrDecidingAns, strTestAllFunctionalities, dtPathwayDt, strOutErrorDesc)
 		If Instr(1,strOutErrorDesc,"Transplant Evaluation screen is not available",1) > 0 Then
 			Call WriteToLog("Fail", "Expected Result: User should be navigated to 'Transplant Evaluation' screen when clicked on '"&strTask&"'; Actual Result: "&strOutErrorDesc)
@@ -141,40 +256,9 @@ If not Lcase(strExecutionFlag) = "y" Then Exit Do
 		Call WriteToLog("Pass", "Valiadted Transplant Evaluation pathway screen navigation and Transplant Evaluation pathway")
 		Wait 2
 		
-		'Close patient record and re-open patient through global search (to get changes reflected)
-		Call WriteToLog("Info","------Close patient record and re-open patient through global search------")
-		blnClosePatientAndReopenThroughGlobalSearch = ClosePatientAndReopenThroughGlobalSearch(strPatientName,lngMemberID,strOutErrorDesc)
-		If not blnClosePatientAndReopenThroughGlobalSearch Then
-			Call WriteToLog("Fail","Unable to close patient record and re-open patient through global search. "&strOutErrorDesc)
-			Call Terminator
-		End If
-		Call WriteToLog("Pass","Closed patient record and re-opened patient through global search")
+	End If
 		
-		'Testcase: Verify the task gets closed when user performs 'Transplant Evaluation' pathway
-		blnDomainTasks = DomainTasks(strDomain, strTask, strOutErrorDesc)
-		If Instr(1,strOutErrorDesc,"Unable to find '"&strTask&"' task",1) > 0 Then
-			Call WriteToLog("Pass", "'"&strTask&"' task under '"&strDomain&"' domain got closed after performing 'Transplant Evaluation pathway' as expected")
-		ElseIf not blnDomainTasks Then
-			Call WriteToLog("Fail", "Expected Result: Should be able to validate '"&strTask&"' task under '"&strDomain&"' domain of MOAN; Actual Result: Unable to perform MOAN task validations: "&strOutErrorDesc)
-			Call Terminator	
-		ElseIf blnDomainTasks Then
-			Call WriteToLog("Fail", "Expected Result: '"&strTask&"' task under '"&strDomain&"' domain should be closed after performing 'Transplant Evaluation pathway'; Actual Result: '"&strTask&"' task is not closed")
-			Call Terminator		
-		End If
-
-ElseIf EnrolledDateStatus >= 90 Then
-
-		If Instr(1,strOutErrorDesc,"Unable to find '"&strTask&"' task",1) > 0 Then
-			Call WriteToLog("Pass", "'"&strTask&"' task is not displayed under '"&strDomain&"' domain as patient is having EnrollmentDate >=90 prior sysdate")
-		ElseIf not blnDomainTasks Then
-			Call WriteToLog("Fail", "Expected Result: Should be able to validate '"&strTask&"' task under '"&strDomain&"' domain of MOAN; Actual Result: Unable to perform MOAN task validations: "&strOutErrorDesc)
-			Call Terminator
-		ElseIf blnDomainTasks Then
-			Call WriteToLog("Fail", "Expected Result: '"&strTask&"' task should not be displayed under '"&strDomain&"' domain as patient is having EnrollmentDate >=90 prior sysdate; Actual Result: '"&strTask&"' task is displayed under '"&strDomain&"' domain")
-			Call Terminator	
-		End If
-
-End If
+		
 
 'logout of the application
 Call WriteToLog("Info","-------------------Logout of application-------------------")

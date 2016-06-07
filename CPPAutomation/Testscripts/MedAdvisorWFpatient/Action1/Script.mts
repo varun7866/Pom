@@ -49,7 +49,6 @@ For RowNumber = 1 to intRowCout: Do
 '------------------------
 strExecutionFlag = DataTable.Value("ExecutionFlag", "CurrentTestCaseData")
 strPersonalDetails = DataTable.Value("PersonalDetails", "CurrentTestCaseData") 
-strPatientName = Split(strPersonalDetails,",",-1,1)(0)
 strProgramDetails = DataTable.Value("ProgramDetails", "CurrentTestCaseData")
 dtProgramStartDate = Date
 strTechScreeningAnswerOptions = DataTable.Value("TechScreeningAnswerOptions", "CurrentTestCaseData")
@@ -67,6 +66,8 @@ strIntervDisSt = "Diabetes"
 strPHMcoding = "Avoided ER"
 dtPHMcodingDate = DataTable.Value("PHMcodingDate", "CurrentTestCaseData") 'cannot be less that PHMReview date
 dtPHMcodingDate = Split(dtPHMcodingDate," ",-1,1)(0)
+dtDateRecommended = DataTable.Value("DateRecommended", "CurrentTestCaseData")
+dtDateRecommended = Split(dtDateRecommended," ",-1,1)(0)
 strCurrentVisibleStatusinPHMForPatient = "Open"
 strCurrentVisibleStatusinPHM = "Pending MD"
 strPHMInterventionEditStatus = "Final Review Needed"
@@ -74,10 +75,11 @@ strCurrentVisibleStatusinRVR = "Final Review Needed"
 strRVRInterventionEditStatus = "Final Review Completed"
 strReviewerCoding = "Avoided ER"
 strReferredTo = DataTable.Value("ReferredTo", "CurrentTestCaseData")
-strRevTitleType= "INSULIN STABILITY"
-strRevTitle = "INSULIN STABILITY"
+strRevTitleType= "DIABETIC SUPPLIES NEEDED"
+strRevTitle = "DIABETIC SUPPLIES NEEDED"
 dtReviewerCodingDate = DataTable.Value("ReviewerCodingDate", "CurrentTestCaseData")
 dtReviewerCodingDate = Split(dtReviewerCodingDate," ",-1,1)(0)
+strValuesForAddingIntervention = DataTable.Value("ValuesForAddingIntervention", "CurrentTestCaseData")
 
 'Getting equired iterations
 If not Lcase(strExecutionFlag) = "y" Then Exit Do
@@ -93,6 +95,12 @@ Call WriteToLog("info", "------------------------------Med Advisor Work Flow for
 '-----------------
 'Login to PTC user
 '-----------------
+
+'-------------------------------
+'Close all open patients from DB
+Call closePatientsFromDB("ptc")
+'-------------------------------
+
 'Navigation: Login to app > CloseAllOpenPatients > SelectUserRoster 
 blnNavigator = Navigator("ptc", strOutErrorDesc)
 If not blnNavigator Then
@@ -103,12 +111,21 @@ Call WriteToLog("Pass","Navigated to user dashboard")
 
 'Add new patient in PTC user and retrieve MemID
 strProgramDetails = strProgramDetails&","&dtProgramStartDate
-lngMemberID = CreateNewPatientFromPTC(strPersonalDetails,,,strProgramDetails,strOutErrorDesc)
-If lngMemberID = "" Then
+strNewPatientDetails = ""
+strNewPatientDetails = CreateNewPatientFromPTC(strPersonalDetails,,,strProgramDetails,strOutErrorDesc)
+If strNewPatientDetails = "" Then
 	Call WriteToLog("Fail", "Expected Result: Member should be added; Actual Result: Error adding Member " &strOutErrorDesc)
 	Call Terminator 
 End If
-Call WriteToLog("Pass", "Member is added successfully from PTC")
+
+strPatientName = Split(strNewPatientDetails,"|",-1,1)(0)
+lngMemberID = Split(strNewPatientDetails,"|",-1,1)(1)
+Environment.Value("strPatientFN") = Split(strPatientName,", ",-1,1)(1)
+
+Call WriteToLog("Pass","Created new patient in EPS with name: '"&strPatientName&"' and MemberID: '"&lngMemberID&"'")	
+
+strPatientFirstName = Split(strPatientName,", ",-1,1)(1)
+strPatientSecondName = Split(strPatientName,", ",-1,1)(0)
 Wait 2
 
 '-----------------------------------------------
@@ -135,13 +152,19 @@ End If
 'Logout from PTC
 Logout()
 Call WriteToLog("Pass","Successfully logged out from PTC User")
-Wait 5
+Wait 2
 '------------------------------------------------------------------------------------PTC ends----------------------------------------------------------------------------------------------------------------------------
 
 '------------------------------------------------------------------------------------in PHM----------------------------------------------------------------------------------------------------------------------------------
 '--------------------------
 'Login to PHM user
 '--------------------------
+
+'-------------------------------
+'Close all open patients from DB
+Call closePatientsFromDB("phm")
+'-------------------------------
+
 'Navigation: Login to app > CloseAllOpenPatients > SelectUserRoster 
 blnNavigator = Navigator("phm", strOutErrorDesc)
 If not blnNavigator Then
@@ -158,6 +181,10 @@ If not blnSelectRequiredRoster Then
 End If
 Call WriteToLog("Pass","Opened required '"&strAssignedPHM&"'s Dashboard")
 
+Wait 2
+	
+Call waitTillLoads("Loading...")
+Wait 2
 '------------------------------------
 'Get patient from warm transefer tray
 '------------------------------------
@@ -194,12 +221,11 @@ Call waitTillLoads("Loading...")
 Wait 1
 
 'Handle navigation error if exists
-blnHandleWrongDashboardNavigation = HandleWrongDashboardNavigation(strPatientName,strOutErrorDesc)
+blnHandleWrongDashboardNavigation = HandleWrongDashboardNavigation(strPatientFirstName,strOutErrorDesc)
 If not blnHandleWrongDashboardNavigation Then
     Call WriteToLog("Fail","Unable to provide proper navigation after patient selection "&strOutErrorDesc)
 End If
 Call WriteToLog("Pass","Provided proper navigation after patient selection")
-Wait 2
 
 '-------------------
 'Add Medication
@@ -233,8 +259,9 @@ If not blnCloseAllAvailablePopups Then
 End If
 
 'Add new medication for the patient
-blnAddMedication = AddMedication(strLabel, dtWrittenDate, dtFilledDate, strFrequency, strOutErrorDesc)
-If blnAddMedication Then
+strAddMedication = ""
+strAddMedication = AddMedication(strLabel, dtWrittenDate, dtFilledDate, strFrequency, strOutErrorDesc)
+If strAddMedication <> "" Then
 	Call WriteToLog("Pass", "New medication is added successfully")
 Else
 	Call WriteToLog("Fail", "Expected Result: New medication should be added successfully; Actual Result: Error adding new medication. " &strOutErrorDesc)
@@ -278,8 +305,8 @@ Wait 2
 Call waitTillLoads("Loading...")
 Wait 2
 
-'Validate availability of Send Map and Send Med List after pharmacist med review
-Call ValidateMapAndMedlistButtons()
+''Validate availability of Send Map and Send Med List after pharmacist med review
+'Call ValidateMapAndMedlistButtons()
 
 'Validate score card in PHM
 Call ValidateMedicationScoreCardMAWF("phm","Med Advisor in process")
@@ -327,6 +354,18 @@ End If
 '---------------------------------------
 'Add intervention and Edit intervention
 '---------------------------------------
+'Wait till Add (+) button loads
+Execute "Set objInterventionAddIcon = " & Environment("WI_InterventionAddIcon")
+blnwaitUntilExist = waitUntilExist(objInterventionAddIcon, 100)
+If not blnwaitUntilExist Then
+	strOutErrorDesc = "Add (+) button not loaded"
+	Call WriteToLog("Fail", strOutErrorDesc)
+	Call Terminator	
+End If
+Call WriteToLog("Pass", "Add (+) button loaded")
+Execute "Set objInterventionAddIcon = Nothing"
+Wait 1
+
 'Click Add (+) button for adding intervention
 Execute "Set objInterventionAddIcon = " & Environment("WI_InterventionAddIcon")
 Err.Clear
@@ -341,7 +380,12 @@ Execute "Set objInterventionAddIcon = Nothing"
 Wait 1
 
 'Add intervention(phm)
-blnAddIntervention = AddPHMintervention(strReferredTo, strIntervDisSt, strRevTitleType, strRevTitle, strOutErrorDesc)
+arrPMR_FieldValues = Split(strValuesForAddingIntervention,"|",-1,1)
+If LCase(Trim(arrPMR_FieldValues(2))) = "na" Then  'arrPMR_FieldValues(2) is 'Referred To'
+	arrPMR_FieldValues(2) = Environment.Value("strPatientFN")
+	strValuesForAddingIntervention = Join(arrPMR_FieldValues,"|")
+End If
+blnAddIntervention = AddPHMintervention(strValuesForAddingIntervention,dtDateRecommended,dtPHMcodingDate,strOutErrorDesc)
 If blnAddIntervention Then
 	Call WriteToLog("Pass", "Added intervention with required values")
 Else
@@ -352,7 +396,7 @@ Wait 1
 
 'Edit intervention(phm)
 Call FewPreliminarySteps()	
-blnEditInterventionStatus = EditInterventionStatus(strPHMInterventionEditStatus, strCurrentVisibleStatusinPHMForPatient, strPHMcoding, dtPHMcodingDate, strOutErrorDesc)
+blnEditInterventionStatus = EditInterventionStatus(strPHMInterventionEditStatus, strCurrentVisibleStatusinPHMForPatient,strOutErrorDesc)
 If blnEditInterventionStatus Then
 	Call WriteToLog("Pass", "PHM Edited intervention with required values")
 Else
@@ -373,6 +417,12 @@ Wait 2
 '-----------------
 'Login to RVR user
 '-----------------
+
+'-------------------------------
+'Close all open patients from DB
+Call closePatientsFromDB("rvr")
+'-------------------------------
+
 'Navigation: Login to app > CloseAllOpenPatients > SelectUserRoster 
 blnNavigator = Navigator("rvr", strOutErrorDesc)
 If not blnNavigator Then
@@ -390,7 +440,7 @@ End If
 Call WriteToLog("Pass","Selected required patient through global search")
 
 'Handle navigation error if exists
-blnHandleWrongDashboardNavigation = HandleWrongDashboardNavigation(strPatientName,strOutErrorDesc)
+blnHandleWrongDashboardNavigation = HandleWrongDashboardNavigation(strPatientFirstName,strOutErrorDesc)
 If not blnHandleWrongDashboardNavigation Then
     Call WriteToLog("Fail","Unable to provide proper navigation after patient selection "&strOutErrorDesc)
 End If
@@ -654,5 +704,5 @@ Function Terminator()
 	CloseAllBrowsers
 	WriteLogFooter
 	ExitAction
-	
+
 End Function

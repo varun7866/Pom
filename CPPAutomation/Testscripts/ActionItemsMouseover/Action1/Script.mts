@@ -63,44 +63,6 @@ strExecutionFlag = DataTable.Value("ExecutionFlag","CurrentTestCaseData")
 dtExistingContactAttemptedDate = DataTable.Value("ExistingContactAttemptedDate","CurrentTestCaseData") 
 dtExistingContactCompletedDate = DataTable.Value("ExistingContactCompletedDate","CurrentTestCaseData") 
 
-'-----------------------------------
-'Objects required for test execution
-'-----------------------------------
-Execute "Set objParent ="&Environment("WPG_AppParent")	'page object
-Execute "Set objMyDashboard = "&Environment("WL_DashBoard") ' MyDashboard
-
-
-'((((((((((((((((((((
-
-	isPass = ConnectDB()
-	If not isPass Then
-	    Print "Fail"
-	    ExitAction
-	End If
-
-
-strQuery = "Select MEM_FIRST_NAME from MEM_MEMBER where MEM_UID = 513"
-
-
-
-	
-	isPass = RunQueryRetrieveRecordSet(strQuery)
-	If not isPass Then
-	    Call CloseDBConnection()
-	    ExitAction
-	End If
-
-	
-	Do until objDBRecordSet.EOF
-		strFirstName = objDBRecordSet("MEM_FIRST_NAME")  
-		objDBRecordSet.MoveNext
-	Loop
-	
-		Call CloseDBConnection()
-
-MsgBox strFirstName
-')))))))))))))))))))))
-
 '-----------------------EXECUTION-------------------------------------------------------------------------------------------------------------------------------------------------------
 On Error Resume Next
 If not Lcase(strExecutionFlag) = "y" Then Exit Do
@@ -113,11 +75,19 @@ arrDateForContact = Split(strDatesForContacts,",",-1,1)
 arrExternalTeamddval = Split(strExternalTeamddvals,",",-1,1)
 arrInternalTeamddval = Split(strInternalTeamddvals,",",-1,1)
 For Dtformat = 0 To Ubound(arrDateForContact) Step 1
+	If LCase(Trim(arrDateForContact(Dtformat))) = "date" Then
+		arrDateForContact(Dtformat) = Date		
+	End If
 	arrDateForContact(Dtformat) = DateFormat(arrDateForContact(Dtformat))
 Next
 
 'Iteration for patients who doesn't require contact creation
 If Lcase(Trim(strCreateContact)) = "no" Then
+
+	'-------------------------------
+	'Close all open patients from DB
+	Call closePatientsFromDB("vhn")
+	'-------------------------------
 	
 	'Navigation: Login to app > CloseAllOpenPatients > SelectUserRoster 
 	blnNavigator = Navigator("vhn", strOutErrorDesc)
@@ -181,6 +151,11 @@ If Lcase(Trim(strCreateContact)) = "no" Then
 'Iteration for patients who require contact creation		
 ElseIf Lcase(Trim(strCreateContact)) = "yes" Then
 
+	'-------------------------------
+	'Close all open patients from DB
+	Call closePatientsFromDB("vhn")
+	'-------------------------------
+
 	'Navigation: Login to app > CloseAllOpenPatients > SelectUserRoster 
 	blnNavigator = Navigator("vhn", strOutErrorDesc)
 	If not blnNavigator Then
@@ -229,8 +204,9 @@ ElseIf Lcase(Trim(strCreateContact)) = "yes" Then
 		Call WriteToLog("Pass","Closed patient record")
 	End If
 	wait 2
-
-	Call waitTillLoads("Saving contact for "&strPatientNameExternal)
+	Call waitTillLoads("Loading...")
+	Wait 1
+	Call waitTillLoads("Loading...")
 	Wait 1
 	
 	'FILTERING --------------------------------------------------------------------
@@ -320,8 +296,7 @@ ElseIf Lcase(Trim(strCreateContact)) = "yes" Then
 	End If
 	If dtExistingContactAttemptedDate <>"" Then
 		dtExistingContactAttemptedDate = DateFormat(dtExistingContactAttemptedDate)
-	End If
-	
+	End If	
 	
 	intLADval = DateDiff("d",dtLastAttemptedDate,dtExistingContactAttemptedDate)
 	If intLADval >= 0 Then
@@ -331,44 +306,16 @@ ElseIf Lcase(Trim(strCreateContact)) = "yes" Then
 	intLCDval = DateDiff("d",dtLastCompletedDate,dtExistingContactCompletedDate)
 	If intLCDval >= 0 Then
 		dtLastCompletedDate = dtExistingContactCompletedDate
-	End If
-	
-	'Close patient record and re-open patient through global search (to get changes reflected)
-	Call WriteToLog("Info","------Close patient record and re-open patient through global search------")
-	strPatientName = strPatientNameExternal
-	blnClosePatientAndReopenThroughGlobalSearch = ClosePatientAndReopenThroughGlobalSearch(strPatientName,lngMemberID,strOutErrorDesc)
-	If not blnClosePatientAndReopenThroughGlobalSearch Then
-		Call WriteToLog("Fail","Unable to close patient record and re-open patient through global search. "&strOutErrorDesc)
-		Call Terminator
-	End If
-	Call WriteToLog("Pass","Closed patient record and re-opened patient through global search")
-
-	Call WriteToLog("Info","--------------------Mousehover over patient named '"&strPatientNameExternal&"' and retrieving LastAttempted and LastCompleted contact dates, then validating both on required filters--------------------")
-	'cLick Dashboard
-	Err.Clear
-	objMyDashboard.Click
-	If Err.number = 0 Then
-		Call WriteToLog("Pass","Clicked MyDashboard")
-	Else
-        strOutErrorDesc = "Unable to click MyDashboard"&Err.Description
-       	Call WriteToLog("Fail","Expected Result: Should be able click MyDashboard  Actual Result: "&strOutErrorDesc)
-		ExitAction		
-	End If
-	Wait 2
-	
-	Call waitTillLoads("Loading...")
-	Wait 2
-	Err.Clear
-	
+	End If	
+			
 	'-----------------------------------------------------------
 	'Hoverover on required patient name and retrieve the message
-	'-----------------------------------------------------------
-	
+	'-----------------------------------------------------------	
 	'Getting ActionItem patient mouseover msg values
 	arrMouseMsgVals = ActionItemsPatientMouseoverMsg(strPatientNameExternal, strOutErrorDesc)
 	If IsArrayEmpty(arrMouseMsgVals) Then
 		strOutErrorDesc = "Unable to retrieve Mousehover message values"
-		Call WriteToLog("Fail","Expected Result: Should be able to retrieve Mousehover message values.  Actual Result: "&strOutErrorDesc)
+		Call WriteToLog("Fail","No mouseover message is displayed: "&strOutErrorDesc)
 		Call Terminator
 	End If
 	Call WriteToLog("Pass","Retrieved Mousehover message values")
@@ -418,11 +365,6 @@ End If
 Call WriteToLog("Info","--------------------Logout of application--------------------")
 Call Logout()
 Wait 2
-
-'Set objects free
-Set objParent = Nothing	
-Set objMyDashboard = Nothing
-
 
 'Iteration loop
 Loop While False: Next

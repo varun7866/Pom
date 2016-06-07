@@ -1,4 +1,5 @@
 ﻿<Properties>
-  <WatchEntry0 value="Err.Description" />
-  <WatchEntry1 value="PatientNameStatus" />
+  <WatchEntry0 value="strFirstName" />
+  <WatchEntry1 value="strLastName" />
+  <WatchEntry2 value="strPatientName" />
 </Properties>

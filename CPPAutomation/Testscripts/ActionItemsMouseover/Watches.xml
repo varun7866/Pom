@@ -1,7 +1,3 @@
 ﻿<Properties>
-  <WatchEntry0 value="strContactMethod" />
-  <WatchEntry1 value="dtContactDt" />
-  <WatchEntry2 value="strEngScores" />
-  <WatchEntry3 value="strReqdTeams" />
-  <WatchEntry4 value="strReqdResolution" />
+  <WatchEntry0 value="isPass" />
 </Properties>

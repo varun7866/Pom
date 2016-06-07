@@ -1,5 +1,4 @@
 ﻿<Properties>
-  <WatchEntry0 value="arrScreeningHistoryInfo(k)" />
-  <WatchEntry1 value="dtFRACompletedDate" />
-  <WatchEntry2 value="intFRAscore" />
+  <WatchEntry0 value="blnFallRiskAssessmentScreening" />
+  <WatchEntry1 value="strNewPatientDetails" />
 </Properties>

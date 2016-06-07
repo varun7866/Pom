@@ -1,5 +1,5 @@
 ﻿<Properties>
-  <WatchEntry0 value="lngMemberID" />
-  <WatchEntry1 value="blnAdvanceCarePlanning" />
-  <WatchEntry2 value="strOutErrorDesc" />
+  <WatchEntry0 value="objACS_PatwayReportHistoryHdr.Exist(20)" />
+  <WatchEntry1 value="dtPathwayDt" />
+  <WatchEntry2 value="dtEnrolledDate" />
 </Properties>

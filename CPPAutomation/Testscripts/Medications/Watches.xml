@@ -1,3 +1,5 @@
 ﻿<Properties>
-  <WatchEntry0 value="blnValidateReviewFunctionality" />
+  <WatchEntry0 value="strIndication" />
+  <WatchEntry1 value="Trim(objMapDiagnosis.GetROProperty(&quot;outertext&quot;))" />
+  <WatchEntry2 value="objMapDiagnosis.GetROProperty(&quot;outertext&quot;)" />
 </Properties>

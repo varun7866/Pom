@@ -1,5 +1,5 @@
 ﻿<Properties>
-  <WatchEntry0 value="intCloseIconsInOPW" />
-  <WatchEntry1 value="objOPWcis" />
-  <WatchEntry2 value="objOPWcis.Count" />
+  <WatchEntry0 value="objPatientName.Count" />
+  <WatchEntry1 value="i" />
+  <WatchEntry2 value="blnNavigator" />
 </Properties>

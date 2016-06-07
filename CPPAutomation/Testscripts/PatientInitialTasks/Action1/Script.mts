@@ -49,7 +49,7 @@ For RowNumber = 1 to intRowCout: Do
 On Error Resume Next
 strExecutionFlag = DataTable.Value("ExecutionFlag","CurrentTestCaseData")
 'patient details
-	strPatientName = DataTable.Value("PatientName","CurrentTestCaseData")
+	strPersonalDetails = DataTable.Value("PersonalDetails","CurrentTestCaseData")
 	lngMemberID = DataTable.Value("MemberID","CurrentTestCaseData")
 	strMedicalDetails = DataTable.Value("MedicalDetails","CurrentTestCaseData")
 'Doamin and Tasks values
@@ -122,36 +122,47 @@ Execute "Set objDashboard ="&Environment("WL_Dashboard")
 'Execution as required
 If not Lcase(strExecutionFlag) = "y" Then Exit Do
 
+'
 '-----------------------EXECUTION-------------------------------------------------------------------------------------------------------------------------------------------------------
 	
-	Call WriteToLog("Info","----------------Iteration for patient named '"&strPatientName&"'----------------") 
 	On Error Resume Next
 	Err.Clear	
 	
 	'-----------------------------------------
 	'*Login as EPS and refer a new SNP member.
 	'-----------------------------------------
+	
+	'-------------------------------
+	'Close all open patients from DB
+	Call closePatientsFromDB("eps")
+	'-------------------------------
+
 	'Navigation: Login to EPS > CloseAllOpenPatients > SelectUserRoster 
 	blnNavigator = Navigator("eps", strOutErrorDesc)
 	If not blnNavigator Then
 		Call WriteToLog("Fail","Expected Result: User should be able to navigate required user dashboard.  Actual Result: Unable to navigate required user dashboard."&strOutErrorDesc)
 		Call Terminator											
 	End If
-	Call WriteToLog("Pass","Navigated to user dashboard")											
-	Wait 0,500
-	
-	'Create new SNP patient
-	strNewPatientDetails = CreateNewPatientFromEPS(strPatientName,"NA",strMedicalDetails,strOutErrorDesc)
+	Call WriteToLog("Pass","Navigated to user dashboard")	
+
+	'Create newpatient
+	strNewPatientDetails = ""
+	strNewPatientDetails = CreateNewPatientFromEPS(strPersonalDetails,"NA",strMedicalDetails,strOutErrorDesc)
 	If strNewPatientDetails = "" Then
 		Call WriteToLog("Fail","Expected Result: User should be able to create new SNP patient in EPS. Actual Result: Unable to  create new SNP patient in EPS."&strOutErrorDesc)
 		Call Terminator											
 	End If
-	Call WriteToLog("Pass","Created new SNP patient in EPS")	
-	Wait 1
 	
-	arrNewPatientDetails = Split(strNewPatientDetails,",",-1,1)
-	lngMemberID = arrNewPatientDetails(0)
+	strPatientName = Split(strNewPatientDetails,"|",-1,1)(0)
+	lngMemberID = Split(strNewPatientDetails,"|",-1,1)(1)
+	strEligibilityStatus = Split(strNewPatientDetails,"|",-1,1)(2)
 	
+	Call WriteToLog("Pass","Created new patient in EPS with name: '"&strPatientName&"', MemberID: '"&lngMemberID&"' and Eligibility status: '"&strEligibilityStatus&"'")	
+	
+	strPatientFirstName = Split(strPatientName,", ",-1,1)(1)
+	strPatientSecondName = Split(strPatientName,", ",-1,1)(0)
+	
+
 	'-------------------------------------------------------
 	'*Validate eligility status of newly created SNP patient
 	'-------------------------------------------------------
@@ -162,7 +173,6 @@ If not Lcase(strExecutionFlag) = "y" Then Exit Do
 		Call Terminator											
 	End If
 	Call WriteToLog("Pass","Patient Eligibility Status is retrieved")	
-	Wait 0,500		
 			
 	'validate eligibility status (enrolled)
 	If Instr(1,strPatientEligibilityStatus,"Enrolled",1) <= 0 Then
@@ -180,6 +190,12 @@ If not Lcase(strExecutionFlag) = "y" Then Exit Do
 	'-----------------------------------------------------------------------------
 	'*Login as VHN and open the newly created patient in assigned VHN's dashboard
 	'-----------------------------------------------------------------------------
+	
+	'-------------------------------
+	'Close all open patients from DB
+	Call closePatientsFromDB("vhn")
+	'-------------------------------
+
 	'Navigation: Login to VHN > CloseAllOpenPatients > SelectUserRoster 
 	blnNavigator = Navigator("vhn", strOutErrorDesc)
 	If not blnNavigator Then
@@ -187,7 +203,6 @@ If not Lcase(strExecutionFlag) = "y" Then Exit Do
 		Call Terminator											
 	End If
 	Call WriteToLog("Pass","Navigated to user dashboard")
-	Wait 0,500
 
 	'Open required patient in assigned VHN user of new SNP patient
 	strAssingnedUser = GetAssingnedUserDashboard(lngMemberID, strOutErrorDesc)
@@ -212,7 +227,7 @@ If not Lcase(strExecutionFlag) = "y" Then Exit Do
 	Call WriteToLog("Pass","Clicked on dashboard")
 	Wait 2
 	Call waitTillLoads("Loading...")
-	Wait 2
+	Wait 1
 	
 	'Get required date range
 	strDateRange = "Custom"
@@ -227,7 +242,7 @@ If not Lcase(strExecutionFlag) = "y" Then Exit Do
 	wait 1
 	
 	'Get task border color
-	strBorderColor = ActionItemTaskBorderColor(strPatientName, strOutErrorDesc)
+	strBorderColor = ActionItemTaskBorderColor(strPatientFirstName, strOutErrorDesc)
 	If strBorderColor = "" Then
 		Call WriteToLog("Fail","Expected Result: Available border color should be as per task duedate.  Actual Result: "&strOutErrorDesc)
 		Call Terminator		
@@ -236,7 +251,7 @@ If not Lcase(strExecutionFlag) = "y" Then Exit Do
 	Wait 1
 	
 	'Get task icon color
-	strTaskIconColor = ActionItemTaskIconColor(strPatientName, "Initial HRA Due", strOutErrorDesc)
+	strTaskIconColor = ActionItemTaskIconColor(strPatientFirstName, "Initial HRA Due", strOutErrorDesc)
 	If strTaskIconColor = "" Then
 		Call WriteToLog("Fail","Expected Result: Available task icon color should be as per task duedate.  Actual Result: "&strOutErrorDesc)
 		Call Terminator		
@@ -245,7 +260,7 @@ If not Lcase(strExecutionFlag) = "y" Then Exit Do
 	Wait 1
 	
 	'Get task due date from UI
-	dtDueDate = getDueDateOfTaskinActionItemsList(strPatientName, "Initial HRA Due")
+	dtDueDate = getDueDateOfTaskinActionItemsList(strPatientFirstName, "Initial HRA Due")
 	If LCase(dtDueDate) = "na" Then
 		Call WriteToLog("Fail","Expected Result:Should be able to retrieve Initial HRA Task due date from ActionItems.  Actual Result:Unable to retrieve Initial HRA Task due date from ActionItems")
 		Call Terminator	
@@ -286,14 +301,14 @@ If not Lcase(strExecutionFlag) = "y" Then Exit Do
 		Call WriteToLog("Fail","Expected Result: Initial HRA Task should be available with required color codes. Actual Result: HRA task is not with required color codes")
 		Call Terminator
 	End If
-	
+
 	'Select patient from ActionItems
-	blnSelectPatientFromActionItems = SelectPatientFromActionItems(strPatientName, strOutErrorDesc)
+	blnSelectPatientFromActionItems = SelectPatientFromActionItems(strPatientFirstName, strOutErrorDesc)
 	If not blnSelectPatientFromActionItems Then
 		Call WriteToLog("Fail","Expected Result: Should be able to select patient from ActionItems.  Actual Result: "&strOutErrorDesc)
 		Call Terminator		
 	End If
-	Call WriteToLog("Pass","Selected '"&strPatientName&"' patient from ActionItems")
+	Call WriteToLog("Pass","Selected '"&strPatientFirstName&"' patient from ActionItems")
 	Wait 1	
 	
 	'------------------------------------------------------------------------------
@@ -317,7 +332,7 @@ If not Lcase(strExecutionFlag) = "y" Then Exit Do
 	Call WriteToLog("Pass","Patient is closed with required details")	
 	wait 2
 	Call waitTillLoads("Loading...")
-	Wait 2
+	Wait 1
 	
 	'open patient through global search and get eligibility status
 	strSearchRequired = "yes"
@@ -327,7 +342,6 @@ If not Lcase(strExecutionFlag) = "y" Then Exit Do
 		Call Terminator											
 	End If
 	Call WriteToLog("Pass","Patient Eligibility Status is retrieved")	
-	Wait 0,500	
 	
 	'Validate eligibility status(engaged)
 	If Instr(1,strPatientEligibilityStatus,"Engaged",1) <= 0 Then
@@ -404,36 +418,16 @@ If not Lcase(strExecutionFlag) = "y" Then Exit Do
 				
 		End Select
 	Next
-	Wait 2
+	Wait 1
 	
-	'--------------------------------------------
-	'Logout and login for changes to happen	
-	Call WriteToLog("Info","-------------------Logout of application after IPE completion-------------------")
-	Call Logout()
-	Wait 2
-	
-	'Navigation: Login to VHN > CloseAllOpenPatients > SelectUserRoster 
-	blnNavigator = Navigator("vhn", strOutErrorDesc)
-	If not blnNavigator Then
-		Call WriteToLog("Fail","Expected Result: User should be able to navigate required user dashboard.  Actual Result: Unable to navigate required user dashboard."&strOutErrorDesc)
-		Call Terminator											
-	End If
-	Call WriteToLog("Pass","Navigated to user dashboard")
-	Wait 2
-	'--------------------------------------------
-
-	'Open required patient in assigned VHN use
-	strAssingnedUser = GetAssingnedUserDashboard(lngMemberID, strOutErrorDesc)
-	If strAssingnedUser = "" Then
-		Call WriteToLog("Fail","Expected Result: User should be able to open required patient in assigned VHN user.  Actual Result: Unable to open required patient in assigned VHN user."&strOutErrorDesc)
+	'Close patient record and re-open patient through global search (to get changes reflected)
+	blnClosePatientAndReopenThroughGlobalSearch = ClosePatientAndReopenThroughGlobalSearch(strPatientFirstName,lngMemberID,strOutErrorDesc)
+	If not blnClosePatientAndReopenThroughGlobalSearch Then
+		Call WriteToLog("Fail","Unable to close patient record and re-open patient through global search. "&strOutErrorDesc)
 		Call Terminator
 	End If
-	Call WriteToLog("Pass","Opened required patient in assigned VHN user")
-	Wait 2
-	
-	Call waitTillLoads("Loading...")
-	Wait 2
-	
+	Call WriteToLog("Pass","Closed patient record and re-opened patient through global search")
+
 	'--------------------------------------------------------------------------------------
 	'*Validate Eligibility status after completing intitial IPE tasks (engaged to assessed)
 	'--------------------------------------------------------------------------------------
@@ -452,7 +446,7 @@ If not Lcase(strExecutionFlag) = "y" Then Exit Do
 		Call Terminator	
 	End If
 	Call WriteToLog("Pass","Patient eligibility status is changed from 'Engaged' to 'Assessed' after completion of all intitial IPE tasks")		
-	Wait 2	
+	Wait 1	
 	
 	'------------------------------------------------------------------
 	'*Validate Initial HRA tasks under PatientAssessment domain of MOAN 
@@ -465,7 +459,7 @@ If not Lcase(strExecutionFlag) = "y" Then Exit Do
 			Case "Initial HRA Due"
 				blnDomainTask = DomainTasks(strDomain, strHRATask, strOutErrorDesc)
 				Call ValidateDomainAndTask(blnDomainTask,strDomain, strHRATask, strOutErrorDesc)
-				Wait 2			
+				Wait 1			
 				
 			Case "ADL Survey Due"		
 				blnDomainTask = DomainTasks(strDomain, strHRATask, strOutErrorDesc)
@@ -491,7 +485,7 @@ If not Lcase(strExecutionFlag) = "y" Then Exit Do
 					Call WriteToLog("Fail", "Expected Result: Unable to click Comorbid Review button. "&Err.Description)
 					Call Terminator		
 				End If
-				Wait 2
+				Wait 1
 				Err.Clear
 				objComobidReviewSaveBtn.Click
 				If Err.Number <> 0 Then
@@ -501,14 +495,14 @@ If not Lcase(strExecutionFlag) = "y" Then Exit Do
 				Call WriteToLog("Pass", "Comorbid Review task is completed")
 				Wait 2
 				Call waitTillLoads("Loading...")
-				Wait 2
+				Wait 1
 				Execute "Set objComobidReviewAddBtn = Nothing"
 				Execute "Set objComobidReviewSaveBtn = Nothing"
 				
 			Case "Cognitive Screening Due"
 				blnDomainTask = DomainTasks(strDomain, strHRATask, strOutErrorDesc)
 				Call ValidateDomainAndTask(blnDomainTask,strDomain, strHRATask, strOutErrorDesc)
-				Wait 2
+				Wait 1
 				blnCognitiveScreening = CognitiveScreening(strReqdScreeningType, strCogScrAns, strOutErrorDesc)
 				If not blnCognitiveScreening Then
 					Call WriteToLog("Fail", "Expected Result: Should be able to complete CognitiveScreening; Actual Result: Unable to complete CognitiveScreening "&strOutErrorDesc)
@@ -520,7 +514,7 @@ If not Lcase(strExecutionFlag) = "y" Then Exit Do
 			Case "Depression Screening"		
 				blnDomainTask = DomainTasks(strDomain, strHRATask, strOutErrorDesc)
 				Call ValidateDomainAndTask(blnDomainTask,strDomain, strHRATask, strOutErrorDesc)
-				Wait 2
+				Wait 1
 				blnDepressionScreening = DepressionScreening(strPatientRefusedSurvey,strDepressionScreeningAnswers,strOutErrorDesc)
 				If not blnDepressionScreening Then
 					Call WriteToLog("Fail", "Expected Result: Should be able to complete DepressionScreening; Actual Result: Unable to complete DepressionScreening "&strOutErrorDesc)
@@ -532,7 +526,7 @@ If not Lcase(strExecutionFlag) = "y" Then Exit Do
 			Case "Initial Pain Screening Due"		
 				blnDomainTask = DomainTasks(strDomain, strHRATask, strOutErrorDesc)
 				Call ValidateDomainAndTask(blnDomainTask,strDomain, strHRATask, strOutErrorDesc)
-				Wait 2
+				Wait 1
 				blnPainAssessmentScreening = PainAssessmentScreening(strPainAssessmentAnswers, strOutErrorDesc)		
 				If not blnPainAssessmentScreening Then
 					Call WriteToLog("Fail", "Expected Result: Should be able to complete PainAssessmentScreening; Actual Result: Unable to complete PainAssessmentScreening "&strOutErrorDesc)
@@ -544,7 +538,7 @@ If not Lcase(strExecutionFlag) = "y" Then Exit Do
 		End Select
 	Next
 	
-	Wait 5
+	Wait 2
 
 	'--------------------------------------------------------------------------------------
 	'*Validate Eligibility status after completing intitial HRA tasks (assessed to managed)
@@ -556,7 +550,6 @@ If not Lcase(strExecutionFlag) = "y" Then Exit Do
 		Call Terminator											
 	End If
 	Call WriteToLog("Pass","Patient Eligibility Status is retrieved")	
-	Wait 0,500	
 
 	'Validate eligibility status(assessed)
 	If Instr(1,strPatientEligibilityStatus,"Managed",1) <= 0 Then
@@ -564,37 +557,16 @@ If not Lcase(strExecutionFlag) = "y" Then Exit Do
 		Call Terminator	
 	End If
 	Call WriteToLog("Pass","Patient eligibility status is changed from 'Assessed' to 'Managed' after completion of all intitial HRA tasks")	
-	Wait 2	
+	Wait 1	
 	
-	'--------------------------------------------
-	'Logout and login for changes to happen	
-	Call WriteToLog("Info","-------------------Logout of application-------------------")
-	Call Logout()
-	Wait 2
-	
-	'Navigation: Login to VHN > CloseAllOpenPatients > SelectUserRoster 
-	blnNavigator = Navigator("vhn", strOutErrorDesc)
-	If not blnNavigator Then
-		Call WriteToLog("Fail","Expected Result: User should be able to navigate required user dashboard.  Actual Result: Unable to navigate required user dashboard."&strOutErrorDesc)
-		Call Terminator											
-	End If
-	Call WriteToLog("Pass","Navigated to user dashboard")
-	Wait 0,500
-	'--------------------------------------------
-
-	'Open required patient in assigned VHN use
-	strAssingnedUser = GetAssingnedUserDashboard(lngMemberID, strOutErrorDesc)
-	If strAssingnedUser = "" Then
-		Call WriteToLog("Fail","Expected Result: User should be able to open required patient in assigned VHN user.  Actual Result: Unable to open required patient in assigned VHN user."&strOutErrorDesc)
+	'Close patient record and re-open patient through global search (to get changes reflected)
+	blnClosePatientAndReopenThroughGlobalSearch = ClosePatientAndReopenThroughGlobalSearch(strPatientFirstName,lngMemberID,strOutErrorDesc)
+	If not blnClosePatientAndReopenThroughGlobalSearch Then
+		Call WriteToLog("Fail","Unable to close patient record and re-open patient through global search. "&strOutErrorDesc)
 		Call Terminator
 	End If
-	strReqdProvider = strAssingnedUser
-	Call WriteToLog("Pass","Opened required patient in assigned VHN user")
-	Wait 2
-	
-	Call waitTillLoads("Loading...")
-	Wait 2
-	
+	Call WriteToLog("Pass","Closed patient record and re-opened patient through global search")
+
 	'------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 	'*Verify that after completing all child tasks, 'IPE Minimum Data Due' and 'Initial HRA Due' tasks get colsed and no longer available under 'Patient Assessment' domain of MOAN
 	'------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
@@ -648,7 +620,6 @@ Function ValidateDomainAndTask(ByVal strValDomainTasks,ByVal strValidateDomain, 
 	
 End Function
 
-
 Function Terminator()
 	
 	On Error Resume Next	
@@ -656,5 +627,5 @@ Function Terminator()
 	CloseAllBrowsers
 	WriteLogFooter
 	ExitAction
-	
+
 End Function

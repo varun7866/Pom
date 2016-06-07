@@ -49,7 +49,6 @@ For RowNumber = 1 to intRowCout: Do
 '------------------------
 strExecutionFlag = DataTable.Value("ExecutionFlag", "CurrentTestCaseData")
 strPersonalDetails = DataTable.Value("PersonalDetails", "CurrentTestCaseData") 
-strPatientName = Split(strPersonalDetails,",",-1,1)(0)
 strProgramDetails = DataTable.Value("ProgramDetails", "CurrentTestCaseData")
 dtProgramStartDate = Date
 strTechScreeningAnswerOptions = DataTable.Value("TechScreeningAnswerOptions", "CurrentTestCaseData")
@@ -67,17 +66,19 @@ dtFilledDate = Split(dtFilledDate," ",-1,1)(0)
 strFrequency = DataTable.Value("Frequency", "CurrentTestCaseData")
 dtPHMReviewDate = DataTable.Value("PHMReviewDate", "CurrentTestCaseData")
 dtPHMReviewDate = Split(dtPHMReviewDate," ",-1,1)(0)
-strIntervDisSt = "Diabetes"
-strPHMcoding = "Avoided ER"
+'strIntervDisSt = "Diabetes"
+'strPHMcoding = "Avoided ER"
 dtPHMcodingDate = DataTable.Value("PHMcodingDate", "CurrentTestCaseData") 'cannot be less that PHMReview date
 dtPHMcodingDate = Split(dtPHMcodingDate," ",-1,1)(0)
+dtDateRecommended = DataTable.Value("DateRecommended", "CurrentTestCaseData")
+dtDateRecommended = Split(dtDateRecommended," ",-1,1)(0)
 strCurrentVisibleStatusinPHMForPatient = "Open"
 strCurrentVisibleStatusinPHM = "Pending MD"
 strPHMInterventionEditStatus = "Final Review Needed"
 strCurrentVisibleStatusinRVR = "Final Review Needed"
 strRVRInterventionEditStatus = "Final Review Completed"
 strReviewerCoding = "Avoided ER"
-strReferredTo = DataTable.Value("ReferredTo", "CurrentTestCaseData")
+'strReferredTo = DataTable.Value("ReferredTo", "CurrentTestCaseData")
 strTeamType = "Administrative Assistant"
 strRevTitleType= "DIABETIC SUPPLIES NEEDED"
 strRevTitle = "INSULIN STABILITY"
@@ -99,6 +100,12 @@ Call WriteToLog("info", "------------------------------Med Advisor Work Flow for
 '-----------------
 'Login to PTC user
 '-----------------
+
+'-------------------------------
+'Close all open patients from DB
+Call closePatientsFromDB("ptc")
+'-------------------------------
+
 'Navigation: Login to app > CloseAllOpenPatients > SelectUserRoster 
 blnNavigator = Navigator("ptc", strOutErrorDesc)
 If not blnNavigator Then
@@ -109,12 +116,21 @@ Call WriteToLog("Pass","Navigated to user dashboard")
 
 'Add new patient in PTC user and retrieve MemID
 strProgramDetails = strProgramDetails&","&dtProgramStartDate
-lngMemberID = CreateNewPatientFromPTC(strPersonalDetails,,,strProgramDetails,strOutErrorDesc)
-If lngMemberID = "" Then
+strNewPatientDetails = ""
+strNewPatientDetails = CreateNewPatientFromPTC(strPersonalDetails,,,strProgramDetails,strOutErrorDesc)
+If strNewPatientDetails = "" Then
 	Call WriteToLog("Fail", "Expected Result: Member should be added; Actual Result: Error adding Member " &strOutErrorDesc)
 	Call Terminator 
 End If
-Call WriteToLog("Pass", "Member is added successfully from PTC")
+
+strPatientName = Split(strNewPatientDetails,"|",-1,1)(0)
+lngMemberID = Split(strNewPatientDetails,"|",-1,1)(1)
+
+Call WriteToLog("Pass","Created new patient in EPS with name: '"&strPatientName&"' and MemberID: '"&lngMemberID&"'")	
+
+strPatientFirstName = Split(strPatientName,", ",-1,1)(1)
+strPatientSecondName = Split(strPatientName,", ",-1,1)(0)
+Wait 2
 
 '-----------------------------------------------
 ' Do Tech Screening for newly added patient
@@ -147,6 +163,12 @@ Wait 2
 '--------------------------
 'Login to PHM user
 '--------------------------
+
+'-------------------------------
+'Close all open patients from DB
+Call closePatientsFromDB("phm")
+'-------------------------------
+
 'Navigation: Login to app > CloseAllOpenPatients > SelectUserRoster 
 blnNavigator = Navigator("phm", strOutErrorDesc)
 If not blnNavigator Then
@@ -199,7 +221,7 @@ Call waitTillLoads("Loading...")
 Wait 1
 
 'Handle navigation error if exists
-blnHandleWrongDashboardNavigation = HandleWrongDashboardNavigation(strPatientName,strOutErrorDesc)
+blnHandleWrongDashboardNavigation = HandleWrongDashboardNavigation(strPatientFirstName,strOutErrorDesc)
 If not blnHandleWrongDashboardNavigation Then
     Call WriteToLog("Fail","Unable to provide proper navigation after patient selection "&strOutErrorDesc)
 End If
@@ -237,8 +259,9 @@ If not blnCloseAllAvailablePopups Then
 End If
 
 'Add new medication for the patient
-blnAddMedication = AddMedication(strLabel, dtWrittenDate, dtFilledDate, strFrequency, strOutErrorDesc)
-If blnAddMedication Then
+strAddMedication = ""
+strAddMedication = AddMedication(strLabel, dtWrittenDate, dtFilledDate, strFrequency, strOutErrorDesc)
+If strAddMedication <> "" Then
 	Call WriteToLog("Pass", "New medication is added successfully")
 Else
 	Call WriteToLog("Fail", "Expected Result: New medication should be added successfully; Actual Result: Error adding new medication. " &strOutErrorDesc)
@@ -279,9 +302,9 @@ Else
 	Call Terminator 
 End If
 
-'Validate availability of Send Map and Send Med List after pharmacist med review
-Call ValidateMapAndMedlistButtons()
-
+''Validate availability of Send Map and Send Med List after pharmacist med review
+'Call ValidateMapAndMedlistButtons()
+'
 'Validate score card in PHM
 Call ValidateMedicationScoreCardMAWF("phm","Med Advisor in process")
 
@@ -358,9 +381,21 @@ If not blnCloseAllAvailablePopups Then
 	Call Terminator
 End If
 
-'----------------------------------------------------
-'Add intervention, send MD Fax and Edit intervention
-'----------------------------------------------------
+'---------------------------------------
+'Add intervention and Edit intervention
+'---------------------------------------
+'Wait till Add (+) button loads
+Execute "Set objInterventionAddIcon = " & Environment("WI_InterventionAddIcon")
+blnwaitUntilExist = waitUntilExist(objInterventionAddIcon, 100)
+If not blnwaitUntilExist Then
+	strOutErrorDesc = "Add (+) button not loaded"
+	Call WriteToLog("Fail", strOutErrorDesc)
+	Call Terminator	
+End If
+Call WriteToLog("Pass", "Add (+) button loaded")
+Execute "Set objInterventionAddIcon = Nothing"
+Wait 1
+
 'Click Add (+) button for adding intervention
 Execute "Set objInterventionAddIcon = " & Environment("WI_InterventionAddIcon")
 Err.Clear
@@ -374,8 +409,20 @@ Call WriteToLog("Pass", "Clicked Add Intervention icon")
 Execute "Set objInterventionAddIcon = Nothing"
 Wait 1
 
+strValuesForAddingIntervention = DataTable.Value("ValuesForAddingIntervention", "CurrentTestCaseData")
+
 'Add intervention(phm)
-blnAddIntervention = AddPHMintervention(strReferredTo, strIntervDisSt, strRevTitleType, strRevTitle, strOutErrorDesc)
+strAssignedPHM = DataTable.Value("AssignedPHM", "CurrentTestCaseData")
+strAssignedPHM_LN = Trim(Split(strAssignedPHM," ",-1,1)(1))
+
+
+arrPMR_FieldValues = Split(strValuesForAddingIntervention,"|",-1,1)
+If LCase(Trim(arrPMR_FieldValues(2))) = "na" Then  'arrPMR_FieldValues(2) is 'Referred To'
+	arrPMR_FieldValues(2) = strAssignedPHM_LN
+	strValuesForAddingIntervention = Join(arrPMR_FieldValues,"|")
+End If
+
+blnAddIntervention = AddPHMintervention(strValuesForAddingIntervention,dtDateRecommended,dtPHMcodingDate,strOutErrorDesc)
 If blnAddIntervention Then
 	Call WriteToLog("Pass", "Added intervention with required values")
 Else
@@ -396,7 +443,7 @@ Wait 1
 
 'Edit intervention(phm)
 Call FewPreliminarySteps()
-blnEditInterventionStatus = EditInterventionStatus(strPHMInterventionEditStatus, strCurrentVisibleStatusinPHM, strPHMcoding, dtPHMcodingDate, strOutErrorDesc)
+blnEditInterventionStatus = EditInterventionStatus(strPHMInterventionEditStatus, strCurrentVisibleStatusinPHM, strOutErrorDesc)
 If blnEditInterventionStatus Then
 	Call WriteToLog("Pass", "PHM Edited intervention with required values")
 Else
@@ -417,6 +464,12 @@ Wait 2
 '-----------------
 'Login to RVR user
 '-----------------
+
+'-------------------------------
+'Close all open patients from DB
+Call closePatientsFromDB("rvr")
+'-------------------------------
+
 'Navigation: Login to app > CloseAllOpenPatients > SelectUserRoster 
 blnNavigator = Navigator("rvr", strOutErrorDesc)
 If not blnNavigator Then
@@ -433,7 +486,7 @@ If not blnGlobalSearchUsingMemID Then
 End If
 
 'Handle navigation error if exists
-blnHandleWrongDashboardNavigation = HandleWrongDashboardNavigation(strPatientName,strOutErrorDesc)
+blnHandleWrongDashboardNavigation = HandleWrongDashboardNavigation(strPatientFirstName,strOutErrorDesc)
 If not blnHandleWrongDashboardNavigation Then
     Call WriteToLog("Fail","Unable to provide proper navigation after patient selection "&strOutErrorDesc)
 End If
@@ -662,13 +715,24 @@ Function AddProvider(ByVal strProviderType, ByVal strProviderName, ByVal strGend
 	Call WriteToLog("Pass", "Provider Next Button is  Clicked Successfully.")
 	Execute "Set objNextBtn = Nothing"
 	wait 2	
-	
+
 	'Select Address Type
 	Execute "Set objPage = Nothing"
 	Execute "Set objPage = " & Environment("WPG_AppParent")
-	Set objPaddress=objPage.WebElement("class:=col-md-3","html tag:=DIV","outertext:=Select a value   Select a value  Mailing  Other  Service  ","innertext:=Select a value   Select a value  Mailing  Other  Service  ")
-	Set objAddTypeBtn=objPaddress.WebButton("html id:=dropdownMenu1","outertext:=Select a value ","type:=button","name:=Select a value ","index:=8")
-	blnAddressType = selectComboBoxItem(objAddTypeBtn, strAddressType)
+	
+'	Set objPaddress = objPage.WebElement("class:=col-md-3","html tag:=DIV","outertext:=Select a value   Select a value  Mailing  Other  Service  ","innertext:=Select a value   Select a value  Mailing  Other  Service  ")
+'	Set objAddTypeBtn = objPage.WebButton("html id:=dropdownMenu1")	
+	
+	Set oDesc = Description.Create
+	oDesc("micclass").value = "WebButton"
+	oDesc("html id").value = "dropdownMenu1"
+	oDesc("outerhtml").value = ".*selectedProviderAddressType.*"
+	oDesc("outerhtml").RegularExpression = True
+	
+	Set objAddressType_WBs = objPage.ChildObjects(oDesc)
+	objAddressType_WBs(0).highlight
+	
+	blnAddressType = selectComboBoxItem(objAddressType_WBs(0), strAddressType)
 	If Not blnAddressType Then
 		strOutErrorDesc = "Address Type selection returned error: "&strOutErrorDesc
 		Call WriteToLog("Fail","Expected Result: User should be able to select Address Type.  Actual Result: " &strOutErrorDesc)
@@ -684,6 +748,7 @@ Function AddProvider(ByVal strProviderType, ByVal strProviderName, ByVal strGend
 	Execute "Set objAddress = " & Environment("WE_Address1")	
 	If waitUntilExist(objAddress, 10) Then
 		Err.Clear
+		objAddress.highlight
 		objAddress.Set strAddress
 		If Err.Number <> 0 Then
 			strOutErrorDesc = "Address field is not set. " & Err.Description

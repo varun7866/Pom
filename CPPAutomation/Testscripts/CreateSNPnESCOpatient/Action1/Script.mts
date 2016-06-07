@@ -61,7 +61,7 @@ For RowNumber = 1 to intRowCout: Do
 		
 		'-----------------------EXECUTION-------------------------------------------------------------------------------------------------------------------------------------------------------
 		
-		Call WriteToLog("Info","--------------------------------------------Creating "&strPatientType&" patient--------------------------------------------") 
+'		Call WriteToLog("Info","--------------------------------------------Creating "&strPatientType&" patient--------------------------------------------") 
 
 		For P = 1 To UBound(arrPatientNames)+1 Step 1
 			
@@ -69,10 +69,17 @@ For RowNumber = 1 to intRowCout: Do
 				Call WriteToLog("Info","----------------Creating SNP patient with name: '"&arrPatientNames(P-1)&"'----------------") 
 			ElseIf LCase(Trim(strPatientType)) = "esco" Then			
 				Call WriteToLog("Info","----------------Creating ESCO patient with name: '"&arrPatientNames(P-1)&"'----------------") 
+			ElseIf LCase(Trim(strPatientType)) = "na" Then			
+				Call WriteToLog("Info","----------------Creating patient with name: '"&arrPatientNames(P-1)&"'----------------") 
 			End If
 			
 			On Error Resume Next
 			Err.Clear	
+			
+			'-------------------------------
+			'Close all open patients from DB
+			Call closePatientsFromDB("eps")
+			'-------------------------------
 			
 			'-------------------------------------------------
 			'*Login as EPS and refer a new SNP or ESCO member.
@@ -80,7 +87,7 @@ For RowNumber = 1 to intRowCout: Do
 			'Navigation: Login to EPS > CloseAllOpenPatients > SelectUserRoster 
 			blnNavigator = Navigator("eps", strOutErrorDesc)
 			If not blnNavigator Then
-				Call WriteToLog("Fail","Expected Result: User should be able to navigate required user dashboard.  Actual Result: Unable to navigate required user dashboard."&strOutErrorDesc)
+				Call WriteToLog("Fail","Expected Result: User should be	 able to navigate required user dashboard.  Actual Result: Unable to navigate required user dashboard."&strOutErrorDesc)
 				Call Terminator											
 			End If
 			Call WriteToLog("Pass","Navigated to user dashboard")											
@@ -97,12 +104,15 @@ For RowNumber = 1 to intRowCout: Do
 				Call WriteToLog("Pass","Created new SNP patient in EPS")
 			ElseIf LCase(Trim(strPatientType)) = "esco" Then			
 				Call WriteToLog("Pass","Created new ESCO patient in EPS")
+			ElseIf LCase(Trim(strPatientType)) = "na" Then			
+				Call WriteToLog("Pass","Created new patient in EPS")
 			End If	
 			
 			Wait 1
 			
-			arrNewPatientDetails = Split(strNewPatientDetails,",",-1,1)
-			lngMemberID = arrNewPatientDetails(0)
+			strPatientName = Split(strNewPatientDetails,"|",-1,1)(0)
+			lngMemberID = Split(strNewPatientDetails,"|",-1,1)(1)
+			strEligibilityStatus = Split(strNewPatientDetails,"|",-1,1)(2)
 			
 			'----------------
 			'log out from eps

@@ -1,5 +1,6 @@
 ﻿<Properties>
-  <WatchEntry0 value="strStatus" />
-  <WatchEntry1 value="err.number" />
-  <WatchEntry2 value="Err.Description" />
+  <WatchEntry0 value="strHistoryTableData_Expected" />
+  <WatchEntry1 value="strHistoryTableData_Actual" />
+  <WatchEntry2 value="blnPCP_HistoryValidation" />
+  <WatchEntry3 value="intBIcount" />
 </Properties>

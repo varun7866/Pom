@@ -94,12 +94,20 @@ arrDateForContact = Split(strDatesForContacts,",",-1,1)
 arrExternalTeamddval = Split(strExternalTeamddvals,",",-1,1)
 arrInternalTeamddval = Split(strInternalTeamddvals,",",-1,1)
 For Dtformat = 0 To Ubound(arrDateForContact) Step 1
+	If LCase(Trim(arrDateForContact(Dtformat))) = "date" Then
+		arrDateForContact(Dtformat) = Date		
+	End If
 	arrDateForContact(Dtformat) = DateFormat(arrDateForContact(Dtformat))
 Next
 
 '-----------------------EXECUTION-------------------------------------------------------------------------------------------------------------------------------------------------------
 On Error Resume Next
 Err.Clear
+
+'-------------------------------
+'Close all open patients from DB
+Call closePatientsFromDB("vhn")
+'-------------------------------
 
 'Navigation: Login to app > CloseAllOpenPatients > SelectUserRoster 
 blnNavigator = Navigator("vhn", strOutErrorDesc)

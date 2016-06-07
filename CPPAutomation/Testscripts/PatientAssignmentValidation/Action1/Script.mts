@@ -81,33 +81,41 @@ If not Lcase(strExecutionFlag) = "y" Then Exit Do
 	On Error Resume Next
 	Err.Clear
 	
+	'-------------------------------
+	'Close all open patients from DB
+	Call closePatientsFromDB("eps")
+	'-------------------------------
+	
 	'Navigation: Login to app > CloseAllOpenPatients > SelectUserRoster 
 	blnNavigator = Navigator("eps", strOutErrorDesc)
 	If not blnNavigator Then
 		Call WriteToLog("Fail","Expected Result: User should be able to navigate required user dashboard.  Actual Result: Unable to navigate required user dashboard."&strOutErrorDesc)
 		Call Terminator											
 	End If
-	Call WriteToLog("Pass","Navigated to user dashboard")
-
-	'Test case: New SNP patient status validation------------------------------------------------
-	'Create new SNP patient 
-	strNewPatient = CreateNewPatientFromEPS(strPersonalDetails,strAddressDetails,strMedicalDetails,strOutErrorDesc)
-	If strNewPatient = "" Then
-		Call WriteToLog("Fail", "Expected Result: Should be able to create new patient with required details. Actual Result: Unable to create new patient with required details: "&strOutErrorDesc)
-		Call Terminator
-	End If
-	Call WriteToLog("Pass", "New patient is created with required details")
+	Call WriteToLog("Pass","Navigated to user dashboard")	
 	
-	'get patient's eligility status and id
-	arrNewPatientDetails  = Split(strNewPatient,",",-1,1)
-	lngMemberID = Trim(arrNewPatientDetails(0))
-	strStatus = Trim(arrNewPatientDetails(1))
+	'Create newpatient
+	strNewPatientDetails = ""
+	strNewPatientDetails = CreateNewPatientFromEPS(strPersonalDetails,"NA",strMedicalDetails,strOutErrorDesc)
+	If strNewPatientDetails = "" Then
+		Call WriteToLog("Fail","Expected Result: User should be able to create new SNP patient in EPS. Actual Result: Unable to  create new SNP patient in EPS."&strOutErrorDesc)
+		Call Terminator											
+	End If
+	
+	strPatientName = Split(strNewPatientDetails,"|",-1,1)(0)
+	lngMemberID = Split(strNewPatientDetails,"|",-1,1)(1)
+	strEligibilityStatus = Split(strNewPatientDetails,"|",-1,1)(2)
+	
+	Call WriteToLog("Pass","Created new patient in EPS with name: '"&strPatientName&"', MemberID: '"&lngMemberID&"' and Eligibility status: '"&strEligibilityStatus&"'")	
+	
+	strPatientFirstName = Split(strPatientName,", ",-1,1)(1)
+	strPatientSecondName = Split(strPatientName,", ",-1,1)(0)
 	
 	'Test case: SNP member should be created with Enrolled Status
-	If lcase(strStatus)  = "enrolled" Then
+	If lcase(strEligibilityStatus)  = "enrolled" Then
 		Call WriteToLog("Pass", "SNP patient is created with 'Enrolled' status as expected")
 	Else
-		Call WriteToLog("Fail", "Unable to create new SNP patient with 'Enrolled' status. Actual Result: New SNP patient is created with '"&strStatus&"' status")
+		Call WriteToLog("Fail", "Unable to create new SNP patient with 'Enrolled' status. Actual Result: New SNP patient is created with '"&strEligibilityStatus&"' status")
 		Call Terminator
 	End If
 	
@@ -116,6 +124,11 @@ If not Lcase(strExecutionFlag) = "y" Then Exit Do
 	Call WriteToLog("Info","-------------------Logout of application-------------------")
 	Call Logout()
 	Wait 5
+	
+	'-------------------------------
+	'Close all open patients from DB
+	Call closePatientsFromDB("vhn")
+	'-------------------------------
 	
 	'Navigation: Login to app > CloseAllOpenPatients > SelectUserRoster 
 	blnNavigator = Navigator("vhn", strOutErrorDesc)

@@ -55,138 +55,149 @@ For RowNumber = 1 to intRowCout: Do
 ' Variable initialization
 '------------------------
 strExecutionFlag = DataTable.Value("ExecutionFlag","CurrentTestCaseData")
-strUser = DataTable.Value("User","CurrentTestCaseData")
-strPatientName = DataTable.Value("PatientName","CurrentTestCaseData")
-lngMemberID = DataTable.Value("MemberID","CurrentTestCaseData")
+strPersonalDetails = DataTable.Value("PersonalDetails","CurrentTestCaseData")
 
-''-----------------------EXECUTION-------------------------------------------------------------------------------------------------------------------------------------------------------
-'
-'On Error Resume Next
-'Err.Clear
-''If not Lcase(strExecutionFlag) = "y" Then Exit Do
-'Call WriteToLog("Info","----------------Iteration for patient named '"&strPatientName&"'----------------") 
-'
-''Navigation: Login to app > CloseAllOpenPatients > SelectUserRoster 
-'blnNavigator = Navigator("vhn", strOutErrorDesc)
-'If not blnNavigator Then
-'	Call WriteToLog("Fail","Expected Result: User should be able to navigate required user dashboard.  Actual Result: Unable to navigate required user dashboard."&strOutErrorDesc)
-'	Call Terminator											
-'End If
-'Call WriteToLog("Pass","Navigated to user dashboard")
-'
-'''Select patient from MyPatient list
-''Call WriteToLog("Info","----------------Select required patient from MyPatient List----------------")
-''blnSelectPatientFromPatientList = SelectPatientFromPatientList(strUser, strPatientName)
-''If blnSelectPatientFromPatientList Then
-''	Call WriteToLog("Pass","Selected required patient from MyPatient list")
-''Else
-''	strOutErrorDesc = "Unable to select required patient"
-''	Call WriteToLog("Fail","Expected Result: Should be able to select required patient from MyPatient list.  Actual Result: "&strOutErrorDesc)
-''	Call Terminator
-''End If
-'
-'Call WriteToLog("Info","----------------Select required patient through Global Search----------------")
-'blnGlobalSearchUsingMemID = GlobalSearchUsingMemID(lngMemberID, strOutErrorDesc)
-'If Not blnGlobalSearchUsingMemID Then
-'	strOutErrorDesc = "Select patient through global search returned error: "&strOutErrorDesc
-'	Call WriteToLog("Fail", "Expected Result: User should be able to select patient through global search; Actual Result: "&strOutErrorDesc)
-'	Call Terminator
-'End If
-'Call WriteToLog("Pass","Successfully selected required patient through global search")
-'Wait 3
-'
-'Call waitTillLoads("Loading...")
-'Wait 1
-'
-''Handle navigation error if exists
-'blnHandleWrongDashboardNavigation = HandleWrongDashboardNavigation(strPatientName,strOutErrorDesc)
-'If not blnHandleWrongDashboardNavigation Then
-'    Call WriteToLog("Fail","Unable to provide proper navigation after patient selection "&strOutErrorDesc)
-'End If
-'Call WriteToLog("Pass","Provided proper navigation after patient selection")
-'
-''Navigate to ClinicalManagement > Medications
-'blnScreenNavigation = clickOnSubMenu_WE("Clinical Management->Medications")
-'If not blnScreenNavigation Then
-'	Call WriteToLog("Fail","Unable to navigate to Medication screens "&strOutErrorDesc)
-'	Call Terminator
-'End If
-'Call WriteToLog("Pass","Navigated to Medication screens")
-'wait 3
-'
-'Call waitTillLoads("Loading...")
-'Wait 1
-'
-'Call ClosePopups()
-'
-''Click on Review tab
-'Execute "Set objMedicationsReviewTab = "&Environment("WE_MedicationReviewTab")
-'blnClickedMedicationsReviewTab = ClickButton("Review",objMedicationsReviewTab,strOutErrorDesc)
-'If not blnClickedMedicationsReviewTab Then
-'	Call WriteToLog("Fail","Unable to click Medications > Review tab. "&strOutErrorDesc)
-'	Call Terminator											
-'End If
-'Call WriteToLog("Pass","Clicked Medications > Review tab")
-'Execute "Set objMedicationsReviewTab = Nothing"
-'Wait 2
-'Call waitTillLoads("Loading...")
-'Wait 1
-'
-'Call ClosePopups()
-'
-''Check whether user landed on Medications Management screen
-'Execute "Set objMedMagtitle = "&Environment("WEL_MedMagTitle")	'Medications Management screen title
-'If not objMedMagtitle.Exist(3) Then
-'	Call WriteToLog("Fail","Expected Result: User should be on Medications screen.  Actual Result: Unable to land on Medications screen "&Err.Description)
-'	Call Terminator
-'End If
-'Call WriteToLog("Pass","Landed on Medications screen")
-'Execute "Set objMedMagtitle = Nothing"
-'wait 1
+'-----------------------EXECUTION-------------------------------------------------------------------------------------------------------------------------------------------------------
 
-''------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-''*Validation 1==============================================Validate Medication add by providing values for all fields
-''------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-''strMedicationDetails = "yes,Hematide,4,3,2,1,GTTS,AS NEEDED,5,DT,(123)456-7890,Patient Reported,Alpine,CA,91901,Acute Abdominal Pain,Afrin Allergy Nasal Solution 0.5 %,MedicationScreen testing,Pharm1,Testing1,Med1"
-'strMedicationDetails = "yes,Hematide,4,3,2,1,GTTS,AS NEEDED,5,DT,(123)456-7890,Pharmacist Recommended,Alpine,CA,91901,Acute Abdominal Pain,Afrin Allergy Nasal Solution 0.5 %,MedicationScreen testing,Pharm1,Testing1,Med1"
-'dtWrittenDate = DateAdd("d",-1,Date)
-'dtFilledDate = DateAdd("d",-1,Date)
-'Call WriteToLog("Info","---Validate Medication add by providing values for all fields---") 
-'strAddedMedicationRx = AddMedicationWithAllDetails(strMedicationDetails,dtWrittenDate,dtFilledDate,strOutErrorDesc)	
-'If strAddedMedicationRx = "" Then
-'	Call WriteToLog("Fail","Expected Result: Should be able to add new medication by providing values to all the fields. Actual Result: Unable to add required medication. "&strOutErrorDesc)
-'	Call Terminator
-'Else
-'	Call WriteToLog("Pass","Successfully added new medication by providing values to all the fields")
-'End If
-''------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------			
-'
-''*==============================================Validate availability of newly added medication in Medication table under active medications. Select the medication for validating all entries made during mediation add
-'Call WriteToLog("Info","---Validate - Availability of newly added medication without discontinue date under active list of Medications - Should be available---") 
-''------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-''*Validation 2 - This medication should be available under Active list of Medications
-''------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+On Error Resume Next
+Err.Clear
+If not Lcase(strExecutionFlag) = "y" Then Exit Do
 
+'Login as eps and refer a new member.
+'-----------------------------------------
 
+'-------------------------------
+'Close all open patients from DB
+Call closePatientsFromDB("eps")
+'-------------------------------
 
+'Navigation: Login as eps > CloseAllOpenPatients > SelectUserRoster 
+blnNavigator = Navigator("eps", strOutErrorDesc)
+If not blnNavigator Then
+	Call WriteToLog("Fail","Expected Result: User should be able to navigate required user dashboard.  Actual Result: Unable to navigate required user dashboard."&strOutErrorDesc)
+	Call Terminator											
+End If
+Call WriteToLog("Pass","Navigated to user dashboard")											
 
+'Create newpatient
+strNewPatientDetails = CreateNewPatientFromEPS(strPersonalDetails,"NA","NA",strOutErrorDesc)
+If strNewPatientDetails = "" Then
+	Call WriteToLog("Fail","Expected Result: User should be able to create new SNP patient in EPS. Actual Result: Unable to  create new SNP patient in EPS."&strOutErrorDesc)
+	Call Terminator											
+End If
 
-'Execute "Set objMedicationReviewMedTable = "&Environment("WT_MedicationReviewMedTable")
-'objMedicationReviewMedTable.highlight
-'
-'strRxNumber = "D011916215931"
-'Execute "Set objMedDetails = "&Environment("WE_MedScr_MedDetails")
-'strMedicationDetails = LCase(Replace(objMedDetails.GetROProperty("outertext")," ","",1,-1,1))
-'strRequiredRxNumber = "rxnumber"&LCase(Trim(strRxNumber))
-'If Instr(1,strMedicationDetails,strRequiredRxNumber,1) Then
-'	msgbox "t"
-'End If
-'Execute "Set objMedDetails = Nothing"
+strPatientName = Split(strNewPatientDetails,"|",-1,1)(0)
+lngMemberID = Split(strNewPatientDetails,"|",-1,1)(1)
+strEligibilityStatus = Split(strNewPatientDetails,"|",-1,1)(2)
 
+Call WriteToLog("Pass","Created new patient in EPS with name: '"&strPatientName&"', MemberID: '"&lngMemberID&"' and Eligibility status: '"&strEligibilityStatus&"'")	
 
-strAddedMedicationRx =  "D011916215931"
-blnSelectSpecificMedicationFromMedTable = SelectSpecificMedicationFromMedTable(strAddedMedicationRx,strOutErrorDesc)
-	strValidateMedicationStatus = ValidateMedicationStatus("Active",strAddedMedicationRx,strOutErrorDesc)
+strPatientFirstName = Split(strPatientName,", ",-1,1)(1)
+strPatientSecondName = Split(strPatientName,", ",-1,1)(0)
+
+'Logout
+Call WriteToLog("Info","-------------------------------------Logout of application--------------------------------------")
+Call Logout()
+Wait 2
+
+'----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+'Navigation: Login to app > CloseAllOpenPatients > SelectUserRoster 
+
+'-------------------------------
+'Close all open patients from DB
+Call closePatientsFromDB("vhn")
+'-------------------------------
+
+blnNavigator = Navigator("vhn", strOutErrorDesc)
+If not blnNavigator Then
+	Call WriteToLog("Fail","Expected Result: User should be able to navigate required user dashboard.  Actual Result: Unable to navigate required user dashboard."&strOutErrorDesc)
+	Call Terminator											
+End If
+Call WriteToLog("Pass","Navigated to user dashboard")
+
+Call WriteToLog("Info","----------------Select required patient through Global Search----------------")
+blnGlobalSearchUsingMemID = GlobalSearchUsingMemID(lngMemberID, strOutErrorDesc)
+If Not blnGlobalSearchUsingMemID Then
+	strOutErrorDesc = "Select patient through global search returned error: "&strOutErrorDesc
+	Call WriteToLog("Fail", "Expected Result: User should be able to select patient through global search; Actual Result: "&strOutErrorDesc)
+	Call Terminator
+End If
+Call WriteToLog("Pass","Successfully selected required patient through global search")
+Wait 3
+
+Call waitTillLoads("Loading...")
+Wait 1
+
+'Handle navigation error if exists
+blnHandleWrongDashboardNavigation = HandleWrongDashboardNavigation(strPatientFirstName,strOutErrorDesc)
+If not blnHandleWrongDashboardNavigation Then
+    Call WriteToLog("Fail","Unable to provide proper navigation after patient selection "&strOutErrorDesc)
+End If
+Call WriteToLog("Pass","Provided proper navigation after patient selection")
+
+'Navigate to ClinicalManagement > Medications
+blnScreenNavigation = clickOnSubMenu_WE("Clinical Management->Medications")
+If not blnScreenNavigation Then
+	Call WriteToLog("Fail","Unable to navigate to Medication screens "&strOutErrorDesc)
+	Call Terminator
+End If
+Call WriteToLog("Pass","Navigated to Medication screens")
+wait 3
+
+Call waitTillLoads("Loading...")
+Wait 1
+
+Call ClosePopups()
+
+'Click on Review tab
+Execute "Set objMedicationsReviewTab = "&Environment("WE_MedicationReviewTab")
+blnClickedMedicationsReviewTab = ClickButton("Review",objMedicationsReviewTab,strOutErrorDesc)
+If not blnClickedMedicationsReviewTab Then
+	Call WriteToLog("Fail","Unable to click Medications > Review tab. "&strOutErrorDesc)
+	Call Terminator											
+End If
+Call WriteToLog("Pass","Clicked Medications > Review tab")
+Execute "Set objMedicationsReviewTab = Nothing"
+Wait 2
+Call waitTillLoads("Loading...")
+Wait 1
+
+Call ClosePopups()
+
+'Check whether user landed on Medications Management screen
+Execute "Set objMedMagtitle = "&Environment("WEL_MedMagTitle")	'Medications Management screen title
+If not objMedMagtitle.Exist(3) Then
+	Call WriteToLog("Fail","Expected Result: User should be on Medications screen.  Actual Result: Unable to land on Medications screen "&Err.Description)
+	Call Terminator
+End If
+Call WriteToLog("Pass","Landed on Medications screen")
+Execute "Set objMedMagtitle = Nothing"
+wait 1
+
+'------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+'*Validation 1==============================================Validate Medication add by providing values for all fields
+'------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+'strMedicationDetails = "yes,Hematide,4,3,2,1,GTTS,AS NEEDED,5,DT,(123)456-7890,Patient Reported,Alpine,CA,91901,Acute Abdominal Pain,Afrin Allergy Nasal Solution 0.5 %,MedicationScreen testing,Pharm1,Testing1,Med1"
+strMedicationDetails = "yes,Hematide,4,3,2,1,GTTS,AS NEEDED,5,DT,(123)456-7890,Pharmacist Recommended,Alpine,CA,91901,Acute Abdominal Pain,Afrin Allergy Nasal Solution 0.5 %,MedicationScreen testing,Pharm1,Testing1,Med1"
+dtWrittenDate = DateAdd("d",-1,Date)
+dtFilledDate = DateAdd("d",-1,Date)
+Call WriteToLog("Info","---Validate Medication add by providing values for all fields---") 
+strAddedMedicationRx = AddMedicationWithAllDetails(strMedicationDetails,dtWrittenDate,dtFilledDate,strOutErrorDesc)	
+If strAddedMedicationRx = "" Then
+	Call WriteToLog("Fail","Expected Result: Should be able to add new medication by providing values to all the fields. Actual Result: Unable to add required medication. "&strOutErrorDesc)
+	Call Terminator
+Else
+	Call WriteToLog("Pass","Successfully added new medication by providing values to all the fields")
+End If
+'------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------			
+
+'*==============================================Validate availability of newly added medication in Medication table under active medications. Select the medication for validating all entries made during mediation add
+Call WriteToLog("Info","---Validate - Availability of newly added medication without discontinue date under active list of Medications - Should be available---") 
+'------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+'*Validation 2 - This medication should be available under Active list of Medications
+'------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+strValidateMedicationStatus = ValidateMedicationStatus("Active",strAddedMedicationRx,strOutErrorDesc)
 If Instr(1,strValidateMedicationStatus,"NOT available",1) > 0 Then
 	Call WriteToLog("Fail","Newly added medication is NOT available under active list of Medications")
 	Call Terminator
@@ -239,6 +250,20 @@ Wait 1
 '*Validation 6 ============================================== Medication Edit (all fields)
 '------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 Call WriteToLog("Info","---Validate editing all entries for the newly added medication---") 
+
+'Select active status of medications for edit mode
+Execute "Set objMedStatusDD = "&Environment("WE_MedScr_MedStatusDD") 'Medications Status dropdown
+objMedStatusDD.highlight	
+strStatus = "Active"
+blnReturnValue = selectComboBoxItem(objMedStatusDD, strStatus)
+If not blnReturnValue Then
+	strOutErrorDesc = "Unable to select '"&strStatus&"' medication from medication status dropdown"
+	Call WriteToLog("Fail",strOutErrorDesc)
+	Call Terminator
+End If
+Call WriteToLog("Pass","Selected '"&strStatus&"' medication from medication status dropdown")
+Wait 1
+
 blnSelectSpecificMedicationFromMedTable = SelectSpecificMedicationFromMedTable(strAddedMedicationRx,strOutErrorDesc)
 If not blnSelectSpecificMedicationFromMedTable Then 
 	ValidateMedicationStatus = "Medication with RxNumber '"&strAddedMedicationRx&"' is NOT available in MedicationListTable"
@@ -605,23 +630,23 @@ For tab = 1 To 10 Step 1
 Next
 Wait 1	
 
-'------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-'*Validation 37 ==============================================  This medication should be available under Discontinued list of Medications
-'------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-Call WriteToLog("Info","---Validation - Add medication with discontinued date equal to sys date-This medication should be available under Discontinued list of Medications---") 
-strValidateMedicationStatus = ValidateMedicationStatus("Discontinued",strAdd_Validation_Discontinued,strOutErrorDesc)
-If Instr(1,strValidateMedicationStatus,"NOT available",1) > 0 Then
-	Call WriteToLog("Fail","Medication which is added with discontinued date equal to sys date is NOT available under discontinued list of Medications")
-	Call Terminator
-Else
-	Call WriteToLog("Pass","Medication which is added with discontinued date equal to sys date is available under discontinued list of Medications")
-End If
-Wait 1
-'As the screen shrinks (unknown reason) get it to the real form by sending 'Tab' key
-For tab = 1 To 10 Step 1
-	sendkeys("{TAB}")
-Next
-Wait 1	
+''------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+''*Validation 37 ==============================================  This medication should be available under Discontinued list of Medications
+''------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+'Call WriteToLog("Info","---Validation - Add medication with discontinued date equal to sys date-This medication should be available under Discontinued list of Medications---") 
+'strValidateMedicationStatus = ValidateMedicationStatus("Discontinued",strAdd_Validation_Discontinued,strOutErrorDesc)
+'If Instr(1,strValidateMedicationStatus,"NOT available",1) > 0 Then
+'	Call WriteToLog("Fail","Medication which is added with discontinued date equal to sys date is NOT available under discontinued list of Medications")
+'	Call Terminator
+'Else
+'	Call WriteToLog("Pass","Medication which is added with discontinued date equal to sys date is available under discontinued list of Medications")
+'End If
+'Wait 1
+''As the screen shrinks (unknown reason) get it to the real form by sending 'Tab' key
+'For tab = 1 To 10 Step 1
+'	sendkeys("{TAB}")
+'Next
+'Wait 1	
 
 '------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------			
 '*Validation - Add medication with discontinued date greater than sys date - This medication should be available under Active list of Medications and NOT under Discontinued list
@@ -834,7 +859,7 @@ End If
 '------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 Call WriteToLog("Info","---Validate addition of Mediction type allergy---") 
 strAllergyClass = "Medication"
-strAllergy = "ACE Elbow Support Medium Miscellaneous"
+strAllergy = "Actifed Sinus Oral Tablet"
 strSymptom = "HeadAche"
 blnAllergyDetails = AllergyDetails(strAllergyClass,strAllergy,strSymptom,strOutErrorDesc)
 If not blnAllergyDetails Then
@@ -848,7 +873,7 @@ End If
 '*Validation 64 ==============================================  Validate deletion of a specfic Medication type allergy
 '------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 Call WriteToLog("Info","---Validate deletion of a specfic Medication type allergy---") 
-strDeleteAllergy = "ACE Elbow Support Medium Miscellaneous"
+strDeleteAllergy = "Actifed Sinus Oral Tablet"
 blnDeleteAllergy = DeleteAllergy(strDeleteAllergy,strOutErrorDesc)
 If not blnDeleteAllergy Then
 	Call WriteToLog("Fail","Expected Result: Should be able to delete specific allergy of class 'Medication'. Actual Result: Unable to delete allergy "&strOutErrorDesc)
@@ -888,7 +913,7 @@ End If
 '------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 Call WriteToLog("Info","---Validate - User cannot add duplicate Medication type allergy---") 
 strAllergyClass = "Medication"
-strAllergy = "ACE Elbow Support Medium Miscellaneous"
+strAllergy = "Actifed Sinus Oral Tablet"
 strSymptom = "HeadAche"
 blnAllergyDetails = AllergyDetails(strAllergyClass,strAllergy,strSymptom,strOutErrorDesc)
 If not blnAllergyDetails Then
@@ -1011,7 +1036,7 @@ End If
 '------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 Call WriteToLog("Info","---Validate-'Add 'Medication' class allergy after deleting 'No Known drug allergy record'---") 
 strAllergyClass = "Medication"
-strAllergy = "ACE Elbow Support Medium Miscellaneous"
+strAllergy = "Actifed Sinus Oral Tablet"
 strSymptom = "HeadAche"
 blnAllergyDetails = AllergyDetails(strAllergyClass,strAllergy,strSymptom,strOutErrorDesc)
 If not blnAllergyDetails Then
@@ -1052,6 +1077,36 @@ If not blnAllergySort Then
 	Call Terminator
 End If
 Wait 1
+
+'------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+'*Validation 75 ==============================================  Validate - system should not allow Allergy addition of AllergyType with MedicationName
+'------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+Call WriteToLog("Info","---Validation - System should not allow Allergy addition of AllergyType with MedicationName---")
+strAllergyClass = "Allergy"
+strAllergy = "Actifed Sinus Oral Tablet" 'Medication
+strSymptom = "HeadAche"
+blnAllergyDetails = AllergyDetails(strAllergyClass,strAllergy,strSymptom,strOutErrorDesc)
+If blnAllergyDetails Then
+	Call WriteToLog("Fail","System is allowing Allergy addition of AllergyType with MedicationName")
+	Call Terminator
+Else
+	Call WriteToLog("Pass","System is not allowing Allergy addition of AllergyType with MedicationName")
+End If
+
+'------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+'*Validation 76 ==============================================  Validate - system should not allow Allergy addition of MedicationType with AllergyName
+'------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+Call WriteToLog("Info","---Validation - System should not allow Allergy addition of MedicationType with AllergyName---") 
+strAllergyClass = "Medication"
+strAllergy = "Allopurinol"	'Allergy
+strSymptom = "HeadAche"
+blnAllergyDetails = AllergyDetails(strAllergyClass,strAllergy,strSymptom,strOutErrorDesc)
+If blnAllergyDetails Then
+	Call WriteToLog("Fail","System is allowing Allergy addition of MedicationType with AllergyName")
+	Call Terminator
+Else
+	Call WriteToLog("Pass","System is not allowing Allergy addition of MedicationType with AllergyName")
+End If
 '======================================================================================================================================================================================
 
 '---------------------

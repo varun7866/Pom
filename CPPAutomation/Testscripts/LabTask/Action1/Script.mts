@@ -84,6 +84,11 @@ If not Lcase(strExecutionFlag) = "y" Then Exit Do
 	On Error Resume Next
 	Err.Clear
 	
+	'-------------------------------
+	'Close all open patients from DB
+	Call closePatientsFromDB("vhn")
+	'-------------------------------
+	
 	'Navigation: Login to app > CloseAllOpenPatients > SelectUserRoster 
 	blnNavigator = Navigator("vhn", strOutErrorDesc)
 	If not blnNavigator Then

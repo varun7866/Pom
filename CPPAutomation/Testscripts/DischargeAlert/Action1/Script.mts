@@ -54,35 +54,15 @@ strNotifiedBy = DataTable.Value("NotifiedBy","CurrentTestCaseData")
 strSourceOfAdmit = DataTable.Value("SourceOfAdmit","CurrentTestCaseData")
 strAdmittingDiagnosisTxt = DataTable.Value("AdmittingDiagnosis","CurrentTestCaseData")
 strWorkingDiagnosisTxt = DataTable.Value("WorkingDiagnosis","CurrentTestCaseData")
-dtAdmitDate = DataTable.Value("AdmitDate","CurrentTestCaseData") 
-dtNotificationDate = DataTable.Value("NotificationDate","CurrentTestCaseData")  'should be within 7 days prior to sys date
 strDisposition = DataTable.Value("Disposition","CurrentTestCaseData") 
 strAcknowledgeDischargeAlert = DataTable.Value("AcknowledgeDischargeAlert","CurrentTestCaseData")
 strExecutionFlag = DataTable.Value("ExecutionFlag","CurrentTestCaseData") 
 strUserOtherThanAssignedVHN = DataTable.Value("UserOtherThanAssignedVHN","CurrentTestCaseData")
+dtAdmitDate = DateAdd("d",-1,Date) 
+dtNotificationDate = DateAdd("d",-1,Date)
+dtDischargeDate = Date
+dtDischargeNotificationDate = Date
 
-'-----------------------------------
-'Objects required for test execution
-'-----------------------------------
-Execute "Set objPage = " & Environment("WPG_AppParent") 'Page object
-Execute "Set objAddBtn = " & Environment("WEL_HospitalizationAddBtn") 'Hospitalization Add button
-Execute "Set objDischargeDateTxt = " & Environment("WE_DischargeDateTxt") 'Discharge Date edit box
-Execute "Set objDischargeNotificationDateTxt = " & Environment("WE_DischargeNotificationDateTxt") 'Discharge date notification edit box
-Execute "Set objDispositionDD = " & Environment("WB_DispositionDD") 'Disposition dropdown
-Execute "Set objAdmitDateTxt = " & Environment("WE_AdmitDateTxt") 'Admit date text box
-Execute "Set objHospHistoryArrow = " & Environment("WI_HospHistoryArrow") 'Hospitalization history up arrow
-Execute "Set objLDDonPP = " & Environment("WEL_LDDonPP") 'Last date of discharge on popup
-Execute "Set objHosHistoryTable = " & Environment("WT_HosHistoryTable") 'Hospitalization history table
-Execute "Set objAlertUpArrow = " & Environment("WEL_AlertUpArrow") 'Alert up arrow
-Execute "Set objSaveBtn = " & Environment("WI_DischargeSaveBtn") 'Discharge Save btn
-Execute "Set objDischargeAcknowledgeAlertpp = " & Environment("WEL_DischargeAcknowledgeAlertpp") 'Acknowledge Alert popup
-Execute "Set objDischargeAcknowledgeAlertppYesBtn = " & Environment("WB_DischargeAcknowledgeAlertppYesBtn") 'Acknowledge Alert popup Yes btn
-Execute "Set objDischargeAcknowledgeAlertppNoBtn = " & Environment("WB_DischargeAcknowledgeAlertppNoBtn") 'Acknowledge Alert popup No btn
-Execute "Set objAlertAcknowledgedpp = " & Environment("WEL_AlertAcknowledgedpp") 'Alert has been acknowledged popup
-Execute "Set objAlertAcknowledgedppOK = " & Environment("WB_AlertAcknowledgedppOK") 'Alert has been acknowledged popup OK btn
-Execute "Set HospitalizationRecordUpdateSuccesspp = " & Environment("WEL_HospitalizationRecordUpdateSuccesspp")  'RecordUpdateSuccess popup
-Execute "Set objPatientProfile = " & Environment("WEL_PatientProfile")  'PatientProfile
-			
 'Getting equired iterations
 If not Lcase(strExecutionFlag) = "y" Then Exit Do
 Call WriteToLog("Info","----------------Iteration for patient named '"&strPatientName&"----------------") 
@@ -90,18 +70,21 @@ Call WriteToLog("Info","----------------Iteration for patient named '"&strPatien
 '-----------------------EXECUTION-------------------------------------------------------------------------------------------------------------------------------------------------------
 On Error Resume Next
 Err.Clear
+'-------------------------------
+'Close all open patients from DB
+Call closePatientsFromDB("vhn")
+'-------------------------------
 
 'Navigation: Login to app > CloseAllOpenPatients > SelectUserRoster 
 blnNavigator = Navigator("vhn", strOutErrorDesc)
 If not blnNavigator Then
-	Call WriteToLog("Fail","Expected Result: User should be able to navigate required user dashboard.  Actual Result: Unable to navigate required user dashboard."&strOutErrorDesc)
+	Call WriteToLog("Fail","Unable to navigate required vhn dashboard."&strOutErrorDesc)
 	Call Terminator											
 End If
-Call WriteToLog("Pass","Navigated to user dashboard")
+Call WriteToLog("Pass","Navigated to assigned vhn dashboard")
 
 '----------------------------------------------
 'Getting specific patient through Global Search
-'(Ensuring the patient is of assigned VHN)
 '----------------------------------------------
 blnGlobalSearchUsingMemID = GlobalSearchUsingMemID(lngMemberID, strOutErrorDesc)
 If Not blnGlobalSearchUsingMemID Then
@@ -110,10 +93,6 @@ If Not blnGlobalSearchUsingMemID Then
 	Call Terminator
 End If
 Call WriteToLog("Pass","Successfully selected required patient through global search")
-Wait 3
-
-Call waitTillLoads("Loading...")
-Wait 2
 
 'Handle navigation error if exists
 blnHandleWrongDashboardNavigation = HandleWrongDashboardNavigation(strPatientName,strOutErrorDesc)
@@ -121,11 +100,7 @@ If not blnHandleWrongDashboardNavigation Then
     Call WriteToLog("Fail","Unable to provide proper navigation after patient selection "&strOutErrorDesc)
 End If
 Call WriteToLog("Pass","Provided proper navigation after patient selection")
-Wait 2
 
-'---------------------------------------------------------------------------------
-'Navigating to Clinical Management > Hospitalizations and following business logic
-'---------------------------------------------------------------------------------
 'Navigate to ClinicalManagement > Hospitalizations
 blnScreenNavigation = clickOnSubMenu_WE("Clinical Management->Hospitalizations")
 If not blnScreenNavigation Then
@@ -133,272 +108,94 @@ If not blnScreenNavigation Then
 	Call Terminator
 End If
 Call WriteToLog("Pass","Navigated to Clinical Management > Hospitalizations")
-wait 4
+wait 5
 Call waitTillLoads("Loading...")
-Wait 2
+Wait 1
 
-Err.Clear
-'Clk on Hospitalization History table expand arrow image
-objHospHistoryArrow.Click
-If Err.number <> 0 Then
-	Call WriteToLog("Fail","Expected Result: Expand Hospitalization History Table.  Actual Result: Unable to click Hospitalization History up arrow "&Err.Description)
+Call WriteToLog("Info","------------------Admitting patient by assigned VHN------------------")
+'Admit patient
+blnReturnValue = AdmitPatient(dtAdmitDate, dtNotificationDate, strAdmitType, strNotifiedBy, strSourceOfAdmit, strAdmittingDiagnosisTxt, strWorkingDiagnosisTxt, strOutErrorDesc)
+If Not blnReturnValue Then
+	Call WriteToLog("Fail","Expected Result: Perform Admission.  Actual Result: Unable to perform admission"  )
 	Call Terminator
-Else 
-	Call WriteToLog("Pass","Clicked Hospitalization History up arrow")
-End If
-Wait 2
-	
-	'-----------------------------------------------------------------------
-	'Admitting the patient with required AdmitType, based on different cases
-	'-----------------------------------------------------------------------
+End If 
+Call WriteToLog("Pass","Performed admission for new patient")
 
-		'----------------------------------------------------------------------
-		'Case1. If the patient never been to hospital. Admit for the first time.
-		'----------------------------------------------------------------------
-		'Admitting the patient
-		If objAddBtn.Object.isDisabled AND Instr(1,objLDDonPP.GetROProperty("outertext"),"/",1) = 0 AND objHosHistoryTable.RowCount = 0 then  
-			
-			Call WriteToLog("Info","============Admitting the patient patient who has never been to hospital. Admit for the first time.===========")
-			blnReturnValue = AdmitPatient(dtAdmitDate, dtNotificationDate, strAdmitType, strNotifiedBy, strSourceOfAdmit, strAdmittingDiagnosisTxt, strWorkingDiagnosisTxt, strOutErrorDesc)
-			If Not blnReturnValue Then
-				Call WriteToLog("Fail","Expected Result: Perform Admission.  Actual Result: Unable to perform admission"  )
-				Call Terminator
-			End If 
-			Call WriteToLog("Pass","Performed admission for new patient")
-			Wait 2
-		
-		'-------------------------------------------------------------------------------------------------
-		'Case2. patient having no previous hospital records is in hospital now > discharge and admit again
-		'-------------------------------------------------------------------------------------------------
-		'Discharging the patient
-		ElseIf	objAddBtn.Object.isDisabled AND Instr(1,objLDDonPP.GetROProperty("outertext"),"/",1) = 0 AND Instr(1,objHosHistoryTable.GetCellData(1,2),"/",1) = 0 then 
-			
-			Call WriteToLog("Info","============Admitting the patient having no previous hospital records is in hospital now > discharge and admit again===========")
-			dtPreviousAdmitdate = objHosHistoryTable.GetCellData(1,1)
-			dtDischargeDate = DateAdd("d",1,dtPreviousAdmitdate)
-			dtDischargeNotificationDate = DateAdd("d",1,dtPreviousAdmitdate)
-			
-			blnReturnValue = DischargePatient(dtDischargeDate, dtDischargeNotificationDate, strDisposition, strOutErrorDesc)
-			If Not blnReturnValue Then
-				Call WriteToLog("Fail","Expected Result: Perform Discharge.  Actual Result: Unable to perform discharge due to error: "&strOutErrorDesc)
-				Call Terminator
-			End If 
-			Call WriteToLog("Pass","Patient with no previous records is discharged, admit follows")
-			Wait 2
-				
-			'Admitting the patient
-			dtAdmitDate = Date-2
-			dtNotificationDate = Date-2
-			
-			blnReturnValue = AdmitPatient(dtAdmitDate, dtNotificationDate, strAdmitType, strNotifiedBy, strSourceOfAdmit, strAdmittingDiagnosisTxt, strWorkingDiagnosisTxt, strOutErrorDesc)
-			If Not blnReturnValue Then
-				Call WriteToLog("Fail","Expected Result: Perform Admission.  Actual Result: Unable to perform admission due to error: "&strOutErrorDesc)
-				Call Terminator
-			End If 
-			Call WriteToLog("Pass","Successfully admitted a patient having single previous record")
-			Wait 2
-		
-		'------------------------------------------------------------------------------------------
-		'Case3.patient having previous hospital records, now in hospital; discharge and admit again	
-		'------------------------------------------------------------------------------------------
-		'Discharging the patient
-		ElseIf	objAddBtn.Object.isDisabled AND Instr(1,objLDDonPP.GetROProperty("outertext"),"/",1) <> 0 AND Instr(1,objHosHistoryTable.GetCellData(1,2),"/",1) = 0 then 
-			
-			Call WriteToLog("Info","============Admitting the patient having previous hospital records, now in hospital; discharge and admit again===========")
-			dtPreviousAdmitdate = objHosHistoryTable.GetCellData(1,1)
-			dtDischargeDate = DateAdd("d",1,dtPreviousAdmitdate)
-			dtDischargeNotificationDate = DateAdd("d",1,dtPreviousAdmitdate)
-				
-			blnReturnValue = DischargePatient(dtDischargeDate, dtDischargeNotificationDate, strDisposition, strOutErrorDesc)
-			If Not blnReturnValue Then
-				Call WriteToLog("Fail","Expected Result: Perform Discharge.  Actual Result: Unable to perform discharge due to error: "&strOutErrorDesc)
-				Call Terminator
-			End If 
-			Call WriteToLog("Pass","Patient with previous records is discharged, admit follows")
-			Wait 2
-			
-			'Admitting the patient
-			dtAdmitDate = Date-2
-			dtNotificationDate = Date-2
-			
-			blnReturnValue = AdmitPatient(dtAdmitDate, dtNotificationDate, strAdmitType, strNotifiedBy, strSourceOfAdmit, strAdmittingDiagnosisTxt, strWorkingDiagnosisTxt, strOutErrorDesc)
-			If Not blnReturnValue Then
-				Call WriteToLog("Fail","Expected Result: Perform Admission.  Actual Result: Unable to perform admission due to error: "&strOutErrorDesc)
-				Call Terminator
-			End If 
-			Call WriteToLog("Pass","Successfully admitted a patient with more than one previous record")
-			Wait 2
-		
-		'------------------------------------------------------------------------------------------
-		'Case4. patient having previous hospital records is not in hospital now > add new admission
-		'------------------------------------------------------------------------------------------
-		ElseIf	objAddBtn.Object.isDisabled AND Instr(1,objLDDonPP.GetROProperty("outertext"),"/",1) <> 0 AND Instr(1,objHosHistoryTable.GetCellData(1,2),"/",1) <> 0 then 
-			
-			Call WriteToLog("Info","============Admitting the patient having previous hospital records is not in hospital now > add new admission===========")
-			'Admitting the patient
-			blnReturnValue = AdmitPatient(dtAdmitDate, dtNotificationDate, strAdmitType, strNotifiedBy, strSourceOfAdmit, strAdmittingDiagnosisTxt, strWorkingDiagnosisTxt, strOutErrorDesc)
-			If Not blnReturnValue Then
-				Call WriteToLog("Fail","Expected Result: Perform Admission.  Actual Result: Unable to perform admission due to error: "&strOutErrorDesc)
-				Call Terminator
-			End If 
-			Call WriteToLog("Pass","Patient with many previous records is admitted newly")
-			Wait 2
-		
-		'-----------------------------------------
-		'Case5.add new admission for fresh patient
-		'-----------------------------------------
-		Else	
-			
-			Call WriteToLog("Info","------------------Add new admission for fresh patient------------------")
-			'Admitting the patient
-			blnReturnValue = AdmitPatient(dtAdmitDate, dtNotificationDate, strAdmitType, strNotifiedBy, strSourceOfAdmit, strAdmittingDiagnosisTxt, strWorkingDiagnosisTxt, strOutErrorDesc)
-			If Not blnReturnValue Then
-				Call WriteToLog("Fail","Expected Result: Perform Admission.  Actual Result: Unable to perform admission due to error: "&strOutErrorDesc)
-				Call Terminator
-			End If	 
-			Call WriteToLog("Pass","New admission for a patient")
-			Wait 2
-			
-		End If
-Err.clear
-Wait 5
-
-'---------------------
-'Logout of application
-'---------------------
+'Logout
 Call WriteToLog("Info","-------------Logout of application-------------")
 Call Logout()
 Wait 2
 
 '-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-	'Condition chk for login - whether assigned VHN or any other user 
-	If Ucase(Trim(strUserOtherThanAssignedVHN)) <> "VHN" Then
+Err.Clear
+'-------------------------------
+'Close all open patients from DB
+Call closePatientsFromDB("vhn")
+'-------------------------------
 
-		'---------------------------------------
-		'Login to a user other than assigned VHN
-		'---------------------------------------
-		Call WriteToLog("Info","-----------------Login to '"&strUserOtherThanAssignedVHN&"' user-----------------")
-		blnLogin = Login(strUserOtherThanAssignedVHN)
-		If not blnLogin Then
-			Call WriteToLog("Fail","Actual Result: Failed to Login to VHN role."&"  Expected Result: Login to ARN with valid credentials")
-			Call Terminator
-		End If
-		Call WriteToLog("Pass","Successfully logged into "&strUserOtherThanAssignedVHN&"  role")
-		
-		'Close all open patient   
-		blnCP = CloseAllOpenPatient(strOutErrorDesc)
-		If Not blnCP Then
-			strOutErrorDesc = "CloseAllOpenPatient returned error: "&strOutErrorDesc
-			Call WriteToLog("Fail", strOutErrorDesc&"  Expected Result: Close all open patients")
-			Call Terminator
-		End If
-		Call WriteToLog("Pass","Closed all open patients")
-		Wait 2
-		
-		Err.Clear		
-		'-------------------------------------------------------
-		'Getting specific patient and performing required acions
-		'(Ensuring the patient is of assigned VHN)
-		'-------------------------------------------------------
-		Set objPage = Nothing
-		Set objAdmitDateTxt = Nothing  
-		Set objDischargeDateTxt = Nothing  
-		Set objDischargeNotificationDateTxt = Nothing 
-		Set objDispositionDD = Nothing  
-		Set objSaveBtn = Nothing 	
-		Execute "Set objPage = " & Environment("WPG_AppParent") 'Page object
-		Execute "Set objAdmitDateTxt = " & Environment("WE_AdmitDateTxt") 'Admit date text box
-		Execute "Set objDischargeDateTxt = " & Environment("WE_DischargeDateTxt") 'Discharge Date edit box
-		Execute "Set objDischargeNotificationDateTxt = " & Environment("WE_DischargeNotificationDateTxt") 'Discharge date notification edit box
-		Execute "Set objDispositionDD = " & Environment("WB_DispositionDD") 'Disposition dropdown
-		Execute "Set objSaveBtn = " & Environment("WI_DischargeSaveBtn") 'Discharge Save btn
-		
-		'Search with patient MemID 
-		blnGlobalSearchUsingMemID = GlobalSearchUsingMemID(lngMemberID, strOutErrorDesc)
-		If Not blnGlobalSearchUsingMemID Then
-			strOutErrorDesc = "Select patient through global search returned error: "&strOutErrorDesc
-			Call WriteToLog("Fail", "Expected Result: User should be able to select patient through global search; Actual Result: "&strOutErrorDesc)
-			Call Terminator
-		End If
-		Call WriteToLog("Pass","Successfully selected required patient through global search")
-		Wait 3
-		
-		Call waitTillLoads("Loading...")
-		Wait 2
-		
-		'Handle navigation error if exists
-		blnHandleWrongDashboardNavigation = HandleWrongDashboardNavigation(strPatientName,strOutErrorDesc)
-		If not blnHandleWrongDashboardNavigation Then
-		    Call WriteToLog("Fail","Unable to provide proper navigation after patient selection "&strOutErrorDesc)
-		End If
-		Call WriteToLog("Pass","Provided proper navigation after patient selection")
-		Wait 2
-		
-		'-----------------------------------------------------
-		'Discharging the patient to send alert to assigned VHN
-		'-----------------------------------------------------
-		Call WriteToLog("Info","------------------Discharging the patient to send alert to assigned VHN------------------")
-		'Navigate to ClinicalManagement > Hospitalizations
-		blnScreenNavigation = clickOnSubMenu_WE("Clinical Management->Hospitalizations")
-		If not blnScreenNavigation Then
-			Call WriteToLog("Fail","Unable to navigate to Clinical Management > Hospitalizations "&strOutErrorDesc)
-			Call Terminator
-		End If
-		Call WriteToLog("Pass","Navigated to Clinical Management > Hospitalizations")
-		wait 4
-		Call waitTillLoads("Loading...")
-		Wait 2
-		
-		Err.Clear
-		dtAdmitDate = objAdmitDateTxt.GetROProperty("value")
-		dtDischargeDate = DateAdd("d",1,dtAdmitDate)
-		dtDischargeNotificationDate = dtDischargeDate
-		
-		dtDischargeDate = DateAdd("d",-2,Date)
-		dtDischargeNotificationDate = dtDischargeDate
-		strDisposition = "Home"
-		
-		blnReturnValue = DischargePatient(dtDischargeDate, dtDischargeNotificationDate, strDisposition, strOutErrorDesc)
-		If Not blnReturnValue Then
-			Call WriteToLog("Fail","Expected Result: Perform Discharge.  Actual Result: Unable to perform discharge due to error")
-			Call Terminator
-		End If
-		Call WriteToLog("Pass","Successfully discharged the patient from "&strUserOtherThanAssignedVHN&" user")
-		Wait 2
-		
-		'--------------------------------------
-		'logout of user other than assigned VHN
-		'--------------------------------------
-		Call WriteToLog("Info","----------------Logout from "&strUserOtherThanAssignedVHN&" user----------------")
-		Call Logout()
-		wait 2
-		
-	End If 'If Ucase(Trim(strUserOtherThanAssignedVHN)) <> "VHN" Then
+'Login to a user other than assigned VHN
+Call WriteToLog("Info","-----------------Login to not assigned vhn user-----------------")
+blnNavigator = Navigator("othervhn", strOutErrorDesc)
+If not blnNavigator Then
+	Call WriteToLog("Fail","Failed to Login to other VHN role")
+	Call Terminator
+End If
+Call WriteToLog("Pass","Successfully logged into not assigned vhn user")
+
+'Search with patient MemID 
+blnGlobalSearchUsingMemID = GlobalSearchUsingMemID(lngMemberID, strOutErrorDesc)
+If Not blnGlobalSearchUsingMemID Then
+	strOutErrorDesc = "Select patient through global search returned error: "&strOutErrorDesc
+	Call WriteToLog("Fail", "Expected Result: User should be able to select patient through global search; Actual Result: "&strOutErrorDesc)
+	Call Terminator
+End If
+Call WriteToLog("Pass","Successfully selected required patient through global search")
+	
+'Handle navigation error if exists
+blnHandleWrongDashboardNavigation = HandleWrongDashboardNavigation(strPatientName,strOutErrorDesc)
+If not blnHandleWrongDashboardNavigation Then
+    Call WriteToLog("Fail","Unable to provide proper navigation after patient selection "&strOutErrorDesc)
+End If
+Call WriteToLog("Pass","Provided proper navigation after patient selection")
+	
+Call WriteToLog("Info","------------------Discharging patient by user other than assigned vhn user------------------")
+'Navigate to ClinicalManagement > Hospitalizations
+blnScreenNavigation = clickOnSubMenu_WE("Clinical Management->Hospitalizations")
+If not blnScreenNavigation Then
+	Call WriteToLog("Fail","Unable to navigate to Clinical Management > Hospitalizations "&strOutErrorDesc)
+	Call Terminator
+End If
+Call WriteToLog("Pass","Navigated to Clinical Management > Hospitalizations")
+wait 5
+Call waitTillLoads("Loading...")
+
+'Discharge patient
+blnReturnValue = DischargePatient(dtDischargeDate, dtDischargeNotificationDate, strDisposition, strOutErrorDesc)
+If Not blnReturnValue Then
+	Call WriteToLog("Fail","Expected Result: Perform Discharge.  Actual Result: Unable to perform discharge due to error")
+	Call Terminator
+End If
+Call WriteToLog("Pass","Successfully discharged the patient from "&strUserOtherThanAssignedVHN&" user")
+	
+'Logout
+Call WriteToLog("Info","----------------Logout from other vhn user----------------")
+Call Logout()
+wait 2
+
 '-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-				
-Set objPage = Nothing
-Execute "Set objPage = " & Environment("WPG_AppParent")
-'---------------------
-'Login to assigned VHN
-'---------------------
+'-------------------------------
+'Close all open patients from DB
+Call closePatientsFromDB("vhn")
+'-------------------------------
+'Login assigned VHN
 Call WriteToLog("Info","-------------Login to assigned VHN-------------")
-blnLogin = Login("vhn")
-If not blnLogin Then
+blnNavigator = Navigator("vhn", strOutErrorDesc)
+If not blnNavigator Then
 	Call WriteToLog("Fail","Expected Result: Login to VHN with valid credentials.  Actual Result: Failed to Login to VHN role.")
 	Call Terminator
 End If
 Call WriteToLog("Pass","Successfully logged into VHN role")
 Wait 5
-		
-'Select user roster
-blnSelectUserRoster = SelectUserRoster(strOutErrorDesc)
-If Not blnSelectUserRoster Then
-	strOutErrorDesc = "SelectUserRoster returned error: "&strOutErrorDesc
-	Call WriteToLog("Fail", strOutErrorDesc&"  Expected Result: Select user roater")
-	Call Terminator
-End If
-wait 5
-err.Clear
 
 '--------------------------------------------------
 'Validating Alert message - both content and format
@@ -406,6 +203,7 @@ err.Clear
 Call WriteToLog("Info","------------------Validating Alert message - both content and format------------------")
 
 'Clk on Alerts expand arrow image
+Execute "Set objAlertUpArrow = " & Environment("WEL_AlertUpArrow") 'Alert up arrow
 Err.Clear
 objAlertUpArrow.click
 If Err.number <> 0 Then
@@ -413,12 +211,13 @@ If Err.number <> 0 Then
 	Call Terminator	
 End If
 Call WriteToLog("Pass","Discharge Alert notification tab is expanded")
-Wait 5
+Wait 3
 
 	'set required date format
 	dtDischargeDate = DateFormat(dtDischargeDate)
 	'Create discharge alert object for required pAatient
-	Set objDischargeAlertMessage = objPage.WebElement("class:=sanitizedFooterAlert","html tag:=PRE","outertext:="&strPatientName&" - Discharged - "&dtDischargeDate&".*")
+	Execute "Set objPage = " & Environment("WPG_AppParent")
+	Set objDischargeAlertMessage = objPage.WebElement("attribute/data-capella-automation-id:=label-item.Description","html tag:=PRE","outertext:="&strPatientName&" - Discharged - "&dtDischargeDate&".*")
 	objDischargeAlertMessage.highlight
 	
 	
@@ -456,6 +255,7 @@ Wait 5
 				Call Terminator
 			End If
 			'Verify DischargeAcknowledgement 
+			Execute "Set objDischargeAcknowledgeAlertpp = " & Environment("WEL_DischargeAcknowledgeAlertpp") 'Acknowledge Alert popup
 			If objDischargeAcknowledgeAlertpp.Exist(10) Then
 				Call WriteToLog("Pass","DischargeAcknowledgeAlert popup exists")
 			Else
@@ -467,6 +267,7 @@ Wait 5
 			Wait 5
 			
 				'CASE A.1.1: Discharge for SNF/Rehab or Hospital admit; if he wants to acknowledge alert
+				Execute "Set objDischargeAcknowledgeAlertppYesBtn = " & Environment("WB_DischargeAcknowledgeAlertppYesBtn") 'Acknowledge Alert popup Yes btn
 				Err.Clear
 				If Lcase(strAcknowledgeDischargeAlert) = "yes" Then
 					objDischargeAcknowledgeAlertppYesBtn.Click
@@ -479,6 +280,7 @@ Wait 5
 					End If
 					
 					'Verify Alert has been acknowledged popup
+					Execute "Set objAlertAcknowledgedpp = " & Environment("WEL_AlertAcknowledgedpp") 'Alert has been acknowledged popup
 					If objAlertAcknowledgedpp.Exist(10) Then
 						Call WriteToLog("Pass","Alert Acknowledged popup exists")
 					Else
@@ -490,6 +292,7 @@ Wait 5
 					Wait 3
 					
 					'Clk on Alert Acknowledged  popup OK btn
+					Execute "Set objAlertAcknowledgedppOK = " & Environment("WB_AlertAcknowledgedppOK") 'Alert has been acknowledged popup OK btn
 					Err.Clear
 					objAlertAcknowledgedppOK.Click
 					If err.number = 0 Then
@@ -501,6 +304,7 @@ Wait 5
 					End If
 					
 					'Chk whether PatientProfile is loaded
+					Execute "Set objPatientProfile = " & Environment("WEL_PatientProfile")  'PatientProfile
 					If objPatientProfile.Exist(10) Then
 						Call WriteToLog("Pass","Patient Profile page is loaded")
 					Else
@@ -522,7 +326,7 @@ Wait 5
 					Call WriteToLog("Pass","Discharge Alert notification tab is expanded")
 											
 					Set objDischargeAlertMessage = Nothing
-					Set objDischargeAlertMessage = objPage.WebElement("class:=sanitizedFooterAlert ng-binding","html tag:=PRE","outertext:="&strPatientName&" - Discharged - "&dtDischargeDate&".*")
+					Set objDischargeAlertMessage = objPage.WebElement("attribute/data-capella-automation-id:=label-item.Description","html tag:=PRE","outertext:="&strPatientName&" - Discharged - "&dtDischargeDate&".*")
 					
 					If not objDischargeAlertMessage.Exist(5) Then
 						Call WriteToLog("Pass","Discharge Alert is NOT existing as expected, as user acknowledged Alert Message")
@@ -535,6 +339,7 @@ Wait 5
 				Wait 5
 			
 				'CASE A.1.2: Discharge for SNF/Rehab or Hospital admit; if he doesn't want to acknowledge alert
+				Execute "Set objDischargeAcknowledgeAlertppNoBtn = " & Environment("WB_DischargeAcknowledgeAlertppNoBtn") 'Acknowledge Alert popup No btn
 				Err.Clear
 				If Lcase(strAcknowledgeDischargeAlert) = "no" Then
 					Err.Clear
@@ -547,6 +352,7 @@ Wait 5
 						Call Terminator
 					End If
 					'Chk whether PatientProfile is loaded
+					Execute "Set objPatientProfile = " & Environment("WEL_PatientProfile")  'PatientProfile
 					If objPatientProfile.Exist(10) Then
 						Call WriteToLog("Pass","Patient Profile page is loaded")
 					Else
@@ -569,7 +375,7 @@ Wait 5
 					Call WriteToLog("Pass","Discharge Alert notification tab is expanded")
 					
 					Set objDischargeAlertMessage = Nothing
-					Set objDischargeAlertMessage = objPage.WebElement("class:=sanitizedFooterAlert ng-binding","html tag:=PRE","outertext:="&strPatientName&" - Discharged - "&dtDischargeDate&".*")
+					Set objDischargeAlertMessage = objPage.WebElement("attribute/data-capella-automation-id:=label-item.Description","html tag:=PRE","outertext:="&strPatientName&" - Discharged - "&dtDischargeDate&".*")
 					
 					If objDischargeAlertMessage.Exist(10) Then
 						Call WriteToLog("Pass","Discharge Alert is still existing as expected, as user didn't acknowledge Alert Message")
@@ -581,7 +387,7 @@ Wait 5
 		
 		'CASE A.2: Discharge Alert NOT required for admit other than SNF/Rehab or Hospital admit	
 		Set objDischargeAlertMessage = Nothing
-		Set objDischargeAlertMessage = objPage.WebElement("class:=sanitizedFooterAlert ng-binding","html tag:=PRE","outertext:="&strPatientName&" - Discharged - "&dtDischargeDate&".*")
+		Set objDischargeAlertMessage = objPage.WebElement("attribute/data-capella-automation-id:=label-item.Description","html tag:=PRE","outertext:="&strPatientName&" - Discharged - "&dtDischargeDate&".*")
 		ElseIf Trim(strAdmitType) <> "SNF/Rehab Admit" AND Trim(strAdmitType) <> "Hospital Admit" Then
 			If  objDischargeAlertMessage.Exist(10) Then
 				Call WriteToLog("Fail","Expected Result: Discharge Alert should NOT be available for "&strAdmitType&".  ActualResult: DiscahrgeAlert is available")
@@ -591,10 +397,10 @@ Wait 5
 		End If
 
 	
-	Else  'CASE B:Validation of Discharge Alert to assigned VHN when he only discharges the aptient (Discharge Alert is NOT required for assigned VHN when he only discarges the patient)
+	Else  'CASE B:Validation of Discharge Alert to assigned VHN when he only discharges the patient (Discharge Alert is NOT required for assigned VHN when he only discarges the patient)
 		
 		Set objDischargeAlertMessage = Nothing
-		Set objDischargeAlertMessage = objPage.WebElement("class:=sanitizedFooterAlert ng-binding","html tag:=PRE","outertext:="&strPatientName&" - Discharged - "&dtDischargeDate&".*")
+		Set objDischargeAlertMessage = objPage.WebElement("attribute/data-capella-automation-id:=label-item.Description","html tag:=PRE","outertext:="&strPatientName&" - Discharged - "&dtDischargeDate&".*")
 	
 		If not objDischargeAlertMessage.Exist(10) Then
 			Call WriteToLog("Pass","Discharge Alert is not existing as expected, as user is assigned VHN")
@@ -605,25 +411,13 @@ Wait 5
 		
 	End If
 
-
-'---------------------
 'Logout of application
-'---------------------
 Call WriteToLog("Info","---------------Logout of application---------------")
 Call Logout()
 
 'Set objects free
 Set objPage = Nothing
-Set objAddBtn = Nothing
-Set objDischargeDateTxt = Nothing
-Set objDischargeNotificationDateTxt = Nothing
-Set objDispositionDD = Nothing
-Set objAdmitDateTxt = Nothing
-Set objHospHistoryArrow = Nothing
-Set objLDDonPP = Nothing
-Set objHosHistoryTable = Nothing
 Set objAlertUpArrow = Nothing
-Set objSaveBtn = Nothing
 Set objDischargeAcknowledgeAlertpp = Nothing
 Set objDischargeAcknowledgeAlertppYesBtn = Nothing
 Set objDischargeAcknowledgeAlertppNoBtn = Nothing

@@ -65,6 +65,12 @@ Err.Clear
 '-----------------------EXECUTION-------------------------------------------------------------------------------------------------------------------------------------------------------
 
 Call WriteToLog("Info","----------Login to application, Close all open patients, Select user roster----------")
+
+'-------------------------------
+'Close all open patients from DB
+Call closePatientsFromDB("vhn")
+'-------------------------------
+
 'Navigation: Login to app > CloseAllOpenPatients > SelectUserRoster 
 blnNavigator = Navigator("vhn", strOutErrorDesc)
 If not blnNavigator Then

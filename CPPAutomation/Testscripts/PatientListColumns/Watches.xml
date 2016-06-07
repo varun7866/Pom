@@ -1,5 +1,7 @@
 ﻿<Properties>
-  <WatchEntry0 value="dtLADfromPatientGrid" />
-  <WatchEntry1 value="dtLCDfromPatientGrid" />
-  <WatchEntry2 value="dtLastAttemptedDate" />
+  <WatchEntry0 value="strContactMethod" />
+  <WatchEntry1 value="dtContactDt" />
+  <WatchEntry2 value="strEngScores" />
+  <WatchEntry3 value="strReqdTeams" />
+  <WatchEntry4 value="strReqdResolution" />
 </Properties>

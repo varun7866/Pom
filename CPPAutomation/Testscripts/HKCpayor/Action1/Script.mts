@@ -51,7 +51,7 @@ For RowNumber = 1 to intRowCout: Do
 ' Variable initialization
 '------------------------
 strExecutionFlag = DataTable.Value("ExecutionFlag","CurrentTestCaseData") 
-strPatientName = DataTable.Value("PatientName","CurrentTestCaseData")
+strPersonalDetails = DataTable.Value("PersonalDetails","CurrentTestCaseData")
 strMedicalDetails = DataTable.Value("MedicalDetails","CurrentTestCaseData")
 strPayor = DataTable.Value("Payor","CurrentTestCaseData")
 strPayorNames = DataTable.Value("PayorNames","CurrentTestCaseData")
@@ -75,7 +75,10 @@ If not Lcase(strExecutionFlag) = "y" Then Exit Do
 
 '-----------------------EXECUTION-------------------------------------------------------------------------------------------------------------------------------------------------------
 	
-Call WriteToLog("Info","----------------Iteration for patient named '"&strPatientName&"'----------------") 
+'-------------------------------
+'Close all open patients from DB
+Call closePatientsFromDB("eps")
+'-------------------------------
 
 'Login as eps and refer a new member.
 '-----------------------------------------
@@ -88,15 +91,20 @@ End If
 Call WriteToLog("Pass","Navigated to user dashboard")											
 
 'Create newpatient
-strNewPatientDetails = CreateNewPatientFromEPS(strPatientName,"NA",strMedicalDetails,strOutErrorDesc)
+strNewPatientDetails = CreateNewPatientFromEPS(strPersonalDetails,"NA",strMedicalDetails,strOutErrorDesc)
 If strNewPatientDetails = "" Then
 	Call WriteToLog("Fail","Expected Result: User should be able to create new SNP patient in EPS. Actual Result: Unable to  create new SNP patient in EPS."&strOutErrorDesc)
 	Call Terminator											
 End If
-Call WriteToLog("Pass","Created new SNP patient in EPS")	
 
-arrNewPatientDetails = Split(strNewPatientDetails,",",-1,1)
-lngMemberID = arrNewPatientDetails(0)
+strPatientName = Split(strNewPatientDetails,"|",-1,1)(0)
+lngMemberID = Split(strNewPatientDetails,"|",-1,1)(1)
+strEligibilityStatus = Split(strNewPatientDetails,"|",-1,1)(2)
+
+Call WriteToLog("Pass","Created new patient in EPS with name: '"&strPatientName&"', MemberID: '"&lngMemberID&"' and Eligibility status: '"&strEligibilityStatus&"'")	
+
+strPatientFirstName = Split(strPatientName,", ",-1,1)(1)
+strPatientSecondName = Split(strPatientName,", ",-1,1)(0)
 
 'Logout
 Call WriteToLog("Info","-------------------------------------Logout of application--------------------------------------")
@@ -107,6 +115,12 @@ Wait 2
 
 'Login as vhn - Admit and discharge patient with required Admit type
 '-------------------------------------------------------------------
+
+'-------------------------------
+'Close all open patients from DB
+Call closePatientsFromDB("vhn")
+'-------------------------------
+
 'Navigation: Login as vhn > CloseAllOpenPatients > SelectUserRoster 
 blnNavigator = Navigator("vhn", strOutErrorDesc)
 If not blnNavigator Then
@@ -124,7 +138,7 @@ End If
 Call WriteToLog("Pass","Selected required patient through Global Search")
 
 'Handle navigation error if exists
-blnHandleWrongDashboardNavigation = HandleWrongDashboardNavigation(strPatientName,strOutErrorDesc)
+blnHandleWrongDashboardNavigation = HandleWrongDashboardNavigation(strPatientFirstName,strOutErrorDesc)
 If not blnHandleWrongDashboardNavigation Then
     Call WriteToLog("Fail","Unable to provide proper navigation after patient selection "&strOutErrorDesc)
 End If
@@ -133,7 +147,7 @@ Call WriteToLog("Pass","Provided proper navigation after patient selection")
 'Navigating to Clinical Management > Hospitalizations screen, Admit and Discharge the patient
 Call WriteToLog("Info","-----------------Navigating to Clinical Management > Hospitalizations screen-------------------")
 
-'Navigate to ClinicalManagement > Medications
+'Navigate to ClinicalManagement > Hospitalizations
 blnScreenNavigation = clickOnSubMenu_WE("Clinical Management->Hospitalizations")
 If not blnScreenNavigation Then
 	Call WriteToLog("Fail","Unable to navigate to Clinical Management > Hospitalizations "&strOutErrorDesc)
@@ -182,6 +196,12 @@ Call WriteToLog("Info","------------------Login to PTC user and selecting the ro
 
 'Login to assigned PTC and validate PTC assignment, Med Advisor program
 '-----------------------------------------------------------------------
+
+'-------------------------------
+'Close all open patients from DB
+Call closePatientsFromDB("ptc")
+'-------------------------------
+
 ''Navigation: Login as VHN > CloseAllOpenPatients > SelectUserRoster 
 blnNavigator = Navigator("ptc", strOutErrorDesc)
 If not blnNavigator Then
@@ -195,7 +215,7 @@ Call WriteToLog("Info","------------------Validations:PTC assignment and Med Adv
 'Validating PTC assignment for required patient
 '----------------------------------------------
 arrPayors = Split(Trim(strPayorNames),"|",-1,1)
-strReqdPatientName =  strRegRxp&strPatientName&strRegRxp
+strReqdPatientName =  strRegRxp&strPatientSecondName&strRegRxp
 
 Execute "Set objPage = " & Environment("WPG_AppParent") 'Page object
 Set objReqdPatientName = objPage.WebElement("class:=has-menu open-call-list-patient-name","html tag:=SPAN","visible:=True","outertext:="&strReqdPatientName)
@@ -211,7 +231,7 @@ Next
 'Validating Open Call list for the patient who is having any of VCA,HCP,ATN,ESC,HKC,HMK as payor
 If strFalgPTCreqd AND (Ucase(strAdmitType) = "HOSPITAL ADMIT") then 
 
-	strPatientFirstName = Trim(Split(strPatientName,",",-1,1)(0))
+	strPatientFirstName = Trim(Split(strPatientSecondName,",",-1,1)(0))
 	blnValidatePatientRecordInPTC = ValidatePatientRecordInPTC(strPatientFirstName, strOutErrorDesc)
 	If not blnValidatePatientRecordInPTC Then
 		Call WriteToLog("Fail","Patient record is not added in PTC Open Call List")
@@ -223,7 +243,7 @@ Else
 
 	Call WriteToLog("Info","Patient has"& Ucase(strPayor)&" as payor, need NOT be assigned to PTC user; Validation follows")
 	
-	strPatientFirstName = Trim(Split(strPatientName,",",-1,1)(0))
+	strPatientFirstName = Trim(Split(strPatientSecondName,",",-1,1)(0))
 	blnValidatePatientRecordInPTC = ValidatePatientRecordInPTC(strPatientFirstName, strOutErrorDesc)	
 	If not blnValidatePatientRecordInPTC Then
 		Call WriteToLog("Pass","Patient record is not added in PTC Open Call List - Patient is not having PTC assignment")
@@ -259,8 +279,15 @@ Execute "Set objPatientProfileExpand = " & Environment("WI_PatientProfileExpand"
 Err.Clear
 objPatientProfileExpand.Click
 If Err.number <> 0 Then
-	Call WriteToLog("Fail","Expected Result: User should be able to click on Patient Profile icon.  Actual Result: Unable to click on Patient Profile icon: "&strOutErrorDesc)
-	Call Terminator
+    Err.Clear
+    Execute "Set objPatientProfileExpand = " & Environment("WI_PatientProfileExpand_New")  'PatientProfileExpand icon new    
+    Err.Clear
+    objPatientProfileExpand.Click
+    If Err.number <> 0 Then
+        Call WriteToLog("Fail","Expected Result: User should be able to click on Patient Profile icon.  Actual Result: Unable to click on Patient Profile icon: "&strOutErrorDesc)
+        Call Terminator
+    End If
+    Call WriteToLog("Pass","Clicked on Patient Profile icon")
 End If
 Call WriteToLog("Pass","Clicked on Patient Profile icon")
 Wait 2

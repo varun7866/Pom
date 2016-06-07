@@ -1,4 +1,5 @@
 ﻿<Properties>
-  <WatchEntry0 value="strPatientRefusedPlan_Status" />
-  <WatchEntry1 value="strMedicalEquipment_Status" />
+  <WatchEntry0 value="blnAdmitDateScenariosWithType" />
+  <WatchEntry1 value="blnAdmittance_EDvisit" />
+  <WatchEntry2 value="strOutErrorDesc" />
 </Properties>

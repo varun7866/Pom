@@ -1,3 +1,10 @@
 ﻿<Properties>
-  <WatchEntry0 value="blnSelectRequiredRoster" />
+  <WatchEntry0 value="strStatusRequired" />
+  <WatchEntry1 value="strCurrentVisibleStatus" />
+  <WatchEntry2 value="strOutErrorDesc" />
+  <WatchEntry3 value="blnEditInterventionStatus" />
+  <WatchEntry4 value="strReqdDetailsPostTechScr" />
+  <WatchEntry5 value="blnButtonClicked" />
+  <WatchEntry6 value="strOutErrorDesc" />
+  <WatchEntry7 value="blnPTCtechscreening" />
 </Properties>

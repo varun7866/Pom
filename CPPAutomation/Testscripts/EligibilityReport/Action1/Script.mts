@@ -85,17 +85,24 @@ If not Lcase(strExecutionFlag) = "y" Then Exit Do
 Call WriteToLog("Info","----------------Iteration for patient named '"&strPatientName&"'----------------") 
 
 'Variables in usable format
+On error goto 0
 arrContactMethod = Split(strContactMethods,",",-1,1)
 arrRespectiveResolutionForContactMethod = Split(strRespectiveResolutionsForContactMethods,",",-1,1)
 arrDateForContact = Split(strDatesForContacts,",",-1,1)
 arrExternalTeamddval = Split(strExternalTeamddvals,",",-1,1)
 arrInternalTeamddval = Split(strInternalTeamddvals,",",-1,1)
 For Dtformat = 0 To Ubound(arrDateForContact) Step 1
+	If LCase(Trim(arrDateForContact(Dtformat))) = "date" Then
+		arrDateForContact(Dtformat) = Date		
+	End If
 	arrDateForContact(Dtformat) = DateFormat(arrDateForContact(Dtformat))
 Next
 
 '-----------------------EXECUTION-------------------------------------------------------------------------------------------------------------------------------------------------------
-
+'-------------------------------
+'Close all open patients from DB
+Call closePatientsFromDB("vhn")
+'-------------------------------
 'Login
 Call WriteToLog("Info","----------Login to application, Close all open patients, Select user roster----------")
 
@@ -411,7 +418,7 @@ Call WriteToLog("Info","--------Validate implementation of Last completed and La
 'Getting date format for report
 dtLastAttemptedDate = DateFormatForReport(dtLastAttemptedDate)
 dtLastCompletedDate = DateFormatForReport(dtLastCompletedDate)
-strLCDLAD ="Last Completed Contact : "&Trim(dtLastCompletedDate)&" Last Aï¿½ï¿½ï¿½ï¿½empted Contact : "&Trim(dtLastAttemptedDate)
+strLCDLAD ="Last Completed Contact : "&Trim(dtLastCompletedDate)&" Last Aí¯€í¶©empted Contact : "&Trim(dtLastAttemptedDate)
 
 'Object for PDF report
 Set objReportPDF = objParent.WinObject("object class:=AVL_AVView","regexpwndclass:=AVL_AVView","text:=AVPageView","visible:=True")

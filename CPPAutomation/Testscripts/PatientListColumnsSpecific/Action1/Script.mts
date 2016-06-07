@@ -55,8 +55,16 @@ intPatientListColCount = DataTable.Value("PatientListColCount","CurrentTestCaseD
 intPatientListNameCol = DataTable.Value("PatientListNameCol","CurrentTestCaseData") '3
 intLastAttemptedColumnNumber = DataTable.Value("LastAttemptedColumnNumber","CurrentTestCaseData") '12
 intLastCompletedColumnNumber = DataTable.Value("LastCompletedColumnNumber","CurrentTestCaseData") '13
-dtExistingContactAttemptedDate = DataTable.Value("ExistingContactAttemptedDate","CurrentTestCaseData") 
+dtExistingContactAttemptedDate = DataTable.Value("ExistingContactAttemptedDate","CurrentTestCaseData")
+dtExistingContactAttemptedDate = Split(dtExistingContactAttemptedDate," ",-1,1)(0)
+If LCase(Trim(dtExistingContactAttemptedDate)) = "na" Then
+	dtExistingContactAttemptedDate = DateFormat(Date)	
+End If
 dtExistingContactCompletedDate = DataTable.Value("ExistingContactCompletedDate","CurrentTestCaseData") 
+dtExistingContactCompletedDate = Split(dtExistingContactCompletedDate," ",-1,1)(0)
+If LCase(Trim(dtExistingContactCompletedDate)) = "na" Then
+	dtExistingContactCompletedDate = DateFormat(Date)	
+End If
 strAnyPreviousContacts = DataTable.Value("AnyPreviousContacts","CurrentTestCaseData")
 strReopenedWithin90daysOfTermination = DataTable.Value("ReopenedWithin90daysOfTermination","CurrentTestCaseData")
 strReopenedAfter90daysOfTermination = DataTable.Value("ReopenedAfter90daysOfTermination","CurrentTestCaseData")
@@ -90,6 +98,11 @@ End If
 '-----------------------EXECUTION-------------------------------------------------------------------------------------------------------------------------------------------------------
 On Error Resume Next
 Err.Clear
+
+'-------------------------------
+'Close all open patients from DB
+Call closePatientsFromDB("vhn")
+'-------------------------------
 
 'Navigation: Login to app > CloseAllOpenPatients > SelectUserRoster 
 blnNavigator = Navigator("vhn", strOutErrorDesc)

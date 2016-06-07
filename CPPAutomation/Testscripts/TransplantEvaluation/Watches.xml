@@ -1,4 +1,8 @@
 ﻿<Properties>
-  <WatchEntry0 value="blnTransplantEvaluation" />
-  <WatchEntry1 value="strOutErrorDesc" />
+  <WatchEntry0 value="strSNPpatientTest" />
+  <WatchEntry1 value="dtEnrolledDate" />
+  <WatchEntry2 value="strPatientFirstName" />
+  <WatchEntry3 value="strPatientSecondName" />
+  <WatchEntry4 value="blnTransplantEvaluation" />
+  <WatchEntry5 value="blnTransplantEvaluation" />
 </Properties>
