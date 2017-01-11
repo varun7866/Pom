@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite verbose="0" name="Failed suite [Capella UI Jan Releast Test]">
+  <test name="UISmokeTest">
+    <classes>
+      <class name="com.vh.ui.tests.LoginTest"/>
+    </classes>
+  </test> <!-- UISmokeTest -->
+</suite> <!-- Failed suite [Capella UI Jan Releast Test] -->

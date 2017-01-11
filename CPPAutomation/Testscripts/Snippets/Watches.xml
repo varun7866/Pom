@@ -1,3 +1,5 @@
 ﻿<Properties>
-  <WatchEntry0 value="Err.Description" />
+  <WatchEntry0 value="objSnippetDrag.Count" />
+  <WatchEntry1 value="intX" />
+  <WatchEntry2 value="intY" />
 </Properties>

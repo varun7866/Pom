@@ -1,0 +1,49 @@
+{
+  "time" : {
+    "start" : 1484173091915,
+    "stop" : 1484173108902,
+    "duration" : 16987
+  },
+  "testSuites" : [ {
+    "uid" : "c2fcce32ab242b65",
+    "name" : "APITesting : APIPPOC",
+    "title" : "APITesting : APIPPOC",
+    "time" : {
+      "start" : 1484173091915,
+      "stop" : 1484173108902,
+      "duration" : 16987
+    },
+    "statistic" : {
+      "total" : 2,
+      "passed" : 2,
+      "pending" : 0,
+      "canceled" : 0,
+      "failed" : 0,
+      "broken" : 0
+    },
+    "description" : null,
+    "testCases" : [ {
+      "uid" : "80c723344f8b684e",
+      "name" : "getTermDetails[213544,NERMS]",
+      "title" : "Get term details [213544,NERMS]",
+      "time" : {
+        "start" : 1484173091915,
+        "stop" : 1484173108209,
+        "duration" : 16294
+      },
+      "severity" : "NORMAL",
+      "status" : "PASSED"
+    }, {
+      "uid" : "efa6ffd10350e5e5",
+      "name" : "getTermDetails[99999,UNRCH]",
+      "title" : "Get term details [99999,UNRCH]",
+      "time" : {
+        "start" : 1484173108217,
+        "stop" : 1484173108902,
+        "duration" : 685
+      },
+      "severity" : "NORMAL",
+      "status" : "PASSED"
+    } ]
+  } ]
+}

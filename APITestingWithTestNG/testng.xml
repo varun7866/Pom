@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<suite name="APITesting" verbose="1">
+	<test name="APIPPOC" preserve-order="true">
+<!-- 	 	<packages>
+			<package name="com.vh.api.test.*"/>
+		</packages>	-->
+	 	<classes>
+			<class name="com.vh.api.test.CKDTest">
+			</class>
+		</classes>
+	</test>
+</suite>

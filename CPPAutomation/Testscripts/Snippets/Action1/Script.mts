@@ -180,8 +180,8 @@ Function validateSnippets()
 		
 		Set objDelete = getPageObject().ChildObjects(delDesc)
 		
-		intX = objDelete(0).GetROProperty("abs_x") + 20
-		intY = objDelete(0).GetROProperty("abs_y") + 20
+		intX = objDelete(0).GetROProperty("abs_x") + objDelete(0).GetROProperty("width")/2
+		intY = objDelete(0).GetROProperty("abs_y") + objDelete(0).GetROProperty("height")/2
 			
 		Set ObjectName = CreateObject("Mercury.DeviceReplay")
 		ObjectName.MouseMove intX,intY
@@ -255,7 +255,7 @@ Function validateSnippets()
 	
 	Set objSnippetDrag = getPageObject().ChildObjects(oDesc)
 	
-	If Not objSnippetDrag.Count = 1 Then
+	If objSnippetDrag.Count < 1 Then
 		Call WriteToLog("Fail", "Failed to create Snippet")
 		Exit Function
 	Else

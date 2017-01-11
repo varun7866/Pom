@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testng-results skipped="0" failed="0" total="1" passed="1">
+  <reporter-output>
+  </reporter-output>
+  <suite name="Default suite" duration-ms="196699" started-at="2017-01-11T20:38:21Z" finished-at="2017-01-11T20:41:38Z">
+    <groups>
+    </groups>
+    <test name="Default test" duration-ms="196699" started-at="2017-01-11T20:38:21Z" finished-at="2017-01-11T20:41:38Z">
+      <class name="com.vh.ui.tests.CreateNewPatientTest">
+        <test-method status="PASS" signature="init()[pri:0, instance:com.vh.ui.tests.CreateNewPatientTest@2b80e5a9]" name="init" is-config="true" duration-ms="5241" started-at="2017-01-11T14:38:21Z" finished-at="2017-01-11T14:38:26Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- init -->
+        <test-method status="PASS" signature="navigateToMenu()[pri:0, instance:com.vh.ui.tests.CreateNewPatientTest@2b80e5a9]" name="navigateToMenu" duration-ms="122419" started-at="2017-01-11T14:38:26Z" finished-at="2017-01-11T14:40:29Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- navigateToMenu -->
+        <test-method status="PASS" signature="afterTest(java.lang.reflect.Method, org.testng.ITestResult)[pri:0, instance:com.vh.ui.tests.CreateNewPatientTest@2b80e5a9]" name="afterTest" is-config="true" duration-ms="6" started-at="2017-01-11T14:40:29Z" finished-at="2017-01-11T14:40:29Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[public void com.vh.ui.tests.CreateNewPatientTest.navigateToMenu() throws com.vh.ui.exceptions.URLNavigationException,com.vh.ui.exceptions.WaitException,java.lang.InterruptedException]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[[TestResult name=navigateToMenu status=SUCCESS method=CreateNewPatientTest.navigateToMenu()[pri:0, instance:com.vh.ui.tests.CreateNewPatientTest@2b80e5a9] output={null}]]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- afterTest -->
+        <test-method status="PASS" signature="tearDown()[pri:0, instance:com.vh.ui.tests.CreateNewPatientTest@2b80e5a9]" name="tearDown" is-config="true" duration-ms="68927" started-at="2017-01-11T14:40:29Z" finished-at="2017-01-11T14:41:38Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- tearDown -->
+      </class> <!-- com.vh.ui.tests.CreateNewPatientTest -->
+    </test> <!-- Default test -->
+  </suite> <!-- Default suite -->
+</testng-results>

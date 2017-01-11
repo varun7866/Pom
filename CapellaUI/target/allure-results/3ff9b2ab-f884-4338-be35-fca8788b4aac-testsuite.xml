@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<ns2:test-suite start="1484079164093" stop="1484079325970" version="1.4.16" xmlns:ns2="urn:model.allure.qatools.yandex.ru">
+    <name>Default suite : Default test</name>
+    <title>Default suite : Default test</title>
+    <test-cases>
+        <test-case start="1484079168951" stop="1484079265158" status="passed">
+            <name>navigateToMenu</name>
+            <steps>
+                <step start="1484079164403" stop="1484079168839" status="passed">
+                    <name>getWebDriver</name>
+                    <title>Launching the browser</title>
+                    <attachments/>
+                    <steps/>
+                </step>
+                <step start="1484079182200" stop="1484079182455" status="passed">
+                    <name>viewUserNameTextField</name>
+                    <title>Verifying the visibility of User Name text field</title>
+                    <attachments/>
+                    <steps/>
+                </step>
+                <step start="1484079182460" stop="1484079182572" status="passed">
+                    <name>viewPasswordTextField</name>
+                    <title>Verifying the visibility of Password text field</title>
+                    <attachments/>
+                    <steps/>
+                </step>
+                <step start="1484079182573" stop="1484079182685" status="passed">
+                    <name>viewTokenTextField</name>
+                    <title>Verifying the visibility of Token text field</title>
+                    <attachments/>
+                    <steps/>
+                </step>
+                <step start="1484079182687" stop="1484079183399" status="passed">
+                    <name>enterUserName[vhnaa]</name>
+                    <title>Entered vhnaa in user name  text field</title>
+                    <attachments/>
+                    <steps/>
+                </step>
+                <step start="1484079183400" stop="1484079184095" status="passed">
+                    <name>enterPassword[test123]</name>
+                    <title>Entered test123 in Password text field</title>
+                    <attachments/>
+                    <steps/>
+                </step>
+                <step start="1484079184096" stop="1484079184758" status="passed">
+                    <name>enterToken[111111]</name>
+                    <title>Entered 111111 in token text field</title>
+                    <attachments/>
+                    <steps/>
+                </step>
+                <step start="1484079184760" stop="1484079211545" status="passed">
+                    <name>clickLogin</name>
+                    <title>Click Login</title>
+                    <attachments/>
+                    <steps/>
+                </step>
+                <step start="1484079221549" stop="1484079222496" status="passed">
+                    <name>clickOnMainMenu[My Patients]</name>
+                    <title>Navigate to My Patients menu</title>
+                    <attachments/>
+                    <steps/>
+                </step>
+            </steps>
+            <attachments/>
+            <labels>
+                <label name="host" value="WINDOWS-QR0QHM0"/>
+                <label name="thread" value="33760@WINDOWS-QR0QHM0.main(1)"/>
+            </labels>
+        </test-case>
+    </test-cases>
+    <labels>
+        <label name="framework" value="TestNG"/>
+        <label name="language" value="JAVA"/>
+    </labels>
+</ns2:test-suite>

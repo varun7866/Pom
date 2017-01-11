@@ -740,11 +740,11 @@ Function validateDocumentTypes()
 		Call WriteToLog("Pass", "Diabetic Retinal Eye Exam Verification exists in document type drop down as expected")
 	End If
 	
-	isPass = validateValueExistInDropDown(objFileSelectionDocumentTypeDropdown, "Florida HIE Consent Form")
+	isPass = validateValueExistInDropDown(objFileSelectionDocumentTypeDropdown, "ESCO HIE Consent Form")
 	If not isPass Then
-		Call WriteToLog("Fail", "Florida HIE Consent Form does not exist in document type drop down ")
+		Call WriteToLog("Fail", "ESCO HIE Consent Form does not exist in document type drop down ")
 	Else
-		Call WriteToLog("Pass", "Florida HIE Consent Form exists in document type drop down as expected")
+		Call WriteToLog("Pass", "ESCO HIE Consent Form exists in document type drop down as expected")
 	End If
 	
 	isPass = validateValueExistInDropDown(objFileSelectionDocumentTypeDropdown, "Medical Attestation")

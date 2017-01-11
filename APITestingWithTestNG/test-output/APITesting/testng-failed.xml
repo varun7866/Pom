@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="Failed suite [APITesting]">
+  <test name="APIPPOC(failed)">
+    <classes>
+      <class name="com.vh.api.test.UtilityAPITest">
+        <methods>
+          <include name="afterTest"/>
+          <include name="createBasicAuth"/>
+        </methods>
+      </class> <!-- com.vh.api.test.UtilityAPITest -->
+      <class name="com.vh.api.test.DemographicsAPITest">
+        <methods>
+          <include name="createBasicAuth"/>
+          <include name="afterTest"/>
+        </methods>
+      </class> <!-- com.vh.api.test.DemographicsAPITest -->
+      <class name="com.vh.api.test.UserAPITest">
+        <methods>
+          <include name="createBasicAuth"/>
+          <include name="afterTest"/>
+          <include name="GetVHNChartMetricDataTest"/>
+        </methods>
+      </class> <!-- com.vh.api.test.UserAPITest -->
+      <class name="com.vh.api.test.PatientAPITest">
+        <methods>
+          <include name="afterTest"/>
+          <include name="createBasicAuth"/>
+        </methods>
+      </class> <!-- com.vh.api.test.PatientAPITest -->
+    </classes>
+  </test> <!-- APIPPOC(failed) -->
+</suite> <!-- Failed suite [APITesting] -->

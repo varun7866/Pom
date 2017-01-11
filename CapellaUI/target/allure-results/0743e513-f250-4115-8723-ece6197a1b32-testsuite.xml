@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<ns2:test-suite start="1484018839251" stop="1484018925009" version="1.4.16" xmlns:ns2="urn:model.allure.qatools.yandex.ru">
+    <name>Capella UI Jan Releast Test : UISmokeTest</name>
+    <title>Capella UI Jan Releast Test : UISmokeTest</title>
+    <test-cases>
+        <test-case start="1484018839348" stop="1484018920451" status="passed">
+            <name>verify_SuccessfulLogin</name>
+            <steps>
+                <step start="1484018839590" stop="1484018920436" status="passed">
+                    <name>verify_SuccessfulLogin</name>
+                    <title>Verify Successful Login</title>
+                    <attachments/>
+                    <steps>
+                        <step start="1484018839625" stop="1484018844782" status="passed">
+                            <name>getWebDriver</name>
+                            <title>Launching the browser</title>
+                            <attachments/>
+                            <steps/>
+                        </step>
+                        <step start="1484018863435" stop="1484018863740" status="passed">
+                            <name>viewUserNameTextField</name>
+                            <title>Verifying the visibility of User Name text field</title>
+                            <attachments/>
+                            <steps/>
+                        </step>
+                        <step start="1484018863746" stop="1484018863870" status="passed">
+                            <name>viewPasswordTextField</name>
+                            <title>Verifying the visibility of Password text field</title>
+                            <attachments/>
+                            <steps/>
+                        </step>
+                        <step start="1484018863872" stop="1484018863995" status="passed">
+                            <name>viewTokenTextField</name>
+                            <title>Verifying the visibility of Token text field</title>
+                            <attachments/>
+                            <steps/>
+                        </step>
+                        <step start="1484018863997" stop="1484018864706" status="passed">
+                            <name>enterUserName[vhnaa]</name>
+                            <title>Entered vhnaa in user name  text field</title>
+                            <attachments/>
+                            <steps/>
+                        </step>
+                        <step start="1484018864708" stop="1484018865474" status="passed">
+                            <name>enterPassword[test123]</name>
+                            <title>Entered test123 in Password text field</title>
+                            <attachments/>
+                            <steps/>
+                        </step>
+                        <step start="1484018865476" stop="1484018866221" status="passed">
+                            <name>enterToken[111111]</name>
+                            <title>Entered 111111 in token text field</title>
+                            <attachments/>
+                            <steps/>
+                        </step>
+                        <step start="1484018866222" stop="1484018866754" status="passed">
+                            <name>clickLogin</name>
+                            <title>Click Login</title>
+                            <attachments/>
+                            <steps/>
+                        </step>
+                        <step start="1484018876757" stop="1484018910435" status="passed">
+                            <name>closeAllPatients</name>
+                            <title>Close All Patients</title>
+                            <attachments/>
+                            <steps/>
+                        </step>
+                    </steps>
+                </step>
+            </steps>
+            <attachments/>
+            <labels>
+                <label name="host" value="WINDOWS-QR0QHM0"/>
+                <label name="thread" value="11144@WINDOWS-QR0QHM0.main(1)"/>
+            </labels>
+        </test-case>
+    </test-cases>
+    <labels>
+        <label name="framework" value="TestNG"/>
+        <label name="language" value="JAVA"/>
+    </labels>
+</ns2:test-suite>
