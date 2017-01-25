@@ -5,8 +5,8 @@
 			<package name="com.vh.api.test.*"/>
 		</packages>	-->
 	 	<classes>
-			<class name="com.vh.api.test.CKDTest">
-			</class>
+			<class name="com.vh.api.test.CKDTest"/>
+			<class name="com.vh.api.test.APITest"/>
 		</classes>
 	</test>
 </suite>

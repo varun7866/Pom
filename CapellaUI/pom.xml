@@ -17,6 +17,12 @@
   	</properties>
 
 	<dependencies>
+		<!-- https://mvnrepository.com/artifact/ojdbc/ojdbc -->
+<!-- 		<dependency>
+		    <groupId>ojdbc</groupId>
+		    <artifactId>ojdbc</artifactId>
+		    <version>14-10gR3</version>
+		</dependency> -->
     	<dependency>
 			<groupId>org.testng</groupId>
 			<artifactId>testng</artifactId>
@@ -54,6 +60,12 @@
 			<groupId>ru.yandex.qatools.allure</groupId>
 			<artifactId>allure-testng-adaptor</artifactId>
 			<version>${allure.version}</version>
+		</dependency>
+		<!-- https://mvnrepository.com/artifact/org.apache.maven.plugins/maven-resources-plugin -->
+		<dependency>
+		    <groupId>org.apache.maven.plugins</groupId>
+		    <artifactId>maven-resources-plugin</artifactId>
+		    <version>3.0.2</version>
 		</dependency>
 	</dependencies>
 	
@@ -94,7 +106,31 @@
 					</dependency>
 				</dependencies>
 			</plugin>
-			
+<!-- 			<plugin>
+			    <artifactId>maven-resources-plugin</artifactId>
+			    <version>3.0.2</version>
+			    <executions>
+			        <execution>
+			            <id>copy-allure-environment</id>
+			            <phase>pre-site</phase>
+			            <goals>
+			                <goal>copy-resources</goal>
+			            </goals>
+			            <configuration>
+			                <outputDirectory>${basedir}/target/allure-results</outputDirectory>
+			                <resources>
+			                    <resource>
+			                        <directory>src/main/resources</directory>
+			                        <includes>
+			                            <include>environment.xml</include>
+			                        </includes>
+			                    </resource>
+			                </resources>
+			            </configuration>
+			        </execution>
+			    </executions>
+			</plugin>
+			-->
 			<!--Needed only to show reports locally. Run jetty:run and
             open localhost:8080 to show the report-->
             <plugin>

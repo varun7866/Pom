@@ -9,6 +9,7 @@ import java.util.Base64;
 import java.util.Properties;
 
 import org.apache.log4j.Logger;
+import org.testng.Assert;
 import org.testng.ITestResult;
 import org.testng.annotations.AfterMethod;
 
@@ -26,12 +27,23 @@ public class TestBase {
 	protected static String[][] strorage = null;
 	protected final static Properties applicationProperty = PropertyManager
 			.loadApplicationPropertyFile("application.properties");
-	protected final static String BASE_URI = "https://capellawebqa.com/cppapi";
+	protected final static String CPP_BASE_URI = applicationProperty.getProperty("baseurl");
+	protected final static String CKD_BASE_URI = applicationProperty.getProperty("ckdurl");
 	
 	@Step("Get authorization header")
 	public String getAuthorization()
 	{
 		String authString = applicationProperty.getProperty("username") + ":" + applicationProperty.getProperty("password") + ":" + applicationProperty.getProperty("token") + ":" + applicationProperty.getProperty("appcode");
+	    byte[] message = authString.getBytes(StandardCharsets.UTF_8);
+	    String auth = Base64.getEncoder().encodeToString(message);
+	    
+	    return "Basic " + auth;
+	}
+	
+	@Step("Get CKD app authorization header")
+	public String getCKDAuthorization()
+	{
+		String authString = applicationProperty.getProperty("ckdusername") + ":" + applicationProperty.getProperty("ckdpassword") + ":" + " SF";
 	    byte[] message = authString.getBytes(StandardCharsets.UTF_8);
 	    String auth = Base64.getEncoder().encodeToString(message);
 	    

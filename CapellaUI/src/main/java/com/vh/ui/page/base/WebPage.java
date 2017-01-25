@@ -9,6 +9,7 @@ import com.vh.ui.exceptions.WaitException;
 import com.vh.ui.pages.WebLoginPage;
 import com.vh.ui.utilities.Logg;
 import com.vh.ui.utilities.Utilities;
+import com.vh.ui.waits.WebDriverWaits;
 
 /*  
  * @author Rishi Khanna
@@ -22,12 +23,14 @@ public class WebPage extends Page {
 	protected WebDriver driver;
 	protected WebActions webActions;
 	protected String webStrTempVar;
+	protected WebDriverWaits wait;
 	protected static final Logger log = Logg.createLogger();
 
 	public WebPage(WebDriver driver) throws WaitException {
 		super(driver);
 		this.setDriver(driver);
 		this.webActions = new WebActions(driver);
+		this.wait = new WebDriverWaits();
 	}
 
 	public WebPage navigateTo(String url) throws URLNavigationException,

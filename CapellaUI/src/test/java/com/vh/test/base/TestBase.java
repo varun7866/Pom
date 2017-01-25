@@ -7,14 +7,22 @@ import java.io.IOException;
 import java.io.PrintWriter;
 import java.io.StringWriter;
 import java.lang.reflect.Method;
+import java.sql.Connection;
+import java.sql.ResultSet;
+import java.sql.Statement;
+import java.util.ArrayList;
+import java.util.Iterator;
+import java.util.List;
 import java.util.Properties;
 
 import org.apache.log4j.Logger;
 import org.openqa.selenium.WebDriver;
 import org.testng.ITestResult;
 import org.testng.annotations.AfterMethod;
+import org.testng.annotations.DataProvider;
 
 import com.vh.ui.drivers.LocalBrowserDriver;
+import com.vh.ui.excel.ReadExcel;
 import com.vh.ui.utilities.Logg;
 import com.vh.ui.utilities.PropertyManager;
 import com.vh.ui.utilities.Utilities;
@@ -35,6 +43,7 @@ public class TestBase {
 	protected static String[][] strorage = null;
 	protected final static Properties applicationProperty = PropertyManager
 			.loadApplicationPropertyFile("application.properties");
+	WebDriver driver;
 
 //	@DataProvider(name = "ReadExcel")
 //	public String[][] readDataFromExcel(Method m) throws Exception {
@@ -72,7 +81,8 @@ public class TestBase {
 
 		if (result.isSuccess()) {
 			log.info(Utilities.getCurrentThreadId() + "Test Case PASSED.");
-		} else {
+		} else if(result.getStatus() == ITestResult.FAILURE) {
+			Utilities.captureScreenshot(driver, m.getName());
 			log.info(Utilities.getCurrentThreadId() + "Test Case Failed.");
 		}
 		log.info(Utilities.getCurrentThreadId() + "Proceeding to close the driver for method " + m.getName());
@@ -95,6 +105,15 @@ public class TestBase {
 //
 	@Step("Launching the browser")
 	protected WebDriver getWebDriver() {
-			return LocalBrowserDriver.getInstance().getDriver();
+		driver = LocalBrowserDriver.getInstance().getDriver();
+		return driver;
+	}
+	
+	@DataProvider(name="dp1")
+	public Iterator<Object[]> readTestData() throws IOException
+	{
+		System.out.println("inside test base : " + this.getClass().getSimpleName());
+		List list = ReadExcel.readTestData(this.getClass().getSimpleName(), this.getClass().getSimpleName());		
+		return list.iterator();
 	}
 }

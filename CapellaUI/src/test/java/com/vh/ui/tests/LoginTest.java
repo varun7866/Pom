@@ -6,7 +6,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.TimeoutException;
 import org.openqa.selenium.WebDriver;
 import org.testng.Assert;
-import org.testng.annotations.AfterTest;
+import org.testng.annotations.AfterClass;
 import org.testng.annotations.Test;
 
 import com.vh.test.base.TestBase;
@@ -26,54 +26,54 @@ public class LoginTest  extends TestBase{
 	WebMyDashboardPage webMyDashboardpage;
 	ApplicationFunctions app;
 	
-//	@Test
-//	@Step("Verify Invalid UserName")
-//	public void verify_InvalidUserName() throws WaitException, URLNavigationException, InterruptedException
-//	{
-//		
-//		pageBase = new WebPage(getWebDriver());
-//		webLoginPage = (WebLoginPage) pageBase.navigateTo(applicationProperty.getProperty("webURL"));
-//		Thread.sleep(5000);
-//		
-//		Assert.assertTrue(webLoginPage.viewUserNameTextField(), "Failed to identify UserName text field");
-//		Assert.assertTrue(webLoginPage.viewPasswordTextField(), "Failed to identify Password text field");
-//		Assert.assertTrue(webLoginPage.viewTokenTextField(), "Failed to identify Token text field");
-//		webLoginPage.enterUserName("vhnta");
-//		webLoginPage.enterPassword("test123");
-//		webLoginPage.enterToken("111111");
-//		
-//		webLoginPage.clickLogin();
-//		
-//		Assert.assertEquals(webLoginPage.getLoginErrorMessage(), "Invalid username / password combination");
-//	}
-//	
-//	@Test
-//	@Step("Verify Invalid Password")
-//	public void verify_InvalidPassword() throws WaitException, URLNavigationException, InterruptedException
-//	{
-//		
-//		pageBase = new WebPage(getWebDriver());
-//		webLoginPage = (WebLoginPage) pageBase.navigateTo(applicationProperty.getProperty("webURL"));
-//		Thread.sleep(5000);
-//		
-//		Assert.assertTrue(webLoginPage.viewUserNameTextField(), "Failed to identify UserName text field");
-//		Assert.assertTrue(webLoginPage.viewPasswordTextField(), "Failed to identify Password text field");
-//		Assert.assertTrue(webLoginPage.viewTokenTextField(), "Failed to identify Token text field");
-//		webLoginPage.enterUserName("vhnlb");
-//		webLoginPage.enterPassword("test1234");
-//		webLoginPage.enterToken("111111");
-//		
-//		webLoginPage.clickLogin();
-//		
-//		Assert.assertEquals(webLoginPage.getLoginErrorMessage(), "Invalid username / password combination");
-//	}
+	@Test
+	@Step("Verify Invalid UserName")
+	public void verify_InvalidUserName() throws WaitException, URLNavigationException, InterruptedException
+	{
+		
+		pageBase = new WebPage(getWebDriver());
+		webLoginPage = (WebLoginPage) pageBase.navigateTo(applicationProperty.getProperty("webURL"));
+		Thread.sleep(5000);
+		
+		Assert.assertTrue(webLoginPage.viewUserNameTextField(), "Failed to identify UserName text field");
+		Assert.assertTrue(webLoginPage.viewPasswordTextField(), "Failed to identify Password text field");
+		Assert.assertTrue(webLoginPage.viewTokenTextField(), "Failed to identify Token text field");
+		webLoginPage.enterUserName("vhnta");
+		webLoginPage.enterPassword("test123");
+		webLoginPage.enterToken("111111");
+		
+		webLoginPage.clickLogin();
+		
+		Assert.assertEquals(webLoginPage.getLoginErrorMessage(), "Invalid username / password combination");
+	}
+	
+	@Test
+	@Step("Verify Invalid Password")
+	public void verify_InvalidPassword() throws WaitException, URLNavigationException, InterruptedException
+	{
+		
+		pageBase = new WebPage(getWebDriver());
+		webLoginPage = (WebLoginPage) pageBase.navigateTo(applicationProperty.getProperty("webURL"));
+		Thread.sleep(5000);
+		
+		Assert.assertTrue(webLoginPage.viewUserNameTextField(), "Failed to identify UserName text field");
+		Assert.assertTrue(webLoginPage.viewPasswordTextField(), "Failed to identify Password text field");
+		Assert.assertTrue(webLoginPage.viewTokenTextField(), "Failed to identify Token text field");
+		webLoginPage.enterUserName("vhnlb");
+		webLoginPage.enterPassword("test1234");
+		webLoginPage.enterToken("111111");
+		
+		webLoginPage.clickLogin();
+		
+		Assert.assertEquals(webLoginPage.getLoginErrorMessage(), "Invalid username / password combination");
+	}
 	
 	@Test
 	@Step("Verify Successful Login")
 	public void verify_SuccessfulLogin() throws WaitException, URLNavigationException, InterruptedException
 	{
-		app = new ApplicationFunctions(pageBase.getDriver());
 		pageBase = new WebPage(getWebDriver());
+		app = new ApplicationFunctions(pageBase.getDriver());
 		webLoginPage = (WebLoginPage) pageBase.navigateTo(applicationProperty.getProperty("webURL"));
 		Thread.sleep(5000);
 		
@@ -102,7 +102,7 @@ public class LoginTest  extends TestBase{
         String text = driver.findElement(By.id("uploaded-files")).getText();
     }
 	
-	@AfterTest
+	@AfterClass
 	public void tearDown() throws TimeoutException, WaitException
 	{
 		app.capellaLogOut();

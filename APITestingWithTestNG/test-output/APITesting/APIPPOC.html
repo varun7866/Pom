@@ -55,11 +55,11 @@ function toggleAllBoxes() {
 <body>
 <h2 align='center'>APIPPOC</h2><table border='1' align="center">
 <tr>
-<td>Tests passed/Failed/Skipped:</td><td>9/1/0</td>
+<td>Tests passed/Failed/Skipped:</td><td>3/0/0</td>
 </tr><tr>
-<td>Started on:</td><td>Sun Nov 20 15:41:01 CST 2016</td>
+<td>Started on:</td><td>Mon Jan 23 14:27:58 CST 2017</td>
 </tr>
-<tr><td>Total time:</td><td>45 seconds (45577 ms)</td>
+<tr><td>Total time:</td><td>19 seconds (19846 ms)</td>
 </tr><tr>
 <td>Included groups:</td><td></td>
 </tr><tr>
@@ -67,53 +67,6 @@ function toggleAllBoxes() {
 </tr>
 </table><p/>
 <small><i>(Hover the method name to see the test class name)</i></small><p/>
-<table width='100%' border='1' class='invocation-failed'>
-<tr><td colspan='4' align='center'><b>FAILED TESTS</b></td></tr>
-<tr><td><b>Test method</b></td>
-<td width="30%"><b>Exception</b></td>
-<td width="10%"><b>Time (seconds)</b></td>
-<td><b>Instance</b></td>
-</tr>
-<tr>
-<td title='com.vh.api.test.UserAPITest.GetVHNChartMetricDataTest()'><b>GetVHNChartMetricDataTest</b><br>Test class: com.vh.api.test.UserAPITest</td>
-<td><div><pre>java.lang.AssertionError: Response status value  expected [2] but found [3]
-	at com.vh.api.user.steps.UserSteps.GetVHNChartMetricData(UserSteps.java:72)
-	at com.vh.api.test.UserAPITest.GetVHNChartMetricDataTest(UserAPITest.java:47)
-... Removed 27 stack frames</pre></div><a href='#' onClick='toggleBox("stack-trace1038607730", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
-<div class='stack-trace' id='stack-trace1038607730'><pre>java.lang.AssertionError: Response status value  expected [2] but found [3]
-	at org.testng.Assert.fail(Assert.java:94)
-	at org.testng.Assert.failNotEquals(Assert.java:496)
-	at org.testng.Assert.assertEquals(Assert.java:125)
-	at com.vh.api.user.steps.UserSteps.GetVHNChartMetricData(UserSteps.java:72)
-	at com.vh.api.test.UserAPITest.GetVHNChartMetricDataTest(UserAPITest.java:47)
-	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
-	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
-	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
-	at java.lang.reflect.Method.invoke(Method.java:497)
-	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:85)
-	at org.testng.internal.Invoker.invokeMethod(Invoker.java:639)
-	at org.testng.internal.Invoker.invokeTestMethod(Invoker.java:816)
-	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:1124)
-	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:125)
-	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:108)
-	at org.testng.TestRunner.privateRun(TestRunner.java:774)
-	at org.testng.TestRunner.run(TestRunner.java:624)
-	at org.testng.SuiteRunner.runTest(SuiteRunner.java:359)
-	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:354)
-	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:312)
-	at org.testng.SuiteRunner.run(SuiteRunner.java:261)
-	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
-	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:86)
-	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1215)
-	at org.testng.TestNG.runSuitesLocally(TestNG.java:1140)
-	at org.testng.TestNG.run(TestNG.java:1048)
-	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:132)
-	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:236)
-	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:81)
-</pre></div></td>
-<td>1</td>
-<td>com.vh.api.test.UserAPITest@6aa7b67f</td></tr>
-</table><p>
 <table width='100%' border='1' class='invocation-passed'>
 <tr><td colspan='4' align='center'><b>PASSED TESTS</b></td></tr>
 <tr><td><b>Test method</b></td>
@@ -122,50 +75,20 @@ function toggleAllBoxes() {
 <td><b>Instance</b></td>
 </tr>
 <tr>
-<td title='com.vh.api.test.UtilityAPITest.GetMenuOfActionTest()'><b>GetMenuOfActionTest</b><br>Test class: com.vh.api.test.UtilityAPITest</td>
+<td title='com.vh.api.test.CKDTest.getTermDetails()'><b>getTermDetails</b><br>Test class: com.vh.api.test.CKDTest<br>Parameters: 213544, NERMS</td>
 <td></td>
-<td>1</td>
-<td>com.vh.api.test.UtilityAPITest@6bcc3f27</td></tr>
+<td>14</td>
+<td>com.vh.api.test.CKDTest@545b5ed0</td></tr>
 <tr>
-<td title='com.vh.api.test.DemographicsAPITest.GetPatientDetailsTest()'><b>GetPatientDetailsTest</b><br>Test class: com.vh.api.test.DemographicsAPITest<br>Parameters: 147882, Demographics</td>
-<td></td>
-<td>28</td>
-<td>com.vh.api.test.DemographicsAPITest@2721044</td></tr>
-<tr>
-<td title='com.vh.api.test.DemographicsAPITest.GetPatientDetailsTest()'><b>GetPatientDetailsTest</b><br>Test class: com.vh.api.test.DemographicsAPITest<br>Parameters: 147882, Programs</td>
+<td title='com.vh.api.test.CKDTest.getTermDetails()'><b>getTermDetails</b><br>Test class: com.vh.api.test.CKDTest<br>Parameters: 99999, UNRCH</td>
 <td></td>
 <td>0</td>
-<td>com.vh.api.test.DemographicsAPITest@2721044</td></tr>
+<td>com.vh.api.test.CKDTest@545b5ed0</td></tr>
 <tr>
-<td title='com.vh.api.test.DemographicsAPITest.GetPatientDetailsTest()'><b>GetPatientDetailsTest</b><br>Test class: com.vh.api.test.DemographicsAPITest<br>Parameters: 147882, EnrollmentDetails</td>
+<td title='com.vh.api.test.APITest.validateAllApiCalls()'><b>validateAllApiCalls</b><br>Test class: com.vh.api.test.APITest</td>
 <td></td>
-<td>1</td>
-<td>com.vh.api.test.DemographicsAPITest@2721044</td></tr>
-<tr>
-<td title='com.vh.api.test.DemographicsAPITest.GetPatientDetailsTest()'><b>GetPatientDetailsTest</b><br>Test class: com.vh.api.test.DemographicsAPITest<br>Parameters: 147882, MemberIdentifiers</td>
-<td></td>
-<td>0</td>
-<td>com.vh.api.test.DemographicsAPITest@2721044</td></tr>
-<tr>
-<td title='com.vh.api.test.DemographicsAPITest.GetPatientDetailsTest()'><b>GetPatientDetailsTest</b><br>Test class: com.vh.api.test.DemographicsAPITest<br>Parameters: 147882, PtSchedule</td>
-<td></td>
-<td>0</td>
-<td>com.vh.api.test.DemographicsAPITest@2721044</td></tr>
-<tr>
-<td title='com.vh.api.test.DemographicsAPITest.GetPatientDetailsTest()'><b>GetPatientDetailsTest</b><br>Test class: com.vh.api.test.DemographicsAPITest<br>Parameters: 147882, PECheck</td>
-<td></td>
-<td>3</td>
-<td>com.vh.api.test.DemographicsAPITest@2721044</td></tr>
-<tr>
-<td title='com.vh.api.test.PatientAPITest.GetPtContactsTest()'><b>GetPtContactsTest</b><br>Test class: com.vh.api.test.PatientAPITest<br>Parameters: 202937, 2016-10-19T00:00:00, 2016-11-19T00:00:00</td>
-<td></td>
-<td>0</td>
-<td>com.vh.api.test.PatientAPITest@205df5dc</td></tr>
-<tr>
-<td title='com.vh.api.test.UserAPITest.GetTeamUsersAllTest()'><b>GetTeamUsersAllTest</b><br>Test class: com.vh.api.test.UserAPITest</td>
-<td></td>
-<td>1</td>
-<td>com.vh.api.test.UserAPITest@6aa7b67f</td></tr>
+<td>4</td>
+<td>com.vh.api.test.APITest@5a7df831</td></tr>
 </table><p>
 </body>
 </html>

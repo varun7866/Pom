@@ -22,7 +22,7 @@ public class Logg {
 	private static Logger LOGGER;
 	private static final String FILENAME = "defaultlog";
 	private static final String DATEANDTIMEFORMAT = "MM-dd-yyyy_hh.mm.ss";
-	private static final String LOGPROPERTTFILEPATH = "./src/main/resources/log4j.properties";
+	private static final String LOGPROPERTTFILEPATH = "./resources/log4j.properties";
 
 	private Logg() {
 	}

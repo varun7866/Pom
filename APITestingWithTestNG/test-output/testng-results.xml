@@ -1,17 +1,43 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testng-results skipped="0" failed="0" total="2" passed="2">
+<testng-results skipped="0" failed="0" total="3" passed="3">
   <reporter-output>
   </reporter-output>
-  <suite name="Default suite" duration-ms="13974" started-at="2017-01-11T22:17:04Z" finished-at="2017-01-11T22:17:18Z">
+  <suite name="APITesting" duration-ms="19846" started-at="2017-01-23T20:27:58Z" finished-at="2017-01-23T20:28:18Z">
     <groups>
     </groups>
-    <test name="Default test" duration-ms="13974" started-at="2017-01-11T22:17:04Z" finished-at="2017-01-11T22:17:18Z">
+    <test name="APIPPOC" duration-ms="19846" started-at="2017-01-23T20:27:58Z" finished-at="2017-01-23T20:28:18Z">
+      <class name="com.vh.api.test.APITest">
+        <test-method status="PASS" signature="validateAllApiCalls()[pri:0, instance:com.vh.api.test.APITest@5a7df831]" name="validateAllApiCalls" duration-ms="4948" started-at="2017-01-23T14:28:13Z" finished-at="2017-01-23T14:28:18Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- validateAllApiCalls -->
+        <test-method status="PASS" signature="afterTest(java.lang.reflect.Method, org.testng.ITestResult)[pri:0, instance:com.vh.api.test.APITest@5a7df831]" name="afterTest" is-config="true" duration-ms="1" started-at="2017-01-23T14:28:18Z" finished-at="2017-01-23T14:28:18Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[public void com.vh.api.test.APITest.validateAllApiCalls()]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[[TestResult name=validateAllApiCalls status=SUCCESS method=APITest.validateAllApiCalls()[pri:0, instance:com.vh.api.test.APITest@5a7df831] output={null}]]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- afterTest -->
+        <test-method status="PASS" signature="tearDown()[pri:0, instance:com.vh.api.test.APITest@5a7df831]" name="tearDown" is-config="true" duration-ms="0" started-at="2017-01-23T14:28:18Z" finished-at="2017-01-23T14:28:18Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- tearDown -->
+      </class> <!-- com.vh.api.test.APITest -->
       <class name="com.vh.api.test.CKDTest">
-        <test-method status="PASS" signature="ckdAuthorize()[pri:0, instance:com.vh.api.test.CKDTest@42aae04d]" name="ckdAuthorize" is-config="true" duration-ms="35" started-at="2017-01-11T16:17:04Z" finished-at="2017-01-11T16:17:04Z">
+        <test-method status="PASS" signature="ckdAuthorize()[pri:0, instance:com.vh.api.test.CKDTest@545b5ed0]" name="ckdAuthorize" is-config="true" duration-ms="291" started-at="2017-01-23T14:27:58Z" finished-at="2017-01-23T14:27:59Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- ckdAuthorize -->
-        <test-method status="PASS" signature="getTermDetails(java.lang.String, java.lang.String)[pri:0, instance:com.vh.api.test.CKDTest@42aae04d]" name="getTermDetails" duration-ms="13222" started-at="2017-01-11T16:17:04Z" data-provider="memDetails" finished-at="2017-01-11T16:17:17Z">
+        <test-method status="PASS" signature="getTermDetails(java.lang.String, java.lang.String)[pri:0, instance:com.vh.api.test.CKDTest@545b5ed0]" name="getTermDetails" duration-ms="14070" started-at="2017-01-23T14:27:59Z" data-provider="memDetails" finished-at="2017-01-23T14:28:13Z">
           <params>
             <param index="0">
               <value>
@@ -27,7 +53,23 @@
           <reporter-output>
           </reporter-output>
         </test-method> <!-- getTermDetails -->
-        <test-method status="PASS" signature="getTermDetails(java.lang.String, java.lang.String)[pri:0, instance:com.vh.api.test.CKDTest@42aae04d]" name="getTermDetails" duration-ms="640" started-at="2017-01-11T16:17:17Z" data-provider="memDetails" finished-at="2017-01-11T16:17:18Z">
+        <test-method status="PASS" signature="afterTest(java.lang.reflect.Method, org.testng.ITestResult)[pri:0, instance:com.vh.api.test.CKDTest@545b5ed0]" name="afterTest" is-config="true" duration-ms="3" started-at="2017-01-23T14:28:13Z" finished-at="2017-01-23T14:28:13Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[public void com.vh.api.test.CKDTest.getTermDetails(java.lang.String,java.lang.String)]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[[TestResult name=getTermDetails status=SUCCESS method=CKDTest.getTermDetails(java.lang.String, java.lang.String)[pri:0, instance:com.vh.api.test.CKDTest@545b5ed0] output={null}]]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- afterTest -->
+        <test-method status="PASS" signature="getTermDetails(java.lang.String, java.lang.String)[pri:0, instance:com.vh.api.test.CKDTest@545b5ed0]" name="getTermDetails" duration-ms="440" started-at="2017-01-23T14:28:13Z" data-provider="memDetails" finished-at="2017-01-23T14:28:13Z">
           <params>
             <param index="0">
               <value>
@@ -43,7 +85,23 @@
           <reporter-output>
           </reporter-output>
         </test-method> <!-- getTermDetails -->
+        <test-method status="PASS" signature="afterTest(java.lang.reflect.Method, org.testng.ITestResult)[pri:0, instance:com.vh.api.test.CKDTest@545b5ed0]" name="afterTest" is-config="true" duration-ms="1" started-at="2017-01-23T14:28:13Z" finished-at="2017-01-23T14:28:13Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[public void com.vh.api.test.CKDTest.getTermDetails(java.lang.String,java.lang.String)]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[[TestResult name=getTermDetails status=SUCCESS method=CKDTest.getTermDetails(java.lang.String, java.lang.String)[pri:0, instance:com.vh.api.test.CKDTest@545b5ed0] output={null}]]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- afterTest -->
       </class> <!-- com.vh.api.test.CKDTest -->
-    </test> <!-- Default test -->
-  </suite> <!-- Default suite -->
+    </test> <!-- APIPPOC -->
+  </suite> <!-- APITesting -->
 </testng-results>

@@ -1,860 +1,482 @@
-›¹Â£*~wne4¶Ë©3Úš¹Â¢*~woe4¶Ê©3Úš¹Â¢*~woe4¶Ê©3Úš¹Â¢*~woe4¶Ê©3Úš¹Â¢*~woe4¶Ê©3Úš¹Â¢*~woe4¶Ê©3Úš¹Â¢*~woe4¶Ê©3Úš¹Â¢*~woe4¶Ê©3Úš¹Â¢*~woe4¶Ê©3Úš¹Â¢*~woe4¶Ê©3Úš¹Â¢*~woe4¶Ê©3Úš¹Â¢*~woe4¶Ê©3Úš¹Â¢*~woe4¶Ê©3Úš¹Â¢*~woe01/05/2017 14:04:57.113 CST ERROR (utilities.Logg:>>>readTestData:[79]) Thread:1	-FileNotFoundException in the readTestData() method of ReadExcel Class
+›¹Â£*~wne4¶Ë©3Úš¹Â¢*~woe4¶Ê©3Úš¹Â¢*~woe4¶Ê©3Úš¹Â¢*~woe4¶Ê©3Úš¹Â¢*~woe4¶Ê©3Úš¹Â¢*~woe4¶Ê©3Úš¹Â¢*~woe4¶Ê©3Úš¹Â¢*~woe4¶Ê©3Úš¹Â¢*~woe4¶Ê©3Úš¹Â¢*~woe4¶Ê©3Úš¹Â¢*~woe4¶Ê©3Úš¹Â¢*~woe4¶Ê©3Úš¹Â¢*~woe4¶Ê©3Úš¹Â¢*~woe4¶Ê©3Úš¹Â¢*~woe01/12/2017 13:36:07.792 CST INFO  (utilities.Logg:>>>getTermDetails:[46]) Testing Get :: https://capellawebqa.com/SalesForce/Termination/GetTermDetails?memberId=213544
+----------------------------------------------------------------
+01/12/2017 13:36:22.412 CST INFO  (utilities.Logg:>>>getTermDetails:[62]) https://capellawebqa.com/SalesForce/Termination/GetTermDetails?memberId=213544 :: NERMS
+----------------------------------------------------------------
+01/12/2017 13:36:22.441 CST INFO  (utilities.Logg:>>>getTermDetails:[46]) Testing Get :: https://capellawebqa.com/SalesForce/Termination/GetTermDetails?memberId=99999
+----------------------------------------------------------------
+01/12/2017 13:36:22.888 CST INFO  (utilities.Logg:>>>getTermDetails:[62]) https://capellawebqa.com/SalesForce/Termination/GetTermDetails?memberId=99999 :: UNRCH
+----------------------------------------------------------------
+01/12/2017 13:40:43.926 CST INFO  (utilities.Logg:>>>getTermDetails:[46]) Testing Get :: https://capellawebqa.com/SalesForce/Termination/GetTermDetails?memberId=213544
+----------------------------------------------------------------
+01/12/2017 13:40:57.799 CST INFO  (utilities.Logg:>>>getTermDetails:[62]) https://capellawebqa.com/SalesForce/Termination/GetTermDetails?memberId=213544 :: NERMS
+----------------------------------------------------------------
+01/12/2017 13:40:57.817 CST INFO  (utilities.Logg:>>>getTermDetails:[46]) Testing Get :: https://capellawebqa.com/SalesForce/Termination/GetTermDetails?memberId=99999
+----------------------------------------------------------------
+01/12/2017 13:40:58.317 CST INFO  (utilities.Logg:>>>getTermDetails:[62]) https://capellawebqa.com/SalesForce/Termination/GetTermDetails?memberId=99999 :: UNRCH
+----------------------------------------------------------------
+01/12/2017 13:42:40.431 CST INFO  (utilities.Logg:>>>getTermDetails:[46]) Testing Get :: https://capellawebqa.com/SalesForce/Termination/GetTermDetails?memberId=213544
+----------------------------------------------------------------
+01/12/2017 13:42:53.698 CST INFO  (utilities.Logg:>>>getTermDetails:[62]) https://capellawebqa.com/SalesForce/Termination/GetTermDetails?memberId=213544 :: NERMS
+----------------------------------------------------------------
+01/12/2017 13:42:53.715 CST INFO  (utilities.Logg:>>>getTermDetails:[46]) Testing Get :: https://capellawebqa.com/SalesForce/Termination/GetTermDetails?memberId=99999
+----------------------------------------------------------------
+01/12/2017 13:42:54.244 CST INFO  (utilities.Logg:>>>getTermDetails:[62]) https://capellawebqa.com/SalesForce/Termination/GetTermDetails?memberId=99999 :: UNRCH
+----------------------------------------------------------------
+01/12/2017 13:59:51.248 CST INFO  (utilities.Logg:>>>loadFrameworkPropertyFile:[53]) IOException in the loadFrameworkPropertyFile() method of the PropertyManager class
+----------------------------------------------------------------
+java.io.FileNotFoundException: resources\framework.properties (The system cannot find the file specified)
+	at java.io.FileInputStream.open0(Native Method)
+	at java.io.FileInputStream.open(FileInputStream.java:195)
+	at java.io.FileInputStream.<init>(FileInputStream.java:138)
+	at java.io.FileInputStream.<init>(FileInputStream.java:93)
+	at com.vh.api.reader.PropertyManager.loadFrameworkPropertyFile(PropertyManager.java:34)
+	at com.vh.api.base.TestBase.<clinit>(TestBase.java:23)
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:62)
+	at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
+	at java.lang.reflect.Constructor.newInstance(Constructor.java:422)
+	at org.testng.internal.ObjectFactoryImpl.newInstance(ObjectFactoryImpl.java:29)
+	at org.testng.internal.ClassHelper.createInstance1(ClassHelper.java:382)
+	at org.testng.internal.ClassHelper.createInstance(ClassHelper.java:295)
+	at org.testng.internal.ClassImpl.getDefaultInstance(ClassImpl.java:118)
+	at org.testng.internal.ClassImpl.getInstances(ClassImpl.java:183)
+	at org.testng.internal.TestNGClassFinder.<init>(TestNGClassFinder.java:128)
+	at org.testng.TestRunner.initMethods(TestRunner.java:416)
+	at org.testng.TestRunner.init(TestRunner.java:242)
+	at org.testng.TestRunner.init(TestRunner.java:212)
+	at org.testng.TestRunner.<init>(TestRunner.java:166)
+	at org.testng.remote.support.RemoteTestNG6_9_7$1.newTestRunner(RemoteTestNG6_9_7.java:26)
+	at org.testng.remote.support.RemoteTestNG6_9_7$DelegatingTestRunnerFactory.newTestRunner(RemoteTestNG6_9_7.java:59)
+	at org.testng.SuiteRunner$ProxyTestRunnerFactory.newTestRunner(SuiteRunner.java:587)
+	at org.testng.SuiteRunner.init(SuiteRunner.java:161)
+	at org.testng.SuiteRunner.<init>(SuiteRunner.java:114)
+	at org.testng.TestNG.createSuiteRunner(TestNG.java:1290)
+	at org.testng.TestNG.createSuiteRunners(TestNG.java:1277)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1131)
+	at org.testng.TestNG.run(TestNG.java:1048)
+	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:132)
+	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:236)
+	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:81)
+01/12/2017 14:01:14.145 CST INFO  (utilities.Logg:>>>loadFrameworkPropertyFile:[53]) IOException in the loadFrameworkPropertyFile() method of the PropertyManager class
 ----------------------------------------------------------------
-01/05/2017 14:04:57.149 CST INFO  (utilities.Logg:>>>afterTest:[52]) Test Case PASSED.validateAllApiCalls
+java.io.FileNotFoundException: resources\framework.properties (The system cannot find the file specified)
+	at java.io.FileInputStream.open0(Native Method)
+	at java.io.FileInputStream.open(FileInputStream.java:195)
+	at java.io.FileInputStream.<init>(FileInputStream.java:138)
+	at java.io.FileInputStream.<init>(FileInputStream.java:93)
+	at com.vh.api.reader.PropertyManager.loadFrameworkPropertyFile(PropertyManager.java:34)
+	at com.vh.api.base.TestBase.<clinit>(TestBase.java:23)
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:62)
+	at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
+	at java.lang.reflect.Constructor.newInstance(Constructor.java:422)
+	at org.testng.internal.ObjectFactoryImpl.newInstance(ObjectFactoryImpl.java:29)
+	at org.testng.internal.ClassHelper.createInstance1(ClassHelper.java:382)
+	at org.testng.internal.ClassHelper.createInstance(ClassHelper.java:295)
+	at org.testng.internal.ClassImpl.getDefaultInstance(ClassImpl.java:118)
+	at org.testng.internal.ClassImpl.getInstances(ClassImpl.java:183)
+	at org.testng.internal.TestNGClassFinder.<init>(TestNGClassFinder.java:128)
+	at org.testng.TestRunner.initMethods(TestRunner.java:416)
+	at org.testng.TestRunner.init(TestRunner.java:242)
+	at org.testng.TestRunner.init(TestRunner.java:212)
+	at org.testng.TestRunner.<init>(TestRunner.java:166)
+	at org.testng.remote.support.RemoteTestNG6_9_7$1.newTestRunner(RemoteTestNG6_9_7.java:26)
+	at org.testng.remote.support.RemoteTestNG6_9_7$DelegatingTestRunnerFactory.newTestRunner(RemoteTestNG6_9_7.java:59)
+	at org.testng.SuiteRunner$ProxyTestRunnerFactory.newTestRunner(SuiteRunner.java:587)
+	at org.testng.SuiteRunner.init(SuiteRunner.java:161)
+	at org.testng.SuiteRunner.<init>(SuiteRunner.java:114)
+	at org.testng.TestNG.createSuiteRunner(TestNG.java:1290)
+	at org.testng.TestNG.createSuiteRunners(TestNG.java:1277)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1131)
+	at org.testng.TestNG.run(TestNG.java:1048)
+	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:132)
+	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:236)
+	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:81)
+01/12/2017 14:01:35.629 CST INFO  (utilities.Logg:>>>getTermDetails:[39]) Testing Get :: https://capellawebqa.com/SalesForce/Termination/GetTermDetails?memberId=213544
 ----------------------------------------------------------------
-01/05/2017 23:19:10.206 CST INFO  (utilities.Logg:>>>getColumnCount:[49]) Thread:1	-column count for a Row 40
+01/12/2017 14:01:48.976 CST INFO  (utilities.Logg:>>>afterTest:[65]) Test Case Failed.getTermDetails
 ----------------------------------------------------------------
-01/05/2017 23:19:10.261 CST INFO  (utilities.Logg:>>>verifyPostCall:[159]) Testing Post :: /api/CapellaBase/CurrentUser
+01/12/2017 14:01:48.985 CST INFO  (utilities.Logg:>>>getTermDetails:[39]) Testing Get :: https://capellawebqa.com/SalesForce/Termination/GetTermDetails?memberId=99999
 ----------------------------------------------------------------
-01/05/2017 23:19:21.834 CST INFO  (utilities.Logg:>>>verifyPostCall:[184]) /api/CapellaBase/CurrentUser:: 200
+01/12/2017 14:01:49.356 CST INFO  (utilities.Logg:>>>afterTest:[65]) Test Case Failed.getTermDetails
 ----------------------------------------------------------------
-01/05/2017 23:19:21.848 CST INFO  (utilities.Logg:>>>afterTest:[52]) Test Case PASSED.validateAllApiCalls
+01/12/2017 14:02:15.001 CST INFO  (utilities.Logg:>>>getTermDetails:[39]) Testing Get :: https://capellawebqa.com/SalesForce/Termination/GetTermDetails?memberId=213544
 ----------------------------------------------------------------
-01/05/2017 23:21:05.491 CST INFO  (utilities.Logg:>>>getColumnCount:[49]) Thread:1	-column count for a Row 40
+01/12/2017 14:02:28.053 CST INFO  (utilities.Logg:>>>afterTest:[65]) Test Case Failed.getTermDetails
 ----------------------------------------------------------------
-01/05/2017 23:21:05.565 CST INFO  (utilities.Logg:>>>verifyPostCall:[159]) Testing Post :: /api/CapellaBase/CurrentUser
+01/12/2017 14:02:28.063 CST INFO  (utilities.Logg:>>>getTermDetails:[39]) Testing Get :: https://capellawebqa.com/SalesForce/Termination/GetTermDetails?memberId=99999
 ----------------------------------------------------------------
-01/05/2017 23:23:18.145 CST INFO  (utilities.Logg:>>>afterTest:[52]) Test Case PASSED.validateAllApiCalls
+01/12/2017 14:02:28.463 CST INFO  (utilities.Logg:>>>afterTest:[65]) Test Case Failed.getTermDetails
 ----------------------------------------------------------------
-01/05/2017 23:23:38.490 CST INFO  (utilities.Logg:>>>getColumnCount:[49]) Thread:1	-column count for a Row 40
+01/12/2017 14:04:08.784 CST INFO  (utilities.Logg:>>>getTermDetails:[39]) Testing Get :: https://capellawebqa.com/SalesForce/Termination/GetTermDetails?memberId=213544
 ----------------------------------------------------------------
-01/05/2017 23:23:38.539 CST INFO  (utilities.Logg:>>>verifyPostCall:[159]) Testing Post :: /api/CapellaBase/CurrentUser
+01/12/2017 14:04:21.638 CST INFO  (utilities.Logg:>>>afterTest:[65]) Test Case Failed.getTermDetails
 ----------------------------------------------------------------
-01/05/2017 23:23:53.776 CST INFO  (utilities.Logg:>>>verifyPostCall:[184]) /api/CapellaBase/CurrentUser:: 200
+01/12/2017 14:04:21.644 CST INFO  (utilities.Logg:>>>getTermDetails:[39]) Testing Get :: https://capellawebqa.com/SalesForce/Termination/GetTermDetails?memberId=99999
 ----------------------------------------------------------------
-01/05/2017 23:23:53.799 CST INFO  (utilities.Logg:>>>afterTest:[52]) Test Case PASSED.validateAllApiCalls
+01/12/2017 14:04:22.035 CST INFO  (utilities.Logg:>>>afterTest:[65]) Test Case Failed.getTermDetails
 ----------------------------------------------------------------
-01/05/2017 23:25:30.396 CST INFO  (utilities.Logg:>>>getColumnCount:[49]) Thread:1	-column count for a Row 12
+01/12/2017 14:04:56.889 CST INFO  (utilities.Logg:>>>getTermDetails:[39]) Testing Get :: https://capellawebqa.com/SalesForce/Termination/GetTermDetails?memberId=213544
 ----------------------------------------------------------------
-01/05/2017 23:25:30.464 CST INFO  (utilities.Logg:>>>verifyPostCall:[159]) Testing Post :: /api/Demographics/GetPatientDetails
+01/12/2017 14:05:09.488 CST INFO  (utilities.Logg:>>>afterTest:[65]) Test Case Failed.getTermDetails
 ----------------------------------------------------------------
-01/05/2017 23:25:44.699 CST INFO  (utilities.Logg:>>>verifyPostCall:[184]) /api/Demographics/GetPatientDetails:: 200
+01/12/2017 14:05:09.495 CST INFO  (utilities.Logg:>>>getTermDetails:[39]) Testing Get :: https://capellawebqa.com/SalesForce/Termination/GetTermDetails?memberId=99999
 ----------------------------------------------------------------
-01/05/2017 23:25:44.703 CST INFO  (utilities.Logg:>>>verifyPostCall:[159]) Testing Post :: /api/Utility/GetMenuOfAction
+01/12/2017 14:05:09.860 CST INFO  (utilities.Logg:>>>afterTest:[65]) Test Case Failed.getTermDetails
 ----------------------------------------------------------------
-01/05/2017 23:25:47.712 CST INFO  (utilities.Logg:>>>verifyPostCall:[184]) /api/Utility/GetMenuOfAction:: 200
+01/12/2017 14:05:50.508 CST INFO  (utilities.Logg:>>>getTermDetails:[39]) Testing Get :: https://capellawebqa.com/SalesForce/Termination/GetTermDetails?memberId=213544
 ----------------------------------------------------------------
-01/05/2017 23:25:47.715 CST INFO  (utilities.Logg:>>>verifyGetCall:[136]) Testing Get :: /api/User/GetTeamUsersAll?capellaUserUID=2015
+01/12/2017 14:07:08.278 CST INFO  (utilities.Logg:>>>afterTest:[65]) Test Case Failed.getTermDetails
 ----------------------------------------------------------------
-01/05/2017 23:25:49.260 CST INFO  (utilities.Logg:>>>verifyGetCall:[153]) /api/User/GetTeamUsersAll?capellaUserUID=2015 :: 200
+01/12/2017 14:07:33.310 CST INFO  (utilities.Logg:>>>getTermDetails:[39]) Testing Get :: https://capellawebqa.com/SalesForce/Termination/GetTermDetails?memberId=99999
 ----------------------------------------------------------------
-01/05/2017 23:25:49.262 CST INFO  (utilities.Logg:>>>verifyPostCall:[159]) Testing Post :: /api/Demographics/GetPatientDetails
+01/12/2017 14:07:48.190 CST INFO  (utilities.Logg:>>>afterTest:[65]) Test Case Failed.getTermDetails
 ----------------------------------------------------------------
-01/05/2017 23:25:51.521 CST INFO  (utilities.Logg:>>>verifyPostCall:[184]) /api/Demographics/GetPatientDetails:: 200
+01/12/2017 14:18:00.771 CST INFO  (utilities.Logg:>>>getTermDetails:[39]) Testing Get :: https://capellawebqa.com/SalesForce/Termination/GetTermDetails?memberId=213544
 ----------------------------------------------------------------
-01/05/2017 23:25:51.522 CST INFO  (utilities.Logg:>>>verifyPostCall:[159]) Testing Post :: /api/Account/GetModifiedLookupTypes
+01/12/2017 14:18:43.674 CST INFO  (utilities.Logg:>>>afterTest:[65]) Test Case Failed.getTermDetails
 ----------------------------------------------------------------
-01/05/2017 23:25:52.204 CST INFO  (utilities.Logg:>>>verifyPostCall:[184]) /api/Account/GetModifiedLookupTypes:: 200
+01/12/2017 14:18:45.104 CST INFO  (utilities.Logg:>>>getTermDetails:[39]) Testing Get :: https://capellawebqa.com/SalesForce/Termination/GetTermDetails?memberId=99999
 ----------------------------------------------------------------
-01/05/2017 23:25:52.206 CST INFO  (utilities.Logg:>>>verifyPostCall:[159]) Testing Post :: /api/Clinical/GetPatientAllergies
+01/12/2017 14:18:47.928 CST INFO  (utilities.Logg:>>>afterTest:[65]) Test Case Failed.getTermDetails
 ----------------------------------------------------------------
-01/05/2017 23:25:53.095 CST INFO  (utilities.Logg:>>>verifyPostCall:[184]) /api/Clinical/GetPatientAllergies:: 200
+01/12/2017 14:19:03.478 CST INFO  (utilities.Logg:>>>getTermDetails:[39]) Testing Get :: https://capellawebqa.com/SalesForce/Termination/GetTermDetails?memberId=213544
 ----------------------------------------------------------------
-01/05/2017 23:25:53.098 CST INFO  (utilities.Logg:>>>verifyGetCall:[136]) Testing Get :: /api/Account/SessionMakeAlive
+01/12/2017 14:19:17.643 CST INFO  (utilities.Logg:>>>getTermDetails:[55]) https://capellawebqa.com/SalesForce/Termination/GetTermDetails?memberId=213544 :: NERMS
 ----------------------------------------------------------------
-01/05/2017 23:25:53.934 CST INFO  (utilities.Logg:>>>verifyGetCall:[153]) /api/Account/SessionMakeAlive :: 200
+01/12/2017 14:19:17.661 CST INFO  (utilities.Logg:>>>afterTest:[63]) Test Case PASSED.getTermDetails
 ----------------------------------------------------------------
-01/05/2017 23:25:53.937 CST INFO  (utilities.Logg:>>>verifyGetCall:[136]) Testing Get :: /api/Account/GetClientConfig
+01/12/2017 14:19:17.666 CST INFO  (utilities.Logg:>>>getTermDetails:[39]) Testing Get :: https://capellawebqa.com/SalesForce/Termination/GetTermDetails?memberId=99999
 ----------------------------------------------------------------
-01/05/2017 23:25:54.740 CST INFO  (utilities.Logg:>>>verifyGetCall:[153]) /api/Account/GetClientConfig :: 200
+01/12/2017 14:19:18.227 CST INFO  (utilities.Logg:>>>getTermDetails:[55]) https://capellawebqa.com/SalesForce/Termination/GetTermDetails?memberId=99999 :: UNRCH
 ----------------------------------------------------------------
-01/05/2017 23:25:54.742 CST INFO  (utilities.Logg:>>>verifyPostCall:[159]) Testing Post :: /api/CapellaBase/CurrentUser
+01/12/2017 14:19:18.238 CST INFO  (utilities.Logg:>>>afterTest:[63]) Test Case PASSED.getTermDetails
 ----------------------------------------------------------------
-01/05/2017 23:25:55.531 CST INFO  (utilities.Logg:>>>verifyPostCall:[184]) /api/CapellaBase/CurrentUser:: 200
+01/17/2017 13:10:02.687 CST INFO  (utilities.Logg:>>>getTermDetails:[45]) Testing Get :: https://capellawebqa.com/SalesForce/Termination/GetTermDetails?memberId=213544
 ----------------------------------------------------------------
-01/05/2017 23:25:55.534 CST INFO  (utilities.Logg:>>>verifyPostCall:[159]) Testing Post :: /api/Clinical/GetPatientAllergies
+01/17/2017 13:10:17.654 CST INFO  (utilities.Logg:>>>getTermDetails:[61]) https://capellawebqa.com/SalesForce/Termination/GetTermDetails?memberId=213544 :: NERMS
 ----------------------------------------------------------------
-01/05/2017 23:25:56.405 CST INFO  (utilities.Logg:>>>verifyPostCall:[184]) /api/Clinical/GetPatientAllergies:: 200
+01/17/2017 13:10:17.664 CST INFO  (utilities.Logg:>>>afterTest:[63]) Test Case PASSED.getTermDetails
 ----------------------------------------------------------------
-01/05/2017 23:25:56.407 CST INFO  (utilities.Logg:>>>verifyPostCall:[159]) Testing Post :: /api/User/GetUserActionItems
+01/17/2017 13:10:17.669 CST INFO  (utilities.Logg:>>>getTermDetails:[45]) Testing Get :: https://capellawebqa.com/SalesForce/Termination/GetTermDetails?memberId=99999
 ----------------------------------------------------------------
-01/05/2017 23:26:26.140 CST INFO  (utilities.Logg:>>>verifyPostCall:[184]) /api/User/GetUserActionItems:: 200
+01/17/2017 13:10:19.140 CST INFO  (utilities.Logg:>>>getTermDetails:[61]) https://capellawebqa.com/SalesForce/Termination/GetTermDetails?memberId=99999 :: UNRCH
 ----------------------------------------------------------------
-01/05/2017 23:26:26.142 CST INFO  (utilities.Logg:>>>verifyPostCall:[159]) Testing Post :: /api/Clinical/GetVapStepDetails
+01/17/2017 13:10:19.142 CST INFO  (utilities.Logg:>>>afterTest:[63]) Test Case PASSED.getTermDetails
 ----------------------------------------------------------------
-01/05/2017 23:26:26.986 CST INFO  (utilities.Logg:>>>verifyPostCall:[184]) /api/Clinical/GetVapStepDetails:: 200
+01/17/2017 13:10:20.954 CST INFO  (utilities.Logg:>>>getColumnCount:[49]) Thread:1	-column count for a Row 40
 ----------------------------------------------------------------
-01/05/2017 23:26:26.988 CST INFO  (utilities.Logg:>>>verifyPostCall:[159]) Testing Post :: /api/Clinical/GetPatientMedication
+01/17/2017 13:10:20.988 CST INFO  (utilities.Logg:>>>verifyPostCall:[166]) Testing Post :: /api/Patient/GetMaterials
 ----------------------------------------------------------------
-01/05/2017 23:26:28.041 CST INFO  (utilities.Logg:>>>verifyPostCall:[184]) /api/Clinical/GetPatientMedication:: 200
+01/17/2017 13:10:24.299 CST INFO  (utilities.Logg:>>>verifyPostCall:[191]) /api/Patient/GetMaterials:: 200
 ----------------------------------------------------------------
-01/05/2017 23:26:28.043 CST INFO  (utilities.Logg:>>>verifyPostCall:[159]) Testing Post :: /api/Clinical/GetPatientLabs
+01/17/2017 13:10:24.301 CST INFO  (utilities.Logg:>>>afterTest:[63]) Test Case PASSED.validateAllApiCalls
 ----------------------------------------------------------------
-01/05/2017 23:26:28.742 CST INFO  (utilities.Logg:>>>verifyPostCall:[184]) /api/Clinical/GetPatientLabs:: 200
+01/17/2017 13:11:20.363 CST INFO  (utilities.Logg:>>>getTermDetails:[45]) Testing Get :: https://capellawebqa.com/SalesForce/Termination/GetTermDetails?memberId=213544
 ----------------------------------------------------------------
-01/05/2017 23:26:28.744 CST INFO  (utilities.Logg:>>>verifyPostCall:[159]) Testing Post :: /api/Clinical/GetPatientCurrentLabs
+01/17/2017 13:11:35.809 CST INFO  (utilities.Logg:>>>getTermDetails:[61]) https://capellawebqa.com/SalesForce/Termination/GetTermDetails?memberId=213544 :: NERMS
 ----------------------------------------------------------------
-01/05/2017 23:26:29.657 CST INFO  (utilities.Logg:>>>verifyPostCall:[184]) /api/Clinical/GetPatientCurrentLabs:: 200
+01/17/2017 13:11:35.820 CST INFO  (utilities.Logg:>>>afterTest:[63]) Test Case PASSED.getTermDetails
 ----------------------------------------------------------------
-01/05/2017 23:26:29.659 CST INFO  (utilities.Logg:>>>verifyPostCall:[159]) Testing Post :: /api/Clinical/GetPatientDevices
+01/17/2017 13:11:35.824 CST INFO  (utilities.Logg:>>>getTermDetails:[45]) Testing Get :: https://capellawebqa.com/SalesForce/Termination/GetTermDetails?memberId=99999
 ----------------------------------------------------------------
-01/05/2017 23:26:30.401 CST INFO  (utilities.Logg:>>>verifyPostCall:[184]) /api/Clinical/GetPatientDevices:: 200
+01/17/2017 13:11:37.429 CST INFO  (utilities.Logg:>>>getTermDetails:[61]) https://capellawebqa.com/SalesForce/Termination/GetTermDetails?memberId=99999 :: UNRCH
 ----------------------------------------------------------------
-01/05/2017 23:26:30.403 CST INFO  (utilities.Logg:>>>verifyPostCall:[159]) Testing Post :: /api/Clinical/GetPatientMedication
+01/17/2017 13:11:37.433 CST INFO  (utilities.Logg:>>>afterTest:[63]) Test Case PASSED.getTermDetails
 ----------------------------------------------------------------
-01/05/2017 23:26:31.222 CST INFO  (utilities.Logg:>>>verifyPostCall:[184]) /api/Clinical/GetPatientMedication:: 200
+01/17/2017 13:11:38.973 CST INFO  (utilities.Logg:>>>getColumnCount:[49]) Thread:1	-column count for a Row 12
 ----------------------------------------------------------------
-01/05/2017 23:26:31.224 CST INFO  (utilities.Logg:>>>verifyPostCall:[159]) Testing Post :: /api/Clinical/GetAccessView
+01/17/2017 13:11:39.027 CST INFO  (utilities.Logg:>>>verifyPostCall:[166]) Testing Post :: /api/Demographics/GetPatientDetails
 ----------------------------------------------------------------
-01/05/2017 23:26:32.064 CST INFO  (utilities.Logg:>>>verifyPostCall:[184]) /api/Clinical/GetAccessView:: 200
+01/17/2017 13:11:41.495 CST INFO  (utilities.Logg:>>>verifyPostCall:[191]) /api/Demographics/GetPatientDetails:: 200
 ----------------------------------------------------------------
-01/05/2017 23:26:32.066 CST INFO  (utilities.Logg:>>>verifyPostCall:[159]) Testing Post :: /api/Clinical/CurrentUser
+01/17/2017 13:11:41.500 CST INFO  (utilities.Logg:>>>verifyPostCall:[166]) Testing Post :: /api/Utility/GetMenuOfAction
 ----------------------------------------------------------------
-01/05/2017 23:26:32.872 CST INFO  (utilities.Logg:>>>verifyPostCall:[184]) /api/Clinical/CurrentUser:: 200
+01/17/2017 13:11:43.594 CST INFO  (utilities.Logg:>>>verifyPostCall:[191]) /api/Utility/GetMenuOfAction:: 200
 ----------------------------------------------------------------
-01/05/2017 23:26:32.874 CST INFO  (utilities.Logg:>>>verifyGetCall:[136]) Testing Get :: /api/Contacts/GetPreSaveContacts?CapellaUserUID=1997&PreSaveContactUID=4572727
+01/17/2017 13:11:43.595 CST INFO  (utilities.Logg:>>>verifyGetCall:[142]) Testing Get :: /api/User/GetTeamUsersAll?capellaUserUID=2015
 ----------------------------------------------------------------
-01/05/2017 23:26:33.844 CST INFO  (utilities.Logg:>>>verifyGetCall:[153]) /api/Contacts/GetPreSaveContacts?CapellaUserUID=1997&PreSaveContactUID=4572727 :: 200
+01/17/2017 13:11:45.987 CST INFO  (utilities.Logg:>>>verifyGetCall:[160]) /api/User/GetTeamUsersAll?capellaUserUID=2015 :: 200
 ----------------------------------------------------------------
-01/05/2017 23:26:33.847 CST INFO  (utilities.Logg:>>>verifyGetCall:[136]) Testing Get :: /api/Contacts/GetOpenPatients?CapellaUserUID=1997
+01/17/2017 13:11:45.989 CST INFO  (utilities.Logg:>>>verifyPostCall:[166]) Testing Post :: /api/Demographics/GetPatientDetails
 ----------------------------------------------------------------
-01/05/2017 23:26:34.823 CST INFO  (utilities.Logg:>>>verifyGetCall:[153]) /api/Contacts/GetOpenPatients?CapellaUserUID=1997 :: 200
+01/17/2017 13:11:48.195 CST INFO  (utilities.Logg:>>>verifyPostCall:[191]) /api/Demographics/GetPatientDetails:: 200
 ----------------------------------------------------------------
-01/05/2017 23:26:34.825 CST INFO  (utilities.Logg:>>>verifyGetCall:[136]) Testing Get :: /api/Contacts/GetUnableToReach?patientUID=189095
+01/17/2017 13:11:48.200 CST INFO  (utilities.Logg:>>>verifyPostCall:[166]) Testing Post :: /api/Account/GetModifiedLookupTypes
 ----------------------------------------------------------------
-01/05/2017 23:26:35.688 CST INFO  (utilities.Logg:>>>verifyGetCall:[153]) /api/Contacts/GetUnableToReach?patientUID=189095 :: 200
+01/17/2017 13:11:49.967 CST INFO  (utilities.Logg:>>>verifyPostCall:[191]) /api/Account/GetModifiedLookupTypes:: 200
 ----------------------------------------------------------------
-01/05/2017 23:26:35.690 CST INFO  (utilities.Logg:>>>verifyPostCall:[159]) Testing Post :: /api/Contacts/CurrentUser
+01/17/2017 13:11:49.971 CST INFO  (utilities.Logg:>>>verifyPostCall:[166]) Testing Post :: /api/Clinical/GetPatientAllergies
 ----------------------------------------------------------------
-01/05/2017 23:26:36.386 CST INFO  (utilities.Logg:>>>verifyPostCall:[184]) /api/Contacts/CurrentUser:: 200
+01/17/2017 13:11:51.804 CST INFO  (utilities.Logg:>>>verifyPostCall:[191]) /api/Clinical/GetPatientAllergies:: 200
 ----------------------------------------------------------------
-01/05/2017 23:26:36.387 CST INFO  (utilities.Logg:>>>verifyPostCall:[159]) Testing Post :: /api/Demographics/CurrentUser
+01/17/2017 13:11:51.806 CST INFO  (utilities.Logg:>>>verifyGetCall:[142]) Testing Get :: /api/Account/SessionMakeAlive
 ----------------------------------------------------------------
-01/05/2017 23:26:37.247 CST INFO  (utilities.Logg:>>>verifyPostCall:[184]) /api/Demographics/CurrentUser:: 200
+01/17/2017 13:11:53.565 CST INFO  (utilities.Logg:>>>verifyGetCall:[160]) /api/Account/SessionMakeAlive :: 200
 ----------------------------------------------------------------
-01/05/2017 23:26:37.249 CST INFO  (utilities.Logg:>>>verifyPostCall:[159]) Testing Post :: /api/File/CurrentUser
+01/17/2017 13:11:53.567 CST INFO  (utilities.Logg:>>>verifyGetCall:[142]) Testing Get :: /api/Account/GetClientConfig
 ----------------------------------------------------------------
-01/05/2017 23:26:38.058 CST INFO  (utilities.Logg:>>>verifyPostCall:[184]) /api/File/CurrentUser:: 200
+01/17/2017 13:11:55.213 CST INFO  (utilities.Logg:>>>verifyGetCall:[160]) /api/Account/GetClientConfig :: 200
 ----------------------------------------------------------------
-01/05/2017 23:26:38.060 CST INFO  (utilities.Logg:>>>verifyPostCall:[159]) Testing Post :: /api/User/GetSnippets
+01/17/2017 13:11:55.215 CST INFO  (utilities.Logg:>>>verifyPostCall:[166]) Testing Post :: /api/CapellaBase/CurrentUser
 ----------------------------------------------------------------
-01/05/2017 23:26:38.910 CST INFO  (utilities.Logg:>>>verifyPostCall:[184]) /api/User/GetSnippets:: 200
+01/17/2017 13:11:58.041 CST INFO  (utilities.Logg:>>>verifyPostCall:[191]) /api/CapellaBase/CurrentUser:: 200
 ----------------------------------------------------------------
-01/05/2017 23:26:38.914 CST INFO  (utilities.Logg:>>>verifyPostCall:[159]) Testing Post :: /api/Utility/GetMenus
+01/17/2017 13:11:58.043 CST INFO  (utilities.Logg:>>>verifyPostCall:[166]) Testing Post :: /api/Clinical/GetPatientAllergies
 ----------------------------------------------------------------
-01/05/2017 23:26:39.963 CST INFO  (utilities.Logg:>>>verifyPostCall:[184]) /api/Utility/GetMenus:: 200
+01/17/2017 13:11:59.923 CST INFO  (utilities.Logg:>>>verifyPostCall:[191]) /api/Clinical/GetPatientAllergies:: 200
 ----------------------------------------------------------------
-01/05/2017 23:26:39.965 CST INFO  (utilities.Logg:>>>verifyPostCall:[159]) Testing Post :: /api/Utility/GetMenuOfAction
+01/17/2017 13:11:59.924 CST INFO  (utilities.Logg:>>>verifyPostCall:[166]) Testing Post :: /api/User/GetUserActionItems
 ----------------------------------------------------------------
-01/05/2017 23:26:41.042 CST INFO  (utilities.Logg:>>>verifyPostCall:[184]) /api/Utility/GetMenuOfAction:: 200
+01/17/2017 13:12:02.550 CST INFO  (utilities.Logg:>>>verifyPostCall:[191]) /api/User/GetUserActionItems:: 200
 ----------------------------------------------------------------
-01/05/2017 23:26:41.044 CST INFO  (utilities.Logg:>>>verifyPostCall:[159]) Testing Post :: /api/Utility/GetMoa
+01/17/2017 13:12:02.551 CST INFO  (utilities.Logg:>>>verifyPostCall:[166]) Testing Post :: /api/Clinical/GetVapStepDetails
 ----------------------------------------------------------------
-01/05/2017 23:26:41.984 CST INFO  (utilities.Logg:>>>verifyPostCall:[184]) /api/Utility/GetMoa:: 200
+01/17/2017 13:12:04.258 CST INFO  (utilities.Logg:>>>verifyPostCall:[191]) /api/Clinical/GetVapStepDetails:: 200
 ----------------------------------------------------------------
-01/05/2017 23:26:41.985 CST INFO  (utilities.Logg:>>>verifyGetCall:[136]) Testing Get :: /api/Utility/GetDataValRanges
+01/17/2017 13:12:04.260 CST INFO  (utilities.Logg:>>>verifyPostCall:[166]) Testing Post :: /api/Clinical/GetPatientMedication
 ----------------------------------------------------------------
-01/05/2017 23:26:42.821 CST INFO  (utilities.Logg:>>>verifyGetCall:[153]) /api/Utility/GetDataValRanges :: 200
+01/17/2017 13:12:05.821 CST INFO  (utilities.Logg:>>>verifyPostCall:[191]) /api/Clinical/GetPatientMedication:: 200
 ----------------------------------------------------------------
-01/05/2017 23:26:42.822 CST INFO  (utilities.Logg:>>>verifyPostCall:[159]) Testing Post :: /api/Utility/GetUser
+01/17/2017 13:12:05.823 CST INFO  (utilities.Logg:>>>verifyPostCall:[166]) Testing Post :: /api/Clinical/GetPatientLabs
 ----------------------------------------------------------------
-01/05/2017 23:26:43.845 CST INFO  (utilities.Logg:>>>verifyPostCall:[184]) /api/Utility/GetUser:: 200
+01/17/2017 13:12:07.863 CST INFO  (utilities.Logg:>>>verifyPostCall:[191]) /api/Clinical/GetPatientLabs:: 200
 ----------------------------------------------------------------
-01/05/2017 23:26:43.847 CST INFO  (utilities.Logg:>>>verifyPostCall:[159]) Testing Post :: /api/Utility/GetParentChildLookup
+01/17/2017 13:12:07.864 CST INFO  (utilities.Logg:>>>verifyPostCall:[166]) Testing Post :: /api/Clinical/GetPatientCurrentLabs
 ----------------------------------------------------------------
-01/05/2017 23:26:44.667 CST INFO  (utilities.Logg:>>>verifyPostCall:[184]) /api/Utility/GetParentChildLookup:: 200
+01/17/2017 13:12:09.752 CST INFO  (utilities.Logg:>>>verifyPostCall:[191]) /api/Clinical/GetPatientCurrentLabs:: 200
 ----------------------------------------------------------------
-01/05/2017 23:26:44.669 CST INFO  (utilities.Logg:>>>verifyPostCall:[159]) Testing Post :: /api/Utility/SearchOutboundRequest
+01/17/2017 13:12:09.755 CST INFO  (utilities.Logg:>>>verifyPostCall:[166]) Testing Post :: /api/Clinical/GetPatientDevices
 ----------------------------------------------------------------
-01/05/2017 23:26:45.557 CST INFO  (utilities.Logg:>>>verifyPostCall:[184]) /api/Utility/SearchOutboundRequest:: 200
+01/17/2017 13:12:11.498 CST INFO  (utilities.Logg:>>>verifyPostCall:[191]) /api/Clinical/GetPatientDevices:: 200
 ----------------------------------------------------------------
-01/05/2017 23:26:45.558 CST INFO  (utilities.Logg:>>>verifyPostCall:[159]) Testing Post :: /api/Utility/LookupZipCode
+01/17/2017 13:12:11.500 CST INFO  (utilities.Logg:>>>verifyPostCall:[166]) Testing Post :: /api/Clinical/GetPatientMedication
 ----------------------------------------------------------------
-01/05/2017 23:26:46.244 CST INFO  (utilities.Logg:>>>verifyPostCall:[184]) /api/Utility/LookupZipCode:: 200
+01/17/2017 13:12:13.292 CST INFO  (utilities.Logg:>>>verifyPostCall:[191]) /api/Clinical/GetPatientMedication:: 200
 ----------------------------------------------------------------
-01/05/2017 23:26:46.246 CST INFO  (utilities.Logg:>>>verifyGetCall:[136]) Testing Get :: /api/Utility/GetFilters
+01/17/2017 13:12:13.294 CST INFO  (utilities.Logg:>>>verifyPostCall:[166]) Testing Post :: /api/Clinical/GetAccessView
 ----------------------------------------------------------------
-01/05/2017 23:26:49.786 CST INFO  (utilities.Logg:>>>verifyGetCall:[153]) /api/Utility/GetFilters :: 200
+01/17/2017 13:12:15.139 CST INFO  (utilities.Logg:>>>verifyPostCall:[191]) /api/Clinical/GetAccessView:: 200
 ----------------------------------------------------------------
-01/05/2017 23:26:49.787 CST INFO  (utilities.Logg:>>>verifyGetCall:[136]) Testing Get :: /api/Utility/GetQueuePopulation
+01/17/2017 13:12:15.141 CST INFO  (utilities.Logg:>>>verifyPostCall:[166]) Testing Post :: /api/Clinical/CurrentUser
 ----------------------------------------------------------------
-01/05/2017 23:27:58.120 CST INFO  (utilities.Logg:>>>verifyGetCall:[153]) /api/Utility/GetQueuePopulation :: 200
+01/17/2017 13:12:17.829 CST INFO  (utilities.Logg:>>>verifyPostCall:[191]) /api/Clinical/CurrentUser:: 200
 ----------------------------------------------------------------
-01/05/2017 23:27:58.121 CST INFO  (utilities.Logg:>>>verifyPostCall:[159]) Testing Post :: /api/Patient/GetPtContacts
+01/17/2017 13:12:17.833 CST INFO  (utilities.Logg:>>>verifyGetCall:[142]) Testing Get :: /api/Contacts/GetPreSaveContacts?CapellaUserUID=1997&PreSaveContactUID=4572727
 ----------------------------------------------------------------
-01/05/2017 23:27:59.158 CST INFO  (utilities.Logg:>>>verifyPostCall:[184]) /api/Patient/GetPtContacts:: 200
+01/17/2017 13:12:19.923 CST INFO  (utilities.Logg:>>>verifyGetCall:[160]) /api/Contacts/GetPreSaveContacts?CapellaUserUID=1997&PreSaveContactUID=4572727 :: 200
 ----------------------------------------------------------------
-01/05/2017 23:27:59.159 CST INFO  (utilities.Logg:>>>verifyPostCall:[159]) Testing Post :: /api/Patient/GetPtDiabScreenings
+01/17/2017 13:12:19.924 CST INFO  (utilities.Logg:>>>verifyGetCall:[142]) Testing Get :: /api/Contacts/GetOpenPatients?CapellaUserUID=1997
 ----------------------------------------------------------------
-01/05/2017 23:28:00.040 CST INFO  (utilities.Logg:>>>verifyPostCall:[184]) /api/Patient/GetPtDiabScreenings:: 200
+01/17/2017 13:12:21.773 CST INFO  (utilities.Logg:>>>verifyGetCall:[160]) /api/Contacts/GetOpenPatients?CapellaUserUID=1997 :: 200
 ----------------------------------------------------------------
-01/05/2017 23:28:00.042 CST INFO  (utilities.Logg:>>>verifyPostCall:[159]) Testing Post :: /api/Patient/GetPrePopulatedResponse
+01/17/2017 13:12:21.775 CST INFO  (utilities.Logg:>>>verifyGetCall:[142]) Testing Get :: /api/Contacts/GetUnableToReach?patientUID=189095
 ----------------------------------------------------------------
-01/05/2017 23:28:02.430 CST INFO  (utilities.Logg:>>>verifyPostCall:[184]) /api/Patient/GetPrePopulatedResponse:: 200
+01/17/2017 13:12:23.640 CST INFO  (utilities.Logg:>>>verifyGetCall:[160]) /api/Contacts/GetUnableToReach?patientUID=189095 :: 200
 ----------------------------------------------------------------
-01/05/2017 23:28:02.432 CST INFO  (utilities.Logg:>>>verifyPostCall:[159]) Testing Post :: /api/Patient/GetPatientGoals
+01/17/2017 13:12:23.641 CST INFO  (utilities.Logg:>>>verifyPostCall:[166]) Testing Post :: /api/Contacts/CurrentUser
 ----------------------------------------------------------------
-01/05/2017 23:28:03.797 CST INFO  (utilities.Logg:>>>verifyPostCall:[184]) /api/Patient/GetPatientGoals:: 200
+01/17/2017 13:12:25.040 CST INFO  (utilities.Logg:>>>verifyPostCall:[191]) /api/Contacts/CurrentUser:: 200
 ----------------------------------------------------------------
-01/05/2017 23:28:03.798 CST INFO  (utilities.Logg:>>>verifyPostCall:[159]) Testing Post :: /api/Patient/GetProviderAssociationsWithHistory
+01/17/2017 13:12:25.041 CST INFO  (utilities.Logg:>>>verifyPostCall:[166]) Testing Post :: /api/Demographics/CurrentUser
 ----------------------------------------------------------------
-01/05/2017 23:28:04.938 CST INFO  (utilities.Logg:>>>verifyPostCall:[184]) /api/Patient/GetProviderAssociationsWithHistory:: 200
+01/17/2017 13:12:26.729 CST INFO  (utilities.Logg:>>>verifyPostCall:[191]) /api/Demographics/CurrentUser:: 200
 ----------------------------------------------------------------
-01/05/2017 23:28:04.940 CST INFO  (utilities.Logg:>>>verifyPostCall:[159]) Testing Post :: /api/Patient/GetProviderAssociations
+01/17/2017 13:12:26.730 CST INFO  (utilities.Logg:>>>verifyPostCall:[166]) Testing Post :: /api/File/CurrentUser
 ----------------------------------------------------------------
-01/05/2017 23:28:05.604 CST INFO  (utilities.Logg:>>>verifyPostCall:[184]) /api/Patient/GetProviderAssociations:: 200
+01/17/2017 13:12:28.387 CST INFO  (utilities.Logg:>>>verifyPostCall:[191]) /api/File/CurrentUser:: 200
 ----------------------------------------------------------------
-01/05/2017 23:28:05.606 CST INFO  (utilities.Logg:>>>verifyPostCall:[159]) Testing Post :: /api/Patient/GetPatientProfileProvider
+01/17/2017 13:12:28.391 CST INFO  (utilities.Logg:>>>verifyPostCall:[166]) Testing Post :: /api/User/GetSnippets
 ----------------------------------------------------------------
-01/05/2017 23:28:06.405 CST INFO  (utilities.Logg:>>>verifyPostCall:[184]) /api/Patient/GetPatientProfileProvider:: 200
+01/17/2017 13:12:30.849 CST INFO  (utilities.Logg:>>>verifyPostCall:[191]) /api/User/GetSnippets:: 200
 ----------------------------------------------------------------
-01/05/2017 23:28:06.407 CST INFO  (utilities.Logg:>>>verifyPostCall:[159]) Testing Post :: /api/Patient/GetPatientScorecard
+01/17/2017 13:12:30.851 CST INFO  (utilities.Logg:>>>verifyPostCall:[166]) Testing Post :: /api/Utility/GetMenus
 ----------------------------------------------------------------
-01/05/2017 23:28:07.251 CST INFO  (utilities.Logg:>>>verifyPostCall:[184]) /api/Patient/GetPatientScorecard:: 200
+01/17/2017 13:12:32.891 CST INFO  (utilities.Logg:>>>verifyPostCall:[191]) /api/Utility/GetMenus:: 200
 ----------------------------------------------------------------
-01/05/2017 23:28:07.253 CST INFO  (utilities.Logg:>>>verifyPostCall:[159]) Testing Post :: /api/Patient/GetVHNMedReview
+01/17/2017 13:12:32.894 CST INFO  (utilities.Logg:>>>verifyPostCall:[166]) Testing Post :: /api/Utility/GetMenuOfAction
 ----------------------------------------------------------------
-01/05/2017 23:28:08.106 CST INFO  (utilities.Logg:>>>verifyPostCall:[184]) /api/Patient/GetVHNMedReview:: 200
+01/17/2017 13:12:34.996 CST INFO  (utilities.Logg:>>>verifyPostCall:[191]) /api/Utility/GetMenuOfAction:: 200
 ----------------------------------------------------------------
-01/05/2017 23:28:08.109 CST INFO  (utilities.Logg:>>>verifyPostCall:[159]) Testing Post :: /api/Patient/GetComorbidReviews
+01/17/2017 13:12:34.998 CST INFO  (utilities.Logg:>>>verifyPostCall:[166]) Testing Post :: /api/Utility/GetMoa
 ----------------------------------------------------------------
-01/05/2017 23:28:08.977 CST INFO  (utilities.Logg:>>>verifyPostCall:[184]) /api/Patient/GetComorbidReviews:: 200
+01/17/2017 13:12:36.638 CST INFO  (utilities.Logg:>>>verifyPostCall:[191]) /api/Utility/GetMoa:: 200
 ----------------------------------------------------------------
-01/05/2017 23:28:08.979 CST INFO  (utilities.Logg:>>>verifyPostCall:[159]) Testing Post :: /api/Patient/GetEPSTaskHistory
+01/17/2017 13:12:36.639 CST INFO  (utilities.Logg:>>>verifyGetCall:[142]) Testing Get :: /api/Utility/GetDataValRanges
 ----------------------------------------------------------------
-01/05/2017 23:28:09.730 CST INFO  (utilities.Logg:>>>verifyPostCall:[184]) /api/Patient/GetEPSTaskHistory:: 200
+01/17/2017 13:12:38.389 CST INFO  (utilities.Logg:>>>verifyGetCall:[160]) /api/Utility/GetDataValRanges :: 200
 ----------------------------------------------------------------
-01/05/2017 23:28:09.749 CST INFO  (utilities.Logg:>>>afterTest:[52]) Test Case PASSED.validateAllApiCalls
+01/17/2017 13:12:38.391 CST INFO  (utilities.Logg:>>>verifyPostCall:[166]) Testing Post :: /api/Utility/GetUser
 ----------------------------------------------------------------
-01/06/2017 15:11:30.077 CST INFO  (utilities.Logg:>>>getColumnCount:[49]) Thread:1	-column count for a Row 12
+01/17/2017 13:12:40.640 CST INFO  (utilities.Logg:>>>verifyPostCall:[191]) /api/Utility/GetUser:: 200
 ----------------------------------------------------------------
-01/06/2017 15:11:30.451 CST INFO  (utilities.Logg:>>>verifyPostCall:[159]) Testing Post :: /api/Demographics/GetPatientDetails
+01/17/2017 13:12:40.641 CST INFO  (utilities.Logg:>>>verifyPostCall:[166]) Testing Post :: /api/Utility/GetParentChildLookup
 ----------------------------------------------------------------
-01/06/2017 15:11:46.793 CST INFO  (utilities.Logg:>>>verifyPostCall:[184]) /api/Demographics/GetPatientDetails:: 200
+01/17/2017 13:12:42.316 CST INFO  (utilities.Logg:>>>verifyPostCall:[191]) /api/Utility/GetParentChildLookup:: 200
 ----------------------------------------------------------------
-01/06/2017 15:11:46.796 CST INFO  (utilities.Logg:>>>verifyPostCall:[159]) Testing Post :: /api/Utility/GetMenuOfAction
+01/17/2017 13:12:42.318 CST INFO  (utilities.Logg:>>>verifyPostCall:[166]) Testing Post :: /api/Utility/SearchOutboundRequest
 ----------------------------------------------------------------
-01/06/2017 15:11:48.068 CST INFO  (utilities.Logg:>>>verifyPostCall:[184]) /api/Utility/GetMenuOfAction:: 200
+01/17/2017 13:12:44.285 CST INFO  (utilities.Logg:>>>verifyPostCall:[191]) /api/Utility/SearchOutboundRequest:: 200
 ----------------------------------------------------------------
-01/06/2017 15:12:33.415 CST INFO  (utilities.Logg:>>>verifyGetCall:[136]) Testing Get :: /api/User/GetTeamUsersAll?capellaUserUID=2015
+01/17/2017 13:12:44.287 CST INFO  (utilities.Logg:>>>verifyPostCall:[166]) Testing Post :: /api/Utility/LookupZipCode
 ----------------------------------------------------------------
-01/06/2017 15:12:34.769 CST INFO  (utilities.Logg:>>>verifyGetCall:[153]) /api/User/GetTeamUsersAll?capellaUserUID=2015 :: 200
+01/17/2017 13:12:45.756 CST INFO  (utilities.Logg:>>>verifyPostCall:[191]) /api/Utility/LookupZipCode:: 200
 ----------------------------------------------------------------
-01/06/2017 15:12:34.772 CST INFO  (utilities.Logg:>>>verifyPostCall:[159]) Testing Post :: /api/Demographics/GetPatientDetails
+01/17/2017 13:12:45.761 CST INFO  (utilities.Logg:>>>verifyGetCall:[142]) Testing Get :: /api/Utility/GetFilters
 ----------------------------------------------------------------
-01/06/2017 15:12:36.338 CST INFO  (utilities.Logg:>>>verifyPostCall:[184]) /api/Demographics/GetPatientDetails:: 200
+01/17/2017 13:12:48.136 CST INFO  (utilities.Logg:>>>verifyGetCall:[160]) /api/Utility/GetFilters :: 200
 ----------------------------------------------------------------
-01/06/2017 15:12:36.339 CST INFO  (utilities.Logg:>>>verifyPostCall:[159]) Testing Post :: /api/Account/GetModifiedLookupTypes
+01/17/2017 13:12:48.137 CST INFO  (utilities.Logg:>>>verifyGetCall:[142]) Testing Get :: /api/Utility/GetQueuePopulation
 ----------------------------------------------------------------
-01/06/2017 15:12:37.230 CST INFO  (utilities.Logg:>>>verifyPostCall:[184]) /api/Account/GetModifiedLookupTypes:: 200
+01/17/2017 13:12:53.899 CST INFO  (utilities.Logg:>>>verifyGetCall:[160]) /api/Utility/GetQueuePopulation :: 200
 ----------------------------------------------------------------
-01/06/2017 15:12:37.236 CST INFO  (utilities.Logg:>>>verifyPostCall:[159]) Testing Post :: /api/Clinical/GetPatientAllergies
+01/17/2017 13:12:53.902 CST INFO  (utilities.Logg:>>>verifyPostCall:[166]) Testing Post :: /api/Patient/GetPtContacts
 ----------------------------------------------------------------
-01/06/2017 15:12:38.089 CST INFO  (utilities.Logg:>>>verifyPostCall:[184]) /api/Clinical/GetPatientAllergies:: 200
+01/17/2017 13:12:55.877 CST INFO  (utilities.Logg:>>>verifyPostCall:[191]) /api/Patient/GetPtContacts:: 200
 ----------------------------------------------------------------
-01/06/2017 15:12:38.091 CST INFO  (utilities.Logg:>>>verifyGetCall:[136]) Testing Get :: /api/Account/SessionMakeAlive
+01/17/2017 13:12:55.885 CST INFO  (utilities.Logg:>>>verifyPostCall:[166]) Testing Post :: /api/Patient/GetPtDiabScreenings
 ----------------------------------------------------------------
-01/06/2017 15:12:38.854 CST INFO  (utilities.Logg:>>>verifyGetCall:[153]) /api/Account/SessionMakeAlive :: 200
+01/17/2017 13:12:57.625 CST INFO  (utilities.Logg:>>>verifyPostCall:[191]) /api/Patient/GetPtDiabScreenings:: 200
 ----------------------------------------------------------------
-01/06/2017 15:12:38.856 CST INFO  (utilities.Logg:>>>verifyGetCall:[136]) Testing Get :: /api/Account/GetClientConfig
+01/17/2017 13:12:57.626 CST INFO  (utilities.Logg:>>>verifyPostCall:[166]) Testing Post :: /api/Patient/GetPrePopulatedResponse
 ----------------------------------------------------------------
-01/06/2017 15:12:39.825 CST INFO  (utilities.Logg:>>>verifyGetCall:[153]) /api/Account/GetClientConfig :: 200
+01/17/2017 13:12:59.891 CST INFO  (utilities.Logg:>>>verifyPostCall:[191]) /api/Patient/GetPrePopulatedResponse:: 200
 ----------------------------------------------------------------
-01/06/2017 15:12:39.826 CST INFO  (utilities.Logg:>>>verifyPostCall:[159]) Testing Post :: /api/CapellaBase/CurrentUser
+01/17/2017 13:12:59.893 CST INFO  (utilities.Logg:>>>verifyPostCall:[166]) Testing Post :: /api/Patient/GetPatientGoals
 ----------------------------------------------------------------
-01/06/2017 15:12:44.684 CST INFO  (utilities.Logg:>>>verifyPostCall:[184]) /api/CapellaBase/CurrentUser:: 200
+01/17/2017 13:13:01.749 CST INFO  (utilities.Logg:>>>verifyPostCall:[191]) /api/Patient/GetPatientGoals:: 200
 ----------------------------------------------------------------
-01/06/2017 15:12:44.686 CST INFO  (utilities.Logg:>>>verifyPostCall:[159]) Testing Post :: /api/Clinical/GetPatientAllergies
+01/17/2017 13:13:01.751 CST INFO  (utilities.Logg:>>>verifyPostCall:[166]) Testing Post :: /api/Patient/GetProviderAssociationsWithHistory
 ----------------------------------------------------------------
-01/06/2017 15:12:46.124 CST INFO  (utilities.Logg:>>>verifyPostCall:[184]) /api/Clinical/GetPatientAllergies:: 200
+01/17/2017 13:13:04.060 CST INFO  (utilities.Logg:>>>verifyPostCall:[191]) /api/Patient/GetProviderAssociationsWithHistory:: 200
 ----------------------------------------------------------------
-01/06/2017 15:12:46.125 CST INFO  (utilities.Logg:>>>verifyPostCall:[159]) Testing Post :: /api/User/GetUserActionItems
+01/17/2017 13:13:04.061 CST INFO  (utilities.Logg:>>>verifyPostCall:[166]) Testing Post :: /api/Patient/GetProviderAssociations
 ----------------------------------------------------------------
-01/06/2017 15:12:49.514 CST INFO  (utilities.Logg:>>>verifyPostCall:[184]) /api/User/GetUserActionItems:: 200
+01/17/2017 13:13:05.315 CST INFO  (utilities.Logg:>>>verifyPostCall:[191]) /api/Patient/GetProviderAssociations:: 200
 ----------------------------------------------------------------
-01/06/2017 15:12:49.515 CST INFO  (utilities.Logg:>>>verifyPostCall:[159]) Testing Post :: /api/Clinical/GetVapStepDetails
+01/17/2017 13:13:05.316 CST INFO  (utilities.Logg:>>>verifyPostCall:[166]) Testing Post :: /api/Patient/GetPatientProfileProvider
 ----------------------------------------------------------------
-01/06/2017 15:12:50.842 CST INFO  (utilities.Logg:>>>verifyPostCall:[184]) /api/Clinical/GetVapStepDetails:: 200
+01/17/2017 13:13:07.447 CST INFO  (utilities.Logg:>>>verifyPostCall:[191]) /api/Patient/GetPatientProfileProvider:: 200
 ----------------------------------------------------------------
-01/06/2017 15:12:50.843 CST INFO  (utilities.Logg:>>>verifyPostCall:[159]) Testing Post :: /api/Clinical/GetPatientMedication
+01/17/2017 13:13:07.452 CST INFO  (utilities.Logg:>>>verifyPostCall:[166]) Testing Post :: /api/Patient/GetPatientScorecard
 ----------------------------------------------------------------
-01/06/2017 15:12:51.847 CST INFO  (utilities.Logg:>>>verifyPostCall:[184]) /api/Clinical/GetPatientMedication:: 200
+01/17/2017 13:13:09.287 CST INFO  (utilities.Logg:>>>verifyPostCall:[191]) /api/Patient/GetPatientScorecard:: 200
 ----------------------------------------------------------------
-01/06/2017 15:12:51.850 CST INFO  (utilities.Logg:>>>verifyPostCall:[159]) Testing Post :: /api/Clinical/GetPatientLabs
+01/17/2017 13:13:09.288 CST INFO  (utilities.Logg:>>>verifyPostCall:[166]) Testing Post :: /api/Patient/GetVHNMedReview
 ----------------------------------------------------------------
-01/06/2017 15:12:53.033 CST INFO  (utilities.Logg:>>>verifyPostCall:[184]) /api/Clinical/GetPatientLabs:: 200
+01/17/2017 13:13:10.982 CST INFO  (utilities.Logg:>>>verifyPostCall:[191]) /api/Patient/GetVHNMedReview:: 200
 ----------------------------------------------------------------
-01/06/2017 15:12:53.034 CST INFO  (utilities.Logg:>>>verifyPostCall:[159]) Testing Post :: /api/Clinical/GetPatientCurrentLabs
+01/17/2017 13:13:10.984 CST INFO  (utilities.Logg:>>>verifyPostCall:[166]) Testing Post :: /api/Patient/GetComorbidReviews
 ----------------------------------------------------------------
-01/06/2017 15:12:53.912 CST INFO  (utilities.Logg:>>>verifyPostCall:[184]) /api/Clinical/GetPatientCurrentLabs:: 200
+01/17/2017 13:13:12.942 CST INFO  (utilities.Logg:>>>verifyPostCall:[191]) /api/Patient/GetComorbidReviews:: 200
 ----------------------------------------------------------------
-01/06/2017 15:12:53.914 CST INFO  (utilities.Logg:>>>verifyPostCall:[159]) Testing Post :: /api/Clinical/GetPatientDevices
+01/17/2017 13:13:12.944 CST INFO  (utilities.Logg:>>>verifyPostCall:[166]) Testing Post :: /api/Patient/GetEPSTaskHistory
 ----------------------------------------------------------------
-01/06/2017 15:12:55.128 CST INFO  (utilities.Logg:>>>verifyPostCall:[184]) /api/Clinical/GetPatientDevices:: 200
+01/17/2017 13:13:14.645 CST INFO  (utilities.Logg:>>>verifyPostCall:[191]) /api/Patient/GetEPSTaskHistory:: 200
 ----------------------------------------------------------------
-01/06/2017 15:12:55.129 CST INFO  (utilities.Logg:>>>verifyPostCall:[159]) Testing Post :: /api/Clinical/GetPatientMedication
+01/17/2017 13:13:14.647 CST INFO  (utilities.Logg:>>>verifyPostCall:[166]) Testing Post :: /api/Patient/GetMaterials
 ----------------------------------------------------------------
-01/06/2017 15:12:56.165 CST INFO  (utilities.Logg:>>>verifyPostCall:[184]) /api/Clinical/GetPatientMedication:: 200
+01/17/2017 13:13:16.991 CST INFO  (utilities.Logg:>>>verifyPostCall:[191]) /api/Patient/GetMaterials:: 200
 ----------------------------------------------------------------
-01/06/2017 15:12:56.169 CST INFO  (utilities.Logg:>>>verifyPostCall:[159]) Testing Post :: /api/Clinical/GetAccessView
+01/17/2017 13:13:16.995 CST INFO  (utilities.Logg:>>>afterTest:[63]) Test Case PASSED.validateAllApiCalls
 ----------------------------------------------------------------
-01/06/2017 15:12:57.052 CST INFO  (utilities.Logg:>>>verifyPostCall:[184]) /api/Clinical/GetAccessView:: 200
+01/17/2017 14:27:39.373 CST INFO  (utilities.Logg:>>>getColumnCount:[49]) Thread:1	-column count for a Row 40
 ----------------------------------------------------------------
-01/06/2017 15:12:57.055 CST INFO  (utilities.Logg:>>>verifyPostCall:[159]) Testing Post :: /api/Clinical/CurrentUser
+01/17/2017 14:27:39.425 CST INFO  (utilities.Logg:>>>verifyPostCall:[166]) Testing Post :: /api/Patient/GetMaterials
 ----------------------------------------------------------------
-01/06/2017 15:12:57.797 CST INFO  (utilities.Logg:>>>verifyPostCall:[184]) /api/Clinical/CurrentUser:: 200
+01/17/2017 14:27:56.030 CST INFO  (utilities.Logg:>>>verifyPostCall:[191]) /api/Patient/GetMaterials:: 200
 ----------------------------------------------------------------
-01/06/2017 15:12:57.798 CST INFO  (utilities.Logg:>>>verifyGetCall:[136]) Testing Get :: /api/Contacts/GetPreSaveContacts?CapellaUserUID=1997&PreSaveContactUID=4572727
+01/17/2017 14:27:56.032 CST INFO  (utilities.Logg:>>>verifyPostCall:[166]) Testing Post :: /api/Patient/GetPtMatFulfillment
 ----------------------------------------------------------------
-01/06/2017 15:12:58.730 CST INFO  (utilities.Logg:>>>verifyGetCall:[153]) /api/Contacts/GetPreSaveContacts?CapellaUserUID=1997&PreSaveContactUID=4572727 :: 200
+01/17/2017 14:28:00.818 CST INFO  (utilities.Logg:>>>verifyPostCall:[191]) /api/Patient/GetPtMatFulfillment:: 200
 ----------------------------------------------------------------
-01/06/2017 15:12:58.731 CST INFO  (utilities.Logg:>>>verifyGetCall:[136]) Testing Get :: /api/Contacts/GetOpenPatients?CapellaUserUID=1997
+01/17/2017 14:28:00.820 CST INFO  (utilities.Logg:>>>verifyPostCall:[166]) Testing Post :: /api/Patient/GetPatientReferrals
 ----------------------------------------------------------------
-01/06/2017 15:12:59.455 CST INFO  (utilities.Logg:>>>verifyGetCall:[153]) /api/Contacts/GetOpenPatients?CapellaUserUID=1997 :: 200
+01/17/2017 14:28:05.250 CST INFO  (utilities.Logg:>>>verifyPostCall:[191]) /api/Patient/GetPatientReferrals:: 200
 ----------------------------------------------------------------
-01/06/2017 15:12:59.457 CST INFO  (utilities.Logg:>>>verifyGetCall:[136]) Testing Get :: /api/Contacts/GetUnableToReach?patientUID=189095
+01/17/2017 14:28:05.299 CST INFO  (utilities.Logg:>>>afterTest:[63]) Test Case PASSED.validateAllApiCalls
 ----------------------------------------------------------------
-01/06/2017 15:13:00.373 CST INFO  (utilities.Logg:>>>verifyGetCall:[153]) /api/Contacts/GetUnableToReach?patientUID=189095 :: 200
+01/17/2017 14:37:27.761 CST INFO  (utilities.Logg:>>>getTermDetails:[45]) Testing Get :: https://capellawebqa.com/SalesForce/Termination/GetTermDetails?memberId=213544
 ----------------------------------------------------------------
-01/06/2017 15:13:00.375 CST INFO  (utilities.Logg:>>>verifyPostCall:[159]) Testing Post :: /api/Contacts/CurrentUser
+01/17/2017 14:37:45.408 CST INFO  (utilities.Logg:>>>getTermDetails:[61]) https://capellawebqa.com/SalesForce/Termination/GetTermDetails?memberId=213544 :: NERMS
 ----------------------------------------------------------------
-01/06/2017 15:13:01.108 CST INFO  (utilities.Logg:>>>verifyPostCall:[184]) /api/Contacts/CurrentUser:: 200
+01/17/2017 14:37:45.419 CST INFO  (utilities.Logg:>>>afterTest:[63]) Test Case PASSED.getTermDetails
 ----------------------------------------------------------------
-01/06/2017 15:13:01.110 CST INFO  (utilities.Logg:>>>verifyPostCall:[159]) Testing Post :: /api/Demographics/CurrentUser
+01/17/2017 14:37:45.424 CST INFO  (utilities.Logg:>>>getTermDetails:[45]) Testing Get :: https://capellawebqa.com/SalesForce/Termination/GetTermDetails?memberId=99999
 ----------------------------------------------------------------
-01/06/2017 15:13:02.030 CST INFO  (utilities.Logg:>>>verifyPostCall:[184]) /api/Demographics/CurrentUser:: 200
+01/17/2017 14:37:48.380 CST INFO  (utilities.Logg:>>>getTermDetails:[61]) https://capellawebqa.com/SalesForce/Termination/GetTermDetails?memberId=99999 :: UNRCH
 ----------------------------------------------------------------
-01/06/2017 15:13:02.031 CST INFO  (utilities.Logg:>>>verifyPostCall:[159]) Testing Post :: /api/File/CurrentUser
+01/17/2017 14:37:48.383 CST INFO  (utilities.Logg:>>>afterTest:[63]) Test Case PASSED.getTermDetails
 ----------------------------------------------------------------
-01/06/2017 15:13:03.136 CST INFO  (utilities.Logg:>>>verifyPostCall:[184]) /api/File/CurrentUser:: 200
+01/17/2017 14:37:49.837 CST INFO  (utilities.Logg:>>>getColumnCount:[49]) Thread:1	-column count for a Row 40
 ----------------------------------------------------------------
-01/06/2017 15:13:03.138 CST INFO  (utilities.Logg:>>>verifyPostCall:[159]) Testing Post :: /api/User/GetSnippets
+01/17/2017 14:37:49.873 CST INFO  (utilities.Logg:>>>verifyPostCall:[166]) Testing Post :: /api/Patient/GetMaterials
 ----------------------------------------------------------------
-01/06/2017 15:13:03.948 CST INFO  (utilities.Logg:>>>verifyPostCall:[184]) /api/User/GetSnippets:: 200
+01/17/2017 14:37:54.814 CST INFO  (utilities.Logg:>>>verifyPostCall:[191]) /api/Patient/GetMaterials:: 200
 ----------------------------------------------------------------
-01/06/2017 15:13:03.949 CST INFO  (utilities.Logg:>>>verifyPostCall:[159]) Testing Post :: /api/Utility/GetMenus
+01/17/2017 14:37:54.816 CST INFO  (utilities.Logg:>>>verifyPostCall:[166]) Testing Post :: /api/Patient/GetPtMatFulfillment
 ----------------------------------------------------------------
-01/06/2017 15:13:04.977 CST INFO  (utilities.Logg:>>>verifyPostCall:[184]) /api/Utility/GetMenus:: 200
+01/17/2017 14:37:58.147 CST INFO  (utilities.Logg:>>>verifyPostCall:[191]) /api/Patient/GetPtMatFulfillment:: 200
 ----------------------------------------------------------------
-01/06/2017 15:13:04.978 CST INFO  (utilities.Logg:>>>verifyPostCall:[159]) Testing Post :: /api/Utility/GetMenuOfAction
+01/17/2017 14:37:58.150 CST INFO  (utilities.Logg:>>>verifyPostCall:[166]) Testing Post :: /api/Patient/GetPatientReferrals
 ----------------------------------------------------------------
-01/06/2017 15:13:06.158 CST INFO  (utilities.Logg:>>>verifyPostCall:[184]) /api/Utility/GetMenuOfAction:: 200
+01/17/2017 14:38:00.498 CST INFO  (utilities.Logg:>>>verifyPostCall:[191]) /api/Patient/GetPatientReferrals:: 200
 ----------------------------------------------------------------
-01/06/2017 15:13:06.160 CST INFO  (utilities.Logg:>>>verifyPostCall:[159]) Testing Post :: /api/Utility/GetMoa
+01/17/2017 14:38:00.499 CST INFO  (utilities.Logg:>>>afterTest:[63]) Test Case PASSED.validateAllApiCalls
 ----------------------------------------------------------------
-01/06/2017 15:13:06.924 CST INFO  (utilities.Logg:>>>verifyPostCall:[184]) /api/Utility/GetMoa:: 200
+01/23/2017 14:21:39.532 CST INFO  (utilities.Logg:>>>getTermDetails:[45]) Testing Get :: https://capellawebqa.com/SalesForce/Termination/GetTermDetails?memberId=213544
 ----------------------------------------------------------------
-01/06/2017 15:13:06.926 CST INFO  (utilities.Logg:>>>verifyGetCall:[136]) Testing Get :: /api/Utility/GetDataValRanges
+01/23/2017 14:21:55.333 CST INFO  (utilities.Logg:>>>getTermDetails:[61]) https://capellawebqa.com/SalesForce/Termination/GetTermDetails?memberId=213544 :: NERMS
 ----------------------------------------------------------------
-01/06/2017 15:13:07.877 CST INFO  (utilities.Logg:>>>verifyGetCall:[153]) /api/Utility/GetDataValRanges :: 200
+01/23/2017 14:21:55.346 CST INFO  (utilities.Logg:>>>afterTest:[63]) Test Case PASSED.getTermDetails
 ----------------------------------------------------------------
-01/06/2017 15:13:07.878 CST INFO  (utilities.Logg:>>>verifyPostCall:[159]) Testing Post :: /api/Utility/GetUser
+01/23/2017 14:21:55.350 CST INFO  (utilities.Logg:>>>getTermDetails:[45]) Testing Get :: https://capellawebqa.com/SalesForce/Termination/GetTermDetails?memberId=99999
 ----------------------------------------------------------------
-01/06/2017 15:13:08.750 CST INFO  (utilities.Logg:>>>verifyPostCall:[184]) /api/Utility/GetUser:: 200
+01/23/2017 14:21:55.873 CST INFO  (utilities.Logg:>>>getTermDetails:[61]) https://capellawebqa.com/SalesForce/Termination/GetTermDetails?memberId=99999 :: UNRCH
 ----------------------------------------------------------------
-01/06/2017 15:13:08.752 CST INFO  (utilities.Logg:>>>verifyPostCall:[159]) Testing Post :: /api/Utility/GetParentChildLookup
+01/23/2017 14:21:55.874 CST INFO  (utilities.Logg:>>>afterTest:[63]) Test Case PASSED.getTermDetails
 ----------------------------------------------------------------
-01/06/2017 15:13:09.781 CST INFO  (utilities.Logg:>>>verifyPostCall:[184]) /api/Utility/GetParentChildLookup:: 200
+01/23/2017 14:21:58.041 CST INFO  (utilities.Logg:>>>getColumnCount:[49]) Thread:1	-column count for a Row 40
 ----------------------------------------------------------------
-01/06/2017 15:13:09.782 CST INFO  (utilities.Logg:>>>verifyPostCall:[159]) Testing Post :: /api/Utility/SearchOutboundRequest
+01/23/2017 14:21:58.079 CST INFO  (utilities.Logg:>>>verifyPostCall:[166]) Testing Post :: /api/Patient/GetMaterials
 ----------------------------------------------------------------
-01/06/2017 15:13:11.519 CST INFO  (utilities.Logg:>>>verifyPostCall:[184]) /api/Utility/SearchOutboundRequest:: 200
+01/23/2017 14:21:59.688 CST INFO  (utilities.Logg:>>>verifyPostCall:[191]) /api/Patient/GetMaterials:: 200
 ----------------------------------------------------------------
-01/06/2017 15:13:11.521 CST INFO  (utilities.Logg:>>>verifyPostCall:[159]) Testing Post :: /api/Utility/LookupZipCode
+01/23/2017 14:21:59.690 CST INFO  (utilities.Logg:>>>verifyPostCall:[166]) Testing Post :: /api/Patient/GetPtMatFulfillment
 ----------------------------------------------------------------
-01/06/2017 15:13:12.660 CST INFO  (utilities.Logg:>>>verifyPostCall:[184]) /api/Utility/LookupZipCode:: 200
+01/23/2017 14:22:01.575 CST INFO  (utilities.Logg:>>>verifyPostCall:[191]) /api/Patient/GetPtMatFulfillment:: 200
 ----------------------------------------------------------------
-01/06/2017 15:13:12.661 CST INFO  (utilities.Logg:>>>verifyGetCall:[136]) Testing Get :: /api/Utility/GetFilters
+01/23/2017 14:22:01.577 CST INFO  (utilities.Logg:>>>verifyPostCall:[166]) Testing Post :: /api/Patient/GetPatientReferrals
 ----------------------------------------------------------------
-01/06/2017 15:13:30.263 CST INFO  (utilities.Logg:>>>verifyGetCall:[153]) /api/Utility/GetFilters :: 200
+01/23/2017 14:22:02.381 CST INFO  (utilities.Logg:>>>verifyPostCall:[191]) /api/Patient/GetPatientReferrals:: 200
 ----------------------------------------------------------------
-01/06/2017 15:13:30.265 CST INFO  (utilities.Logg:>>>verifyGetCall:[136]) Testing Get :: /api/Utility/GetQueuePopulation
+01/23/2017 14:22:02.383 CST INFO  (utilities.Logg:>>>afterTest:[63]) Test Case PASSED.validateAllApiCalls
 ----------------------------------------------------------------
-01/06/2017 15:14:19.782 CST INFO  (utilities.Logg:>>>verifyGetCall:[153]) /api/Utility/GetQueuePopulation :: 200
+01/23/2017 14:27:59.318 CST INFO  (utilities.Logg:>>>getTermDetails:[45]) Testing Get :: https://capellawebqa.com/SalesForce/Termination/GetTermDetails?memberId=213544
 ----------------------------------------------------------------
-01/06/2017 15:14:19.786 CST INFO  (utilities.Logg:>>>verifyPostCall:[159]) Testing Post :: /api/Patient/GetPtContacts
+01/23/2017 14:28:13.340 CST INFO  (utilities.Logg:>>>getTermDetails:[61]) https://capellawebqa.com/SalesForce/Termination/GetTermDetails?memberId=213544 :: NERMS
 ----------------------------------------------------------------
-01/06/2017 15:14:20.751 CST INFO  (utilities.Logg:>>>verifyPostCall:[184]) /api/Patient/GetPtContacts:: 200
+01/23/2017 14:28:13.354 CST INFO  (utilities.Logg:>>>afterTest:[64]) Test Case PASSED.getTermDetails
 ----------------------------------------------------------------
-01/06/2017 15:14:20.752 CST INFO  (utilities.Logg:>>>verifyPostCall:[159]) Testing Post :: /api/Patient/GetPtDiabScreenings
+01/23/2017 14:28:13.359 CST INFO  (utilities.Logg:>>>getTermDetails:[45]) Testing Get :: https://capellawebqa.com/SalesForce/Termination/GetTermDetails?memberId=99999
 ----------------------------------------------------------------
-01/06/2017 15:14:21.572 CST INFO  (utilities.Logg:>>>verifyPostCall:[184]) /api/Patient/GetPtDiabScreenings:: 200
+01/23/2017 14:28:13.793 CST INFO  (utilities.Logg:>>>getTermDetails:[61]) https://capellawebqa.com/SalesForce/Termination/GetTermDetails?memberId=99999 :: UNRCH
 ----------------------------------------------------------------
-01/06/2017 15:14:21.574 CST INFO  (utilities.Logg:>>>verifyPostCall:[159]) Testing Post :: /api/Patient/GetPrePopulatedResponse
+01/23/2017 14:28:13.796 CST INFO  (utilities.Logg:>>>afterTest:[64]) Test Case PASSED.getTermDetails
 ----------------------------------------------------------------
-01/06/2017 15:14:22.731 CST INFO  (utilities.Logg:>>>verifyPostCall:[184]) /api/Patient/GetPrePopulatedResponse:: 200
+01/23/2017 14:28:15.106 CST INFO  (utilities.Logg:>>>getColumnCount:[49]) Thread:1	-column count for a Row 40
 ----------------------------------------------------------------
-01/06/2017 15:14:22.732 CST INFO  (utilities.Logg:>>>verifyPostCall:[159]) Testing Post :: /api/Patient/GetPatientGoals
+01/23/2017 14:28:15.145 CST INFO  (utilities.Logg:>>>verifyPostCall:[166]) Testing Post :: /api/Patient/GetMaterials
 ----------------------------------------------------------------
-01/06/2017 15:14:23.635 CST INFO  (utilities.Logg:>>>verifyPostCall:[184]) /api/Patient/GetPatientGoals:: 200
+01/23/2017 14:28:17.122 CST INFO  (utilities.Logg:>>>verifyPostCall:[191]) /api/Patient/GetMaterials:: 200
 ----------------------------------------------------------------
-01/06/2017 15:14:23.636 CST INFO  (utilities.Logg:>>>verifyPostCall:[159]) Testing Post :: /api/Patient/GetProviderAssociationsWithHistory
+01/23/2017 14:28:17.127 CST INFO  (utilities.Logg:>>>verifyPostCall:[166]) Testing Post :: /api/Patient/GetPtMatFulfillment
 ----------------------------------------------------------------
-01/06/2017 15:14:24.438 CST INFO  (utilities.Logg:>>>verifyPostCall:[184]) /api/Patient/GetProviderAssociationsWithHistory:: 200
+01/23/2017 14:28:18.076 CST INFO  (utilities.Logg:>>>verifyPostCall:[191]) /api/Patient/GetPtMatFulfillment:: 200
 ----------------------------------------------------------------
-01/06/2017 15:14:24.440 CST INFO  (utilities.Logg:>>>verifyPostCall:[159]) Testing Post :: /api/Patient/GetProviderAssociations
+01/23/2017 14:28:18.077 CST INFO  (utilities.Logg:>>>verifyPostCall:[166]) Testing Post :: /api/Patient/GetPatientReferrals
 ----------------------------------------------------------------
-01/06/2017 15:14:25.245 CST INFO  (utilities.Logg:>>>verifyPostCall:[184]) /api/Patient/GetProviderAssociations:: 200
+01/23/2017 14:28:18.748 CST INFO  (utilities.Logg:>>>verifyPostCall:[191]) /api/Patient/GetPatientReferrals:: 200
 ----------------------------------------------------------------
-01/06/2017 15:14:25.246 CST INFO  (utilities.Logg:>>>verifyPostCall:[159]) Testing Post :: /api/Patient/GetPatientProfileProvider
-----------------------------------------------------------------
-01/06/2017 15:14:26.272 CST INFO  (utilities.Logg:>>>verifyPostCall:[184]) /api/Patient/GetPatientProfileProvider:: 200
-----------------------------------------------------------------
-01/06/2017 15:14:26.274 CST INFO  (utilities.Logg:>>>verifyPostCall:[159]) Testing Post :: /api/Patient/GetPatientScorecard
-----------------------------------------------------------------
-01/06/2017 15:14:27.197 CST INFO  (utilities.Logg:>>>verifyPostCall:[184]) /api/Patient/GetPatientScorecard:: 200
-----------------------------------------------------------------
-01/06/2017 15:14:27.199 CST INFO  (utilities.Logg:>>>verifyPostCall:[159]) Testing Post :: /api/Patient/GetVHNMedReview
-----------------------------------------------------------------
-01/06/2017 15:14:28.130 CST INFO  (utilities.Logg:>>>verifyPostCall:[184]) /api/Patient/GetVHNMedReview:: 200
-----------------------------------------------------------------
-01/06/2017 15:14:28.132 CST INFO  (utilities.Logg:>>>verifyPostCall:[159]) Testing Post :: /api/Patient/GetComorbidReviews
-----------------------------------------------------------------
-01/06/2017 15:14:28.938 CST INFO  (utilities.Logg:>>>verifyPostCall:[184]) /api/Patient/GetComorbidReviews:: 200
-----------------------------------------------------------------
-01/06/2017 15:14:28.943 CST INFO  (utilities.Logg:>>>verifyPostCall:[159]) Testing Post :: /api/Patient/GetEPSTaskHistory
-----------------------------------------------------------------
-01/06/2017 15:14:29.959 CST INFO  (utilities.Logg:>>>verifyPostCall:[184]) /api/Patient/GetEPSTaskHistory:: 200
-----------------------------------------------------------------
-01/06/2017 15:14:29.995 CST INFO  (utilities.Logg:>>>afterTest:[52]) Test Case PASSED.validateAllApiCalls
-----------------------------------------------------------------
-01/09/2017 21:51:47.572 CST INFO  (utilities.Logg:>>>getColumnCount:[49]) Thread:1	-column count for a Row 12
-----------------------------------------------------------------
-01/09/2017 21:51:47.649 CST INFO  (utilities.Logg:>>>verifyPostCall:[159]) Testing Post :: /api/Demographics/GetPatientDetails
-----------------------------------------------------------------
-01/09/2017 21:52:01.527 CST INFO  (utilities.Logg:>>>verifyPostCall:[184]) /api/Demographics/GetPatientDetails:: 200
-----------------------------------------------------------------
-01/09/2017 21:52:01.530 CST INFO  (utilities.Logg:>>>verifyPostCall:[159]) Testing Post :: /api/Utility/GetMenuOfAction
-----------------------------------------------------------------
-01/09/2017 21:52:03.314 CST INFO  (utilities.Logg:>>>verifyPostCall:[184]) /api/Utility/GetMenuOfAction:: 200
-----------------------------------------------------------------
-01/09/2017 21:52:03.318 CST INFO  (utilities.Logg:>>>verifyGetCall:[136]) Testing Get :: /api/User/GetTeamUsersAll?capellaUserUID=2015
-----------------------------------------------------------------
-01/09/2017 21:52:05.009 CST INFO  (utilities.Logg:>>>verifyGetCall:[153]) /api/User/GetTeamUsersAll?capellaUserUID=2015 :: 200
-----------------------------------------------------------------
-01/09/2017 21:52:05.011 CST INFO  (utilities.Logg:>>>verifyPostCall:[159]) Testing Post :: /api/Demographics/GetPatientDetails
-----------------------------------------------------------------
-01/09/2017 21:52:07.231 CST INFO  (utilities.Logg:>>>verifyPostCall:[184]) /api/Demographics/GetPatientDetails:: 200
-----------------------------------------------------------------
-01/09/2017 21:52:07.234 CST INFO  (utilities.Logg:>>>verifyPostCall:[159]) Testing Post :: /api/Account/GetModifiedLookupTypes
-----------------------------------------------------------------
-01/09/2017 21:52:07.921 CST INFO  (utilities.Logg:>>>verifyPostCall:[184]) /api/Account/GetModifiedLookupTypes:: 200
-----------------------------------------------------------------
-01/09/2017 21:52:07.923 CST INFO  (utilities.Logg:>>>verifyPostCall:[159]) Testing Post :: /api/Clinical/GetPatientAllergies
-----------------------------------------------------------------
-01/09/2017 21:52:09.046 CST INFO  (utilities.Logg:>>>verifyPostCall:[184]) /api/Clinical/GetPatientAllergies:: 200
-----------------------------------------------------------------
-01/09/2017 21:52:09.048 CST INFO  (utilities.Logg:>>>verifyGetCall:[136]) Testing Get :: /api/Account/SessionMakeAlive
-----------------------------------------------------------------
-01/09/2017 21:52:09.983 CST INFO  (utilities.Logg:>>>verifyGetCall:[153]) /api/Account/SessionMakeAlive :: 200
-----------------------------------------------------------------
-01/09/2017 21:52:09.986 CST INFO  (utilities.Logg:>>>verifyGetCall:[136]) Testing Get :: /api/Account/GetClientConfig
-----------------------------------------------------------------
-01/09/2017 21:52:11.992 CST INFO  (utilities.Logg:>>>verifyGetCall:[153]) /api/Account/GetClientConfig :: 200
-----------------------------------------------------------------
-01/09/2017 21:52:11.995 CST INFO  (utilities.Logg:>>>verifyPostCall:[159]) Testing Post :: /api/CapellaBase/CurrentUser
-----------------------------------------------------------------
-01/09/2017 21:52:13.199 CST INFO  (utilities.Logg:>>>verifyPostCall:[184]) /api/CapellaBase/CurrentUser:: 200
-----------------------------------------------------------------
-01/09/2017 21:52:13.200 CST INFO  (utilities.Logg:>>>verifyPostCall:[159]) Testing Post :: /api/Clinical/GetPatientAllergies
-----------------------------------------------------------------
-01/09/2017 21:52:14.296 CST INFO  (utilities.Logg:>>>verifyPostCall:[184]) /api/Clinical/GetPatientAllergies:: 200
-----------------------------------------------------------------
-01/09/2017 21:52:14.299 CST INFO  (utilities.Logg:>>>verifyPostCall:[159]) Testing Post :: /api/User/GetUserActionItems
-----------------------------------------------------------------
-01/09/2017 21:52:33.545 CST INFO  (utilities.Logg:>>>verifyPostCall:[184]) /api/User/GetUserActionItems:: 200
-----------------------------------------------------------------
-01/09/2017 21:52:33.548 CST INFO  (utilities.Logg:>>>verifyPostCall:[159]) Testing Post :: /api/Clinical/GetVapStepDetails
-----------------------------------------------------------------
-01/09/2017 21:52:34.591 CST INFO  (utilities.Logg:>>>verifyPostCall:[184]) /api/Clinical/GetVapStepDetails:: 200
-----------------------------------------------------------------
-01/09/2017 21:52:34.593 CST INFO  (utilities.Logg:>>>verifyPostCall:[159]) Testing Post :: /api/Clinical/GetPatientMedication
-----------------------------------------------------------------
-01/09/2017 21:52:35.686 CST INFO  (utilities.Logg:>>>verifyPostCall:[184]) /api/Clinical/GetPatientMedication:: 200
-----------------------------------------------------------------
-01/09/2017 21:52:35.688 CST INFO  (utilities.Logg:>>>verifyPostCall:[159]) Testing Post :: /api/Clinical/GetPatientLabs
-----------------------------------------------------------------
-01/09/2017 21:52:36.701 CST INFO  (utilities.Logg:>>>verifyPostCall:[184]) /api/Clinical/GetPatientLabs:: 200
-----------------------------------------------------------------
-01/09/2017 21:52:36.706 CST INFO  (utilities.Logg:>>>verifyPostCall:[159]) Testing Post :: /api/Clinical/GetPatientCurrentLabs
-----------------------------------------------------------------
-01/09/2017 21:52:37.776 CST INFO  (utilities.Logg:>>>verifyPostCall:[184]) /api/Clinical/GetPatientCurrentLabs:: 200
-----------------------------------------------------------------
-01/09/2017 21:52:37.778 CST INFO  (utilities.Logg:>>>verifyPostCall:[159]) Testing Post :: /api/Clinical/GetPatientDevices
-----------------------------------------------------------------
-01/09/2017 21:52:38.911 CST INFO  (utilities.Logg:>>>verifyPostCall:[184]) /api/Clinical/GetPatientDevices:: 200
-----------------------------------------------------------------
-01/09/2017 21:52:38.914 CST INFO  (utilities.Logg:>>>verifyPostCall:[159]) Testing Post :: /api/Clinical/GetPatientMedication
-----------------------------------------------------------------
-01/09/2017 21:52:39.855 CST INFO  (utilities.Logg:>>>verifyPostCall:[184]) /api/Clinical/GetPatientMedication:: 200
-----------------------------------------------------------------
-01/09/2017 21:52:39.857 CST INFO  (utilities.Logg:>>>verifyPostCall:[159]) Testing Post :: /api/Clinical/GetAccessView
-----------------------------------------------------------------
-01/09/2017 21:52:40.688 CST INFO  (utilities.Logg:>>>verifyPostCall:[184]) /api/Clinical/GetAccessView:: 200
-----------------------------------------------------------------
-01/09/2017 21:52:40.690 CST INFO  (utilities.Logg:>>>verifyPostCall:[159]) Testing Post :: /api/Clinical/CurrentUser
-----------------------------------------------------------------
-01/09/2017 21:52:41.898 CST INFO  (utilities.Logg:>>>verifyPostCall:[184]) /api/Clinical/CurrentUser:: 200
-----------------------------------------------------------------
-01/09/2017 21:52:41.900 CST INFO  (utilities.Logg:>>>verifyGetCall:[136]) Testing Get :: /api/Contacts/GetPreSaveContacts?CapellaUserUID=1997&PreSaveContactUID=4572727
-----------------------------------------------------------------
-01/09/2017 21:52:42.809 CST INFO  (utilities.Logg:>>>verifyGetCall:[153]) /api/Contacts/GetPreSaveContacts?CapellaUserUID=1997&PreSaveContactUID=4572727 :: 200
-----------------------------------------------------------------
-01/09/2017 21:52:42.811 CST INFO  (utilities.Logg:>>>verifyGetCall:[136]) Testing Get :: /api/Contacts/GetOpenPatients?CapellaUserUID=1997
-----------------------------------------------------------------
-01/09/2017 21:52:43.754 CST INFO  (utilities.Logg:>>>verifyGetCall:[153]) /api/Contacts/GetOpenPatients?CapellaUserUID=1997 :: 200
-----------------------------------------------------------------
-01/09/2017 21:52:43.757 CST INFO  (utilities.Logg:>>>verifyGetCall:[136]) Testing Get :: /api/Contacts/GetUnableToReach?patientUID=189095
-----------------------------------------------------------------
-01/09/2017 21:52:44.809 CST INFO  (utilities.Logg:>>>verifyGetCall:[153]) /api/Contacts/GetUnableToReach?patientUID=189095 :: 200
-----------------------------------------------------------------
-01/09/2017 21:52:44.811 CST INFO  (utilities.Logg:>>>verifyPostCall:[159]) Testing Post :: /api/Contacts/CurrentUser
-----------------------------------------------------------------
-01/09/2017 21:52:45.709 CST INFO  (utilities.Logg:>>>verifyPostCall:[184]) /api/Contacts/CurrentUser:: 200
-----------------------------------------------------------------
-01/09/2017 21:52:45.711 CST INFO  (utilities.Logg:>>>verifyPostCall:[159]) Testing Post :: /api/Demographics/CurrentUser
-----------------------------------------------------------------
-01/09/2017 21:52:46.631 CST INFO  (utilities.Logg:>>>verifyPostCall:[184]) /api/Demographics/CurrentUser:: 200
-----------------------------------------------------------------
-01/09/2017 21:52:46.634 CST INFO  (utilities.Logg:>>>verifyPostCall:[159]) Testing Post :: /api/File/CurrentUser
-----------------------------------------------------------------
-01/09/2017 21:52:47.552 CST INFO  (utilities.Logg:>>>verifyPostCall:[184]) /api/File/CurrentUser:: 200
-----------------------------------------------------------------
-01/09/2017 21:52:47.554 CST INFO  (utilities.Logg:>>>verifyPostCall:[159]) Testing Post :: /api/User/GetSnippets
-----------------------------------------------------------------
-01/09/2017 21:52:48.592 CST INFO  (utilities.Logg:>>>verifyPostCall:[184]) /api/User/GetSnippets:: 200
-----------------------------------------------------------------
-01/09/2017 21:52:48.595 CST INFO  (utilities.Logg:>>>verifyPostCall:[159]) Testing Post :: /api/Utility/GetMenus
-----------------------------------------------------------------
-01/09/2017 21:52:49.925 CST INFO  (utilities.Logg:>>>verifyPostCall:[184]) /api/Utility/GetMenus:: 200
-----------------------------------------------------------------
-01/09/2017 21:52:49.928 CST INFO  (utilities.Logg:>>>verifyPostCall:[159]) Testing Post :: /api/Utility/GetMenuOfAction
-----------------------------------------------------------------
-01/09/2017 21:52:51.258 CST INFO  (utilities.Logg:>>>verifyPostCall:[184]) /api/Utility/GetMenuOfAction:: 200
-----------------------------------------------------------------
-01/09/2017 21:52:51.260 CST INFO  (utilities.Logg:>>>verifyPostCall:[159]) Testing Post :: /api/Utility/GetMoa
-----------------------------------------------------------------
-01/09/2017 21:52:52.280 CST INFO  (utilities.Logg:>>>verifyPostCall:[184]) /api/Utility/GetMoa:: 200
-----------------------------------------------------------------
-01/09/2017 21:52:52.284 CST INFO  (utilities.Logg:>>>verifyGetCall:[136]) Testing Get :: /api/Utility/GetDataValRanges
-----------------------------------------------------------------
-01/09/2017 21:52:53.861 CST INFO  (utilities.Logg:>>>verifyGetCall:[153]) /api/Utility/GetDataValRanges :: 200
-----------------------------------------------------------------
-01/09/2017 21:52:53.863 CST INFO  (utilities.Logg:>>>verifyPostCall:[159]) Testing Post :: /api/Utility/GetUser
-----------------------------------------------------------------
-01/09/2017 21:52:55.066 CST INFO  (utilities.Logg:>>>verifyPostCall:[184]) /api/Utility/GetUser:: 200
-----------------------------------------------------------------
-01/09/2017 21:52:55.068 CST INFO  (utilities.Logg:>>>verifyPostCall:[159]) Testing Post :: /api/Utility/GetParentChildLookup
-----------------------------------------------------------------
-01/09/2017 21:52:56.578 CST INFO  (utilities.Logg:>>>verifyPostCall:[184]) /api/Utility/GetParentChildLookup:: 200
-----------------------------------------------------------------
-01/09/2017 21:52:56.580 CST INFO  (utilities.Logg:>>>verifyPostCall:[159]) Testing Post :: /api/Utility/SearchOutboundRequest
-----------------------------------------------------------------
-01/09/2017 21:52:57.783 CST INFO  (utilities.Logg:>>>verifyPostCall:[184]) /api/Utility/SearchOutboundRequest:: 200
-----------------------------------------------------------------
-01/09/2017 21:52:57.784 CST INFO  (utilities.Logg:>>>verifyPostCall:[159]) Testing Post :: /api/Utility/LookupZipCode
-----------------------------------------------------------------
-01/09/2017 21:52:58.657 CST INFO  (utilities.Logg:>>>verifyPostCall:[184]) /api/Utility/LookupZipCode:: 200
-----------------------------------------------------------------
-01/09/2017 21:52:58.669 CST INFO  (utilities.Logg:>>>verifyGetCall:[136]) Testing Get :: /api/Utility/GetFilters
-----------------------------------------------------------------
-01/09/2017 21:53:01.783 CST INFO  (utilities.Logg:>>>verifyGetCall:[153]) /api/Utility/GetFilters :: 200
-----------------------------------------------------------------
-01/09/2017 21:53:01.785 CST INFO  (utilities.Logg:>>>verifyGetCall:[136]) Testing Get :: /api/Utility/GetQueuePopulation
-----------------------------------------------------------------
-01/09/2017 21:53:47.052 CST INFO  (utilities.Logg:>>>verifyGetCall:[153]) /api/Utility/GetQueuePopulation :: 200
-----------------------------------------------------------------
-01/09/2017 21:53:47.053 CST INFO  (utilities.Logg:>>>verifyPostCall:[159]) Testing Post :: /api/Patient/GetPtContacts
-----------------------------------------------------------------
-01/09/2017 21:53:48.124 CST INFO  (utilities.Logg:>>>verifyPostCall:[184]) /api/Patient/GetPtContacts:: 200
-----------------------------------------------------------------
-01/09/2017 21:53:48.127 CST INFO  (utilities.Logg:>>>verifyPostCall:[159]) Testing Post :: /api/Patient/GetPtDiabScreenings
-----------------------------------------------------------------
-01/09/2017 21:53:49.002 CST INFO  (utilities.Logg:>>>verifyPostCall:[184]) /api/Patient/GetPtDiabScreenings:: 200
-----------------------------------------------------------------
-01/09/2017 21:53:49.004 CST INFO  (utilities.Logg:>>>verifyPostCall:[159]) Testing Post :: /api/Patient/GetPrePopulatedResponse
-----------------------------------------------------------------
-01/09/2017 21:53:50.815 CST INFO  (utilities.Logg:>>>verifyPostCall:[184]) /api/Patient/GetPrePopulatedResponse:: 200
-----------------------------------------------------------------
-01/09/2017 21:53:50.816 CST INFO  (utilities.Logg:>>>verifyPostCall:[159]) Testing Post :: /api/Patient/GetPatientGoals
-----------------------------------------------------------------
-01/09/2017 21:53:52.272 CST INFO  (utilities.Logg:>>>verifyPostCall:[184]) /api/Patient/GetPatientGoals:: 200
-----------------------------------------------------------------
-01/09/2017 21:53:52.275 CST INFO  (utilities.Logg:>>>verifyPostCall:[159]) Testing Post :: /api/Patient/GetProviderAssociationsWithHistory
-----------------------------------------------------------------
-01/09/2017 21:53:53.193 CST INFO  (utilities.Logg:>>>verifyPostCall:[184]) /api/Patient/GetProviderAssociationsWithHistory:: 200
-----------------------------------------------------------------
-01/09/2017 21:53:53.196 CST INFO  (utilities.Logg:>>>verifyPostCall:[159]) Testing Post :: /api/Patient/GetProviderAssociations
-----------------------------------------------------------------
-01/09/2017 21:53:54.040 CST INFO  (utilities.Logg:>>>verifyPostCall:[184]) /api/Patient/GetProviderAssociations:: 200
-----------------------------------------------------------------
-01/09/2017 21:53:54.041 CST INFO  (utilities.Logg:>>>verifyPostCall:[159]) Testing Post :: /api/Patient/GetPatientProfileProvider
-----------------------------------------------------------------
-01/09/2017 21:53:55.061 CST INFO  (utilities.Logg:>>>verifyPostCall:[184]) /api/Patient/GetPatientProfileProvider:: 200
-----------------------------------------------------------------
-01/09/2017 21:53:55.064 CST INFO  (utilities.Logg:>>>verifyPostCall:[159]) Testing Post :: /api/Patient/GetPatientScorecard
-----------------------------------------------------------------
-01/09/2017 21:53:56.133 CST INFO  (utilities.Logg:>>>verifyPostCall:[184]) /api/Patient/GetPatientScorecard:: 200
-----------------------------------------------------------------
-01/09/2017 21:53:56.134 CST INFO  (utilities.Logg:>>>verifyPostCall:[159]) Testing Post :: /api/Patient/GetVHNMedReview
-----------------------------------------------------------------
-01/09/2017 21:53:57.183 CST INFO  (utilities.Logg:>>>verifyPostCall:[184]) /api/Patient/GetVHNMedReview:: 200
-----------------------------------------------------------------
-01/09/2017 21:53:57.185 CST INFO  (utilities.Logg:>>>verifyPostCall:[159]) Testing Post :: /api/Patient/GetComorbidReviews
-----------------------------------------------------------------
-01/09/2017 21:53:58.257 CST INFO  (utilities.Logg:>>>verifyPostCall:[184]) /api/Patient/GetComorbidReviews:: 200
-----------------------------------------------------------------
-01/09/2017 21:53:58.259 CST INFO  (utilities.Logg:>>>verifyPostCall:[159]) Testing Post :: /api/Patient/GetEPSTaskHistory
-----------------------------------------------------------------
-01/09/2017 21:53:59.251 CST INFO  (utilities.Logg:>>>verifyPostCall:[184]) /api/Patient/GetEPSTaskHistory:: 200
-----------------------------------------------------------------
-01/09/2017 21:53:59.271 CST INFO  (utilities.Logg:>>>afterTest:[52]) Test Case PASSED.validateAllApiCalls
-----------------------------------------------------------------
-01/11/2017 15:20:28.090 CST INFO  (utilities.Logg:>>>getColumnCount:[49]) Thread:1	-column count for a Row 40
-----------------------------------------------------------------
-01/11/2017 15:20:28.123 CST INFO  (utilities.Logg:>>>verifyPostCall:[160]) Testing Post :: /api/Patient/GetMaterials
-----------------------------------------------------------------
-01/11/2017 15:20:40.287 CST INFO  (utilities.Logg:>>>verifyPostCall:[185]) /api/Patient/GetMaterials:: 200
-----------------------------------------------------------------
-01/11/2017 15:20:40.299 CST INFO  (utilities.Logg:>>>afterTest:[52]) Test Case PASSED.validateAllApiCalls
-----------------------------------------------------------------
-01/11/2017 15:24:39.274 CST INFO  (utilities.Logg:>>>getColumnCount:[49]) Thread:1	-column count for a Row 40
-----------------------------------------------------------------
-01/11/2017 15:24:39.305 CST INFO  (utilities.Logg:>>>verifyPostCall:[160]) Testing Post :: /api/Patient/GetMaterials
-----------------------------------------------------------------
-01/11/2017 15:24:50.643 CST INFO  (utilities.Logg:>>>verifyPostCall:[185]) /api/Patient/GetMaterials:: 200
-----------------------------------------------------------------
-01/11/2017 15:24:50.662 CST INFO  (utilities.Logg:>>>afterTest:[52]) Test Case PASSED.validateAllApiCalls
-----------------------------------------------------------------
-01/11/2017 15:28:31.128 CST INFO  (utilities.Logg:>>>getColumnCount:[49]) Thread:1	-column count for a Row 40
-----------------------------------------------------------------
-01/11/2017 15:28:31.161 CST INFO  (utilities.Logg:>>>verifyPostCall:[160]) Testing Post :: /api/Patient/GetMaterials
-----------------------------------------------------------------
-01/11/2017 15:28:44.032 CST INFO  (utilities.Logg:>>>verifyPostCall:[185]) /api/Patient/GetMaterials:: 200
-----------------------------------------------------------------
-01/11/2017 15:28:44.055 CST INFO  (utilities.Logg:>>>afterTest:[52]) Test Case PASSED.validateAllApiCalls
-----------------------------------------------------------------
-01/11/2017 15:36:39.797 CST INFO  (utilities.Logg:>>>getColumnCount:[49]) Thread:1	-column count for a Row 12
-----------------------------------------------------------------
-01/11/2017 15:36:39.869 CST INFO  (utilities.Logg:>>>verifyPostCall:[160]) Testing Post :: /api/Demographics/GetPatientDetails
-----------------------------------------------------------------
-01/11/2017 15:36:52.378 CST INFO  (utilities.Logg:>>>verifyPostCall:[185]) /api/Demographics/GetPatientDetails:: 200
-----------------------------------------------------------------
-01/11/2017 15:36:52.381 CST INFO  (utilities.Logg:>>>verifyPostCall:[160]) Testing Post :: /api/Utility/GetMenuOfAction
-----------------------------------------------------------------
-01/11/2017 15:36:53.442 CST INFO  (utilities.Logg:>>>verifyPostCall:[185]) /api/Utility/GetMenuOfAction:: 200
-----------------------------------------------------------------
-01/11/2017 15:36:53.445 CST INFO  (utilities.Logg:>>>verifyGetCall:[136]) Testing Get :: /api/User/GetTeamUsersAll?capellaUserUID=2015
-----------------------------------------------------------------
-01/11/2017 15:36:54.432 CST INFO  (utilities.Logg:>>>verifyGetCall:[154]) /api/User/GetTeamUsersAll?capellaUserUID=2015 :: 200
-----------------------------------------------------------------
-01/11/2017 15:36:54.434 CST INFO  (utilities.Logg:>>>verifyPostCall:[160]) Testing Post :: /api/Demographics/GetPatientDetails
-----------------------------------------------------------------
-01/11/2017 15:36:55.937 CST INFO  (utilities.Logg:>>>verifyPostCall:[185]) /api/Demographics/GetPatientDetails:: 200
-----------------------------------------------------------------
-01/11/2017 15:36:55.939 CST INFO  (utilities.Logg:>>>verifyPostCall:[160]) Testing Post :: /api/Account/GetModifiedLookupTypes
-----------------------------------------------------------------
-01/11/2017 15:36:56.567 CST INFO  (utilities.Logg:>>>verifyPostCall:[185]) /api/Account/GetModifiedLookupTypes:: 200
-----------------------------------------------------------------
-01/11/2017 15:36:56.569 CST INFO  (utilities.Logg:>>>verifyPostCall:[160]) Testing Post :: /api/Clinical/GetPatientAllergies
-----------------------------------------------------------------
-01/11/2017 15:36:57.322 CST INFO  (utilities.Logg:>>>verifyPostCall:[185]) /api/Clinical/GetPatientAllergies:: 200
-----------------------------------------------------------------
-01/11/2017 15:36:57.324 CST INFO  (utilities.Logg:>>>verifyGetCall:[136]) Testing Get :: /api/Account/SessionMakeAlive
-----------------------------------------------------------------
-01/11/2017 15:36:58.034 CST INFO  (utilities.Logg:>>>verifyGetCall:[154]) /api/Account/SessionMakeAlive :: 200
-----------------------------------------------------------------
-01/11/2017 15:36:58.039 CST INFO  (utilities.Logg:>>>verifyGetCall:[136]) Testing Get :: /api/Account/GetClientConfig
-----------------------------------------------------------------
-01/11/2017 15:36:58.674 CST INFO  (utilities.Logg:>>>verifyGetCall:[154]) /api/Account/GetClientConfig :: 200
-----------------------------------------------------------------
-01/11/2017 15:36:58.676 CST INFO  (utilities.Logg:>>>verifyPostCall:[160]) Testing Post :: /api/CapellaBase/CurrentUser
-----------------------------------------------------------------
-01/11/2017 15:36:59.484 CST INFO  (utilities.Logg:>>>verifyPostCall:[185]) /api/CapellaBase/CurrentUser:: 200
-----------------------------------------------------------------
-01/11/2017 15:36:59.486 CST INFO  (utilities.Logg:>>>verifyPostCall:[160]) Testing Post :: /api/Clinical/GetPatientAllergies
-----------------------------------------------------------------
-01/11/2017 15:37:00.266 CST INFO  (utilities.Logg:>>>verifyPostCall:[185]) /api/Clinical/GetPatientAllergies:: 200
-----------------------------------------------------------------
-01/11/2017 15:37:00.269 CST INFO  (utilities.Logg:>>>verifyPostCall:[160]) Testing Post :: /api/User/GetUserActionItems
-----------------------------------------------------------------
-01/11/2017 15:37:02.794 CST INFO  (utilities.Logg:>>>verifyPostCall:[185]) /api/User/GetUserActionItems:: 200
-----------------------------------------------------------------
-01/11/2017 15:37:02.794 CST INFO  (utilities.Logg:>>>verifyPostCall:[160]) Testing Post :: /api/Clinical/GetVapStepDetails
-----------------------------------------------------------------
-01/11/2017 15:37:03.597 CST INFO  (utilities.Logg:>>>verifyPostCall:[185]) /api/Clinical/GetVapStepDetails:: 200
-----------------------------------------------------------------
-01/11/2017 15:37:03.599 CST INFO  (utilities.Logg:>>>verifyPostCall:[160]) Testing Post :: /api/Clinical/GetPatientMedication
-----------------------------------------------------------------
-01/11/2017 15:37:04.394 CST INFO  (utilities.Logg:>>>verifyPostCall:[185]) /api/Clinical/GetPatientMedication:: 200
-----------------------------------------------------------------
-01/11/2017 15:37:04.397 CST INFO  (utilities.Logg:>>>verifyPostCall:[160]) Testing Post :: /api/Clinical/GetPatientLabs
-----------------------------------------------------------------
-01/11/2017 15:37:05.067 CST INFO  (utilities.Logg:>>>verifyPostCall:[185]) /api/Clinical/GetPatientLabs:: 200
-----------------------------------------------------------------
-01/11/2017 15:37:05.072 CST INFO  (utilities.Logg:>>>verifyPostCall:[160]) Testing Post :: /api/Clinical/GetPatientCurrentLabs
-----------------------------------------------------------------
-01/11/2017 15:37:05.899 CST INFO  (utilities.Logg:>>>verifyPostCall:[185]) /api/Clinical/GetPatientCurrentLabs:: 200
-----------------------------------------------------------------
-01/11/2017 15:37:05.904 CST INFO  (utilities.Logg:>>>verifyPostCall:[160]) Testing Post :: /api/Clinical/GetPatientDevices
-----------------------------------------------------------------
-01/11/2017 15:37:06.726 CST INFO  (utilities.Logg:>>>verifyPostCall:[185]) /api/Clinical/GetPatientDevices:: 200
-----------------------------------------------------------------
-01/11/2017 15:37:06.728 CST INFO  (utilities.Logg:>>>verifyPostCall:[160]) Testing Post :: /api/Clinical/GetPatientMedication
-----------------------------------------------------------------
-01/11/2017 15:37:07.461 CST INFO  (utilities.Logg:>>>verifyPostCall:[185]) /api/Clinical/GetPatientMedication:: 200
-----------------------------------------------------------------
-01/11/2017 15:37:07.466 CST INFO  (utilities.Logg:>>>verifyPostCall:[160]) Testing Post :: /api/Clinical/GetAccessView
-----------------------------------------------------------------
-01/11/2017 15:37:08.136 CST INFO  (utilities.Logg:>>>verifyPostCall:[185]) /api/Clinical/GetAccessView:: 200
-----------------------------------------------------------------
-01/11/2017 15:37:08.139 CST INFO  (utilities.Logg:>>>verifyPostCall:[160]) Testing Post :: /api/Clinical/CurrentUser
-----------------------------------------------------------------
-01/11/2017 15:37:08.914 CST INFO  (utilities.Logg:>>>verifyPostCall:[185]) /api/Clinical/CurrentUser:: 200
-----------------------------------------------------------------
-01/11/2017 15:37:08.916 CST INFO  (utilities.Logg:>>>verifyGetCall:[136]) Testing Get :: /api/Contacts/GetPreSaveContacts?CapellaUserUID=1997&PreSaveContactUID=4572727
-----------------------------------------------------------------
-01/11/2017 15:37:09.536 CST INFO  (utilities.Logg:>>>verifyGetCall:[154]) /api/Contacts/GetPreSaveContacts?CapellaUserUID=1997&PreSaveContactUID=4572727 :: 200
-----------------------------------------------------------------
-01/11/2017 15:37:09.539 CST INFO  (utilities.Logg:>>>verifyGetCall:[136]) Testing Get :: /api/Contacts/GetOpenPatients?CapellaUserUID=1997
-----------------------------------------------------------------
-01/11/2017 15:37:10.141 CST INFO  (utilities.Logg:>>>verifyGetCall:[154]) /api/Contacts/GetOpenPatients?CapellaUserUID=1997 :: 200
-----------------------------------------------------------------
-01/11/2017 15:37:10.144 CST INFO  (utilities.Logg:>>>verifyGetCall:[136]) Testing Get :: /api/Contacts/GetUnableToReach?patientUID=189095
-----------------------------------------------------------------
-01/11/2017 15:37:10.736 CST INFO  (utilities.Logg:>>>verifyGetCall:[154]) /api/Contacts/GetUnableToReach?patientUID=189095 :: 200
-----------------------------------------------------------------
-01/11/2017 15:37:10.739 CST INFO  (utilities.Logg:>>>verifyPostCall:[160]) Testing Post :: /api/Contacts/CurrentUser
-----------------------------------------------------------------
-01/11/2017 15:37:11.314 CST INFO  (utilities.Logg:>>>verifyPostCall:[185]) /api/Contacts/CurrentUser:: 200
-----------------------------------------------------------------
-01/11/2017 15:37:11.316 CST INFO  (utilities.Logg:>>>verifyPostCall:[160]) Testing Post :: /api/Demographics/CurrentUser
-----------------------------------------------------------------
-01/11/2017 15:37:11.926 CST INFO  (utilities.Logg:>>>verifyPostCall:[185]) /api/Demographics/CurrentUser:: 200
-----------------------------------------------------------------
-01/11/2017 15:37:11.928 CST INFO  (utilities.Logg:>>>verifyPostCall:[160]) Testing Post :: /api/File/CurrentUser
-----------------------------------------------------------------
-01/11/2017 15:37:12.568 CST INFO  (utilities.Logg:>>>verifyPostCall:[185]) /api/File/CurrentUser:: 200
-----------------------------------------------------------------
-01/11/2017 15:37:12.571 CST INFO  (utilities.Logg:>>>verifyPostCall:[160]) Testing Post :: /api/User/GetSnippets
-----------------------------------------------------------------
-01/11/2017 15:37:13.194 CST INFO  (utilities.Logg:>>>verifyPostCall:[185]) /api/User/GetSnippets:: 200
-----------------------------------------------------------------
-01/11/2017 15:37:13.199 CST INFO  (utilities.Logg:>>>verifyPostCall:[160]) Testing Post :: /api/Utility/GetMenus
-----------------------------------------------------------------
-01/11/2017 15:37:13.993 CST INFO  (utilities.Logg:>>>verifyPostCall:[185]) /api/Utility/GetMenus:: 200
-----------------------------------------------------------------
-01/11/2017 15:37:13.995 CST INFO  (utilities.Logg:>>>verifyPostCall:[160]) Testing Post :: /api/Utility/GetMenuOfAction
-----------------------------------------------------------------
-01/11/2017 15:37:15.048 CST INFO  (utilities.Logg:>>>verifyPostCall:[185]) /api/Utility/GetMenuOfAction:: 200
-----------------------------------------------------------------
-01/11/2017 15:37:15.048 CST INFO  (utilities.Logg:>>>verifyPostCall:[160]) Testing Post :: /api/Utility/GetMoa
-----------------------------------------------------------------
-01/11/2017 15:37:15.636 CST INFO  (utilities.Logg:>>>verifyPostCall:[185]) /api/Utility/GetMoa:: 200
-----------------------------------------------------------------
-01/11/2017 15:37:15.641 CST INFO  (utilities.Logg:>>>verifyGetCall:[136]) Testing Get :: /api/Utility/GetDataValRanges
-----------------------------------------------------------------
-01/11/2017 15:37:16.346 CST INFO  (utilities.Logg:>>>verifyGetCall:[154]) /api/Utility/GetDataValRanges :: 200
-----------------------------------------------------------------
-01/11/2017 15:37:16.346 CST INFO  (utilities.Logg:>>>verifyPostCall:[160]) Testing Post :: /api/Utility/GetUser
-----------------------------------------------------------------
-01/11/2017 15:37:17.121 CST INFO  (utilities.Logg:>>>verifyPostCall:[185]) /api/Utility/GetUser:: 200
-----------------------------------------------------------------
-01/11/2017 15:37:17.121 CST INFO  (utilities.Logg:>>>verifyPostCall:[160]) Testing Post :: /api/Utility/GetParentChildLookup
-----------------------------------------------------------------
-01/11/2017 15:37:17.833 CST INFO  (utilities.Logg:>>>verifyPostCall:[185]) /api/Utility/GetParentChildLookup:: 200
-----------------------------------------------------------------
-01/11/2017 15:37:17.836 CST INFO  (utilities.Logg:>>>verifyPostCall:[160]) Testing Post :: /api/Utility/SearchOutboundRequest
-----------------------------------------------------------------
-01/11/2017 15:37:18.588 CST INFO  (utilities.Logg:>>>verifyPostCall:[185]) /api/Utility/SearchOutboundRequest:: 200
-----------------------------------------------------------------
-01/11/2017 15:37:18.593 CST INFO  (utilities.Logg:>>>verifyPostCall:[160]) Testing Post :: /api/Utility/LookupZipCode
-----------------------------------------------------------------
-01/11/2017 15:37:19.246 CST INFO  (utilities.Logg:>>>verifyPostCall:[185]) /api/Utility/LookupZipCode:: 200
-----------------------------------------------------------------
-01/11/2017 15:37:19.248 CST INFO  (utilities.Logg:>>>verifyGetCall:[136]) Testing Get :: /api/Utility/GetFilters
-----------------------------------------------------------------
-01/11/2017 15:37:21.133 CST INFO  (utilities.Logg:>>>verifyGetCall:[154]) /api/Utility/GetFilters :: 200
-----------------------------------------------------------------
-01/11/2017 15:37:21.136 CST INFO  (utilities.Logg:>>>verifyGetCall:[136]) Testing Get :: /api/Utility/GetQueuePopulation
-----------------------------------------------------------------
-01/11/2017 15:37:47.972 CST INFO  (utilities.Logg:>>>verifyGetCall:[154]) /api/Utility/GetQueuePopulation :: 200
-----------------------------------------------------------------
-01/11/2017 15:37:47.974 CST INFO  (utilities.Logg:>>>verifyPostCall:[160]) Testing Post :: /api/Patient/GetPtContacts
-----------------------------------------------------------------
-01/11/2017 15:37:48.684 CST INFO  (utilities.Logg:>>>verifyPostCall:[185]) /api/Patient/GetPtContacts:: 200
-----------------------------------------------------------------
-01/11/2017 15:37:48.687 CST INFO  (utilities.Logg:>>>verifyPostCall:[160]) Testing Post :: /api/Patient/GetPtDiabScreenings
-----------------------------------------------------------------
-01/11/2017 15:37:49.632 CST INFO  (utilities.Logg:>>>verifyPostCall:[185]) /api/Patient/GetPtDiabScreenings:: 200
-----------------------------------------------------------------
-01/11/2017 15:37:49.634 CST INFO  (utilities.Logg:>>>verifyPostCall:[160]) Testing Post :: /api/Patient/GetPrePopulatedResponse
-----------------------------------------------------------------
-01/11/2017 15:37:50.619 CST INFO  (utilities.Logg:>>>verifyPostCall:[185]) /api/Patient/GetPrePopulatedResponse:: 200
-----------------------------------------------------------------
-01/11/2017 15:37:50.622 CST INFO  (utilities.Logg:>>>verifyPostCall:[160]) Testing Post :: /api/Patient/GetPatientGoals
-----------------------------------------------------------------
-01/11/2017 15:37:51.369 CST INFO  (utilities.Logg:>>>verifyPostCall:[185]) /api/Patient/GetPatientGoals:: 200
-----------------------------------------------------------------
-01/11/2017 15:37:51.374 CST INFO  (utilities.Logg:>>>verifyPostCall:[160]) Testing Post :: /api/Patient/GetProviderAssociationsWithHistory
-----------------------------------------------------------------
-01/11/2017 15:37:52.027 CST INFO  (utilities.Logg:>>>verifyPostCall:[185]) /api/Patient/GetProviderAssociationsWithHistory:: 200
-----------------------------------------------------------------
-01/11/2017 15:37:52.029 CST INFO  (utilities.Logg:>>>verifyPostCall:[160]) Testing Post :: /api/Patient/GetProviderAssociations
-----------------------------------------------------------------
-01/11/2017 15:37:52.642 CST INFO  (utilities.Logg:>>>verifyPostCall:[185]) /api/Patient/GetProviderAssociations:: 200
-----------------------------------------------------------------
-01/11/2017 15:37:52.645 CST INFO  (utilities.Logg:>>>verifyPostCall:[160]) Testing Post :: /api/Patient/GetPatientProfileProvider
-----------------------------------------------------------------
-01/11/2017 15:37:53.290 CST INFO  (utilities.Logg:>>>verifyPostCall:[185]) /api/Patient/GetPatientProfileProvider:: 200
-----------------------------------------------------------------
-01/11/2017 15:37:53.292 CST INFO  (utilities.Logg:>>>verifyPostCall:[160]) Testing Post :: /api/Patient/GetPatientScorecard
-----------------------------------------------------------------
-01/11/2017 15:37:53.927 CST INFO  (utilities.Logg:>>>verifyPostCall:[185]) /api/Patient/GetPatientScorecard:: 200
-----------------------------------------------------------------
-01/11/2017 15:37:53.930 CST INFO  (utilities.Logg:>>>verifyPostCall:[160]) Testing Post :: /api/Patient/GetVHNMedReview
-----------------------------------------------------------------
-01/11/2017 15:37:54.705 CST INFO  (utilities.Logg:>>>verifyPostCall:[185]) /api/Patient/GetVHNMedReview:: 200
-----------------------------------------------------------------
-01/11/2017 15:37:54.707 CST INFO  (utilities.Logg:>>>verifyPostCall:[160]) Testing Post :: /api/Patient/GetComorbidReviews
-----------------------------------------------------------------
-01/11/2017 15:37:55.602 CST INFO  (utilities.Logg:>>>verifyPostCall:[185]) /api/Patient/GetComorbidReviews:: 200
-----------------------------------------------------------------
-01/11/2017 15:37:55.605 CST INFO  (utilities.Logg:>>>verifyPostCall:[160]) Testing Post :: /api/Patient/GetEPSTaskHistory
-----------------------------------------------------------------
-01/11/2017 15:37:58.420 CST INFO  (utilities.Logg:>>>verifyPostCall:[185]) /api/Patient/GetEPSTaskHistory:: 200
-----------------------------------------------------------------
-01/11/2017 15:37:58.427 CST INFO  (utilities.Logg:>>>verifyPostCall:[160]) Testing Post :: /api/Patient/GetMaterials
-----------------------------------------------------------------
-01/11/2017 15:37:59.757 CST INFO  (utilities.Logg:>>>verifyPostCall:[185]) /api/Patient/GetMaterials:: 200
-----------------------------------------------------------------
-01/11/2017 15:37:59.775 CST INFO  (utilities.Logg:>>>afterTest:[52]) Test Case PASSED.validateAllApiCalls
-----------------------------------------------------------------
-01/11/2017 16:05:48.629 CST INFO  (utilities.Logg:>>>getColumnCount:[49]) Thread:1	-column count for a Row 40
-----------------------------------------------------------------
-01/11/2017 16:05:48.655 CST INFO  (utilities.Logg:>>>verifyPostCall:[160]) Testing Post :: /api/Patient/GetMaterials
-----------------------------------------------------------------
-01/11/2017 16:06:01.941 CST INFO  (utilities.Logg:>>>verifyPostCall:[185]) /api/Patient/GetMaterials:: 200
-----------------------------------------------------------------
-01/11/2017 16:06:01.956 CST INFO  (utilities.Logg:>>>afterTest:[52]) Test Case PASSED.validateAllApiCalls
-----------------------------------------------------------------
-01/11/2017 16:07:09.068 CST INFO  (utilities.Logg:>>>getTermDetails:[36]) Testing Get :: https://capellawebqa.com/SalesForce/Termination/GetTermDetails
-----------------------------------------------------------------
-01/11/2017 16:08:05.811 CST INFO  (utilities.Logg:>>>getTermDetails:[36]) Testing Get :: https://capellawebqa.com/SalesForce/Termination/GetTermDetails?memberId=213544
-----------------------------------------------------------------
-01/11/2017 16:09:28.728 CST INFO  (utilities.Logg:>>>getTermDetails:[36]) Testing Get :: https://capellawebqa.com/SalesForce/Termination/GetTermDetails?memberId=213544
-----------------------------------------------------------------
-01/11/2017 16:09:40.194 CST INFO  (utilities.Logg:>>>getTermDetails:[52]) https://capellawebqa.com/SalesForce/Termination/GetTermDetails?memberId=213544 :: 200
-----------------------------------------------------------------
-01/11/2017 16:15:51.776 CST INFO  (utilities.Logg:>>>getTermDetails:[40]) Testing Get :: https://capellawebqa.com/SalesForce/Termination/GetTermDetails?memberId=213544
-----------------------------------------------------------------
-01/11/2017 16:16:05.525 CST INFO  (utilities.Logg:>>>getTermDetails:[57]) https://capellawebqa.com/SalesForce/Termination/GetTermDetails?memberId=213544 :: NERMS
-----------------------------------------------------------------
-01/11/2017 16:16:05.542 CST INFO  (utilities.Logg:>>>getTermDetails:[40]) Testing Get :: https://capellawebqa.com/SalesForce/Termination/GetTermDetails?memberId=213544/Termination/GetTermDetails?memberId=99999
-----------------------------------------------------------------
-01/11/2017 16:17:04.887 CST INFO  (utilities.Logg:>>>getTermDetails:[42]) Testing Get :: https://capellawebqa.com/SalesForce/Termination/GetTermDetails?memberId=213544
-----------------------------------------------------------------
-01/11/2017 16:17:17.826 CST INFO  (utilities.Logg:>>>getTermDetails:[59]) https://capellawebqa.com/SalesForce/Termination/GetTermDetails?memberId=213544 :: NERMS
-----------------------------------------------------------------
-01/11/2017 16:17:17.847 CST INFO  (utilities.Logg:>>>getTermDetails:[42]) Testing Get :: https://capellawebqa.com/SalesForce/Termination/GetTermDetails?memberId=99999
-----------------------------------------------------------------
-01/11/2017 16:17:18.483 CST INFO  (utilities.Logg:>>>getTermDetails:[59]) https://capellawebqa.com/SalesForce/Termination/GetTermDetails?memberId=99999 :: UNRCH
-----------------------------------------------------------------
-01/11/2017 16:18:12.148 CST INFO  (utilities.Logg:>>>getTermDetails:[42]) Testing Get :: https://capellawebqa.com/SalesForce/Termination/GetTermDetails?memberId=213544
-----------------------------------------------------------------
-01/11/2017 16:18:28.204 CST INFO  (utilities.Logg:>>>getTermDetails:[59]) https://capellawebqa.com/SalesForce/Termination/GetTermDetails?memberId=213544 :: NERMS
-----------------------------------------------------------------
-01/11/2017 16:18:28.220 CST INFO  (utilities.Logg:>>>getTermDetails:[42]) Testing Get :: https://capellawebqa.com/SalesForce/Termination/GetTermDetails?memberId=99999
-----------------------------------------------------------------
-01/11/2017 16:18:28.902 CST INFO  (utilities.Logg:>>>getTermDetails:[59]) https://capellawebqa.com/SalesForce/Termination/GetTermDetails?memberId=99999 :: UNRCH
+01/23/2017 14:28:18.756 CST INFO  (utilities.Logg:>>>afterTest:[64]) Test Case PASSED.validateAllApiCalls
 ----------------------------------------------------------------

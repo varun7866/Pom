@@ -3,17 +3,25 @@
  */
 package com.vh.ui.utilities;
 
+import java.io.File;
+import java.nio.file.Files;
+import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.Base64;
 import java.util.List;
 import java.util.Properties;
 import java.util.Random;
 
+import org.apache.commons.io.FileUtils;
 import org.apache.log4j.Logger;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
+import org.openqa.selenium.OutputType;
+import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+
+import ru.yandex.qatools.allure.annotations.Attachment;
 
 /**
  * @author SUBALIVADA
@@ -106,5 +114,20 @@ public class Utilities {
             js.executeScript("arguments[0].setAttribute('style', arguments[1]);", element, "color: red; border: 2px solid red;");
             js.executeScript("arguments[0].setAttribute('style', arguments[1]);", element, "");
         }
+	}
+	
+	@Attachment(value = "{1}", type = "image/png")
+	public static byte[] captureScreenshot(WebDriver driver, String attachName) {
+		LOGGER.debug("In captureScreenshot");
+	    try {
+	    	File screenshot;
+	    	screenshot = ((TakesScreenshot) driver).getScreenshotAs(OutputType.FILE);
+	    	attachName = attachName + ".png";
+	    	FileUtils.copyFile(screenshot, new File("./screenshots/" + attachName));
+	    	return Files.readAllBytes(Paths.get(screenshot.getPath()));
+	    } catch (Exception e) {
+	        e.printStackTrace();
+	    }
+	    return new byte[0];
 	}
 }

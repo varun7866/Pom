@@ -9,12 +9,15 @@ import static com.vh.ui.web.locators.WebLoginPageLocators.TXT_PASSWORD;
 import static com.vh.ui.web.locators.WebLoginPageLocators.TXT_TOKEN;
 import static com.vh.ui.web.locators.WebLoginPageLocators.TXT_USERNAME;
 
+import org.openqa.selenium.By;
 import org.openqa.selenium.TimeoutException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
+import org.testng.Assert;
 
+import com.vh.ui.exceptions.URLNavigationException;
 import com.vh.ui.exceptions.WaitException;
 import com.vh.ui.page.base.WebPage;
 import com.vh.ui.utilities.Utilities;
@@ -30,7 +33,6 @@ import ru.yandex.qatools.allure.annotations.Step;
 public class WebLoginPage extends WebPage{
 	public WebLoginPage(WebDriver driver) throws WaitException {
 		super(driver);
-		// Assert.assertTrue(webActions.getVisibiltyOfElementLocatedBy(VHAPPLOGO));
 	}
 	
 	@Step("Verifying the visibility of User Name text field")
@@ -92,6 +94,26 @@ public class WebLoginPage extends WebPage{
 //		WE_Password.clear();
 //		WE_Token.clear();
 		return Invalid_Errormessage;
+		
+	}
+	
+	@Step("Login to Capella application {0} with user name {1}")
+	public boolean loginToCapella(String url, String username, String password, String token) throws URLNavigationException, WaitException, InterruptedException
+	{
+		WebLoginPage webLoginPage = (WebLoginPage) navigateTo(url);
+//		Thread.sleep(5000);
+		
+		if(webLoginPage.viewUserNameTextField())
+		{
+			webLoginPage.enterUserName(username);
+			webLoginPage.enterPassword(password);
+			webLoginPage.enterToken(token);
+		
+			WebMyDashboardPage webMyDashboardpage = webLoginPage.clickLogin();
+			Thread.sleep(10000);
+			return true;
+		}
+		return false;
 		
 	}
 }

@@ -3,15 +3,7 @@
  */
 package com.vh.ui.actions;
 
-import static com.vh.ui.web.locators.WebMyDashboardPageLocators.BTN_CLOSE_PATIENT_YES;
-import static com.vh.ui.web.locators.WebMyDashboardPageLocators.BTN_EXPAND_OPENPATIENT;
-import static com.vh.ui.web.locators.WebMyDashboardPageLocators.BTN_LOGOUT;
-import static com.vh.ui.web.locators.WebMyDashboardPageLocators.BTN_LOGOUT_OK;
-import static com.vh.ui.web.locators.WebMyDashboardPageLocators.LBL_DO_YOU_WANT_TO_FINALIZE;
-import static com.vh.ui.web.locators.WebMyDashboardPageLocators.LBL_LOGOUT_MSG;
-import static com.vh.ui.web.locators.WebMyDashboardPageLocators.LBL_NO_OF_PATIENTS;
-import static com.vh.ui.web.locators.WebMyDashboardPageLocators.OPEN_PATIENT_CONTAINER;
-import static com.vh.ui.web.locators.WebMyDashboardPageLocators.POPUP_CLOSE_PATIENT;
+import static com.vh.ui.web.locators.WebMyDashboardPageLocators.*;
 
 import java.util.List;
 
@@ -21,6 +13,7 @@ import org.openqa.selenium.Cookie;
 import org.openqa.selenium.TimeoutException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.testng.Assert;
 
 import com.vh.ui.exceptions.WaitException;
 import com.vh.ui.utilities.Logg;
@@ -56,6 +49,7 @@ public class ApplicationFunctions {
 	@Step("Navigate to {0} menu")
 	public boolean navigateToMenu(String menuToNavigate)
 	{
+		LOGGER.debug("In ApplicationFunctions - navigateToMenu");
 		String menu[] = menuToNavigate.split("->");		
 		
 		if(menu.length != 1)
@@ -92,7 +86,7 @@ public class ApplicationFunctions {
 	@Step("Logout of Capella")
 	public void capellaLogOut() throws TimeoutException, WaitException
 	{
-		LOGGER.info("In ApplicationFunctions - capellaLogOut");
+		LOGGER.debug("In ApplicationFunctions - capellaLogOut");
 		Utilities.highlightElement(driver, BTN_LOGOUT);
 		webActions.javascriptClick(BTN_LOGOUT);
 		String Invalid_Errormessage = webActions.getText("visibility", LBL_LOGOUT_MSG);
@@ -111,7 +105,7 @@ public class ApplicationFunctions {
 	@Step("Navigate to {0} menu")
 	public void clickOnMainMenu(String menu)
 	{
-		LOGGER.info("In ApplicationFunctions - clickOnMainMenu");
+		LOGGER.debug("In ApplicationFunctions - clickOnMainMenu");
 		By mainMenu = By.xpath("//span[text() = '" + menu + "']");
 		WebElement mainEle = driver.findElement(mainMenu);
 		Utilities.highlightElement(driver, mainEle);
@@ -120,38 +114,80 @@ public class ApplicationFunctions {
 	}
 	
 	
-	public void getRecordFromTable(String tableLocator, String searchValue, int searchColumn)
+	public void selectPatientFromMyPatient()
 	{
-		LOGGER.info("In ApplicationFunctions - selectPatientFromMyPatient");
-		String value;
-		String rowLocator = tableLocator + "/tbody/tr";
-		String colValue = null;
-		int rowCount = driver.findElements(By.xpath(rowLocator)).size();
-		int colCount = driver.findElements(By.xpath(rowLocator + "[1]/td")).size();
 		
-		do
+	}
+	/**
+	 * Click on a particular cell of a table identified by the table locator
+	 * 
+	 * @param tableLocator locator to identify the table uniquely
+	 * @param searchValue value to search and identify the cell uniquely
+	 * @param searchColumn column number, start index from 1, to look for the search value
+	 */
+	public boolean clickOnRecordInTable(String tableLocator, String searchValue, int searchColumn)
+	{
+		LOGGER.debug("In ApplicationFunctions - clickOnRecordInTable");
+//		String value;
+		String rowLocator = tableLocator + "/tbody/tr";
+//		String colValue = null;
+//		int rowCount = driver.findElements(By.xpath(rowLocator)).size();
+//		int colCount = driver.findElements(By.xpath(rowLocator + "[1]/td")).size();
+
+		int reqRow = getRequiredRowFromTable(tableLocator, searchValue, searchColumn);
+		if(reqRow != -1)
 		{
-			value = getTextFromTable(tableLocator, 1, 1, searchColumn);
-		}while(value.equals(searchValue));
-				
+			WebElement reqCell = driver.findElement(By.xpath(rowLocator+"[" + reqRow + "]/td["+ searchColumn+"]"));
+			Utilities.highlightElement(driver, reqCell);
+			webActions.javascriptClick(reqCell);
+			return true;
+		}
+		return false;				
 	}
 	
-	public String getTextFromTable(String tableLocator, int startRow, int startCol, int searchColumn)
+	/**
+	 * Get text from particular cell of a table
+	 * 
+	 * @param tableLocator locator to identify the table
+	 * @param reqRow required row number to identify the cell
+	 * @param reqColumn required column number to identify the cell
+	 * @return value in cell
+	 */
+	public String getTextFromTable(String tableLocator, int reqRow, int reqColumn)
 	{
+		LOGGER.debug("In ApplicationFunctions - getTextFromTable");
+		String colValue = null;
+		
+		colValue = driver.findElement(By.xpath(tableLocator + "/tbody/tr[" + reqRow + "]/td[" + reqColumn + "]")).getText();
+		
+		return colValue;
+	}
+	
+	
+	/**
+	 * Get required row number, index starting from 1, by searching for the required value
+	 * 
+	 * @param tableLocator locator of the table to uniquely identify
+	 * @param searchValue value to search
+	 * @param searchColumn column number to search for the value, index starting from 1
+	 * @return row number if the search string is found, else -1
+	 */
+	public int getRequiredRowFromTable(String tableLocator, String searchValue, int searchColumn)
+	{
+		LOGGER.debug("In ApplicationFunctions - getRequiredRowFromTable");
 		String rowLocator = tableLocator + "/tbody/tr";
 		String colValue = null;
 		int rowCount = driver.findElements(By.xpath(rowLocator)).size();
-		int colCount = driver.findElements(By.xpath(rowLocator + "[1]/td")).size();
 		
-		for(int i = startRow; i <= rowCount; i++)
+		for(int i=1; i<=rowCount; i++)
 		{
-			for(int j = startCol; j <= colCount; j++)
+			colValue = getTextFromTable(tableLocator, i, searchColumn);
+			if(colValue.equals(searchValue))
 			{
-				colValue = driver.findElement(By.xpath(tableLocator + "/tbody/tr[" + i + "]/td[" + j + "]")).getText();
-				break;
+				return i;
 			}
 		}
-		return colValue;
+		return -1;
 	}
 	
 	/**
@@ -205,10 +241,26 @@ public class ApplicationFunctions {
 		return true;
 	}
 	
+	
+	/**
+	 * Close all patients in the open patient widget
+	 * 
+	 * @return true if no error occured when closing the patients, else false
+	 * @throws TimeoutException
+	 * @throws WaitException
+	 * @throws InterruptedException
+	 */
 	@Step("Close All Patients")
 	public boolean closeAllPatients() throws TimeoutException, WaitException, InterruptedException
 	{
 		LOGGER.debug("In WebMyDashboardPage - closeAllPatients");
+		if(!wait.checkForElementVisibility(driver, BTN_EXPAND_OPENPATIENT)){
+			return false;
+		}
+		
+		if(!wait.checkForElementVisibility(driver, LBL_NO_OF_PATIENTS)){
+			return true;
+		}
 		
 		int count = Integer.parseInt(webActions.getText("visibility", LBL_NO_OF_PATIENTS));
 		System.out.println(count);
@@ -238,7 +290,7 @@ public class ApplicationFunctions {
 			webActions.javascriptClick(finalize.get(2));
 			
 			clickButtonOnMessageBox(POPUP_CLOSE_PATIENT, LBL_DO_YOU_WANT_TO_FINALIZE, "Do you want to finalize and close this patient record?", BTN_CLOSE_PATIENT_YES);
-			
+			Thread.sleep(5000);
 //			boolean isVisible = new WebDriverWaits().checkForElementVisibility(driver, POPUP_CLOSE_PATIENT);
 //			if(!isVisible)
 //			{
@@ -256,6 +308,118 @@ public class ApplicationFunctions {
 			finalize =  container.findElements(By.xpath("//div[@title='Finalize Patient']"));
 			
 		}while(finalize.size() != 0);
+		if(wait.checkForElementVisibility(driver, BTN_COLLAPSE_OPENPATIENT)){
+			webActions.javascriptClick(BTN_COLLAPSE_OPENPATIENT);
+		}
+		
 		return true;						
+	}
+	
+	/**
+	 * Select an item from drop down in capella application
+	 * 
+	 * @param dropDownLocator the div locator of the dropdown
+	 * @param itemToSelect the item to be selected
+	 * @return true if the item is selected, else false
+	 * @throws WaitException
+	 */
+	public boolean selectAnItemFromComboBox(By dropDownLocator, String itemToSelect) throws WaitException
+	{
+		boolean isPass = false;
+		isPass = wait.checkForElementVisibility(driver, dropDownLocator); 
+		Utilities.highlightElement(driver, dropDownLocator);
+		String dropDownDivString = getWebElementLocator(dropDownLocator);
+		String dropDownButtonString = dropDownDivString+"/button[1]";
+		By drpDwnLocator = By.xpath(dropDownButtonString);
+		Utilities.highlightElement(driver, drpDwnLocator);
+		if(!isPass){
+			return false;
+		}
+		
+		webActions.javascriptClick(drpDwnLocator);
+//		webActions.click("visibility", dropDownLocator);
+		
+		String ulString = dropDownDivString + "/ul[1]";
+		By childLocator = By.xpath(ulString);
+		isPass = wait.checkForElementVisibility(driver, childLocator);
+		if(!isPass){
+			return false;
+		}
+		
+		Utilities.highlightElement(driver, childLocator);
+		String liString = ulString + "/li";
+		boolean isSelected = false;
+		List<WebElement> list = driver.findElements(By.xpath(liString));
+		for(WebElement el : list)
+		{
+			Utilities.highlightElement(driver, el);
+			if(el.getText().trim().equalsIgnoreCase(itemToSelect))
+			{
+				webActions.javascriptClick(el);
+				isSelected = true;
+				break;
+			}
+		}
+		return isSelected;
+	}
+	
+	public String getWebElementLocator(WebElement element) throws AssertionError{
+        if ((element instanceof WebElement)){
+            String text = element.toString();
+//        [[InternetExplorerDriver: internet explorer on WINDOWS (2227547e-40df-4720-95f6-ca33418cf6a0)] -> id: inputUsername]
+            if(text.contains("id:"))
+            {
+            	text = text.substring( text.indexOf("id: ")+4,text.length()-1);
+            }else if(text.contains("xpath:"))
+            {
+            	text = text.substring( text.indexOf("xpath: ")+7,text.length()-1);
+            }
+            return text;
+        }else{   
+        	Assert.fail("Argument is not an WebElement, his actual class is:"+element.getClass());
+        }
+        return "";
+    }
+	
+	public String getWebElementLocator(By locator) throws AssertionError{
+		WebElement element = driver.findElement(locator);
+        if ((element instanceof WebElement)){
+            String text = element.toString();
+//        [[InternetExplorerDriver: internet explorer on WINDOWS (2227547e-40df-4720-95f6-ca33418cf6a0)] -> id: inputUsername]
+            if(text.contains("id:"))
+            {
+            	text = text.substring( text.indexOf("id: ")+4,text.length()-1);
+            }else if(text.contains("xpath:"))
+            {
+            	text = text.substring( text.indexOf("xpath: ")+7,text.length()-1);
+            }
+            return text;
+        }else{   
+        	Assert.fail("Argument is not an WebElement, his actual class is:"+element.getClass());
+        }
+        return "";
+    }
+
+	public boolean selectDateFromCalendar(By calendarLocator, String dateToSelect) throws WaitException, InterruptedException
+	{
+		boolean isPass = false;
+		isPass = wait.checkForElementVisibility(driver, calendarLocator);
+		if(!isPass){
+			return false;
+		}
+		Utilities.highlightElement(driver, calendarLocator);
+		
+		webActions.javascriptClick(calendarLocator);
+		Thread.sleep(5000);
+		By ulLocator = By.cssSelector("ul[class^='dropdown-menu ']");
+		isPass = wait.checkForElementVisibility(driver, ulLocator);
+		if(!isPass){
+			return false;
+		}
+		Utilities.highlightElement(driver, ulLocator);
+		
+		WebElement ulElement = driver.findElement(ulLocator);
+//		ulElement.findElement(by)
+		return isPass;
 	}
 }

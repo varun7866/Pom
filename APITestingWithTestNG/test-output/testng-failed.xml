@@ -6,7 +6,8 @@
       <class name="com.vh.api.test.CKDTest">
         <methods>
           <include name="ckdAuthorize"/>
-          <include name="getTermDetails" invocation-numbers="1"/>
+          <include name="afterTest"/>
+          <include name="getTermDetails" invocation-numbers="0 1"/>
         </methods>
       </class> <!-- com.vh.api.test.CKDTest -->
     </classes>

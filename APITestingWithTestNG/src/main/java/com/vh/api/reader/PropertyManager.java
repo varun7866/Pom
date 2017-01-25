@@ -22,8 +22,8 @@ public class PropertyManager {
 
 	private static final Properties FRAMEWORKPROPERTY = new Properties();
 	private static final Properties APPLICATIONPROPERTY = new Properties();
-	private static final String APPLICATIONPROPERTIESPATH = "../../../../../application.properties";
-	private static final String FRAMEWORKPROPERTIESPATH = "resources/framework.properties";
+	private static final String APPLICATIONPROPERTIESPATH = "resources/application.properties";
+	private static final String FRAMEWORKPROPERTIESPATH = "./src/main/resources/framework.properties";
 	private static final Logger LOGGER = Logg.createLogger();
 
 	private PropertyManager() {
@@ -31,7 +31,7 @@ public class PropertyManager {
 
 	public static Properties loadFrameworkPropertyFile(String propertyToLoad) {
 		try {
-			InputStream ins = new FileInputStream("resources/framework.properties");
+			InputStream ins = new FileInputStream(FRAMEWORKPROPERTIESPATH);
 			FRAMEWORKPROPERTY.load(ins);
 			
 //			System.out.println(FRAMEWORKPROPERTY.getProperty("randomMaxInteger"));
@@ -60,7 +60,7 @@ public class PropertyManager {
 
 	public static Properties loadApplicationPropertyFile(String propertyToLoad) {
 		try {
-			InputStream ins = new FileInputStream("resources/application.properties");
+			InputStream ins = new FileInputStream(APPLICATIONPROPERTIESPATH);
 			APPLICATIONPROPERTY.load(ins);
 //			APPLICATIONPROPERTY.load(PropertyManager.class
 //					.getResourceAsStream(APPLICATIONPROPERTIESPATH));

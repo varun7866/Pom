@@ -179,7 +179,7 @@ public class WebDriverWaits {
 		}
 	}
 
-	public Boolean checkForElementVisibility(WebDriver driver, final By locator) throws WaitException {
+	public boolean checkForElementVisibility(WebDriver driver, final By locator) throws WaitException {
 		try {
 			LOGGER.info(Utilities.getCurrentThreadId() + "Checking for the visibility of the element using By class:"
 					+ locator);

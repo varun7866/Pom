@@ -21,6 +21,7 @@ public class WebMyDashboardPageLocators {
 	
 	//Open patient widget
 	public static final By BTN_EXPAND_OPENPATIENT = By.xpath("//div[@data-capella-automation-id ='expandDiv-OpenPatients']");
+	public static final By BTN_COLLAPSE_OPENPATIENT = By.xpath("//div[@data-capella-automation-id='collapseDiv-OpenPatients']");
 	public static final By LBL_NO_OF_PATIENTS = By.xpath("//span[@title='Number of open Patients']");
 	public static final By OPEN_PATIENT_CONTAINER = By.id("Container3Body");
 	public static final By POPUP_CLOSE_PATIENT = By.id("myModal");

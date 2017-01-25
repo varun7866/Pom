@@ -7,7 +7,7 @@ import java.util.List;
 import java.util.Map;
 
 import org.openxml4j.exceptions.InvalidFormatException;
-import org.testng.annotations.AfterTest;
+import org.testng.annotations.AfterClass;
 import org.testng.annotations.Test;
 import org.testng.asserts.SoftAssert;
 
@@ -23,7 +23,13 @@ import ru.yandex.qatools.allure.annotations.Description;
 import ru.yandex.qatools.allure.annotations.Step;
 import ru.yandex.qatools.allure.annotations.Title;
 
-public class APITest   extends TestBase{
+/**
+ * @author SUBALIVADA
+ * @date   Nov 09, 2016
+ * @class  APITest.java
+ *
+ */
+public class APITest extends TestBase{
 	private String authValue;
 	
 	SoftAssert sAssert = new SoftAssert();
@@ -139,7 +145,7 @@ public class APITest   extends TestBase{
 	                .given()
 	                .header("Authorization", this.authValue)
 	                .when()
-	                .get(BASE_URI + url);
+	                .get(CPP_BASE_URI + url);
 
 	    int statusCode = response.statusCode();
 
@@ -170,7 +176,7 @@ public class APITest   extends TestBase{
 	    
 	    Response response = request
 	                .when()
-	                .post("https://capellawebqa.com/cppapi" + url);
+	                .post(CPP_BASE_URI + url);
 
 	    int statusCode = response.statusCode();
 	    sAssert.assertTrue(statusCode == 200, "Status code value for " + url + " is ");
@@ -185,7 +191,7 @@ public class APITest   extends TestBase{
 	    log.info(url + ":: "+ response.statusCode());
 	}
 	
-	@AfterTest
+	@AfterClass
 	private void tearDown()
 	{
 		sAssert.assertAll();
