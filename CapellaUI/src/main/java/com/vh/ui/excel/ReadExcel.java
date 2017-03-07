@@ -73,7 +73,14 @@ public class ReadExcel {
 		return reqRowCount;
 	}
 	
-	public static List readTestData(String sheetName, String scriptName) throws IOException {
+	/**
+	 * 
+	 * @param testClass is the name of the test class
+	 * @param testFunction is the name of the method using the data provider
+	 * @return a list of map 
+	 * @throws IOException
+	 */	
+	public static List readTestData(String testClass, String testFunction) throws IOException {
 		FileInputStream file = null;
 		List list = null;
 		try {
@@ -83,23 +90,23 @@ public class ReadExcel {
 			// argument file
 			Workbook workbook = WorkbookFactory.create(file);
 			// Get first sheet from the workbook
-			sheet = workbook.getSheet(sheetName);
+			sheet = workbook.getSheet(testClass);
 			int rowCount = sheet.getPhysicalNumberOfRows();
-			int reqRowCount = getRequiredNumberOfRows(scriptName, rowCount); 
+			int reqRowCount = getRequiredNumberOfRows(testFunction, rowCount); 
 			int colCount = getColumnCount(sheet);
-			storage = new String[reqRowCount][colCount];
+//			storage = new String[reqRowCount][colCount];
 
 			int reqRow = 0;
 			Row headerRow = sheet.getRow(0);
 			Cell headerCell;
-			for (int i = 0; i < rowCount; i++) {
+			for (int i = 1; i < rowCount; i++) {
 				Row row = sheet.getRow(i);
 				Cell cell = row.getCell(0);
 				if(cell!=null) {
 					String value = getCellValue(cell);
 					if(value!=null && value.equalsIgnoreCase("Y"))
 					{
-						if(getCellValue(row.getCell(1)).equalsIgnoreCase(scriptName)) {
+						if(getCellValue(row.getCell(1)).equalsIgnoreCase(testFunction)) {
 							Map<String, String> map = new HashMap<String, String>();
 							for (int j = 2; j < colCount; j++) {
 								headerCell = headerRow.getCell(j);

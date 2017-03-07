@@ -67,25 +67,25 @@ public class CreateNewPatientTest extends TestBase {
 		}
 		
 		//fill the referral management details and click on save
-		createNewPatient.selectReferringPayor("Aetna CKD Idaho");
-		createNewPatient.selectDiseaseState("CKD");
-		createNewPatient.selectLineOfBusiness("HMO");
-		createNewPatient.selectServiceType("Field");
-		createNewPatient.selectSource("Claims");
+		createNewPatient.selectReferringPayor(map.get("ReferringPayor"));
+		createNewPatient.selectDiseaseState(map.get("DiseaseState"));
+		createNewPatient.selectLineOfBusiness(map.get("LineOfBusiness"));
+		createNewPatient.selectServiceType(map.get("ServiceType"));
+		createNewPatient.selectSource(map.get("Source"));
 		createNewPatient.clickRefMgmtSaveButton();
 		
-		createNewPatient.enterLastName("Automation");
-		createNewPatient.enterDOB("02/03/1981");
-		createNewPatient.enterAddress("Vernon Ct");
-		createNewPatient.enterAptSuite("301");
-		createNewPatient.enterCity("Vernon Hills");
-		createNewPatient.selectState("Illinois");
-		createNewPatient.enterZipCode("60061");
+		createNewPatient.enterLastName(map.get("LastName"));
+		createNewPatient.enterDOB(map.get("DOB"));
+		createNewPatient.enterAddress(map.get("Address"));
+		createNewPatient.enterAptSuite(map.get("AptSuite"));
+		createNewPatient.enterCity(map.get("City"));
+		createNewPatient.selectState(map.get("State"));
+		createNewPatient.enterZipCode(map.get("ZipCode"));
 		
-		createNewPatient.enterHomePhone("8574157498");
-		createNewPatient.selectPrimaryPhone("Home");
-		createNewPatient.selectGender("Male");
-		createNewPatient.enterPolicy("U432968");
+		createNewPatient.enterHomePhone(map.get("HomePhone"));
+		createNewPatient.selectPrimaryPhone(map.get("PrimaryPhone"));
+		createNewPatient.selectGender(map.get("Gender"));
+		createNewPatient.enterPolicy(map.get("Policy"));
 		
 		createNewPatient.clickDemographicsSaveButton();
 		

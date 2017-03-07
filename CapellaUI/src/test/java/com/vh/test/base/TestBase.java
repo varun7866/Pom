@@ -7,10 +7,6 @@ import java.io.IOException;
 import java.io.PrintWriter;
 import java.io.StringWriter;
 import java.lang.reflect.Method;
-import java.sql.Connection;
-import java.sql.ResultSet;
-import java.sql.Statement;
-import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Properties;
@@ -110,10 +106,10 @@ public class TestBase {
 	}
 	
 	@DataProvider(name="dp1")
-	public Iterator<Object[]> readTestData() throws IOException
+	public Iterator<Object[]> readTestData(Method m) throws IOException
 	{
-		System.out.println("inside test base : " + this.getClass().getSimpleName());
-		List list = ReadExcel.readTestData(this.getClass().getSimpleName(), this.getClass().getSimpleName());		
+		System.out.println("inside test base : Class Name = " + this.getClass().getSimpleName() + " and test method = " + m.getName());
+		List list = ReadExcel.readTestData(this.getClass().getSimpleName(), m.getName());		
 		return list.iterator();
 	}
 }
