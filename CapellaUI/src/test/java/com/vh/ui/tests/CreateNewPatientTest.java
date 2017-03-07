@@ -59,9 +59,9 @@ public class CreateNewPatientTest extends TestBase {
 		}
 		
 		createNewPatient.enterFirstName(map.get("FirstName"));			//search with first name
-		createNewPatient.clickOnSearch();	//click on search
-		createNewPatient.clickOnNewReferral();	//click on New Referral button
-		isPass = createNewPatient.waitForReferralManagementWindow();		//wait for referral management window
+		createNewPatient.clickOnSearch();								//click on search
+		createNewPatient.clickOnNewReferral();							//click on New Referral button
+		isPass = createNewPatient.waitForReferralManagementWindow();	//wait for referral management window
 		if(!isPass) {
 			Assert.fail("Failed to find Referral Management Window");
 		}
