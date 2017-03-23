@@ -14,98 +14,104 @@ import com.vh.ui.actions.ApplicationFunctions;
 import com.vh.ui.exceptions.URLNavigationException;
 import com.vh.ui.exceptions.WaitException;
 import com.vh.ui.page.base.WebPage;
-import com.vh.ui.pages.WebLoginPage;
-import com.vh.ui.pages.WebMyDashboardPage;
+import com.vh.ui.pages.LoginPage;
+import com.vh.ui.pages.MyDashboardPage;
 
 import ru.yandex.qatools.allure.annotations.Step;
 
-public class LoginTest  extends TestBase{
-	
+/*
+ * @author Harvy Ackermans
+ * @date   March 23, 2017
+ * @class  LoginTest.java
+ */
+
+public class LoginTest extends TestBase
+{	
+	// Class objects
 	WebPage pageBase;
-	WebLoginPage webLoginPage;
-	WebMyDashboardPage webMyDashboardpage;
-	ApplicationFunctions app;
+	LoginPage loginPage;
+	MyDashboardPage myDashboard;
+	ApplicationFunctions appFunctions;
 	
 	@Test
-	@Step("Verify Invalid UserName")
+	@Step("Verify Invalid User Name")
 	public void verify_InvalidUserName() throws WaitException, URLNavigationException, InterruptedException
-	{
-		
+	{		
 		pageBase = new WebPage(getWebDriver());
-		webLoginPage = (WebLoginPage) pageBase.navigateTo(applicationProperty.getProperty("webURL"));
+		loginPage = (LoginPage) pageBase.navigateTo(applicationProperty.getProperty("webURL"));
 		Thread.sleep(5000);
 		
-		Assert.assertTrue(webLoginPage.viewUserNameTextField(), "Failed to identify UserName text field");
-		Assert.assertTrue(webLoginPage.viewPasswordTextField(), "Failed to identify Password text field");
-		Assert.assertTrue(webLoginPage.viewTokenTextField(), "Failed to identify Token text field");
-		webLoginPage.enterUserName("vhnta");
-		webLoginPage.enterPassword("test123");
-		webLoginPage.enterToken("111111");
+		Assert.assertTrue(loginPage.viewUserNameTextField(), "Failed to identify UserName text field");
+		Assert.assertTrue(loginPage.viewPasswordTextField(), "Failed to identify Password text field");
+		Assert.assertTrue(loginPage.viewTokenTextField(), "Failed to identify Token text field");
+		loginPage.enterUserName("vhnta");
+		loginPage.enterPassword("test123");
+		loginPage.enterToken("111111");
 		
-		webLoginPage.clickLogin();
+		loginPage.clickLogin();
 		
-		Assert.assertEquals(webLoginPage.getLoginErrorMessage(), "Invalid username / password combination");
+		Assert.assertEquals(loginPage.getLoginErrorMessage(), "Invalid username / password combination");
 	}
 	
-	@Test
-	@Step("Verify Invalid Password")
-	public void verify_InvalidPassword() throws WaitException, URLNavigationException, InterruptedException
-	{
-		
-		pageBase = new WebPage(getWebDriver());
-		webLoginPage = (WebLoginPage) pageBase.navigateTo(applicationProperty.getProperty("webURL"));
-		Thread.sleep(5000);
-		
-		Assert.assertTrue(webLoginPage.viewUserNameTextField(), "Failed to identify UserName text field");
-		Assert.assertTrue(webLoginPage.viewPasswordTextField(), "Failed to identify Password text field");
-		Assert.assertTrue(webLoginPage.viewTokenTextField(), "Failed to identify Token text field");
-		webLoginPage.enterUserName("vhnlb");
-		webLoginPage.enterPassword("test1234");
-		webLoginPage.enterToken("111111");
-		
-		webLoginPage.clickLogin();
-		
-		Assert.assertEquals(webLoginPage.getLoginErrorMessage(), "Invalid username / password combination");
-	}
-	
-	@Test
-	@Step("Verify Successful Login")
-	public void verify_SuccessfulLogin() throws WaitException, URLNavigationException, InterruptedException
-	{
-		pageBase = new WebPage(getWebDriver());
-		app = new ApplicationFunctions(pageBase.getDriver());
-		webLoginPage = (WebLoginPage) pageBase.navigateTo(applicationProperty.getProperty("webURL"));
-		Thread.sleep(5000);
-		
-		Assert.assertTrue(webLoginPage.viewUserNameTextField(), "Failed to identify UserName text field");
-		Assert.assertTrue(webLoginPage.viewPasswordTextField(), "Failed to identify Password text field");
-		Assert.assertTrue(webLoginPage.viewTokenTextField(), "Failed to identify Token text field");
-		webLoginPage.enterUserName("vhnaa");
-		webLoginPage.enterPassword("test123");
-		webLoginPage.enterToken("111111");
-		
-		webMyDashboardpage = webLoginPage.clickLogin();
-		Thread.sleep(10000);
-		boolean isPass = app.closeAllPatients();
-		Thread.sleep(10000);
-	}
-	
-	@Step("File upload functionality")
-    public void uploadFile() throws Exception {
-        String filename = "some-file.txt";
-        File file = new File(filename);
-        String path = file.getAbsolutePath();
-        WebDriver driver = getWebDriver();
-        driver.get("http://the-internet.herokuapp.com/upload");
-        driver.findElement(By.id("file-upload")).sendKeys(path);
-        driver.findElement(By.id("file-submit")).click();
-        String text = driver.findElement(By.id("uploaded-files")).getText();
-    }
+//	@Test
+//	@Step("Verify Invalid Password")
+//	public void verify_InvalidPassword() throws WaitException, URLNavigationException, InterruptedException
+//	{
+//		
+//		pageBase = new WebPage(getWebDriver());
+//		loginPage = (LoginPage) pageBase.navigateTo(applicationProperty.getProperty("webURL"));
+//		Thread.sleep(5000);
+//		
+//		Assert.assertTrue(loginPage.viewUserNameTextField(), "Failed to identify UserName text field");
+//		Assert.assertTrue(loginPage.viewPasswordTextField(), "Failed to identify Password text field");
+//		Assert.assertTrue(loginPage.viewTokenTextField(), "Failed to identify Token text field");
+//		loginPage.enterUserName("vhnlb");
+//		loginPage.enterPassword("test1234");
+//		loginPage.enterToken("111111");
+//		
+//		loginPage.clickLogin();
+//		
+//		Assert.assertEquals(loginPage.getLoginErrorMessage(), "Invalid username / password combination");
+//	}
+//	
+//	@Test
+//	@Step("Verify Successful Login")
+//	public void verify_SuccessfulLogin() throws WaitException, URLNavigationException, InterruptedException
+//	{
+//		pageBase = new WebPage(getWebDriver());
+//		app = new ApplicationFunctions(pageBase.getDriver());
+//		loginPage = (LoginPage) pageBase.navigateTo(applicationProperty.getProperty("webURL"));
+//		Thread.sleep(5000);
+//		
+//		Assert.assertTrue(loginPage.viewUserNameTextField(), "Failed to identify UserName text field");
+//		Assert.assertTrue(loginPage.viewPasswordTextField(), "Failed to identify Password text field");
+//		Assert.assertTrue(loginPage.viewTokenTextField(), "Failed to identify Token text field");
+//		loginPage.enterUserName("vhnaa");
+//		loginPage.enterPassword("test123");
+//		loginPage.enterToken("111111");
+//		
+//		webMyDashboardpage = loginPage.clickLogin();
+//		Thread.sleep(10000);
+//		boolean isPass = app.closeAllPatients();
+//		Thread.sleep(10000);
+//	}
+//	
+//	@Step("File upload functionality")
+//    public void uploadFile() throws Exception {
+//        String filename = "some-file.txt";
+//        File file = new File(filename);
+//        String path = file.getAbsolutePath();
+//        WebDriver driver = getWebDriver();
+//        driver.get("http://the-internet.herokuapp.com/upload");
+//        driver.findElement(By.id("file-upload")).sendKeys(path);
+//        driver.findElement(By.id("file-submit")).click();
+//        String text = driver.findElement(By.id("uploaded-files")).getText();
+//    }
 	
 	@AfterClass
 	public void tearDown() throws TimeoutException, WaitException
 	{
-		app.capellaLogOut();
+		appFunctions.capellaLogOut();
 		pageBase.quit();
 	}
 }
