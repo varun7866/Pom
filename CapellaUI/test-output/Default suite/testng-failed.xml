@@ -3,7 +3,18 @@
 <suite guice-stage="DEVELOPMENT" name="Failed suite [Default suite]">
   <test verbose="2" name="Default test">
     <classes>
-      <class name="com.vh.ui.tests.UnitTest"/>
+      <class name="com.vh.ui.tests.LoginTest"/>
     </classes>
   </test> <!-- Default test -->
+  <test name="Default test(failed)">
+    <classes>
+      <class name="com.vh.ui.tests.LoginTest">
+        <methods>
+          <include name="afterTest"/>
+          <include name="verify_InvalidUserName"/>
+          <include name="tearDown"/>
+        </methods>
+      </class> <!-- com.vh.ui.tests.LoginTest -->
+    </classes>
+  </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->

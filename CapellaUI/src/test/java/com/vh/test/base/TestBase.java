@@ -25,12 +25,13 @@ import com.vh.ui.utilities.Utilities;
 
 import ru.yandex.qatools.allure.annotations.Step;
 
-/**
+/*
  * @author SUBALIVADA
  * @date   Nov 21, 2016
  * @class  TestBase.java
  *
  */
+
 public class TestBase {
 	protected static final Properties frameworkProperty = PropertyManager
 			.loadFrameworkPropertyFile("framework.properties");
@@ -38,7 +39,7 @@ public class TestBase {
 	protected final static Utilities util = new Utilities();
 	protected static String[][] strorage = null;
 	protected final static Properties applicationProperty = PropertyManager
-			.loadApplicationPropertyFile("application.properties");
+			.loadApplicationPropertyFile("resources/application.properties");
 	WebDriver driver;
 
 //	@DataProvider(name = "ReadExcel")

@@ -16428,3 +16428,1486 @@ Session ID: 0844936d-7bfd-4f4f-8526-3e8a69ee1d44
 ----------------------------------------------------------------
 01/25/2017 15:36:37.707 CST INFO  (utilities.Logg:>>>getColumnCount:[52]) column count for a Row 9
 ----------------------------------------------------------------
+03/07/2017 13:54:56.390 CST INFO  (utilities.Logg:>>>initialValue:[58]) Thread:1	-**Internet Explorer Browser**
+----------------------------------------------------------------
+03/07/2017 13:54:56.407 CST INFO  (utilities.Logg:>>>initialValue:[61]) Thread:1	-Instantiating/Launching the Internet Explorer Browser
+----------------------------------------------------------------
+03/07/2017 13:55:01.016 CST INFO  (utilities.Logg:>>>initialValue:[84]) Thread:1	-Returning the local instance of:InternetExplorerDriver: internet explorer on WINDOWS (b0d49bbe-ad7f-40c4-8d55-1d7bb75a24e5)
+----------------------------------------------------------------
+03/07/2017 13:55:01.843 CST INFO  (utilities.Logg:>>>getColumnCount:[52]) column count for a Row 52
+----------------------------------------------------------------
+03/07/2017 13:55:01.894 CST INFO  (utilities.Logg:>>>maximizeBrowser:[91]) Thread:1	-Maximizing the browser
+----------------------------------------------------------------
+03/07/2017 13:55:01.921 CST INFO  (utilities.Logg:>>>maximizeBrowser:[93]) Thread:1	-Browser Successfully Maximized
+----------------------------------------------------------------
+03/07/2017 13:55:01.921 CST INFO  (utilities.Logg:>>>navigateToURL:[82]) Thread:1	-Navigating to Application URL on Browser:https://capellawebqa.com/cpp/index.html
+----------------------------------------------------------------
+03/07/2017 13:55:09.790 CST INFO  (utilities.Logg:>>>navigateToURL:[84]) Thread:1	-Successfully navigated to Application URL on the Browser
+----------------------------------------------------------------
+03/07/2017 13:55:09.791 CST INFO  (utilities.Logg:>>>navigateTo:[40]) Thread:1	-Returning the instance of Village Health Login
+----------------------------------------------------------------
+03/07/2017 13:55:09.815 CST INFO  (utilities.Logg:>>>getVisibiltyOfElementLocatedBy:[460]) Thread:1	-Checking for Visibility of element By.id: inputUsername
+----------------------------------------------------------------
+03/07/2017 13:55:09.816 CST INFO  (utilities.Logg:>>>checkForElementVisibility:[184]) Thread:1	-Checking for the visibility of the element using By class:By.id: inputUsername
+----------------------------------------------------------------
+03/07/2017 13:55:09.828 CST INFO  (utilities.Logg:>>>convertToInteger:[61]) Thread:1	-String to Integer Conversion function
+----------------------------------------------------------------
+03/07/2017 13:55:09.828 CST INFO  (utilities.Logg:>>>convertToInteger:[63]) Thread:1	-Converting the String value 45 to Integer
+----------------------------------------------------------------
+03/07/2017 13:55:10.161 CST INFO  (utilities.Logg:>>>checkForElementVisibility:[193]) Thread:1	-WebElement Visible. Proceeding further...
+----------------------------------------------------------------
+03/07/2017 13:55:10.164 CST INFO  (utilities.Logg:>>>syncLocatorUsing:[207]) Thread:1	-Inside SYNC BLOCK for Locator
+----------------------------------------------------------------
+03/07/2017 13:55:10.164 CST INFO  (utilities.Logg:>>>syncLocatorUsing:[209]) Thread:1	-Inside VISIBILITY of Locator
+----------------------------------------------------------------
+03/07/2017 13:55:10.166 CST INFO  (utilities.Logg:>>>waitForElementVisibility:[40]) Thread:1	-Waiting for the visibility of the element using By class:By.id: inputUsername
+----------------------------------------------------------------
+03/07/2017 13:55:10.166 CST INFO  (utilities.Logg:>>>convertToInteger:[61]) Thread:1	-String to Integer Conversion function
+----------------------------------------------------------------
+03/07/2017 13:55:10.166 CST INFO  (utilities.Logg:>>>convertToInteger:[63]) Thread:1	-Converting the String value 45 to Integer
+----------------------------------------------------------------
+03/07/2017 13:55:10.439 CST INFO  (utilities.Logg:>>>waitForElementVisibility:[45]) Thread:1	-WebElement Present and Visible. Proceeding further...
+----------------------------------------------------------------
+03/07/2017 13:55:10.440 CST INFO  (utilities.Logg:>>>enterText:[119]) Thread:1	-Clearing the content of the text box
+----------------------------------------------------------------
+03/07/2017 13:55:10.767 CST INFO  (utilities.Logg:>>>enterText:[121]) Thread:1	-Contents cleared
+----------------------------------------------------------------
+03/07/2017 13:55:11.356 CST INFO  (utilities.Logg:>>>enterText:[123]) Thread:1	-Entered text: in text box with locator:By.id: inputUsername
+----------------------------------------------------------------
+03/07/2017 13:55:11.359 CST INFO  (utilities.Logg:>>>syncLocatorUsing:[207]) Thread:1	-Inside SYNC BLOCK for Locator
+----------------------------------------------------------------
+03/07/2017 13:55:11.359 CST INFO  (utilities.Logg:>>>syncLocatorUsing:[209]) Thread:1	-Inside VISIBILITY of Locator
+----------------------------------------------------------------
+03/07/2017 13:55:11.360 CST INFO  (utilities.Logg:>>>waitForElementVisibility:[40]) Thread:1	-Waiting for the visibility of the element using By class:By.id: password
+----------------------------------------------------------------
+03/07/2017 13:55:11.360 CST INFO  (utilities.Logg:>>>convertToInteger:[61]) Thread:1	-String to Integer Conversion function
+----------------------------------------------------------------
+03/07/2017 13:55:11.360 CST INFO  (utilities.Logg:>>>convertToInteger:[63]) Thread:1	-Converting the String value 45 to Integer
+----------------------------------------------------------------
+03/07/2017 13:55:11.595 CST INFO  (utilities.Logg:>>>waitForElementVisibility:[45]) Thread:1	-WebElement Present and Visible. Proceeding further...
+----------------------------------------------------------------
+03/07/2017 13:55:11.595 CST INFO  (utilities.Logg:>>>enterText:[119]) Thread:1	-Clearing the content of the text box
+----------------------------------------------------------------
+03/07/2017 13:55:11.921 CST INFO  (utilities.Logg:>>>enterText:[121]) Thread:1	-Contents cleared
+----------------------------------------------------------------
+03/07/2017 13:55:12.540 CST INFO  (utilities.Logg:>>>enterText:[123]) Thread:1	-Entered text: in text box with locator:By.id: password
+----------------------------------------------------------------
+03/07/2017 13:55:12.542 CST INFO  (utilities.Logg:>>>syncLocatorUsing:[207]) Thread:1	-Inside SYNC BLOCK for Locator
+----------------------------------------------------------------
+03/07/2017 13:55:12.542 CST INFO  (utilities.Logg:>>>syncLocatorUsing:[209]) Thread:1	-Inside VISIBILITY of Locator
+----------------------------------------------------------------
+03/07/2017 13:55:12.542 CST INFO  (utilities.Logg:>>>waitForElementVisibility:[40]) Thread:1	-Waiting for the visibility of the element using By class:By.id: token
+----------------------------------------------------------------
+03/07/2017 13:55:12.543 CST INFO  (utilities.Logg:>>>convertToInteger:[61]) Thread:1	-String to Integer Conversion function
+----------------------------------------------------------------
+03/07/2017 13:55:12.543 CST INFO  (utilities.Logg:>>>convertToInteger:[63]) Thread:1	-Converting the String value 45 to Integer
+----------------------------------------------------------------
+03/07/2017 13:55:12.794 CST INFO  (utilities.Logg:>>>waitForElementVisibility:[45]) Thread:1	-WebElement Present and Visible. Proceeding further...
+----------------------------------------------------------------
+03/07/2017 13:55:12.794 CST INFO  (utilities.Logg:>>>enterText:[119]) Thread:1	-Clearing the content of the text box
+----------------------------------------------------------------
+03/07/2017 13:55:13.177 CST INFO  (utilities.Logg:>>>enterText:[121]) Thread:1	-Contents cleared
+----------------------------------------------------------------
+03/07/2017 13:55:13.800 CST INFO  (utilities.Logg:>>>enterText:[123]) Thread:1	-Entered text: in text box with locator:By.id: token
+----------------------------------------------------------------
+03/07/2017 13:55:13.801 CST INFO  (utilities.Logg:>>>click:[184]) Thread:1	-Clicking on element with locator:By.id: modalview-login-button
+----------------------------------------------------------------
+03/07/2017 13:55:13.801 CST INFO  (utilities.Logg:>>>syncLocatorUsing:[207]) Thread:1	-Inside SYNC BLOCK for Locator
+----------------------------------------------------------------
+03/07/2017 13:55:13.801 CST INFO  (utilities.Logg:>>>syncLocatorUsing:[209]) Thread:1	-Inside VISIBILITY of Locator
+----------------------------------------------------------------
+03/07/2017 13:55:13.802 CST INFO  (utilities.Logg:>>>waitForElementVisibility:[40]) Thread:1	-Waiting for the visibility of the element using By class:By.id: modalview-login-button
+----------------------------------------------------------------
+03/07/2017 13:55:13.802 CST INFO  (utilities.Logg:>>>convertToInteger:[61]) Thread:1	-String to Integer Conversion function
+----------------------------------------------------------------
+03/07/2017 13:55:13.802 CST INFO  (utilities.Logg:>>>convertToInteger:[63]) Thread:1	-Converting the String value 45 to Integer
+----------------------------------------------------------------
+03/07/2017 13:55:14.064 CST INFO  (utilities.Logg:>>>waitForElementVisibility:[45]) Thread:1	-WebElement Present and Visible. Proceeding further...
+----------------------------------------------------------------
+03/07/2017 13:55:14.587 CST INFO  (utilities.Logg:>>>click:[186]) Thread:1	-Clicked on element with locator:By.id: modalview-login-button
+----------------------------------------------------------------
+03/07/2017 13:55:24.597 CST INFO  (utilities.Logg:>>>checkForElementVisibility:[184]) Thread:1	-Checking for the visibility of the element using By class:By.xpath: //div[@data-capella-automation-id ='expandDiv-OpenPatients']
+----------------------------------------------------------------
+03/07/2017 13:55:24.597 CST INFO  (utilities.Logg:>>>convertToInteger:[61]) Thread:1	-String to Integer Conversion function
+----------------------------------------------------------------
+03/07/2017 13:55:24.598 CST INFO  (utilities.Logg:>>>convertToInteger:[63]) Thread:1	-Converting the String value 45 to Integer
+----------------------------------------------------------------
+03/07/2017 13:55:24.895 CST INFO  (utilities.Logg:>>>checkForElementVisibility:[193]) Thread:1	-WebElement Visible. Proceeding further...
+----------------------------------------------------------------
+03/07/2017 13:55:24.895 CST INFO  (utilities.Logg:>>>checkForElementVisibility:[184]) Thread:1	-Checking for the visibility of the element using By class:By.xpath: //span[@title='Number of open Patients']
+----------------------------------------------------------------
+03/07/2017 13:55:24.895 CST INFO  (utilities.Logg:>>>convertToInteger:[61]) Thread:1	-String to Integer Conversion function
+----------------------------------------------------------------
+03/07/2017 13:55:24.895 CST INFO  (utilities.Logg:>>>convertToInteger:[63]) Thread:1	-Converting the String value 45 to Integer
+----------------------------------------------------------------
+03/07/2017 13:55:25.194 CST INFO  (utilities.Logg:>>>checkForElementVisibility:[193]) Thread:1	-WebElement Visible. Proceeding further...
+----------------------------------------------------------------
+03/07/2017 13:55:25.195 CST INFO  (utilities.Logg:>>>getText:[352]) Thread:1	-Retrieving the TEXT of element with locator:By.xpath: //span[@title='Number of open Patients']
+----------------------------------------------------------------
+03/07/2017 13:55:25.195 CST INFO  (utilities.Logg:>>>syncLocatorUsing:[207]) Thread:1	-Inside SYNC BLOCK for Locator
+----------------------------------------------------------------
+03/07/2017 13:55:25.195 CST INFO  (utilities.Logg:>>>syncLocatorUsing:[209]) Thread:1	-Inside VISIBILITY of Locator
+----------------------------------------------------------------
+03/07/2017 13:55:25.195 CST INFO  (utilities.Logg:>>>waitForElementVisibility:[40]) Thread:1	-Waiting for the visibility of the element using By class:By.xpath: //span[@title='Number of open Patients']
+----------------------------------------------------------------
+03/07/2017 13:55:25.195 CST INFO  (utilities.Logg:>>>convertToInteger:[61]) Thread:1	-String to Integer Conversion function
+----------------------------------------------------------------
+03/07/2017 13:55:25.196 CST INFO  (utilities.Logg:>>>convertToInteger:[63]) Thread:1	-Converting the String value 45 to Integer
+----------------------------------------------------------------
+03/07/2017 13:55:25.450 CST INFO  (utilities.Logg:>>>waitForElementVisibility:[45]) Thread:1	-WebElement Present and Visible. Proceeding further...
+----------------------------------------------------------------
+03/07/2017 13:55:25.628 CST INFO  (utilities.Logg:>>>getText:[359]) Thread:1	-Actual Value:2
+----------------------------------------------------------------
+03/07/2017 13:55:39.239 CST INFO  (utilities.Logg:>>>checkForElementVisibility:[184]) Thread:1	-Checking for the visibility of the element using By class:By.id: myModal
+----------------------------------------------------------------
+03/07/2017 13:55:39.240 CST INFO  (utilities.Logg:>>>convertToInteger:[61]) Thread:1	-String to Integer Conversion function
+----------------------------------------------------------------
+03/07/2017 13:55:39.240 CST INFO  (utilities.Logg:>>>convertToInteger:[63]) Thread:1	-Converting the String value 45 to Integer
+----------------------------------------------------------------
+03/07/2017 13:55:39.689 CST INFO  (utilities.Logg:>>>checkForElementVisibility:[193]) Thread:1	-WebElement Visible. Proceeding further...
+----------------------------------------------------------------
+03/07/2017 13:55:39.689 CST INFO  (utilities.Logg:>>>getText:[352]) Thread:1	-Retrieving the TEXT of element with locator:By.xpath: id('myModal')/div[2]/div[1]/div[1]/div[2]/div[1]/div[1]/b[1]
+----------------------------------------------------------------
+03/07/2017 13:55:39.690 CST INFO  (utilities.Logg:>>>syncLocatorUsing:[207]) Thread:1	-Inside SYNC BLOCK for Locator
+----------------------------------------------------------------
+03/07/2017 13:55:39.690 CST INFO  (utilities.Logg:>>>syncLocatorUsing:[215]) Thread:1	-Inside PRESENCE of Locator
+----------------------------------------------------------------
+03/07/2017 13:55:39.690 CST INFO  (utilities.Logg:>>>waitForElementPresence:[57]) Thread:1	-Waiting for the presence of the element using By class:By.xpath: id('myModal')/div[2]/div[1]/div[1]/div[2]/div[1]/div[1]/b[1]
+----------------------------------------------------------------
+03/07/2017 13:55:39.690 CST INFO  (utilities.Logg:>>>convertToInteger:[61]) Thread:1	-String to Integer Conversion function
+----------------------------------------------------------------
+03/07/2017 13:55:39.690 CST INFO  (utilities.Logg:>>>convertToInteger:[63]) Thread:1	-Converting the String value 45 to Integer
+----------------------------------------------------------------
+03/07/2017 13:55:39.806 CST INFO  (utilities.Logg:>>>waitForElementPresence:[62]) Thread:1	-WebElement Present. Proceeding further...
+----------------------------------------------------------------
+03/07/2017 13:55:39.967 CST INFO  (utilities.Logg:>>>getText:[359]) Thread:1	-Actual Value:Do you want to finalize and close this patient record?
+----------------------------------------------------------------
+03/07/2017 13:55:52.121 CST INFO  (utilities.Logg:>>>checkForElementVisibility:[184]) Thread:1	-Checking for the visibility of the element using By class:By.id: myModal
+----------------------------------------------------------------
+03/07/2017 13:55:52.122 CST INFO  (utilities.Logg:>>>convertToInteger:[61]) Thread:1	-String to Integer Conversion function
+----------------------------------------------------------------
+03/07/2017 13:55:52.122 CST INFO  (utilities.Logg:>>>convertToInteger:[63]) Thread:1	-Converting the String value 45 to Integer
+----------------------------------------------------------------
+03/07/2017 13:55:52.439 CST INFO  (utilities.Logg:>>>checkForElementVisibility:[193]) Thread:1	-WebElement Visible. Proceeding further...
+----------------------------------------------------------------
+03/07/2017 13:55:52.439 CST INFO  (utilities.Logg:>>>getText:[352]) Thread:1	-Retrieving the TEXT of element with locator:By.xpath: id('myModal')/div[2]/div[1]/div[1]/div[2]/div[1]/div[1]/b[1]
+----------------------------------------------------------------
+03/07/2017 13:55:52.440 CST INFO  (utilities.Logg:>>>syncLocatorUsing:[207]) Thread:1	-Inside SYNC BLOCK for Locator
+----------------------------------------------------------------
+03/07/2017 13:55:52.440 CST INFO  (utilities.Logg:>>>syncLocatorUsing:[215]) Thread:1	-Inside PRESENCE of Locator
+----------------------------------------------------------------
+03/07/2017 13:55:52.440 CST INFO  (utilities.Logg:>>>waitForElementPresence:[57]) Thread:1	-Waiting for the presence of the element using By class:By.xpath: id('myModal')/div[2]/div[1]/div[1]/div[2]/div[1]/div[1]/b[1]
+----------------------------------------------------------------
+03/07/2017 13:55:52.440 CST INFO  (utilities.Logg:>>>convertToInteger:[61]) Thread:1	-String to Integer Conversion function
+----------------------------------------------------------------
+03/07/2017 13:55:52.440 CST INFO  (utilities.Logg:>>>convertToInteger:[63]) Thread:1	-Converting the String value 45 to Integer
+----------------------------------------------------------------
+03/07/2017 13:56:26.474 CST INFO  (utilities.Logg:>>>afterTest:[82]) Thread:1	-Test Case Failed.
+----------------------------------------------------------------
+03/07/2017 13:56:26.474 CST INFO  (utilities.Logg:>>>afterTest:[84]) Thread:1	-Proceeding to close the driver for method createNewPatient
+----------------------------------------------------------------
+03/23/2017 10:09:15.446 CDT INFO  (utilities.Logg:>>>initialValue:[58]) Thread:1	-**Internet Explorer Browser**
+----------------------------------------------------------------
+03/23/2017 10:09:15.538 CDT INFO  (utilities.Logg:>>>initialValue:[61]) Thread:1	-Instantiating/Launching the Internet Explorer Browser
+----------------------------------------------------------------
+03/23/2017 10:09:18.051 CDT INFO  (utilities.Logg:>>>initialValue:[58]) Thread:1	-**Internet Explorer Browser**
+----------------------------------------------------------------
+03/23/2017 10:09:18.076 CDT INFO  (utilities.Logg:>>>initialValue:[61]) Thread:1	-Instantiating/Launching the Internet Explorer Browser
+----------------------------------------------------------------
+03/23/2017 10:09:24.342 CDT INFO  (utilities.Logg:>>>initialValue:[84]) Thread:1	-Returning the local instance of:InternetExplorerDriver: internet explorer on WINDOWS (f1af20a2-ab57-4204-b71e-be9508886708)
+----------------------------------------------------------------
+03/23/2017 10:09:24.378 CDT INFO  (utilities.Logg:>>>maximizeBrowser:[91]) Thread:1	-Maximizing the browser
+----------------------------------------------------------------
+03/23/2017 10:09:24.431 CDT INFO  (utilities.Logg:>>>maximizeBrowser:[93]) Thread:1	-Browser Successfully Maximized
+----------------------------------------------------------------
+03/23/2017 10:09:24.432 CDT INFO  (utilities.Logg:>>>navigateToURL:[82]) Thread:1	-Navigating to Application URL on Browser:https://capellawebqa.com/cpp/index.html
+----------------------------------------------------------------
+03/23/2017 10:09:24.667 CDT INFO  (utilities.Logg:>>>initialValue:[84]) Thread:1	-Returning the local instance of:InternetExplorerDriver: internet explorer on WINDOWS (f2ecd19b-be6a-4a0f-928b-b34691cb2783)
+----------------------------------------------------------------
+03/23/2017 10:09:24.689 CDT INFO  (utilities.Logg:>>>maximizeBrowser:[91]) Thread:1	-Maximizing the browser
+----------------------------------------------------------------
+03/23/2017 10:09:24.713 CDT INFO  (utilities.Logg:>>>maximizeBrowser:[93]) Thread:1	-Browser Successfully Maximized
+----------------------------------------------------------------
+03/23/2017 10:09:24.713 CDT INFO  (utilities.Logg:>>>navigateToURL:[82]) Thread:1	-Navigating to Application URL on Browser:https://capellawebqa.com/cpp/index.html
+----------------------------------------------------------------
+03/23/2017 10:09:44.990 CDT INFO  (utilities.Logg:>>>navigateToURL:[84]) Thread:1	-Successfully navigated to Application URL on the Browser
+----------------------------------------------------------------
+03/23/2017 10:09:44.991 CDT INFO  (utilities.Logg:>>>navigateTo:[40]) Thread:1	-Returning the instance of Village Health Login
+----------------------------------------------------------------
+03/23/2017 10:09:49.006 CDT INFO  (utilities.Logg:>>>navigateToURL:[84]) Thread:1	-Successfully navigated to Application URL on the Browser
+----------------------------------------------------------------
+03/23/2017 10:09:49.007 CDT INFO  (utilities.Logg:>>>navigateTo:[40]) Thread:1	-Returning the instance of Village Health Login
+----------------------------------------------------------------
+03/23/2017 10:09:50.007 CDT INFO  (utilities.Logg:>>>getVisibiltyOfElementLocatedBy:[460]) Thread:1	-Checking for Visibility of element By.id: inputUsername
+----------------------------------------------------------------
+03/23/2017 10:09:50.007 CDT INFO  (utilities.Logg:>>>checkForElementVisibility:[184]) Thread:1	-Checking for the visibility of the element using By class:By.id: inputUsername
+----------------------------------------------------------------
+03/23/2017 10:09:50.032 CDT INFO  (utilities.Logg:>>>convertToInteger:[61]) Thread:1	-String to Integer Conversion function
+----------------------------------------------------------------
+03/23/2017 10:09:50.032 CDT INFO  (utilities.Logg:>>>convertToInteger:[63]) Thread:1	-Converting the String value 45 to Integer
+----------------------------------------------------------------
+03/23/2017 10:09:50.260 CDT INFO  (utilities.Logg:>>>checkForElementVisibility:[193]) Thread:1	-WebElement Visible. Proceeding further...
+----------------------------------------------------------------
+03/23/2017 10:09:50.269 CDT INFO  (utilities.Logg:>>>getVisibiltyOfElementLocatedBy:[460]) Thread:1	-Checking for Visibility of element By.id: password
+----------------------------------------------------------------
+03/23/2017 10:09:50.269 CDT INFO  (utilities.Logg:>>>checkForElementVisibility:[184]) Thread:1	-Checking for the visibility of the element using By class:By.id: password
+----------------------------------------------------------------
+03/23/2017 10:09:50.270 CDT INFO  (utilities.Logg:>>>convertToInteger:[61]) Thread:1	-String to Integer Conversion function
+----------------------------------------------------------------
+03/23/2017 10:09:50.271 CDT INFO  (utilities.Logg:>>>convertToInteger:[63]) Thread:1	-Converting the String value 45 to Integer
+----------------------------------------------------------------
+03/23/2017 10:09:50.411 CDT INFO  (utilities.Logg:>>>checkForElementVisibility:[193]) Thread:1	-WebElement Visible. Proceeding further...
+----------------------------------------------------------------
+03/23/2017 10:09:50.414 CDT INFO  (utilities.Logg:>>>getVisibiltyOfElementLocatedBy:[460]) Thread:1	-Checking for Visibility of element By.id: token
+----------------------------------------------------------------
+03/23/2017 10:09:50.414 CDT INFO  (utilities.Logg:>>>checkForElementVisibility:[184]) Thread:1	-Checking for the visibility of the element using By class:By.id: token
+----------------------------------------------------------------
+03/23/2017 10:09:50.414 CDT INFO  (utilities.Logg:>>>convertToInteger:[61]) Thread:1	-String to Integer Conversion function
+----------------------------------------------------------------
+03/23/2017 10:09:50.414 CDT INFO  (utilities.Logg:>>>convertToInteger:[63]) Thread:1	-Converting the String value 45 to Integer
+----------------------------------------------------------------
+03/23/2017 10:09:50.564 CDT INFO  (utilities.Logg:>>>checkForElementVisibility:[193]) Thread:1	-WebElement Visible. Proceeding further...
+----------------------------------------------------------------
+03/23/2017 10:09:50.566 CDT INFO  (utilities.Logg:>>>syncLocatorUsing:[207]) Thread:1	-Inside SYNC BLOCK for Locator
+----------------------------------------------------------------
+03/23/2017 10:09:50.566 CDT INFO  (utilities.Logg:>>>syncLocatorUsing:[209]) Thread:1	-Inside VISIBILITY of Locator
+----------------------------------------------------------------
+03/23/2017 10:09:50.566 CDT INFO  (utilities.Logg:>>>waitForElementVisibility:[40]) Thread:1	-Waiting for the visibility of the element using By class:By.id: inputUsername
+----------------------------------------------------------------
+03/23/2017 10:09:50.566 CDT INFO  (utilities.Logg:>>>convertToInteger:[61]) Thread:1	-String to Integer Conversion function
+----------------------------------------------------------------
+03/23/2017 10:09:50.566 CDT INFO  (utilities.Logg:>>>convertToInteger:[63]) Thread:1	-Converting the String value 45 to Integer
+----------------------------------------------------------------
+03/23/2017 10:09:50.703 CDT INFO  (utilities.Logg:>>>waitForElementVisibility:[45]) Thread:1	-WebElement Present and Visible. Proceeding further...
+----------------------------------------------------------------
+03/23/2017 10:09:50.703 CDT INFO  (utilities.Logg:>>>enterText:[119]) Thread:1	-Clearing the content of the text box
+----------------------------------------------------------------
+03/23/2017 10:09:50.878 CDT INFO  (utilities.Logg:>>>enterText:[121]) Thread:1	-Contents cleared
+----------------------------------------------------------------
+03/23/2017 10:09:51.401 CDT INFO  (utilities.Logg:>>>enterText:[123]) Thread:1	-Entered text: in text box with locator:By.id: inputUsername
+----------------------------------------------------------------
+03/23/2017 10:09:51.403 CDT INFO  (utilities.Logg:>>>syncLocatorUsing:[207]) Thread:1	-Inside SYNC BLOCK for Locator
+----------------------------------------------------------------
+03/23/2017 10:09:51.403 CDT INFO  (utilities.Logg:>>>syncLocatorUsing:[209]) Thread:1	-Inside VISIBILITY of Locator
+----------------------------------------------------------------
+03/23/2017 10:09:51.404 CDT INFO  (utilities.Logg:>>>waitForElementVisibility:[40]) Thread:1	-Waiting for the visibility of the element using By class:By.id: password
+----------------------------------------------------------------
+03/23/2017 10:09:51.404 CDT INFO  (utilities.Logg:>>>convertToInteger:[61]) Thread:1	-String to Integer Conversion function
+----------------------------------------------------------------
+03/23/2017 10:09:51.404 CDT INFO  (utilities.Logg:>>>convertToInteger:[63]) Thread:1	-Converting the String value 45 to Integer
+----------------------------------------------------------------
+03/23/2017 10:09:51.549 CDT INFO  (utilities.Logg:>>>waitForElementVisibility:[45]) Thread:1	-WebElement Present and Visible. Proceeding further...
+----------------------------------------------------------------
+03/23/2017 10:09:51.549 CDT INFO  (utilities.Logg:>>>enterText:[119]) Thread:1	-Clearing the content of the text box
+----------------------------------------------------------------
+03/23/2017 10:09:51.742 CDT INFO  (utilities.Logg:>>>enterText:[121]) Thread:1	-Contents cleared
+----------------------------------------------------------------
+03/23/2017 10:09:52.140 CDT INFO  (utilities.Logg:>>>enterText:[123]) Thread:1	-Entered text: in text box with locator:By.id: password
+----------------------------------------------------------------
+03/23/2017 10:09:52.142 CDT INFO  (utilities.Logg:>>>syncLocatorUsing:[207]) Thread:1	-Inside SYNC BLOCK for Locator
+----------------------------------------------------------------
+03/23/2017 10:09:52.143 CDT INFO  (utilities.Logg:>>>syncLocatorUsing:[209]) Thread:1	-Inside VISIBILITY of Locator
+----------------------------------------------------------------
+03/23/2017 10:09:52.143 CDT INFO  (utilities.Logg:>>>waitForElementVisibility:[40]) Thread:1	-Waiting for the visibility of the element using By class:By.id: token
+----------------------------------------------------------------
+03/23/2017 10:09:52.143 CDT INFO  (utilities.Logg:>>>convertToInteger:[61]) Thread:1	-String to Integer Conversion function
+----------------------------------------------------------------
+03/23/2017 10:09:52.143 CDT INFO  (utilities.Logg:>>>convertToInteger:[63]) Thread:1	-Converting the String value 45 to Integer
+----------------------------------------------------------------
+03/23/2017 10:09:52.292 CDT INFO  (utilities.Logg:>>>waitForElementVisibility:[45]) Thread:1	-WebElement Present and Visible. Proceeding further...
+----------------------------------------------------------------
+03/23/2017 10:09:52.293 CDT INFO  (utilities.Logg:>>>enterText:[119]) Thread:1	-Clearing the content of the text box
+----------------------------------------------------------------
+03/23/2017 10:09:52.500 CDT INFO  (utilities.Logg:>>>enterText:[121]) Thread:1	-Contents cleared
+----------------------------------------------------------------
+03/23/2017 10:09:54.024 CDT INFO  (utilities.Logg:>>>getVisibiltyOfElementLocatedBy:[460]) Thread:1	-Checking for Visibility of element By.id: inputUsername
+----------------------------------------------------------------
+03/23/2017 10:09:54.024 CDT INFO  (utilities.Logg:>>>checkForElementVisibility:[184]) Thread:1	-Checking for the visibility of the element using By class:By.id: inputUsername
+----------------------------------------------------------------
+03/23/2017 10:09:54.047 CDT INFO  (utilities.Logg:>>>convertToInteger:[61]) Thread:1	-String to Integer Conversion function
+----------------------------------------------------------------
+03/23/2017 10:09:54.047 CDT INFO  (utilities.Logg:>>>convertToInteger:[63]) Thread:1	-Converting the String value 45 to Integer
+----------------------------------------------------------------
+03/23/2017 10:09:54.269 CDT INFO  (utilities.Logg:>>>checkForElementVisibility:[193]) Thread:1	-WebElement Visible. Proceeding further...
+----------------------------------------------------------------
+03/23/2017 10:09:54.278 CDT INFO  (utilities.Logg:>>>getVisibiltyOfElementLocatedBy:[460]) Thread:1	-Checking for Visibility of element By.id: password
+----------------------------------------------------------------
+03/23/2017 10:09:54.279 CDT INFO  (utilities.Logg:>>>checkForElementVisibility:[184]) Thread:1	-Checking for the visibility of the element using By class:By.id: password
+----------------------------------------------------------------
+03/23/2017 10:09:54.279 CDT INFO  (utilities.Logg:>>>convertToInteger:[61]) Thread:1	-String to Integer Conversion function
+----------------------------------------------------------------
+03/23/2017 10:09:54.280 CDT INFO  (utilities.Logg:>>>convertToInteger:[63]) Thread:1	-Converting the String value 45 to Integer
+----------------------------------------------------------------
+03/23/2017 10:09:54.422 CDT INFO  (utilities.Logg:>>>checkForElementVisibility:[193]) Thread:1	-WebElement Visible. Proceeding further...
+----------------------------------------------------------------
+03/23/2017 10:09:54.424 CDT INFO  (utilities.Logg:>>>getVisibiltyOfElementLocatedBy:[460]) Thread:1	-Checking for Visibility of element By.id: token
+----------------------------------------------------------------
+03/23/2017 10:09:54.424 CDT INFO  (utilities.Logg:>>>checkForElementVisibility:[184]) Thread:1	-Checking for the visibility of the element using By class:By.id: token
+----------------------------------------------------------------
+03/23/2017 10:09:54.425 CDT INFO  (utilities.Logg:>>>convertToInteger:[61]) Thread:1	-String to Integer Conversion function
+----------------------------------------------------------------
+03/23/2017 10:09:54.425 CDT INFO  (utilities.Logg:>>>convertToInteger:[63]) Thread:1	-Converting the String value 45 to Integer
+----------------------------------------------------------------
+03/23/2017 10:09:54.560 CDT INFO  (utilities.Logg:>>>checkForElementVisibility:[193]) Thread:1	-WebElement Visible. Proceeding further...
+----------------------------------------------------------------
+03/23/2017 10:09:54.562 CDT INFO  (utilities.Logg:>>>syncLocatorUsing:[207]) Thread:1	-Inside SYNC BLOCK for Locator
+----------------------------------------------------------------
+03/23/2017 10:09:54.562 CDT INFO  (utilities.Logg:>>>syncLocatorUsing:[209]) Thread:1	-Inside VISIBILITY of Locator
+----------------------------------------------------------------
+03/23/2017 10:09:54.562 CDT INFO  (utilities.Logg:>>>waitForElementVisibility:[40]) Thread:1	-Waiting for the visibility of the element using By class:By.id: inputUsername
+----------------------------------------------------------------
+03/23/2017 10:09:54.563 CDT INFO  (utilities.Logg:>>>convertToInteger:[61]) Thread:1	-String to Integer Conversion function
+----------------------------------------------------------------
+03/23/2017 10:09:54.563 CDT INFO  (utilities.Logg:>>>convertToInteger:[63]) Thread:1	-Converting the String value 45 to Integer
+----------------------------------------------------------------
+03/23/2017 10:09:54.704 CDT INFO  (utilities.Logg:>>>waitForElementVisibility:[45]) Thread:1	-WebElement Present and Visible. Proceeding further...
+----------------------------------------------------------------
+03/23/2017 10:09:54.704 CDT INFO  (utilities.Logg:>>>enterText:[119]) Thread:1	-Clearing the content of the text box
+----------------------------------------------------------------
+03/23/2017 10:09:54.900 CDT INFO  (utilities.Logg:>>>enterText:[121]) Thread:1	-Contents cleared
+----------------------------------------------------------------
+03/23/2017 10:10:13.136 CDT INFO  (utilities.Logg:>>>afterTest:[82]) Thread:1	-Test Case Failed.
+----------------------------------------------------------------
+03/23/2017 10:10:13.136 CDT INFO  (utilities.Logg:>>>afterTest:[84]) Thread:1	-Proceeding to close the driver for method verify_InvalidPassword
+----------------------------------------------------------------
+03/23/2017 10:10:13.148 CDT INFO  (utilities.Logg:>>>maximizeBrowser:[91]) Thread:1	-Maximizing the browser
+----------------------------------------------------------------
+03/23/2017 10:10:13.199 CDT INFO  (utilities.Logg:>>>afterTest:[82]) Thread:1	-Test Case Failed.
+----------------------------------------------------------------
+03/23/2017 10:10:13.199 CDT INFO  (utilities.Logg:>>>afterTest:[84]) Thread:1	-Proceeding to close the driver for method verify_InvalidUserName
+----------------------------------------------------------------
+03/23/2017 10:10:13.230 CDT INFO  (utilities.Logg:>>>maximizeBrowser:[91]) Thread:1	-Maximizing the browser
+----------------------------------------------------------------
+03/23/2017 10:10:13.294 CDT INFO  (utilities.Logg:>>>afterTest:[82]) Thread:1	-Test Case Failed.
+----------------------------------------------------------------
+03/23/2017 10:10:13.294 CDT INFO  (utilities.Logg:>>>afterTest:[84]) Thread:1	-Proceeding to close the driver for method verify_SuccessfulLogin
+----------------------------------------------------------------
+03/23/2017 10:10:38.112 CDT INFO  (utilities.Logg:>>>afterTest:[82]) Thread:1	-Test Case Failed.
+----------------------------------------------------------------
+03/23/2017 10:10:38.112 CDT INFO  (utilities.Logg:>>>afterTest:[84]) Thread:1	-Proceeding to close the driver for method verify_InvalidPassword
+----------------------------------------------------------------
+03/23/2017 10:10:38.129 CDT INFO  (utilities.Logg:>>>maximizeBrowser:[91]) Thread:1	-Maximizing the browser
+----------------------------------------------------------------
+03/23/2017 10:10:38.196 CDT INFO  (utilities.Logg:>>>afterTest:[82]) Thread:1	-Test Case Failed.
+----------------------------------------------------------------
+03/23/2017 10:10:38.196 CDT INFO  (utilities.Logg:>>>afterTest:[84]) Thread:1	-Proceeding to close the driver for method verify_InvalidUserName
+----------------------------------------------------------------
+03/23/2017 10:10:38.221 CDT INFO  (utilities.Logg:>>>maximizeBrowser:[91]) Thread:1	-Maximizing the browser
+----------------------------------------------------------------
+03/23/2017 10:10:38.265 CDT INFO  (utilities.Logg:>>>afterTest:[82]) Thread:1	-Test Case Failed.
+----------------------------------------------------------------
+03/23/2017 10:10:38.265 CDT INFO  (utilities.Logg:>>>afterTest:[84]) Thread:1	-Proceeding to close the driver for method verify_SuccessfulLogin
+----------------------------------------------------------------
+03/23/2017 11:08:58.749 CDT INFO  (utilities.Logg:>>>initialValue:[58]) Thread:1	-**Internet Explorer Browser**
+----------------------------------------------------------------
+03/23/2017 11:08:58.765 CDT INFO  (utilities.Logg:>>>initialValue:[61]) Thread:1	-Instantiating/Launching the Internet Explorer Browser
+----------------------------------------------------------------
+03/23/2017 11:09:03.038 CDT INFO  (utilities.Logg:>>>initialValue:[84]) Thread:1	-Returning the local instance of:InternetExplorerDriver: internet explorer on WINDOWS (5dbd4b00-57ce-4e5b-94fa-1b3e1972253d)
+----------------------------------------------------------------
+03/23/2017 11:09:03.064 CDT INFO  (utilities.Logg:>>>maximizeBrowser:[91]) Thread:1	-Maximizing the browser
+----------------------------------------------------------------
+03/23/2017 11:09:03.086 CDT INFO  (utilities.Logg:>>>maximizeBrowser:[93]) Thread:1	-Browser Successfully Maximized
+----------------------------------------------------------------
+03/23/2017 11:09:03.087 CDT INFO  (utilities.Logg:>>>navigateToURL:[82]) Thread:1	-Navigating to Application URL on Browser:https://capellawebqa.com/cpp/index.html
+----------------------------------------------------------------
+03/23/2017 11:09:14.053 CDT INFO  (utilities.Logg:>>>navigateToURL:[84]) Thread:1	-Successfully navigated to Application URL on the Browser
+----------------------------------------------------------------
+03/23/2017 11:09:14.054 CDT INFO  (utilities.Logg:>>>navigateTo:[40]) Thread:1	-Returning the instance of Village Health Login
+----------------------------------------------------------------
+03/23/2017 11:09:19.117 CDT INFO  (utilities.Logg:>>>getVisibiltyOfElementLocatedBy:[460]) Thread:1	-Checking for Visibility of element By.id: inputUsername
+----------------------------------------------------------------
+03/23/2017 11:09:19.118 CDT INFO  (utilities.Logg:>>>checkForElementVisibility:[184]) Thread:1	-Checking for the visibility of the element using By class:By.id: inputUsername
+----------------------------------------------------------------
+03/23/2017 11:09:19.134 CDT INFO  (utilities.Logg:>>>convertToInteger:[61]) Thread:1	-String to Integer Conversion function
+----------------------------------------------------------------
+03/23/2017 11:09:19.134 CDT INFO  (utilities.Logg:>>>convertToInteger:[63]) Thread:1	-Converting the String value 45 to Integer
+----------------------------------------------------------------
+03/23/2017 11:09:19.370 CDT INFO  (utilities.Logg:>>>checkForElementVisibility:[193]) Thread:1	-WebElement Visible. Proceeding further...
+----------------------------------------------------------------
+03/23/2017 11:09:19.378 CDT INFO  (utilities.Logg:>>>getVisibiltyOfElementLocatedBy:[460]) Thread:1	-Checking for Visibility of element By.id: password
+----------------------------------------------------------------
+03/23/2017 11:09:19.378 CDT INFO  (utilities.Logg:>>>checkForElementVisibility:[184]) Thread:1	-Checking for the visibility of the element using By class:By.id: password
+----------------------------------------------------------------
+03/23/2017 11:09:19.378 CDT INFO  (utilities.Logg:>>>convertToInteger:[61]) Thread:1	-String to Integer Conversion function
+----------------------------------------------------------------
+03/23/2017 11:09:19.380 CDT INFO  (utilities.Logg:>>>convertToInteger:[63]) Thread:1	-Converting the String value 45 to Integer
+----------------------------------------------------------------
+03/23/2017 11:09:19.543 CDT INFO  (utilities.Logg:>>>checkForElementVisibility:[193]) Thread:1	-WebElement Visible. Proceeding further...
+----------------------------------------------------------------
+03/23/2017 11:09:19.545 CDT INFO  (utilities.Logg:>>>getVisibiltyOfElementLocatedBy:[460]) Thread:1	-Checking for Visibility of element By.id: token
+----------------------------------------------------------------
+03/23/2017 11:09:19.545 CDT INFO  (utilities.Logg:>>>checkForElementVisibility:[184]) Thread:1	-Checking for the visibility of the element using By class:By.id: token
+----------------------------------------------------------------
+03/23/2017 11:09:19.546 CDT INFO  (utilities.Logg:>>>convertToInteger:[61]) Thread:1	-String to Integer Conversion function
+----------------------------------------------------------------
+03/23/2017 11:09:19.546 CDT INFO  (utilities.Logg:>>>convertToInteger:[63]) Thread:1	-Converting the String value 45 to Integer
+----------------------------------------------------------------
+03/23/2017 11:09:19.696 CDT INFO  (utilities.Logg:>>>checkForElementVisibility:[193]) Thread:1	-WebElement Visible. Proceeding further...
+----------------------------------------------------------------
+03/23/2017 11:09:19.698 CDT INFO  (utilities.Logg:>>>syncLocatorUsing:[207]) Thread:1	-Inside SYNC BLOCK for Locator
+----------------------------------------------------------------
+03/23/2017 11:09:19.698 CDT INFO  (utilities.Logg:>>>syncLocatorUsing:[209]) Thread:1	-Inside VISIBILITY of Locator
+----------------------------------------------------------------
+03/23/2017 11:09:19.698 CDT INFO  (utilities.Logg:>>>waitForElementVisibility:[40]) Thread:1	-Waiting for the visibility of the element using By class:By.id: inputUsername
+----------------------------------------------------------------
+03/23/2017 11:09:19.698 CDT INFO  (utilities.Logg:>>>convertToInteger:[61]) Thread:1	-String to Integer Conversion function
+----------------------------------------------------------------
+03/23/2017 11:09:19.699 CDT INFO  (utilities.Logg:>>>convertToInteger:[63]) Thread:1	-Converting the String value 45 to Integer
+----------------------------------------------------------------
+03/23/2017 11:09:19.855 CDT INFO  (utilities.Logg:>>>waitForElementVisibility:[45]) Thread:1	-WebElement Present and Visible. Proceeding further...
+----------------------------------------------------------------
+03/23/2017 11:09:19.855 CDT INFO  (utilities.Logg:>>>enterText:[119]) Thread:1	-Clearing the content of the text box
+----------------------------------------------------------------
+03/23/2017 11:09:20.054 CDT INFO  (utilities.Logg:>>>enterText:[121]) Thread:1	-Contents cleared
+----------------------------------------------------------------
+03/23/2017 11:09:20.525 CDT INFO  (utilities.Logg:>>>enterText:[123]) Thread:1	-Entered text: in text box with locator:By.id: inputUsername
+----------------------------------------------------------------
+03/23/2017 11:09:20.527 CDT INFO  (utilities.Logg:>>>syncLocatorUsing:[207]) Thread:1	-Inside SYNC BLOCK for Locator
+----------------------------------------------------------------
+03/23/2017 11:09:20.527 CDT INFO  (utilities.Logg:>>>syncLocatorUsing:[209]) Thread:1	-Inside VISIBILITY of Locator
+----------------------------------------------------------------
+03/23/2017 11:09:20.527 CDT INFO  (utilities.Logg:>>>waitForElementVisibility:[40]) Thread:1	-Waiting for the visibility of the element using By class:By.id: password
+----------------------------------------------------------------
+03/23/2017 11:09:20.528 CDT INFO  (utilities.Logg:>>>convertToInteger:[61]) Thread:1	-String to Integer Conversion function
+----------------------------------------------------------------
+03/23/2017 11:09:20.528 CDT INFO  (utilities.Logg:>>>convertToInteger:[63]) Thread:1	-Converting the String value 45 to Integer
+----------------------------------------------------------------
+03/23/2017 11:09:20.666 CDT INFO  (utilities.Logg:>>>waitForElementVisibility:[45]) Thread:1	-WebElement Present and Visible. Proceeding further...
+----------------------------------------------------------------
+03/23/2017 11:09:20.667 CDT INFO  (utilities.Logg:>>>enterText:[119]) Thread:1	-Clearing the content of the text box
+----------------------------------------------------------------
+03/23/2017 11:09:20.884 CDT INFO  (utilities.Logg:>>>enterText:[121]) Thread:1	-Contents cleared
+----------------------------------------------------------------
+03/23/2017 11:09:21.306 CDT INFO  (utilities.Logg:>>>enterText:[123]) Thread:1	-Entered text: in text box with locator:By.id: password
+----------------------------------------------------------------
+03/23/2017 11:09:21.309 CDT INFO  (utilities.Logg:>>>syncLocatorUsing:[207]) Thread:1	-Inside SYNC BLOCK for Locator
+----------------------------------------------------------------
+03/23/2017 11:09:21.309 CDT INFO  (utilities.Logg:>>>syncLocatorUsing:[209]) Thread:1	-Inside VISIBILITY of Locator
+----------------------------------------------------------------
+03/23/2017 11:09:21.309 CDT INFO  (utilities.Logg:>>>waitForElementVisibility:[40]) Thread:1	-Waiting for the visibility of the element using By class:By.id: token
+----------------------------------------------------------------
+03/23/2017 11:09:21.310 CDT INFO  (utilities.Logg:>>>convertToInteger:[61]) Thread:1	-String to Integer Conversion function
+----------------------------------------------------------------
+03/23/2017 11:09:21.310 CDT INFO  (utilities.Logg:>>>convertToInteger:[63]) Thread:1	-Converting the String value 45 to Integer
+----------------------------------------------------------------
+03/23/2017 11:09:21.466 CDT INFO  (utilities.Logg:>>>waitForElementVisibility:[45]) Thread:1	-WebElement Present and Visible. Proceeding further...
+----------------------------------------------------------------
+03/23/2017 11:09:21.467 CDT INFO  (utilities.Logg:>>>enterText:[119]) Thread:1	-Clearing the content of the text box
+----------------------------------------------------------------
+03/23/2017 11:09:21.701 CDT INFO  (utilities.Logg:>>>enterText:[121]) Thread:1	-Contents cleared
+----------------------------------------------------------------
+03/23/2017 11:09:22.153 CDT INFO  (utilities.Logg:>>>enterText:[123]) Thread:1	-Entered text: in text box with locator:By.id: token
+----------------------------------------------------------------
+03/23/2017 11:09:22.155 CDT INFO  (utilities.Logg:>>>click:[184]) Thread:1	-Clicking on element with locator:By.id: modalview-login-button
+----------------------------------------------------------------
+03/23/2017 11:09:22.156 CDT INFO  (utilities.Logg:>>>syncLocatorUsing:[207]) Thread:1	-Inside SYNC BLOCK for Locator
+----------------------------------------------------------------
+03/23/2017 11:09:22.156 CDT INFO  (utilities.Logg:>>>syncLocatorUsing:[209]) Thread:1	-Inside VISIBILITY of Locator
+----------------------------------------------------------------
+03/23/2017 11:09:22.156 CDT INFO  (utilities.Logg:>>>waitForElementVisibility:[40]) Thread:1	-Waiting for the visibility of the element using By class:By.id: modalview-login-button
+----------------------------------------------------------------
+03/23/2017 11:09:22.156 CDT INFO  (utilities.Logg:>>>convertToInteger:[61]) Thread:1	-String to Integer Conversion function
+----------------------------------------------------------------
+03/23/2017 11:09:22.157 CDT INFO  (utilities.Logg:>>>convertToInteger:[63]) Thread:1	-Converting the String value 45 to Integer
+----------------------------------------------------------------
+03/23/2017 11:09:22.312 CDT INFO  (utilities.Logg:>>>waitForElementVisibility:[45]) Thread:1	-WebElement Present and Visible. Proceeding further...
+----------------------------------------------------------------
+03/23/2017 11:09:22.682 CDT INFO  (utilities.Logg:>>>click:[186]) Thread:1	-Clicked on element with locator:By.id: modalview-login-button
+----------------------------------------------------------------
+03/23/2017 11:09:22.685 CDT INFO  (utilities.Logg:>>>getText:[352]) Thread:1	-Retrieving the TEXT of element with locator:By.xpath: id('myModal')/div[3]/div[2]/span[1]/b[@data-capella-automation-id ='label-ErrorMessage']
+----------------------------------------------------------------
+03/23/2017 11:09:22.685 CDT INFO  (utilities.Logg:>>>syncLocatorUsing:[207]) Thread:1	-Inside SYNC BLOCK for Locator
+----------------------------------------------------------------
+03/23/2017 11:09:22.686 CDT INFO  (utilities.Logg:>>>syncLocatorUsing:[209]) Thread:1	-Inside VISIBILITY of Locator
+----------------------------------------------------------------
+03/23/2017 11:09:22.686 CDT INFO  (utilities.Logg:>>>waitForElementVisibility:[40]) Thread:1	-Waiting for the visibility of the element using By class:By.xpath: id('myModal')/div[3]/div[2]/span[1]/b[@data-capella-automation-id ='label-ErrorMessage']
+----------------------------------------------------------------
+03/23/2017 11:09:22.686 CDT INFO  (utilities.Logg:>>>convertToInteger:[61]) Thread:1	-String to Integer Conversion function
+----------------------------------------------------------------
+03/23/2017 11:09:22.687 CDT INFO  (utilities.Logg:>>>convertToInteger:[63]) Thread:1	-Converting the String value 45 to Integer
+----------------------------------------------------------------
+03/23/2017 11:09:23.761 CDT INFO  (utilities.Logg:>>>waitForElementVisibility:[45]) Thread:1	-WebElement Present and Visible. Proceeding further...
+----------------------------------------------------------------
+03/23/2017 11:09:23.856 CDT INFO  (utilities.Logg:>>>getText:[359]) Thread:1	-Actual Value:Invalid username / password combination
+----------------------------------------------------------------
+03/23/2017 11:09:23.865 CDT INFO  (utilities.Logg:>>>afterTest:[79]) Thread:1	-Test Case PASSED.
+----------------------------------------------------------------
+03/23/2017 11:09:23.866 CDT INFO  (utilities.Logg:>>>afterTest:[84]) Thread:1	-Proceeding to close the driver for method verify_InvalidPassword
+----------------------------------------------------------------
+03/23/2017 11:09:23.874 CDT INFO  (utilities.Logg:>>>maximizeBrowser:[91]) Thread:1	-Maximizing the browser
+----------------------------------------------------------------
+03/23/2017 11:09:23.889 CDT INFO  (utilities.Logg:>>>maximizeBrowser:[93]) Thread:1	-Browser Successfully Maximized
+----------------------------------------------------------------
+03/23/2017 11:09:23.890 CDT INFO  (utilities.Logg:>>>navigateToURL:[82]) Thread:1	-Navigating to Application URL on Browser:https://capellawebqa.com/cpp/index.html
+----------------------------------------------------------------
+03/23/2017 11:09:24.682 CDT INFO  (utilities.Logg:>>>navigateToURL:[84]) Thread:1	-Successfully navigated to Application URL on the Browser
+----------------------------------------------------------------
+03/23/2017 11:09:24.682 CDT INFO  (utilities.Logg:>>>navigateTo:[40]) Thread:1	-Returning the instance of Village Health Login
+----------------------------------------------------------------
+03/23/2017 11:09:29.687 CDT INFO  (utilities.Logg:>>>getVisibiltyOfElementLocatedBy:[460]) Thread:1	-Checking for Visibility of element By.id: inputUsername
+----------------------------------------------------------------
+03/23/2017 11:09:29.688 CDT INFO  (utilities.Logg:>>>checkForElementVisibility:[184]) Thread:1	-Checking for the visibility of the element using By class:By.id: inputUsername
+----------------------------------------------------------------
+03/23/2017 11:09:29.688 CDT INFO  (utilities.Logg:>>>convertToInteger:[61]) Thread:1	-String to Integer Conversion function
+----------------------------------------------------------------
+03/23/2017 11:09:29.689 CDT INFO  (utilities.Logg:>>>convertToInteger:[63]) Thread:1	-Converting the String value 45 to Integer
+----------------------------------------------------------------
+03/23/2017 11:10:14.930 CDT ERROR (utilities.Logg:>>>checkForElementVisibility:[196]) Thread:1	-TIME OUT EXCEPTION while waiting for the VISIBILITY of the element using By class:By.id: inputUsername
+
+----------------------------------------------------------------
+org.openqa.selenium.TimeoutException: Timed out after 45 seconds waiting for com.vh.ui.waits.WebDriverWaits$1@2a49753
+Build info: version: '2.53.0', revision: '35ae25b1534ae328c771e0856c93e187490ca824', time: '2016-03-15 10:43:46'
+System info: host: 'DVA-F0L9N9R-L', ip: '172.16.128.191', os.name: 'Windows 8.1', os.arch: 'amd64', os.version: '6.3', java.version: '1.8.0_121'
+Driver info: org.openqa.selenium.ie.InternetExplorerDriver
+Capabilities [{browserAttachTimeout=0, ie.enableFullPageScreenshot=true, enablePersistentHover=true, ie.forceCreateProcessApi=false, ie.forceShellWindowsApi=false, pageLoadStrategy=normal, ignoreZoomSetting=false, ie.fileUploadDialogTimeout=3000, version=11, platform=WINDOWS, proxy={proxyType=}, nativeEvents=true, ie.ensureCleanSession=false, elementScrollBehavior=0, ie.browserCommandLineSwitches=, requireWindowFocus=false, browserName=internet explorer, initialBrowserUrl=http://localhost:43949/, javascriptEnabled=true, ignoreProtectedModeSettings=false, enableElementCacheCleanup=true, unexpectedAlertBehaviour=dismiss}]
+Session ID: 5dbd4b00-57ce-4e5b-94fa-1b3e1972253d
+	at org.openqa.selenium.support.ui.WebDriverWait.timeoutException(WebDriverWait.java:80)
+	at org.openqa.selenium.support.ui.FluentWait.until(FluentWait.java:261)
+	at com.vh.ui.waits.WebDriverWaits.checkForElementVisibility(WebDriverWaits.java:188)
+	at com.vh.ui.actions.WebActions.getVisibiltyOfElementLocatedBy(WebActions.java:467)
+	at com.vh.ui.pages.LoginPage.viewUserNameTextField(LoginPage.java:40)
+	at com.vh.ui.tests.LoginTest.verify_InvalidUserName(LoginTest.java:38)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:86)
+	at org.testng.internal.Invoker.invokeMethod(Invoker.java:643)
+	at org.testng.internal.Invoker.invokeTestMethod(Invoker.java:820)
+	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:1128)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:129)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:112)
+	at org.testng.TestRunner.privateRun(TestRunner.java:782)
+	at org.testng.TestRunner.run(TestRunner.java:632)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:366)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:361)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:319)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:268)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:86)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1244)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1169)
+	at org.testng.TestNG.run(TestNG.java:1064)
+	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:132)
+	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:236)
+	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:81)
+Caused by: org.openqa.selenium.NoSuchWindowException: Unable to find element on closed window (WARNING: The server did not provide any stacktrace information)
+Command duration or timeout: 25 milliseconds
+Build info: version: '2.53.0', revision: '35ae25b1534ae328c771e0856c93e187490ca824', time: '2016-03-15 10:43:46'
+System info: host: 'DVA-F0L9N9R-L', ip: '172.16.128.191', os.name: 'Windows 8.1', os.arch: 'amd64', os.version: '6.3', java.version: '1.8.0_121'
+Driver info: org.openqa.selenium.ie.InternetExplorerDriver
+Capabilities [{browserAttachTimeout=0, ie.enableFullPageScreenshot=true, enablePersistentHover=true, ie.forceCreateProcessApi=false, ie.forceShellWindowsApi=false, pageLoadStrategy=normal, ignoreZoomSetting=false, ie.fileUploadDialogTimeout=3000, version=11, platform=WINDOWS, proxy={proxyType=}, nativeEvents=true, ie.ensureCleanSession=false, elementScrollBehavior=0, ie.browserCommandLineSwitches=, requireWindowFocus=false, browserName=internet explorer, initialBrowserUrl=http://localhost:43949/, javascriptEnabled=true, ignoreProtectedModeSettings=false, enableElementCacheCleanup=true, unexpectedAlertBehaviour=dismiss}]
+Session ID: 5dbd4b00-57ce-4e5b-94fa-1b3e1972253d
+*** Element info: {Using=id, value=inputUsername}
+	at sun.reflect.GeneratedConstructorAccessor12.newInstance(Unknown Source)
+	at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(Unknown Source)
+	at java.lang.reflect.Constructor.newInstance(Unknown Source)
+	at org.openqa.selenium.remote.ErrorHandler.createThrowable(ErrorHandler.java:206)
+	at org.openqa.selenium.remote.ErrorHandler.throwIfResponseFailed(ErrorHandler.java:158)
+	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:678)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:363)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElementById(RemoteWebDriver.java:413)
+	at org.openqa.selenium.By$ById.findElement(By.java:218)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:355)
+	at com.vh.ui.waits.WebDriverWaits$1.apply(WebDriverWaits.java:190)
+	at com.vh.ui.waits.WebDriverWaits$1.apply(WebDriverWaits.java:1)
+	at org.openqa.selenium.support.ui.FluentWait.until(FluentWait.java:238)
+	... 28 more
+03/23/2017 11:10:15.199 CDT INFO  (utilities.Logg:>>>afterTest:[82]) Thread:1	-Test Case Failed.
+----------------------------------------------------------------
+03/23/2017 11:10:15.200 CDT INFO  (utilities.Logg:>>>afterTest:[84]) Thread:1	-Proceeding to close the driver for method verify_InvalidUserName
+----------------------------------------------------------------
+03/23/2017 11:10:15.226 CDT INFO  (utilities.Logg:>>>maximizeBrowser:[91]) Thread:1	-Maximizing the browser
+----------------------------------------------------------------
+03/23/2017 11:10:15.269 CDT INFO  (utilities.Logg:>>>afterTest:[82]) Thread:1	-Test Case Failed.
+----------------------------------------------------------------
+03/23/2017 11:10:15.269 CDT INFO  (utilities.Logg:>>>afterTest:[84]) Thread:1	-Proceeding to close the driver for method verify_SuccessfulLogin
+----------------------------------------------------------------
+03/23/2017 12:10:51.174 CDT INFO  (utilities.Logg:>>>initialValue:[58]) Thread:1	-**Internet Explorer Browser**
+----------------------------------------------------------------
+03/23/2017 12:10:51.193 CDT INFO  (utilities.Logg:>>>initialValue:[61]) Thread:1	-Instantiating/Launching the Internet Explorer Browser
+----------------------------------------------------------------
+03/23/2017 12:10:55.651 CDT INFO  (utilities.Logg:>>>initialValue:[84]) Thread:1	-Returning the local instance of:InternetExplorerDriver: internet explorer on WINDOWS (5389723b-e023-432f-9e59-8fc8b116fa49)
+----------------------------------------------------------------
+03/23/2017 12:10:55.679 CDT INFO  (utilities.Logg:>>>maximizeBrowser:[91]) Thread:1	-Maximizing the browser
+----------------------------------------------------------------
+03/23/2017 12:10:55.704 CDT INFO  (utilities.Logg:>>>maximizeBrowser:[93]) Thread:1	-Browser Successfully Maximized
+----------------------------------------------------------------
+03/23/2017 12:10:55.705 CDT INFO  (utilities.Logg:>>>navigateToURL:[82]) Thread:1	-Navigating to Application URL on Browser:https://capellawebqa.com/cpp/index.html
+----------------------------------------------------------------
+03/23/2017 12:11:07.664 CDT INFO  (utilities.Logg:>>>navigateToURL:[84]) Thread:1	-Successfully navigated to Application URL on the Browser
+----------------------------------------------------------------
+03/23/2017 12:11:07.665 CDT INFO  (utilities.Logg:>>>navigateTo:[41]) Thread:1	-Returning the instance of Village Health Login
+----------------------------------------------------------------
+03/23/2017 12:11:12.719 CDT INFO  (utilities.Logg:>>>getVisibiltyOfElementLocatedBy:[460]) Thread:1	-Checking for Visibility of element By.id: inputUsername
+----------------------------------------------------------------
+03/23/2017 12:11:12.720 CDT INFO  (utilities.Logg:>>>checkForElementVisibility:[184]) Thread:1	-Checking for the visibility of the element using By class:By.id: inputUsername
+----------------------------------------------------------------
+03/23/2017 12:11:12.738 CDT INFO  (utilities.Logg:>>>convertToInteger:[61]) Thread:1	-String to Integer Conversion function
+----------------------------------------------------------------
+03/23/2017 12:11:12.738 CDT INFO  (utilities.Logg:>>>convertToInteger:[63]) Thread:1	-Converting the String value 45 to Integer
+----------------------------------------------------------------
+03/23/2017 12:11:58.035 CDT INFO  (utilities.Logg:>>>initialValue:[58]) Thread:1	-**Internet Explorer Browser**
+----------------------------------------------------------------
+03/23/2017 12:11:58.055 CDT INFO  (utilities.Logg:>>>initialValue:[61]) Thread:1	-Instantiating/Launching the Internet Explorer Browser
+----------------------------------------------------------------
+03/23/2017 12:11:58.158 CDT ERROR (utilities.Logg:>>>checkForElementVisibility:[196]) Thread:1	-TIME OUT EXCEPTION while waiting for the VISIBILITY of the element using By class:By.id: inputUsername
+
+----------------------------------------------------------------
+org.openqa.selenium.TimeoutException: Timed out after 45 seconds waiting for com.vh.ui.waits.WebDriverWaits$1@1a5c0b8
+Build info: version: '2.53.0', revision: '35ae25b1534ae328c771e0856c93e187490ca824', time: '2016-03-15 10:43:46'
+System info: host: 'DVA-F0L9N9R-L', ip: '172.16.128.191', os.name: 'Windows 8.1', os.arch: 'amd64', os.version: '6.3', java.version: '1.8.0_121'
+Driver info: org.openqa.selenium.ie.InternetExplorerDriver
+Capabilities [{browserAttachTimeout=0, ie.enableFullPageScreenshot=true, enablePersistentHover=true, ie.forceCreateProcessApi=false, ie.forceShellWindowsApi=false, pageLoadStrategy=normal, ignoreZoomSetting=false, ie.fileUploadDialogTimeout=3000, version=11, platform=WINDOWS, proxy={proxyType=}, nativeEvents=true, ie.ensureCleanSession=false, elementScrollBehavior=0, ie.browserCommandLineSwitches=, requireWindowFocus=false, browserName=internet explorer, initialBrowserUrl=http://localhost:27465/, javascriptEnabled=true, ignoreProtectedModeSettings=false, enableElementCacheCleanup=true, unexpectedAlertBehaviour=dismiss}]
+Session ID: 5389723b-e023-432f-9e59-8fc8b116fa49
+	at org.openqa.selenium.support.ui.WebDriverWait.timeoutException(WebDriverWait.java:80)
+	at org.openqa.selenium.support.ui.FluentWait.until(FluentWait.java:261)
+	at com.vh.ui.waits.WebDriverWaits.checkForElementVisibility(WebDriverWaits.java:188)
+	at com.vh.ui.actions.WebActions.getVisibiltyOfElementLocatedBy(WebActions.java:467)
+	at com.vh.ui.pages.LoginPage.viewUserNameTextField(LoginPage.java:41)
+	at com.vh.ui.tests.LoginTest.verify_InvalidUserName(LoginTest.java:44)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:86)
+	at org.testng.internal.Invoker.invokeMethod(Invoker.java:643)
+	at org.testng.internal.Invoker.invokeTestMethod(Invoker.java:820)
+	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:1128)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:129)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:112)
+	at org.testng.TestRunner.privateRun(TestRunner.java:782)
+	at org.testng.TestRunner.run(TestRunner.java:632)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:366)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:361)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:319)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:268)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:86)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1244)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1169)
+	at org.testng.TestNG.run(TestNG.java:1064)
+	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:132)
+	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:236)
+	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:81)
+Caused by: org.openqa.selenium.NoSuchWindowException: Unable to find element on closed window (WARNING: The server did not provide any stacktrace information)
+Command duration or timeout: 4 milliseconds
+Build info: version: '2.53.0', revision: '35ae25b1534ae328c771e0856c93e187490ca824', time: '2016-03-15 10:43:46'
+System info: host: 'DVA-F0L9N9R-L', ip: '172.16.128.191', os.name: 'Windows 8.1', os.arch: 'amd64', os.version: '6.3', java.version: '1.8.0_121'
+Driver info: org.openqa.selenium.ie.InternetExplorerDriver
+Capabilities [{browserAttachTimeout=0, ie.enableFullPageScreenshot=true, enablePersistentHover=true, ie.forceCreateProcessApi=false, ie.forceShellWindowsApi=false, pageLoadStrategy=normal, ignoreZoomSetting=false, ie.fileUploadDialogTimeout=3000, version=11, platform=WINDOWS, proxy={proxyType=}, nativeEvents=true, ie.ensureCleanSession=false, elementScrollBehavior=0, ie.browserCommandLineSwitches=, requireWindowFocus=false, browserName=internet explorer, initialBrowserUrl=http://localhost:27465/, javascriptEnabled=true, ignoreProtectedModeSettings=false, enableElementCacheCleanup=true, unexpectedAlertBehaviour=dismiss}]
+Session ID: 5389723b-e023-432f-9e59-8fc8b116fa49
+*** Element info: {Using=id, value=inputUsername}
+	at sun.reflect.GeneratedConstructorAccessor11.newInstance(Unknown Source)
+	at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(Unknown Source)
+	at java.lang.reflect.Constructor.newInstance(Unknown Source)
+	at org.openqa.selenium.remote.ErrorHandler.createThrowable(ErrorHandler.java:206)
+	at org.openqa.selenium.remote.ErrorHandler.throwIfResponseFailed(ErrorHandler.java:158)
+	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:678)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:363)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElementById(RemoteWebDriver.java:413)
+	at org.openqa.selenium.By$ById.findElement(By.java:218)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:355)
+	at com.vh.ui.waits.WebDriverWaits$1.apply(WebDriverWaits.java:190)
+	at com.vh.ui.waits.WebDriverWaits$1.apply(WebDriverWaits.java:1)
+	at org.openqa.selenium.support.ui.FluentWait.until(FluentWait.java:238)
+	... 28 more
+03/23/2017 12:11:59.298 CDT INFO  (utilities.Logg:>>>afterTest:[83]) Thread:1	-Test Case Failed.
+----------------------------------------------------------------
+03/23/2017 12:11:59.299 CDT INFO  (utilities.Logg:>>>afterTest:[85]) Thread:1	-Proceeding to close the driver for method verify_InvalidUserName
+----------------------------------------------------------------
+03/23/2017 12:12:04.331 CDT INFO  (utilities.Logg:>>>initialValue:[84]) Thread:1	-Returning the local instance of:InternetExplorerDriver: internet explorer on WINDOWS (aa9cebe0-4443-4cde-90a3-8e3f9903b211)
+----------------------------------------------------------------
+03/23/2017 12:12:04.359 CDT INFO  (utilities.Logg:>>>maximizeBrowser:[91]) Thread:1	-Maximizing the browser
+----------------------------------------------------------------
+03/23/2017 12:12:04.384 CDT INFO  (utilities.Logg:>>>maximizeBrowser:[93]) Thread:1	-Browser Successfully Maximized
+----------------------------------------------------------------
+03/23/2017 12:12:04.384 CDT INFO  (utilities.Logg:>>>navigateToURL:[82]) Thread:1	-Navigating to Application URL on Browser:https://capellawebqa.com/cpp/index.html
+----------------------------------------------------------------
+03/23/2017 12:12:12.611 CDT INFO  (utilities.Logg:>>>navigateToURL:[84]) Thread:1	-Successfully navigated to Application URL on the Browser
+----------------------------------------------------------------
+03/23/2017 12:12:12.611 CDT INFO  (utilities.Logg:>>>navigateTo:[41]) Thread:1	-Returning the instance of Village Health Login
+----------------------------------------------------------------
+03/23/2017 12:12:17.639 CDT INFO  (utilities.Logg:>>>getVisibiltyOfElementLocatedBy:[460]) Thread:1	-Checking for Visibility of element By.id: inputUsername
+----------------------------------------------------------------
+03/23/2017 12:12:17.640 CDT INFO  (utilities.Logg:>>>checkForElementVisibility:[184]) Thread:1	-Checking for the visibility of the element using By class:By.id: inputUsername
+----------------------------------------------------------------
+03/23/2017 12:12:17.651 CDT INFO  (utilities.Logg:>>>convertToInteger:[61]) Thread:1	-String to Integer Conversion function
+----------------------------------------------------------------
+03/23/2017 12:12:17.651 CDT INFO  (utilities.Logg:>>>convertToInteger:[63]) Thread:1	-Converting the String value 45 to Integer
+----------------------------------------------------------------
+03/23/2017 12:12:47.555 CDT INFO  (utilities.Logg:>>>initialValue:[58]) Thread:1	-**Internet Explorer Browser**
+----------------------------------------------------------------
+03/23/2017 12:12:47.574 CDT INFO  (utilities.Logg:>>>initialValue:[61]) Thread:1	-Instantiating/Launching the Internet Explorer Browser
+----------------------------------------------------------------
+03/23/2017 12:12:51.976 CDT INFO  (utilities.Logg:>>>initialValue:[84]) Thread:1	-Returning the local instance of:InternetExplorerDriver: internet explorer on WINDOWS (e4b9b87a-a628-40dd-b4da-57974a143ddb)
+----------------------------------------------------------------
+03/23/2017 12:12:52.003 CDT INFO  (utilities.Logg:>>>maximizeBrowser:[91]) Thread:1	-Maximizing the browser
+----------------------------------------------------------------
+03/23/2017 12:12:52.025 CDT INFO  (utilities.Logg:>>>maximizeBrowser:[93]) Thread:1	-Browser Successfully Maximized
+----------------------------------------------------------------
+03/23/2017 12:12:52.026 CDT INFO  (utilities.Logg:>>>navigateToURL:[82]) Thread:1	-Navigating to Application URL on Browser:https://capellawebqa.com/cpp/index.html
+----------------------------------------------------------------
+03/23/2017 12:13:02.009 CDT INFO  (utilities.Logg:>>>navigateToURL:[84]) Thread:1	-Successfully navigated to Application URL on the Browser
+----------------------------------------------------------------
+03/23/2017 12:13:02.010 CDT INFO  (utilities.Logg:>>>navigateTo:[41]) Thread:1	-Returning the instance of Village Health Login
+----------------------------------------------------------------
+03/23/2017 12:13:02.941 CDT ERROR (utilities.Logg:>>>checkForElementVisibility:[196]) Thread:1	-TIME OUT EXCEPTION while waiting for the VISIBILITY of the element using By class:By.id: inputUsername
+
+----------------------------------------------------------------
+org.openqa.selenium.TimeoutException: Timed out after 45 seconds waiting for com.vh.ui.waits.WebDriverWaits$1@7acf07b2
+Build info: version: '2.53.0', revision: '35ae25b1534ae328c771e0856c93e187490ca824', time: '2016-03-15 10:43:46'
+System info: host: 'DVA-F0L9N9R-L', ip: '172.16.128.191', os.name: 'Windows 8.1', os.arch: 'amd64', os.version: '6.3', java.version: '1.8.0_121'
+Driver info: org.openqa.selenium.ie.InternetExplorerDriver
+Capabilities [{browserAttachTimeout=0, ie.enableFullPageScreenshot=true, enablePersistentHover=true, ie.forceCreateProcessApi=false, ie.forceShellWindowsApi=false, pageLoadStrategy=normal, ignoreZoomSetting=false, ie.fileUploadDialogTimeout=3000, version=11, platform=WINDOWS, proxy={proxyType=}, nativeEvents=true, ie.ensureCleanSession=false, elementScrollBehavior=0, ie.browserCommandLineSwitches=, requireWindowFocus=false, browserName=internet explorer, initialBrowserUrl=http://localhost:22650/, javascriptEnabled=true, ignoreProtectedModeSettings=false, enableElementCacheCleanup=true, unexpectedAlertBehaviour=dismiss}]
+Session ID: aa9cebe0-4443-4cde-90a3-8e3f9903b211
+	at org.openqa.selenium.support.ui.WebDriverWait.timeoutException(WebDriverWait.java:80)
+	at org.openqa.selenium.support.ui.FluentWait.until(FluentWait.java:261)
+	at com.vh.ui.waits.WebDriverWaits.checkForElementVisibility(WebDriverWaits.java:188)
+	at com.vh.ui.actions.WebActions.getVisibiltyOfElementLocatedBy(WebActions.java:467)
+	at com.vh.ui.pages.LoginPage.viewUserNameTextField(LoginPage.java:41)
+	at com.vh.ui.tests.LoginTest.verify_InvalidUserName(LoginTest.java:44)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:86)
+	at org.testng.internal.Invoker.invokeMethod(Invoker.java:643)
+	at org.testng.internal.Invoker.invokeTestMethod(Invoker.java:820)
+	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:1128)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:129)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:112)
+	at org.testng.TestRunner.privateRun(TestRunner.java:782)
+	at org.testng.TestRunner.run(TestRunner.java:632)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:366)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:361)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:319)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:268)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:86)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1244)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1169)
+	at org.testng.TestNG.run(TestNG.java:1064)
+	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:132)
+	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:236)
+	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:81)
+Caused by: org.openqa.selenium.NoSuchWindowException: Unable to find element on closed window (WARNING: The server did not provide any stacktrace information)
+Command duration or timeout: 15 milliseconds
+Build info: version: '2.53.0', revision: '35ae25b1534ae328c771e0856c93e187490ca824', time: '2016-03-15 10:43:46'
+System info: host: 'DVA-F0L9N9R-L', ip: '172.16.128.191', os.name: 'Windows 8.1', os.arch: 'amd64', os.version: '6.3', java.version: '1.8.0_121'
+Driver info: org.openqa.selenium.ie.InternetExplorerDriver
+Capabilities [{browserAttachTimeout=0, ie.enableFullPageScreenshot=true, enablePersistentHover=true, ie.forceCreateProcessApi=false, ie.forceShellWindowsApi=false, pageLoadStrategy=normal, ignoreZoomSetting=false, ie.fileUploadDialogTimeout=3000, version=11, platform=WINDOWS, proxy={proxyType=}, nativeEvents=true, ie.ensureCleanSession=false, elementScrollBehavior=0, ie.browserCommandLineSwitches=, requireWindowFocus=false, browserName=internet explorer, initialBrowserUrl=http://localhost:22650/, javascriptEnabled=true, ignoreProtectedModeSettings=false, enableElementCacheCleanup=true, unexpectedAlertBehaviour=dismiss}]
+Session ID: aa9cebe0-4443-4cde-90a3-8e3f9903b211
+*** Element info: {Using=id, value=inputUsername}
+	at sun.reflect.GeneratedConstructorAccessor11.newInstance(Unknown Source)
+	at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(Unknown Source)
+	at java.lang.reflect.Constructor.newInstance(Unknown Source)
+	at org.openqa.selenium.remote.ErrorHandler.createThrowable(ErrorHandler.java:206)
+	at org.openqa.selenium.remote.ErrorHandler.throwIfResponseFailed(ErrorHandler.java:158)
+	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:678)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:363)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElementById(RemoteWebDriver.java:413)
+	at org.openqa.selenium.By$ById.findElement(By.java:218)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:355)
+	at com.vh.ui.waits.WebDriverWaits$1.apply(WebDriverWaits.java:190)
+	at com.vh.ui.waits.WebDriverWaits$1.apply(WebDriverWaits.java:1)
+	at org.openqa.selenium.support.ui.FluentWait.until(FluentWait.java:238)
+	... 28 more
+03/23/2017 12:13:03.205 CDT INFO  (utilities.Logg:>>>afterTest:[83]) Thread:1	-Test Case Failed.
+----------------------------------------------------------------
+03/23/2017 12:13:03.205 CDT INFO  (utilities.Logg:>>>afterTest:[85]) Thread:1	-Proceeding to close the driver for method verify_InvalidUserName
+----------------------------------------------------------------
+03/23/2017 12:13:07.075 CDT INFO  (utilities.Logg:>>>getVisibiltyOfElementLocatedBy:[460]) Thread:1	-Checking for Visibility of element By.id: inputUsername
+----------------------------------------------------------------
+03/23/2017 12:13:07.076 CDT INFO  (utilities.Logg:>>>checkForElementVisibility:[184]) Thread:1	-Checking for the visibility of the element using By class:By.id: inputUsername
+----------------------------------------------------------------
+03/23/2017 12:13:07.091 CDT INFO  (utilities.Logg:>>>convertToInteger:[61]) Thread:1	-String to Integer Conversion function
+----------------------------------------------------------------
+03/23/2017 12:13:07.091 CDT INFO  (utilities.Logg:>>>convertToInteger:[63]) Thread:1	-Converting the String value 45 to Integer
+----------------------------------------------------------------
+03/23/2017 12:13:41.723 CDT INFO  (utilities.Logg:>>>initialValue:[58]) Thread:1	-**Internet Explorer Browser**
+----------------------------------------------------------------
+03/23/2017 12:13:41.741 CDT INFO  (utilities.Logg:>>>initialValue:[61]) Thread:1	-Instantiating/Launching the Internet Explorer Browser
+----------------------------------------------------------------
+03/23/2017 12:13:46.018 CDT INFO  (utilities.Logg:>>>initialValue:[84]) Thread:1	-Returning the local instance of:InternetExplorerDriver: internet explorer on WINDOWS (900f134d-3f61-4934-bab0-f224900a762c)
+----------------------------------------------------------------
+03/23/2017 12:13:46.045 CDT INFO  (utilities.Logg:>>>maximizeBrowser:[91]) Thread:1	-Maximizing the browser
+----------------------------------------------------------------
+03/23/2017 12:13:46.069 CDT INFO  (utilities.Logg:>>>maximizeBrowser:[93]) Thread:1	-Browser Successfully Maximized
+----------------------------------------------------------------
+03/23/2017 12:13:46.070 CDT INFO  (utilities.Logg:>>>navigateToURL:[82]) Thread:1	-Navigating to Application URL on Browser:https://capellawebqa.com/cpp/index.html
+----------------------------------------------------------------
+03/23/2017 12:13:52.311 CDT ERROR (utilities.Logg:>>>checkForElementVisibility:[196]) Thread:1	-TIME OUT EXCEPTION while waiting for the VISIBILITY of the element using By class:By.id: inputUsername
+
+----------------------------------------------------------------
+org.openqa.selenium.TimeoutException: Timed out after 45 seconds waiting for com.vh.ui.waits.WebDriverWaits$1@8b71052
+Build info: version: '2.53.0', revision: '35ae25b1534ae328c771e0856c93e187490ca824', time: '2016-03-15 10:43:46'
+System info: host: 'DVA-F0L9N9R-L', ip: '172.16.128.191', os.name: 'Windows 8.1', os.arch: 'amd64', os.version: '6.3', java.version: '1.8.0_121'
+Driver info: org.openqa.selenium.ie.InternetExplorerDriver
+Capabilities [{browserAttachTimeout=0, ie.enableFullPageScreenshot=true, enablePersistentHover=true, ie.forceCreateProcessApi=false, ie.forceShellWindowsApi=false, pageLoadStrategy=normal, ignoreZoomSetting=false, ie.fileUploadDialogTimeout=3000, version=11, platform=WINDOWS, proxy={proxyType=}, nativeEvents=true, ie.ensureCleanSession=false, elementScrollBehavior=0, ie.browserCommandLineSwitches=, requireWindowFocus=false, browserName=internet explorer, initialBrowserUrl=http://localhost:19480/, javascriptEnabled=true, ignoreProtectedModeSettings=false, enableElementCacheCleanup=true, unexpectedAlertBehaviour=dismiss}]
+Session ID: e4b9b87a-a628-40dd-b4da-57974a143ddb
+	at org.openqa.selenium.support.ui.WebDriverWait.timeoutException(WebDriverWait.java:80)
+	at org.openqa.selenium.support.ui.FluentWait.until(FluentWait.java:261)
+	at com.vh.ui.waits.WebDriverWaits.checkForElementVisibility(WebDriverWaits.java:188)
+	at com.vh.ui.actions.WebActions.getVisibiltyOfElementLocatedBy(WebActions.java:467)
+	at com.vh.ui.pages.LoginPage.viewUserNameTextField(LoginPage.java:41)
+	at com.vh.ui.tests.LoginTest.verify_InvalidUserName(LoginTest.java:44)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:86)
+	at org.testng.internal.Invoker.invokeMethod(Invoker.java:643)
+	at org.testng.internal.Invoker.invokeTestMethod(Invoker.java:820)
+	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:1128)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:129)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:112)
+	at org.testng.TestRunner.privateRun(TestRunner.java:782)
+	at org.testng.TestRunner.run(TestRunner.java:632)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:366)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:361)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:319)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:268)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:86)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1244)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1169)
+	at org.testng.TestNG.run(TestNG.java:1064)
+	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:132)
+	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:236)
+	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:81)
+Caused by: org.openqa.selenium.NoSuchWindowException: Unable to find element on closed window (WARNING: The server did not provide any stacktrace information)
+Command duration or timeout: 21 milliseconds
+Build info: version: '2.53.0', revision: '35ae25b1534ae328c771e0856c93e187490ca824', time: '2016-03-15 10:43:46'
+System info: host: 'DVA-F0L9N9R-L', ip: '172.16.128.191', os.name: 'Windows 8.1', os.arch: 'amd64', os.version: '6.3', java.version: '1.8.0_121'
+Driver info: org.openqa.selenium.ie.InternetExplorerDriver
+Capabilities [{browserAttachTimeout=0, ie.enableFullPageScreenshot=true, enablePersistentHover=true, ie.forceCreateProcessApi=false, ie.forceShellWindowsApi=false, pageLoadStrategy=normal, ignoreZoomSetting=false, ie.fileUploadDialogTimeout=3000, version=11, platform=WINDOWS, proxy={proxyType=}, nativeEvents=true, ie.ensureCleanSession=false, elementScrollBehavior=0, ie.browserCommandLineSwitches=, requireWindowFocus=false, browserName=internet explorer, initialBrowserUrl=http://localhost:19480/, javascriptEnabled=true, ignoreProtectedModeSettings=false, enableElementCacheCleanup=true, unexpectedAlertBehaviour=dismiss}]
+Session ID: e4b9b87a-a628-40dd-b4da-57974a143ddb
+*** Element info: {Using=id, value=inputUsername}
+	at sun.reflect.GeneratedConstructorAccessor11.newInstance(Unknown Source)
+	at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(Unknown Source)
+	at java.lang.reflect.Constructor.newInstance(Unknown Source)
+	at org.openqa.selenium.remote.ErrorHandler.createThrowable(ErrorHandler.java:206)
+	at org.openqa.selenium.remote.ErrorHandler.throwIfResponseFailed(ErrorHandler.java:158)
+	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:678)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:363)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElementById(RemoteWebDriver.java:413)
+	at org.openqa.selenium.By$ById.findElement(By.java:218)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:355)
+	at com.vh.ui.waits.WebDriverWaits$1.apply(WebDriverWaits.java:190)
+	at com.vh.ui.waits.WebDriverWaits$1.apply(WebDriverWaits.java:1)
+	at org.openqa.selenium.support.ui.FluentWait.until(FluentWait.java:238)
+	... 28 more
+03/23/2017 12:13:52.611 CDT INFO  (utilities.Logg:>>>afterTest:[83]) Thread:1	-Test Case Failed.
+----------------------------------------------------------------
+03/23/2017 12:13:52.612 CDT INFO  (utilities.Logg:>>>afterTest:[85]) Thread:1	-Proceeding to close the driver for method verify_InvalidUserName
+----------------------------------------------------------------
+03/23/2017 12:13:54.286 CDT INFO  (utilities.Logg:>>>navigateToURL:[84]) Thread:1	-Successfully navigated to Application URL on the Browser
+----------------------------------------------------------------
+03/23/2017 12:13:54.287 CDT INFO  (utilities.Logg:>>>navigateTo:[41]) Thread:1	-Returning the instance of Village Health Login
+----------------------------------------------------------------
+03/23/2017 12:13:59.341 CDT INFO  (utilities.Logg:>>>getVisibiltyOfElementLocatedBy:[460]) Thread:1	-Checking for Visibility of element By.id: inputUsername
+----------------------------------------------------------------
+03/23/2017 12:13:59.342 CDT INFO  (utilities.Logg:>>>checkForElementVisibility:[184]) Thread:1	-Checking for the visibility of the element using By class:By.id: inputUsername
+----------------------------------------------------------------
+03/23/2017 12:13:59.357 CDT INFO  (utilities.Logg:>>>convertToInteger:[61]) Thread:1	-String to Integer Conversion function
+----------------------------------------------------------------
+03/23/2017 12:13:59.357 CDT INFO  (utilities.Logg:>>>convertToInteger:[63]) Thread:1	-Converting the String value 45 to Integer
+----------------------------------------------------------------
+03/23/2017 12:14:44.824 CDT ERROR (utilities.Logg:>>>checkForElementVisibility:[196]) Thread:1	-TIME OUT EXCEPTION while waiting for the VISIBILITY of the element using By class:By.id: inputUsername
+
+----------------------------------------------------------------
+org.openqa.selenium.TimeoutException: Timed out after 45 seconds waiting for com.vh.ui.waits.WebDriverWaits$1@27a23d87
+Build info: version: '2.53.0', revision: '35ae25b1534ae328c771e0856c93e187490ca824', time: '2016-03-15 10:43:46'
+System info: host: 'DVA-F0L9N9R-L', ip: '172.16.128.191', os.name: 'Windows 8.1', os.arch: 'amd64', os.version: '6.3', java.version: '1.8.0_121'
+Driver info: org.openqa.selenium.ie.InternetExplorerDriver
+Capabilities [{browserAttachTimeout=0, ie.enableFullPageScreenshot=true, enablePersistentHover=true, ie.forceCreateProcessApi=false, ie.forceShellWindowsApi=false, pageLoadStrategy=normal, ignoreZoomSetting=false, ie.fileUploadDialogTimeout=3000, version=11, platform=WINDOWS, proxy={proxyType=}, nativeEvents=true, ie.ensureCleanSession=false, elementScrollBehavior=0, ie.browserCommandLineSwitches=, requireWindowFocus=false, browserName=internet explorer, initialBrowserUrl=http://localhost:8387/, javascriptEnabled=true, ignoreProtectedModeSettings=false, enableElementCacheCleanup=true, unexpectedAlertBehaviour=dismiss}]
+Session ID: 900f134d-3f61-4934-bab0-f224900a762c
+	at org.openqa.selenium.support.ui.WebDriverWait.timeoutException(WebDriverWait.java:80)
+	at org.openqa.selenium.support.ui.FluentWait.until(FluentWait.java:261)
+	at com.vh.ui.waits.WebDriverWaits.checkForElementVisibility(WebDriverWaits.java:188)
+	at com.vh.ui.actions.WebActions.getVisibiltyOfElementLocatedBy(WebActions.java:467)
+	at com.vh.ui.pages.LoginPage.viewUserNameTextField(LoginPage.java:41)
+	at com.vh.ui.tests.LoginTest.verify_InvalidUserName(LoginTest.java:44)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:86)
+	at org.testng.internal.Invoker.invokeMethod(Invoker.java:643)
+	at org.testng.internal.Invoker.invokeTestMethod(Invoker.java:820)
+	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:1128)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:129)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:112)
+	at org.testng.TestRunner.privateRun(TestRunner.java:782)
+	at org.testng.TestRunner.run(TestRunner.java:632)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:366)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:361)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:319)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:268)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:86)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1244)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1169)
+	at org.testng.TestNG.run(TestNG.java:1064)
+	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:132)
+	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:236)
+	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:81)
+Caused by: org.openqa.selenium.NoSuchWindowException: Unable to find element on closed window (WARNING: The server did not provide any stacktrace information)
+Command duration or timeout: 29 milliseconds
+Build info: version: '2.53.0', revision: '35ae25b1534ae328c771e0856c93e187490ca824', time: '2016-03-15 10:43:46'
+System info: host: 'DVA-F0L9N9R-L', ip: '172.16.128.191', os.name: 'Windows 8.1', os.arch: 'amd64', os.version: '6.3', java.version: '1.8.0_121'
+Driver info: org.openqa.selenium.ie.InternetExplorerDriver
+Capabilities [{browserAttachTimeout=0, ie.enableFullPageScreenshot=true, enablePersistentHover=true, ie.forceCreateProcessApi=false, ie.forceShellWindowsApi=false, pageLoadStrategy=normal, ignoreZoomSetting=false, ie.fileUploadDialogTimeout=3000, version=11, platform=WINDOWS, proxy={proxyType=}, nativeEvents=true, ie.ensureCleanSession=false, elementScrollBehavior=0, ie.browserCommandLineSwitches=, requireWindowFocus=false, browserName=internet explorer, initialBrowserUrl=http://localhost:8387/, javascriptEnabled=true, ignoreProtectedModeSettings=false, enableElementCacheCleanup=true, unexpectedAlertBehaviour=dismiss}]
+Session ID: 900f134d-3f61-4934-bab0-f224900a762c
+*** Element info: {Using=id, value=inputUsername}
+	at sun.reflect.GeneratedConstructorAccessor11.newInstance(Unknown Source)
+	at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(Unknown Source)
+	at java.lang.reflect.Constructor.newInstance(Unknown Source)
+	at org.openqa.selenium.remote.ErrorHandler.createThrowable(ErrorHandler.java:206)
+	at org.openqa.selenium.remote.ErrorHandler.throwIfResponseFailed(ErrorHandler.java:158)
+	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:678)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:363)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElementById(RemoteWebDriver.java:413)
+	at org.openqa.selenium.By$ById.findElement(By.java:218)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:355)
+	at com.vh.ui.waits.WebDriverWaits$1.apply(WebDriverWaits.java:190)
+	at com.vh.ui.waits.WebDriverWaits$1.apply(WebDriverWaits.java:1)
+	at org.openqa.selenium.support.ui.FluentWait.until(FluentWait.java:238)
+	... 28 more
+03/23/2017 12:14:45.112 CDT INFO  (utilities.Logg:>>>afterTest:[83]) Thread:1	-Test Case Failed.
+----------------------------------------------------------------
+03/23/2017 12:14:45.112 CDT INFO  (utilities.Logg:>>>afterTest:[85]) Thread:1	-Proceeding to close the driver for method verify_InvalidUserName
+----------------------------------------------------------------
+03/23/2017 12:15:53.215 CDT INFO  (utilities.Logg:>>>initialValue:[58]) Thread:1	-**Internet Explorer Browser**
+----------------------------------------------------------------
+03/23/2017 12:15:53.327 CDT INFO  (utilities.Logg:>>>initialValue:[61]) Thread:1	-Instantiating/Launching the Internet Explorer Browser
+----------------------------------------------------------------
+03/23/2017 12:16:08.992 CDT INFO  (utilities.Logg:>>>initialValue:[84]) Thread:1	-Returning the local instance of:InternetExplorerDriver: internet explorer on WINDOWS (54470e11-3195-46c6-87e5-7797fa3f07e5)
+----------------------------------------------------------------
+03/23/2017 12:16:46.354 CDT INFO  (utilities.Logg:>>>maximizeBrowser:[91]) Thread:1	-Maximizing the browser
+----------------------------------------------------------------
+03/23/2017 12:16:50.779 CDT INFO  (utilities.Logg:>>>maximizeBrowser:[93]) Thread:1	-Browser Successfully Maximized
+----------------------------------------------------------------
+03/23/2017 12:17:24.425 CDT INFO  (utilities.Logg:>>>navigateToURL:[82]) Thread:1	-Navigating to Application URL on Browser:https://capellawebqa.com/cpp/index.html
+----------------------------------------------------------------
+03/23/2017 12:17:47.626 CDT INFO  (utilities.Logg:>>>initialValue:[58]) Thread:1	-**Internet Explorer Browser**
+----------------------------------------------------------------
+03/23/2017 12:17:47.740 CDT INFO  (utilities.Logg:>>>initialValue:[61]) Thread:1	-Instantiating/Launching the Internet Explorer Browser
+----------------------------------------------------------------
+03/23/2017 12:18:03.843 CDT INFO  (utilities.Logg:>>>initialValue:[84]) Thread:1	-Returning the local instance of:InternetExplorerDriver: internet explorer on WINDOWS (16bbb33c-d99c-4bc9-bdcf-eb3d16d1b79f)
+----------------------------------------------------------------
+03/23/2017 12:21:55.520 CDT INFO  (utilities.Logg:>>>initialValue:[58]) Thread:1	-**Internet Explorer Browser**
+----------------------------------------------------------------
+03/23/2017 12:21:55.535 CDT INFO  (utilities.Logg:>>>initialValue:[61]) Thread:1	-Instantiating/Launching the Internet Explorer Browser
+----------------------------------------------------------------
+03/23/2017 12:22:01.371 CDT INFO  (utilities.Logg:>>>initialValue:[84]) Thread:1	-Returning the local instance of:InternetExplorerDriver: internet explorer on WINDOWS (43f61245-7cf0-4bbf-b5b6-44e01ec797aa)
+----------------------------------------------------------------
+03/23/2017 12:55:56.009 CDT INFO  (utilities.Logg:>>>initialValue:[58]) Thread:1	-**Internet Explorer Browser**
+----------------------------------------------------------------
+03/23/2017 12:55:56.124 CDT INFO  (utilities.Logg:>>>initialValue:[61]) Thread:1	-Instantiating/Launching the Internet Explorer Browser
+----------------------------------------------------------------
+03/23/2017 12:56:11.824 CDT INFO  (utilities.Logg:>>>initialValue:[84]) Thread:1	-Returning the local instance of:InternetExplorerDriver: internet explorer on WINDOWS (d3feb8fb-c48f-45b3-8a41-31962984fff4)
+----------------------------------------------------------------
+03/23/2017 12:56:24.625 CDT INFO  (utilities.Logg:>>>maximizeBrowser:[91]) Thread:1	-Maximizing the browser
+----------------------------------------------------------------
+03/23/2017 12:56:24.667 CDT INFO  (utilities.Logg:>>>maximizeBrowser:[93]) Thread:1	-Browser Successfully Maximized
+----------------------------------------------------------------
+03/23/2017 12:56:24.668 CDT INFO  (utilities.Logg:>>>navigateToURL:[82]) Thread:1	-Navigating to Application URL on Browser:https://capellawebqa.com/cpp/index.html
+----------------------------------------------------------------
+03/23/2017 12:56:48.441 CDT INFO  (utilities.Logg:>>>navigateToURL:[84]) Thread:1	-Successfully navigated to Application URL on the Browser
+----------------------------------------------------------------
+03/23/2017 12:56:48.441 CDT INFO  (utilities.Logg:>>>navigateTo:[41]) Thread:1	-Returning the instance of Village Health Login
+----------------------------------------------------------------
+03/23/2017 13:08:31.028 CDT INFO  (utilities.Logg:>>>initialValue:[58]) Thread:1	-**Internet Explorer Browser**
+----------------------------------------------------------------
+03/23/2017 13:08:31.048 CDT INFO  (utilities.Logg:>>>initialValue:[61]) Thread:1	-Instantiating/Launching the Internet Explorer Browser
+----------------------------------------------------------------
+03/23/2017 13:08:35.431 CDT INFO  (utilities.Logg:>>>initialValue:[84]) Thread:1	-Returning the local instance of:InternetExplorerDriver: internet explorer on WINDOWS (19423d36-0ed4-438b-a45f-a743849e107d)
+----------------------------------------------------------------
+03/23/2017 13:08:35.461 CDT INFO  (utilities.Logg:>>>maximizeBrowser:[91]) Thread:1	-Maximizing the browser
+----------------------------------------------------------------
+03/23/2017 13:08:35.486 CDT INFO  (utilities.Logg:>>>maximizeBrowser:[93]) Thread:1	-Browser Successfully Maximized
+----------------------------------------------------------------
+03/23/2017 13:08:35.486 CDT INFO  (utilities.Logg:>>>navigateToURL:[82]) Thread:1	-Navigating to Application URL on Browser:https://capellawebqa.com/cpp/index.html
+----------------------------------------------------------------
+03/23/2017 13:08:45.671 CDT INFO  (utilities.Logg:>>>navigateToURL:[84]) Thread:1	-Successfully navigated to Application URL on the Browser
+----------------------------------------------------------------
+03/23/2017 13:08:45.671 CDT INFO  (utilities.Logg:>>>navigateTo:[41]) Thread:1	-Returning the instance of Village Health Login
+----------------------------------------------------------------
+03/23/2017 13:08:50.693 CDT INFO  (utilities.Logg:>>>getVisibiltyOfElementLocatedBy:[460]) Thread:1	-Checking for Visibility of element By.id: inputUsername
+----------------------------------------------------------------
+03/23/2017 13:08:50.694 CDT INFO  (utilities.Logg:>>>checkForElementVisibility:[184]) Thread:1	-Checking for the visibility of the element using By class:By.id: inputUsername
+----------------------------------------------------------------
+03/23/2017 13:08:50.703 CDT INFO  (utilities.Logg:>>>convertToInteger:[61]) Thread:1	-String to Integer Conversion function
+----------------------------------------------------------------
+03/23/2017 13:08:50.704 CDT INFO  (utilities.Logg:>>>convertToInteger:[63]) Thread:1	-Converting the String value 45 to Integer
+----------------------------------------------------------------
+03/23/2017 13:08:50.939 CDT INFO  (utilities.Logg:>>>checkForElementVisibility:[193]) Thread:1	-WebElement Visible. Proceeding further...
+----------------------------------------------------------------
+03/23/2017 13:08:50.946 CDT INFO  (utilities.Logg:>>>getVisibiltyOfElementLocatedBy:[460]) Thread:1	-Checking for Visibility of element By.id: password
+----------------------------------------------------------------
+03/23/2017 13:08:50.946 CDT INFO  (utilities.Logg:>>>checkForElementVisibility:[184]) Thread:1	-Checking for the visibility of the element using By class:By.id: password
+----------------------------------------------------------------
+03/23/2017 13:08:50.946 CDT INFO  (utilities.Logg:>>>convertToInteger:[61]) Thread:1	-String to Integer Conversion function
+----------------------------------------------------------------
+03/23/2017 13:08:50.948 CDT INFO  (utilities.Logg:>>>convertToInteger:[63]) Thread:1	-Converting the String value 45 to Integer
+----------------------------------------------------------------
+03/23/2017 13:08:51.112 CDT INFO  (utilities.Logg:>>>checkForElementVisibility:[193]) Thread:1	-WebElement Visible. Proceeding further...
+----------------------------------------------------------------
+03/23/2017 13:08:51.114 CDT INFO  (utilities.Logg:>>>getVisibiltyOfElementLocatedBy:[460]) Thread:1	-Checking for Visibility of element By.id: token
+----------------------------------------------------------------
+03/23/2017 13:08:51.115 CDT INFO  (utilities.Logg:>>>checkForElementVisibility:[184]) Thread:1	-Checking for the visibility of the element using By class:By.id: token
+----------------------------------------------------------------
+03/23/2017 13:08:51.115 CDT INFO  (utilities.Logg:>>>convertToInteger:[61]) Thread:1	-String to Integer Conversion function
+----------------------------------------------------------------
+03/23/2017 13:08:51.115 CDT INFO  (utilities.Logg:>>>convertToInteger:[63]) Thread:1	-Converting the String value 45 to Integer
+----------------------------------------------------------------
+03/23/2017 13:08:51.250 CDT INFO  (utilities.Logg:>>>checkForElementVisibility:[193]) Thread:1	-WebElement Visible. Proceeding further...
+----------------------------------------------------------------
+03/23/2017 13:08:51.252 CDT INFO  (utilities.Logg:>>>syncLocatorUsing:[207]) Thread:1	-Inside SYNC BLOCK for Locator
+----------------------------------------------------------------
+03/23/2017 13:08:51.252 CDT INFO  (utilities.Logg:>>>syncLocatorUsing:[209]) Thread:1	-Inside VISIBILITY of Locator
+----------------------------------------------------------------
+03/23/2017 13:08:51.252 CDT INFO  (utilities.Logg:>>>waitForElementVisibility:[40]) Thread:1	-Waiting for the visibility of the element using By class:By.id: inputUsername
+----------------------------------------------------------------
+03/23/2017 13:08:51.253 CDT INFO  (utilities.Logg:>>>convertToInteger:[61]) Thread:1	-String to Integer Conversion function
+----------------------------------------------------------------
+03/23/2017 13:08:51.253 CDT INFO  (utilities.Logg:>>>convertToInteger:[63]) Thread:1	-Converting the String value 45 to Integer
+----------------------------------------------------------------
+03/23/2017 13:08:51.397 CDT INFO  (utilities.Logg:>>>waitForElementVisibility:[45]) Thread:1	-WebElement Present and Visible. Proceeding further...
+----------------------------------------------------------------
+03/23/2017 13:08:51.398 CDT INFO  (utilities.Logg:>>>enterText:[119]) Thread:1	-Clearing the content of the text box
+----------------------------------------------------------------
+03/23/2017 13:08:51.607 CDT INFO  (utilities.Logg:>>>enterText:[121]) Thread:1	-Contents cleared
+----------------------------------------------------------------
+03/23/2017 13:08:52.068 CDT INFO  (utilities.Logg:>>>enterText:[123]) Thread:1	-Entered text: in text box with locator:By.id: inputUsername
+----------------------------------------------------------------
+03/23/2017 13:08:52.069 CDT INFO  (utilities.Logg:>>>syncLocatorUsing:[207]) Thread:1	-Inside SYNC BLOCK for Locator
+----------------------------------------------------------------
+03/23/2017 13:08:52.070 CDT INFO  (utilities.Logg:>>>syncLocatorUsing:[209]) Thread:1	-Inside VISIBILITY of Locator
+----------------------------------------------------------------
+03/23/2017 13:08:52.070 CDT INFO  (utilities.Logg:>>>waitForElementVisibility:[40]) Thread:1	-Waiting for the visibility of the element using By class:By.id: password
+----------------------------------------------------------------
+03/23/2017 13:08:52.070 CDT INFO  (utilities.Logg:>>>convertToInteger:[61]) Thread:1	-String to Integer Conversion function
+----------------------------------------------------------------
+03/23/2017 13:08:52.070 CDT INFO  (utilities.Logg:>>>convertToInteger:[63]) Thread:1	-Converting the String value 45 to Integer
+----------------------------------------------------------------
+03/23/2017 13:08:52.203 CDT INFO  (utilities.Logg:>>>waitForElementVisibility:[45]) Thread:1	-WebElement Present and Visible. Proceeding further...
+----------------------------------------------------------------
+03/23/2017 13:08:52.203 CDT INFO  (utilities.Logg:>>>enterText:[119]) Thread:1	-Clearing the content of the text box
+----------------------------------------------------------------
+03/23/2017 13:08:52.436 CDT INFO  (utilities.Logg:>>>enterText:[121]) Thread:1	-Contents cleared
+----------------------------------------------------------------
+03/23/2017 13:08:52.854 CDT INFO  (utilities.Logg:>>>enterText:[123]) Thread:1	-Entered text: in text box with locator:By.id: password
+----------------------------------------------------------------
+03/23/2017 13:08:52.856 CDT INFO  (utilities.Logg:>>>syncLocatorUsing:[207]) Thread:1	-Inside SYNC BLOCK for Locator
+----------------------------------------------------------------
+03/23/2017 13:08:52.856 CDT INFO  (utilities.Logg:>>>syncLocatorUsing:[209]) Thread:1	-Inside VISIBILITY of Locator
+----------------------------------------------------------------
+03/23/2017 13:08:52.857 CDT INFO  (utilities.Logg:>>>waitForElementVisibility:[40]) Thread:1	-Waiting for the visibility of the element using By class:By.id: token
+----------------------------------------------------------------
+03/23/2017 13:08:52.857 CDT INFO  (utilities.Logg:>>>convertToInteger:[61]) Thread:1	-String to Integer Conversion function
+----------------------------------------------------------------
+03/23/2017 13:08:52.857 CDT INFO  (utilities.Logg:>>>convertToInteger:[63]) Thread:1	-Converting the String value 45 to Integer
+----------------------------------------------------------------
+03/23/2017 13:08:52.995 CDT INFO  (utilities.Logg:>>>waitForElementVisibility:[45]) Thread:1	-WebElement Present and Visible. Proceeding further...
+----------------------------------------------------------------
+03/23/2017 13:08:52.996 CDT INFO  (utilities.Logg:>>>enterText:[119]) Thread:1	-Clearing the content of the text box
+----------------------------------------------------------------
+03/23/2017 13:08:53.200 CDT INFO  (utilities.Logg:>>>enterText:[121]) Thread:1	-Contents cleared
+----------------------------------------------------------------
+03/23/2017 13:08:53.645 CDT INFO  (utilities.Logg:>>>enterText:[123]) Thread:1	-Entered text: in text box with locator:By.id: token
+----------------------------------------------------------------
+03/23/2017 13:08:53.647 CDT INFO  (utilities.Logg:>>>click:[184]) Thread:1	-Clicking on element with locator:By.id: modalview-login-button
+----------------------------------------------------------------
+03/23/2017 13:08:53.647 CDT INFO  (utilities.Logg:>>>syncLocatorUsing:[207]) Thread:1	-Inside SYNC BLOCK for Locator
+----------------------------------------------------------------
+03/23/2017 13:08:53.647 CDT INFO  (utilities.Logg:>>>syncLocatorUsing:[209]) Thread:1	-Inside VISIBILITY of Locator
+----------------------------------------------------------------
+03/23/2017 13:08:53.648 CDT INFO  (utilities.Logg:>>>waitForElementVisibility:[40]) Thread:1	-Waiting for the visibility of the element using By class:By.id: modalview-login-button
+----------------------------------------------------------------
+03/23/2017 13:08:53.648 CDT INFO  (utilities.Logg:>>>convertToInteger:[61]) Thread:1	-String to Integer Conversion function
+----------------------------------------------------------------
+03/23/2017 13:08:53.648 CDT INFO  (utilities.Logg:>>>convertToInteger:[63]) Thread:1	-Converting the String value 45 to Integer
+----------------------------------------------------------------
+03/23/2017 13:08:53.792 CDT INFO  (utilities.Logg:>>>waitForElementVisibility:[45]) Thread:1	-WebElement Present and Visible. Proceeding further...
+----------------------------------------------------------------
+03/23/2017 13:08:54.129 CDT INFO  (utilities.Logg:>>>click:[186]) Thread:1	-Clicked on element with locator:By.id: modalview-login-button
+----------------------------------------------------------------
+03/23/2017 13:08:54.131 CDT INFO  (utilities.Logg:>>>getText:[352]) Thread:1	-Retrieving the TEXT of element with locator:By.xpath: id('myModal')/div[3]/div[2]/span[1]/b[@data-capella-automation-id ='label-ErrorMessage']
+----------------------------------------------------------------
+03/23/2017 13:08:54.132 CDT INFO  (utilities.Logg:>>>syncLocatorUsing:[207]) Thread:1	-Inside SYNC BLOCK for Locator
+----------------------------------------------------------------
+03/23/2017 13:08:54.132 CDT INFO  (utilities.Logg:>>>syncLocatorUsing:[209]) Thread:1	-Inside VISIBILITY of Locator
+----------------------------------------------------------------
+03/23/2017 13:08:54.132 CDT INFO  (utilities.Logg:>>>waitForElementVisibility:[40]) Thread:1	-Waiting for the visibility of the element using By class:By.xpath: id('myModal')/div[3]/div[2]/span[1]/b[@data-capella-automation-id ='label-ErrorMessage']
+----------------------------------------------------------------
+03/23/2017 13:08:54.132 CDT INFO  (utilities.Logg:>>>convertToInteger:[61]) Thread:1	-String to Integer Conversion function
+----------------------------------------------------------------
+03/23/2017 13:08:54.133 CDT INFO  (utilities.Logg:>>>convertToInteger:[63]) Thread:1	-Converting the String value 45 to Integer
+----------------------------------------------------------------
+03/23/2017 13:08:55.214 CDT INFO  (utilities.Logg:>>>waitForElementVisibility:[45]) Thread:1	-WebElement Present and Visible. Proceeding further...
+----------------------------------------------------------------
+03/23/2017 13:08:55.316 CDT INFO  (utilities.Logg:>>>getText:[359]) Thread:1	-Actual Value:Invalid username / password combination
+----------------------------------------------------------------
+03/23/2017 13:08:55.326 CDT INFO  (utilities.Logg:>>>afterTest:[80]) Thread:1	-Test Case PASSED.
+----------------------------------------------------------------
+03/23/2017 13:08:55.327 CDT INFO  (utilities.Logg:>>>afterTest:[85]) Thread:1	-Proceeding to close the driver for method verify_InvalidUserName
+----------------------------------------------------------------
+03/23/2017 13:14:32.598 CDT INFO  (utilities.Logg:>>>initialValue:[58]) Thread:1	-**Internet Explorer Browser**
+----------------------------------------------------------------
+03/23/2017 13:14:32.705 CDT INFO  (utilities.Logg:>>>initialValue:[61]) Thread:1	-Instantiating/Launching the Internet Explorer Browser
+----------------------------------------------------------------
+03/23/2017 13:14:39.636 CDT INFO  (utilities.Logg:>>>initialValue:[84]) Thread:1	-Returning the local instance of:InternetExplorerDriver: internet explorer on WINDOWS (a48a7ba9-77bc-4e8d-8ee3-f5160df953af)
+----------------------------------------------------------------
+03/23/2017 13:14:39.677 CDT INFO  (utilities.Logg:>>>maximizeBrowser:[91]) Thread:1	-Maximizing the browser
+----------------------------------------------------------------
+03/23/2017 13:14:39.717 CDT INFO  (utilities.Logg:>>>maximizeBrowser:[93]) Thread:1	-Browser Successfully Maximized
+----------------------------------------------------------------
+03/23/2017 13:14:39.718 CDT INFO  (utilities.Logg:>>>navigateToURL:[82]) Thread:1	-Navigating to Application URL on Browser:https://capellawebqa.com/cpp/index.html
+----------------------------------------------------------------
+03/23/2017 13:14:56.097 CDT INFO  (utilities.Logg:>>>navigateToURL:[84]) Thread:1	-Successfully navigated to Application URL on the Browser
+----------------------------------------------------------------
+03/23/2017 13:14:56.097 CDT INFO  (utilities.Logg:>>>navigateTo:[41]) Thread:1	-Returning the instance of Village Health Login
+----------------------------------------------------------------
+03/23/2017 13:15:01.142 CDT INFO  (utilities.Logg:>>>getVisibiltyOfElementLocatedBy:[460]) Thread:1	-Checking for Visibility of element By.id: inputUsername
+----------------------------------------------------------------
+03/23/2017 13:15:01.144 CDT INFO  (utilities.Logg:>>>checkForElementVisibility:[184]) Thread:1	-Checking for the visibility of the element using By class:By.id: inputUsername
+----------------------------------------------------------------
+03/23/2017 13:15:01.200 CDT INFO  (utilities.Logg:>>>convertToInteger:[61]) Thread:1	-String to Integer Conversion function
+----------------------------------------------------------------
+03/23/2017 13:15:01.200 CDT INFO  (utilities.Logg:>>>convertToInteger:[63]) Thread:1	-Converting the String value 45 to Integer
+----------------------------------------------------------------
+03/23/2017 13:15:46.549 CDT ERROR (utilities.Logg:>>>checkForElementVisibility:[196]) Thread:1	-TIME OUT EXCEPTION while waiting for the VISIBILITY of the element using By class:By.id: inputUsername
+
+----------------------------------------------------------------
+org.openqa.selenium.TimeoutException: Timed out after 45 seconds waiting for com.vh.ui.waits.WebDriverWaits$1@202ba60a
+Build info: version: '2.53.0', revision: '35ae25b1534ae328c771e0856c93e187490ca824', time: '2016-03-15 10:43:46'
+System info: host: 'DVA-F0L9N9R-L', ip: '172.16.128.191', os.name: 'Windows 8.1', os.arch: 'amd64', os.version: '6.3', java.version: '1.8.0_121'
+Driver info: org.openqa.selenium.ie.InternetExplorerDriver
+Capabilities [{browserAttachTimeout=0, ie.enableFullPageScreenshot=true, enablePersistentHover=true, ie.forceCreateProcessApi=false, ie.forceShellWindowsApi=false, pageLoadStrategy=normal, ignoreZoomSetting=false, ie.fileUploadDialogTimeout=3000, version=11, platform=WINDOWS, proxy={proxyType=}, nativeEvents=true, ie.ensureCleanSession=false, elementScrollBehavior=0, ie.browserCommandLineSwitches=, requireWindowFocus=false, browserName=internet explorer, initialBrowserUrl=http://localhost:22337/, javascriptEnabled=true, ignoreProtectedModeSettings=false, enableElementCacheCleanup=true, unexpectedAlertBehaviour=dismiss}]
+Session ID: a48a7ba9-77bc-4e8d-8ee3-f5160df953af
+	at org.openqa.selenium.support.ui.WebDriverWait.timeoutException(WebDriverWait.java:80)
+	at org.openqa.selenium.support.ui.FluentWait.until(FluentWait.java:261)
+	at com.vh.ui.waits.WebDriverWaits.checkForElementVisibility(WebDriverWaits.java:188)
+	at com.vh.ui.actions.WebActions.getVisibiltyOfElementLocatedBy(WebActions.java:467)
+	at com.vh.ui.pages.LoginPage.viewUserNameTextField(LoginPage.java:41)
+	at com.vh.ui.tests.LoginTest.verify_InvalidUserName(LoginTest.java:44)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:86)
+	at org.testng.internal.Invoker.invokeMethod(Invoker.java:643)
+	at org.testng.internal.Invoker.invokeTestMethod(Invoker.java:820)
+	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:1128)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:129)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:112)
+	at org.testng.TestRunner.privateRun(TestRunner.java:782)
+	at org.testng.TestRunner.run(TestRunner.java:632)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:366)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:361)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:319)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:268)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:86)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1244)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1169)
+	at org.testng.TestNG.run(TestNG.java:1064)
+	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:132)
+	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:236)
+	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:81)
+Caused by: org.openqa.selenium.NoSuchWindowException: Unable to find element on closed window (WARNING: The server did not provide any stacktrace information)
+Command duration or timeout: 15 milliseconds
+Build info: version: '2.53.0', revision: '35ae25b1534ae328c771e0856c93e187490ca824', time: '2016-03-15 10:43:46'
+System info: host: 'DVA-F0L9N9R-L', ip: '172.16.128.191', os.name: 'Windows 8.1', os.arch: 'amd64', os.version: '6.3', java.version: '1.8.0_121'
+Driver info: org.openqa.selenium.ie.InternetExplorerDriver
+Capabilities [{browserAttachTimeout=0, ie.enableFullPageScreenshot=true, enablePersistentHover=true, ie.forceCreateProcessApi=false, ie.forceShellWindowsApi=false, pageLoadStrategy=normal, ignoreZoomSetting=false, ie.fileUploadDialogTimeout=3000, version=11, platform=WINDOWS, proxy={proxyType=}, nativeEvents=true, ie.ensureCleanSession=false, elementScrollBehavior=0, ie.browserCommandLineSwitches=, requireWindowFocus=false, browserName=internet explorer, initialBrowserUrl=http://localhost:22337/, javascriptEnabled=true, ignoreProtectedModeSettings=false, enableElementCacheCleanup=true, unexpectedAlertBehaviour=dismiss}]
+Session ID: a48a7ba9-77bc-4e8d-8ee3-f5160df953af
+*** Element info: {Using=id, value=inputUsername}
+	at sun.reflect.GeneratedConstructorAccessor11.newInstance(Unknown Source)
+	at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(Unknown Source)
+	at java.lang.reflect.Constructor.newInstance(Unknown Source)
+	at org.openqa.selenium.remote.ErrorHandler.createThrowable(ErrorHandler.java:206)
+	at org.openqa.selenium.remote.ErrorHandler.throwIfResponseFailed(ErrorHandler.java:158)
+	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:678)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:363)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElementById(RemoteWebDriver.java:413)
+	at org.openqa.selenium.By$ById.findElement(By.java:218)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:355)
+	at com.vh.ui.waits.WebDriverWaits$1.apply(WebDriverWaits.java:190)
+	at com.vh.ui.waits.WebDriverWaits$1.apply(WebDriverWaits.java:1)
+	at org.openqa.selenium.support.ui.FluentWait.until(FluentWait.java:238)
+	... 28 more
+03/23/2017 13:15:46.825 CDT INFO  (utilities.Logg:>>>afterTest:[83]) Thread:1	-Test Case Failed.
+----------------------------------------------------------------
+03/23/2017 13:15:46.825 CDT INFO  (utilities.Logg:>>>afterTest:[85]) Thread:1	-Proceeding to close the driver for method verify_InvalidUserName
+----------------------------------------------------------------
+03/23/2017 13:16:21.552 CDT INFO  (utilities.Logg:>>>initialValue:[58]) Thread:1	-**Internet Explorer Browser**
+----------------------------------------------------------------
+03/23/2017 13:16:21.573 CDT INFO  (utilities.Logg:>>>initialValue:[61]) Thread:1	-Instantiating/Launching the Internet Explorer Browser
+----------------------------------------------------------------
+03/23/2017 13:16:26.975 CDT INFO  (utilities.Logg:>>>initialValue:[84]) Thread:1	-Returning the local instance of:InternetExplorerDriver: internet explorer on WINDOWS (ab46f1c1-0322-4aab-89ad-f16ce73e19f4)
+----------------------------------------------------------------
+03/23/2017 13:16:26.996 CDT INFO  (utilities.Logg:>>>maximizeBrowser:[91]) Thread:1	-Maximizing the browser
+----------------------------------------------------------------
+03/23/2017 13:16:27.021 CDT INFO  (utilities.Logg:>>>maximizeBrowser:[93]) Thread:1	-Browser Successfully Maximized
+----------------------------------------------------------------
+03/23/2017 13:16:27.022 CDT INFO  (utilities.Logg:>>>navigateToURL:[82]) Thread:1	-Navigating to Application URL on Browser:https://capellawebdev.com/FireflyUI/
+----------------------------------------------------------------
+03/23/2017 13:16:52.507 CDT INFO  (utilities.Logg:>>>navigateToURL:[84]) Thread:1	-Successfully navigated to Application URL on the Browser
+----------------------------------------------------------------
+03/23/2017 13:16:52.508 CDT INFO  (utilities.Logg:>>>navigateTo:[41]) Thread:1	-Returning the instance of Village Health Login
+----------------------------------------------------------------
+03/23/2017 13:16:57.544 CDT INFO  (utilities.Logg:>>>getVisibiltyOfElementLocatedBy:[460]) Thread:1	-Checking for Visibility of element By.id: inputUsername
+----------------------------------------------------------------
+03/23/2017 13:16:57.547 CDT INFO  (utilities.Logg:>>>checkForElementVisibility:[184]) Thread:1	-Checking for the visibility of the element using By class:By.id: inputUsername
+----------------------------------------------------------------
+03/23/2017 13:16:57.591 CDT INFO  (utilities.Logg:>>>convertToInteger:[61]) Thread:1	-String to Integer Conversion function
+----------------------------------------------------------------
+03/23/2017 13:16:57.592 CDT INFO  (utilities.Logg:>>>convertToInteger:[63]) Thread:1	-Converting the String value 45 to Integer
+----------------------------------------------------------------
+03/23/2017 13:17:42.761 CDT ERROR (utilities.Logg:>>>checkForElementVisibility:[196]) Thread:1	-TIME OUT EXCEPTION while waiting for the VISIBILITY of the element using By class:By.id: inputUsername
+
+----------------------------------------------------------------
+org.openqa.selenium.TimeoutException: Timed out after 45 seconds waiting for com.vh.ui.waits.WebDriverWaits$1@19877453
+Build info: version: '2.53.0', revision: '35ae25b1534ae328c771e0856c93e187490ca824', time: '2016-03-15 10:43:46'
+System info: host: 'DVA-F0L9N9R-L', ip: '172.16.128.191', os.name: 'Windows 8.1', os.arch: 'amd64', os.version: '6.3', java.version: '1.8.0_121'
+Driver info: org.openqa.selenium.ie.InternetExplorerDriver
+Capabilities [{browserAttachTimeout=0, ie.enableFullPageScreenshot=true, enablePersistentHover=true, ie.forceCreateProcessApi=false, ie.forceShellWindowsApi=false, pageLoadStrategy=normal, ignoreZoomSetting=false, ie.fileUploadDialogTimeout=3000, version=11, platform=WINDOWS, proxy={proxyType=}, nativeEvents=true, ie.ensureCleanSession=false, elementScrollBehavior=0, ie.browserCommandLineSwitches=, requireWindowFocus=false, browserName=internet explorer, initialBrowserUrl=http://localhost:15987/, javascriptEnabled=true, ignoreProtectedModeSettings=false, enableElementCacheCleanup=true, unexpectedAlertBehaviour=dismiss}]
+Session ID: ab46f1c1-0322-4aab-89ad-f16ce73e19f4
+	at org.openqa.selenium.support.ui.WebDriverWait.timeoutException(WebDriverWait.java:80)
+	at org.openqa.selenium.support.ui.FluentWait.until(FluentWait.java:261)
+	at com.vh.ui.waits.WebDriverWaits.checkForElementVisibility(WebDriverWaits.java:188)
+	at com.vh.ui.actions.WebActions.getVisibiltyOfElementLocatedBy(WebActions.java:467)
+	at com.vh.ui.pages.LoginPage.viewUserNameTextField(LoginPage.java:41)
+	at com.vh.ui.tests.LoginTest.verify_InvalidUserName(LoginTest.java:44)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:86)
+	at org.testng.internal.Invoker.invokeMethod(Invoker.java:643)
+	at org.testng.internal.Invoker.invokeTestMethod(Invoker.java:820)
+	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:1128)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:129)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:112)
+	at org.testng.TestRunner.privateRun(TestRunner.java:782)
+	at org.testng.TestRunner.run(TestRunner.java:632)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:366)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:361)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:319)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:268)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:86)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1244)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1169)
+	at org.testng.TestNG.run(TestNG.java:1064)
+	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:132)
+	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:236)
+	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:81)
+Caused by: org.openqa.selenium.NoSuchWindowException: Unable to find element on closed window (WARNING: The server did not provide any stacktrace information)
+Command duration or timeout: 27 milliseconds
+Build info: version: '2.53.0', revision: '35ae25b1534ae328c771e0856c93e187490ca824', time: '2016-03-15 10:43:46'
+System info: host: 'DVA-F0L9N9R-L', ip: '172.16.128.191', os.name: 'Windows 8.1', os.arch: 'amd64', os.version: '6.3', java.version: '1.8.0_121'
+Driver info: org.openqa.selenium.ie.InternetExplorerDriver
+Capabilities [{browserAttachTimeout=0, ie.enableFullPageScreenshot=true, enablePersistentHover=true, ie.forceCreateProcessApi=false, ie.forceShellWindowsApi=false, pageLoadStrategy=normal, ignoreZoomSetting=false, ie.fileUploadDialogTimeout=3000, version=11, platform=WINDOWS, proxy={proxyType=}, nativeEvents=true, ie.ensureCleanSession=false, elementScrollBehavior=0, ie.browserCommandLineSwitches=, requireWindowFocus=false, browserName=internet explorer, initialBrowserUrl=http://localhost:15987/, javascriptEnabled=true, ignoreProtectedModeSettings=false, enableElementCacheCleanup=true, unexpectedAlertBehaviour=dismiss}]
+Session ID: ab46f1c1-0322-4aab-89ad-f16ce73e19f4
+*** Element info: {Using=id, value=inputUsername}
+	at sun.reflect.GeneratedConstructorAccessor12.newInstance(Unknown Source)
+	at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(Unknown Source)
+	at java.lang.reflect.Constructor.newInstance(Unknown Source)
+	at org.openqa.selenium.remote.ErrorHandler.createThrowable(ErrorHandler.java:206)
+	at org.openqa.selenium.remote.ErrorHandler.throwIfResponseFailed(ErrorHandler.java:158)
+	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:678)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:363)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElementById(RemoteWebDriver.java:413)
+	at org.openqa.selenium.By$ById.findElement(By.java:218)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:355)
+	at com.vh.ui.waits.WebDriverWaits$1.apply(WebDriverWaits.java:190)
+	at com.vh.ui.waits.WebDriverWaits$1.apply(WebDriverWaits.java:1)
+	at org.openqa.selenium.support.ui.FluentWait.until(FluentWait.java:238)
+	... 28 more
+03/23/2017 13:17:43.043 CDT INFO  (utilities.Logg:>>>afterTest:[83]) Thread:1	-Test Case Failed.
+----------------------------------------------------------------
+03/23/2017 13:17:43.043 CDT INFO  (utilities.Logg:>>>afterTest:[85]) Thread:1	-Proceeding to close the driver for method verify_InvalidUserName
+----------------------------------------------------------------
+03/23/2017 13:23:01.301 CDT INFO  (utilities.Logg:>>>initialValue:[58]) Thread:1	-**Internet Explorer Browser**
+----------------------------------------------------------------
+03/23/2017 13:23:01.320 CDT INFO  (utilities.Logg:>>>initialValue:[61]) Thread:1	-Instantiating/Launching the Internet Explorer Browser
+----------------------------------------------------------------
+03/23/2017 13:23:05.941 CDT INFO  (utilities.Logg:>>>initialValue:[84]) Thread:1	-Returning the local instance of:InternetExplorerDriver: internet explorer on WINDOWS (837e8eb1-5fbd-40ea-8c5f-4ae37b2a5b40)
+----------------------------------------------------------------
+03/23/2017 13:23:05.968 CDT INFO  (utilities.Logg:>>>maximizeBrowser:[91]) Thread:1	-Maximizing the browser
+----------------------------------------------------------------
+03/23/2017 13:23:05.991 CDT INFO  (utilities.Logg:>>>maximizeBrowser:[93]) Thread:1	-Browser Successfully Maximized
+----------------------------------------------------------------
+03/23/2017 13:23:05.992 CDT INFO  (utilities.Logg:>>>navigateToURL:[82]) Thread:1	-Navigating to Application URL on Browser:https://capellawebdev.com/FireflyUI/
+----------------------------------------------------------------
+03/23/2017 13:23:10.732 CDT INFO  (utilities.Logg:>>>navigateToURL:[84]) Thread:1	-Successfully navigated to Application URL on the Browser
+----------------------------------------------------------------
+03/23/2017 13:23:10.733 CDT INFO  (utilities.Logg:>>>navigateTo:[41]) Thread:1	-Returning the instance of Village Health Login
+----------------------------------------------------------------
+03/23/2017 13:23:15.757 CDT INFO  (utilities.Logg:>>>getVisibiltyOfElementLocatedBy:[460]) Thread:1	-Checking for Visibility of element By.id: inputUsername
+----------------------------------------------------------------
+03/23/2017 13:23:15.760 CDT INFO  (utilities.Logg:>>>checkForElementVisibility:[184]) Thread:1	-Checking for the visibility of the element using By class:By.id: inputUsername
+----------------------------------------------------------------
+03/23/2017 13:23:15.770 CDT INFO  (utilities.Logg:>>>convertToInteger:[61]) Thread:1	-String to Integer Conversion function
+----------------------------------------------------------------
+03/23/2017 13:23:15.770 CDT INFO  (utilities.Logg:>>>convertToInteger:[63]) Thread:1	-Converting the String value 45 to Integer
+----------------------------------------------------------------
+03/23/2017 13:24:01.062 CDT ERROR (utilities.Logg:>>>checkForElementVisibility:[196]) Thread:1	-TIME OUT EXCEPTION while waiting for the VISIBILITY of the element using By class:By.id: inputUsername
+
+----------------------------------------------------------------
+org.openqa.selenium.TimeoutException: Timed out after 45 seconds waiting for com.vh.ui.waits.WebDriverWaits$1@1e284d90
+Build info: version: '2.53.0', revision: '35ae25b1534ae328c771e0856c93e187490ca824', time: '2016-03-15 10:43:46'
+System info: host: 'DVA-F0L9N9R-L', ip: '172.16.128.191', os.name: 'Windows 8.1', os.arch: 'amd64', os.version: '6.3', java.version: '1.8.0_121'
+Driver info: org.openqa.selenium.ie.InternetExplorerDriver
+Capabilities [{browserAttachTimeout=0, ie.enableFullPageScreenshot=true, enablePersistentHover=true, ie.forceCreateProcessApi=false, ie.forceShellWindowsApi=false, pageLoadStrategy=normal, ignoreZoomSetting=false, ie.fileUploadDialogTimeout=3000, version=11, platform=WINDOWS, proxy={proxyType=}, nativeEvents=true, ie.ensureCleanSession=false, elementScrollBehavior=0, ie.browserCommandLineSwitches=, requireWindowFocus=false, browserName=internet explorer, initialBrowserUrl=http://localhost:8972/, javascriptEnabled=true, ignoreProtectedModeSettings=false, enableElementCacheCleanup=true, unexpectedAlertBehaviour=dismiss}]
+Session ID: 837e8eb1-5fbd-40ea-8c5f-4ae37b2a5b40
+	at org.openqa.selenium.support.ui.WebDriverWait.timeoutException(WebDriverWait.java:80)
+	at org.openqa.selenium.support.ui.FluentWait.until(FluentWait.java:261)
+	at com.vh.ui.waits.WebDriverWaits.checkForElementVisibility(WebDriverWaits.java:188)
+	at com.vh.ui.actions.WebActions.getVisibiltyOfElementLocatedBy(WebActions.java:467)
+	at com.vh.ui.pages.LoginPage.viewUserNameTextField(LoginPage.java:41)
+	at com.vh.ui.tests.LoginTest.verify_InvalidUserName(LoginTest.java:44)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:86)
+	at org.testng.internal.Invoker.invokeMethod(Invoker.java:643)
+	at org.testng.internal.Invoker.invokeTestMethod(Invoker.java:820)
+	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:1128)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:129)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:112)
+	at org.testng.TestRunner.privateRun(TestRunner.java:782)
+	at org.testng.TestRunner.run(TestRunner.java:632)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:366)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:361)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:319)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:268)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:86)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1244)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1169)
+	at org.testng.TestNG.run(TestNG.java:1064)
+	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:132)
+	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:236)
+	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:81)
+Caused by: org.openqa.selenium.NoSuchWindowException: Unable to find element on closed window (WARNING: The server did not provide any stacktrace information)
+Command duration or timeout: 26 milliseconds
+Build info: version: '2.53.0', revision: '35ae25b1534ae328c771e0856c93e187490ca824', time: '2016-03-15 10:43:46'
+System info: host: 'DVA-F0L9N9R-L', ip: '172.16.128.191', os.name: 'Windows 8.1', os.arch: 'amd64', os.version: '6.3', java.version: '1.8.0_121'
+Driver info: org.openqa.selenium.ie.InternetExplorerDriver
+Capabilities [{browserAttachTimeout=0, ie.enableFullPageScreenshot=true, enablePersistentHover=true, ie.forceCreateProcessApi=false, ie.forceShellWindowsApi=false, pageLoadStrategy=normal, ignoreZoomSetting=false, ie.fileUploadDialogTimeout=3000, version=11, platform=WINDOWS, proxy={proxyType=}, nativeEvents=true, ie.ensureCleanSession=false, elementScrollBehavior=0, ie.browserCommandLineSwitches=, requireWindowFocus=false, browserName=internet explorer, initialBrowserUrl=http://localhost:8972/, javascriptEnabled=true, ignoreProtectedModeSettings=false, enableElementCacheCleanup=true, unexpectedAlertBehaviour=dismiss}]
+Session ID: 837e8eb1-5fbd-40ea-8c5f-4ae37b2a5b40
+*** Element info: {Using=id, value=inputUsername}
+	at sun.reflect.GeneratedConstructorAccessor12.newInstance(Unknown Source)
+	at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(Unknown Source)
+	at java.lang.reflect.Constructor.newInstance(Unknown Source)
+	at org.openqa.selenium.remote.ErrorHandler.createThrowable(ErrorHandler.java:206)
+	at org.openqa.selenium.remote.ErrorHandler.throwIfResponseFailed(ErrorHandler.java:158)
+	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:678)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:363)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElementById(RemoteWebDriver.java:413)
+	at org.openqa.selenium.By$ById.findElement(By.java:218)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:355)
+	at com.vh.ui.waits.WebDriverWaits$1.apply(WebDriverWaits.java:190)
+	at com.vh.ui.waits.WebDriverWaits$1.apply(WebDriverWaits.java:1)
+	at org.openqa.selenium.support.ui.FluentWait.until(FluentWait.java:238)
+	... 28 more
+03/23/2017 13:24:01.379 CDT INFO  (utilities.Logg:>>>afterTest:[83]) Thread:1	-Test Case Failed.
+----------------------------------------------------------------
+03/23/2017 13:24:01.379 CDT INFO  (utilities.Logg:>>>afterTest:[85]) Thread:1	-Proceeding to close the driver for method verify_InvalidUserName
+----------------------------------------------------------------
+03/23/2017 13:32:00.229 CDT INFO  (utilities.Logg:>>>initialValue:[58]) Thread:1	-**Internet Explorer Browser**
+----------------------------------------------------------------
+03/23/2017 13:32:00.247 CDT INFO  (utilities.Logg:>>>initialValue:[61]) Thread:1	-Instantiating/Launching the Internet Explorer Browser
+----------------------------------------------------------------
+03/23/2017 13:32:04.722 CDT INFO  (utilities.Logg:>>>initialValue:[84]) Thread:1	-Returning the local instance of:InternetExplorerDriver: internet explorer on WINDOWS (3cf89849-4807-43f9-a0f4-16079a956c44)
+----------------------------------------------------------------
+03/23/2017 13:32:04.747 CDT INFO  (utilities.Logg:>>>maximizeBrowser:[91]) Thread:1	-Maximizing the browser
+----------------------------------------------------------------
+03/23/2017 13:32:04.770 CDT INFO  (utilities.Logg:>>>maximizeBrowser:[93]) Thread:1	-Browser Successfully Maximized
+----------------------------------------------------------------
+03/23/2017 13:32:04.771 CDT INFO  (utilities.Logg:>>>navigateToURL:[82]) Thread:1	-Navigating to Application URL on Browser:https://capellawebdev.com/FireflyUI/
+----------------------------------------------------------------
+03/23/2017 13:32:09.497 CDT INFO  (utilities.Logg:>>>navigateToURL:[84]) Thread:1	-Successfully navigated to Application URL on the Browser
+----------------------------------------------------------------
+03/23/2017 13:32:09.498 CDT INFO  (utilities.Logg:>>>navigateTo:[41]) Thread:1	-Returning the instance of Village Health Login
+----------------------------------------------------------------
+03/23/2017 13:32:14.521 CDT INFO  (utilities.Logg:>>>getVisibiltyOfElementLocatedBy:[460]) Thread:1	-Checking for Visibility of element By.id: inputUsername
+----------------------------------------------------------------
+03/23/2017 13:32:14.522 CDT INFO  (utilities.Logg:>>>checkForElementVisibility:[184]) Thread:1	-Checking for the visibility of the element using By class:By.id: inputUsername
+----------------------------------------------------------------
+03/23/2017 13:32:14.530 CDT INFO  (utilities.Logg:>>>convertToInteger:[61]) Thread:1	-String to Integer Conversion function
+----------------------------------------------------------------
+03/23/2017 13:32:14.531 CDT INFO  (utilities.Logg:>>>convertToInteger:[63]) Thread:1	-Converting the String value 45 to Integer
+----------------------------------------------------------------
+03/23/2017 13:32:59.985 CDT ERROR (utilities.Logg:>>>checkForElementVisibility:[196]) Thread:1	-TIME OUT EXCEPTION while waiting for the VISIBILITY of the element using By class:By.id: inputUsername
+
+----------------------------------------------------------------
+org.openqa.selenium.TimeoutException: Timed out after 45 seconds waiting for com.vh.ui.waits.WebDriverWaits$1@7acf07b2
+Build info: version: '2.53.0', revision: '35ae25b1534ae328c771e0856c93e187490ca824', time: '2016-03-15 10:43:46'
+System info: host: 'DVA-F0L9N9R-L', ip: '172.16.128.191', os.name: 'Windows 8.1', os.arch: 'amd64', os.version: '6.3', java.version: '1.8.0_121'
+Driver info: org.openqa.selenium.ie.InternetExplorerDriver
+Capabilities [{browserAttachTimeout=0, ie.enableFullPageScreenshot=true, enablePersistentHover=true, ie.forceCreateProcessApi=false, ie.forceShellWindowsApi=false, pageLoadStrategy=normal, ignoreZoomSetting=false, ie.fileUploadDialogTimeout=3000, version=11, platform=WINDOWS, proxy={proxyType=}, nativeEvents=true, ie.ensureCleanSession=false, elementScrollBehavior=0, ie.browserCommandLineSwitches=, requireWindowFocus=false, browserName=internet explorer, initialBrowserUrl=http://localhost:5859/, javascriptEnabled=true, ignoreProtectedModeSettings=false, enableElementCacheCleanup=true, unexpectedAlertBehaviour=dismiss}]
+Session ID: 3cf89849-4807-43f9-a0f4-16079a956c44
+	at org.openqa.selenium.support.ui.WebDriverWait.timeoutException(WebDriverWait.java:80)
+	at org.openqa.selenium.support.ui.FluentWait.until(FluentWait.java:261)
+	at com.vh.ui.waits.WebDriverWaits.checkForElementVisibility(WebDriverWaits.java:188)
+	at com.vh.ui.actions.WebActions.getVisibiltyOfElementLocatedBy(WebActions.java:467)
+	at com.vh.ui.pages.LoginPage.viewUserNameTextField(LoginPage.java:41)
+	at com.vh.ui.tests.LoginTest.verify_InvalidUserName(LoginTest.java:44)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:86)
+	at org.testng.internal.Invoker.invokeMethod(Invoker.java:643)
+	at org.testng.internal.Invoker.invokeTestMethod(Invoker.java:820)
+	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:1128)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:129)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:112)
+	at org.testng.TestRunner.privateRun(TestRunner.java:782)
+	at org.testng.TestRunner.run(TestRunner.java:632)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:366)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:361)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:319)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:268)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:86)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1244)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1169)
+	at org.testng.TestNG.run(TestNG.java:1064)
+	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:132)
+	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:236)
+	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:81)
+Caused by: org.openqa.selenium.NoSuchWindowException: Unable to find element on closed window (WARNING: The server did not provide any stacktrace information)
+Command duration or timeout: 25 milliseconds
+Build info: version: '2.53.0', revision: '35ae25b1534ae328c771e0856c93e187490ca824', time: '2016-03-15 10:43:46'
+System info: host: 'DVA-F0L9N9R-L', ip: '172.16.128.191', os.name: 'Windows 8.1', os.arch: 'amd64', os.version: '6.3', java.version: '1.8.0_121'
+Driver info: org.openqa.selenium.ie.InternetExplorerDriver
+Capabilities [{browserAttachTimeout=0, ie.enableFullPageScreenshot=true, enablePersistentHover=true, ie.forceCreateProcessApi=false, ie.forceShellWindowsApi=false, pageLoadStrategy=normal, ignoreZoomSetting=false, ie.fileUploadDialogTimeout=3000, version=11, platform=WINDOWS, proxy={proxyType=}, nativeEvents=true, ie.ensureCleanSession=false, elementScrollBehavior=0, ie.browserCommandLineSwitches=, requireWindowFocus=false, browserName=internet explorer, initialBrowserUrl=http://localhost:5859/, javascriptEnabled=true, ignoreProtectedModeSettings=false, enableElementCacheCleanup=true, unexpectedAlertBehaviour=dismiss}]
+Session ID: 3cf89849-4807-43f9-a0f4-16079a956c44
+*** Element info: {Using=id, value=inputUsername}
+	at sun.reflect.GeneratedConstructorAccessor11.newInstance(Unknown Source)
+	at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(Unknown Source)
+	at java.lang.reflect.Constructor.newInstance(Unknown Source)
+	at org.openqa.selenium.remote.ErrorHandler.createThrowable(ErrorHandler.java:206)
+	at org.openqa.selenium.remote.ErrorHandler.throwIfResponseFailed(ErrorHandler.java:158)
+	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:678)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:363)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElementById(RemoteWebDriver.java:413)
+	at org.openqa.selenium.By$ById.findElement(By.java:218)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:355)
+	at com.vh.ui.waits.WebDriverWaits$1.apply(WebDriverWaits.java:190)
+	at com.vh.ui.waits.WebDriverWaits$1.apply(WebDriverWaits.java:1)
+	at org.openqa.selenium.support.ui.FluentWait.until(FluentWait.java:238)
+	... 28 more
+03/23/2017 13:33:00.258 CDT INFO  (utilities.Logg:>>>afterTest:[83]) Thread:1	-Test Case Failed.
+----------------------------------------------------------------
+03/23/2017 13:33:00.258 CDT INFO  (utilities.Logg:>>>afterTest:[85]) Thread:1	-Proceeding to close the driver for method verify_InvalidUserName
+----------------------------------------------------------------
