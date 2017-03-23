@@ -2,22 +2,31 @@
 <testng-results skipped="0" failed="1" total="1" passed="0">
   <reporter-output>
   </reporter-output>
-  <suite name="Default suite" duration-ms="59933" started-at="2017-03-23T18:39:15Z" finished-at="2017-03-23T18:40:15Z">
+  <suite name="Default suite" duration-ms="70872" started-at="2017-03-23T20:01:38Z" finished-at="2017-03-23T20:02:49Z">
     <groups>
     </groups>
-    <test name="Default test" duration-ms="59933" started-at="2017-03-23T18:39:15Z" finished-at="2017-03-23T18:40:15Z">
+    <test name="Default test" duration-ms="70872" started-at="2017-03-23T20:01:38Z" finished-at="2017-03-23T20:02:49Z">
       <class name="com.vh.ui.tests.LoginTest">
-        <test-method status="FAIL" signature="verify_InvalidUserName()[pri:0, instance:com.vh.ui.tests.LoginTest@795f8317]" name="verify_InvalidUserName" duration-ms="59611" started-at="2017-03-23T13:39:15Z" finished-at="2017-03-23T13:40:15Z">
-          <exception class="java.lang.AssertionError">
+        <test-method status="FAIL" signature="verify_InvalidUserName()[pri:0, instance:com.vh.ui.tests.LoginTest@3ddeaa5f]" name="verify_InvalidUserName" duration-ms="70433" started-at="2017-03-23T15:01:38Z" finished-at="2017-03-23T15:02:48Z">
+          <exception class="org.openqa.selenium.TimeoutException">
             <message>
-              <![CDATA[Failed to identify UserName text field expected [true] but found [false]]]>
+              <![CDATA[Thread:1	-TIME OUT EXCEPTION while waiting for the VISIBILITY of the element using By class:By.xpath: id('myModal')/div[3]/div[2]/span[1]/b[@data-capella-automation-id ='label-ErrorMessage']
+
+Build info: version: '2.53.0', revision: '35ae25b1534ae328c771e0856c93e187490ca824', time: '2016-03-15 10:43:46'
+System info: host: 'DVA-F0L9N9R-L', ip: '172.16.128.191', os.name: 'Windows 8.1', os.arch: 'amd64', os.version: '6.3', java.version: '1.8.0_121'
+Driver info: driver.version: unknown]]>
             </message>
             <full-stacktrace>
-              <![CDATA[java.lang.AssertionError: Failed to identify UserName text field expected [true] but found [false]
-	at org.testng.Assert.fail(Assert.java:94)
-	at org.testng.Assert.failNotEquals(Assert.java:513)
-	at org.testng.Assert.assertTrue(Assert.java:42)
-	at com.vh.ui.tests.LoginTest.verify_InvalidUserName(LoginTest.java:44)
+              <![CDATA[org.openqa.selenium.TimeoutException: Thread:1	-TIME OUT EXCEPTION while waiting for the VISIBILITY of the element using By class:By.xpath: id('myModal')/div[3]/div[2]/span[1]/b[@data-capella-automation-id ='label-ErrorMessage']
+
+Build info: version: '2.53.0', revision: '35ae25b1534ae328c771e0856c93e187490ca824', time: '2016-03-15 10:43:46'
+System info: host: 'DVA-F0L9N9R-L', ip: '172.16.128.191', os.name: 'Windows 8.1', os.arch: 'amd64', os.version: '6.3', java.version: '1.8.0_121'
+Driver info: driver.version: unknown
+	at com.vh.ui.waits.WebDriverWaits.waitForElementVisibility(WebDriverWaits.java:48)
+	at com.vh.ui.waits.WebDriverWaits.syncLocatorUsing(WebDriverWaits.java:210)
+	at com.vh.ui.actions.WebActions.getText(WebActions.java:357)
+	at com.vh.ui.pages.LoginPage.getLoginErrorMessage(LoginPage.java:75)
+	at com.vh.ui.tests.LoginTest.verify_InvalidUserName(LoginTest.java:50)
 	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
 	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
 	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
@@ -42,13 +51,47 @@
 	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:132)
 	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:236)
 	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:81)
+Caused by: org.openqa.selenium.TimeoutException: Timed out after 45 seconds waiting for visibility of element located by By.xpath: id('myModal')/div[3]/div[2]/span[1]/b[@data-capella-automation-id ='label-ErrorMessage']
+Build info: version: '2.53.0', revision: '35ae25b1534ae328c771e0856c93e187490ca824', time: '2016-03-15 10:43:46'
+System info: host: 'DVA-F0L9N9R-L', ip: '172.16.128.191', os.name: 'Windows 8.1', os.arch: 'amd64', os.version: '6.3', java.version: '1.8.0_121'
+Driver info: org.openqa.selenium.ie.InternetExplorerDriver
+Capabilities [{browserAttachTimeout=0, ie.enableFullPageScreenshot=true, enablePersistentHover=true, ie.forceCreateProcessApi=false, ie.forceShellWindowsApi=false, pageLoadStrategy=normal, ignoreZoomSetting=false, ie.fileUploadDialogTimeout=3000, version=11, platform=WINDOWS, proxy={proxyType=}, nativeEvents=true, ie.ensureCleanSession=false, elementScrollBehavior=0, ie.browserCommandLineSwitches=, requireWindowFocus=false, browserName=internet explorer, initialBrowserUrl=http://localhost:41221/, javascriptEnabled=true, ignoreProtectedModeSettings=false, enableElementCacheCleanup=true, unexpectedAlertBehaviour=dismiss}]
+Session ID: 52a1cdda-d759-48cb-b28b-f9bc290e30a8
+	at org.openqa.selenium.support.ui.WebDriverWait.timeoutException(WebDriverWait.java:80)
+	at org.openqa.selenium.support.ui.FluentWait.until(FluentWait.java:261)
+	at com.vh.ui.waits.WebDriverWaits.waitForElementVisibility(WebDriverWaits.java:44)
+	... 28 more
+Caused by: org.openqa.selenium.NoSuchWindowException: Unable to find element on closed window (WARNING: The server did not provide any stacktrace information)
+Command duration or timeout: 15 milliseconds
+Build info: version: '2.53.0', revision: '35ae25b1534ae328c771e0856c93e187490ca824', time: '2016-03-15 10:43:46'
+System info: host: 'DVA-F0L9N9R-L', ip: '172.16.128.191', os.name: 'Windows 8.1', os.arch: 'amd64', os.version: '6.3', java.version: '1.8.0_121'
+Driver info: org.openqa.selenium.ie.InternetExplorerDriver
+Capabilities [{browserAttachTimeout=0, ie.enableFullPageScreenshot=true, enablePersistentHover=true, ie.forceCreateProcessApi=false, ie.forceShellWindowsApi=false, pageLoadStrategy=normal, ignoreZoomSetting=false, ie.fileUploadDialogTimeout=3000, version=11, platform=WINDOWS, proxy={proxyType=}, nativeEvents=true, ie.ensureCleanSession=false, elementScrollBehavior=0, ie.browserCommandLineSwitches=, requireWindowFocus=false, browserName=internet explorer, initialBrowserUrl=http://localhost:41221/, javascriptEnabled=true, ignoreProtectedModeSettings=false, enableElementCacheCleanup=true, unexpectedAlertBehaviour=dismiss}]
+Session ID: 52a1cdda-d759-48cb-b28b-f9bc290e30a8
+*** Element info: {Using=xpath, value=id('myModal')/div[3]/div[2]/span[1]/b[@data-capella-automation-id ='label-ErrorMessage']}
+	at sun.reflect.GeneratedConstructorAccessor12.newInstance(Unknown Source)
+	at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(Unknown Source)
+	at java.lang.reflect.Constructor.newInstance(Unknown Source)
+	at org.openqa.selenium.remote.ErrorHandler.createThrowable(ErrorHandler.java:206)
+	at org.openqa.selenium.remote.ErrorHandler.throwIfResponseFailed(ErrorHandler.java:158)
+	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:678)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:363)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElementByXPath(RemoteWebDriver.java:500)
+	at org.openqa.selenium.By$ByXPath.findElement(By.java:361)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:355)
+	at org.openqa.selenium.support.ui.ExpectedConditions.findElement(ExpectedConditions.java:899)
+	at org.openqa.selenium.support.ui.ExpectedConditions.access$000(ExpectedConditions.java:41)
+	at org.openqa.selenium.support.ui.ExpectedConditions$7.apply(ExpectedConditions.java:205)
+	at org.openqa.selenium.support.ui.ExpectedConditions$7.apply(ExpectedConditions.java:201)
+	at org.openqa.selenium.support.ui.FluentWait.until(FluentWait.java:238)
+	... 29 more
 ]]>
             </full-stacktrace>
-          </exception> <!-- java.lang.AssertionError -->
+          </exception> <!-- org.openqa.selenium.TimeoutException -->
           <reporter-output>
           </reporter-output>
         </test-method> <!-- verify_InvalidUserName -->
-        <test-method status="PASS" signature="afterTest(java.lang.reflect.Method, org.testng.ITestResult)[pri:0, instance:com.vh.ui.tests.LoginTest@795f8317]" name="afterTest" is-config="true" duration-ms="198" started-at="2017-03-23T13:40:15Z" finished-at="2017-03-23T13:40:15Z">
+        <test-method status="PASS" signature="afterTest(java.lang.reflect.Method, org.testng.ITestResult)[pri:0, instance:com.vh.ui.tests.LoginTest@3ddeaa5f]" name="afterTest" is-config="true" duration-ms="306" started-at="2017-03-23T15:02:49Z" finished-at="2017-03-23T15:02:49Z">
           <params>
             <param index="0">
               <value>
@@ -57,18 +100,18 @@
             </param>
             <param index="1">
               <value>
-                <![CDATA[[TestResult name=verify_InvalidUserName status=FAILURE method=LoginTest.verify_InvalidUserName()[pri:0, instance:com.vh.ui.tests.LoginTest@795f8317] output={null}]]]>
+                <![CDATA[[TestResult name=verify_InvalidUserName status=FAILURE method=LoginTest.verify_InvalidUserName()[pri:0, instance:com.vh.ui.tests.LoginTest@3ddeaa5f] output={null}]]]>
               </value>
             </param>
           </params>
           <reporter-output>
           </reporter-output>
         </test-method> <!-- afterTest -->
-        <test-method status="FAIL" signature="tearDown()[pri:0, instance:com.vh.ui.tests.LoginTest@795f8317]" name="tearDown" is-config="true" duration-ms="0" started-at="2017-03-23T13:40:15Z" finished-at="2017-03-23T13:40:15Z">
+        <test-method status="FAIL" signature="tearDown()[pri:0, instance:com.vh.ui.tests.LoginTest@3ddeaa5f]" name="tearDown" is-config="true" duration-ms="0" started-at="2017-03-23T15:02:49Z" finished-at="2017-03-23T15:02:49Z">
           <exception class="java.lang.NullPointerException">
             <full-stacktrace>
               <![CDATA[java.lang.NullPointerException
-	at com.vh.ui.tests.LoginTest.tearDown(LoginTest.java:114)
+	at com.vh.ui.tests.LoginTest.tearDown(LoginTest.java:111)
 	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
 	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
 	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)

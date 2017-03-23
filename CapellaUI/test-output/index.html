@@ -49,7 +49,7 @@
               <ul>
                 <li>
                   <a href="#" class="navigator-link " panel-name="test-xml-Default_suite">
-                    <span>C:\Users\hackermans\AppData\Local\Temp\testng-eclipse-392299844\testng-customsuite.xml</span>
+                    <span>C:\Users\hackermans\AppData\Local\Temp\testng-eclipse-219382237\testng-customsuite.xml</span>
                   </a> <!-- navigator-link  -->
                 </li>
                 <li>
@@ -128,11 +128,16 @@
                   <a name="verify_InvalidUserName">
                   </a> <!-- verify_InvalidUserName -->
                   <span class="method-name">verify_InvalidUserName</span>
-                  <div class="stack-trace">java.lang.AssertionError: Failed to identify UserName text field expected [true] but found [false]
-	at org.testng.Assert.fail(Assert.java:94)
-	at org.testng.Assert.failNotEquals(Assert.java:513)
-	at org.testng.Assert.assertTrue(Assert.java:42)
-	at com.vh.ui.tests.LoginTest.verify_InvalidUserName(LoginTest.java:44)
+                  <div class="stack-trace">org.openqa.selenium.TimeoutException: Thread:1	-TIME OUT EXCEPTION while waiting for the VISIBILITY of the element using By class:By.xpath: id(&apos;myModal&apos;)/div[3]/div[2]/span[1]/b[@data-capella-automation-id =&apos;label-ErrorMessage&apos;]
+
+Build info: version: &apos;2.53.0&apos;, revision: &apos;35ae25b1534ae328c771e0856c93e187490ca824&apos;, time: &apos;2016-03-15 10:43:46&apos;
+System info: host: &apos;DVA-F0L9N9R-L&apos;, ip: &apos;172.16.128.191&apos;, os.name: &apos;Windows 8.1&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;6.3&apos;, java.version: &apos;1.8.0_121&apos;
+Driver info: driver.version: unknown
+	at com.vh.ui.waits.WebDriverWaits.waitForElementVisibility(WebDriverWaits.java:48)
+	at com.vh.ui.waits.WebDriverWaits.syncLocatorUsing(WebDriverWaits.java:210)
+	at com.vh.ui.actions.WebActions.getText(WebActions.java:357)
+	at com.vh.ui.pages.LoginPage.getLoginErrorMessage(LoginPage.java:75)
+	at com.vh.ui.tests.LoginTest.verify_InvalidUserName(LoginTest.java:50)
 	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
 	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
 	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
@@ -157,6 +162,40 @@
 	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:132)
 	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:236)
 	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:81)
+Caused by: org.openqa.selenium.TimeoutException: Timed out after 45 seconds waiting for visibility of element located by By.xpath: id(&apos;myModal&apos;)/div[3]/div[2]/span[1]/b[@data-capella-automation-id =&apos;label-ErrorMessage&apos;]
+Build info: version: &apos;2.53.0&apos;, revision: &apos;35ae25b1534ae328c771e0856c93e187490ca824&apos;, time: &apos;2016-03-15 10:43:46&apos;
+System info: host: &apos;DVA-F0L9N9R-L&apos;, ip: &apos;172.16.128.191&apos;, os.name: &apos;Windows 8.1&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;6.3&apos;, java.version: &apos;1.8.0_121&apos;
+Driver info: org.openqa.selenium.ie.InternetExplorerDriver
+Capabilities [{browserAttachTimeout=0, ie.enableFullPageScreenshot=true, enablePersistentHover=true, ie.forceCreateProcessApi=false, ie.forceShellWindowsApi=false, pageLoadStrategy=normal, ignoreZoomSetting=false, ie.fileUploadDialogTimeout=3000, version=11, platform=WINDOWS, proxy={proxyType=}, nativeEvents=true, ie.ensureCleanSession=false, elementScrollBehavior=0, ie.browserCommandLineSwitches=, requireWindowFocus=false, browserName=internet explorer, initialBrowserUrl=http://localhost:41221/, javascriptEnabled=true, ignoreProtectedModeSettings=false, enableElementCacheCleanup=true, unexpectedAlertBehaviour=dismiss}]
+Session ID: 52a1cdda-d759-48cb-b28b-f9bc290e30a8
+	at org.openqa.selenium.support.ui.WebDriverWait.timeoutException(WebDriverWait.java:80)
+	at org.openqa.selenium.support.ui.FluentWait.until(FluentWait.java:261)
+	at com.vh.ui.waits.WebDriverWaits.waitForElementVisibility(WebDriverWaits.java:44)
+	... 28 more
+Caused by: org.openqa.selenium.NoSuchWindowException: Unable to find element on closed window (WARNING: The server did not provide any stacktrace information)
+Command duration or timeout: 15 milliseconds
+Build info: version: &apos;2.53.0&apos;, revision: &apos;35ae25b1534ae328c771e0856c93e187490ca824&apos;, time: &apos;2016-03-15 10:43:46&apos;
+System info: host: &apos;DVA-F0L9N9R-L&apos;, ip: &apos;172.16.128.191&apos;, os.name: &apos;Windows 8.1&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;6.3&apos;, java.version: &apos;1.8.0_121&apos;
+Driver info: org.openqa.selenium.ie.InternetExplorerDriver
+Capabilities [{browserAttachTimeout=0, ie.enableFullPageScreenshot=true, enablePersistentHover=true, ie.forceCreateProcessApi=false, ie.forceShellWindowsApi=false, pageLoadStrategy=normal, ignoreZoomSetting=false, ie.fileUploadDialogTimeout=3000, version=11, platform=WINDOWS, proxy={proxyType=}, nativeEvents=true, ie.ensureCleanSession=false, elementScrollBehavior=0, ie.browserCommandLineSwitches=, requireWindowFocus=false, browserName=internet explorer, initialBrowserUrl=http://localhost:41221/, javascriptEnabled=true, ignoreProtectedModeSettings=false, enableElementCacheCleanup=true, unexpectedAlertBehaviour=dismiss}]
+Session ID: 52a1cdda-d759-48cb-b28b-f9bc290e30a8
+*** Element info: {Using=xpath, value=id(&apos;myModal&apos;)/div[3]/div[2]/span[1]/b[@data-capella-automation-id =&apos;label-ErrorMessage&apos;]}
+	at sun.reflect.GeneratedConstructorAccessor12.newInstance(Unknown Source)
+	at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(Unknown Source)
+	at java.lang.reflect.Constructor.newInstance(Unknown Source)
+	at org.openqa.selenium.remote.ErrorHandler.createThrowable(ErrorHandler.java:206)
+	at org.openqa.selenium.remote.ErrorHandler.throwIfResponseFailed(ErrorHandler.java:158)
+	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:678)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:363)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElementByXPath(RemoteWebDriver.java:500)
+	at org.openqa.selenium.By$ByXPath.findElement(By.java:361)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:355)
+	at org.openqa.selenium.support.ui.ExpectedConditions.findElement(ExpectedConditions.java:899)
+	at org.openqa.selenium.support.ui.ExpectedConditions.access$000(ExpectedConditions.java:41)
+	at org.openqa.selenium.support.ui.ExpectedConditions$7.apply(ExpectedConditions.java:205)
+	at org.openqa.selenium.support.ui.ExpectedConditions$7.apply(ExpectedConditions.java:201)
+	at org.openqa.selenium.support.ui.FluentWait.until(FluentWait.java:238)
+	... 29 more
 
 </div> <!-- stack-trace -->
                 </div> <!-- method-content -->
@@ -166,7 +205,7 @@
         </div> <!-- panel Default_suite -->
         <div panel-name="test-xml-Default_suite" class="panel">
           <div class="main-panel-header rounded-window-top">
-            <span class="header-content">C:\Users\hackermans\AppData\Local\Temp\testng-eclipse-392299844\testng-customsuite.xml</span>
+            <span class="header-content">C:\Users\hackermans\AppData\Local\Temp\testng-eclipse-219382237\testng-customsuite.xml</span>
           </div> <!-- main-panel-header rounded-window-top -->
           <div class="main-panel-content rounded-window-bottom">
             <pre>
@@ -219,12 +258,12 @@ data.addRows(1);
 data.setCell(0, 0, 0)
 data.setCell(0, 1, 'verify_InvalidUserName')
 data.setCell(0, 2, 'com.vh.ui.tests.LoginTest')
-data.setCell(0, 3, 59611);
+data.setCell(0, 3, 70433);
 window.suiteTableData['Default_suite']= { tableData: data, tableDiv: 'times-div-Default_suite'}
 return data;
 }
               </script>
-              <span class="suite-total-time">Total running time: 59 seconds</span>
+              <span class="suite-total-time">Total running time: 1 minutes</span>
               <div id="times-div-Default_suite">
               </div> <!-- times-div-Default_suite -->
             </div> <!-- times-div -->
@@ -259,13 +298,13 @@ return data;
               </div> <!-- test-method -->
               <div class="configuration-method after">
                 <span class="method-name">afterTest(public void com.vh.ui.tests.LoginTest.verify_InvalidUserName() throws com.vh.ui.exceptions.WaitExcep...)</span>
-                <span class="method-start">59625 ms</span>
+                <span class="method-start">70466 ms</span>
               </div> <!-- configuration-method after -->
               <div class="configuration-class after">
                 <img src="failed.png">
                 </img>
                 <span class="method-name">tearDown</span>
-                <span class="method-start">59823 ms</span>
+                <span class="method-start">70773 ms</span>
               </div> <!-- configuration-class after -->
           </div> <!-- main-panel-content rounded-window-bottom -->
         </div> <!-- panel -->

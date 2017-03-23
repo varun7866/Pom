@@ -57,9 +57,9 @@ function toggleAllBoxes() {
 <tr>
 <td>Tests passed/Failed/Skipped:</td><td>0/1/0</td>
 </tr><tr>
-<td>Started on:</td><td>Thu Mar 23 13:39:15 CDT 2017</td>
+<td>Started on:</td><td>Thu Mar 23 15:01:38 CDT 2017</td>
 </tr>
-<tr><td>Total time:</td><td>59 seconds (59933 ms)</td>
+<tr><td>Total time:</td><td>70 seconds (70872 ms)</td>
 </tr><tr>
 <td>Included groups:</td><td></td>
 </tr><tr>
@@ -77,7 +77,7 @@ function toggleAllBoxes() {
 <tr>
 <td title='com.vh.ui.tests.LoginTest.tearDown()'><b>tearDown</b><br>Test class: com.vh.ui.tests.LoginTest</td>
 <td><div><pre>java.lang.NullPointerException
-	at com.vh.ui.tests.LoginTest.tearDown(LoginTest.java:114)
+	at com.vh.ui.tests.LoginTest.tearDown(LoginTest.java:111)
 	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
 	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
 	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
@@ -102,9 +102,9 @@ function toggleAllBoxes() {
 	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:132)
 	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:236)
 	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:81)
-</pre></div><a href='#' onClick='toggleBox("stack-trace334715128", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
-<div class='stack-trace' id='stack-trace334715128'><pre>java.lang.NullPointerException
-	at com.vh.ui.tests.LoginTest.tearDown(LoginTest.java:114)
+</pre></div><a href='#' onClick='toggleBox("stack-trace1270140044", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace1270140044'><pre>java.lang.NullPointerException
+	at com.vh.ui.tests.LoginTest.tearDown(LoginTest.java:111)
 	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
 	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
 	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
@@ -131,7 +131,7 @@ function toggleAllBoxes() {
 	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:81)
 </pre></div></td>
 <td>0</td>
-<td>com.vh.ui.tests.LoginTest@795f8317</td></tr>
+<td>com.vh.ui.tests.LoginTest@3ddeaa5f</td></tr>
 </table><p>
 <table width='100%' border='1' class='invocation-failed'>
 <tr><td colspan='4' align='center'><b>FAILED TESTS</b></td></tr>
@@ -142,11 +142,16 @@ function toggleAllBoxes() {
 </tr>
 <tr>
 <td title='com.vh.ui.tests.LoginTest.verify_InvalidUserName()'><b>verify_InvalidUserName</b><br>Test class: com.vh.ui.tests.LoginTest</td>
-<td><div><pre>java.lang.AssertionError: Failed to identify UserName text field expected [true] but found [false]
-	at org.testng.Assert.fail(Assert.java:94)
-	at org.testng.Assert.failNotEquals(Assert.java:513)
-	at org.testng.Assert.assertTrue(Assert.java:42)
-	at com.vh.ui.tests.LoginTest.verify_InvalidUserName(LoginTest.java:44)
+<td><div><pre>org.openqa.selenium.TimeoutException: Thread:1	-TIME OUT EXCEPTION while waiting for the VISIBILITY of the element using By class:By.xpath: id(&apos;myModal&apos;)/div[3]/div[2]/span[1]/b[@data-capella-automation-id =&apos;label-ErrorMessage&apos;]
+
+Build info: version: &apos;2.53.0&apos;, revision: &apos;35ae25b1534ae328c771e0856c93e187490ca824&apos;, time: &apos;2016-03-15 10:43:46&apos;
+System info: host: &apos;DVA-F0L9N9R-L&apos;, ip: &apos;172.16.128.191&apos;, os.name: &apos;Windows 8.1&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;6.3&apos;, java.version: &apos;1.8.0_121&apos;
+Driver info: driver.version: unknown
+	at com.vh.ui.waits.WebDriverWaits.waitForElementVisibility(WebDriverWaits.java:48)
+	at com.vh.ui.waits.WebDriverWaits.syncLocatorUsing(WebDriverWaits.java:210)
+	at com.vh.ui.actions.WebActions.getText(WebActions.java:357)
+	at com.vh.ui.pages.LoginPage.getLoginErrorMessage(LoginPage.java:75)
+	at com.vh.ui.tests.LoginTest.verify_InvalidUserName(LoginTest.java:50)
 	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
 	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
 	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
@@ -171,12 +176,51 @@ function toggleAllBoxes() {
 	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:132)
 	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:236)
 	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:81)
-</pre></div><a href='#' onClick='toggleBox("stack-trace1989877020", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
-<div class='stack-trace' id='stack-trace1989877020'><pre>java.lang.AssertionError: Failed to identify UserName text field expected [true] but found [false]
-	at org.testng.Assert.fail(Assert.java:94)
-	at org.testng.Assert.failNotEquals(Assert.java:513)
-	at org.testng.Assert.assertTrue(Assert.java:42)
-	at com.vh.ui.tests.LoginTest.verify_InvalidUserName(LoginTest.java:44)
+Caused by: org.openqa.selenium.TimeoutException: Timed out after 45 seconds waiting for visibility of element located by By.xpath: id(&apos;myModal&apos;)/div[3]/div[2]/span[1]/b[@data-capella-automation-id =&apos;label-ErrorMessage&apos;]
+Build info: version: &apos;2.53.0&apos;, revision: &apos;35ae25b1534ae328c771e0856c93e187490ca824&apos;, time: &apos;2016-03-15 10:43:46&apos;
+System info: host: &apos;DVA-F0L9N9R-L&apos;, ip: &apos;172.16.128.191&apos;, os.name: &apos;Windows 8.1&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;6.3&apos;, java.version: &apos;1.8.0_121&apos;
+Driver info: org.openqa.selenium.ie.InternetExplorerDriver
+Capabilities [{browserAttachTimeout=0, ie.enableFullPageScreenshot=true, enablePersistentHover=true, ie.forceCreateProcessApi=false, ie.forceShellWindowsApi=false, pageLoadStrategy=normal, ignoreZoomSetting=false, ie.fileUploadDialogTimeout=3000, version=11, platform=WINDOWS, proxy={proxyType=}, nativeEvents=true, ie.ensureCleanSession=false, elementScrollBehavior=0, ie.browserCommandLineSwitches=, requireWindowFocus=false, browserName=internet explorer, initialBrowserUrl=http://localhost:41221/, javascriptEnabled=true, ignoreProtectedModeSettings=false, enableElementCacheCleanup=true, unexpectedAlertBehaviour=dismiss}]
+Session ID: 52a1cdda-d759-48cb-b28b-f9bc290e30a8
+	at org.openqa.selenium.support.ui.WebDriverWait.timeoutException(WebDriverWait.java:80)
+	at org.openqa.selenium.support.ui.FluentWait.until(FluentWait.java:261)
+	at com.vh.ui.waits.WebDriverWaits.waitForElementVisibility(WebDriverWaits.java:44)
+	... 28 more
+Caused by: org.openqa.selenium.NoSuchWindowException: Unable to find element on closed window (WARNING: The server did not provide any stacktrace information)
+Command duration or timeout: 15 milliseconds
+Build info: version: &apos;2.53.0&apos;, revision: &apos;35ae25b1534ae328c771e0856c93e187490ca824&apos;, time: &apos;2016-03-15 10:43:46&apos;
+System info: host: &apos;DVA-F0L9N9R-L&apos;, ip: &apos;172.16.128.191&apos;, os.name: &apos;Windows 8.1&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;6.3&apos;, java.version: &apos;1.8.0_121&apos;
+Driver info: org.openqa.selenium.ie.InternetExplorerDriver
+Capabilities [{browserAttachTimeout=0, ie.enableFullPageScreenshot=true, enablePersistentHover=true, ie.forceCreateProcessApi=false, ie.forceShellWindowsApi=false, pageLoadStrategy=normal, ignoreZoomSetting=false, ie.fileUploadDialogTimeout=3000, version=11, platform=WINDOWS, proxy={proxyType=}, nativeEvents=true, ie.ensureCleanSession=false, elementScrollBehavior=0, ie.browserCommandLineSwitches=, requireWindowFocus=false, browserName=internet explorer, initialBrowserUrl=http://localhost:41221/, javascriptEnabled=true, ignoreProtectedModeSettings=false, enableElementCacheCleanup=true, unexpectedAlertBehaviour=dismiss}]
+Session ID: 52a1cdda-d759-48cb-b28b-f9bc290e30a8
+*** Element info: {Using=xpath, value=id(&apos;myModal&apos;)/div[3]/div[2]/span[1]/b[@data-capella-automation-id =&apos;label-ErrorMessage&apos;]}
+	at sun.reflect.GeneratedConstructorAccessor12.newInstance(Unknown Source)
+	at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(Unknown Source)
+	at java.lang.reflect.Constructor.newInstance(Unknown Source)
+	at org.openqa.selenium.remote.ErrorHandler.createThrowable(ErrorHandler.java:206)
+	at org.openqa.selenium.remote.ErrorHandler.throwIfResponseFailed(ErrorHandler.java:158)
+	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:678)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:363)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElementByXPath(RemoteWebDriver.java:500)
+	at org.openqa.selenium.By$ByXPath.findElement(By.java:361)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:355)
+	at org.openqa.selenium.support.ui.ExpectedConditions.findElement(ExpectedConditions.java:899)
+	at org.openqa.selenium.support.ui.ExpectedConditions.access$000(ExpectedConditions.java:41)
+	at org.openqa.selenium.support.ui.ExpectedConditions$7.apply(ExpectedConditions.java:205)
+	at org.openqa.selenium.support.ui.ExpectedConditions$7.apply(ExpectedConditions.java:201)
+	at org.openqa.selenium.support.ui.FluentWait.until(FluentWait.java:238)
+	... 29 more
+</pre></div><a href='#' onClick='toggleBox("stack-trace1847707373", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace1847707373'><pre>org.openqa.selenium.TimeoutException: Thread:1	-TIME OUT EXCEPTION while waiting for the VISIBILITY of the element using By class:By.xpath: id(&apos;myModal&apos;)/div[3]/div[2]/span[1]/b[@data-capella-automation-id =&apos;label-ErrorMessage&apos;]
+
+Build info: version: &apos;2.53.0&apos;, revision: &apos;35ae25b1534ae328c771e0856c93e187490ca824&apos;, time: &apos;2016-03-15 10:43:46&apos;
+System info: host: &apos;DVA-F0L9N9R-L&apos;, ip: &apos;172.16.128.191&apos;, os.name: &apos;Windows 8.1&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;6.3&apos;, java.version: &apos;1.8.0_121&apos;
+Driver info: driver.version: unknown
+	at com.vh.ui.waits.WebDriverWaits.waitForElementVisibility(WebDriverWaits.java:48)
+	at com.vh.ui.waits.WebDriverWaits.syncLocatorUsing(WebDriverWaits.java:210)
+	at com.vh.ui.actions.WebActions.getText(WebActions.java:357)
+	at com.vh.ui.pages.LoginPage.getLoginErrorMessage(LoginPage.java:75)
+	at com.vh.ui.tests.LoginTest.verify_InvalidUserName(LoginTest.java:50)
 	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
 	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
 	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
@@ -201,9 +245,43 @@ function toggleAllBoxes() {
 	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:132)
 	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:236)
 	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:81)
+Caused by: org.openqa.selenium.TimeoutException: Timed out after 45 seconds waiting for visibility of element located by By.xpath: id(&apos;myModal&apos;)/div[3]/div[2]/span[1]/b[@data-capella-automation-id =&apos;label-ErrorMessage&apos;]
+Build info: version: &apos;2.53.0&apos;, revision: &apos;35ae25b1534ae328c771e0856c93e187490ca824&apos;, time: &apos;2016-03-15 10:43:46&apos;
+System info: host: &apos;DVA-F0L9N9R-L&apos;, ip: &apos;172.16.128.191&apos;, os.name: &apos;Windows 8.1&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;6.3&apos;, java.version: &apos;1.8.0_121&apos;
+Driver info: org.openqa.selenium.ie.InternetExplorerDriver
+Capabilities [{browserAttachTimeout=0, ie.enableFullPageScreenshot=true, enablePersistentHover=true, ie.forceCreateProcessApi=false, ie.forceShellWindowsApi=false, pageLoadStrategy=normal, ignoreZoomSetting=false, ie.fileUploadDialogTimeout=3000, version=11, platform=WINDOWS, proxy={proxyType=}, nativeEvents=true, ie.ensureCleanSession=false, elementScrollBehavior=0, ie.browserCommandLineSwitches=, requireWindowFocus=false, browserName=internet explorer, initialBrowserUrl=http://localhost:41221/, javascriptEnabled=true, ignoreProtectedModeSettings=false, enableElementCacheCleanup=true, unexpectedAlertBehaviour=dismiss}]
+Session ID: 52a1cdda-d759-48cb-b28b-f9bc290e30a8
+	at org.openqa.selenium.support.ui.WebDriverWait.timeoutException(WebDriverWait.java:80)
+	at org.openqa.selenium.support.ui.FluentWait.until(FluentWait.java:261)
+	at com.vh.ui.waits.WebDriverWaits.waitForElementVisibility(WebDriverWaits.java:44)
+	... 28 more
+Caused by: org.openqa.selenium.NoSuchWindowException: Unable to find element on closed window (WARNING: The server did not provide any stacktrace information)
+Command duration or timeout: 15 milliseconds
+Build info: version: &apos;2.53.0&apos;, revision: &apos;35ae25b1534ae328c771e0856c93e187490ca824&apos;, time: &apos;2016-03-15 10:43:46&apos;
+System info: host: &apos;DVA-F0L9N9R-L&apos;, ip: &apos;172.16.128.191&apos;, os.name: &apos;Windows 8.1&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;6.3&apos;, java.version: &apos;1.8.0_121&apos;
+Driver info: org.openqa.selenium.ie.InternetExplorerDriver
+Capabilities [{browserAttachTimeout=0, ie.enableFullPageScreenshot=true, enablePersistentHover=true, ie.forceCreateProcessApi=false, ie.forceShellWindowsApi=false, pageLoadStrategy=normal, ignoreZoomSetting=false, ie.fileUploadDialogTimeout=3000, version=11, platform=WINDOWS, proxy={proxyType=}, nativeEvents=true, ie.ensureCleanSession=false, elementScrollBehavior=0, ie.browserCommandLineSwitches=, requireWindowFocus=false, browserName=internet explorer, initialBrowserUrl=http://localhost:41221/, javascriptEnabled=true, ignoreProtectedModeSettings=false, enableElementCacheCleanup=true, unexpectedAlertBehaviour=dismiss}]
+Session ID: 52a1cdda-d759-48cb-b28b-f9bc290e30a8
+*** Element info: {Using=xpath, value=id(&apos;myModal&apos;)/div[3]/div[2]/span[1]/b[@data-capella-automation-id =&apos;label-ErrorMessage&apos;]}
+	at sun.reflect.GeneratedConstructorAccessor12.newInstance(Unknown Source)
+	at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(Unknown Source)
+	at java.lang.reflect.Constructor.newInstance(Unknown Source)
+	at org.openqa.selenium.remote.ErrorHandler.createThrowable(ErrorHandler.java:206)
+	at org.openqa.selenium.remote.ErrorHandler.throwIfResponseFailed(ErrorHandler.java:158)
+	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:678)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:363)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElementByXPath(RemoteWebDriver.java:500)
+	at org.openqa.selenium.By$ByXPath.findElement(By.java:361)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:355)
+	at org.openqa.selenium.support.ui.ExpectedConditions.findElement(ExpectedConditions.java:899)
+	at org.openqa.selenium.support.ui.ExpectedConditions.access$000(ExpectedConditions.java:41)
+	at org.openqa.selenium.support.ui.ExpectedConditions$7.apply(ExpectedConditions.java:205)
+	at org.openqa.selenium.support.ui.ExpectedConditions$7.apply(ExpectedConditions.java:201)
+	at org.openqa.selenium.support.ui.FluentWait.until(FluentWait.java:238)
+	... 29 more
 </pre></div></td>
-<td>59</td>
-<td>com.vh.ui.tests.LoginTest@795f8317</td></tr>
+<td>70</td>
+<td>com.vh.ui.tests.LoginTest@3ddeaa5f</td></tr>
 </table><p>
 </body>
 </html>

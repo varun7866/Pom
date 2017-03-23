@@ -6,7 +6,6 @@ package com.vh.ui.pages;
 import static com.vh.ui.web.locators.LoginLocators.BTN_LOGIN;
 import static com.vh.ui.web.locators.LoginLocators.LBL_LOGINERRORMSG;
 import static com.vh.ui.web.locators.LoginLocators.TXT_PASSWORD;
-import static com.vh.ui.web.locators.LoginLocators.TXT_TOKEN;
 import static com.vh.ui.web.locators.LoginLocators.TXT_USERNAME;
 
 import org.openqa.selenium.By;
@@ -36,38 +35,27 @@ public class LoginPage extends WebPage
 		super(driver);
 	}
 	
-	@Step("Verifying the visibility of User Name text field")
+	@Step("Verifying the visibility of the User Name text field")
 	public boolean viewUserNameTextField() throws TimeoutException, WaitException {
 		return webActions.getVisibiltyOfElementLocatedBy(VISIBILITY, TXT_USERNAME);
 	}
 	
-	@Step("Verifying the visibility of Password text field")
+	@Step("Verifying the visibility of the Password text field")
 	public boolean viewPasswordTextField() throws TimeoutException, WaitException {
 		return webActions.getVisibiltyOfElementLocatedBy(VISIBILITY, TXT_PASSWORD);
 	}
 	
-	@Step("Verifying the visibility of Token text field")
-	public boolean viewTokenTextField() throws TimeoutException, WaitException {
-		return webActions.getVisibiltyOfElementLocatedBy(VISIBILITY, TXT_TOKEN);
-	}
-	
-	@Step("Entered {0} in user name  text field")
+	@Step("Entered {0} in the User Name text field")
 	public LoginPage enterUserName(String userNameVal) throws TimeoutException, WaitException {
 		webActions.enterText(VISIBILITY, TXT_USERNAME, userNameVal);
 		return this;
 	}
 	
-	@Step("Entered {0} in Password text field")
+	@Step("Entered {0} in the Password text field")
 	public LoginPage enterPassword(String pwd) throws TimeoutException, WaitException {
 		webActions.enterText(VISIBILITY, TXT_PASSWORD, pwd);
 		return this;
-	}
-	
-	@Step("Entered {0} in token text field")
-	public LoginPage enterToken(String token) throws TimeoutException, WaitException {
-		webActions.enterText(VISIBILITY, TXT_TOKEN, token);
-		return this;
-	}
+	}	
 	
 	@Step("Click Login")
 	public MyDashboardPage clickLogin() throws TimeoutException, WaitException {
@@ -108,9 +96,8 @@ public class LoginPage extends WebPage
 		{
 			loginPage.enterUserName(username);
 			loginPage.enterPassword(password);
-			loginPage.enterToken(token);
-		
-			MyDashboardPage webMyDashboardpage = loginPage.clickLogin();
+			
+			MyDashboardPage myDashboard = loginPage.clickLogin();
 			Thread.sleep(10000);
 			return true;
 		}
