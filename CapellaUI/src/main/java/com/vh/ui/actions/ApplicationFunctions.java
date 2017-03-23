@@ -3,7 +3,7 @@
  */
 package com.vh.ui.actions;
 
-import static com.vh.ui.web.locators.WebMyDashboardPageLocators.*;
+import static com.vh.ui.web.locators.MyDashboardLocators.*;
 
 import java.util.List;
 
