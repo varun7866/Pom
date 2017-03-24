@@ -11,10 +11,11 @@ import org.openqa.selenium.By;
  * @class  LoginTest.java
  */
 
-public class LoginLocators {
+public class LoginLocators
+{
 	public static final By TXT_USERNAME = By.id("username");
 	public static final By TXT_PASSWORD = By.id("password");
-	//public static final By BTN_LOGIN = By.id("modalview-login-button");
+	//public static final By BTN_LOGIN = By.id("login");
 	public static final By BTN_LOGIN = By.xpath("//button[text()='Login']");
-	public static final By LBL_LOGINERRORMSG = By.xpath("id('myModal')/div[3]/div[2]/span[1]/b[@data-capella-automation-id ='label-ErrorMessage']");
+	public static final By LBL_LOGINERRORMSG = By.xpath("//strong[text()='Error:']/..");
 }

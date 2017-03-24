@@ -1,12 +1,9 @@
-/**
- * 
- */
 package com.vh.ui.pages;
 
+import static com.vh.ui.web.locators.LoginLocators.TXT_USERNAME;
+import static com.vh.ui.web.locators.LoginLocators.TXT_PASSWORD;
 import static com.vh.ui.web.locators.LoginLocators.BTN_LOGIN;
 import static com.vh.ui.web.locators.LoginLocators.LBL_LOGINERRORMSG;
-import static com.vh.ui.web.locators.LoginLocators.TXT_PASSWORD;
-import static com.vh.ui.web.locators.LoginLocators.TXT_USERNAME;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.TimeoutException;
@@ -66,24 +63,10 @@ public class LoginPage extends WebPage
 	@Step("Get the login error message")
 	public String getLoginErrorMessage() throws TimeoutException, WaitException
 	{
-//		WebDriverWait Wait = new WebDriverWait(driver, 30);
-//		WebElement we = driver.findElement(LBL_LOGINERRORMSG);
-//		Wait.until(ExpectedConditions.visibilityOf(we));
-		//Wait.until(ExpectedConditions.alertIsPresent());
-		//return driverIE.switchTo().alert().getText();
-//		Utilities.highlightElement(driver, we);
 		String Invalid_Errormessage = webActions.getText(VISIBILITY, LBL_LOGINERRORMSG);
 		System.out.println(Invalid_Errormessage);
-//		WE_InvalidOKButton.click();
-//		
-//		Thread.sleep(5000);
-//		//Wait.wait(30);
-//		
-//		WE_UserName.clear();
-//		WE_Password.clear();
-//		WE_Token.clear();
-		return Invalid_Errormessage;
-		
+
+		return Invalid_Errormessage;		
 	}
 	
 	@Step("Login to Capella application {0} with user name {1}")
