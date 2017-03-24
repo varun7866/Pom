@@ -74,8 +74,8 @@ public class LoginTest extends TestBase
 
 		Assert.assertTrue(loginPage.viewUserNameTextField(), "Failed to identify UserName text field");
 		Assert.assertTrue(loginPage.viewPasswordTextField(), "Failed to identify Password text field");
-		loginPage.enterUserName("hackermans");
-		loginPage.enterPassword("Feb2017!");
+		loginPage.enterUserName("*");
+		loginPage.enterPassword("*");
 		loginPage.clickLogin();
 	
 		// Assert.assertEquals(loginPage.getLoginErrorMessage(), "Error: Invalid
