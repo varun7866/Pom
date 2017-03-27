@@ -74,25 +74,17 @@ public class LoginTest extends TestBase
 
 		Assert.assertTrue(loginPage.viewUserNameTextField(), "Failed to identify UserName text field");
 		Assert.assertTrue(loginPage.viewPasswordTextField(), "Failed to identify Password text field");
-		loginPage.enterUserName("*");
-		loginPage.enterPassword("*");
+		loginPage.enterUserName("hackermans");
+		loginPage.enterPassword("Feb2017!");
 		loginPage.clickLogin();
-	
-		// Assert.assertEquals(loginPage.getLoginErrorMessage(), "Error: Invalid
-		// username or password");
+		Thread.sleep(5000);
+
+		Assert.assertTrue(loginPage.viewYesAllowButton(), "Failed to identify Yes, Allow button");
+		loginPage.clickYesAllow();
+		Thread.sleep(5000);
+
+		Assert.assertTrue(loginPage.viewMyPatientsPage(), "Failed to identify My Patients page");
 	}
-//	
-//	@Step("File upload functionality")
-//    public void uploadFile() throws Exception {
-//        String filename = "some-file.txt";
-//        File file = new File(filename);
-//        String path = file.getAbsolutePath();
-//        WebDriver driver = getWebDriver();
-//        driver.get("http://the-internet.herokuapp.com/upload");
-//        driver.findElement(By.id("file-upload")).sendKeys(path);
-//        driver.findElement(By.id("file-submit")).click();
-//        String text = driver.findElement(By.id("uploaded-files")).getText();
-//    }
 	
 	@AfterClass
 	public void tearDown() throws TimeoutException, WaitException

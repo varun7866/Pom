@@ -1,22 +1,18 @@
 package com.vh.ui.pages;
 
-import static com.vh.ui.web.locators.LoginLocators.TXT_USERNAME;
-import static com.vh.ui.web.locators.LoginLocators.TXT_PASSWORD;
+import static com.vh.ui.web.locators.LoginLocators.BTN_ADDTOCONTACTS;
 import static com.vh.ui.web.locators.LoginLocators.BTN_LOGIN;
+import static com.vh.ui.web.locators.LoginLocators.BTN_YESALLOW;
 import static com.vh.ui.web.locators.LoginLocators.LBL_LOGINERRORMSG;
+import static com.vh.ui.web.locators.LoginLocators.TXT_PASSWORD;
+import static com.vh.ui.web.locators.LoginLocators.TXT_USERNAME;
 
-import org.openqa.selenium.By;
 import org.openqa.selenium.TimeoutException;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
-import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.WebDriverWait;
-import org.testng.Assert;
 
 import com.vh.ui.exceptions.URLNavigationException;
 import com.vh.ui.exceptions.WaitException;
 import com.vh.ui.page.base.WebPage;
-import com.vh.ui.utilities.Utilities;
 
 import ru.yandex.qatools.allure.annotations.Step;
 
@@ -42,6 +38,16 @@ public class LoginPage extends WebPage
 		return webActions.getVisibiltyOfElementLocatedBy(VISIBILITY, TXT_PASSWORD);
 	}
 	
+	@Step("Verifying the visibility of the Yes, Allow button")
+	public boolean viewYesAllowButton() throws TimeoutException, WaitException {
+		return webActions.getVisibiltyOfElementLocatedBy(VISIBILITY, BTN_YESALLOW);
+	}
+
+	@Step("Verifying the visibility of the My Patients page")
+	public boolean viewMyPatientsPage() throws TimeoutException, WaitException {
+		return webActions.getVisibiltyOfElementLocatedBy(VISIBILITY, BTN_ADDTOCONTACTS);
+	}
+
 	@Step("Entered {0} in the User Name text field")
 	public LoginPage enterUserName(String userNameVal) throws TimeoutException, WaitException {
 		webActions.enterText(VISIBILITY, TXT_USERNAME, userNameVal);
@@ -60,6 +66,12 @@ public class LoginPage extends WebPage
 		return new MyDashboardPage(getDriver());
 	}
 	
+	@Step("Click Yes, Allow")
+	public MyDashboardPage clickYesAllow() throws TimeoutException, WaitException {
+		webActions.click(VISIBILITY, BTN_YESALLOW);
+		return new MyDashboardPage(getDriver());
+	}
+
 	@Step("Get the login error message")
 	public String getLoginErrorMessage() throws TimeoutException, WaitException
 	{
@@ -85,6 +97,5 @@ public class LoginPage extends WebPage
 			return true;
 		}
 		return false;
-		
 	}
 }
