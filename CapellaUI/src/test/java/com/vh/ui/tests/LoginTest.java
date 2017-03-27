@@ -79,11 +79,15 @@ public class LoginTest extends TestBase
 		loginPage.clickLogin();
 		Thread.sleep(5000);
 
-		Assert.assertTrue(loginPage.viewYesAllowButton(), "Failed to identify Yes, Allow button");
-		loginPage.clickYesAllow();
-		Thread.sleep(5000);
+//		Assert.assertTrue(loginPage.viewYesAllowButton(), "Failed to identify Yes, Allow button");
+//		loginPage.clickYesAllow();
+//		Thread.sleep(5000);
 
 		Assert.assertTrue(loginPage.viewMyPatientsPage(), "Failed to identify My Patients page");
+		
+		String User_Name = System.getProperty("user.name");
+
+		Assert.assertEquals(loginPage.getUserNameTextPatientBanner(), User_Name);
 	}
 	
 	@AfterClass

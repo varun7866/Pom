@@ -6,6 +6,7 @@ import static com.vh.ui.web.locators.LoginLocators.BTN_YESALLOW;
 import static com.vh.ui.web.locators.LoginLocators.LBL_LOGINERRORMSG;
 import static com.vh.ui.web.locators.LoginLocators.TXT_PASSWORD;
 import static com.vh.ui.web.locators.LoginLocators.TXT_USERNAME;
+import static com.vh.ui.web.locators.LoginLocators.TXT_USERNAME_PATIENTBANNER;
 
 import org.openqa.selenium.TimeoutException;
 import org.openqa.selenium.WebDriver;
@@ -81,6 +82,15 @@ public class LoginPage extends WebPage
 		return Invalid_Errormessage;		
 	}
 	
+	@Step("Get the User Name from the Patient Banner")
+	public String getUserNameTextPatientBanner() throws TimeoutException, WaitException {
+		String User_Name_With_Welcome = webActions.getText(VISIBILITY, TXT_USERNAME_PATIENTBANNER);
+		String User_Name = User_Name_With_Welcome.substring(9);
+		System.out.println(User_Name);
+
+		return User_Name;
+	}
+
 	@Step("Login to Capella application {0} with user name {1}")
 	public boolean loginToCapella(String url, String username, String password, String token) throws URLNavigationException, WaitException, InterruptedException
 	{
