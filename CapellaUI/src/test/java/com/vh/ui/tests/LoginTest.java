@@ -1,6 +1,7 @@
 package com.vh.ui.tests;
 
 import org.openqa.selenium.TimeoutException;
+import org.openqa.selenium.WebDriver;
 import org.testng.Assert;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
@@ -22,7 +23,8 @@ import ru.yandex.qatools.allure.annotations.Step;
  * @class  LoginTest.java
  * 
  * Before running this test suite:
- * Change the "username" and "password" parameters in the "resources\application.properties" file to your own.
+ * Change the "username" and "password" parameters in the "resources\application.properties" file to your own
+ * Clear your browser's cache
  */
 
 public class LoginTest extends TestBase
@@ -34,12 +36,13 @@ public class LoginTest extends TestBase
 
 	@BeforeClass
 	public void buildUp() throws TimeoutException, WaitException {
-		pageBase = new WebPage(getWebDriver());
-		appFunctions = new ApplicationFunctions(getWebDriver());
-		myPatients = new MyPatientsPage(getWebDriver());
+		WebDriver driver = getWebDriver();
+		pageBase = new WebPage(driver);
+		appFunctions = new ApplicationFunctions(driver);
+		myPatients = new MyPatientsPage(driver);
 	}
 
-	@Test
+	@Test(priority = 1)
 	@Step("Verify Invalid User Name")
 	public void verify_InvalidUserName() throws WaitException, URLNavigationException, InterruptedException
 	{
@@ -55,7 +58,7 @@ public class LoginTest extends TestBase
 		Assert.assertEquals(loginPage.getLoginErrorMessage(), "Error: Invalid username or password");
 	}
 	
-	@Test
+	@Test(priority = 2)
 	@Step("Verify Invalid Password")
 	public void verify_InvalidPassword() throws WaitException, URLNavigationException, InterruptedException
 	{
@@ -71,7 +74,7 @@ public class LoginTest extends TestBase
 		Assert.assertEquals(loginPage.getLoginErrorMessage(), "Error: Invalid username or password");
 	}
 	
-	@Test
+	@Test(priority = 3)
 	@Step("Verify Successful Login")
 	public void verify_SuccessfulLogin()
 			throws WaitException, URLNavigationException, InterruptedException

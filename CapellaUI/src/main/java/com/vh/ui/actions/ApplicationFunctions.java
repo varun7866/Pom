@@ -4,8 +4,6 @@
 package com.vh.ui.actions;
 
 import static com.vh.ui.web.locators.ApplicationLocators.BTN_LOGOUT;
-import static com.vh.ui.web.locators.ApplicationLocators.BTN_LOGOUT_OK;
-import static com.vh.ui.web.locators.ApplicationLocators.LBL_LOGOUT_MSG;
 import static com.vh.ui.web.locators.ApplicationLocators.TXT_USERNAME_MENUBAR;
 
 import java.util.List;
@@ -33,7 +31,6 @@ import ru.yandex.qatools.allure.annotations.Step;
  *
  */
 public class ApplicationFunctions extends WebPage {
-	protected WebDriver driver;
 	protected static final Logger LOGGER = Logg.createLogger();
 	protected final WebDriverWaits wait = new WebDriverWaits();
 	private static Cookie cookie;
@@ -82,7 +79,7 @@ public class ApplicationFunctions extends WebPage {
 	}
 	
 	/**
-	 * Click Logout button in CPP and logout of application
+	 * Click the Logout button in Capella and logout of application
 	 * 
 	 * @throws TimeoutException
 	 * @throws WaitException
@@ -90,14 +87,7 @@ public class ApplicationFunctions extends WebPage {
 	@Step("Logout of Capella")
 	public void capellaLogOut() throws TimeoutException, WaitException {
 		LOGGER.debug("In ApplicationFunctions - capellaLogOut");
-		Utilities.highlightElement(driver, BTN_LOGOUT);
 		webActions.javascriptClick(BTN_LOGOUT);
-		String Invalid_Errormessage = webActions.getText("visibility", LBL_LOGOUT_MSG);
-		System.out.println(Invalid_Errormessage);
-
-		WebElement btnOk = driver.findElement(BTN_LOGOUT_OK);
-		Utilities.highlightElement(driver, BTN_LOGOUT_OK);
-		webActions.javascriptClick(btnOk);
 	}
 	
 	/**
