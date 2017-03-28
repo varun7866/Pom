@@ -1,12 +1,10 @@
 package com.vh.ui.pages;
 
-import static com.vh.ui.web.locators.LoginLocators.BTN_ADDTOCONTACTS;
 import static com.vh.ui.web.locators.LoginLocators.BTN_LOGIN;
 import static com.vh.ui.web.locators.LoginLocators.BTN_YESALLOW;
 import static com.vh.ui.web.locators.LoginLocators.LBL_LOGINERRORMSG;
 import static com.vh.ui.web.locators.LoginLocators.TXT_PASSWORD;
 import static com.vh.ui.web.locators.LoginLocators.TXT_USERNAME;
-import static com.vh.ui.web.locators.LoginLocators.TXT_USERNAME_PATIENTBANNER;
 
 import org.openqa.selenium.TimeoutException;
 import org.openqa.selenium.WebDriver;
@@ -44,11 +42,6 @@ public class LoginPage extends WebPage
 		return webActions.getVisibiltyOfElementLocatedBy(VISIBILITY, BTN_YESALLOW);
 	}
 
-	@Step("Verifying the visibility of the My Patients page")
-	public boolean viewMyPatientsPage() throws TimeoutException, WaitException {
-		return webActions.getVisibiltyOfElementLocatedBy(VISIBILITY, BTN_ADDTOCONTACTS);
-	}
-
 	@Step("Entered {0} in the User Name text field")
 	public LoginPage enterUserName(String userNameVal) throws TimeoutException, WaitException {
 		webActions.enterText(VISIBILITY, TXT_USERNAME, userNameVal);
@@ -62,15 +55,15 @@ public class LoginPage extends WebPage
 	}	
 	
 	@Step("Click Login")
-	public MyDashboardPage clickLogin() throws TimeoutException, WaitException {
+	public MyPatientsPage clickLogin() throws TimeoutException, WaitException {
 		webActions.click(VISIBILITY, BTN_LOGIN);
-		return new MyDashboardPage(getDriver());
+		return new MyPatientsPage(getDriver());
 	}
 	
 	@Step("Click Yes, Allow")
-	public MyDashboardPage clickYesAllow() throws TimeoutException, WaitException {
+	public MyPatientsPage clickYesAllow() throws TimeoutException, WaitException {
 		webActions.click(VISIBILITY, BTN_YESALLOW);
-		return new MyDashboardPage(getDriver());
+		return new MyPatientsPage(getDriver());
 	}
 
 	@Step("Get the login error message")
@@ -80,15 +73,6 @@ public class LoginPage extends WebPage
 		System.out.println(Invalid_Errormessage);
 
 		return Invalid_Errormessage;		
-	}
-	
-	@Step("Get the User Name from the Patient Banner")
-	public String getUserNameTextPatientBanner() throws TimeoutException, WaitException {
-		String User_Name_With_Welcome = webActions.getText(VISIBILITY, TXT_USERNAME_PATIENTBANNER);
-		String User_Name = User_Name_With_Welcome.substring(9);
-		System.out.println(User_Name);
-
-		return User_Name;
 	}
 
 	@Step("Login to Capella application {0} with user name {1}")
@@ -102,7 +86,7 @@ public class LoginPage extends WebPage
 			loginPage.enterUserName(username);
 			loginPage.enterPassword(password);
 			
-			MyDashboardPage myDashboard = loginPage.clickLogin();
+			MyPatientsPage myPatientsPage = loginPage.clickLogin();
 			Thread.sleep(10000);
 			return true;
 		}

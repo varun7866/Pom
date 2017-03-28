@@ -3,7 +3,10 @@
  */
 package com.vh.ui.actions;
 
-import static com.vh.ui.web.locators.MyDashboardLocators.*;
+import static com.vh.ui.web.locators.ApplicationLocators.BTN_LOGOUT;
+import static com.vh.ui.web.locators.ApplicationLocators.BTN_LOGOUT_OK;
+import static com.vh.ui.web.locators.ApplicationLocators.LBL_LOGOUT_MSG;
+import static com.vh.ui.web.locators.ApplicationLocators.TXT_USERNAME_MENUBAR;
 
 import java.util.List;
 
@@ -16,6 +19,7 @@ import org.openqa.selenium.WebElement;
 import org.testng.Assert;
 
 import com.vh.ui.exceptions.WaitException;
+import com.vh.ui.page.base.WebPage;
 import com.vh.ui.utilities.Logg;
 import com.vh.ui.utilities.Utilities;
 import com.vh.ui.waits.WebDriverWaits;
@@ -28,17 +32,17 @@ import ru.yandex.qatools.allure.annotations.Step;
  * @class  ApplicationFunctions.java
  *
  */
-public class ApplicationFunctions {
+public class ApplicationFunctions extends WebPage {
 	protected WebDriver driver;
 	protected static final Logger LOGGER = Logg.createLogger();
 	protected final WebDriverWaits wait = new WebDriverWaits();
 	private static Cookie cookie;
 	private WebActions webActions = null;
 	
-	public ApplicationFunctions(WebDriver driver)
+	public ApplicationFunctions(WebDriver driver) throws WaitException
 	{
-		this.driver = driver;
-		this.webActions = new WebActions(driver);
+		super(driver);
+		webActions = new WebActions(driver);
 	}
 	
 	/**
@@ -84,17 +88,16 @@ public class ApplicationFunctions {
 	 * @throws WaitException
 	 */
 	@Step("Logout of Capella")
-	public void capellaLogOut() throws TimeoutException, WaitException
-	{
+	public void capellaLogOut() throws TimeoutException, WaitException {
 		LOGGER.debug("In ApplicationFunctions - capellaLogOut");
 		Utilities.highlightElement(driver, BTN_LOGOUT);
 		webActions.javascriptClick(BTN_LOGOUT);
 		String Invalid_Errormessage = webActions.getText("visibility", LBL_LOGOUT_MSG);
 		System.out.println(Invalid_Errormessage);
-		
+
 		WebElement btnOk = driver.findElement(BTN_LOGOUT_OK);
 		Utilities.highlightElement(driver, BTN_LOGOUT_OK);
-		webActions.javascriptClick(btnOk);	
+		webActions.javascriptClick(btnOk);
 	}
 	
 	/**
@@ -250,70 +253,80 @@ public class ApplicationFunctions {
 	 * @throws WaitException
 	 * @throws InterruptedException
 	 */
-	@Step("Close All Patients")
-	public boolean closeAllPatients() throws TimeoutException, WaitException, InterruptedException
-	{
-		LOGGER.debug("In WebMyDashboardPage - closeAllPatients");
-		if(!wait.checkForElementVisibility(driver, BTN_EXPAND_OPENPATIENT)){
-			return false;
-		}
-		
-		if(!wait.checkForElementVisibility(driver, LBL_NO_OF_PATIENTS)){
-			return true;
-		}
-		
-		int count = Integer.parseInt(webActions.getText("visibility", LBL_NO_OF_PATIENTS));
-		System.out.println(count);
-		if(count == 0)
-		{
-			return true;
-		}
-		
-		Utilities.highlightElement(driver, BTN_EXPAND_OPENPATIENT);
-//		webActions.actionClick(CLICKABILITY, BTN_EXPAND_OPENPATIENT);
-		WebElement btnExpandOpenPatient = driver.findElement(BTN_EXPAND_OPENPATIENT);
-		webActions.javascriptClick(btnExpandOpenPatient);
-		
-		Thread.sleep(5000);
-		
-		Utilities.highlightElement(driver, OPEN_PATIENT_CONTAINER);
-		WebElement container = driver.findElement(OPEN_PATIENT_CONTAINER);
-		
-		List<WebElement> finalize = null;
-		finalize =  container.findElements(By.xpath("//div[@title='Finalize Patient']"));
-		do
-		{
-			System.out.println(finalize.size());
-			Utilities.highlightElement(driver, finalize.get(2));
-			Thread.sleep(3000);
-
-			webActions.javascriptClick(finalize.get(2));
-			
-			clickButtonOnMessageBox(POPUP_CLOSE_PATIENT, LBL_DO_YOU_WANT_TO_FINALIZE, "Do you want to finalize and close this patient record?", BTN_CLOSE_PATIENT_YES);
-			Thread.sleep(5000);
-//			boolean isVisible = new WebDriverWaits().checkForElementVisibility(driver, POPUP_CLOSE_PATIENT);
-//			if(!isVisible)
-//			{
-//				return false;
-//			}
-//			String doYouWantToFinalize = webActions.getText("presence", LBL_DO_YOU_WANT_TO_FINALIZE);
-//			if(doYouWantToFinalize.equalsIgnoreCase("Do you want to finalize and close this patient record?"))
-//			{
-////				webActions.click(CLICKABILITY, BTN_CLOSE_PATIENT_YES);
-//				WebElement btnYes = driver.findElement(BTN_CLOSE_PATIENT_YES);
-//				Utilities.highlightElement(driver, BTN_CLOSE_PATIENT_YES);
-//				webActions.javascriptClick(btnYes);
-//				Thread.sleep(3000);
-//			}
-			finalize =  container.findElements(By.xpath("//div[@title='Finalize Patient']"));
-			
-		}while(finalize.size() != 0);
-		if(wait.checkForElementVisibility(driver, BTN_COLLAPSE_OPENPATIENT)){
-			webActions.javascriptClick(BTN_COLLAPSE_OPENPATIENT);
-		}
-		
-		return true;						
-	}
+	// @Step("Close All Patients")
+	// public boolean closeAllPatients() throws TimeoutException, WaitException,
+	// InterruptedException
+	// {
+	// LOGGER.debug("In WebMyDashboardPage - closeAllPatients");
+	// if(!wait.checkForElementVisibility(driver, BTN_EXPAND_OPENPATIENT)){
+	// return false;
+	// }
+	//
+	// if(!wait.checkForElementVisibility(driver, LBL_NO_OF_PATIENTS)){
+	// return true;
+	// }
+	//
+	// int count = Integer.parseInt(webActions.getText("visibility",
+	// LBL_NO_OF_PATIENTS));
+	// System.out.println(count);
+	// if(count == 0)
+	// {
+	// return true;
+	// }
+	//
+	// Utilities.highlightElement(driver, BTN_EXPAND_OPENPATIENT);
+	//// webActions.actionClick(CLICKABILITY, BTN_EXPAND_OPENPATIENT);
+	// WebElement btnExpandOpenPatient =
+	// driver.findElement(BTN_EXPAND_OPENPATIENT);
+	// webActions.javascriptClick(btnExpandOpenPatient);
+	//
+	// Thread.sleep(5000);
+	//
+	// Utilities.highlightElement(driver, OPEN_PATIENT_CONTAINER);
+	// WebElement container = driver.findElement(OPEN_PATIENT_CONTAINER);
+	//
+	// List<WebElement> finalize = null;
+	// finalize = container.findElements(By.xpath("//div[@title='Finalize
+	// Patient']"));
+	// do
+	// {
+	// System.out.println(finalize.size());
+	// Utilities.highlightElement(driver, finalize.get(2));
+	// Thread.sleep(3000);
+	//
+	// webActions.javascriptClick(finalize.get(2));
+	//
+	// clickButtonOnMessageBox(POPUP_CLOSE_PATIENT, LBL_DO_YOU_WANT_TO_FINALIZE,
+	// "Do you want to finalize and close this patient record?",
+	// BTN_CLOSE_PATIENT_YES);
+	// Thread.sleep(5000);
+	//// boolean isVisible = new
+	// WebDriverWaits().checkForElementVisibility(driver, POPUP_CLOSE_PATIENT);
+	//// if(!isVisible)
+	//// {
+	//// return false;
+	//// }
+	//// String doYouWantToFinalize = webActions.getText("presence",
+	// LBL_DO_YOU_WANT_TO_FINALIZE);
+	//// if(doYouWantToFinalize.equalsIgnoreCase("Do you want to finalize and
+	// close this patient record?"))
+	//// {
+	////// webActions.click(CLICKABILITY, BTN_CLOSE_PATIENT_YES);
+	//// WebElement btnYes = driver.findElement(BTN_CLOSE_PATIENT_YES);
+	//// Utilities.highlightElement(driver, BTN_CLOSE_PATIENT_YES);
+	//// webActions.javascriptClick(btnYes);
+	//// Thread.sleep(3000);
+	//// }
+	// finalize = container.findElements(By.xpath("//div[@title='Finalize
+	// Patient']"));
+	//
+	// }while(finalize.size() != 0);
+	// if(wait.checkForElementVisibility(driver, BTN_COLLAPSE_OPENPATIENT)){
+	// webActions.javascriptClick(BTN_COLLAPSE_OPENPATIENT);
+	// }
+	//
+	// return true;
+	// }
 	
 	/**
 	 * Select an item from drop down in capella application
@@ -421,5 +434,14 @@ public class ApplicationFunctions {
 		WebElement ulElement = driver.findElement(ulLocator);
 //		ulElement.findElement(by)
 		return isPass;
+	}
+
+	@Step("Get the User Name from the Menu Bar")
+	public String getUserNameTextMenuBar() throws TimeoutException, WaitException {
+		String User_Name_With_Welcome = webActions.getText(VISIBILITY, TXT_USERNAME_MENUBAR);
+		String User_Name = User_Name_With_Welcome.substring(9);
+		System.out.println(User_Name);
+
+		return User_Name;
 	}
 }

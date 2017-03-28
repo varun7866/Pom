@@ -3,6 +3,7 @@ package com.vh.ui.tests;
 import org.openqa.selenium.TimeoutException;
 import org.testng.Assert;
 import org.testng.annotations.AfterClass;
+import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
 import com.vh.test.base.TestBase;
@@ -11,7 +12,7 @@ import com.vh.ui.exceptions.URLNavigationException;
 import com.vh.ui.exceptions.WaitException;
 import com.vh.ui.page.base.WebPage;
 import com.vh.ui.pages.LoginPage;
-import com.vh.ui.pages.MyDashboardPage;
+import com.vh.ui.pages.MyPatientsPage;
 
 import ru.yandex.qatools.allure.annotations.Step;
 
@@ -23,17 +24,22 @@ import ru.yandex.qatools.allure.annotations.Step;
 
 public class LoginTest extends TestBase
 {	
-	// Class objects
 	WebPage pageBase;
 	LoginPage loginPage;
-	MyDashboardPage myDashboard;
 	ApplicationFunctions appFunctions;
-	
+	MyPatientsPage myPatients;
+
+	@BeforeClass
+	public void buildUp() throws TimeoutException, WaitException {
+		pageBase = new WebPage(getWebDriver());
+		appFunctions = new ApplicationFunctions(getWebDriver());
+		myPatients = new MyPatientsPage(getWebDriver());
+	}
+
 	@Test
 	@Step("Verify Invalid User Name")
 	public void verify_InvalidUserName() throws WaitException, URLNavigationException, InterruptedException
-	{		
-		pageBase = new WebPage(getWebDriver());
+	{
 		loginPage = (LoginPage) pageBase.navigateTo(applicationProperty.getProperty("webURL"));
 		Thread.sleep(5000);
 		
@@ -50,8 +56,6 @@ public class LoginTest extends TestBase
 	@Step("Verify Invalid Password")
 	public void verify_InvalidPassword() throws WaitException, URLNavigationException, InterruptedException
 	{
-		
-		pageBase = new WebPage(getWebDriver());
 		loginPage = (LoginPage) pageBase.navigateTo(applicationProperty.getProperty("webURL"));
 		Thread.sleep(5000);
 	
@@ -66,9 +70,9 @@ public class LoginTest extends TestBase
 	
 	@Test
 	@Step("Verify Successful Login")
-	public void verify_SuccessfulLogin() throws WaitException, URLNavigationException, InterruptedException
+	public void verify_SuccessfulLogin()
+			throws WaitException, URLNavigationException, InterruptedException
 	{
-		pageBase = new WebPage(getWebDriver());
 		loginPage = (LoginPage) pageBase.navigateTo(applicationProperty.getProperty("webURL"));
 		Thread.sleep(5000);
 
@@ -83,11 +87,11 @@ public class LoginTest extends TestBase
 //		loginPage.clickYesAllow();
 //		Thread.sleep(5000);
 
-		Assert.assertTrue(loginPage.viewMyPatientsPage(), "Failed to identify My Patients page");
+		Assert.assertTrue(myPatients.viewMyPatientsPage(), "Failed to identify My Patients page");
 		
 		String User_Name = System.getProperty("user.name");
 
-		Assert.assertEquals(loginPage.getUserNameTextPatientBanner(), User_Name);
+		Assert.assertEquals(appFunctions.getUserNameTextMenuBar(), User_Name.toUpperCase());
 	}
 	
 	@AfterClass
