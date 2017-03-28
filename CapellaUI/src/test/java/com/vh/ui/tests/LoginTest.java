@@ -20,6 +20,9 @@ import ru.yandex.qatools.allure.annotations.Step;
  * @author Harvy Ackermans
  * @date   March 23, 2017
  * @class  LoginTest.java
+ * 
+ * Before running this test suite:
+ * Change the "username" and "password" parameters in the "resources\application.properties" file to your own.
  */
 
 public class LoginTest extends TestBase
@@ -45,8 +48,8 @@ public class LoginTest extends TestBase
 		
 		Assert.assertTrue(loginPage.viewUserNameTextField(), "Failed to identify UserName text field");
 		Assert.assertTrue(loginPage.viewPasswordTextField(), "Failed to identify Password text field");
-		loginPage.enterUserName("vhnta");
-		loginPage.enterPassword("test123");		
+		loginPage.enterUserName(applicationProperty.getProperty("username") + "test");
+		loginPage.enterPassword(applicationProperty.getProperty("password"));
 		loginPage.clickLogin();
 		
 		Assert.assertEquals(loginPage.getLoginErrorMessage(), "Error: Invalid username or password");
@@ -61,8 +64,8 @@ public class LoginTest extends TestBase
 	
 		Assert.assertTrue(loginPage.viewUserNameTextField(), "Failed to identify UserName text field");
 		Assert.assertTrue(loginPage.viewPasswordTextField(), "Failed to identify Password text field");
-		loginPage.enterUserName("vhncl");
-		loginPage.enterPassword("test1234");		
+		loginPage.enterUserName(applicationProperty.getProperty("username"));
+		loginPage.enterPassword(applicationProperty.getProperty("password") + "test");
 		loginPage.clickLogin();
 		
 		Assert.assertEquals(loginPage.getLoginErrorMessage(), "Error: Invalid username or password");
@@ -78,8 +81,8 @@ public class LoginTest extends TestBase
 
 		Assert.assertTrue(loginPage.viewUserNameTextField(), "Failed to identify UserName text field");
 		Assert.assertTrue(loginPage.viewPasswordTextField(), "Failed to identify Password text field");
-		loginPage.enterUserName("hackermans");
-		loginPage.enterPassword("Feb2017!");
+		loginPage.enterUserName(applicationProperty.getProperty("username"));
+		loginPage.enterPassword(applicationProperty.getProperty("password"));
 		loginPage.clickLogin();
 		Thread.sleep(5000);
 

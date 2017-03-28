@@ -2,7 +2,7 @@
 randomMaxInteger=1000
 
 #Selenium Wait Maximum TimeOut
-elementSearchTimeOut=50
+elementSearchTimeOut=45
 
 #Browser Properties
 browserName=internet explorer

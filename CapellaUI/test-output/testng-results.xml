@@ -2,20 +2,20 @@
 <testng-results skipped="0" failed="0" total="3" passed="3">
   <reporter-output>
   </reporter-output>
-  <suite name="Default suite" duration-ms="92546" started-at="2017-03-28T16:36:46Z" finished-at="2017-03-28T16:38:18Z">
+  <suite name="Default suite" duration-ms="152120" started-at="2017-03-28T17:54:16Z" finished-at="2017-03-28T17:56:48Z">
     <groups>
     </groups>
-    <test name="Default test" duration-ms="92546" started-at="2017-03-28T16:36:46Z" finished-at="2017-03-28T16:38:18Z">
+    <test name="Default test" duration-ms="152120" started-at="2017-03-28T17:54:16Z" finished-at="2017-03-28T17:56:48Z">
       <class name="com.vh.ui.tests.LoginTest">
-        <test-method status="PASS" signature="buildUp()[pri:0, instance:com.vh.ui.tests.LoginTest@2b0e9f30]" name="buildUp" is-config="true" duration-ms="5937" started-at="2017-03-28T11:36:46Z" finished-at="2017-03-28T11:36:52Z">
+        <test-method status="PASS" signature="buildUp()[pri:0, instance:com.vh.ui.tests.LoginTest@d535a3d]" name="buildUp" is-config="true" duration-ms="4642" started-at="2017-03-28T12:54:16Z" finished-at="2017-03-28T12:54:20Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- buildUp -->
-        <test-method status="PASS" signature="verify_InvalidPassword()[pri:0, instance:com.vh.ui.tests.LoginTest@2b0e9f30]" name="verify_InvalidPassword" duration-ms="28841" started-at="2017-03-28T11:36:52Z" finished-at="2017-03-28T11:37:20Z">
+        <test-method status="PASS" signature="verify_InvalidPassword()[pri:0, instance:com.vh.ui.tests.LoginTest@d535a3d]" name="verify_InvalidPassword" duration-ms="32613" started-at="2017-03-28T12:54:20Z" finished-at="2017-03-28T12:54:53Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- verify_InvalidPassword -->
-        <test-method status="PASS" signature="afterTest(java.lang.reflect.Method, org.testng.ITestResult)[pri:0, instance:com.vh.ui.tests.LoginTest@2b0e9f30]" name="afterTest" is-config="true" duration-ms="7" started-at="2017-03-28T11:37:20Z" finished-at="2017-03-28T11:37:21Z">
+        <test-method status="PASS" signature="afterTest(java.lang.reflect.Method, org.testng.ITestResult)[pri:0, instance:com.vh.ui.tests.LoginTest@d535a3d]" name="afterTest" is-config="true" duration-ms="6" started-at="2017-03-28T12:54:53Z" finished-at="2017-03-28T12:54:53Z">
           <params>
             <param index="0">
               <value>
@@ -24,18 +24,18 @@
             </param>
             <param index="1">
               <value>
-                <![CDATA[[TestResult name=verify_InvalidPassword status=SUCCESS method=LoginTest.verify_InvalidPassword()[pri:0, instance:com.vh.ui.tests.LoginTest@2b0e9f30] output={null}]]]>
+                <![CDATA[[TestResult name=verify_InvalidPassword status=SUCCESS method=LoginTest.verify_InvalidPassword()[pri:0, instance:com.vh.ui.tests.LoginTest@d535a3d] output={null}]]]>
               </value>
             </param>
           </params>
           <reporter-output>
           </reporter-output>
         </test-method> <!-- afterTest -->
-        <test-method status="PASS" signature="verify_InvalidUserName()[pri:0, instance:com.vh.ui.tests.LoginTest@2b0e9f30]" name="verify_InvalidUserName" duration-ms="20874" started-at="2017-03-28T11:37:21Z" finished-at="2017-03-28T11:37:41Z">
+        <test-method status="PASS" signature="verify_InvalidUserName()[pri:0, instance:com.vh.ui.tests.LoginTest@d535a3d]" name="verify_InvalidUserName" duration-ms="33496" started-at="2017-03-28T12:54:53Z" finished-at="2017-03-28T12:55:27Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- verify_InvalidUserName -->
-        <test-method status="PASS" signature="afterTest(java.lang.reflect.Method, org.testng.ITestResult)[pri:0, instance:com.vh.ui.tests.LoginTest@2b0e9f30]" name="afterTest" is-config="true" duration-ms="0" started-at="2017-03-28T11:37:41Z" finished-at="2017-03-28T11:37:41Z">
+        <test-method status="PASS" signature="afterTest(java.lang.reflect.Method, org.testng.ITestResult)[pri:0, instance:com.vh.ui.tests.LoginTest@d535a3d]" name="afterTest" is-config="true" duration-ms="0" started-at="2017-03-28T12:55:27Z" finished-at="2017-03-28T12:55:27Z">
           <params>
             <param index="0">
               <value>
@@ -44,18 +44,18 @@
             </param>
             <param index="1">
               <value>
-                <![CDATA[[TestResult name=verify_InvalidUserName status=SUCCESS method=LoginTest.verify_InvalidUserName()[pri:0, instance:com.vh.ui.tests.LoginTest@2b0e9f30] output={null}]]]>
+                <![CDATA[[TestResult name=verify_InvalidUserName status=SUCCESS method=LoginTest.verify_InvalidUserName()[pri:0, instance:com.vh.ui.tests.LoginTest@d535a3d] output={null}]]]>
               </value>
             </param>
           </params>
           <reporter-output>
           </reporter-output>
         </test-method> <!-- afterTest -->
-        <test-method status="PASS" signature="verify_SuccessfulLogin()[pri:0, instance:com.vh.ui.tests.LoginTest@2b0e9f30]" name="verify_SuccessfulLogin" duration-ms="36754" started-at="2017-03-28T11:37:41Z" finished-at="2017-03-28T11:38:18Z">
+        <test-method status="PASS" signature="verify_SuccessfulLogin()[pri:0, instance:com.vh.ui.tests.LoginTest@d535a3d]" name="verify_SuccessfulLogin" duration-ms="81256" started-at="2017-03-28T12:55:27Z" finished-at="2017-03-28T12:56:48Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- verify_SuccessfulLogin -->
-        <test-method status="PASS" signature="afterTest(java.lang.reflect.Method, org.testng.ITestResult)[pri:0, instance:com.vh.ui.tests.LoginTest@2b0e9f30]" name="afterTest" is-config="true" duration-ms="0" started-at="2017-03-28T11:38:18Z" finished-at="2017-03-28T11:38:18Z">
+        <test-method status="PASS" signature="afterTest(java.lang.reflect.Method, org.testng.ITestResult)[pri:0, instance:com.vh.ui.tests.LoginTest@d535a3d]" name="afterTest" is-config="true" duration-ms="1" started-at="2017-03-28T12:56:48Z" finished-at="2017-03-28T12:56:48Z">
           <params>
             <param index="0">
               <value>
@@ -64,20 +64,20 @@
             </param>
             <param index="1">
               <value>
-                <![CDATA[[TestResult name=verify_SuccessfulLogin status=SUCCESS method=LoginTest.verify_SuccessfulLogin()[pri:0, instance:com.vh.ui.tests.LoginTest@2b0e9f30] output={null}]]]>
+                <![CDATA[[TestResult name=verify_SuccessfulLogin status=SUCCESS method=LoginTest.verify_SuccessfulLogin()[pri:0, instance:com.vh.ui.tests.LoginTest@d535a3d] output={null}]]]>
               </value>
             </param>
           </params>
           <reporter-output>
           </reporter-output>
         </test-method> <!-- afterTest -->
-        <test-method status="FAIL" signature="tearDown()[pri:0, instance:com.vh.ui.tests.LoginTest@2b0e9f30]" name="tearDown" is-config="true" duration-ms="0" started-at="2017-03-28T11:38:18Z" finished-at="2017-03-28T11:38:18Z">
+        <test-method status="FAIL" signature="tearDown()[pri:0, instance:com.vh.ui.tests.LoginTest@d535a3d]" name="tearDown" is-config="true" duration-ms="0" started-at="2017-03-28T12:56:48Z" finished-at="2017-03-28T12:56:48Z">
           <exception class="java.lang.NullPointerException">
             <full-stacktrace>
               <![CDATA[java.lang.NullPointerException
 	at com.vh.ui.utilities.Utilities.highlightElement(Utilities.java:110)
 	at com.vh.ui.actions.ApplicationFunctions.capellaLogOut(ApplicationFunctions.java:93)
-	at com.vh.ui.tests.LoginTest.tearDown(LoginTest.java:100)
+	at com.vh.ui.tests.LoginTest.tearDown(LoginTest.java:103)
 	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
 	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
 	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
