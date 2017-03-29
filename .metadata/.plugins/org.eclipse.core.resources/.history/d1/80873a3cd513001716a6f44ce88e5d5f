@@ -1,9 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<suite name="Capella UI Jan Releast Test" verbose="1">
-	<test name="UISmokeTest" preserve-order="true">
-	 	<classes>
-			<class name="com.vh.ui.tests.UnitTest"/>
-			<class name="com.vh.ui.tests.NewTest"/>
-		</classes>
-	</test>
-</suite>

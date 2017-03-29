@@ -1,0 +1,17 @@
+/**
+ * 
+ */
+package com.vh.ui.web.locators;
+
+import org.openqa.selenium.By;
+
+/*
+ * @author Harvy Ackermans
+ * @date   March 28, 2017
+ * @class  ConsolidatedLocators.java
+ */
+
+public class ConsolidatedLocators
+{
+	
+}

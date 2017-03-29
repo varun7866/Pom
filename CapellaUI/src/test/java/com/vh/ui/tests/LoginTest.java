@@ -23,8 +23,8 @@ import ru.yandex.qatools.allure.annotations.Step;
  * @class  LoginTest.java
  * 
  * Before running this test suite:
- * Change the "username" and "password" parameters in the "resources\application.properties" file to your own
- * Clear your browser's cache
+ * 1. Change the "username" and "password" parameters in the "resources\application.properties" file to your own
+ * 2. Clear your browser's cache
  */
 
 public class LoginTest extends TestBase

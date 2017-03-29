@@ -4,6 +4,10 @@
 package com.vh.ui.actions;
 
 import static com.vh.ui.web.locators.ApplicationLocators.BTN_LOGOUT;
+import static com.vh.ui.web.locators.ApplicationLocators.LNK_ADMIN_MENUBAR;
+import static com.vh.ui.web.locators.ApplicationLocators.LNK_CONSOLIDATED_MENUBAR;
+import static com.vh.ui.web.locators.ApplicationLocators.LNK_MYCONTACTS_MENUBAR;
+import static com.vh.ui.web.locators.ApplicationLocators.LNK_MYPATIENTS_MENUBAR;
 import static com.vh.ui.web.locators.ApplicationLocators.TXT_USERNAME_MENUBAR;
 
 import java.util.List;
@@ -18,6 +22,10 @@ import org.testng.Assert;
 
 import com.vh.ui.exceptions.WaitException;
 import com.vh.ui.page.base.WebPage;
+import com.vh.ui.pages.AdminPage;
+import com.vh.ui.pages.ConsolidatedPage;
+import com.vh.ui.pages.MyContactsPage;
+import com.vh.ui.pages.MyPatientsPage;
 import com.vh.ui.utilities.Logg;
 import com.vh.ui.utilities.Utilities;
 import com.vh.ui.waits.WebDriverWaits;
@@ -433,5 +441,29 @@ public class ApplicationFunctions extends WebPage {
 		System.out.println(User_Name);
 
 		return User_Name;
+	}
+
+	@Step("Click on My Patients Menu Bar option")
+	public MyPatientsPage clickMyPatientsMenuBar() throws TimeoutException, WaitException {
+		webActions.click(VISIBILITY, LNK_MYPATIENTS_MENUBAR);
+		return new MyPatientsPage(getDriver());
+	}
+
+	@Step("Click on My Contacts Menu Bar option")
+	public MyContactsPage clickMyContactsMenuBar() throws TimeoutException, WaitException {
+		webActions.click(VISIBILITY, LNK_MYCONTACTS_MENUBAR);
+		return new MyContactsPage(getDriver());
+	}
+
+	@Step("Click on Consolidated Menu Bar option")
+	public ConsolidatedPage clickConsolidatedMenuBar() throws TimeoutException, WaitException {
+		webActions.click(VISIBILITY, LNK_CONSOLIDATED_MENUBAR);
+		return new ConsolidatedPage(getDriver());
+	}
+
+	@Step("Click on Admin Menu Bar option")
+	public AdminPage clickAdminMenuBar() throws TimeoutException, WaitException {
+		webActions.click(VISIBILITY, LNK_ADMIN_MENUBAR);
+		return new AdminPage(getDriver());
 	}
 }

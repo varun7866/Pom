@@ -1,2 +1,10 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<qualifiedTypeNameHistroy/>
+<qualifiedTypeNameHistroy>
+<fullyQualifiedTypeName name="com.vh.ui.web.locators.MyDashboardLocators"/>
+<fullyQualifiedTypeName name="org.openqa.selenium.net.UrlChecker.TimeoutException"/>
+<fullyQualifiedTypeName name="com.vh.ui.web.locators.ApplicationLocators"/>
+<fullyQualifiedTypeName name="org.testng.annotations.BeforeClass"/>
+<fullyQualifiedTypeName name="com.vh.ui.pages.MyPatientsPage"/>
+<fullyQualifiedTypeName name="com.vh.ui.web.locators.MyPatientsLocators"/>
+<fullyQualifiedTypeName name="com.vh.ui.web.locators.AdminLocators"/>
+</qualifiedTypeNameHistroy>
