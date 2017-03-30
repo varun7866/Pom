@@ -7,4 +7,5 @@
 <fullyQualifiedTypeName name="com.vh.ui.pages.MyPatientsPage"/>
 <fullyQualifiedTypeName name="com.vh.ui.web.locators.MyPatientsLocators"/>
 <fullyQualifiedTypeName name="com.vh.ui.web.locators.AdminLocators"/>
+<fullyQualifiedTypeName name="java.lang.Thread"/>
 </qualifiedTypeNameHistroy>

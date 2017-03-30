@@ -87,11 +87,13 @@ public class LoginTest extends TestBase
 		loginPage.enterUserName(applicationProperty.getProperty("username"));
 		loginPage.enterPassword(applicationProperty.getProperty("password"));
 		loginPage.clickLogin();
-		Thread.sleep(5000);
+		Thread.sleep(3000);
 
-//		Assert.assertTrue(loginPage.viewYesAllowButton(), "Failed to identify Yes, Allow button");
-//		loginPage.clickYesAllow();
-//		Thread.sleep(5000);
+		Assert.assertTrue(loginPage.viewYesAllowButton(), "Failed to identify Yes, Allow button");
+		loginPage.clickRememberMyDecision();
+		Thread.sleep(1000);
+		loginPage.clickYesAllow();
+		Thread.sleep(5000);
 
 		Assert.assertTrue(myPatients.viewMyPatientsPage(), "Failed to identify My Patients page");
 		

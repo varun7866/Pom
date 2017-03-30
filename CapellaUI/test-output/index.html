@@ -49,7 +49,7 @@
               <ul>
                 <li>
                   <a href="#" class="navigator-link " panel-name="test-xml-Default_suite">
-                    <span>C:\Users\hackermans\AppData\Local\Temp\testng-eclipse-1585912931\testng-customsuite.xml</span>
+                    <span>C:\Users\hackermans\AppData\Local\Temp\testng-eclipse-1324577686\testng-customsuite.xml</span>
                   </a> <!-- navigator-link  -->
                 </li>
                 <li>
@@ -91,7 +91,7 @@
               <div class="suite-section-content">
                 <ul>
                   <li>
-                    <span class="method-stats">1 method,   1 passed</span>
+                    <span class="method-stats">3 methods,   3 passed</span>
                   </li>
                   <li>
                     <span class="method-list-title passed">Passed methods</span>
@@ -102,7 +102,17 @@
                     <div class="method-list-content passed suite-Default_suite">
                       <span>
                         <img width="3%" src="passed.png"/>
-                        <a href="#" class="method navigator-link" panel-name="suite-Default_suite" title="com.vh.ui.tests.UnitTest" hash-for-method="verify_MenuBar_Options">verify_MenuBar_Options</a> <!-- method navigator-link -->
+                        <a href="#" class="method navigator-link" panel-name="suite-Default_suite" title="com.vh.ui.tests.LoginTest" hash-for-method="verify_InvalidPassword">verify_InvalidPassword</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img width="3%" src="passed.png"/>
+                        <a href="#" class="method navigator-link" panel-name="suite-Default_suite" title="com.vh.ui.tests.LoginTest" hash-for-method="verify_InvalidUserName">verify_InvalidUserName</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img width="3%" src="passed.png"/>
+                        <a href="#" class="method navigator-link" panel-name="suite-Default_suite" title="com.vh.ui.tests.LoginTest" hash-for-method="verify_SuccessfulLogin">verify_SuccessfulLogin</a> <!-- method navigator-link -->
                       </span>
                       <br/>
                     </div> <!-- method-list-content passed suite-Default_suite -->
@@ -120,14 +130,28 @@
           <div class="suite-Default_suite-class-passed">
             <div class="main-panel-header rounded-window-top">
               <img src="passed.png"/>
-              <span class="class-name">com.vh.ui.tests.UnitTest</span>
+              <span class="class-name">com.vh.ui.tests.LoginTest</span>
             </div> <!-- main-panel-header rounded-window-top -->
             <div class="main-panel-content rounded-window-bottom">
               <div class="method">
                 <div class="method-content">
-                  <a name="verify_MenuBar_Options">
-                  </a> <!-- verify_MenuBar_Options -->
-                  <span class="method-name">verify_MenuBar_Options</span>
+                  <a name="verify_InvalidPassword">
+                  </a> <!-- verify_InvalidPassword -->
+                  <span class="method-name">verify_InvalidPassword</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="verify_InvalidUserName">
+                  </a> <!-- verify_InvalidUserName -->
+                  <span class="method-name">verify_InvalidUserName</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="verify_SuccessfulLogin">
+                  </a> <!-- verify_SuccessfulLogin -->
+                  <span class="method-name">verify_SuccessfulLogin</span>
                 </div> <!-- method-content -->
               </div> <!-- method -->
             </div> <!-- main-panel-content rounded-window-bottom -->
@@ -135,7 +159,7 @@
         </div> <!-- panel Default_suite -->
         <div panel-name="test-xml-Default_suite" class="panel">
           <div class="main-panel-header rounded-window-top">
-            <span class="header-content">C:\Users\hackermans\AppData\Local\Temp\testng-eclipse-1585912931\testng-customsuite.xml</span>
+            <span class="header-content">C:\Users\hackermans\AppData\Local\Temp\testng-eclipse-1324577686\testng-customsuite.xml</span>
           </div> <!-- main-panel-header rounded-window-top -->
           <div class="main-panel-content rounded-window-bottom">
             <pre>
@@ -144,7 +168,7 @@
 &lt;suite guice-stage=&quot;DEVELOPMENT&quot; name=&quot;Default suite&quot;&gt;
   &lt;test verbose=&quot;2&quot; name=&quot;Default test&quot;&gt;
     &lt;classes&gt;
-      &lt;class name=&quot;com.vh.ui.tests.UnitTest&quot;/&gt;
+      &lt;class name=&quot;com.vh.ui.tests.LoginTest&quot;/&gt;
     &lt;/classes&gt;
   &lt;/test&gt; &lt;!-- Default test --&gt;
 &lt;/suite&gt; &lt;!-- Default suite --&gt;
@@ -184,11 +208,19 @@ data.addColumn('number', 'Number');
 data.addColumn('string', 'Method');
 data.addColumn('string', 'Class');
 data.addColumn('number', 'Time (ms)');
-data.addRows(1);
+data.addRows(3);
 data.setCell(0, 0, 0)
-data.setCell(0, 1, 'verify_MenuBar_Options')
-data.setCell(0, 2, 'com.vh.ui.tests.UnitTest')
-data.setCell(0, 3, 68307);
+data.setCell(0, 1, 'verify_SuccessfulLogin')
+data.setCell(0, 2, 'com.vh.ui.tests.LoginTest')
+data.setCell(0, 3, 41480);
+data.setCell(1, 0, 1)
+data.setCell(1, 1, 'verify_InvalidUserName')
+data.setCell(1, 2, 'com.vh.ui.tests.LoginTest')
+data.setCell(1, 3, 23427);
+data.setCell(2, 0, 2)
+data.setCell(2, 1, 'verify_InvalidPassword')
+data.setCell(2, 2, 'com.vh.ui.tests.LoginTest')
+data.setCell(2, 3, 15872);
 window.suiteTableData['Default_suite']= { tableData: data, tableDiv: 'times-div-Default_suite'}
 return data;
 }
@@ -219,22 +251,38 @@ return data;
           </div> <!-- main-panel-header rounded-window-top -->
           <div class="main-panel-content rounded-window-bottom">
             <div class="chronological-class">
-              <div class="chronological-class-name">com.vh.ui.tests.UnitTest</div> <!-- chronological-class-name -->
+              <div class="chronological-class-name">com.vh.ui.tests.LoginTest</div> <!-- chronological-class-name -->
               <div class="configuration-class before">
                 <span class="method-name">buildUp</span>
                 <span class="method-start">0 ms</span>
               </div> <!-- configuration-class before -->
               <div class="test-method">
-                <span class="method-name">verify_MenuBar_Options</span>
-                <span class="method-start">4699 ms</span>
+                <span class="method-name">verify_InvalidUserName</span>
+                <span class="method-start">4585 ms</span>
               </div> <!-- test-method -->
               <div class="configuration-method after">
-                <span class="method-name">afterTest(public void com.vh.ui.tests.UnitTest.verify_MenuBar_Options() throws com.vh.ui.exceptions.WaitExcept...)</span>
-                <span class="method-start">73027 ms</span>
+                <span class="method-name">afterTest(public void com.vh.ui.tests.LoginTest.verify_InvalidUserName() throws com.vh.ui.exceptions.WaitExcep...)</span>
+                <span class="method-start">28029 ms</span>
+              </div> <!-- configuration-method after -->
+              <div class="test-method">
+                <span class="method-name">verify_InvalidPassword</span>
+                <span class="method-start">28039 ms</span>
+              </div> <!-- test-method -->
+              <div class="configuration-method after">
+                <span class="method-name">afterTest(public void com.vh.ui.tests.LoginTest.verify_InvalidPassword() throws com.vh.ui.exceptions.WaitExcep...)</span>
+                <span class="method-start">43912 ms</span>
+              </div> <!-- configuration-method after -->
+              <div class="test-method">
+                <span class="method-name">verify_SuccessfulLogin</span>
+                <span class="method-start">43913 ms</span>
+              </div> <!-- test-method -->
+              <div class="configuration-method after">
+                <span class="method-name">afterTest(public void com.vh.ui.tests.LoginTest.verify_SuccessfulLogin() throws com.vh.ui.exceptions.WaitExcep...)</span>
+                <span class="method-start">85394 ms</span>
               </div> <!-- configuration-method after -->
               <div class="configuration-class after">
                 <span class="method-name">tearDown</span>
-                <span class="method-start">73039 ms</span>
+                <span class="method-start">85395 ms</span>
               </div> <!-- configuration-class after -->
           </div> <!-- main-panel-content rounded-window-bottom -->
         </div> <!-- panel -->

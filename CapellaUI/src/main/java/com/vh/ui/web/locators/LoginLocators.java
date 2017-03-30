@@ -19,4 +19,5 @@ public class LoginLocators
 	public static final By LBL_LOGINERRORMSG = By.xpath("//strong[text()='Error:']/..");
 	public static final By BTN_YESALLOW = By.xpath("//button[text()='Yes, Allow']");
 	public static final By TXT_USERNAME_PATIENTBANNER = By.xpath("//header/h1[contains(., 'Welcome')]");
+	public static final By CHK_REMEMBERMYDECISION = By.xpath("//input[@name='RememberConsent']");
 }

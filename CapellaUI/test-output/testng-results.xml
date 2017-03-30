@@ -1,41 +1,81 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testng-results skipped="0" failed="0" total="1" passed="1">
+<testng-results skipped="0" failed="0" total="3" passed="3">
   <reporter-output>
   </reporter-output>
-  <suite name="Default suite" duration-ms="75339" started-at="2017-03-29T14:44:15Z" finished-at="2017-03-29T14:45:30Z">
+  <suite name="Default suite" duration-ms="87373" started-at="2017-03-30T13:00:23Z" finished-at="2017-03-30T13:01:50Z">
     <groups>
     </groups>
-    <test name="Default test" duration-ms="75339" started-at="2017-03-29T14:44:15Z" finished-at="2017-03-29T14:45:30Z">
-      <class name="com.vh.ui.tests.UnitTest">
-        <test-method status="PASS" signature="buildUp()[pri:0, instance:com.vh.ui.tests.UnitTest@345cbf40]" name="buildUp" is-config="true" duration-ms="4692" started-at="2017-03-29T09:44:15Z" finished-at="2017-03-29T09:44:20Z">
+    <test name="Default test" duration-ms="87373" started-at="2017-03-30T13:00:23Z" finished-at="2017-03-30T13:01:50Z">
+      <class name="com.vh.ui.tests.LoginTest">
+        <test-method status="PASS" signature="buildUp()[pri:0, instance:com.vh.ui.tests.LoginTest@48a663e9]" name="buildUp" is-config="true" duration-ms="4574" started-at="2017-03-30T08:00:23Z" finished-at="2017-03-30T08:00:28Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- buildUp -->
-        <test-method status="PASS" signature="verify_MenuBar_Options()[pri:1, instance:com.vh.ui.tests.UnitTest@345cbf40]" name="verify_MenuBar_Options" duration-ms="68307" started-at="2017-03-29T09:44:20Z" finished-at="2017-03-29T09:45:28Z">
+        <test-method status="PASS" signature="verify_InvalidUserName()[pri:1, instance:com.vh.ui.tests.LoginTest@48a663e9]" name="verify_InvalidUserName" duration-ms="23427" started-at="2017-03-30T08:00:28Z" finished-at="2017-03-30T08:00:51Z">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- verify_MenuBar_Options -->
-        <test-method status="PASS" signature="afterTest(java.lang.reflect.Method, org.testng.ITestResult)[pri:0, instance:com.vh.ui.tests.UnitTest@345cbf40]" name="afterTest" is-config="true" duration-ms="12" started-at="2017-03-29T09:45:28Z" finished-at="2017-03-29T09:45:28Z">
+        </test-method> <!-- verify_InvalidUserName -->
+        <test-method status="PASS" signature="afterTest(java.lang.reflect.Method, org.testng.ITestResult)[pri:0, instance:com.vh.ui.tests.LoginTest@48a663e9]" name="afterTest" is-config="true" duration-ms="9" started-at="2017-03-30T08:00:51Z" finished-at="2017-03-30T08:00:51Z">
           <params>
             <param index="0">
               <value>
-                <![CDATA[public void com.vh.ui.tests.UnitTest.verify_MenuBar_Options() throws com.vh.ui.exceptions.WaitException,com.vh.ui.exceptions.URLNavigationException,java.lang.InterruptedException]]>
+                <![CDATA[public void com.vh.ui.tests.LoginTest.verify_InvalidUserName() throws com.vh.ui.exceptions.WaitException,com.vh.ui.exceptions.URLNavigationException,java.lang.InterruptedException]]>
               </value>
             </param>
             <param index="1">
               <value>
-                <![CDATA[[TestResult name=verify_MenuBar_Options status=SUCCESS method=UnitTest.verify_MenuBar_Options()[pri:1, instance:com.vh.ui.tests.UnitTest@345cbf40] output={null}]]]>
+                <![CDATA[[TestResult name=verify_InvalidUserName status=SUCCESS method=LoginTest.verify_InvalidUserName()[pri:1, instance:com.vh.ui.tests.LoginTest@48a663e9] output={null}]]]>
               </value>
             </param>
           </params>
           <reporter-output>
           </reporter-output>
         </test-method> <!-- afterTest -->
-        <test-method status="PASS" signature="tearDown()[pri:0, instance:com.vh.ui.tests.UnitTest@345cbf40]" name="tearDown" is-config="true" duration-ms="2258" started-at="2017-03-29T09:45:28Z" finished-at="2017-03-29T09:45:30Z">
+        <test-method status="PASS" signature="verify_InvalidPassword()[pri:2, instance:com.vh.ui.tests.LoginTest@48a663e9]" name="verify_InvalidPassword" duration-ms="15872" started-at="2017-03-30T08:00:51Z" finished-at="2017-03-30T08:01:07Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- verify_InvalidPassword -->
+        <test-method status="PASS" signature="afterTest(java.lang.reflect.Method, org.testng.ITestResult)[pri:0, instance:com.vh.ui.tests.LoginTest@48a663e9]" name="afterTest" is-config="true" duration-ms="0" started-at="2017-03-30T08:01:07Z" finished-at="2017-03-30T08:01:07Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[public void com.vh.ui.tests.LoginTest.verify_InvalidPassword() throws com.vh.ui.exceptions.WaitException,com.vh.ui.exceptions.URLNavigationException,java.lang.InterruptedException]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[[TestResult name=verify_InvalidPassword status=SUCCESS method=LoginTest.verify_InvalidPassword()[pri:2, instance:com.vh.ui.tests.LoginTest@48a663e9] output={null}]]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- afterTest -->
+        <test-method status="PASS" signature="verify_SuccessfulLogin()[pri:3, instance:com.vh.ui.tests.LoginTest@48a663e9]" name="verify_SuccessfulLogin" duration-ms="41480" started-at="2017-03-30T08:01:07Z" finished-at="2017-03-30T08:01:48Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- verify_SuccessfulLogin -->
+        <test-method status="PASS" signature="afterTest(java.lang.reflect.Method, org.testng.ITestResult)[pri:0, instance:com.vh.ui.tests.LoginTest@48a663e9]" name="afterTest" is-config="true" duration-ms="0" started-at="2017-03-30T08:01:48Z" finished-at="2017-03-30T08:01:48Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[public void com.vh.ui.tests.LoginTest.verify_SuccessfulLogin() throws com.vh.ui.exceptions.WaitException,com.vh.ui.exceptions.URLNavigationException,java.lang.InterruptedException]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[[TestResult name=verify_SuccessfulLogin status=SUCCESS method=LoginTest.verify_SuccessfulLogin()[pri:3, instance:com.vh.ui.tests.LoginTest@48a663e9] output={null}]]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- afterTest -->
+        <test-method status="PASS" signature="tearDown()[pri:0, instance:com.vh.ui.tests.LoginTest@48a663e9]" name="tearDown" is-config="true" duration-ms="1934" started-at="2017-03-30T08:01:48Z" finished-at="2017-03-30T08:01:50Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- tearDown -->
-      </class> <!-- com.vh.ui.tests.UnitTest -->
+      </class> <!-- com.vh.ui.tests.LoginTest -->
     </test> <!-- Default test -->
   </suite> <!-- Default suite -->
 </testng-results>

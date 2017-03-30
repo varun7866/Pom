@@ -2,6 +2,7 @@ package com.vh.ui.pages;
 
 import static com.vh.ui.web.locators.LoginLocators.BTN_LOGIN;
 import static com.vh.ui.web.locators.LoginLocators.BTN_YESALLOW;
+import static com.vh.ui.web.locators.LoginLocators.CHK_REMEMBERMYDECISION;
 import static com.vh.ui.web.locators.LoginLocators.LBL_LOGINERRORMSG;
 import static com.vh.ui.web.locators.LoginLocators.TXT_PASSWORD;
 import static com.vh.ui.web.locators.LoginLocators.TXT_USERNAME;
@@ -54,15 +55,21 @@ public class LoginPage extends WebPage
 		return this;
 	}	
 	
-	@Step("Click Login")
+	@Step("Click the Login button")
 	public MyPatientsPage clickLogin() throws TimeoutException, WaitException {
 		webActions.click(VISIBILITY, BTN_LOGIN);
 		return new MyPatientsPage(getDriver());
 	}
 	
-	@Step("Click Yes, Allow")
+	@Step("Click the Yes, Allow button")
 	public MyPatientsPage clickYesAllow() throws TimeoutException, WaitException {
 		webActions.click(VISIBILITY, BTN_YESALLOW);
+		return new MyPatientsPage(getDriver());
+	}
+
+	@Step("Click the Remember My Decision checkbox")
+	public MyPatientsPage clickRememberMyDecision() throws TimeoutException, WaitException {
+		webActions.click(CLICKABILITY, CHK_REMEMBERMYDECISION);
 		return new MyPatientsPage(getDriver());
 	}
 

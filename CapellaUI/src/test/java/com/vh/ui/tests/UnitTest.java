@@ -32,10 +32,11 @@ public class UnitTest extends TestBase
 	LoginPage loginPage;
 	ApplicationFunctions appFunctions;
 	MyPatientsPage myPatients;
+	WebDriver driver;
 
 	@BeforeClass
 	public void buildUp() throws TimeoutException, WaitException {
-		WebDriver driver = getWebDriver();
+		driver = getWebDriver();
 		pageBase = new WebPage(driver);
 		appFunctions = new ApplicationFunctions(driver);
 		myPatients = new MyPatientsPage(driver);
@@ -55,18 +56,20 @@ public class UnitTest extends TestBase
 		loginPage.clickLogin();
 		Thread.sleep(5000);
 
-//		Assert.assertTrue(loginPage.viewYesAllowButton(), "Failed to identify Yes, Allow button");
-//		loginPage.clickYesAllow();
-//		Thread.sleep(5000);
+		Assert.assertTrue(loginPage.viewYesAllowButton(), "Failed to identify Yes, Allow button");
+		loginPage.clickRememberMyDecision();
+		Thread.sleep(1000);
+		loginPage.clickYesAllow();
+		Thread.sleep(5000);
 
 		Assert.assertTrue(myPatients.viewMyPatientsPage(), "Failed to identify My Patients page");
 		
 		appFunctions.clickMyContactsMenuBar();
-		Thread.sleep(5000);
+		Thread.sleep(3000);
 		appFunctions.clickConsolidatedMenuBar();
-		Thread.sleep(5000);
+		Thread.sleep(3000);
 		appFunctions.clickAdminMenuBar();
-		Thread.sleep(5000);
+		Thread.sleep(3000);
 		appFunctions.clickMyPatientsMenuBar();
 	}
 	
