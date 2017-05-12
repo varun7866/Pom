@@ -29,7 +29,6 @@ import ru.yandex.qatools.allure.annotations.Step;
  * @author SUBALIVADA
  * @date   Nov 21, 2016
  * @class  TestBase.java
- *
  */
 
 public class TestBase {
