@@ -10,4 +10,5 @@
 <fullyQualifiedTypeName name="java.lang.Thread"/>
 <fullyQualifiedTypeName name="com.vh.ui.utilities.Utilities"/>
 <fullyQualifiedTypeName name="com.vh.ui.web.locators.LoginLocators"/>
+<fullyQualifiedTypeName name="java.lang.System"/>
 </qualifiedTypeNameHistroy>

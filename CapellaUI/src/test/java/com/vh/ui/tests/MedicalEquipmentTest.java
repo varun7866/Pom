@@ -37,6 +37,7 @@ public class MedicalEquipmentTest extends TestBase
 		appFunctions = new ApplicationFunctions(driver);
 
 		appFunctions.capellaLogin();
+		appFunctions.navigateToMenu("Medical Equipment");
 	}
 
 	@Test(priority = 1)

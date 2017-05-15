@@ -1,6 +1,7 @@
 package com.vh.ui.actions;
 
 import static com.vh.ui.web.locators.ApplicationLocators.BTN_LOGOUT;
+import static com.vh.ui.web.locators.ApplicationLocators.BTN_PTCHART;
 import static com.vh.ui.web.locators.ApplicationLocators.LNK_ADMIN_MENUBAR;
 import static com.vh.ui.web.locators.ApplicationLocators.LNK_CONSOLIDATED_MENUBAR;
 import static com.vh.ui.web.locators.ApplicationLocators.LNK_MYCONTACTS_MENUBAR;
@@ -11,6 +12,7 @@ import java.util.List;
 import java.util.Properties;
 
 import org.apache.log4j.Logger;
+import org.openqa.selenium.Alert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Cookie;
 import org.openqa.selenium.TimeoutException;
@@ -57,15 +59,16 @@ public class ApplicationFunctions extends WebPage
 		pageBase = new WebPage(driver);
 	}
 	
-	/*
+	/**
 	 * Login to the Capella application
-	 *
+	 * 
 	 * @throws TimeoutException
 	 * @throws WaitException
-	 * 
+	 * @throws URLNavigationException
+	 * @throws InterruptedException
 	 * @param menu
 	 */
-	@Step("Navigate to {0} menu")
+	@Step("Login to Capella")
 	public void capellaLogin() throws TimeoutException, WaitException, URLNavigationException, InterruptedException
 	{
 		loginPage = (LoginPage) pageBase.navigateTo(applicationProperty.getProperty("webURL"));
@@ -82,10 +85,15 @@ public class ApplicationFunctions extends WebPage
 		loginPage.clickRememberMyDecision();
 		Thread.sleep(1000);
 		loginPage.clickYesAllow();
-		Thread.sleep(5000);
+		Thread.sleep(50000);
+
+		Alert alert = driver.switchTo().alert();
+		// String alertText = alert.getText();
+		// System.out.print(alertText);
+		alert.accept();
 	}
 
-	/*
+	/**
 	 * Click the Logout button in Capella
 	 * 
 	 * @throws TimeoutException
@@ -99,16 +107,22 @@ public class ApplicationFunctions extends WebPage
 	}
 
 	/**
-	 * Navigate to Menu in CPP
+	 * Navigate Menu in Capella
 	 * 
 	 * @param menuToNavigate
-	 *            the path of menu to navigate to. i.e. Screenings->Cognitive
+	 *            The menu path to navigate. i.e. Screenings->Cognitive
 	 *            Screening
+	 * @throws WaitException
+	 * @throws TimeoutException
 	 */
-	@Step("Navigate to {0} menu")
-	public boolean navigateToMenu(String menuToNavigate)
+	@Step("Navigate to {0} menu option")
+	public boolean navigateToMenu(String menuToNavigate) throws TimeoutException, WaitException
 	{
 		LOGGER.debug("In ApplicationFunctions - navigateToMenu");
+
+		Assert.assertTrue(viewPtChartButton(), "Failed to identify Pt Chart button");
+		clickPtChart();
+
 		String menu[] = menuToNavigate.split("->");		
 		
 		if(menu.length != 1)
@@ -137,7 +151,27 @@ public class ApplicationFunctions extends WebPage
 	}
 	
 	/**
-	 * Click on Main Menu's like My Patients, My Dashboard, Patient Engagement, etc.
+	 * Verifying the visibility of the Pt Chart button
+	 */
+	@Step("Verifying the visibility of the Pt Chart button")
+	public boolean viewPtChartButton() throws TimeoutException, WaitException
+	{
+		return webActions.getVisibiltyOfElementLocatedBy(VISIBILITY, BTN_PTCHART);
+	}
+
+	/**
+	 * Click on the "Pt Chart" button
+	 */
+	@Step("Click the Pt Chart button")
+	public void clickPtChart() throws TimeoutException, WaitException
+	{
+		webActions.click(VISIBILITY, BTN_PTCHART);
+		// return new MyPatientsPage(getDriver());
+	}
+
+	/**
+	 * Click on Main Menu's like My Patients, My Dashboard, Patient Engagement,
+	 * etc.
 	 * 
 	 * @param menu
 	 */

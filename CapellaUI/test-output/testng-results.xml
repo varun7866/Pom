@@ -2,20 +2,20 @@
 <testng-results skipped="0" failed="0" total="1" passed="1">
   <reporter-output>
   </reporter-output>
-  <suite name="Default suite" duration-ms="59604" started-at="2017-05-15T18:19:05Z" finished-at="2017-05-15T18:20:05Z">
+  <suite name="Default suite" duration-ms="100399" started-at="2017-05-15T19:09:29Z" finished-at="2017-05-15T19:11:10Z">
     <groups>
     </groups>
-    <test name="Default test" duration-ms="59604" started-at="2017-05-15T18:19:05Z" finished-at="2017-05-15T18:20:05Z">
+    <test name="Default test" duration-ms="100399" started-at="2017-05-15T19:09:29Z" finished-at="2017-05-15T19:11:10Z">
       <class name="com.vh.ui.tests.MedicalEquipmentTest">
-        <test-method status="PASS" signature="buildUp()[pri:0, instance:com.vh.ui.tests.MedicalEquipmentTest@77bc2e16]" name="buildUp" is-config="true" duration-ms="58999" started-at="2017-05-15T13:19:06Z" finished-at="2017-05-15T13:20:05Z">
+        <test-method status="PASS" signature="buildUp()[pri:0, instance:com.vh.ui.tests.MedicalEquipmentTest@591a4f8e]" name="buildUp" is-config="true" duration-ms="99848" started-at="2017-05-15T14:09:29Z" finished-at="2017-05-15T14:11:09Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- buildUp -->
-        <test-method status="PASS" signature="verify_InvalidUserName()[pri:1, instance:com.vh.ui.tests.MedicalEquipmentTest@77bc2e16]" name="verify_InvalidUserName" duration-ms="109" started-at="2017-05-15T13:20:05Z" finished-at="2017-05-15T13:20:05Z">
+        <test-method status="PASS" signature="verify_InvalidUserName()[pri:1, instance:com.vh.ui.tests.MedicalEquipmentTest@591a4f8e]" name="verify_InvalidUserName" duration-ms="75" started-at="2017-05-15T14:11:09Z" finished-at="2017-05-15T14:11:09Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- verify_InvalidUserName -->
-        <test-method status="PASS" signature="afterTest(java.lang.reflect.Method, org.testng.ITestResult)[pri:0, instance:com.vh.ui.tests.MedicalEquipmentTest@77bc2e16]" name="afterTest" is-config="true" duration-ms="2" started-at="2017-05-15T13:20:05Z" finished-at="2017-05-15T13:20:05Z">
+        <test-method status="PASS" signature="afterTest(java.lang.reflect.Method, org.testng.ITestResult)[pri:0, instance:com.vh.ui.tests.MedicalEquipmentTest@591a4f8e]" name="afterTest" is-config="true" duration-ms="3" started-at="2017-05-15T14:11:09Z" finished-at="2017-05-15T14:11:09Z">
           <params>
             <param index="0">
               <value>
@@ -24,35 +24,35 @@
             </param>
             <param index="1">
               <value>
-                <![CDATA[[TestResult name=verify_InvalidUserName status=SUCCESS method=MedicalEquipmentTest.verify_InvalidUserName()[pri:1, instance:com.vh.ui.tests.MedicalEquipmentTest@77bc2e16] output={null}]]]>
+                <![CDATA[[TestResult name=verify_InvalidUserName status=SUCCESS method=MedicalEquipmentTest.verify_InvalidUserName()[pri:1, instance:com.vh.ui.tests.MedicalEquipmentTest@591a4f8e] output={null}]]]>
               </value>
             </param>
           </params>
           <reporter-output>
           </reporter-output>
         </test-method> <!-- afterTest -->
-        <test-method status="FAIL" signature="tearDown()[pri:0, instance:com.vh.ui.tests.MedicalEquipmentTest@77bc2e16]" name="tearDown" is-config="true" duration-ms="0" started-at="2017-05-15T13:20:05Z" finished-at="2017-05-15T13:20:05Z">
+        <test-method status="FAIL" signature="tearDown()[pri:0, instance:com.vh.ui.tests.MedicalEquipmentTest@591a4f8e]" name="tearDown" is-config="true" duration-ms="0" started-at="2017-05-15T14:11:09Z" finished-at="2017-05-15T14:11:09Z">
           <exception class="org.openqa.selenium.NoSuchElementException">
             <message>
               <![CDATA[Unable to find element with xpath == //button[text()='Logout'] (WARNING: The server did not provide any stacktrace information)
-Command duration or timeout: 357 milliseconds
+Command duration or timeout: 342 milliseconds
 For documentation on this error, please visit: http://seleniumhq.org/exceptions/no_such_element.html
 Build info: version: '2.53.0', revision: '35ae25b1534ae328c771e0856c93e187490ca824', time: '2016-03-15 10:43:46'
 System info: host: 'DVA-F0L9N9R-L', ip: '172.16.128.184', os.name: 'Windows 8.1', os.arch: 'amd64', os.version: '6.3', java.version: '1.8.0_131'
 Driver info: org.openqa.selenium.ie.InternetExplorerDriver
-Capabilities [{browserAttachTimeout=0, ie.enableFullPageScreenshot=true, enablePersistentHover=true, ie.forceCreateProcessApi=false, ie.forceShellWindowsApi=false, pageLoadStrategy=normal, ignoreZoomSetting=false, ie.fileUploadDialogTimeout=3000, version=11, platform=WINDOWS, proxy={proxyType=}, nativeEvents=true, ie.ensureCleanSession=false, elementScrollBehavior=0, ie.browserCommandLineSwitches=, requireWindowFocus=false, browserName=internet explorer, initialBrowserUrl=http://localhost:32215/, javascriptEnabled=true, ignoreProtectedModeSettings=false, enableElementCacheCleanup=true, unexpectedAlertBehaviour=dismiss}]
-Session ID: d1e1ad24-1fcb-4694-8f8b-2343335641eb
+Capabilities [{browserAttachTimeout=0, ie.enableFullPageScreenshot=true, enablePersistentHover=true, ie.forceCreateProcessApi=false, ie.forceShellWindowsApi=false, pageLoadStrategy=normal, ignoreZoomSetting=false, ie.fileUploadDialogTimeout=3000, version=11, platform=WINDOWS, proxy={proxyType=}, nativeEvents=true, ie.ensureCleanSession=false, elementScrollBehavior=0, ie.browserCommandLineSwitches=, requireWindowFocus=false, browserName=internet explorer, initialBrowserUrl=http://localhost:15382/, javascriptEnabled=true, ignoreProtectedModeSettings=false, enableElementCacheCleanup=true, unexpectedAlertBehaviour=dismiss}]
+Session ID: d0b11e03-e028-49e4-9a4a-0a060de17f57
 *** Element info: {Using=xpath, value=//button[text()='Logout']}]]>
             </message>
             <full-stacktrace>
               <![CDATA[org.openqa.selenium.NoSuchElementException: Unable to find element with xpath == //button[text()='Logout'] (WARNING: The server did not provide any stacktrace information)
-Command duration or timeout: 357 milliseconds
+Command duration or timeout: 342 milliseconds
 For documentation on this error, please visit: http://seleniumhq.org/exceptions/no_such_element.html
 Build info: version: '2.53.0', revision: '35ae25b1534ae328c771e0856c93e187490ca824', time: '2016-03-15 10:43:46'
 System info: host: 'DVA-F0L9N9R-L', ip: '172.16.128.184', os.name: 'Windows 8.1', os.arch: 'amd64', os.version: '6.3', java.version: '1.8.0_131'
 Driver info: org.openqa.selenium.ie.InternetExplorerDriver
-Capabilities [{browserAttachTimeout=0, ie.enableFullPageScreenshot=true, enablePersistentHover=true, ie.forceCreateProcessApi=false, ie.forceShellWindowsApi=false, pageLoadStrategy=normal, ignoreZoomSetting=false, ie.fileUploadDialogTimeout=3000, version=11, platform=WINDOWS, proxy={proxyType=}, nativeEvents=true, ie.ensureCleanSession=false, elementScrollBehavior=0, ie.browserCommandLineSwitches=, requireWindowFocus=false, browserName=internet explorer, initialBrowserUrl=http://localhost:32215/, javascriptEnabled=true, ignoreProtectedModeSettings=false, enableElementCacheCleanup=true, unexpectedAlertBehaviour=dismiss}]
-Session ID: d1e1ad24-1fcb-4694-8f8b-2343335641eb
+Capabilities [{browserAttachTimeout=0, ie.enableFullPageScreenshot=true, enablePersistentHover=true, ie.forceCreateProcessApi=false, ie.forceShellWindowsApi=false, pageLoadStrategy=normal, ignoreZoomSetting=false, ie.fileUploadDialogTimeout=3000, version=11, platform=WINDOWS, proxy={proxyType=}, nativeEvents=true, ie.ensureCleanSession=false, elementScrollBehavior=0, ie.browserCommandLineSwitches=, requireWindowFocus=false, browserName=internet explorer, initialBrowserUrl=http://localhost:15382/, javascriptEnabled=true, ignoreProtectedModeSettings=false, enableElementCacheCleanup=true, unexpectedAlertBehaviour=dismiss}]
+Session ID: d0b11e03-e028-49e4-9a4a-0a060de17f57
 *** Element info: {Using=xpath, value=//button[text()='Logout']}
 	at sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
 	at sun.reflect.NativeConstructorAccessorImpl.newInstance(Unknown Source)
@@ -66,7 +66,7 @@ Session ID: d1e1ad24-1fcb-4694-8f8b-2343335641eb
 	at org.openqa.selenium.By$ByXPath.findElement(By.java:361)
 	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:355)
 	at com.vh.ui.actions.WebActions.javascriptClick(WebActions.java:528)
-	at com.vh.ui.actions.ApplicationFunctions.capellaLogout(ApplicationFunctions.java:98)
+	at com.vh.ui.actions.ApplicationFunctions.capellaLogout(ApplicationFunctions.java:104)
 	at com.vh.ui.tests.MedicalEquipmentTest.tearDown(MedicalEquipmentTest.java:51)
 	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
 	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
