@@ -1,6 +1,3 @@
-/**
- * 
- */
 package com.vh.test.base;
 
 import java.io.IOException;

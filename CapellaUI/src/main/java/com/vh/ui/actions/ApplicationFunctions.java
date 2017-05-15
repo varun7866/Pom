@@ -1,6 +1,3 @@
-/**
- * 
- */
 package com.vh.ui.actions;
 
 import static com.vh.ui.web.locators.ApplicationLocators.BTN_LOGOUT;
@@ -11,6 +8,7 @@ import static com.vh.ui.web.locators.ApplicationLocators.LNK_MYPATIENTS_MENUBAR;
 import static com.vh.ui.web.locators.ApplicationLocators.TXT_USERNAME_MENUBAR;
 
 import java.util.List;
+import java.util.Properties;
 
 import org.apache.log4j.Logger;
 import org.openqa.selenium.By;
@@ -20,40 +18,92 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.testng.Assert;
 
+import com.vh.ui.exceptions.URLNavigationException;
 import com.vh.ui.exceptions.WaitException;
 import com.vh.ui.page.base.WebPage;
 import com.vh.ui.pages.AdminPage;
 import com.vh.ui.pages.ConsolidatedPage;
+import com.vh.ui.pages.LoginPage;
 import com.vh.ui.pages.MyContactsPage;
 import com.vh.ui.pages.MyPatientsPage;
 import com.vh.ui.utilities.Logg;
+import com.vh.ui.utilities.PropertyManager;
 import com.vh.ui.utilities.Utilities;
 import com.vh.ui.waits.WebDriverWaits;
 
 import ru.yandex.qatools.allure.annotations.Step;
 
-/**
+/*
  * @author SUBALIVADA
  * @date   Jan 9, 2017
  * @class  ApplicationFunctions.java
- *
  */
-public class ApplicationFunctions extends WebPage {
+public class ApplicationFunctions extends WebPage
+{
 	protected static final Logger LOGGER = Logg.createLogger();
 	protected final WebDriverWaits wait = new WebDriverWaits();
 	private static Cookie cookie;
 	private WebActions webActions = null;
+	private WebPage pageBase;
+	private LoginPage loginPage;
 	
+	private final static Properties applicationProperty = PropertyManager
+			.loadApplicationPropertyFile("resources/application.properties");
+
 	public ApplicationFunctions(WebDriver driver) throws WaitException
 	{
 		super(driver);
 		webActions = new WebActions(driver);
+		pageBase = new WebPage(driver);
 	}
 	
+	/*
+	 * Login to the Capella application
+	 *
+	 * @throws TimeoutException
+	 * @throws WaitException
+	 * 
+	 * @param menu
+	 */
+	@Step("Navigate to {0} menu")
+	public void capellaLogin() throws TimeoutException, WaitException, URLNavigationException, InterruptedException
+	{
+		loginPage = (LoginPage) pageBase.navigateTo(applicationProperty.getProperty("webURL"));
+		Thread.sleep(5000);
+
+		Assert.assertTrue(loginPage.viewUserNameTextField(), "Failed to identify UserName text field");
+		Assert.assertTrue(loginPage.viewPasswordTextField(), "Failed to identify Password text field");
+		loginPage.enterUserName(applicationProperty.getProperty("username"));
+		loginPage.enterPassword(applicationProperty.getProperty("password"));
+		loginPage.clickLogin();
+		Thread.sleep(3000);
+
+		Assert.assertTrue(loginPage.viewYesAllowButton(), "Failed to identify Yes, Allow button");
+		loginPage.clickRememberMyDecision();
+		Thread.sleep(1000);
+		loginPage.clickYesAllow();
+		Thread.sleep(5000);
+	}
+
+	/*
+	 * Click the Logout button in Capella
+	 * 
+	 * @throws TimeoutException
+	 * @throws WaitException
+	 */
+	@Step("Logout of Capella")
+	public void capellaLogout() throws TimeoutException, WaitException
+	{
+		LOGGER.debug("In ApplicationFunctions - capellaLogout");
+		webActions.javascriptClick(BTN_LOGOUT);
+	}
+
 	/**
 	 * Navigate to Menu in CPP
 	 * 
-	 * @param menuToNavigate the path of menu to navigate to. i.e. Screenings->Cognitive Screening
+	 * @param menuToNavigate
+	 *            the path of menu to navigate to. i.e. Screenings->Cognitive
+	 *            Screening
 	 */
 	@Step("Navigate to {0} menu")
 	public boolean navigateToMenu(String menuToNavigate)
@@ -87,18 +137,6 @@ public class ApplicationFunctions extends WebPage {
 	}
 	
 	/**
-	 * Click the Logout button in Capella and logout of application
-	 * 
-	 * @throws TimeoutException
-	 * @throws WaitException
-	 */
-	@Step("Logout of Capella")
-	public void capellaLogOut() throws TimeoutException, WaitException {
-		LOGGER.debug("In ApplicationFunctions - capellaLogOut");
-		webActions.javascriptClick(BTN_LOGOUT);
-	}
-	
-	/**
 	 * Click on Main Menu's like My Patients, My Dashboard, Patient Engagement, etc.
 	 * 
 	 * @param menu
@@ -113,7 +151,6 @@ public class ApplicationFunctions extends WebPage {
 	
 		webActions.javascriptClick(mainEle);
 	}
-	
 	
 	public void selectPatientFromMyPatient()
 	{

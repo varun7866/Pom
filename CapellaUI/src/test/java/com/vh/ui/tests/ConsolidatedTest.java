@@ -35,7 +35,7 @@ public class ConsolidatedTest extends TestBase
 	@AfterClass
 	public void tearDown() throws TimeoutException, WaitException
 	{
-		appFunctions.capellaLogOut();
+		appFunctions.capellaLogout();
 		pageBase.quit();
 	}
 }
