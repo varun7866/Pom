@@ -7,6 +7,7 @@ import static com.vh.ui.web.locators.ApplicationLocators.LNK_CONSOLIDATED_MENUBA
 import static com.vh.ui.web.locators.ApplicationLocators.LNK_MYCONTACTS_MENUBAR;
 import static com.vh.ui.web.locators.ApplicationLocators.LNK_MYPATIENTS_MENUBAR;
 import static com.vh.ui.web.locators.ApplicationLocators.TXT_USERNAME_MENUBAR;
+import static com.vh.ui.web.locators.LoginLocators.BTN_YESALLOW;
 
 import java.util.List;
 import java.util.Properties;
@@ -81,15 +82,16 @@ public class ApplicationFunctions extends WebPage
 		loginPage.clickLogin();
 		Thread.sleep(3000);
 
-		Assert.assertTrue(loginPage.viewYesAllowButton(), "Failed to identify Yes, Allow button");
-		loginPage.clickRememberMyDecision();
-		Thread.sleep(1000);
-		loginPage.clickYesAllow();
-		Thread.sleep(50000);
+		if (wait.checkForElementVisibility(driver, BTN_YESALLOW))
+		{
+			loginPage.clickRememberMyDecision();
+			Thread.sleep(1000);
+			loginPage.clickYesAllow();
+		}
+
+		Thread.sleep(60000);
 
 		Alert alert = driver.switchTo().alert();
-		// String alertText = alert.getText();
-		// System.out.print(alertText);
 		alert.accept();
 	}
 
@@ -114,34 +116,38 @@ public class ApplicationFunctions extends WebPage
 	 *            Screening
 	 * @throws WaitException
 	 * @throws TimeoutException
+	 * @throws InterruptedException
 	 */
 	@Step("Navigate to {0} menu option")
-	public boolean navigateToMenu(String menuToNavigate) throws TimeoutException, WaitException
+	public boolean navigateToMenu(String menuToNavigate) throws TimeoutException, WaitException, InterruptedException
 	{
 		LOGGER.debug("In ApplicationFunctions - navigateToMenu");
 
 		Assert.assertTrue(viewPtChartButton(), "Failed to identify Pt Chart button");
 		clickPtChart();
 
+		Thread.sleep(10000);
+
 		String menu[] = menuToNavigate.split("->");		
 		
 		if(menu.length != 1)
 		{
-			By mainMenu = By.xpath("//span[text() = '" + menu[0] + "']");
+			By mainMenu = By.xpath("//span[text()='" + menu[0] + "']");
 			WebElement mainEle = driver.findElement(mainMenu);
 			Utilities.highlightElement(driver, mainEle);
 		
 			webActions.javascriptClick(mainEle);
 			
-			By subMenu = By.xpath("//a[text() = '" + menu[1] + "']");
+			By subMenu = By.xpath("//a[text()='" + menu[1] + "']");
 			Utilities.highlightElement(driver, subMenu);
 			webActions.javascriptClick(subMenu);
 		}
 		else if(menu.length == 1)
 		{
-			By subMenu = By.xpath("//a[text() = '" + menu[0] + "']");
+			// By subMenu = By.xpath("//a[text()='" + menu[0] + "']");
+			By subMenu = By.xpath("//a[contains(., '" + menu[0] + "')]");
 			Utilities.highlightElement(driver, subMenu);
-			webActions.javascriptClick(subMenu);
+			webActions.click(CLICKABILITY, subMenu);
 		}
 		else
 		{
@@ -166,7 +172,6 @@ public class ApplicationFunctions extends WebPage
 	public void clickPtChart() throws TimeoutException, WaitException
 	{
 		webActions.click(VISIBILITY, BTN_PTCHART);
-		// return new MyPatientsPage(getDriver());
 	}
 
 	/**

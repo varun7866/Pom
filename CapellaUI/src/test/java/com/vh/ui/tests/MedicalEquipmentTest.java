@@ -41,15 +41,16 @@ public class MedicalEquipmentTest extends TestBase
 	}
 
 	@Test(priority = 1)
-	@Step("")
-	public void verify_InvalidUserName() throws WaitException, URLNavigationException, InterruptedException {
+	@Step("Verify the Medical Equipment page is displayed")
+	public void verifyMedicalEquipmentPageDisplayed() throws WaitException, URLNavigationException, InterruptedException
+	{
 
 	}
 
 	@AfterClass
 	public void tearDown() throws TimeoutException, WaitException
 	{
-		appFunctions.capellaLogout();
-		pageBase.quit();
+		// appFunctions.capellaLogout();
+		// pageBase.quit();
 	}
 }
