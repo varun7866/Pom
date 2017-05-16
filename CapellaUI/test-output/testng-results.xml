@@ -1,100 +1,37 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testng-results skipped="1" failed="0" total="1" passed="0">
+<testng-results skipped="0" failed="0" total="1" passed="1">
   <reporter-output>
   </reporter-output>
-  <suite name="Default suite" duration-ms="84653" started-at="2017-05-16T16:09:58Z" finished-at="2017-05-16T16:11:23Z">
+  <suite name="Default suite" duration-ms="155750" started-at="2017-05-16T19:43:20Z" finished-at="2017-05-16T19:45:56Z">
     <groups>
     </groups>
-    <test name="Default test" duration-ms="84653" started-at="2017-05-16T16:09:58Z" finished-at="2017-05-16T16:11:23Z">
+    <test name="Default test" duration-ms="155750" started-at="2017-05-16T19:43:20Z" finished-at="2017-05-16T19:45:56Z">
       <class name="com.vh.ui.tests.MedicalEquipmentTest">
-        <test-method status="FAIL" signature="buildUp()[pri:0, instance:com.vh.ui.tests.MedicalEquipmentTest@15f35bc3]" name="buildUp" is-config="true" duration-ms="0" started-at="2017-05-16T11:09:58Z" finished-at="2017-05-16T11:09:58Z">
-          <exception class="org.openqa.selenium.UnhandledAlertException">
-            <message>
-              <![CDATA[Modal dialog present: Unsaved patient contacts from your last session have been retrieved and loaded. Please review and save these contacts before logging out. 
-Build info: version: '2.53.0', revision: '35ae25b1534ae328c771e0856c93e187490ca824', time: '2016-03-15 10:43:46'
-System info: host: 'DVA-F0L9N9R-L', ip: '172.16.128.170', os.name: 'Windows 8.1', os.arch: 'amd64', os.version: '6.3', java.version: '1.8.0_131'
-Driver info: org.openqa.selenium.ie.InternetExplorerDriver
-Capabilities [{browserAttachTimeout=0, ie.enableFullPageScreenshot=true, enablePersistentHover=true, ie.forceCreateProcessApi=false, ie.forceShellWindowsApi=false, pageLoadStrategy=normal, ignoreZoomSetting=false, ie.fileUploadDialogTimeout=3000, version=11, platform=WINDOWS, proxy={proxyType=}, nativeEvents=true, ie.ensureCleanSession=false, elementScrollBehavior=0, ie.browserCommandLineSwitches=, requireWindowFocus=false, browserName=internet explorer, initialBrowserUrl=http://localhost:45246/, javascriptEnabled=true, ignoreProtectedModeSettings=false, enableElementCacheCleanup=true, unexpectedAlertBehaviour=dismiss}]
-Session ID: f69c6901-b5e6-4814-9e66-0d6cc98d06cd
-*** Element info: {Using=xpath, value=//button[text()='Yes, Allow']}]]>
-            </message>
-            <full-stacktrace>
-              <![CDATA[org.openqa.selenium.UnhandledAlertException: Modal dialog present: Unsaved patient contacts from your last session have been retrieved and loaded. Please review and save these contacts before logging out. 
-Build info: version: '2.53.0', revision: '35ae25b1534ae328c771e0856c93e187490ca824', time: '2016-03-15 10:43:46'
-System info: host: 'DVA-F0L9N9R-L', ip: '172.16.128.170', os.name: 'Windows 8.1', os.arch: 'amd64', os.version: '6.3', java.version: '1.8.0_131'
-Driver info: org.openqa.selenium.ie.InternetExplorerDriver
-Capabilities [{browserAttachTimeout=0, ie.enableFullPageScreenshot=true, enablePersistentHover=true, ie.forceCreateProcessApi=false, ie.forceShellWindowsApi=false, pageLoadStrategy=normal, ignoreZoomSetting=false, ie.fileUploadDialogTimeout=3000, version=11, platform=WINDOWS, proxy={proxyType=}, nativeEvents=true, ie.ensureCleanSession=false, elementScrollBehavior=0, ie.browserCommandLineSwitches=, requireWindowFocus=false, browserName=internet explorer, initialBrowserUrl=http://localhost:45246/, javascriptEnabled=true, ignoreProtectedModeSettings=false, enableElementCacheCleanup=true, unexpectedAlertBehaviour=dismiss}]
-Session ID: f69c6901-b5e6-4814-9e66-0d6cc98d06cd
-*** Element info: {Using=xpath, value=//button[text()='Yes, Allow']}
-	at sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
-	at sun.reflect.NativeConstructorAccessorImpl.newInstance(Unknown Source)
-	at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(Unknown Source)
-	at java.lang.reflect.Constructor.newInstance(Unknown Source)
-	at org.openqa.selenium.remote.ErrorHandler.createThrowable(ErrorHandler.java:206)
-	at org.openqa.selenium.remote.ErrorHandler.createUnhandledAlertException(ErrorHandler.java:187)
-	at org.openqa.selenium.remote.ErrorHandler.throwIfResponseFailed(ErrorHandler.java:154)
-	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:678)
-	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:363)
-	at org.openqa.selenium.remote.RemoteWebDriver.findElementByXPath(RemoteWebDriver.java:500)
-	at org.openqa.selenium.By$ByXPath.findElement(By.java:361)
-	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:355)
-	at com.vh.ui.waits.WebDriverWaits$1.apply(WebDriverWaits.java:190)
-	at com.vh.ui.waits.WebDriverWaits$1.apply(WebDriverWaits.java:1)
-	at org.openqa.selenium.support.ui.FluentWait.until(FluentWait.java:238)
-	at com.vh.ui.waits.WebDriverWaits.checkForElementVisibility(WebDriverWaits.java:188)
-	at com.vh.ui.actions.ApplicationFunctions.capellaLogin(ApplicationFunctions.java:85)
-	at com.vh.ui.tests.MedicalEquipmentTest.buildUp(MedicalEquipmentTest.java:39)
-	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
-	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
-	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
-	at java.lang.reflect.Method.invoke(Unknown Source)
-	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:86)
-	at org.testng.internal.Invoker.invokeConfigurationMethod(Invoker.java:514)
-	at org.testng.internal.Invoker.invokeConfigurations(Invoker.java:215)
-	at org.testng.internal.Invoker.invokeConfigurations(Invoker.java:142)
-	at org.testng.internal.TestMethodWorker.invokeBeforeClassMethods(TestMethodWorker.java:178)
-	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:108)
-	at org.testng.TestRunner.privateRun(TestRunner.java:782)
-	at org.testng.TestRunner.run(TestRunner.java:632)
-	at org.testng.SuiteRunner.runTest(SuiteRunner.java:366)
-	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:361)
-	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:319)
-	at org.testng.SuiteRunner.run(SuiteRunner.java:268)
-	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
-	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:86)
-	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1244)
-	at org.testng.TestNG.runSuitesLocally(TestNG.java:1169)
-	at org.testng.TestNG.run(TestNG.java:1064)
-	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:132)
-	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:230)
-	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:76)
-]]>
-            </full-stacktrace>
-          </exception> <!-- org.openqa.selenium.UnhandledAlertException -->
+        <test-method status="PASS" signature="buildUp()[pri:0, instance:com.vh.ui.tests.MedicalEquipmentTest@1ee27d73]" name="buildUp" is-config="true" duration-ms="155210" started-at="2017-05-16T14:43:20Z" finished-at="2017-05-16T14:45:56Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- buildUp -->
-        <test-method status="SKIP" signature="verifyMedicalEquipmentPageDisplayed()[pri:1, instance:com.vh.ui.tests.MedicalEquipmentTest@15f35bc3]" name="verifyMedicalEquipmentPageDisplayed" duration-ms="5" started-at="2017-05-16T11:11:23Z" finished-at="2017-05-16T11:11:23Z">
+        <test-method status="PASS" signature="verify_MedicalEquipmentPageDisplayed()[pri:1, instance:com.vh.ui.tests.MedicalEquipmentTest@1ee27d73]" name="verify_MedicalEquipmentPageDisplayed" duration-ms="478" started-at="2017-05-16T14:45:56Z" finished-at="2017-05-16T14:45:56Z">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- verifyMedicalEquipmentPageDisplayed -->
-        <test-method status="PASS" signature="afterTest(java.lang.reflect.Method, org.testng.ITestResult)[pri:0, instance:com.vh.ui.tests.MedicalEquipmentTest@15f35bc3]" name="afterTest" is-config="true" duration-ms="5" started-at="2017-05-16T11:11:23Z" finished-at="2017-05-16T11:11:23Z">
+        </test-method> <!-- verify_MedicalEquipmentPageDisplayed -->
+        <test-method status="PASS" signature="afterTest(java.lang.reflect.Method, org.testng.ITestResult)[pri:0, instance:com.vh.ui.tests.MedicalEquipmentTest@1ee27d73]" name="afterTest" is-config="true" duration-ms="2" started-at="2017-05-16T14:45:56Z" finished-at="2017-05-16T14:45:56Z">
           <params>
             <param index="0">
               <value>
-                <![CDATA[public void com.vh.ui.tests.MedicalEquipmentTest.verifyMedicalEquipmentPageDisplayed() throws com.vh.ui.exceptions.WaitException,com.vh.ui.exceptions.URLNavigationException,java.lang.InterruptedException]]>
+                <![CDATA[public void com.vh.ui.tests.MedicalEquipmentTest.verify_MedicalEquipmentPageDisplayed() throws com.vh.ui.exceptions.WaitException,com.vh.ui.exceptions.URLNavigationException,java.lang.InterruptedException]]>
               </value>
             </param>
             <param index="1">
               <value>
-                <![CDATA[[TestResult name=verifyMedicalEquipmentPageDisplayed status=SKIP method=MedicalEquipmentTest.verifyMedicalEquipmentPageDisplayed()[pri:1, instance:com.vh.ui.tests.MedicalEquipmentTest@15f35bc3] output={null}]]]>
+                <![CDATA[[TestResult name=verify_MedicalEquipmentPageDisplayed status=SUCCESS method=MedicalEquipmentTest.verify_MedicalEquipmentPageDisplayed()[pri:1, instance:com.vh.ui.tests.MedicalEquipmentTest@1ee27d73] output={null}]]]>
               </value>
             </param>
           </params>
           <reporter-output>
           </reporter-output>
         </test-method> <!-- afterTest -->
-        <test-method status="SKIP" signature="tearDown()[pri:0, instance:com.vh.ui.tests.MedicalEquipmentTest@15f35bc3]" name="tearDown" is-config="true" duration-ms="0" started-at="2017-05-16T11:11:23Z" finished-at="2017-05-16T11:11:23Z">
+        <test-method status="PASS" signature="tearDown()[pri:0, instance:com.vh.ui.tests.MedicalEquipmentTest@1ee27d73]" name="tearDown" is-config="true" duration-ms="0" started-at="2017-05-16T14:45:56Z" finished-at="2017-05-16T14:45:56Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- tearDown -->

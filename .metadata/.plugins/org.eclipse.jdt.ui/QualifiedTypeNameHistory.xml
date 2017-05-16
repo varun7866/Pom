@@ -9,6 +9,7 @@
 <fullyQualifiedTypeName name="com.vh.ui.web.locators.AdminLocators"/>
 <fullyQualifiedTypeName name="java.lang.Thread"/>
 <fullyQualifiedTypeName name="com.vh.ui.utilities.Utilities"/>
-<fullyQualifiedTypeName name="com.vh.ui.web.locators.LoginLocators"/>
 <fullyQualifiedTypeName name="java.lang.System"/>
+<fullyQualifiedTypeName name="com.vh.ui.web.locators.LoginLocators"/>
+<fullyQualifiedTypeName name="com.vh.ui.web.locators.MedicalEquipmentLocators"/>
 </qualifiedTypeNameHistroy>

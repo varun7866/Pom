@@ -2,6 +2,7 @@ package com.vh.ui.tests;
 
 import org.openqa.selenium.TimeoutException;
 import org.openqa.selenium.WebDriver;
+import org.testng.Assert;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
@@ -11,6 +12,7 @@ import com.vh.ui.actions.ApplicationFunctions;
 import com.vh.ui.exceptions.URLNavigationException;
 import com.vh.ui.exceptions.WaitException;
 import com.vh.ui.page.base.WebPage;
+import com.vh.ui.pages.MedicalEquipmentPage;
 
 import ru.yandex.qatools.allure.annotations.Step;
 
@@ -29,12 +31,14 @@ public class MedicalEquipmentTest extends TestBase
 	// Class objects
 	WebPage pageBase;
 	ApplicationFunctions appFunctions;
+	MedicalEquipmentPage medicalEquipmentPage;
 	
 	@BeforeClass
 	public void buildUp() throws TimeoutException, WaitException, URLNavigationException, InterruptedException {
 		WebDriver driver = getWebDriver();
 		pageBase = new WebPage(driver);
 		appFunctions = new ApplicationFunctions(driver);
+		medicalEquipmentPage = new MedicalEquipmentPage(driver);
 
 		appFunctions.capellaLogin();
 		appFunctions.navigateToMenu("Medical Equipment");
@@ -42,9 +46,10 @@ public class MedicalEquipmentTest extends TestBase
 
 	@Test(priority = 1)
 	@Step("Verify the Medical Equipment page is displayed")
-	public void verifyMedicalEquipmentPageDisplayed() throws WaitException, URLNavigationException, InterruptedException
+	public void verify_MedicalEquipmentPageDisplayed()
+			throws WaitException, URLNavigationException, InterruptedException
 	{
-
+		Assert.assertTrue(medicalEquipmentPage.viewPageHeaderLabel(), "Failed to identify the Medical Equipment page header label");
 	}
 
 	@AfterClass

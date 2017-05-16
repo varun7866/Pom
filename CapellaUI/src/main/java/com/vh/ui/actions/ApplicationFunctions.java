@@ -7,7 +7,6 @@ import static com.vh.ui.web.locators.ApplicationLocators.LNK_CONSOLIDATED_MENUBA
 import static com.vh.ui.web.locators.ApplicationLocators.LNK_MYCONTACTS_MENUBAR;
 import static com.vh.ui.web.locators.ApplicationLocators.LNK_MYPATIENTS_MENUBAR;
 import static com.vh.ui.web.locators.ApplicationLocators.TXT_USERNAME_MENUBAR;
-import static com.vh.ui.web.locators.LoginLocators.BTN_YESALLOW;
 
 import java.util.List;
 import java.util.Properties;
@@ -82,12 +81,11 @@ public class ApplicationFunctions extends WebPage
 		loginPage.clickLogin();
 		Thread.sleep(3000);
 
-		if (wait.checkForElementVisibility(driver, BTN_YESALLOW))
-		{
-			loginPage.clickRememberMyDecision();
-			Thread.sleep(1000);
-			loginPage.clickYesAllow();
-		}
+		/*
+		 * if (wait.checkForElementVisibility(driver, BTN_YESALLOW)) {
+		 * loginPage.clickRememberMyDecision(); Thread.sleep(1000);
+		 * loginPage.clickYesAllow(); }
+		 */
 
 		Thread.sleep(60000);
 
