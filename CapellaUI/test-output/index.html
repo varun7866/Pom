@@ -49,7 +49,7 @@
               <ul>
                 <li>
                   <a href="#" class="navigator-link " panel-name="test-xml-Default_suite">
-                    <span>C:\Users\hackermans\AppData\Local\Temp\testng-eclipse-1500946984\testng-customsuite.xml</span>
+                    <span>C:\Users\hackermans\AppData\Local\Temp\testng-eclipse--783797675\testng-customsuite.xml</span>
                   </a> <!-- navigator-link  -->
                 </li>
                 <li>
@@ -91,7 +91,7 @@
               <div class="suite-section-content">
                 <ul>
                   <li>
-                    <span class="method-stats">1 method,   1 passed</span>
+                    <span class="method-stats">2 methods,   2 passed</span>
                   </li>
                   <li>
                     <span class="method-list-title passed">Passed methods</span>
@@ -102,7 +102,12 @@
                     <div class="method-list-content passed suite-Default_suite">
                       <span>
                         <img width="3%" src="passed.png"/>
-                        <a href="#" class="method navigator-link" panel-name="suite-Default_suite" title="com.vh.ui.tests.MedicalEquipmentTest" hash-for-method="verify_MedicalEquipmentPageDisplayed">verify_MedicalEquipmentPageDisplayed</a> <!-- method navigator-link -->
+                        <a href="#" class="method navigator-link" panel-name="suite-Default_suite" title="com.vh.ui.tests.MedicalEquipmentTest" hash-for-method="verify_ColumnHeadersDisplayed">verify_ColumnHeadersDisplayed</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img width="3%" src="passed.png"/>
+                        <a href="#" class="method navigator-link" panel-name="suite-Default_suite" title="com.vh.ui.tests.MedicalEquipmentTest" hash-for-method="verify_PageDisplayed">verify_PageDisplayed</a> <!-- method navigator-link -->
                       </span>
                       <br/>
                     </div> <!-- method-list-content passed suite-Default_suite -->
@@ -125,9 +130,16 @@
             <div class="main-panel-content rounded-window-bottom">
               <div class="method">
                 <div class="method-content">
-                  <a name="verify_MedicalEquipmentPageDisplayed">
-                  </a> <!-- verify_MedicalEquipmentPageDisplayed -->
-                  <span class="method-name">verify_MedicalEquipmentPageDisplayed</span>
+                  <a name="verify_ColumnHeadersDisplayed">
+                  </a> <!-- verify_ColumnHeadersDisplayed -->
+                  <span class="method-name">verify_ColumnHeadersDisplayed</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="verify_PageDisplayed">
+                  </a> <!-- verify_PageDisplayed -->
+                  <span class="method-name">verify_PageDisplayed</span>
                 </div> <!-- method-content -->
               </div> <!-- method -->
             </div> <!-- main-panel-content rounded-window-bottom -->
@@ -135,7 +147,7 @@
         </div> <!-- panel Default_suite -->
         <div panel-name="test-xml-Default_suite" class="panel">
           <div class="main-panel-header rounded-window-top">
-            <span class="header-content">C:\Users\hackermans\AppData\Local\Temp\testng-eclipse-1500946984\testng-customsuite.xml</span>
+            <span class="header-content">C:\Users\hackermans\AppData\Local\Temp\testng-eclipse--783797675\testng-customsuite.xml</span>
           </div> <!-- main-panel-header rounded-window-top -->
           <div class="main-panel-content rounded-window-bottom">
             <pre>
@@ -184,16 +196,20 @@ data.addColumn('number', 'Number');
 data.addColumn('string', 'Method');
 data.addColumn('string', 'Class');
 data.addColumn('number', 'Time (ms)');
-data.addRows(1);
+data.addRows(2);
 data.setCell(0, 0, 0)
-data.setCell(0, 1, 'verify_MedicalEquipmentPageDisplayed')
+data.setCell(0, 1, 'verify_PageDisplayed')
 data.setCell(0, 2, 'com.vh.ui.tests.MedicalEquipmentTest')
-data.setCell(0, 3, 478);
+data.setCell(0, 3, 11090);
+data.setCell(1, 0, 1)
+data.setCell(1, 1, 'verify_ColumnHeadersDisplayed')
+data.setCell(1, 2, 'com.vh.ui.tests.MedicalEquipmentTest')
+data.setCell(1, 3, 1803);
 window.suiteTableData['Default_suite']= { tableData: data, tableDiv: 'times-div-Default_suite'}
 return data;
 }
               </script>
-              <span class="suite-total-time">Total running time: 478 ms</span>
+              <span class="suite-total-time">Total running time: 12 seconds</span>
               <div id="times-div-Default_suite">
               </div> <!-- times-div-Default_suite -->
             </div> <!-- times-div -->
@@ -225,16 +241,24 @@ return data;
                 <span class="method-start">0 ms</span>
               </div> <!-- configuration-class before -->
               <div class="test-method">
-                <span class="method-name">verify_MedicalEquipmentPageDisplayed</span>
-                <span class="method-start">155224 ms</span>
+                <span class="method-name">verify_PageDisplayed</span>
+                <span class="method-start">140363 ms</span>
               </div> <!-- test-method -->
               <div class="configuration-method after">
-                <span class="method-name">afterTest(public void com.vh.ui.tests.MedicalEquipmentTest.verify_MedicalEquipmentPageDisplayed() throws com.v...)</span>
-                <span class="method-start">155708 ms</span>
+                <span class="method-name">afterTest(public void com.vh.ui.tests.MedicalEquipmentTest.verify_PageDisplayed() throws com.vh.ui.exceptions....)</span>
+                <span class="method-start">151462 ms</span>
+              </div> <!-- configuration-method after -->
+              <div class="test-method">
+                <span class="method-name">verify_ColumnHeadersDisplayed</span>
+                <span class="method-start">151465 ms</span>
+              </div> <!-- test-method -->
+              <div class="configuration-method after">
+                <span class="method-name">afterTest(public void com.vh.ui.tests.MedicalEquipmentTest.verify_ColumnHeadersDisplayed() throws com.vh.ui.ex...)</span>
+                <span class="method-start">153270 ms</span>
               </div> <!-- configuration-method after -->
               <div class="configuration-class after">
                 <span class="method-name">tearDown</span>
-                <span class="method-start">155710 ms</span>
+                <span class="method-start">153270 ms</span>
               </div> <!-- configuration-class after -->
           </div> <!-- main-panel-content rounded-window-bottom -->
         </div> <!-- panel -->

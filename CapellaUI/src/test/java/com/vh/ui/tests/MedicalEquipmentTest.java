@@ -46,10 +46,20 @@ public class MedicalEquipmentTest extends TestBase
 
 	@Test(priority = 1)
 	@Step("Verify the Medical Equipment page is displayed")
-	public void verify_MedicalEquipmentPageDisplayed()
-			throws WaitException, URLNavigationException, InterruptedException
+	public void verify_PageDisplayed() throws WaitException, URLNavigationException, InterruptedException
 	{
 		Assert.assertTrue(medicalEquipmentPage.viewPageHeaderLabel(), "Failed to identify the Medical Equipment page header label");
+	}
+
+	@Test(priority = 2)
+	@Step("Verify the column headers are displayed")
+	public void verify_ColumnHeadersDisplayed() throws WaitException, URLNavigationException, InterruptedException
+	{
+		Assert.assertTrue(medicalEquipmentPage.viewEquipmentDescriptionColumnHeaderLabel(), "Failed to identify the Equipment Description colummn header label");
+		Assert.assertTrue(medicalEquipmentPage.viewSourceColumnHeaderLabel(), "Failed to identify the Source colummn header label");
+		Assert.assertTrue(medicalEquipmentPage.viewDateColumnHeaderLabel(), "Failed to identify the Date colummn header label");
+		Assert.assertTrue(medicalEquipmentPage.viewStatusColumnHeaderLabel(), "Failed to identify the Status colummn header label");
+		Assert.assertTrue(medicalEquipmentPage.viewInUseColumnHeaderLabel(), "Failed to identify the In Use colummn header label");
 	}
 
 	@AfterClass
