@@ -107,12 +107,6 @@ public class MedicalEquipmentPage extends WebPage
 		return webActions.getVisibiltyOfElementLocatedBy(VISIBILITY, BTN_ADDPOPUPADD);
 	}
 
-	@Step("Verify if the add popup ADD button is enabled")
-	public boolean isAddPopupAddButtonEnabled() throws TimeoutException, WaitException
-	{
-		return webActions.isElementEnabledLocatedBy(BTN_ADDPOPUPADD);
-	}
-
 	@Step("Verify the visibility of the Add Medical Equipment popup DATE label")
 	public boolean viewAddPopupDateLabel() throws TimeoutException, WaitException
 	{

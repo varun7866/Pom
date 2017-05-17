@@ -1,5 +1,6 @@
 package com.vh.ui.actions;
 
+import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Set;
@@ -624,21 +625,5 @@ public class WebActions {
 		LOGGER.info(Utilities.getCurrentThreadId() + "List of size=" + weblElementList.size() + " elements created");
 
 		return weblElementList.size();
-	}
-
-	/**
-	 * Determines if the passed element is enabled
-	 * 
-	 * @param locator - Used to identify the element
-	 *            
-	 * @return true or false depending on if the element is enabled or not
-	 * 
-	 * @throws WaitException
-	 */
-	public Boolean isElementEnabledLocatedBy(By locator) throws WaitException
-	{
-		LOGGER.info(Utilities.getCurrentThreadId() + "Determining if element is enabled");
-
-		return driver.findElement(locator).isEnabled();
 	}
 }

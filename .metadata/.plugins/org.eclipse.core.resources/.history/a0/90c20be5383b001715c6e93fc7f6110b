@@ -1,5 +1,6 @@
 package com.vh.ui.actions;
 
+import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Set;
@@ -625,20 +626,28 @@ public class WebActions {
 
 		return weblElementList.size();
 	}
-
+	
 	/**
-	 * Determines if the passed element is enabled
+	 * Get count of number of elements identified by the locator in the current page
 	 * 
-	 * @param locator - Used to identify the element
-	 *            
-	 * @return true or false depending on if the element is enabled or not
-	 * 
+	 * @param expectedCondition to wait for. The conditions can be notrequired, visibility, clickability, and presence
+	 * @param locator used to identify the element
+	 * @return number of elements identified by the locator in the current page
 	 * @throws WaitException
 	 */
-	public Boolean isElementEnabledLocatedBy(By locator) throws WaitException
-	{
-		LOGGER.info(Utilities.getCurrentThreadId() + "Determining if element is enabled");
+	public int isElementEnabledLocatedBy(By locator) throws WaitException {
+		LOGGER.info(Utilities.getCurrentThreadId() + "Getting Size of the List");
 
-		return driver.findElement(locator).isEnabled();
+		List<WebElement> weblElementList;
+
+		if ("notrequired".equals(expectedCondition)) {
+			weblElementList = driver.findElements(locator);
+		} else {
+			weblElementList = wait.syncLocatorsUsing(expectedCondition, driver, locator);
+		}
+
+		LOGGER.info(Utilities.getCurrentThreadId() + "List of size=" + weblElementList.size() + " elements created");
+
+		return weblElementList.size();
 	}
 }

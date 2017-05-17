@@ -639,6 +639,6 @@ public class WebActions {
 	{
 		LOGGER.info(Utilities.getCurrentThreadId() + "Determining if element is enabled");
 
-		return driver.findElement(locator).isEnabled();
+		return locator.is
 	}
 }
