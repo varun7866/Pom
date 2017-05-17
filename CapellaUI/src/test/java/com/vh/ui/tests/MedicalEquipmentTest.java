@@ -70,20 +70,30 @@ public class MedicalEquipmentTest extends TestBase
 		medicalEquipmentPage.clickAddMedicalEquipment();
 
 		Assert.assertTrue(medicalEquipmentPage.viewAddMedicalEquipmentPopup(), "Failed to identify the Add Medical Equipment popup");
+
 		Assert.assertTrue(medicalEquipmentPage.viewAddPopupCancelButton(), "Failed to identify the Add Medical Equipment popup CANCEL button");
 		Assert.assertTrue(medicalEquipmentPage.viewAddPopupAddButton(), "Failed to identify the Add Medical Equipment popup ADD button");
-		Assert.assertTrue(medicalEquipmentPage.viewAddPopupDateLabel(), "Failed to identify the Add Medical Equipment popup DATE label");
-		Assert.assertTrue(medicalEquipmentPage.viewAddPopupSourceLabel(), "Failed to identify the Add Medical Equipment popup SOURCE label");
-		Assert.assertTrue(medicalEquipmentPage.viewAddPopupEquipmentIsInUseLabel(), "Failed to identify the Add Medical Equipment popup Equipment is in Use label");
-		Assert.assertTrue(medicalEquipmentPage.viewAddPopupEquipmentTypeLabel(), "Failed to identify the Add Medical Equipment popup EQUIPMENT TYPE label");
-		Assert.assertTrue(medicalEquipmentPage.viewAddPopupStatusLabel(), "Failed to identify the Add Medical Equipment popup STATUS label");
 
+		Assert.assertTrue(medicalEquipmentPage.viewAddPopupDateLabel(), "Failed to identify the Add Medical Equipment popup DATE label");
+		Assert.assertTrue(medicalEquipmentPage.viewAddPopupDateCalendar(), "Failed to identify the Add Medical Equipment popup DATE control");
+
+		Assert.assertTrue(medicalEquipmentPage.viewAddPopupSourceLabel(), "Failed to identify the Add Medical Equipment popup SOURCE label");
+		Assert.assertTrue(medicalEquipmentPage.viewAddPopupSourceComboBox(), "Failed to identify the Add Medical Equipment popup SOURCE combo box");
+
+		Assert.assertTrue(medicalEquipmentPage.viewAddPopupEquipmentIsInUseLabel(), "Failed to identify the Add Medical Equipment popup Equipment is in Use label");
+		Assert.assertTrue(medicalEquipmentPage.viewAddPopupEquipmentIsInUseCheckBox(), "Failed to identify the Add Medical Equipment popup Equipment is in Use check box");
+
+		Assert.assertTrue(medicalEquipmentPage.viewAddPopupEquipmentTypeLabel(), "Failed to identify the Add Medical Equipment popup EQUIPMENT TYPE label");
+		Assert.assertTrue(medicalEquipmentPage.viewAddPopupEquipmentTypeComboBox(), "Failed to identify the Add Medical Equipment popup EQUIPMENT TYPE combo box");
+
+		Assert.assertTrue(medicalEquipmentPage.viewAddPopupStatusLabel(), "Failed to identify the Add Medical Equipment popup STATUS label");
+		Assert.assertTrue(medicalEquipmentPage.viewAddPopupStatusComboBox(), "Failed to identify the Add Medical Equipment popup STATUS combo box");
 	}
 
 	@AfterClass
 	public void tearDown() throws TimeoutException, WaitException
 	{
 		// appFunctions.capellaLogout();
-		// pageBase.quit();
+		pageBase.quit();
 	}
 }

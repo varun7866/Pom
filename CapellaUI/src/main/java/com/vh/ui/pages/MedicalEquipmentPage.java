@@ -3,6 +3,11 @@ package com.vh.ui.pages;
 import static com.vh.ui.web.locators.MedicalEquipmentLocators.BTN_ADDMEDICALEQUIPMENT;
 import static com.vh.ui.web.locators.MedicalEquipmentLocators.BTN_ADDPOPUPADD;
 import static com.vh.ui.web.locators.MedicalEquipmentLocators.BTN_ADDPOPUPCANCEL;
+import static com.vh.ui.web.locators.MedicalEquipmentLocators.CAL_ADDPOPUPDATE;
+import static com.vh.ui.web.locators.MedicalEquipmentLocators.CBO_ADDPOPUPEQUIPMENTTYPE;
+import static com.vh.ui.web.locators.MedicalEquipmentLocators.CBO_ADDPOPUPSOURCE;
+import static com.vh.ui.web.locators.MedicalEquipmentLocators.CBO_ADDPOPUPSTATUS;
+import static com.vh.ui.web.locators.MedicalEquipmentLocators.CHK_ADDPOPUPEQUIPMENTISINUSE;
 import static com.vh.ui.web.locators.MedicalEquipmentLocators.LBL_ADDMEDICALEQUIPMENT;
 import static com.vh.ui.web.locators.MedicalEquipmentLocators.LBL_ADDPOPUPDATE;
 import static com.vh.ui.web.locators.MedicalEquipmentLocators.LBL_ADDPOPUPEQUIPMENTISINUSE;
@@ -108,10 +113,22 @@ public class MedicalEquipmentPage extends WebPage
 		return webActions.getVisibiltyOfElementLocatedBy(VISIBILITY, LBL_ADDPOPUPDATE);
 	}
 
+	@Step("Verify the visibility of the Add Medical Equipment popup DATE calendar")
+	public boolean viewAddPopupDateCalendar() throws TimeoutException, WaitException
+	{
+		return webActions.getVisibiltyOfElementLocatedBy(VISIBILITY, CAL_ADDPOPUPDATE);
+	}
+
 	@Step("Verify the visibility of the Add Medical Equipment popup SOURCE label")
 	public boolean viewAddPopupSourceLabel() throws TimeoutException, WaitException
 	{
 		return webActions.getVisibiltyOfElementLocatedBy(VISIBILITY, LBL_ADDPOPUPSOURCE);
+	}
+
+	@Step("Verify the visibility of the Add Medical Equipment popup SOURCE combo box")
+	public boolean viewAddPopupSourceComboBox() throws TimeoutException, WaitException
+	{
+		return webActions.getVisibiltyOfElementLocatedBy(VISIBILITY, CBO_ADDPOPUPSOURCE);
 	}
 
 	@Step("Verify the visibility of the Add Medical Equipment popup Equipment is in Use label")
@@ -120,15 +137,33 @@ public class MedicalEquipmentPage extends WebPage
 		return webActions.getVisibiltyOfElementLocatedBy(VISIBILITY, LBL_ADDPOPUPEQUIPMENTISINUSE);
 	}
 
+	@Step("Verify the visibility of the Add Medical Equipment popup Equipment is in Use check box")
+	public boolean viewAddPopupEquipmentIsInUseCheckBox() throws TimeoutException, WaitException
+	{
+		return webActions.getVisibiltyOfElementLocatedBy(VISIBILITY, CHK_ADDPOPUPEQUIPMENTISINUSE);
+	}
+
 	@Step("Verify the visibility of the Add Medical Equipment popup EQUIPMENT TYPE label")
 	public boolean viewAddPopupEquipmentTypeLabel() throws TimeoutException, WaitException
 	{
 		return webActions.getVisibiltyOfElementLocatedBy(VISIBILITY, LBL_ADDPOPUPEQUIPMENTTYPE);
 	}
 
+	@Step("Verify the visibility of the Add Medical Equipment popup EQUIPMENT TYPE combo box")
+	public boolean viewAddPopupEquipmentTypeComboBox() throws TimeoutException, WaitException
+	{
+		return webActions.getVisibiltyOfElementLocatedBy(VISIBILITY, CBO_ADDPOPUPEQUIPMENTTYPE);
+	}
+
 	@Step("Verify the visibility of the Add Medical Equipment popup STATUS label")
 	public boolean viewAddPopupStatusLabel() throws TimeoutException, WaitException
 	{
 		return webActions.getVisibiltyOfElementLocatedBy(VISIBILITY, LBL_ADDPOPUPSTATUS);
+	}
+
+	@Step("Verify the visibility of the Add Medical Equipment popup STATUS combo box")
+	public boolean viewAddPopupStatusComboBox() throws TimeoutException, WaitException
+	{
+		return webActions.getVisibiltyOfElementLocatedBy(VISIBILITY, CBO_ADDPOPUPSTATUS);
 	}
 }
