@@ -144,10 +144,8 @@ public class ApplicationFunctions extends WebPage
 		}
 		else if(menu.length == 1)
 		{
-			// By subMenu = By.xpath("//a[text()='" + menu[0] + "']");
-			By subMenu = By.xpath("//a[contains(., '" + menu[0] + "')]");
-			Utilities.highlightElement(driver, subMenu);
-			webActions.click(CLICKABILITY, subMenu);
+			By mainMenu = By.xpath("//a[contains(., '" + menu[0] + "')]");
+			webActions.click(CLICKABILITY, mainMenu);
 		}
 		else
 		{

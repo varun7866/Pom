@@ -62,6 +62,14 @@ public class MedicalEquipmentTest extends TestBase
 		Assert.assertTrue(medicalEquipmentPage.viewInUseColumnHeaderLabel(), "Failed to identify the In Use colummn header label");
 	}
 
+	@Test(priority = 3)
+	@Step("Verify medical equipment can be added")
+	public void verify_AddMedicalEquipment() throws WaitException, URLNavigationException, InterruptedException
+	{
+		Assert.assertTrue(medicalEquipmentPage.viewAddMedicalEquipmentButton(), "Failed to identify the ADD MEDICAL EQUIPMENT button");
+		medicalEquipmentPage.clickAddMedicalEquipment();
+	}
+
 	@AfterClass
 	public void tearDown() throws TimeoutException, WaitException
 	{

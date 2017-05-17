@@ -19,4 +19,5 @@ public class MedicalEquipmentLocators
 	public static final By LBL_DATECOLUMNHEADER = By.xpath("//tr/th[text()='DATE']");
 	public static final By LBL_STATUSCOLUMNHEADER = By.xpath("//tr/th[text()='STATUS']");
 	public static final By LBL_INUSECOLUMNHEADER = By.xpath("//tr/th[text()='IN USE']");
+	public static final By BTN_ADDMEDICALEQUIPMENT = By.id("theButton");
 }

@@ -1,5 +1,6 @@
 package com.vh.ui.pages;
 
+import static com.vh.ui.web.locators.MedicalEquipmentLocators.BTN_ADDMEDICALEQUIPMENT;
 import static com.vh.ui.web.locators.MedicalEquipmentLocators.LBL_DATECOLUMNHEADER;
 import static com.vh.ui.web.locators.MedicalEquipmentLocators.LBL_EQUIPMENTDESCRIPTIONCOLUMNHEADER;
 import static com.vh.ui.web.locators.MedicalEquipmentLocators.LBL_INUSECOLUMNHEADER;
@@ -61,5 +62,17 @@ public class MedicalEquipmentPage extends WebPage
 	public boolean viewInUseColumnHeaderLabel() throws TimeoutException, WaitException
 	{
 		return webActions.getVisibiltyOfElementLocatedBy(VISIBILITY, LBL_INUSECOLUMNHEADER);
+	}
+
+	@Step("Verify the visibility of the ADD MEDICAL EQUIPMENT button")
+	public boolean viewAddMedicalEquipmentButton() throws TimeoutException, WaitException
+	{
+		return webActions.getVisibiltyOfElementLocatedBy(VISIBILITY, BTN_ADDMEDICALEQUIPMENT);
+	}
+
+	@Step("Click the ADD MEDICAL EQUIPMENT button")
+	public void clickAddMedicalEquipment() throws TimeoutException, WaitException
+	{
+		webActions.click(VISIBILITY, BTN_ADDMEDICALEQUIPMENT);
 	}
 }
