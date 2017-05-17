@@ -68,6 +68,16 @@ public class MedicalEquipmentTest extends TestBase
 	{
 		Assert.assertTrue(medicalEquipmentPage.viewAddMedicalEquipmentButton(), "Failed to identify the ADD MEDICAL EQUIPMENT button");
 		medicalEquipmentPage.clickAddMedicalEquipment();
+
+		Assert.assertTrue(medicalEquipmentPage.viewAddMedicalEquipmentPopup(), "Failed to identify the Add Medical Equipment popup");
+		Assert.assertTrue(medicalEquipmentPage.viewAddPopupCancelButton(), "Failed to identify the Add Medical Equipment popup CANCEL button");
+		Assert.assertTrue(medicalEquipmentPage.viewAddPopupAddButton(), "Failed to identify the Add Medical Equipment popup ADD button");
+		Assert.assertTrue(medicalEquipmentPage.viewAddPopupDateLabel(), "Failed to identify the Add Medical Equipment popup DATE label");
+		Assert.assertTrue(medicalEquipmentPage.viewAddPopupSourceLabel(), "Failed to identify the Add Medical Equipment popup SOURCE label");
+		Assert.assertTrue(medicalEquipmentPage.viewAddPopupEquipmentIsInUseLabel(), "Failed to identify the Add Medical Equipment popup Equipment is in Use label");
+		Assert.assertTrue(medicalEquipmentPage.viewAddPopupEquipmentTypeLabel(), "Failed to identify the Add Medical Equipment popup EQUIPMENT TYPE label");
+		Assert.assertTrue(medicalEquipmentPage.viewAddPopupStatusLabel(), "Failed to identify the Add Medical Equipment popup STATUS label");
+
 	}
 
 	@AfterClass

@@ -19,5 +19,14 @@ public class MedicalEquipmentLocators
 	public static final By LBL_DATECOLUMNHEADER = By.xpath("//tr/th[text()='DATE']");
 	public static final By LBL_STATUSCOLUMNHEADER = By.xpath("//tr/th[text()='STATUS']");
 	public static final By LBL_INUSECOLUMNHEADER = By.xpath("//tr/th[text()='IN USE']");
+	public static final By LBL_ADDMEDICALEQUIPMENT = By.xpath("//span[text()='Add Medical Equipment']");
+	public static final By LBL_ADDPOPUPDATE = By.xpath("//div[@class='modal-dialog undefined']//label[text()='DATE']");
+	public static final By LBL_ADDPOPUPSOURCE = By.xpath("//div[@class='modal-dialog undefined']//label[text()='SOURCE']");
+	public static final By LBL_ADDPOPUPEQUIPMENTISINUSE = By.xpath("//div[@class='modal-dialog undefined']//label[text()='Equipment is in Use']");
+	public static final By LBL_ADDPOPUPEQUIPMENTTYPE = By.xpath("//div[@class='modal-dialog undefined']//label[text()='EQUIPMENT TYPE']");
+	public static final By LBL_ADDPOPUPSTATUS = By.xpath("//div[@class='modal-dialog undefined']//label[text()='STATUS']");
+
 	public static final By BTN_ADDMEDICALEQUIPMENT = By.id("theButton");
+	public static final By BTN_ADDPOPUPCANCEL = By.xpath("//div[@class='modal-dialog undefined']//button[text()='Cancel']");
+	public static final By BTN_ADDPOPUPADD = By.xpath("//div[@class='modal-dialog undefined']//button[text()='Add']");
 }
