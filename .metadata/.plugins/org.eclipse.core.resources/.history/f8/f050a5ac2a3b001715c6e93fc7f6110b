@@ -24,7 +24,7 @@ public class MedicalEquipmentLocators
 	public static final By CBO_ADDPOPUPSTATUS = By.id("status");
 
 	public static final By CHK_ADDPOPUPEQUIPMENTISINUSE = By.id("equipmentInUseCheckbox");
-
+	
 	public static final By LBL_PAGEHEADER = By.xpath("//div[text()='MEDICAL EQUIPMENT']");
 	public static final By LBL_EQUIPMENTDESCRIPTIONCOLUMNHEADER = By.xpath("//tr/th[text()='EQUIPMENT DESCRIPTION']");
 	public static final By LBL_SOURCECOLUMNHEADER = By.xpath("//tr/th[text()='SOURCE']");
@@ -36,5 +36,5 @@ public class MedicalEquipmentLocators
 	public static final By LBL_ADDPOPUPSOURCE = By.xpath("//div[@class='modal-dialog undefined']//label[text()='SOURCE']");
 	public static final By LBL_ADDPOPUPEQUIPMENTISINUSE = By.xpath("//div[@class='modal-dialog undefined']//label[text()='Equipment is in Use']");
 	public static final By LBL_ADDPOPUPEQUIPMENTTYPE = By.xpath("//div[@class='modal-dialog undefined']//label[text()='EQUIPMENT TYPE']");
-	public static final By LBL_ADDPOPUPSTATUS = By.xpath("//div[@class='modal-dialog undefined']//label[text()='STATUS']");
+	public static final By LBL_ADDPOPUPSTATUS = By.xpath("//div[@class='modal-dialog undefined']//label[text()='STATUS']");	
 }

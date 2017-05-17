@@ -21,6 +21,6 @@ public class ApplicationLocators
 	public static final By LNK_MYCONTACTS_MENUBAR = By.xpath("//ul/li/a[text()='My Contacts']");
 	public static final By LNK_CONSOLIDATED_MENUBAR = By.xpath("//ul/li/a[text()='Consolidated']");
 	public static final By LNK_ADMIN_MENUBAR = By.xpath("//ul/li/a[text()='Admin']");
-
+	
 	public static final By TXT_USERNAME_MENUBAR = By.xpath("//header/h1[contains(., 'Welcome')]");
 }
