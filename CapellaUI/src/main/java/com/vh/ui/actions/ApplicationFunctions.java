@@ -9,7 +9,6 @@ import static com.vh.ui.web.locators.ApplicationLocators.LNK_MYPATIENTS_MENUBAR;
 import static com.vh.ui.web.locators.ApplicationLocators.TXT_USERNAME_MENUBAR;
 import static com.vh.ui.web.locators.LoginLocators.BTN_YESALLOW;
 
-import java.util.List;
 import java.util.Properties;
 
 import org.apache.log4j.Logger;
@@ -410,45 +409,27 @@ public class ApplicationFunctions extends WebPage
 	 * @return true if the item is selected, else false
 	 * @throws WaitException
 	 */
-	public boolean selectAnItemFromComboBox(By dropDownLocator, String itemToSelect) throws WaitException
-	{
-		boolean isPass = false;
-		isPass = wait.checkForElementVisibility(driver, dropDownLocator); 
-		Utilities.highlightElement(driver, dropDownLocator);
-		String dropDownDivString = getWebElementLocator(dropDownLocator);
-		String dropDownButtonString = dropDownDivString+"/button[1]";
-		By drpDwnLocator = By.xpath(dropDownButtonString);
-		Utilities.highlightElement(driver, drpDwnLocator);
-		if(!isPass){
-			return false;
-		}
-		
-		webActions.javascriptClick(drpDwnLocator);
-//		webActions.click("visibility", dropDownLocator);
-		
-		String ulString = dropDownDivString + "/ul[1]";
-		By childLocator = By.xpath(ulString);
-		isPass = wait.checkForElementVisibility(driver, childLocator);
-		if(!isPass){
-			return false;
-		}
-		
-		Utilities.highlightElement(driver, childLocator);
-		String liString = ulString + "/li";
-		boolean isSelected = false;
-		List<WebElement> list = driver.findElements(By.xpath(liString));
-		for(WebElement el : list)
-		{
-			Utilities.highlightElement(driver, el);
-			if(el.getText().trim().equalsIgnoreCase(itemToSelect))
-			{
-				webActions.javascriptClick(el);
-				isSelected = true;
-				break;
-			}
-		}
-		return isSelected;
-	}
+	/*
+	 * public boolean selectAnItemFromComboBox(By dropDownLocator, String
+	 * itemToSelect) throws WaitException { boolean isPass = false; isPass =
+	 * wait.checkForElementVisibility(driver, dropDownLocator);
+	 * Utilities.highlightElement(driver, dropDownLocator); String
+	 * dropDownDivString = getWebElementLocator(dropDownLocator); String
+	 * dropDownButtonString = dropDownDivString+"/button[1]"; By drpDwnLocator =
+	 * By.xpath(dropDownButtonString); Utilities.highlightElement(driver,
+	 * drpDwnLocator); if(!isPass){ return false; }
+	 * webActions.javascriptClick(drpDwnLocator); //
+	 * webActions.click("visibility", dropDownLocator); String ulString =
+	 * dropDownDivString + "/ul[1]"; By childLocator = By.xpath(ulString);
+	 * isPass = wait.checkForElementVisibility(driver, childLocator);
+	 * if(!isPass){ return false; } Utilities.highlightElement(driver,
+	 * childLocator); String liString = ulString + "/li"; boolean isSelected =
+	 * false; List<WebElement> list = driver.findElements(By.xpath(liString));
+	 * for(WebElement el : list) { Utilities.highlightElement(driver, el);
+	 * if(el.getText().trim().equalsIgnoreCase(itemToSelect)) {
+	 * webActions.javascriptClick(el); isSelected = true; break; } } return
+	 * isSelected; }
+	 */
 	
 	public String getWebElementLocator(WebElement element) throws AssertionError{
         if ((element instanceof WebElement)){

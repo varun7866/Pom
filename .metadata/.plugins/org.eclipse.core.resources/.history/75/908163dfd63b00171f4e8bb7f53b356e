@@ -93,13 +93,21 @@ public class MedicalEquipmentTest extends TestBase
 
 		medicalEquipmentPage.selectAddPopupStatusComboBox("Delivered");
 		Assert.assertTrue(medicalEquipmentPage.isAddPopupAddButtonEnabled(), "The Add popup ADD button should not be disabled at this point");
-	}
 
+		medicalEquipmentPage.checkAddPopupEquipmentIsInUseCheckBox();
+	}
+	
 	@Test(priority = 3)
 	@Step("Verify the Medical Equipment page")
-	public void AddMedicalEquipment() throws WaitException, URLNavigationException, InterruptedException
+	public void verify_MedicalEquipmentPage() throws WaitException, URLNavigationException, InterruptedException
 	{
-		medicalEquipmentPage.checkAddPopupEquipmentIsInUseCheckBox();
+		Assert.assertTrue(medicalEquipmentPage.viewPageHeaderLabel(), "Failed to identify the Medical Equipment page header label");
+		Assert.assertTrue(medicalEquipmentPage.viewAddMedicalEquipmentButton(), "Failed to identify the ADD MEDICAL EQUIPMENT button");
+		Assert.assertTrue(medicalEquipmentPage.viewEquipmentDescriptionColumnHeaderLabel(), "Failed to identify the Equipment Description colummn header label");
+		Assert.assertTrue(medicalEquipmentPage.viewSourceColumnHeaderLabel(), "Failed to identify the Source colummn header label");
+		Assert.assertTrue(medicalEquipmentPage.viewDateColumnHeaderLabel(), "Failed to identify the Date colummn header label");
+		Assert.assertTrue(medicalEquipmentPage.viewStatusColumnHeaderLabel(), "Failed to identify the Status colummn header label");
+		Assert.assertTrue(medicalEquipmentPage.viewInUseColumnHeaderLabel(), "Failed to identify the In Use colummn header label");
 	}
 
 	@AfterClass

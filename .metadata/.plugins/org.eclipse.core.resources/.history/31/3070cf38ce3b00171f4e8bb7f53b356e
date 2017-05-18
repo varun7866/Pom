@@ -155,12 +155,6 @@ public class MedicalEquipmentPage extends WebPage
 		return webActions.getVisibiltyOfElementLocatedBy(VISIBILITY, CHK_ADDPOPUPEQUIPMENTISINUSE);
 	}
 
-	@Step("Check the Add Medical Equipment popup Equipment is in Use check box")
-	public void checkAddPopupEquipmentIsInUseCheckBox() throws TimeoutException, WaitException
-	{
-		webActions.click(VISIBILITY, CHK_ADDPOPUPEQUIPMENTISINUSE);
-	}
-
 	@Step("Verify the visibility of the Add Medical Equipment popup EQUIPMENT TYPE label")
 	public boolean viewAddPopupEquipmentTypeLabel() throws TimeoutException, WaitException
 	{

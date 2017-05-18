@@ -92,7 +92,7 @@ public class MedicalEquipmentTest extends TestBase
 		Assert.assertFalse(medicalEquipmentPage.isAddPopupAddButtonEnabled(), "The Add popup ADD button should not be enabled at this point (3)");
 
 		medicalEquipmentPage.selectAddPopupStatusComboBox("Delivered");
-		Assert.assertTrue(medicalEquipmentPage.isAddPopupAddButtonEnabled(), "The Add popup ADD button should not be disabled at this point");
+		Assert.assertTrue(medicalEquipmentPage.isAddPopupAddButtonEnabled(), "The Add popup ADD button should not be disabled at this point");		
 	}
 
 	@Test(priority = 3)
