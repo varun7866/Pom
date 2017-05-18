@@ -9,6 +9,9 @@ import static com.vh.ui.web.locators.ApplicationLocators.LNK_MYPATIENTS_MENUBAR;
 import static com.vh.ui.web.locators.ApplicationLocators.TXT_USERNAME_MENUBAR;
 import static com.vh.ui.web.locators.LoginLocators.BTN_YESALLOW;
 
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.Properties;
 
 import org.apache.log4j.Logger;
@@ -489,6 +492,43 @@ public class ApplicationFunctions extends WebPage
 		WebElement ulElement = driver.findElement(ulLocator);
 //		ulElement.findElement(by)
 		return isPass;
+	}
+
+	/**
+	 * Check if the date picker's currently selected date is equal to the
+	 * current date
+	 * 
+	 * @param datePickerLocator
+	 *            The <input> tag locator of the date picker
+	 * @return true if the currently selected date in the date picker is equal
+	 *         to the current date, else false
+	 * @throws WaitException
+	 * @throws InterruptedException
+	 */
+	public boolean isCalendarDateEqualToCurrentDate(By datePickerLocator) throws WaitException, InterruptedException
+	{
+		DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
+		Date dateObject = new Date();
+
+		String attributeValue = webActions.getAttributeValue("visibility", datePickerLocator, "ng-reflect-value");
+
+		return attributeValue.equals(dateFormat.format(dateObject));
+	}
+
+	/**
+	 * Check if the date picker's currently selected date is equal to the
+	 * current date
+	 * 
+	 * @param datePickerLocator
+	 *            The <input> tag locator of the date picker
+	 * @return true if the date range is valid, else false
+	 * @throws WaitException
+	 * @throws InterruptedException
+	 */
+	public boolean isCalendarDateRangeValid(By datePickerLocator) throws WaitException, InterruptedException
+	{
+
+		return true;
 	}
 
 	@Step("Get the User Name from the Menu Bar")

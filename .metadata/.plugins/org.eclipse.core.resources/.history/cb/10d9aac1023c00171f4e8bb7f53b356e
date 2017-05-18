@@ -40,11 +40,9 @@ import ru.yandex.qatools.allure.annotations.Step;
 public class MedicalEquipmentPage extends WebPage
 {
 	ApplicationFunctions appFunctions;
-
+	
 	public MedicalEquipmentPage(WebDriver driver) throws WaitException {
 		super(driver);
-
-		appFunctions = new ApplicationFunctions(driver);
 	}
 
 	@Step("Verify the visibility of the Medical Equipment page header label")
@@ -140,7 +138,7 @@ public class MedicalEquipmentPage extends WebPage
 	@Step("Verify the Add Medical Equipment popup default date in the DATE picker is equal to the current date")
 	public boolean isAddPopupDefaultDateCurrentDate() throws TimeoutException, WaitException, InterruptedException
 	{
-		return appFunctions.isCalendarDateEqualToCurrentDate(CAL_ADDPOPUPDATE);
+		return webActions.isCalendarDateEqualToCurrentDate(CAL_ADDPOPUPDATE);
 	}
 
 	@Step("Click the Add Medical Equipment popup date picker button")
@@ -152,7 +150,7 @@ public class MedicalEquipmentPage extends WebPage
 	@Step("Verify the Add Medical Equipment popup date range in the DATE picker is valid")
 	public boolean isAddPopupDateRangeValid() throws TimeoutException, WaitException, InterruptedException
 	{
-		return appFunctions.isCalendarDateRangeValid(CAL_ADDPOPUPDATE);
+		return webActions.isCalendarDateRangeValid(CAL_ADDPOPUPDATE);
 	}
 
 	@Step("Verify the visibility of the Add Medical Equipment popup SOURCE label")

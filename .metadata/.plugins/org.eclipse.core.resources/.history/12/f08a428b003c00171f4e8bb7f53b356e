@@ -1,6 +1,9 @@
 package com.vh.ui.actions;
 
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 import java.util.Set;
 
@@ -643,5 +646,43 @@ public class WebActions {
 		LOGGER.info(Utilities.getCurrentThreadId() + "Determining if element is enabled");
 
 		return driver.findElement(locator).isEnabled();
+	}
+
+	/**
+	 * Check if the date picker's currently selected date is equal to the
+	 * current date
+	 * 
+	 * @param datePickerLocator
+	 *            The <input> tag locator of the date picker
+	 * @return true if the currently selected date in the date picker is equal
+	 *         to the current date, else false
+	 * @throws WaitException
+	 * @throws InterruptedException
+	 */
+	public boolean isCalendarDateEqualToCurrentDate(By datePickerLocator) throws WaitException, InterruptedException
+	{
+		DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
+		Date dateObject = new Date();
+
+		String attributeValue = getAttributeValue("visibility", datePickerLocator, "ng-reflect-value");
+
+		return attributeValue.equals(dateFormat.format(dateObject));
+	}
+
+	/**
+	 * Check if the date picker's currently selected date is equal to the
+	 * current date
+	 * 
+	 * @param datePickerLocator
+	 *            The <input> tag locator of the date picker
+	 * @return true if the currently selected date in the date picker is equal
+	 *         to the current date, else false
+	 * @throws WaitException
+	 * @throws InterruptedException
+	 */
+	public boolean isCalendarDateRangeValid(By datePickerLocator) throws WaitException, InterruptedException
+	{
+
+		//return 
 	}
 }

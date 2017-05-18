@@ -13,4 +13,6 @@
 <fullyQualifiedTypeName name="com.vh.ui.web.locators.MedicalEquipmentLocators"/>
 <fullyQualifiedTypeName name="com.vh.ui.web.locators.LoginLocators"/>
 <fullyQualifiedTypeName name="org.openqa.selenium.By.ByXPath"/>
+<fullyQualifiedTypeName name="java.text.DateFormat"/>
+<fullyQualifiedTypeName name="java.util.Date"/>
 </qualifiedTypeNameHistroy>

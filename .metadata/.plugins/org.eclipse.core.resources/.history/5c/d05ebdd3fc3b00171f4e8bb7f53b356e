@@ -61,7 +61,7 @@ public class MedicalEquipmentTest extends TestBase
 	@Step("Verify Add Medical Equipment popup")
 	public void verify_AddMedicalEquipmentPopup() throws WaitException, URLNavigationException, InterruptedException
 	{
-		medicalEquipmentPage.clickAddMedicalEquipmentButton();
+		medicalEquipmentPage.clickAddMedicalEquipment();
 
 		Assert.assertTrue(medicalEquipmentPage.viewAddMedicalEquipmentPopup(), "Failed to identify the Add Medical Equipment popup header label");
 
@@ -70,7 +70,7 @@ public class MedicalEquipmentTest extends TestBase
 
 		Assert.assertTrue(medicalEquipmentPage.viewAddPopupDateLabel(), "Failed to identify the Add Medical Equipment popup DATE label");
 		Assert.assertTrue(medicalEquipmentPage.viewAddPopupDatePicker(), "Failed to identify the Add Medical Equipment popup DATE picker");
-		Assert.assertTrue(medicalEquipmentPage.viewAddPopupDatePickerButton(), "Failed to identify the Add Medical Equipment popup DATE picker button");
+		Assert.assertTrue(medicalEquipmentPage.viewAddPopupDateButton(), "Failed to identify the Add Medical Equipment popup DATE button");
 
 		Assert.assertTrue(medicalEquipmentPage.viewAddPopupSourceLabel(), "Failed to identify the Add Medical Equipment popup SOURCE label");
 		Assert.assertTrue(medicalEquipmentPage.viewAddPopupSourceComboBox(), "Failed to identify the Add Medical Equipment popup SOURCE combo box");
@@ -96,8 +96,7 @@ public class MedicalEquipmentTest extends TestBase
 		Assert.assertTrue(medicalEquipmentPage.isAddPopupAddButtonEnabled(), "The Add Medical Equipment popup ADD button should not be disabled at this point");
 		
 		Assert.assertTrue(medicalEquipmentPage.isAddPopupDefaultDateCurrentDate(), "The Add Medical Equipment popup default DATE does not match the current date");
-
-		medicalEquipmentPage.clickAddPopupDatePickerButton();
+		
 		Assert.assertTrue(medicalEquipmentPage.isAddPopupDateRangeValid(), "The Add Medical Equipment popup DATE range is invalid");
 	}
 

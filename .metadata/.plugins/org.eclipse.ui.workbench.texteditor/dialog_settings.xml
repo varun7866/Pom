@@ -2,12 +2,13 @@
 <section name="Workbench">
 	<section name="org.eclipse.ui.texteditor.FindReplaceDialog">
 		<item value="false" key="isRegEx"/>
-		<item value="wait" key="selection"/>
+		<item value="appFunctions" key="selection"/>
 		<item value="false" key="casesensitive"/>
 		<item value="false" key="incremental"/>
 		<item value="true" key="wrap"/>
 		<item value="false" key="wholeword"/>
 		<list key="findhistory">
+			<item value="appFunctions"/>
 			<item value="wait"/>
 			<item value="nav"/>
 			<item value="log"/>
@@ -15,7 +16,6 @@
 			<item value="MyPatientsPage"/>
 			<item value="cookie"/>
 			<item value="click"/>
-			<item value="webActions"/>
 		</list>
 		<list key="replacehistory">
 		</list>
