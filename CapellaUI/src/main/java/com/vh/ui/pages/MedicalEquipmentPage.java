@@ -137,6 +137,12 @@ public class MedicalEquipmentPage extends WebPage
 		return webActions.getVisibiltyOfElementLocatedBy(VISIBILITY, CBO_ADDPOPUPSOURCE);
 	}
 
+	@Step("Select an option form the Add Medical Equipment popup SOURCE combo box")
+	public void selectAddPopupSourceComboBox(String optionToSelect) throws TimeoutException, WaitException
+	{
+		webActions.selectFromDropDown(VISIBILITY, CBO_ADDPOPUPSOURCE, optionToSelect);
+	}
+
 	@Step("Verify the visibility of the Add Medical Equipment popup Equipment is in Use label")
 	public boolean viewAddPopupEquipmentIsInUseLabel() throws TimeoutException, WaitException
 	{
@@ -161,6 +167,12 @@ public class MedicalEquipmentPage extends WebPage
 		return webActions.getVisibiltyOfElementLocatedBy(VISIBILITY, CBO_ADDPOPUPEQUIPMENTTYPE);
 	}
 
+	@Step("Select an option form the Add Medical Equipment popup EQUIPMENT TYPE combo box")
+	public void selectAddPopupEquipmentTypeComboBox(String optionToSelect) throws TimeoutException, WaitException
+	{
+		webActions.selectFromDropDown(VISIBILITY, CBO_ADDPOPUPEQUIPMENTTYPE, optionToSelect);
+	}
+
 	@Step("Verify the visibility of the Add Medical Equipment popup STATUS label")
 	public boolean viewAddPopupStatusLabel() throws TimeoutException, WaitException
 	{
@@ -171,5 +183,11 @@ public class MedicalEquipmentPage extends WebPage
 	public boolean viewAddPopupStatusComboBox() throws TimeoutException, WaitException
 	{
 		return webActions.getVisibiltyOfElementLocatedBy(VISIBILITY, CBO_ADDPOPUPSTATUS);
+	}
+
+	@Step("Select an option form the Add Medical Equipment popup STATUS combo box")
+	public void selectAddPopupStatusComboBox(String optionToSelect) throws TimeoutException, WaitException
+	{
+		webActions.selectFromDropDown(VISIBILITY, CBO_ADDPOPUPSTATUS, optionToSelect);
 	}
 }

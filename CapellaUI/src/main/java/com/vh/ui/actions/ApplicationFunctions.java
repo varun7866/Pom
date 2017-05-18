@@ -401,10 +401,12 @@ public class ApplicationFunctions extends WebPage
 	// }
 	
 	/**
-	 * Select an item from drop down in capella application
+	 * Select an item from the passed in combo box
 	 * 
-	 * @param dropDownLocator the div locator of the dropdown
-	 * @param itemToSelect the item to be selected
+	 * @param dropDownLocator
+	 *            The locator <div> tag of the combo box
+	 * @param itemToSelect
+	 *            The item to be selected
 	 * @return true if the item is selected, else false
 	 * @throws WaitException
 	 */

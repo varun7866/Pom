@@ -10,6 +10,7 @@
 <fullyQualifiedTypeName name="java.lang.Thread"/>
 <fullyQualifiedTypeName name="com.vh.ui.utilities.Utilities"/>
 <fullyQualifiedTypeName name="java.lang.System"/>
-<fullyQualifiedTypeName name="com.vh.ui.web.locators.LoginLocators"/>
 <fullyQualifiedTypeName name="com.vh.ui.web.locators.MedicalEquipmentLocators"/>
+<fullyQualifiedTypeName name="com.vh.ui.web.locators.LoginLocators"/>
+<fullyQualifiedTypeName name="org.openqa.selenium.By.ByXPath"/>
 </qualifiedTypeNameHistroy>

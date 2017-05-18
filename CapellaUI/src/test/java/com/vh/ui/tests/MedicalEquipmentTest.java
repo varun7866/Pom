@@ -89,7 +89,16 @@ public class MedicalEquipmentTest extends TestBase
 		Assert.assertTrue(medicalEquipmentPage.viewAddPopupStatusLabel(), "Failed to identify the Add Medical Equipment popup STATUS label");
 		Assert.assertTrue(medicalEquipmentPage.viewAddPopupStatusComboBox(), "Failed to identify the Add Medical Equipment popup STATUS combo box");
 
-		Assert.assertFalse(medicalEquipmentPage.isAddPopupAddButtonEnabled(), "The Add popup ADD button should not be enabled at this point");
+		Assert.assertFalse(medicalEquipmentPage.isAddPopupAddButtonEnabled(), "The Add popup ADD button should not be enabled at this point (1)");
+
+		medicalEquipmentPage.selectAddPopupSourceComboBox("VH Provided");
+		Assert.assertFalse(medicalEquipmentPage.isAddPopupAddButtonEnabled(), "The Add popup ADD button should not be enabled at this point (2)");
+
+		medicalEquipmentPage.selectAddPopupEquipmentTypeComboBox("Bed Trapeze");
+		Assert.assertFalse(medicalEquipmentPage.isAddPopupAddButtonEnabled(), "The Add popup ADD button should not be enabled at this point (3)");
+
+		medicalEquipmentPage.selectAddPopupStatusComboBox("Delivered");
+		Assert.assertTrue(medicalEquipmentPage.isAddPopupAddButtonEnabled(), "The Add popup ADD button should not be disabled at this point");
 	}
 
 	@AfterClass
