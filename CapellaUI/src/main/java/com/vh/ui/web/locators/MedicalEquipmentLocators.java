@@ -16,6 +16,7 @@ public class MedicalEquipmentLocators
 	public static final By BTN_ADDMEDICALEQUIPMENT = By.id("theButton");
 	public static final By BTN_ADDPOPUPCANCEL = By.xpath("//div[@class='modal-dialog undefined']//button[text()='Cancel']");
 	public static final By BTN_ADDPOPUPADD = By.xpath("//div[@class='modal-dialog undefined']//button[text()='Add']");
+	public static final By BTN_ADDPOPUPDATE = By.xpath("//div[@class='modal-dialog undefined']//button[@class='btnpicker btnpickerenabled']");
 
 	public static final By CAL_ADDPOPUPDATE = By.xpath("//div[@class='modal-dialog undefined']//label[text()='DATE']//..//input");
 
@@ -37,4 +38,6 @@ public class MedicalEquipmentLocators
 	public static final By LBL_ADDPOPUPEQUIPMENTISINUSE = By.xpath("//div[@class='modal-dialog undefined']//label[text()='Equipment is in Use']");
 	public static final By LBL_ADDPOPUPEQUIPMENTTYPE = By.xpath("//div[@class='modal-dialog undefined']//label[text()='EQUIPMENT TYPE']");
 	public static final By LBL_ADDPOPUPSTATUS = By.xpath("//div[@class='modal-dialog undefined']//label[text()='STATUS']");
+
+	public static final By TXT_ADDPOPUPDATE = By.xpath("//div[@class='modal-dialog undefined']//input/@ng-reflect-model");
 }

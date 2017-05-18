@@ -3,6 +3,7 @@ package com.vh.ui.pages;
 import static com.vh.ui.web.locators.MedicalEquipmentLocators.BTN_ADDMEDICALEQUIPMENT;
 import static com.vh.ui.web.locators.MedicalEquipmentLocators.BTN_ADDPOPUPADD;
 import static com.vh.ui.web.locators.MedicalEquipmentLocators.BTN_ADDPOPUPCANCEL;
+import static com.vh.ui.web.locators.MedicalEquipmentLocators.BTN_ADDPOPUPDATE;
 import static com.vh.ui.web.locators.MedicalEquipmentLocators.CAL_ADDPOPUPDATE;
 import static com.vh.ui.web.locators.MedicalEquipmentLocators.CBO_ADDPOPUPEQUIPMENTTYPE;
 import static com.vh.ui.web.locators.MedicalEquipmentLocators.CBO_ADDPOPUPSOURCE;
@@ -119,10 +120,22 @@ public class MedicalEquipmentPage extends WebPage
 		return webActions.getVisibiltyOfElementLocatedBy(VISIBILITY, LBL_ADDPOPUPDATE);
 	}
 
-	@Step("Verify the visibility of the Add Medical Equipment popup DATE calendar")
-	public boolean viewAddPopupDateCalendar() throws TimeoutException, WaitException
+	@Step("Verify the visibility of the Add Medical Equipment popup DATE picker")
+	public boolean viewAddPopupDatePicker() throws TimeoutException, WaitException
 	{
 		return webActions.getVisibiltyOfElementLocatedBy(VISIBILITY, CAL_ADDPOPUPDATE);
+	}
+
+	@Step("Verify the visibility of the Add Medical Equipment popup DATE button")
+	public boolean viewAddPopupDateButton() throws TimeoutException, WaitException
+	{
+		return webActions.getVisibiltyOfElementLocatedBy(VISIBILITY, BTN_ADDPOPUPDATE);
+	}
+
+	@Step("Verify the Add Medical Equipment popup default date in the DATE picker is equal to the current date")
+	public boolean isAddPopupDefaultDateCurrentDate() throws TimeoutException, WaitException, InterruptedException
+	{
+		return webActions.isCalendarDateEqualToCurrentDate(CAL_ADDPOPUPDATE);
 	}
 
 	@Step("Verify the visibility of the Add Medical Equipment popup SOURCE label")
