@@ -527,8 +527,28 @@ public class ApplicationFunctions extends WebPage
 	 */
 	public boolean isCalendarDateRangeValid(By datePickerLocator) throws WaitException, InterruptedException
 	{
+		int x;
+		String datePickerLocatorXpathString = "";
+		boolean dateEnabled = true;
 
-		return true;
+		datePickerLocatorXpathString = datePickerLocator.toString().substring(10);
+
+		for (x = 1; x <= 7 && dateEnabled; x++)
+		{
+			if (!driver.findElement(datePickerLocator).isEnabled())
+			{
+				dateEnabled = false;
+			}
+		}
+
+		if (x == 8)
+		{
+			return true;
+		}
+		else
+		{
+			return false;
+		}
 	}
 
 	@Step("Get the User Name from the Menu Bar")

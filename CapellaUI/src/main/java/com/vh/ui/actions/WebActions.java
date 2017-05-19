@@ -638,7 +638,7 @@ public class WebActions {
 	 * 
 	 * @throws WaitException
 	 */
-	public Boolean isElementEnabledLocatedBy(By locator) throws WaitException
+	public boolean isElementEnabledLocatedBy(By locator) throws WaitException
 	{
 		LOGGER.info(Utilities.getCurrentThreadId() + "Determining if element is enabled");
 
