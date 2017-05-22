@@ -2,20 +2,20 @@
 <testng-results skipped="0" failed="0" total="3" passed="3">
   <reporter-output>
   </reporter-output>
-  <suite name="Default suite" duration-ms="196215" started-at="2017-05-19T16:59:46Z" finished-at="2017-05-19T17:03:02Z">
+  <suite name="Default suite" duration-ms="244322" started-at="2017-05-22T16:48:00Z" finished-at="2017-05-22T16:52:04Z">
     <groups>
     </groups>
-    <test name="Default test" duration-ms="196215" started-at="2017-05-19T16:59:46Z" finished-at="2017-05-19T17:03:02Z">
+    <test name="Default test" duration-ms="244322" started-at="2017-05-22T16:48:00Z" finished-at="2017-05-22T16:52:04Z">
       <class name="com.vh.ui.tests.MedicalEquipmentTest">
-        <test-method status="PASS" signature="buildUp()[pri:0, instance:com.vh.ui.tests.MedicalEquipmentTest@5927f904]" name="buildUp" is-config="true" duration-ms="137731" started-at="2017-05-19T11:59:46Z" finished-at="2017-05-19T12:02:04Z">
+        <test-method status="PASS" signature="buildUp()[pri:0, instance:com.vh.ui.tests.MedicalEquipmentTest@3e36b7a0]" name="buildUp" is-config="true" duration-ms="153810" started-at="2017-05-22T11:48:00Z" finished-at="2017-05-22T11:50:34Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- buildUp -->
-        <test-method status="PASS" signature="verify_MedicalEquipmentPage()[pri:1, instance:com.vh.ui.tests.MedicalEquipmentTest@5927f904]" name="verify_MedicalEquipmentPage" duration-ms="2700" started-at="2017-05-19T12:02:04Z" finished-at="2017-05-19T12:02:06Z">
+        <test-method status="PASS" signature="verify_MedicalEquipmentPage()[pri:1, instance:com.vh.ui.tests.MedicalEquipmentTest@3e36b7a0]" name="verify_MedicalEquipmentPage" duration-ms="2863" started-at="2017-05-22T11:50:34Z" finished-at="2017-05-22T11:50:37Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- verify_MedicalEquipmentPage -->
-        <test-method status="PASS" signature="afterTest(java.lang.reflect.Method, org.testng.ITestResult)[pri:0, instance:com.vh.ui.tests.MedicalEquipmentTest@5927f904]" name="afterTest" is-config="true" duration-ms="5" started-at="2017-05-19T12:02:06Z" finished-at="2017-05-19T12:02:06Z">
+        <test-method status="PASS" signature="afterTest(java.lang.reflect.Method, org.testng.ITestResult)[pri:0, instance:com.vh.ui.tests.MedicalEquipmentTest@3e36b7a0]" name="afterTest" is-config="true" duration-ms="3" started-at="2017-05-22T11:50:37Z" finished-at="2017-05-22T11:50:37Z">
           <params>
             <param index="0">
               <value>
@@ -24,18 +24,18 @@
             </param>
             <param index="1">
               <value>
-                <![CDATA[[TestResult name=verify_MedicalEquipmentPage status=SUCCESS method=MedicalEquipmentTest.verify_MedicalEquipmentPage()[pri:1, instance:com.vh.ui.tests.MedicalEquipmentTest@5927f904] output={null}]]]>
+                <![CDATA[[TestResult name=verify_MedicalEquipmentPage status=SUCCESS method=MedicalEquipmentTest.verify_MedicalEquipmentPage()[pri:1, instance:com.vh.ui.tests.MedicalEquipmentTest@3e36b7a0] output={null}]]]>
               </value>
             </param>
           </params>
           <reporter-output>
           </reporter-output>
         </test-method> <!-- afterTest -->
-        <test-method status="PASS" signature="verify_AddMedicalEquipmentPopup()[pri:2, instance:com.vh.ui.tests.MedicalEquipmentTest@5927f904]" name="verify_AddMedicalEquipmentPopup" duration-ms="52249" started-at="2017-05-19T12:02:06Z" finished-at="2017-05-19T12:02:59Z">
+        <test-method status="PASS" signature="verify_AddMedicalEquipmentPopup()[pri:2, instance:com.vh.ui.tests.MedicalEquipmentTest@3e36b7a0]" name="verify_AddMedicalEquipmentPopup" duration-ms="22268" started-at="2017-05-22T11:50:37Z" finished-at="2017-05-22T11:50:59Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- verify_AddMedicalEquipmentPopup -->
-        <test-method status="PASS" signature="afterTest(java.lang.reflect.Method, org.testng.ITestResult)[pri:0, instance:com.vh.ui.tests.MedicalEquipmentTest@5927f904]" name="afterTest" is-config="true" duration-ms="0" started-at="2017-05-19T12:02:59Z" finished-at="2017-05-19T12:02:59Z">
+        <test-method status="PASS" signature="afterTest(java.lang.reflect.Method, org.testng.ITestResult)[pri:0, instance:com.vh.ui.tests.MedicalEquipmentTest@3e36b7a0]" name="afterTest" is-config="true" duration-ms="0" started-at="2017-05-22T11:50:59Z" finished-at="2017-05-22T11:50:59Z">
           <params>
             <param index="0">
               <value>
@@ -44,18 +44,18 @@
             </param>
             <param index="1">
               <value>
-                <![CDATA[[TestResult name=verify_AddMedicalEquipmentPopup status=SUCCESS method=MedicalEquipmentTest.verify_AddMedicalEquipmentPopup()[pri:2, instance:com.vh.ui.tests.MedicalEquipmentTest@5927f904] output={null}]]]>
+                <![CDATA[[TestResult name=verify_AddMedicalEquipmentPopup status=SUCCESS method=MedicalEquipmentTest.verify_AddMedicalEquipmentPopup()[pri:2, instance:com.vh.ui.tests.MedicalEquipmentTest@3e36b7a0] output={null}]]]>
               </value>
             </param>
           </params>
           <reporter-output>
           </reporter-output>
         </test-method> <!-- afterTest -->
-        <test-method status="PASS" signature="AddMedicalEquipment()[pri:3, instance:com.vh.ui.tests.MedicalEquipmentTest@5927f904]" name="AddMedicalEquipment" duration-ms="3427" started-at="2017-05-19T12:02:59Z" finished-at="2017-05-19T12:03:02Z">
+        <test-method status="PASS" signature="AddMedicalEquipment()[pri:3, instance:com.vh.ui.tests.MedicalEquipmentTest@3e36b7a0]" name="AddMedicalEquipment" duration-ms="65296" started-at="2017-05-22T11:50:59Z" finished-at="2017-05-22T11:52:04Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- AddMedicalEquipment -->
-        <test-method status="PASS" signature="afterTest(java.lang.reflect.Method, org.testng.ITestResult)[pri:0, instance:com.vh.ui.tests.MedicalEquipmentTest@5927f904]" name="afterTest" is-config="true" duration-ms="0" started-at="2017-05-19T12:03:02Z" finished-at="2017-05-19T12:03:02Z">
+        <test-method status="PASS" signature="afterTest(java.lang.reflect.Method, org.testng.ITestResult)[pri:0, instance:com.vh.ui.tests.MedicalEquipmentTest@3e36b7a0]" name="afterTest" is-config="true" duration-ms="0" started-at="2017-05-22T11:52:04Z" finished-at="2017-05-22T11:52:04Z">
           <params>
             <param index="0">
               <value>
@@ -64,14 +64,14 @@
             </param>
             <param index="1">
               <value>
-                <![CDATA[[TestResult name=AddMedicalEquipment status=SUCCESS method=MedicalEquipmentTest.AddMedicalEquipment()[pri:3, instance:com.vh.ui.tests.MedicalEquipmentTest@5927f904] output={null}]]]>
+                <![CDATA[[TestResult name=AddMedicalEquipment status=SUCCESS method=MedicalEquipmentTest.AddMedicalEquipment()[pri:3, instance:com.vh.ui.tests.MedicalEquipmentTest@3e36b7a0] output={null}]]]>
               </value>
             </param>
           </params>
           <reporter-output>
           </reporter-output>
         </test-method> <!-- afterTest -->
-        <test-method status="PASS" signature="tearDown()[pri:0, instance:com.vh.ui.tests.MedicalEquipmentTest@5927f904]" name="tearDown" is-config="true" duration-ms="1" started-at="2017-05-19T12:03:02Z" finished-at="2017-05-19T12:03:02Z">
+        <test-method status="PASS" signature="tearDown()[pri:0, instance:com.vh.ui.tests.MedicalEquipmentTest@3e36b7a0]" name="tearDown" is-config="true" duration-ms="0" started-at="2017-05-22T11:52:04Z" finished-at="2017-05-22T11:52:04Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- tearDown -->

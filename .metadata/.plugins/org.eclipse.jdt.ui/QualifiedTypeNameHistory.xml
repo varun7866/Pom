@@ -15,4 +15,5 @@
 <fullyQualifiedTypeName name="org.openqa.selenium.By.ByXPath"/>
 <fullyQualifiedTypeName name="java.text.DateFormat"/>
 <fullyQualifiedTypeName name="java.util.Date"/>
+<fullyQualifiedTypeName name="java.awt.List"/>
 </qualifiedTypeNameHistroy>

@@ -39,5 +39,7 @@ public class MedicalEquipmentLocators
 	public static final By LBL_ADDPOPUPEQUIPMENTTYPE = By.xpath("//div[@class='modal-dialog undefined']//label[text()='EQUIPMENT TYPE']");
 	public static final By LBL_ADDPOPUPSTATUS = By.xpath("//div[@class='modal-dialog undefined']//label[text()='STATUS']");
 
+	public static final By TBL_MEDICALEQUIPMENT = By.xpath("//table[@class='medical-equipment-table']");
+
 	public static final By TXT_ADDPOPUPDATE = By.xpath("//div[@class='modal-dialog undefined']//input/@ng-reflect-model");
 }

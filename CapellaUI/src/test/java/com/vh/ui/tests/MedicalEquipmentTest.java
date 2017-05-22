@@ -97,15 +97,27 @@ public class MedicalEquipmentTest extends TestBase
 		
 		Assert.assertTrue(medicalEquipmentPage.isAddPopupDefaultDateCurrentDate(), "The Add Medical Equipment popup default DATE does not match the current date");
 
-		medicalEquipmentPage.clickAddPopupDatePickerButton();
-		Assert.assertTrue(medicalEquipmentPage.isAddPopupDateRangeValid(), "The Add Medical Equipment popup DATE range is invalid");
+		// medicalEquipmentPage.clickAddPopupDatePickerButton();
+		// Assert.assertTrue(medicalEquipmentPage.isAddPopupDateRangeValid(), "The Add Medical Equipment popup DATE range is invalid");
+
+		// Need to add a test to verify a date cannot be older than 7 days
+
+		// Need to add a test to verify a date cannot be greater than current date
 	}
 
 	@Test(priority = 3)
-	@Step("Verify the Medical Equipment page")
+	@Step("Verify adding Medical Equipment")
 	public void AddMedicalEquipment() throws WaitException, URLNavigationException, InterruptedException
 	{
 		medicalEquipmentPage.checkAddPopupEquipmentIsInUseCheckBox();
+
+		medicalEquipmentPage.clickAddPopupAddButton();
+
+		Thread.sleep(2000);
+
+		Assert.assertFalse(medicalEquipmentPage.viewAddMedicalEquipmentPopup(), "The Add Medical Equipment popup did not close");
+
+		Assert.assertTrue(medicalEquipmentPage.isMedicalEquipmentInTable(), "The Medical Equipment is not in the table");
 	}
 
 	@AfterClass

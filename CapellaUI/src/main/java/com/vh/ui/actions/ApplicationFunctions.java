@@ -495,13 +495,11 @@ public class ApplicationFunctions extends WebPage
 	}
 
 	/**
-	 * Check if the date picker's currently selected date is equal to the
-	 * current date
+	 * Verifies if the date picker's currently selected date is equal to the current date
 	 * 
 	 * @param datePickerLocator
 	 *            The <input> tag locator of the date picker
-	 * @return true if the currently selected date in the date picker is equal
-	 *         to the current date, else false
+	 * @return True if the currently selected date in the date picker is equal to the current date, else false
 	 * @throws WaitException
 	 * @throws InterruptedException
 	 */
@@ -516,28 +514,38 @@ public class ApplicationFunctions extends WebPage
 	}
 
 	/**
-	 * Check if the date picker's currently selected date is equal to the
-	 * current date
+	 * NOT WORKING YET. DO NOT USE THIS METHOD. Check if the date picker's currently selected date is equal to the current date
 	 * 
 	 * @param datePickerLocator
 	 *            The <input> tag locator of the date picker
-	 * @return true if the date range is valid, else false
+	 * @return True if the date range is valid, else false
 	 * @throws WaitException
 	 * @throws InterruptedException
 	 */
 	public boolean isCalendarDateRangeValid(By datePickerLocator) throws WaitException, InterruptedException
 	{
 		int x;
-		String datePickerLocatorXpathString = "";
 		boolean dateEnabled = true;
+		String DayLocatorXpathString;
 
-		datePickerLocatorXpathString = datePickerLocator.toString().substring(10);
+		String datePickerLocatorXpathString = datePickerLocator.toString().substring(10);
+
+		DateFormat dateFormat = new SimpleDateFormat("dd");
+		Date dateObject = new Date();
+		String currentDay = dateFormat.format(dateObject);
+
+		By DayLocator = By.xpath(datePickerLocatorXpathString + "/../..//span[text()='" + currentDay + "']");
 
 		for (x = 1; x <= 7 && dateEnabled; x++)
 		{
-			if (!driver.findElement(datePickerLocator).isEnabled())
+			if (!driver.findElement(DayLocator).isEnabled())
 			{
 				dateEnabled = false;
+			}
+			else
+			{
+				datePickerLocatorXpathString = datePickerLocatorXpathString + "..span";
+				DayLocator = By.xpath(datePickerLocatorXpathString);
 			}
 		}
 
@@ -549,6 +557,25 @@ public class ApplicationFunctions extends WebPage
 		{
 			return false;
 		}
+	}
+
+	/**
+	 * Returns all the data from a table identified by the locator
+	 * 
+	 * @param locator
+	 *            The
+	 *            <table>
+	 *            tag locator of the table
+	 * @return A two dimensional List of strings
+	 * @throws TimeoutException
+	 * @throws WaitException
+	 */
+	public void getTableData(By tableLocator) throws TimeoutException, WaitException
+	{
+
+
+
+		// return list;
 	}
 
 	@Step("Get the User Name from the Menu Bar")
