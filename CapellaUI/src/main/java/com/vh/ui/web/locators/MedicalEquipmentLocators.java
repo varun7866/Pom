@@ -26,12 +26,12 @@ public class MedicalEquipmentLocators
 
 	public static final By CHK_ADDPOPUPEQUIPMENTISINUSE = By.id("equipmentInUseCheckbox");
 
-	public static final By LBL_PAGEHEADER = By.xpath("//div[text()='MEDICAL EQUIPMENT']");
-	public static final By LBL_EQUIPMENTDESCRIPTIONCOLUMNHEADER = By.xpath("//tr/th[text()='EQUIPMENT DESCRIPTION']");
-	public static final By LBL_SOURCECOLUMNHEADER = By.xpath("//tr/th[text()='SOURCE']");
-	public static final By LBL_DATECOLUMNHEADER = By.xpath("//tr/th[text()='DATE']");
-	public static final By LBL_STATUSCOLUMNHEADER = By.xpath("//tr/th[text()='STATUS']");
-	public static final By LBL_INUSECOLUMNHEADER = By.xpath("//tr/th[text()='IN USE']");
+	public static final By LBL_PAGEHEADER = By.xpath("//h2[text()='MEDICAL EQUIPMENT']");
+	public static final By LBL_EQUIPMENTDESCRIPTIONCOLUMNHEADER = By.xpath("//tr/th/div[contains(., 'EQUIPMENT DESCRIPTION')]");
+	public static final By LBL_SOURCECOLUMNHEADER = By.xpath("//tr/th[contains(., 'SOURCE')]");
+	public static final By LBL_DATECOLUMNHEADER = By.xpath("//tr/th[contains(., 'MODIFIED')]");
+	public static final By LBL_STATUSCOLUMNHEADER = By.xpath("//tr/th[contains(., 'STATUS')]");
+	public static final By LBL_INUSECOLUMNHEADER = By.xpath("//tr/th[contains(., 'IN USE')]");
 	public static final By LBL_ADDMEDICALEQUIPMENT = By.xpath("//span[text()='Add Medical Equipment']");
 	public static final By LBL_ADDPOPUPDATE = By.xpath("//div[@class='modal-dialog undefined']//label[text()='DATE']");
 	public static final By LBL_ADDPOPUPSOURCE = By.xpath("//div[@class='modal-dialog undefined']//label[text()='SOURCE']");

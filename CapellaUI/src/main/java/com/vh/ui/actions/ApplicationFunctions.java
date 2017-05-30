@@ -12,12 +12,13 @@ import static com.vh.ui.web.locators.LoginLocators.BTN_YESALLOW;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.List;
 import java.util.Properties;
 
 import org.apache.log4j.Logger;
-import org.openqa.selenium.Alert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Cookie;
+import org.openqa.selenium.SearchContext;
 import org.openqa.selenium.TimeoutException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -74,6 +75,8 @@ public class ApplicationFunctions extends WebPage
 	@Step("Login to Capella")
 	public void capellaLogin() throws TimeoutException, WaitException, URLNavigationException, InterruptedException
 	{
+		LOGGER.debug("In ApplicationFunctions - capellaLogin");
+
 		loginPage = (LoginPage) pageBase.navigateTo(applicationProperty.getProperty("webURL"));
 		Thread.sleep(5000);
 
@@ -91,14 +94,14 @@ public class ApplicationFunctions extends WebPage
 			loginPage.clickYesAllow();
 		}
 
-		Thread.sleep(60000);
+		// Thread.sleep(60000);
 
-		Alert alert = driver.switchTo().alert();
-		alert.accept();
+		// Alert alert = driver.switchTo().alert();
+		// alert.accept();
 	}
 
 	/**
-	 * Click the Logout button in Capella
+	 * Logout of the Capella application
 	 * 
 	 * @throws TimeoutException
 	 * @throws WaitException
@@ -107,17 +110,35 @@ public class ApplicationFunctions extends WebPage
 	public void capellaLogout() throws TimeoutException, WaitException
 	{
 		LOGGER.debug("In ApplicationFunctions - capellaLogout");
+
 		webActions.javascriptClick(BTN_LOGOUT);
+	}
+
+	/**
+	 * Open a Patient
+	 * 
+	 * @param patientName
+	 *            The name of the Patient to open
+	 * @throws TimeoutException
+	 * @throws WaitException
+	 * @throws InterruptedException
+	 */
+	@Step("Open {0} Patient")
+	public void openPatient(String patientName) throws TimeoutException, WaitException, InterruptedException
+	{
+		LOGGER.debug("In ApplicationFunctions - openPatient");
+
+		// webActions.javascriptClick();
+		webActions.click(VISIBILITY, By.xpath("//a[text()='" + patientName + "']"));
 	}
 
 	/**
 	 * Navigate Menu in Capella
 	 * 
 	 * @param menuToNavigate
-	 *            The menu path to navigate. i.e. Screenings->Cognitive
-	 *            Screening
-	 * @throws WaitException
+	 *            The menu path to navigate. i.e. Screenings->Cognitive Screening
 	 * @throws TimeoutException
+	 * @throws WaitException
 	 * @throws InterruptedException
 	 */
 	@Step("Navigate to {0} menu option")
@@ -125,16 +146,11 @@ public class ApplicationFunctions extends WebPage
 	{
 		LOGGER.debug("In ApplicationFunctions - navigateToMenu");
 
-		Assert.assertTrue(viewPtChartButton(), "Failed to identify Pt Chart button");
-		clickPtChart();
-
-		Thread.sleep(10000);
-
 		String menu[] = menuToNavigate.split("->");		
 		
 		if(menu.length != 1)
 		{
-			By mainMenu = By.xpath("//span[text()='" + menu[0] + "']");
+			By mainMenu = By.xpath("//a[text()='" + menu[0] + "']");
 			WebElement mainEle = driver.findElement(mainMenu);
 			Utilities.highlightElement(driver, mainEle);
 		
@@ -505,7 +521,7 @@ public class ApplicationFunctions extends WebPage
 	 */
 	public boolean isCalendarDateEqualToCurrentDate(By datePickerLocator) throws WaitException, InterruptedException
 	{
-		DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
+		DateFormat dateFormat = new SimpleDateFormat("MM/dd/yyyy");
 		Date dateObject = new Date();
 
 		String attributeValue = webActions.getAttributeValue("visibility", datePickerLocator, "ng-reflect-value");
@@ -572,8 +588,27 @@ public class ApplicationFunctions extends WebPage
 	 */
 	public void getTableData(By tableLocator) throws TimeoutException, WaitException
 	{
+		List<WebElement> trCollection = tableLocator.findElements((SearchContext)By.xpath("/tbody/tr"));
+		System.out.println("NUMBER OF ROWS IN THIS TABLE = " + trCollection.size());
+		
+		int row_num, col_num;
+		row_num = 1;
+		
+		for (WebElement trElement : trCollection)
+		{
+			List<WebElement> tdCollection = trElement.findElements(By.xpath("td"));
+			System.out.println("NUMBER OF COLUMNS= " + tdCollection.size());
 
+			col_num = 1;
 
+			for (WebElement tdElement : tdCollection)
+			{
+				System.out.println("row # " + row_num + ", col # " + col_num + "text=" + tdElement.getText());
+				col_num++;
+			}
+
+			row_num++;
+		}
 
 		// return list;
 	}

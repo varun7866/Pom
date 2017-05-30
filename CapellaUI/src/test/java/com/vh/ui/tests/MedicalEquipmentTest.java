@@ -41,7 +41,8 @@ public class MedicalEquipmentTest extends TestBase
 		medicalEquipmentPage = new MedicalEquipmentPage(driver);
 
 		appFunctions.capellaLogin();
-		appFunctions.navigateToMenu("Medical Equipment");
+		appFunctions.openPatient("Waliy Al D Holroyd");
+		appFunctions.navigateToMenu("Patient Admin->Medical Equipment");
 	}
 
 	@Test(priority = 1)
@@ -52,7 +53,7 @@ public class MedicalEquipmentTest extends TestBase
 		Assert.assertTrue(medicalEquipmentPage.viewAddMedicalEquipmentButton(), "Failed to identify the ADD MEDICAL EQUIPMENT button");
 		Assert.assertTrue(medicalEquipmentPage.viewEquipmentDescriptionColumnHeaderLabel(), "Failed to identify the Equipment Description colummn header label");
 		Assert.assertTrue(medicalEquipmentPage.viewSourceColumnHeaderLabel(), "Failed to identify the Source colummn header label");
-		Assert.assertTrue(medicalEquipmentPage.viewDateColumnHeaderLabel(), "Failed to identify the Date colummn header label");
+		Assert.assertTrue(medicalEquipmentPage.viewModifiedColumnHeaderLabel(), "Failed to identify the Modified colummn header label");
 		Assert.assertTrue(medicalEquipmentPage.viewStatusColumnHeaderLabel(), "Failed to identify the Status colummn header label");
 		Assert.assertTrue(medicalEquipmentPage.viewInUseColumnHeaderLabel(), "Failed to identify the In Use colummn header label");
 	}
@@ -117,13 +118,13 @@ public class MedicalEquipmentTest extends TestBase
 
 		Assert.assertFalse(medicalEquipmentPage.viewAddMedicalEquipmentPopup(), "The Add Medical Equipment popup did not close");
 
-		Assert.assertTrue(medicalEquipmentPage.isMedicalEquipmentInTable(), "The Medical Equipment is not in the table");
+		// Assert.assertTrue(medicalEquipmentPage.isMedicalEquipmentInTable(), "The Medical Equipment is not in the table");
 	}
 
 	@AfterClass
 	public void tearDown() throws TimeoutException, WaitException
 	{
-		// appFunctions.capellaLogout();
-		// pageBase.quit();
+		appFunctions.capellaLogout();
+		pageBase.quit();
 	}
 }

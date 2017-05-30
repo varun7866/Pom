@@ -67,7 +67,7 @@ public class MedicalEquipmentPage extends WebPage
 	}
 
 	@Step("Verify the visibility of the Date column header label")
-	public boolean viewDateColumnHeaderLabel() throws TimeoutException, WaitException
+	public boolean viewModifiedColumnHeaderLabel() throws TimeoutException, WaitException
 	{
 		return webActions.getVisibiltyOfElementLocatedBy(VISIBILITY, LBL_DATECOLUMNHEADER);
 	}
