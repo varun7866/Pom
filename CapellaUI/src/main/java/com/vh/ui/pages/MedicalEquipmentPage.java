@@ -99,9 +99,15 @@ public class MedicalEquipmentPage extends WebPage
 	@Step("Select an option form the Add Medical Equipment popup STATUS combo box")
 	public boolean isMedicalEquipmentInTable() throws TimeoutException, WaitException
 	{
-		appFunctions.getTableData(TBL_MEDICALEQUIPMENT);
+		String[][] tableData = appFunctions.getTableData(TBL_MEDICALEQUIPMENT);
 
-		return true;
+		if (true)
+		{
+			return true;
+		} else
+		{
+			return false;
+		}
 	}
 
 	@Step("Verify the visibility of the Add Medical Equipment popup")

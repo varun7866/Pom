@@ -18,7 +18,6 @@ import java.util.Properties;
 import org.apache.log4j.Logger;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Cookie;
-import org.openqa.selenium.SearchContext;
 import org.openqa.selenium.TimeoutException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -586,31 +585,34 @@ public class ApplicationFunctions extends WebPage
 	 * @throws TimeoutException
 	 * @throws WaitException
 	 */
-	public void getTableData(By tableLocator) throws TimeoutException, WaitException
+	public String[][] getTableData(By tableLocator) throws TimeoutException, WaitException
 	{
-		List<WebElement> trCollection = tableLocator.findElements((SearchContext)By.xpath("/tbody/tr"));
+		List<WebElement> trCollection = driver.findElements(By.xpath(tableLocator.toString().substring(10) + "/tbody/tr"));
 		System.out.println("NUMBER OF ROWS IN THIS TABLE = " + trCollection.size());
 		
+		String[][] tableData = new String[trCollection.size()][5];
+
 		int row_num, col_num;
 		row_num = 1;
 		
 		for (WebElement trElement : trCollection)
 		{
 			List<WebElement> tdCollection = trElement.findElements(By.xpath("td"));
-			System.out.println("NUMBER OF COLUMNS= " + tdCollection.size());
+			System.out.println("NUMBER OF COLUMNS IN THIS ROW = " + tdCollection.size());
 
 			col_num = 1;
 
 			for (WebElement tdElement : tdCollection)
 			{
-				System.out.println("row # " + row_num + ", col # " + col_num + "text=" + tdElement.getText());
+				tableData[row_num - 1][col_num - 1] = tdElement.getText();
+				System.out.println("row# " + row_num + ", col# " + col_num + ", text=" + tdElement.getText());
 				col_num++;
 			}
 
 			row_num++;
 		}
 
-		// return list;
+		return tableData;
 	}
 
 	@Step("Get the User Name from the Menu Bar")
