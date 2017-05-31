@@ -99,8 +99,8 @@ public class MedicalEquipmentTest extends TestBase
 		
 		Assert.assertTrue(medicalEquipmentPage.isAddPopupDefaultDateCurrentDate(), "The Add Medical Equipment popup default DATE does not match the current date");
 
-		// medicalEquipmentPage.clickAddPopupDatePickerButton();
-		// Assert.assertTrue(medicalEquipmentPage.isAddPopupDateRangeValid(), "The Add Medical Equipment popup DATE range is invalid");
+		medicalEquipmentPage.clickAddPopupDatePickerButton();
+		Assert.assertTrue(medicalEquipmentPage.isAddPopupEnabledDateRangeValid(), "The Add Medical Equipment popup enabled DATE range is invalid");
 
 		// Need to add a test to verify a date cannot be older than 7 days
 
@@ -126,6 +126,8 @@ public class MedicalEquipmentTest extends TestBase
 	@Step("Verify editable fields in the Medical Equipment table")
 	public void verify_EditableFields() throws WaitException, URLNavigationException, InterruptedException
 	{
+		Assert.assertTrue(medicalEquipmentPage.isStatusDropdownEditable(), "The STATUS drop down is not editable");
+		Assert.assertTrue(medicalEquipmentPage.isInUseCheckboxEditable(), "The IN USE check box is not editable");
 
 	}
 

@@ -10,6 +10,7 @@ import static com.vh.ui.web.locators.LoginLocators.BTN_YESALLOW;
 
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
+import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
 import java.util.Properties;
@@ -518,41 +519,36 @@ public class ApplicationFunctions extends WebPage
 	 * @throws WaitException
 	 * @throws InterruptedException
 	 */
-	public boolean isCalendarDateRangeValid(By datePickerLocator) throws WaitException, InterruptedException
+	public boolean isCalendarEnabledDateRangeValid(By datePickerLocator) throws WaitException, InterruptedException
 	{
 		int x;
-		boolean dateEnabled = true;
-		String DayLocatorXpathString;
+		String currentDayMinusX;
+		By DayLocator;
 
-		String datePickerLocatorXpathString = datePickerLocator.toString().substring(10);
+		Calendar cal = Calendar.getInstance();
 
 		DateFormat dateFormat = new SimpleDateFormat("dd");
 		Date dateObject = new Date();
 		String currentDay = dateFormat.format(dateObject);
 
-		By DayLocator = By.xpath(datePickerLocatorXpathString + "/../..//span[text()='" + currentDay + "']");
+		String datePickerLocatorXpathString = datePickerLocator.toString().substring(10);
+		DayLocator = By.xpath(datePickerLocatorXpathString + "/../..//span[text()='" + currentDay + "']");
 
-		for (x = 1; x <= 7 && dateEnabled; x++)
+		for (x = 1; x <= 7; x++)
 		{
 			if (!driver.findElement(DayLocator).isEnabled())
 			{
-				dateEnabled = false;
+				return false;
 			}
 			else
 			{
-				datePickerLocatorXpathString = datePickerLocatorXpathString + "..span";
-				DayLocator = By.xpath(datePickerLocatorXpathString);
+				cal.add(Calendar.DATE, -1);
+				currentDayMinusX = dateFormat.format(new Date(cal.getTimeInMillis()));
+				DayLocator = By.xpath(datePickerLocatorXpathString + "/../..//span[text()='" + currentDayMinusX + "']");
 			}
 		}
 
-		if (x == 8)
-		{
-			return true;
-		}
-		else
-		{
-			return false;
-		}
+		return true;
 	}
 
 	/**

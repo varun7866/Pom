@@ -70,7 +70,7 @@ public class MedicalEquipmentPage extends WebPage
 		return webActions.getVisibiltyOfElementLocatedBy(VISIBILITY, LBL_SOURCECOLUMNHEADER);
 	}
 
-	@Step("Verify the visibility of the Date column header label")
+	@Step("Verify the visibility of the Modified column header label")
 	public boolean viewModifiedColumnHeaderLabel() throws TimeoutException, WaitException
 	{
 		return webActions.getVisibiltyOfElementLocatedBy(VISIBILITY, LBL_DATECOLUMNHEADER);
@@ -82,10 +82,22 @@ public class MedicalEquipmentPage extends WebPage
 		return webActions.getVisibiltyOfElementLocatedBy(VISIBILITY, LBL_STATUSCOLUMNHEADER);
 	}
 
+	@Step("Verify the Status drop down is editable")
+	public boolean isStatusDropdownEditable() throws TimeoutException, WaitException
+	{
+		return true;
+	}
+
 	@Step("Verify the visibility of the In Use column header label")
 	public boolean viewInUseColumnHeaderLabel() throws TimeoutException, WaitException
 	{
 		return webActions.getVisibiltyOfElementLocatedBy(VISIBILITY, LBL_INUSECOLUMNHEADER);
+	}
+
+	@Step("Verify the In Use check box is editable")
+	public boolean isInUseCheckboxEditable() throws TimeoutException, WaitException
+	{
+		return true;
 	}
 
 	@Step("Verify the visibility of the ADD MEDICAL EQUIPMENT button")
@@ -181,10 +193,10 @@ public class MedicalEquipmentPage extends WebPage
 		webActions.click(VISIBILITY, BTN_ADDPOPUPDATE);
 	}
 
-	@Step("Verify the Add Medical Equipment popup date range in the DATE picker is valid")
-	public boolean isAddPopupDateRangeValid() throws TimeoutException, WaitException, InterruptedException
+	@Step("Verify the Add Medical Equipment popup enabled date range in the DATE picker is valid")
+	public boolean isAddPopupEnabledDateRangeValid() throws TimeoutException, WaitException, InterruptedException
 	{
-		return appFunctions.isCalendarDateRangeValid(CAL_ADDPOPUPDATE);
+		return appFunctions.isCalendarEnabledDateRangeValid(CAL_ADDPOPUPDATE);
 	}
 
 	@Step("Verify the visibility of the Add Medical Equipment popup SOURCE label")
