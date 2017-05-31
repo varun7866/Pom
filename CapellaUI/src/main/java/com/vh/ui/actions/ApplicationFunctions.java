@@ -581,31 +581,29 @@ public class ApplicationFunctions extends WebPage
 	 *            The
 	 *            <table>
 	 *            tag locator of the table
+	 * @param numberOfColumns
+	 *            The number of columns in the table
 	 * @return A two dimensional List of strings
 	 * @throws TimeoutException
 	 * @throws WaitException
 	 */
-	public String[][] getTableData(By tableLocator) throws TimeoutException, WaitException
+	public String[][] getTableData(By tableLocator, int numberOfColumns) throws TimeoutException, WaitException
 	{
 		List<WebElement> trCollection = driver.findElements(By.xpath(tableLocator.toString().substring(10) + "/tbody/tr"));
-		System.out.println("NUMBER OF ROWS IN THIS TABLE = " + trCollection.size());
 		
-		String[][] tableData = new String[trCollection.size()][5];
+		String[][] tableData = new String[trCollection.size()][numberOfColumns];
 
 		int row_num, col_num;
-		row_num = 1;
+		row_num = 0;
 		
 		for (WebElement trElement : trCollection)
 		{
 			List<WebElement> tdCollection = trElement.findElements(By.xpath("td"));
-			System.out.println("NUMBER OF COLUMNS IN THIS ROW = " + tdCollection.size());
-
-			col_num = 1;
+			col_num = 0;
 
 			for (WebElement tdElement : tdCollection)
 			{
-				tableData[row_num - 1][col_num - 1] = tdElement.getText();
-				System.out.println("row# " + row_num + ", col# " + col_num + ", text=" + tdElement.getText());
+				tableData[row_num][col_num] = tdElement.getText();
 				col_num++;
 			}
 

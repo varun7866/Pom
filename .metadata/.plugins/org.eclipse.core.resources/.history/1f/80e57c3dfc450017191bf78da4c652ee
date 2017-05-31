@@ -18,7 +18,6 @@ import java.util.Properties;
 import org.apache.log4j.Logger;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Cookie;
-import org.openqa.selenium.SearchContext;
 import org.openqa.selenium.TimeoutException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -124,32 +123,12 @@ public class ApplicationFunctions extends WebPage
 	 * @throws InterruptedException
 	 */
 	@Step("Open {0} Patient")
-	public boolean openPatient(String patientName) throws TimeoutException, WaitException, InterruptedException
+	public void openPatient(String patientName) throws TimeoutException, WaitException, InterruptedException
 	{
-		LOGGER.debug("In ApplicationFunctions - navigateToMenu");
+		LOGGER.debug("In ApplicationFunctions - openPatient");
 
-		String menu[] = menuToNavigate.split("->");
-
-		if (menu.length != 1)
-		{
-			By mainMenu = By.xpath("//span[text()='" + menu[0] + "']");
-			WebElement mainEle = driver.findElement(mainMenu);
-			Utilities.highlightElement(driver, mainEle);
-
-			webActions.javascriptClick(mainEle);
-
-			By subMenu = By.xpath("//a[text()='" + menu[1] + "']");
-			Utilities.highlightElement(driver, subMenu);
-			webActions.javascriptClick(subMenu);
-		} else if (menu.length == 1)
-		{
-			By mainMenu = By.xpath("//a[contains(., '" + menu[0] + "')]");
-			webActions.click(CLICKABILITY, mainMenu);
-		} else
-		{
-			return false;
-		}
-		return true;
+		// webActions.javascriptClick();
+		webActions.click(VISIBILITY, By.xpath("//a[text()='" + patientName + "']"));
 	}
 
 	/**
@@ -170,7 +149,7 @@ public class ApplicationFunctions extends WebPage
 		
 		if(menu.length != 1)
 		{
-			By mainMenu = By.xpath("//span[text()='" + menu[0] + "']");
+			By mainMenu = By.xpath("//a[text()='" + menu[0] + "']");
 			WebElement mainEle = driver.findElement(mainMenu);
 			Utilities.highlightElement(driver, mainEle);
 		
@@ -541,7 +520,7 @@ public class ApplicationFunctions extends WebPage
 	 */
 	public boolean isCalendarDateEqualToCurrentDate(By datePickerLocator) throws WaitException, InterruptedException
 	{
-		DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
+		DateFormat dateFormat = new SimpleDateFormat("MM/dd/yyyy");
 		Date dateObject = new Date();
 
 		String attributeValue = webActions.getAttributeValue("visibility", datePickerLocator, "ng-reflect-value");
@@ -606,31 +585,31 @@ public class ApplicationFunctions extends WebPage
 	 * @throws TimeoutException
 	 * @throws WaitException
 	 */
-	public void getTableData(By tableLocator) throws TimeoutException, WaitException
+	public String[][] getTableData(By tableLocator) throws TimeoutException, WaitException
 	{
-		List<WebElement> trCollection = tableLocator.findElements((SearchContext)By.xpath("/tbody/tr"));
-		System.out.println("NUMBER OF ROWS IN THIS TABLE = " + trCollection.size());
+		List<WebElement> trCollection = driver.findElements(By.xpath(tableLocator.toString().substring(10) + "/tbody/tr"));
 		
+		String[][] tableData = new String[trCollection.size()][5];
+
 		int row_num, col_num;
 		row_num = 1;
 		
 		for (WebElement trElement : trCollection)
 		{
 			List<WebElement> tdCollection = trElement.findElements(By.xpath("td"));
-			System.out.println("NUMBER OF COLUMNS= " + tdCollection.size());
-
+			
 			col_num = 1;
 
 			for (WebElement tdElement : tdCollection)
 			{
-				System.out.println("row # " + row_num + ", col # " + col_num + "text=" + tdElement.getText());
+				tableData[row_num - 1][col_num - 1] = tdElement.getText();
 				col_num++;
 			}
 
 			row_num++;
 		}
 
-		// return list;
+		return tableData;
 	}
 
 	@Step("Get the User Name from the Menu Bar")
