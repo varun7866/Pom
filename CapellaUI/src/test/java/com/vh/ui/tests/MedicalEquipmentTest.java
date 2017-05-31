@@ -24,6 +24,7 @@ import ru.yandex.qatools.allure.annotations.Step;
  * Before running this test suite:
  * 1. Change the "username" and "password" parameters in the "resources\application.properties" file to your own
  * 2. Clear your browser's cache
+ * 3. Change the Patient name to whatever you want in the call to the openPatient method in this Class's Constructor
  */
 
 public class MedicalEquipmentTest extends TestBase
@@ -119,6 +120,13 @@ public class MedicalEquipmentTest extends TestBase
 		// Assert.assertFalse(medicalEquipmentPage.viewAddMedicalEquipmentPopup(), "The Add Medical Equipment popup did not close");
 
 		Assert.assertTrue(medicalEquipmentPage.isMedicalEquipmentInTable(), "The Medical Equipment is not in the table");
+	}
+
+	@Test(priority = 4)
+	@Step("Verify editable fields in the Medical Equipment table")
+	public void verify_EditableFields() throws WaitException, URLNavigationException, InterruptedException
+	{
+
 	}
 
 	@AfterClass

@@ -15,7 +15,6 @@ public class ApplicationLocators
 {
 	// logout
 	public static final By BTN_LOGOUT = By.xpath("//button[text()='Logout']");
-	public static final By BTN_PTCHART = By.xpath("//span[text()='Pt Chart']/..");
 
 	public static final By LNK_MYPATIENTS_MENUBAR = By.xpath("//ul/li/a[text()='My Patients']");
 	public static final By LNK_MYCONTACTS_MENUBAR = By.xpath("//ul/li/a[text()='My Contacts']");

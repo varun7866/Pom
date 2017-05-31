@@ -23,6 +23,10 @@ import static com.vh.ui.web.locators.MedicalEquipmentLocators.LBL_SOURCECOLUMNHE
 import static com.vh.ui.web.locators.MedicalEquipmentLocators.LBL_STATUSCOLUMNHEADER;
 import static com.vh.ui.web.locators.MedicalEquipmentLocators.TBL_MEDICALEQUIPMENT;
 
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
 import org.openqa.selenium.TimeoutException;
 import org.openqa.selenium.WebDriver;
 
@@ -96,18 +100,25 @@ public class MedicalEquipmentPage extends WebPage
 		webActions.click(VISIBILITY, BTN_ADDMEDICALEQUIPMENT);
 	}
 
-	@Step("Select an option form the Add Medical Equipment popup STATUS combo box")
+	@Step("Checks if a specific Medical Equipment is in the table")
 	public boolean isMedicalEquipmentInTable() throws TimeoutException, WaitException
 	{
 		String[][] tableData = appFunctions.getTableData(TBL_MEDICALEQUIPMENT, 5);
 
-		if (true)
+		DateFormat dateFormat = new SimpleDateFormat("M/d/yyyy");
+		Date dateObject = new Date();		
+
+		for (String[] row : tableData)
 		{
-			return true;
-		} else
-		{
-			return false;
+			if (row[0].equals("Bed Trapeze") && // If the data in the EQUIPMENT DESCRIPTION column equals "Bed Trapeze"
+			        row[1].equals("VHProvided") && // If the data in the SOURCE column equals "VH Provided"
+			        row[2].equals(dateFormat.format(dateObject))) // If the date in the MODIFIED column equals the current date
+			{
+				return true;
+			}
 		}
+
+		return false;
 	}
 
 	@Step("Verify the visibility of the Add Medical Equipment popup")

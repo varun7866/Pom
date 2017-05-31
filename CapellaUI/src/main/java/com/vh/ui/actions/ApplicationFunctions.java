@@ -1,7 +1,6 @@
 package com.vh.ui.actions;
 
 import static com.vh.ui.web.locators.ApplicationLocators.BTN_LOGOUT;
-import static com.vh.ui.web.locators.ApplicationLocators.BTN_PTCHART;
 import static com.vh.ui.web.locators.ApplicationLocators.LNK_ADMIN_MENUBAR;
 import static com.vh.ui.web.locators.ApplicationLocators.LNK_CONSOLIDATED_MENUBAR;
 import static com.vh.ui.web.locators.ApplicationLocators.LNK_MYCONTACTS_MENUBAR;
@@ -169,24 +168,6 @@ public class ApplicationFunctions extends WebPage
 			return false;
 		}
 		return true;
-	}
-	
-	/**
-	 * Verifying the visibility of the Pt Chart button
-	 */
-	@Step("Verifying the visibility of the Pt Chart button")
-	public boolean viewPtChartButton() throws TimeoutException, WaitException
-	{
-		return webActions.getVisibiltyOfElementLocatedBy(VISIBILITY, BTN_PTCHART);
-	}
-
-	/**
-	 * Click on the "Pt Chart" button
-	 */
-	@Step("Click the Pt Chart button")
-	public void clickPtChart() throws TimeoutException, WaitException
-	{
-		webActions.click(VISIBILITY, BTN_PTCHART);
 	}
 
 	/**
