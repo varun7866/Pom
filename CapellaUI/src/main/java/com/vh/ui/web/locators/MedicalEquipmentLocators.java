@@ -18,7 +18,7 @@ public class MedicalEquipmentLocators
 	public static final By BTN_ADDPOPUPADD = By.xpath("//div[@class='modal-dialog undefined']//button[text()='Add']");
 	public static final By BTN_ADDPOPUPDATE = By.xpath("//div[@class='modal-dialog undefined']//button[@class='btnpicker btnpickerenabled']");
 
-	public static final By CAL_ADDPOPUPDATE = By.xpath("//div[@class='modal-dialog undefined']//label[text()='DATE']//..//input");
+	public static final By CAL_ADDPOPUPDATE = By.xpath("//div[@class='modal-dialog undefined']//label[text()='DATE']/..//input");
 
 	public static final By CBO_ADDPOPUPSOURCE = By.id("source");
 	public static final By CBO_ADDPOPUPEQUIPMENTTYPE = By.id("equipment-type");

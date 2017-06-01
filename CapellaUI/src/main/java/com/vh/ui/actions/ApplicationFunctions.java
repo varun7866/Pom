@@ -511,7 +511,7 @@ public class ApplicationFunctions extends WebPage
 	}
 
 	/**
-	 * NOT WORKING YET. DO NOT USE THIS METHOD. Check if the date picker's currently selected date is equal to the current date
+	 * NOT TOTALLY WORKING YET. Check if date picker's enabled date range is correct
 	 * 
 	 * @param datePickerLocator
 	 *            The <input> tag locator of the date picker
@@ -522,30 +522,58 @@ public class ApplicationFunctions extends WebPage
 	public boolean isCalendarEnabledDateRangeValid(By datePickerLocator) throws WaitException, InterruptedException
 	{
 		int x;
+		int currentDayInt;
+		int currentDayMinusXInt;
+		String currentDay;
 		String currentDayMinusX;
 		By DayLocator;
 
 		Calendar cal = Calendar.getInstance();
 
-		DateFormat dateFormat = new SimpleDateFormat("dd");
+		DateFormat dateFormat = new SimpleDateFormat("d");
 		Date dateObject = new Date();
-		String currentDay = dateFormat.format(dateObject);
+		currentDay = dateFormat.format(dateObject);
+		currentDayInt = Integer.parseInt(currentDay);
+		currentDayMinusX = currentDay;
 
 		String datePickerLocatorXpathString = datePickerLocator.toString().substring(10);
-		DayLocator = By.xpath(datePickerLocatorXpathString + "/../..//span[text()='" + currentDay + "']");
 
 		for (x = 1; x <= 7; x++)
 		{
-			if (!driver.findElement(DayLocator).isEnabled())
+			currentDayMinusXInt = Integer.parseInt(currentDayMinusX);
+			
+			if (currentDayMinusXInt > currentDayInt)
 			{
-				return false;
+				DayLocator = By.xpath(datePickerLocatorXpathString + "/../..//td[@class='daycell']/div[@class='datevalue prevmonth']/span[text()='" + currentDayMinusX + "']");
+
+				if (!driver.findElement(DayLocator).isDisplayed())
+				{
+					return false;
+				}
 			}
 			else
 			{
-				cal.add(Calendar.DATE, -1);
-				currentDayMinusX = dateFormat.format(new Date(cal.getTimeInMillis()));
-				DayLocator = By.xpath(datePickerLocatorXpathString + "/../..//span[text()='" + currentDayMinusX + "']");
+				if (currentDayMinusXInt == currentDayInt)
+				{
+					DayLocator = By.xpath(datePickerLocatorXpathString + "/../..//span[text()='" + currentDay + "']/../../..//td[@class='daycell currmonth selectedday tablesingleday']");
+
+					if (!driver.findElement(DayLocator).isDisplayed())
+					{
+						return false;
+					}
+				} else
+				{
+					DayLocator = By.xpath(datePickerLocatorXpathString + "/../..//td[@class='daycell']/div[@class='datevalue currmonth']/span[text()='" + currentDayMinusX + "']");
+
+					if (!driver.findElement(DayLocator).isDisplayed())
+					{
+						return false;
+					}
+				}
 			}
+
+			cal.add(Calendar.DATE, -1);
+			currentDayMinusX = dateFormat.format(new Date(cal.getTimeInMillis()));
 		}
 
 		return true;
