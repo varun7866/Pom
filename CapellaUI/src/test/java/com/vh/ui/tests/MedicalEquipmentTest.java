@@ -102,6 +102,8 @@ public class MedicalEquipmentTest extends TestBase
 		medicalEquipmentPage.clickAddPopupDatePickerButton();
 		Assert.assertTrue(medicalEquipmentPage.isAddPopupEnabledDateRangeValid(), "The Add Medical Equipment popup enabled DATE range is invalid");
 
+		medicalEquipmentPage.selectAddPopupCurrentDateFromCalendar();
+		
 		// Need to add a test to verify a date cannot be older than 7 days
 
 		// Need to add a test to verify a date cannot be greater than current date
@@ -128,7 +130,6 @@ public class MedicalEquipmentTest extends TestBase
 	{
 		Assert.assertTrue(medicalEquipmentPage.isStatusDropdownEditable(), "The STATUS drop down is not editable");
 		Assert.assertTrue(medicalEquipmentPage.isInUseCheckboxEditable(), "The IN USE check box is not editable");
-
 	}
 
 	@AfterClass

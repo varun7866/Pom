@@ -471,10 +471,14 @@ public class ApplicationFunctions extends WebPage
 	public boolean selectDateFromCalendar(By calendarLocator, String dateToSelect) throws WaitException, InterruptedException
 	{
 		boolean isPass = false;
+
 		isPass = wait.checkForElementVisibility(driver, calendarLocator);
-		if(!isPass){
+
+		if (!isPass)
+		{
 			return false;
 		}
+
 		Utilities.highlightElement(driver, calendarLocator);
 		
 		webActions.javascriptClick(calendarLocator);
@@ -511,7 +515,7 @@ public class ApplicationFunctions extends WebPage
 	}
 
 	/**
-	 * NOT TOTALLY WORKING YET. Check if date picker's enabled date range is correct
+	 * Checks if the date picker's enabled date range is correct
 	 * 
 	 * @param datePickerLocator
 	 *            The <input> tag locator of the date picker
@@ -546,10 +550,9 @@ public class ApplicationFunctions extends WebPage
 			
 			if (currentDayMinusXInt > currentDayInt)
 			{
-				DayLocator = By.xpath(datePickerLocatorXpathString + "/../..//td[@class='daycell']/div[contains(@class,'datevalue prevmonth')]/span[text()='" + currentDayMinusX + "']");
-
 				try
 				{
+					DayLocator = By.xpath(datePickerLocatorXpathString + "/../..//td[@class='daycell']/div[contains(@class,'datevalue prevmonth')]/span[text()='" + currentDayMinusX + "']");
 					driver.findElement(DayLocator).isDisplayed();
 				}
 				catch (Exception ex)

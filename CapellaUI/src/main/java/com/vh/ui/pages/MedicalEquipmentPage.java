@@ -27,6 +27,7 @@ import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
+import org.openqa.selenium.By;
 import org.openqa.selenium.TimeoutException;
 import org.openqa.selenium.WebDriver;
 
@@ -197,6 +198,28 @@ public class MedicalEquipmentPage extends WebPage
 	public boolean isAddPopupEnabledDateRangeValid() throws TimeoutException, WaitException, InterruptedException
 	{
 		return appFunctions.isCalendarEnabledDateRangeValid(CAL_ADDPOPUPDATE);
+	}
+
+	@Step("Select the Add Medical Equipment popup date from the DATE picker")
+	public void selectAddPopupCurrentDateFromCalendar() throws TimeoutException, WaitException, InterruptedException
+	{
+		DateFormat dateFormat = new SimpleDateFormat("d");
+		Date dateObject = new Date();
+		String currentDay = dateFormat.format(dateObject);
+
+		try
+		{
+			By calendarPrevMMonthDisabledButton = By.xpath(CAL_ADDPOPUPDATE.toString().substring(10) + "/../..//button[@class='headerbtn mydpicon icon-mydpleft headerbtndisabled']");
+			driver.findElement(calendarPrevMMonthDisabledButton);
+			By calendarNextMMonthButton = By.xpath(CAL_ADDPOPUPDATE.toString().substring(10) + "/../..//button[@class='headerbtn mydpicon icon-mydpright headerbtnenabled']");
+			webActions.click(VISIBILITY, calendarNextMMonthButton);
+		}
+		catch (Exception ex)
+		{
+			
+		}
+		
+		appFunctions.selectDateFromCalendar(CAL_ADDPOPUPDATE, currentDay);		
 	}
 
 	@Step("Verify the visibility of the Add Medical Equipment popup SOURCE label")
