@@ -524,9 +524,11 @@ public class ApplicationFunctions extends WebPage
 		int x;
 		int currentDayInt;
 		int currentDayMinusXInt;
+		boolean alreadyClicked = false;
 		String currentDay;
 		String currentDayMinusX;
 		By DayLocator;
+		By calendarPrevMMonthButton;
 
 		Calendar cal = Calendar.getInstance();
 
@@ -544,11 +546,29 @@ public class ApplicationFunctions extends WebPage
 			
 			if (currentDayMinusXInt > currentDayInt)
 			{
-				DayLocator = By.xpath(datePickerLocatorXpathString + "/../..//td[@class='daycell']/div[@class='datevalue prevmonth']/span[text()='" + currentDayMinusX + "']");
+				DayLocator = By.xpath(datePickerLocatorXpathString + "/../..//td[@class='daycell']/div[contains(@class,'datevalue prevmonth')]/span[text()='" + currentDayMinusX + "']");
 
-				if (!driver.findElement(DayLocator).isDisplayed())
+				try
 				{
-					return false;
+					driver.findElement(DayLocator).isDisplayed();
+				}
+				catch (Exception ex)
+				{
+					if (!alreadyClicked)
+					{
+						calendarPrevMMonthButton = By.xpath(datePickerLocatorXpathString + "/../..//button[@class='headerbtn mydpicon icon-mydpleft headerbtnenabled']");
+						webActions.click(VISIBILITY, calendarPrevMMonthButton);
+						alreadyClicked = true;
+					}
+
+					DayLocator = By
+					        .xpath(datePickerLocatorXpathString + "/../..//td[@class='daycell currmonth tablesingleday']/div[contains(@class,'datevalue currmonth')]/span[text()='" + currentDayMinusX
+					                + "']");
+
+					if (!driver.findElement(DayLocator).isDisplayed())
+					{
+						return false;
+					}
 				}
 			}
 			else
@@ -563,7 +583,9 @@ public class ApplicationFunctions extends WebPage
 					}
 				} else
 				{
-					DayLocator = By.xpath(datePickerLocatorXpathString + "/../..//td[@class='daycell']/div[@class='datevalue currmonth']/span[text()='" + currentDayMinusX + "']");
+					DayLocator = By
+					        .xpath(datePickerLocatorXpathString + "/../..//td[@class='daycell currmonth tablesingleday']/div[contains(@class,'datevalue currmonth')]/span[text()='" + currentDayMinusX
+					                + "']");
 
 					if (!driver.findElement(DayLocator).isDisplayed())
 					{

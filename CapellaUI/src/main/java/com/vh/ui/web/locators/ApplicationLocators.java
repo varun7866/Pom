@@ -13,7 +13,6 @@ import org.openqa.selenium.By;
 
 public class ApplicationLocators
 {
-	// logout
 	public static final By BTN_LOGOUT = By.xpath("//button[text()='Logout']");
 
 	public static final By LNK_MYPATIENTS_MENUBAR = By.xpath("//ul/li/a[text()='My Patients']");
