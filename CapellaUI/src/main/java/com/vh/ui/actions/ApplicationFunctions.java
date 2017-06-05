@@ -151,12 +151,12 @@ public class ApplicationFunctions extends WebPage
 		{
 			By mainMenu = By.xpath("//a[text()='" + menu[0] + "']");
 			WebElement mainEle = driver.findElement(mainMenu);
-			Utilities.highlightElement(driver, mainEle);
+			// Utilities.highlightElement(driver, mainEle);
 		
 			webActions.javascriptClick(mainEle);
 			
 			By subMenu = By.xpath("//a[text()='" + menu[1] + "']");
-			Utilities.highlightElement(driver, subMenu);
+			// Utilities.highlightElement(driver, subMenu);
 			webActions.javascriptClick(subMenu);
 		}
 		else if(menu.length == 1)
@@ -468,31 +468,64 @@ public class ApplicationFunctions extends WebPage
         return "";
     }
 
-	public boolean selectDateFromCalendar(By calendarLocator, String dateToSelect) throws WaitException, InterruptedException
+	/**
+	 * Selects the passed date from the date picker
+	 * 
+	 * @param datePickerLocator
+	 *            The <input> tag locator of the date picker
+	 * @throws WaitException
+	 * @throws InterruptedException
+	 */
+	public void selectDateFromCalendar(By datePickerLocator, String dateToSelect) throws WaitException, InterruptedException
 	{
-		boolean isPass = false;
+		int currentDayInt;
+		int dateToSelectInt;
+		String currentDay;
+		String datePickerLocatorXpathString;
+		By DayLocator;
+		By calendarPrevMMonthButton;
 
-		isPass = wait.checkForElementVisibility(driver, calendarLocator);
+		DateFormat dateFormat = new SimpleDateFormat("d");
+		Date dateObject = new Date();
+		currentDay = dateFormat.format(dateObject);
+		currentDayInt = Integer.parseInt(currentDay);
 
-		if (!isPass)
+		dateToSelectInt = Integer.parseInt(dateToSelect);
+
+		datePickerLocatorXpathString = datePickerLocator.toString().substring(10);
+
+		if (dateToSelectInt > currentDayInt)
 		{
-			return false;
-		}
+			try
+			{
+				DayLocator = By.xpath(datePickerLocatorXpathString + "/../..//td[@class='daycell']/div[contains(@class,'datevalue prevmonth')]/span[text()='" + dateToSelectInt + "']");
+				driver.findElement(DayLocator).isDisplayed();
+				webActions.click(VISIBILITY, DayLocator);
+			} catch (Exception ex)
+			{
+				calendarPrevMMonthButton = By.xpath(datePickerLocatorXpathString + "/../..//button[@class='headerbtn mydpicon icon-mydpleft headerbtnenabled']");
+				webActions.click(VISIBILITY, calendarPrevMMonthButton);
 
-		Utilities.highlightElement(driver, calendarLocator);
-		
-		webActions.javascriptClick(calendarLocator);
-		Thread.sleep(5000);
-		By ulLocator = By.cssSelector("ul[class^='dropdown-menu ']");
-		isPass = wait.checkForElementVisibility(driver, ulLocator);
-		if(!isPass){
-			return false;
+				DayLocator = By.xpath(
+				        datePickerLocatorXpathString + "/../..//td[@class='daycell currmonth tablesingleday']/div[contains(@class,'datevalue currmonth')]/span[text()='" + dateToSelectInt + "']");
+				webActions.click(VISIBILITY, DayLocator);
+			}
+		} else
+		{
+			if (dateToSelectInt == currentDayInt)
+			{
+				DayLocator = By.xpath(datePickerLocatorXpathString + "/../..//span[text()='" + currentDay + "']/../../..//td[@class='daycell currmonth selectedday tablesingleday']");
+				webActions.click(VISIBILITY, DayLocator);
+				// Thread.sleep(1000);
+				DayLocator = By.xpath(datePickerLocatorXpathString + "/../..//span[text()='" + currentDay + "']/../../..//td[@class='daycell currmonth tablesingleday']");
+				webActions.click(VISIBILITY, DayLocator);
+			} else
+			{
+				DayLocator = By.xpath(
+				        datePickerLocatorXpathString + "/../..//td[@class='daycell currmonth tablesingleday']/div[contains(@class,'datevalue currmonth')]/span[text()='" + dateToSelectInt + "']");
+				webActions.click(VISIBILITY, DayLocator);
+			}
 		}
-		Utilities.highlightElement(driver, ulLocator);
-		
-		WebElement ulElement = driver.findElement(ulLocator);
-//		ulElement.findElement(by)
-		return isPass;
 	}
 
 	/**
@@ -531,6 +564,7 @@ public class ApplicationFunctions extends WebPage
 		boolean alreadyClicked = false;
 		String currentDay;
 		String currentDayMinusX;
+		String datePickerLocatorXpathString;
 		By DayLocator;
 		By calendarPrevMMonthButton;
 
@@ -542,7 +576,7 @@ public class ApplicationFunctions extends WebPage
 		currentDayInt = Integer.parseInt(currentDay);
 		currentDayMinusX = currentDay;
 
-		String datePickerLocatorXpathString = datePickerLocator.toString().substring(10);
+		datePickerLocatorXpathString = datePickerLocator.toString().substring(10);
 
 		for (x = 1; x <= 7; x++)
 		{

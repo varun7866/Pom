@@ -209,9 +209,10 @@ public class MedicalEquipmentPage extends WebPage
 
 		try
 		{
-			By calendarPrevMMonthDisabledButton = By.xpath(CAL_ADDPOPUPDATE.toString().substring(10) + "/../..//button[@class='headerbtn mydpicon icon-mydpleft headerbtndisabled']");
+			By calendarPrevMMonthDisabledButton = By
+			        .xpath(CAL_ADDPOPUPDATE.toString().substring(10) + "/../..//div[@style='float:left']//button[@class='headerbtn mydpicon icon-mydpleft headerbtndisabled']");
 			driver.findElement(calendarPrevMMonthDisabledButton);
-			By calendarNextMMonthButton = By.xpath(CAL_ADDPOPUPDATE.toString().substring(10) + "/../..//button[@class='headerbtn mydpicon icon-mydpright headerbtnenabled']");
+			By calendarNextMMonthButton = By.xpath(CAL_ADDPOPUPDATE.toString().substring(10) + "/../..//div[@style='float:left']//button[@class='headerbtn mydpicon icon-mydpright headerbtnenabled']");
 			webActions.click(VISIBILITY, calendarNextMMonthButton);
 		}
 		catch (Exception ex)
