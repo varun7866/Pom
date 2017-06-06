@@ -209,6 +209,10 @@ public class MedicalEquipmentPage extends WebPage
 
 		try
 		{
+			// Determine if the currently displayed month is the current month by checking if the previous month button is disabled.
+			// If the previous month button is disabled, that means the previous month is displayed, thus we need to click the next month button to display the current month.
+			// If the previous month button is enabled, that means the current month is displayed and the findElement method will fail causing the flow to go directly to the Catch,
+			// bypassing the next month button click.
 			By calendarPrevMMonthDisabledButton = By
 			        .xpath(CAL_ADDPOPUPDATE.toString().substring(10) + "/../..//div[@style='float:left']//button[@class='headerbtn mydpicon icon-mydpleft headerbtndisabled']");
 			driver.findElement(calendarPrevMMonthDisabledButton);

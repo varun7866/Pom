@@ -499,6 +499,8 @@ public class ApplicationFunctions extends WebPage
 			try
 			{
 				DayLocator = By.xpath(datePickerLocatorXpathString + "/../..//td[@class='daycell']/div[contains(@class,'datevalue prevmonth')]/span[text()='" + dateToSelectInt + "']");
+
+				// If not found, that means the date to choose is not displayed. Flow will jump to the Catch where it will click the previous month button, then select the date.
 				driver.findElement(DayLocator).isDisplayed();
 				webActions.click(VISIBILITY, DayLocator);
 			} catch (Exception ex)
@@ -514,10 +516,9 @@ public class ApplicationFunctions extends WebPage
 		{
 			if (dateToSelectInt == currentDayInt)
 			{
-				DayLocator = By.xpath(datePickerLocatorXpathString + "/../..//span[text()='" + currentDay + "']/../../..//td[@class='daycell currmonth selectedday tablesingleday']");
+				// If the date you want to select is the current date, the date needs to be clicked twice to close the calendar.
+				DayLocator = By.xpath(datePickerLocatorXpathString + "/../..//span[@class='currday']");
 				webActions.click(VISIBILITY, DayLocator);
-				// Thread.sleep(1000);
-				DayLocator = By.xpath(datePickerLocatorXpathString + "/../..//span[text()='" + currentDay + "']/../../..//td[@class='daycell currmonth tablesingleday']");
 				webActions.click(VISIBILITY, DayLocator);
 			} else
 			{
@@ -587,6 +588,7 @@ public class ApplicationFunctions extends WebPage
 				try
 				{
 					DayLocator = By.xpath(datePickerLocatorXpathString + "/../..//td[@class='daycell']/div[contains(@class,'datevalue prevmonth')]/span[text()='" + currentDayMinusX + "']");
+					// If not found, that means the date to choose is not displayed. Flow will jump to the Catch where it will click the previous month button, then verify the date.
 					driver.findElement(DayLocator).isDisplayed();
 				}
 				catch (Exception ex)
@@ -612,7 +614,7 @@ public class ApplicationFunctions extends WebPage
 			{
 				if (currentDayMinusXInt == currentDayInt)
 				{
-					DayLocator = By.xpath(datePickerLocatorXpathString + "/../..//span[text()='" + currentDay + "']/../../..//td[@class='daycell currmonth selectedday tablesingleday']");
+					DayLocator = By.xpath(datePickerLocatorXpathString + "/../..//span[@class='currday']");
 
 					if (!driver.findElement(DayLocator).isDisplayed())
 					{
