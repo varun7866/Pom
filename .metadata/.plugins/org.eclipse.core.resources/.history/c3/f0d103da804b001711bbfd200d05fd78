@@ -87,7 +87,6 @@ public class MedicalEquipmentPage extends WebPage
 	public boolean isStatusDropdownEditable() throws TimeoutException, WaitException
 	{
 
-
 		return true;
 	}
 
@@ -118,7 +117,7 @@ public class MedicalEquipmentPage extends WebPage
 	@Step("Checks if a specific Medical Equipment is in the table")
 	public boolean isMedicalEquipmentInTable() throws TimeoutException, WaitException
 	{
-		String[][] tableData = appFunctions.getTableText(TBL_MEDICALEQUIPMENT, 5);
+		String[][] tableData = appFunctions.getTableData(TBL_MEDICALEQUIPMENT, 5);
 
 		DateFormat dateFormat = new SimpleDateFormat("M/d/yyyy");
 		Date dateObject = new Date();		

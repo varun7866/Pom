@@ -222,7 +222,7 @@ public class ApplicationFunctions extends WebPage
 	 * @param reqColumn required column number to identify the cell
 	 * @return value in cell
 	 */
-	public String getTextFromTable(String tableLocator, int reqRow, int reqColumn)
+	public String getTextFromTableCell(String tableLocator, int reqRow, int reqColumn)
 	{
 		LOGGER.debug("In ApplicationFunctions - getTextFromTable");
 		String colValue = null;
@@ -250,7 +250,7 @@ public class ApplicationFunctions extends WebPage
 		
 		for(int i=1; i<=rowCount; i++)
 		{
-			colValue = getTextFromTable(tableLocator, i, searchColumn);
+			colValue = getTextFromTableCell(tableLocator, i, searchColumn);
 			if(colValue.equals(searchValue))
 			{
 				return i;
@@ -636,7 +636,7 @@ public class ApplicationFunctions extends WebPage
 	}
 
 	/**
-	 * Returns all the data from a table identified by the locator
+	 * Returns all the text from a table identified by the locator
 	 * 
 	 * @param locator
 	 *            The
@@ -648,7 +648,7 @@ public class ApplicationFunctions extends WebPage
 	 * @throws TimeoutException
 	 * @throws WaitException
 	 */
-	public String[][] getTableData(By tableLocator, int numberOfColumns) throws TimeoutException, WaitException
+	public String[][] getTableText(By tableLocator, int numberOfColumns) throws TimeoutException, WaitException
 	{
 		List<WebElement> trCollection = driver.findElements(By.xpath(tableLocator.toString().substring(10) + "/tbody/tr"));
 		
