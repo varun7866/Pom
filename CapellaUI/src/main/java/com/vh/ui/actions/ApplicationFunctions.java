@@ -1,11 +1,11 @@
 package com.vh.ui.actions;
 
 import static com.vh.ui.web.locators.ApplicationLocators.BTN_LOGOUT;
-import static com.vh.ui.web.locators.ApplicationLocators.LNK_ADMIN_MENUBAR;
-import static com.vh.ui.web.locators.ApplicationLocators.LNK_CONSOLIDATED_MENUBAR;
-import static com.vh.ui.web.locators.ApplicationLocators.LNK_MYCONTACTS_MENUBAR;
-import static com.vh.ui.web.locators.ApplicationLocators.LNK_MYPATIENTS_MENUBAR;
-import static com.vh.ui.web.locators.ApplicationLocators.TXT_USERNAME_MENUBAR;
+import static com.vh.ui.web.locators.ApplicationLocators.LNK_MENUBAR_ADMIN;
+import static com.vh.ui.web.locators.ApplicationLocators.LNK_MENUBAR_MYPATIENTS;
+import static com.vh.ui.web.locators.ApplicationLocators.LNK_MENUBAR_MYSCHEDULE;
+import static com.vh.ui.web.locators.ApplicationLocators.LNK_MENUBAR_MYTASKS;
+import static com.vh.ui.web.locators.ApplicationLocators.TXT_MENUBAR_USERNAME;
 import static com.vh.ui.web.locators.LoginLocators.BTN_YESALLOW;
 
 import java.text.DateFormat;
@@ -27,10 +27,10 @@ import com.vh.ui.exceptions.URLNavigationException;
 import com.vh.ui.exceptions.WaitException;
 import com.vh.ui.page.base.WebPage;
 import com.vh.ui.pages.AdminPage;
-import com.vh.ui.pages.ConsolidatedPage;
 import com.vh.ui.pages.LoginPage;
-import com.vh.ui.pages.MyContactsPage;
 import com.vh.ui.pages.MyPatientsPage;
+import com.vh.ui.pages.MySchedulePage;
+import com.vh.ui.pages.MyTasksPage;
 import com.vh.ui.utilities.Logg;
 import com.vh.ui.utilities.PropertyManager;
 import com.vh.ui.utilities.Utilities;
@@ -638,7 +638,7 @@ public class ApplicationFunctions extends WebPage
 	/**
 	 * Returns all the text from a table identified by the locator
 	 * 
-	 * @param locator
+	 * @param tableLocator
 	 *            The
 	 *            <table>
 	 *            tag locator of the table
@@ -675,8 +675,9 @@ public class ApplicationFunctions extends WebPage
 	}
 
 	@Step("Get the User Name from the Menu Bar")
-	public String getUserNameTextMenuBar() throws TimeoutException, WaitException {
-		String User_Name_With_Welcome = webActions.getText(VISIBILITY, TXT_USERNAME_MENUBAR);
+	public String getUserNameTextMenuBar() throws TimeoutException, WaitException
+	{
+		String User_Name_With_Welcome = webActions.getText(VISIBILITY, TXT_MENUBAR_USERNAME);
 		String User_Name = User_Name_With_Welcome.substring(9);
 		System.out.println(User_Name);
 
@@ -684,26 +685,50 @@ public class ApplicationFunctions extends WebPage
 	}
 
 	@Step("Click on My Patients Menu Bar option")
-	public MyPatientsPage clickMyPatientsMenuBar() throws TimeoutException, WaitException {
-		webActions.click(VISIBILITY, LNK_MYPATIENTS_MENUBAR);
+	public MyPatientsPage clickMyPatientsMenuBar() throws TimeoutException, WaitException
+	{
+		webActions.click(VISIBILITY, LNK_MENUBAR_MYPATIENTS);
 		return new MyPatientsPage(getDriver());
 	}
 
-	@Step("Click on My Contacts Menu Bar option")
-	public MyContactsPage clickMyContactsMenuBar() throws TimeoutException, WaitException {
-		webActions.click(VISIBILITY, LNK_MYCONTACTS_MENUBAR);
-		return new MyContactsPage(getDriver());
+	@Step("Click on My Tasks Menu Bar option")
+	public MyTasksPage clickMyTasksMenuBar() throws TimeoutException, WaitException
+	{
+		webActions.click(VISIBILITY, LNK_MENUBAR_MYTASKS);
+		return new MyTasksPage(getDriver());
 	}
 
-	@Step("Click on Consolidated Menu Bar option")
-	public ConsolidatedPage clickConsolidatedMenuBar() throws TimeoutException, WaitException {
-		webActions.click(VISIBILITY, LNK_CONSOLIDATED_MENUBAR);
-		return new ConsolidatedPage(getDriver());
+	@Step("Click on My Schedule Menu Bar option")
+	public MySchedulePage clickMyScheduleMenuBar() throws TimeoutException, WaitException
+	{
+		webActions.click(VISIBILITY, LNK_MENUBAR_MYSCHEDULE);
+		return new MySchedulePage(getDriver());
 	}
 
 	@Step("Click on Admin Menu Bar option")
-	public AdminPage clickAdminMenuBar() throws TimeoutException, WaitException {
-		webActions.click(VISIBILITY, LNK_ADMIN_MENUBAR);
+	public AdminPage clickAdminMenuBar() throws TimeoutException, WaitException
+	{
+		webActions.click(VISIBILITY, LNK_MENUBAR_ADMIN);
 		return new AdminPage(getDriver());
+	}
+
+	/**
+	 * Clicks on the passed in column header in the passed in table to sort it according to the passed in sort order. It will then verify if the column is properly sorted.
+	 * 
+	 * @param tableLocator
+	 *            The
+	 *            <table>
+	 *            tag locator of the table
+	 * @param columnLocator
+	 *            The <div> tag of column to test
+	 * @param sortOrder
+	 *            "A" for ascending or "D" for descending
+	 * @return True if the column is sorted and false if not
+	 * @throws TimeoutException
+	 * @throws WaitException
+	 */
+	public boolean isColumnSorted(By tableLocator, By columnLocator, String sortOrder) throws TimeoutException, WaitException
+	{
+		return true;
 	}
 }

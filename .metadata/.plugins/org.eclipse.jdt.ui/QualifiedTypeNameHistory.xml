@@ -18,4 +18,6 @@
 <fullyQualifiedTypeName name="org.openqa.selenium.By"/>
 <fullyQualifiedTypeName name="org.openqa.selenium.By.ByXPath"/>
 <fullyQualifiedTypeName name="java.util.Calendar"/>
+<fullyQualifiedTypeName name="com.vh.ui.pages.MyTasksPage"/>
+<fullyQualifiedTypeName name="com.vh.ui.pages.MySchedulePage"/>
 </qualifiedTypeNameHistroy>

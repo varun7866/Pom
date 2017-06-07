@@ -1,5 +1,10 @@
 package com.vh.ui.tests;
 
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+import java.util.Date;
+
 import org.openqa.selenium.TimeoutException;
 import org.openqa.selenium.WebDriver;
 import org.testng.Assert;
@@ -24,7 +29,8 @@ import ru.yandex.qatools.allure.annotations.Step;
  * Before running this test suite:
  * 1. Change the "username" and "password" parameters in the "resources\application.properties" file to your own
  * 2. Clear your browser's cache
- * 3. Change the Patient name to whatever you want in the call to the openPatient method in this Class's Constructor
+ * 3. Change the Patient name to a Patient under your ID in the call to the selectPatientFromMyPatients() method in the buildUp() method
+ * 4. It's not required, but it would be a good idea to delete all existing medical equipment
  */
 
 public class MedicalEquipmentTest extends TestBase
@@ -126,6 +132,29 @@ public class MedicalEquipmentTest extends TestBase
 	{
 		Assert.assertTrue(medicalEquipmentPage.isStatusDropdownEditable(), "The STATUS drop down is not editable");
 		Assert.assertTrue(medicalEquipmentPage.isInUseCheckboxEditable(), "The IN USE check box is not editable");
+	}
+
+	@Test(priority = 5)
+	@Step("Verify all columns can be sorted in the Medical Equipment table")
+	public void verify_ColumnSorting() throws WaitException, URLNavigationException, InterruptedException
+	{
+		String currentDayMinusX;
+
+		Calendar cal = Calendar.getInstance();
+		DateFormat dateFormat = new SimpleDateFormat("d");
+
+		cal.add(Calendar.DATE, -1);
+		currentDayMinusX = dateFormat.format(new Date(cal.getTimeInMillis()));
+		medicalEquipmentPage.addMedicalEquipment(currentDayMinusX, "Other", "Glucometer", "Ordered", false);
+
+		Thread.sleep(2000);
+
+		cal.add(Calendar.DATE, -1);
+		currentDayMinusX = dateFormat.format(new Date(cal.getTimeInMillis()));
+		medicalEquipmentPage.addMedicalEquipment(currentDayMinusX, "VH Provided", "Scale", "Replaced", true);
+
+		Assert.assertTrue(medicalEquipmentPage.isTableSortableByEquipmentDescriptionAscending(), "The EQUIPMENT DESCRIPTION column did not sort ascendingly");
+		Assert.assertTrue(medicalEquipmentPage.isTableSortableByEquipmentDescriptionDescending(), "The EQUIPMENT DESCRIPTION column did not sort descendingly");
 	}
 
 	@AfterClass

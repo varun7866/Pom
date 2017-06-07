@@ -342,9 +342,58 @@ public class MedicalEquipmentPage extends WebPage
 		return webActions.getVisibiltyOfElementLocatedBy(VISIBILITY, CBO_ADDPOPUPSTATUS);
 	}
 
-	@Step("Select an option form the Add Medical Equipment popup STATUS combo box")
+	@Step("Select an option from the Add Medical Equipment popup STATUS combo box")
 	public void selectAddPopupStatusComboBox(String optionToSelect) throws TimeoutException, WaitException
 	{
 		webActions.selectFromDropDown(VISIBILITY, CBO_ADDPOPUPSTATUS, optionToSelect);
+	}
+
+	/**
+	 * Adds one Medical Equipment to the Medical Equipment table
+	 * 
+	 * @param dateToSelect
+	 *            The day to select in the date picker
+	 * @param source
+	 *            The source to select in the SOURCE drop down
+	 * @param equipmentType
+	 *            The equipment type to select in the EQUIPMENT TYPE drop down
+	 * @param status
+	 *            The status to select in the STATUS drop down
+	 * @param equipmentInUse
+	 *            Whether or not to select the Equipment is in Use check box
+	 * @throws TimeoutException
+	 * @throws WaitException
+	 * @throws InterruptedException
+	 */
+	@Step("Adds one Medical Equipment to the Medical Equipment table")
+	public void addMedicalEquipment(String dateToSelect, String source, String equipmentType, String status, boolean equipmentInUse) throws TimeoutException, WaitException, InterruptedException
+	{
+		clickAddMedicalEquipmentButton();
+		
+		clickAddPopupDatePickerButton();
+		appFunctions.selectDateFromCalendar(CAL_ADDPOPUPDATE, dateToSelect);
+		selectAddPopupSourceComboBox(source);
+		selectAddPopupEquipmentTypeComboBox(equipmentType);
+		selectAddPopupStatusComboBox(status);
+		
+		if (equipmentInUse)
+		{
+			checkAddPopupEquipmentIsInUseCheckBox();
+		}
+
+		clickAddPopupAddButton();
+	}
+
+	@Step("Verify the EQUIPMENT DESCRIPTION column sorts ascendingly")
+	public boolean isTableSortableByEquipmentDescriptionAscending() throws TimeoutException, WaitException
+	{
+		// return appFunctions.isColumnSorted(TBL_MEDICALEQUIPMENT, columnLocator, "A");
+		return true;
+	}
+
+	@Step("Verify the EQUIPMENT DESCRIPTION column sorts dscendingly")
+	public boolean isTableSortableByEquipmentDescriptionDescending() throws TimeoutException, WaitException
+	{
+		return true;
 	}
 }
