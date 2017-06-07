@@ -10,6 +10,7 @@ import static com.vh.ui.web.locators.MedicalEquipmentLocators.CBO_ADDPOPUPSOURCE
 import static com.vh.ui.web.locators.MedicalEquipmentLocators.CBO_ADDPOPUPSTATUS;
 import static com.vh.ui.web.locators.MedicalEquipmentLocators.CBO_FIRSTROWSTATUS;
 import static com.vh.ui.web.locators.MedicalEquipmentLocators.CHK_ADDPOPUPEQUIPMENTISINUSE;
+import static com.vh.ui.web.locators.MedicalEquipmentLocators.CHK_FIRSTROWEQUIPMENTISINUSE;
 import static com.vh.ui.web.locators.MedicalEquipmentLocators.LBL_ADDMEDICALEQUIPMENT;
 import static com.vh.ui.web.locators.MedicalEquipmentLocators.LBL_ADDPOPUPDATE;
 import static com.vh.ui.web.locators.MedicalEquipmentLocators.LBL_ADDPOPUPEQUIPMENTISINUSE;
@@ -119,9 +120,34 @@ public class MedicalEquipmentPage extends WebPage
 	}
 
 	@Step("Verify the In Use check box is editable")
-	public boolean isInUseCheckboxEditable() throws TimeoutException, WaitException
+	public boolean isInUseCheckboxEditable() throws TimeoutException, WaitException, InterruptedException
 	{
-		return true;
+		String attributeValueBefore;
+		String attributeValueAfter;
+
+		attributeValueBefore = webActions.getAttributeValue(VISIBILITY, CHK_FIRSTROWEQUIPMENTISINUSE, "ng-reflect-checked");
+
+		webActions.click(VISIBILITY, CHK_FIRSTROWEQUIPMENTISINUSE);
+
+		attributeValueAfter = webActions.getAttributeValue(VISIBILITY, CHK_FIRSTROWEQUIPMENTISINUSE, "ng-reflect-checked");
+
+		if (attributeValueBefore == null)
+		{
+			attributeValueBefore = "false";
+		}
+
+		if (attributeValueAfter == null)
+		{
+			attributeValueAfter = "false";
+		}
+
+		if (attributeValueBefore.equals(attributeValueAfter))
+		{
+			return false;
+		} else
+		{
+			return true;
+		}
 	}
 
 	@Step("Verify the visibility of the ADD MEDICAL EQUIPMENT button")

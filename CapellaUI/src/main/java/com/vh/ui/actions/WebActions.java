@@ -402,16 +402,16 @@ public class WebActions {
 	 * @throws TimeoutException
 	 * @throws WaitException
 	 */
-	public String getAttributeValue(String expectedCondition, By locator, String attribute)
-			throws TimeoutException, WaitException {
-		LOGGER.info(
-				Utilities.getCurrentThreadId() + "Retrieving the attribute " + attribute + " of element " + locator);
-
+	public String getAttributeValue(String expectedCondition, By locator, String attribute) throws TimeoutException, WaitException
+	{
 		String attributeValue;
+
+		LOGGER.info(Utilities.getCurrentThreadId() + "Retrieving the attribute " + attribute + " of element " + locator);
 
 		if ("notrequired".equals(expectedCondition)) {
 			attributeValue = driver.findElement(locator).getAttribute(attribute);
-		} else {
+		} else
+		{
 			attributeValue = wait.syncLocatorUsing(expectedCondition, driver, locator).getAttribute(attribute);
 		}
 

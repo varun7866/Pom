@@ -25,6 +25,7 @@ public class MedicalEquipmentLocators
 	public static final By CBO_ADDPOPUPEQUIPMENTTYPE = By.id("equipment-type");
 	public static final By CBO_ADDPOPUPSTATUS = By.id("status");
 
+	public static final By CHK_FIRSTROWEQUIPMENTISINUSE = By.xpath("//table[@class='medical-equipment-table']//tr[1]//input");
 	public static final By CHK_ADDPOPUPEQUIPMENTISINUSE = By.id("equipmentInUseCheckbox");
 
 	public static final By LBL_PAGEHEADER = By.xpath("//h2[text()='MEDICAL EQUIPMENT']");
