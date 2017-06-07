@@ -312,13 +312,12 @@ public class WebActions {
 	}
 
 	/**
-	 * Select an item from the passed in dropdown
+	 * Select an item from the passed in drop down
 	 * 
 	 * @param expectedCondition
-	 *            The condition to wait for (notrequired, visibility,
-	 *            clickability, presence)
+	 *            The condition to wait for (notrequired, visibility, clickability, presence)
 	 * @param locator
-	 *            Used to identify the element
+	 *            The <select> tag of the drop down
 	 * @param itemToSelect
 	 * @throws TimeoutException
 	 * @throws WaitException

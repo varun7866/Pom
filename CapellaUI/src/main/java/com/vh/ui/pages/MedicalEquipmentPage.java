@@ -8,6 +8,7 @@ import static com.vh.ui.web.locators.MedicalEquipmentLocators.CAL_ADDPOPUPDATE;
 import static com.vh.ui.web.locators.MedicalEquipmentLocators.CBO_ADDPOPUPEQUIPMENTTYPE;
 import static com.vh.ui.web.locators.MedicalEquipmentLocators.CBO_ADDPOPUPSOURCE;
 import static com.vh.ui.web.locators.MedicalEquipmentLocators.CBO_ADDPOPUPSTATUS;
+import static com.vh.ui.web.locators.MedicalEquipmentLocators.CBO_FIRSTROWSTATUS;
 import static com.vh.ui.web.locators.MedicalEquipmentLocators.CHK_ADDPOPUPEQUIPMENTISINUSE;
 import static com.vh.ui.web.locators.MedicalEquipmentLocators.LBL_ADDMEDICALEQUIPMENT;
 import static com.vh.ui.web.locators.MedicalEquipmentLocators.LBL_ADDPOPUPDATE;
@@ -86,9 +87,29 @@ public class MedicalEquipmentPage extends WebPage
 	@Step("Verify the Status drop down is editable")
 	public boolean isStatusDropdownEditable() throws TimeoutException, WaitException
 	{
+		String attributeValueBefore;
+		String attributeValueAfter;
 
+		attributeValueBefore = webActions.getAttributeValue(VISIBILITY, CBO_FIRSTROWSTATUS, "ng-reflect-model");
 
-		return true;
+		if (attributeValueBefore.equals("E"))
+		{
+			webActions.selectFromDropDown(VISIBILITY, CBO_FIRSTROWSTATUS, "Returned");
+		} else
+		{
+			webActions.selectFromDropDown(VISIBILITY, CBO_FIRSTROWSTATUS, "Error");
+		}
+
+		attributeValueAfter = webActions.getAttributeValue(VISIBILITY, CBO_FIRSTROWSTATUS, "ng-reflect-model");
+
+		if (attributeValueBefore.equals(attributeValueAfter))
+		{
+			return false;
+		}
+		else
+		{
+			return true;
+		}		
 	}
 
 	@Step("Verify the visibility of the In Use column header label")
@@ -118,7 +139,7 @@ public class MedicalEquipmentPage extends WebPage
 	@Step("Checks if a specific Medical Equipment is in the table")
 	public boolean isMedicalEquipmentInTable() throws TimeoutException, WaitException
 	{
-		String[][] tableData = appFunctions.getTableText(TBL_MEDICALEQUIPMENT, 5);
+		String[][] tableData = appFunctions.getTextFromTable(TBL_MEDICALEQUIPMENT, 5);
 
 		DateFormat dateFormat = new SimpleDateFormat("M/d/yyyy");
 		Date dateObject = new Date();		

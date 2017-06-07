@@ -648,7 +648,7 @@ public class ApplicationFunctions extends WebPage
 	 * @throws TimeoutException
 	 * @throws WaitException
 	 */
-	public String[][] getTableText(By tableLocator, int numberOfColumns) throws TimeoutException, WaitException
+	public String[][] getTextFromTable(By tableLocator, int numberOfColumns) throws TimeoutException, WaitException
 	{
 		List<WebElement> trCollection = driver.findElements(By.xpath(tableLocator.toString().substring(10) + "/tbody/tr"));
 		
