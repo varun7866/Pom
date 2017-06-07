@@ -86,7 +86,6 @@ public class MedicalEquipmentPage extends WebPage
 	@Step("Verify the Status drop down is editable")
 	public boolean isStatusDropdownEditable() throws TimeoutException, WaitException
 	{
-
 		return true;
 	}
 

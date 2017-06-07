@@ -114,7 +114,7 @@ public class ApplicationFunctions extends WebPage
 	}
 
 	/**
-	 * Open a Patient
+	 * Opens a Patient by clicking on the Patient name in My Patients
 	 * 
 	 * @param patientName
 	 *            The name of the Patient to open
@@ -123,11 +123,10 @@ public class ApplicationFunctions extends WebPage
 	 * @throws InterruptedException
 	 */
 	@Step("Open {0} Patient")
-	public void openPatient(String patientName) throws TimeoutException, WaitException, InterruptedException
+	public void selectPatientFromMyPatients(String patientName) throws TimeoutException, WaitException, InterruptedException
 	{
 		LOGGER.debug("In ApplicationFunctions - openPatient");
 
-		// webActions.javascriptClick();
 		webActions.click(VISIBILITY, By.xpath("//a[text()='" + patientName + "']"));
 	}
 
@@ -188,10 +187,6 @@ public class ApplicationFunctions extends WebPage
 		webActions.javascriptClick(mainEle);
 	}
 	
-	public void selectPatientFromMyPatient()
-	{
-		
-	}
 	/**
 	 * Click on a particular cell of a table identified by the table locator
 	 * 

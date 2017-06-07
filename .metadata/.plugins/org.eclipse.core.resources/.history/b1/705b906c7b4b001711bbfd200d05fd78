@@ -42,7 +42,7 @@ public class MedicalEquipmentTest extends TestBase
 		medicalEquipmentPage = new MedicalEquipmentPage(driver);
 
 		appFunctions.capellaLogin();
-		appFunctions.selectPatientFromMyPatients("Waliy Al D Holroyd");
+		appFunctions.openPatient("Waliy Al D Holroyd");
 		appFunctions.navigateToMenu("Patient Admin->Medical Equipment");
 	}
 
