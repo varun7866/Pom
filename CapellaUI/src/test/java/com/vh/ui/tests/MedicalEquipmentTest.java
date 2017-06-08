@@ -14,6 +14,7 @@ import org.testng.annotations.Test;
 
 import com.vh.test.base.TestBase;
 import com.vh.ui.actions.ApplicationFunctions;
+import com.vh.ui.actions.WebActions;
 import com.vh.ui.exceptions.URLNavigationException;
 import com.vh.ui.exceptions.WaitException;
 import com.vh.ui.page.base.WebPage;
@@ -37,6 +38,7 @@ public class MedicalEquipmentTest extends TestBase
 {	
 	// Class objects
 	WebPage pageBase;
+	WebActions webActions;
 	ApplicationFunctions appFunctions;
 	MedicalEquipmentPage medicalEquipmentPage;
 	
@@ -44,6 +46,7 @@ public class MedicalEquipmentTest extends TestBase
 	public void buildUp() throws TimeoutException, WaitException, URLNavigationException, InterruptedException {
 		WebDriver driver = getWebDriver();
 		pageBase = new WebPage(driver);
+		webActions = new WebActions(driver);
 		appFunctions = new ApplicationFunctions(driver);
 		medicalEquipmentPage = new MedicalEquipmentPage(driver);
 
@@ -147,7 +150,7 @@ public class MedicalEquipmentTest extends TestBase
 		currentDayMinusX = dateFormat.format(new Date(cal.getTimeInMillis()));
 		medicalEquipmentPage.addMedicalEquipment(currentDayMinusX, "Other", "Glucometer", "Ordered", false);
 
-		Thread.sleep(2000);
+		Thread.sleep(4000);
 
 		cal.add(Calendar.DATE, -1);
 		currentDayMinusX = dateFormat.format(new Date(cal.getTimeInMillis()));
@@ -155,12 +158,15 @@ public class MedicalEquipmentTest extends TestBase
 
 		Assert.assertTrue(medicalEquipmentPage.isTableSortableByEquipmentDescriptionAscending(), "The EQUIPMENT DESCRIPTION column did not sort ascendingly");
 		Assert.assertTrue(medicalEquipmentPage.isTableSortableByEquipmentDescriptionDescending(), "The EQUIPMENT DESCRIPTION column did not sort descendingly");
+
+		Assert.assertTrue(medicalEquipmentPage.isTableSortableBySourceAscending(), "The SOURCE column did not sort ascendingly");
+		Assert.assertTrue(medicalEquipmentPage.isTableSortableBySourceDescending(), "The SOURCE column did not sort descendingly");
 	}
 
 	@AfterClass
 	public void tearDown() throws TimeoutException, WaitException
 	{
-		appFunctions.capellaLogout();
-		pageBase.quit();
+		// appFunctions.capellaLogout();
+		// pageBase.quit();
 	}
 }

@@ -159,7 +159,7 @@ public class MedicalEquipmentPage extends WebPage
 	@Step("Click the ADD MEDICAL EQUIPMENT button")
 	public void clickAddMedicalEquipmentButton() throws TimeoutException, WaitException
 	{
-		webActions.click(VISIBILITY, BTN_ADDMEDICALEQUIPMENT);
+		webActions.click(CLICKABILITY, BTN_ADDMEDICALEQUIPMENT);
 	}
 
 	@Step("Checks if a specific Medical Equipment is in the table")
@@ -387,13 +387,32 @@ public class MedicalEquipmentPage extends WebPage
 	@Step("Verify the EQUIPMENT DESCRIPTION column sorts ascendingly")
 	public boolean isTableSortableByEquipmentDescriptionAscending() throws TimeoutException, WaitException
 	{
-		// return appFunctions.isColumnSorted(TBL_MEDICALEQUIPMENT, columnLocator, "A");
-		return true;
+		webActions.click(VISIBILITY, LBL_EQUIPMENTDESCRIPTIONCOLUMNHEADER);
+
+		return appFunctions.isColumnSorted(TBL_MEDICALEQUIPMENT, 1, "A");
 	}
 
 	@Step("Verify the EQUIPMENT DESCRIPTION column sorts dscendingly")
 	public boolean isTableSortableByEquipmentDescriptionDescending() throws TimeoutException, WaitException
 	{
-		return true;
+		webActions.click(VISIBILITY, LBL_EQUIPMENTDESCRIPTIONCOLUMNHEADER);
+
+		return appFunctions.isColumnSorted(TBL_MEDICALEQUIPMENT, 1, "D");
+	}
+
+	@Step("Verify the SOURCE column sorts ascendingly")
+	public boolean isTableSortableBySourceAscending() throws TimeoutException, WaitException
+	{
+		webActions.click(VISIBILITY, LBL_SOURCECOLUMNHEADER);
+
+		return appFunctions.isColumnSorted(TBL_MEDICALEQUIPMENT, 2, "A");
+	}
+
+	@Step("Verify the SOURCE column sorts dscendingly")
+	public boolean isTableSortableBySourceDescending() throws TimeoutException, WaitException
+	{
+		webActions.click(VISIBILITY, LBL_SOURCECOLUMNHEADER);
+
+		return appFunctions.isColumnSorted(TBL_MEDICALEQUIPMENT, 2, "D");
 	}
 }

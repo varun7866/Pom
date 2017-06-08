@@ -10,7 +10,9 @@ import static com.vh.ui.web.locators.LoginLocators.BTN_YESALLOW;
 
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Calendar;
+import java.util.Collections;
 import java.util.Date;
 import java.util.List;
 import java.util.Properties;
@@ -719,16 +721,40 @@ public class ApplicationFunctions extends WebPage
 	 *            The
 	 *            <table>
 	 *            tag locator of the table
-	 * @param columnLocator
-	 *            The <div> tag of column to test
+	 * @param columnNumber
+	 *            The column number of the column to be retrieved
 	 * @param sortOrder
 	 *            "A" for ascending or "D" for descending
 	 * @return True if the column is sorted and false if not
 	 * @throws TimeoutException
 	 * @throws WaitException
 	 */
-	public boolean isColumnSorted(By tableLocator, By columnLocator, String sortOrder) throws TimeoutException, WaitException
+	public boolean isColumnSorted(By tableLocator, int columnNumber, String sortOrder) throws TimeoutException, WaitException
 	{
-		return true;
+		List<String> columnTextOriginal = new ArrayList<String>();
+		List<String> columnTextSorted = new ArrayList<String>();
+
+		List<WebElement> columnElements = driver.findElements(By.xpath(tableLocator.toString().substring(10) + "//tr/td[" + columnNumber + "]"));
+		
+		for (WebElement columnElement : columnElements)
+		{
+			columnTextOriginal.add(columnElement.getText());
+			columnTextSorted.add(columnElement.getText());
+		}
+		
+		Collections.sort(columnTextSorted);
+
+		if (sortOrder.equals("D"))
+		{
+			Collections.reverse(columnTextSorted);
+		}
+
+		if (columnTextOriginal.equals(columnTextSorted))
+		{
+			return true;
+		} else
+		{
+			return false;
+		}
 	}
 }
