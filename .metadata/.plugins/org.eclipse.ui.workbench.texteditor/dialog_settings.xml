@@ -2,12 +2,13 @@
 <section name="Workbench">
 	<section name="org.eclipse.ui.texteditor.FindReplaceDialog">
 		<item value="false" key="isRegEx"/>
-		<item value="EquipmentIsInUse" key="selection"/>
+		<item value="columnLocator" key="selection"/>
 		<item value="false" key="casesensitive"/>
 		<item value="false" key="incremental"/>
 		<item value="true" key="wrap"/>
 		<item value="false" key="wholeword"/>
 		<list key="findhistory">
+			<item value="columnLocator"/>
 			<item value="equipmentIsInUse"/>
 			<item value="equipmentInUse"/>
 			<item value="selectDateFromCalendar"/>
@@ -15,7 +16,6 @@
 			<item value="getAttributeValue"/>
 			<item value="AddMedicalEquipment"/>
 			<item value="contain"/>
-			<item value="clickAddPopupDatePickerButton"/>
 		</list>
 		<list key="replacehistory">
 		</list>

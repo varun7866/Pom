@@ -161,6 +161,12 @@ public class MedicalEquipmentTest extends TestBase
 
 		Assert.assertTrue(medicalEquipmentPage.isTableSortableBySourceAscending(), "The SOURCE column did not sort ascendingly");
 		Assert.assertTrue(medicalEquipmentPage.isTableSortableBySourceDescending(), "The SOURCE column did not sort descendingly");
+
+		Assert.assertTrue(medicalEquipmentPage.isTableSortableByModifiedAscending(), "The MODIFIED column did not sort ascendingly");
+		Assert.assertTrue(medicalEquipmentPage.isTableSortableByModifiedDescending(), "The MODIFIED column did not sort descendingly");
+
+		Assert.assertTrue(medicalEquipmentPage.isTableSortableByStatusAscending(), "The STATUS column did not sort ascendingly");
+		Assert.assertTrue(medicalEquipmentPage.isTableSortableByStatusDescending(), "The STATUS column did not sort descendingly");
 	}
 
 	@AfterClass

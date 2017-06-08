@@ -17,9 +17,9 @@ import static com.vh.ui.web.locators.MedicalEquipmentLocators.LBL_ADDPOPUPEQUIPM
 import static com.vh.ui.web.locators.MedicalEquipmentLocators.LBL_ADDPOPUPEQUIPMENTTYPE;
 import static com.vh.ui.web.locators.MedicalEquipmentLocators.LBL_ADDPOPUPSOURCE;
 import static com.vh.ui.web.locators.MedicalEquipmentLocators.LBL_ADDPOPUPSTATUS;
-import static com.vh.ui.web.locators.MedicalEquipmentLocators.LBL_DATECOLUMNHEADER;
 import static com.vh.ui.web.locators.MedicalEquipmentLocators.LBL_EQUIPMENTDESCRIPTIONCOLUMNHEADER;
 import static com.vh.ui.web.locators.MedicalEquipmentLocators.LBL_INUSECOLUMNHEADER;
+import static com.vh.ui.web.locators.MedicalEquipmentLocators.LBL_MODIFIEDCOLUMNHEADER;
 import static com.vh.ui.web.locators.MedicalEquipmentLocators.LBL_PAGEHEADER;
 import static com.vh.ui.web.locators.MedicalEquipmentLocators.LBL_SOURCECOLUMNHEADER;
 import static com.vh.ui.web.locators.MedicalEquipmentLocators.LBL_STATUSCOLUMNHEADER;
@@ -76,7 +76,7 @@ public class MedicalEquipmentPage extends WebPage
 	@Step("Verify the visibility of the Modified column header label")
 	public boolean viewModifiedColumnHeaderLabel() throws TimeoutException, WaitException
 	{
-		return webActions.getVisibiltyOfElementLocatedBy(VISIBILITY, LBL_DATECOLUMNHEADER);
+		return webActions.getVisibiltyOfElementLocatedBy(VISIBILITY, LBL_MODIFIEDCOLUMNHEADER);
 	}
 
 	@Step("Verify the visibility of the Status column header label")
@@ -389,7 +389,7 @@ public class MedicalEquipmentPage extends WebPage
 	{
 		webActions.click(VISIBILITY, LBL_EQUIPMENTDESCRIPTIONCOLUMNHEADER);
 
-		return appFunctions.isColumnSorted(TBL_MEDICALEQUIPMENT, 1, "A");
+		return appFunctions.isColumnSorted(TBL_MEDICALEQUIPMENT, 1, "A", "text");
 	}
 
 	@Step("Verify the EQUIPMENT DESCRIPTION column sorts dscendingly")
@@ -397,7 +397,7 @@ public class MedicalEquipmentPage extends WebPage
 	{
 		webActions.click(VISIBILITY, LBL_EQUIPMENTDESCRIPTIONCOLUMNHEADER);
 
-		return appFunctions.isColumnSorted(TBL_MEDICALEQUIPMENT, 1, "D");
+		return appFunctions.isColumnSorted(TBL_MEDICALEQUIPMENT, 1, "D", "text");
 	}
 
 	@Step("Verify the SOURCE column sorts ascendingly")
@@ -405,7 +405,7 @@ public class MedicalEquipmentPage extends WebPage
 	{
 		webActions.click(VISIBILITY, LBL_SOURCECOLUMNHEADER);
 
-		return appFunctions.isColumnSorted(TBL_MEDICALEQUIPMENT, 2, "A");
+		return appFunctions.isColumnSorted(TBL_MEDICALEQUIPMENT, 2, "A", "text");
 	}
 
 	@Step("Verify the SOURCE column sorts dscendingly")
@@ -413,6 +413,38 @@ public class MedicalEquipmentPage extends WebPage
 	{
 		webActions.click(VISIBILITY, LBL_SOURCECOLUMNHEADER);
 
-		return appFunctions.isColumnSorted(TBL_MEDICALEQUIPMENT, 2, "D");
+		return appFunctions.isColumnSorted(TBL_MEDICALEQUIPMENT, 2, "D", "text");
+	}
+
+	@Step("Verify the MODIFIED column sorts ascendingly")
+	public boolean isTableSortableByModifiedAscending() throws TimeoutException, WaitException
+	{
+		webActions.click(VISIBILITY, LBL_MODIFIEDCOLUMNHEADER);
+
+		return appFunctions.isColumnSorted(TBL_MEDICALEQUIPMENT, 3, "A", "text");
+	}
+
+	@Step("Verify the MODIFIED column sorts dscendingly")
+	public boolean isTableSortableByModifiedDescending() throws TimeoutException, WaitException
+	{
+		webActions.click(VISIBILITY, LBL_MODIFIEDCOLUMNHEADER);
+
+		return appFunctions.isColumnSorted(TBL_MEDICALEQUIPMENT, 3, "D", "text");
+	}
+
+	@Step("Verify the STATUS column sorts ascendingly")
+	public boolean isTableSortableByStatusAscending() throws TimeoutException, WaitException
+	{
+		webActions.click(VISIBILITY, LBL_STATUSCOLUMNHEADER);
+
+		return appFunctions.isColumnSorted(TBL_MEDICALEQUIPMENT, 4, "A", "dropdown");
+	}
+
+	@Step("Verify the STATUS column sorts dscendingly")
+	public boolean isTableSortableByStatusDescending() throws TimeoutException, WaitException
+	{
+		webActions.click(VISIBILITY, LBL_STATUSCOLUMNHEADER);
+
+		return appFunctions.isColumnSorted(TBL_MEDICALEQUIPMENT, 4, "D", "dropdown");
 	}
 }

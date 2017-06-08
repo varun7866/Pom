@@ -729,7 +729,7 @@ public class ApplicationFunctions extends WebPage
 	 * @throws TimeoutException
 	 * @throws WaitException
 	 */
-	public boolean isColumnSorted(By tableLocator, int columnNumber, String sortOrder) throws TimeoutException, WaitException
+	public boolean isColumnSorted(By tableLocator, int columnNumber, String sortOrder, String controlType) throws TimeoutException, WaitException
 	{
 		List<String> columnTextOriginal = new ArrayList<String>();
 		List<String> columnTextSorted = new ArrayList<String>();
@@ -738,8 +738,18 @@ public class ApplicationFunctions extends WebPage
 		
 		for (WebElement columnElement : columnElements)
 		{
-			columnTextOriginal.add(columnElement.getText());
-			columnTextSorted.add(columnElement.getText());
+			if (controlType.equals("text"))
+			{
+				columnTextOriginal.add(columnElement.getText());
+				columnTextSorted.add(columnElement.getText());
+			}
+			else
+			{
+				if (controlType.equals("dropdown"))
+				{
+
+				}
+			}
 		}
 		
 		Collections.sort(columnTextSorted);

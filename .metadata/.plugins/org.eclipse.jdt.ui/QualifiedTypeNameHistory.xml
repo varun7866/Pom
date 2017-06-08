@@ -20,4 +20,6 @@
 <fullyQualifiedTypeName name="java.util.Calendar"/>
 <fullyQualifiedTypeName name="com.vh.ui.pages.MyTasksPage"/>
 <fullyQualifiedTypeName name="com.vh.ui.pages.MySchedulePage"/>
+<fullyQualifiedTypeName name="org.openqa.selenium.WebDriver"/>
+<fullyQualifiedTypeName name="com.vh.ui.actions.WebActions"/>
 </qualifiedTypeNameHistroy>
