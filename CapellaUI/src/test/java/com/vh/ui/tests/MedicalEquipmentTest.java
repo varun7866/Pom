@@ -167,12 +167,15 @@ public class MedicalEquipmentTest extends TestBase
 
 		Assert.assertTrue(medicalEquipmentPage.isTableSortableByStatusAscending(), "The STATUS column did not sort ascendingly");
 		Assert.assertTrue(medicalEquipmentPage.isTableSortableByStatusDescending(), "The STATUS column did not sort descendingly");
+
+		Assert.assertTrue(medicalEquipmentPage.isTableSortableByInUseAscending(), "The IN USE column did not sort ascendingly");
+		Assert.assertTrue(medicalEquipmentPage.isTableSortableByInUseDescending(), "The IN USE column did not sort descendingly");
 	}
 
 	@AfterClass
 	public void tearDown() throws TimeoutException, WaitException
 	{
-		// appFunctions.capellaLogout();
-		// pageBase.quit();
+		appFunctions.capellaLogout();
+		pageBase.quit();
 	}
 }

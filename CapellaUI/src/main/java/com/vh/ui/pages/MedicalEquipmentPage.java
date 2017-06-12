@@ -447,4 +447,20 @@ public class MedicalEquipmentPage extends WebPage
 
 		return appFunctions.isColumnSorted(TBL_MEDICALEQUIPMENT, 4, "D", "dropdown");
 	}
+
+	@Step("Verify the IN USE column sorts ascendingly")
+	public boolean isTableSortableByInUseAscending() throws TimeoutException, WaitException
+	{
+		webActions.click(VISIBILITY, LBL_INUSECOLUMNHEADER);
+
+		return appFunctions.isColumnSorted(TBL_MEDICALEQUIPMENT, 5, "A", "checkbox");
+	}
+
+	@Step("Verify the IN USE column sorts dscendingly")
+	public boolean isTableSortableByInUseDescending() throws TimeoutException, WaitException
+	{
+		webActions.click(VISIBILITY, LBL_INUSECOLUMNHEADER);
+
+		return appFunctions.isColumnSorted(TBL_MEDICALEQUIPMENT, 5, "D", "checkbox");
+	}
 }

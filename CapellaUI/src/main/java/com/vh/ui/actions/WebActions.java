@@ -373,31 +373,24 @@ public class WebActions {
 	}
 
 	/**
-	 * Get the value of a the given attribute of the element. Will return the current value, even if
-     * this has been modified after the page has been loaded. More exactly, this method will return
-     * the value of the given attribute, unless that attribute is not present, in which case the value
-     * of the property with the same name is returned (for example for the "value" property of a
-     * textarea element). If neither value is set, null is returned. The "style" attribute is
-     * converted as best can be to a text representation with a trailing semi-colon. The following are
-     * deemed to be "boolean" attributes, and will return either "true" or null:
-     *
-     * async, autofocus, autoplay, checked, compact, complete, controls, declare, defaultchecked,
-     * defaultselected, defer, disabled, draggable, ended, formnovalidate, hidden, indeterminate,
-     * iscontenteditable, ismap, itemscope, loop, multiple, muted, nohref, noresize, noshade,
-     * novalidate, nowrap, open, paused, pubdate, readonly, required, reversed, scoped, seamless,
-     * seeking, selected, spellcheck, truespeed, willvalidate
-     *
-     * Finally, the following commonly mis-capitalized attribute/property names are evaluated as
-     * expected:
-     *
-     * <ul>
-     * <li>"class"
-     * <li>"readonly"
-     * </ul>
+	 * Get the value of a the given attribute of the element. Will return the current value, even if this has been modified after the page has been loaded. More exactly, this method will return the
+	 * value of the given attribute, unless that attribute is not present. In which case, the value of the property with the same name is returned (for example, for the "value" property of a text area
+	 * element). If neither value is set, null is returned. The "style" attribute is converted as best can be to a text representation with a trailing semi-colon. The following are deemed to be
+	 * "boolean" attributes, and will return either "true" or null: async, autofocus, autoplay, checked, compact, complete, controls, declare, defaultchecked, defaultselected, defer, disabled,
+	 * draggable, ended, formnovalidate, hidden, indeterminate, iscontenteditable, ismap, itemscope, loop, multiple, muted, nohref, noresize, noshade, novalidate, nowrap, open, paused, pubdate,
+	 * readonly, required, reversed, scoped, seamless, seeking, selected, spellcheck, truespeed, willvalidate Finally, the following commonly mis-capitalized attribute/property names are evaluated as
+	 * expected:
+	 * <ul>
+	 * <li>"class"
+	 * <li>"readonly"
+	 * </ul>
 	 * 
-	 * @param expectedCondition to wait for. The conditions can be notrequired, visibility, clickability, and presence
-	 * @param locator used to identify the element
-	 * @param attribute The name of the attribute
+	 * @param expectedCondition
+	 *            to wait for. The conditions can be notrequired, visibility, clickability, and presence
+	 * @param locator
+	 *            used to identify the element
+	 * @param attribute
+	 *            The name of the attribute
 	 * @return The attribute/property's current value or null if the value is not set.
 	 * @throws TimeoutException
 	 * @throws WaitException

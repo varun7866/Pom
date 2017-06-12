@@ -55,11 +55,11 @@ function toggleAllBoxes() {
 <body>
 <h2 align='center'>Default test</h2><table border='1' align="center">
 <tr>
-<td>Tests passed/Failed/Skipped:</td><td>5/0/0</td>
+<td>Tests passed/Failed/Skipped:</td><td>0/0/5</td>
 </tr><tr>
-<td>Started on:</td><td>Thu Jun 08 15:02:52 CDT 2017</td>
+<td>Started on:</td><td>Mon Jun 12 14:41:39 CDT 2017</td>
 </tr>
-<tr><td>Total time:</td><td>139 seconds (139889 ms)</td>
+<tr><td>Total time:</td><td>68 seconds (68925 ms)</td>
 </tr><tr>
 <td>Included groups:</td><td></td>
 </tr><tr>
@@ -67,8 +67,125 @@ function toggleAllBoxes() {
 </tr>
 </table><p/>
 <small><i>(Hover the method name to see the test class name)</i></small><p/>
-<table width='100%' border='1' class='invocation-passed'>
-<tr><td colspan='4' align='center'><b>PASSED TESTS</b></td></tr>
+<table width='100%' border='1' class='invocation-failed'>
+<tr><td colspan='4' align='center'><b>FAILED CONFIGURATIONS</b></td></tr>
+<tr><td><b>Test method</b></td>
+<td width="30%"><b>Exception</b></td>
+<td width="10%"><b>Time (seconds)</b></td>
+<td><b>Instance</b></td>
+</tr>
+<tr>
+<td title='com.vh.ui.tests.MedicalEquipmentTest.buildUp()'><b>buildUp</b><br>Test class: com.vh.ui.tests.MedicalEquipmentTest</td>
+<td><div><pre>org.openqa.selenium.NoSuchElementException: Unable to find element with xpath == //a[text()=&apos;Patient Admin&apos;] (WARNING: The server did not provide any stacktrace information)
+Command duration or timeout: 371 milliseconds
+For documentation on this error, please visit: http://seleniumhq.org/exceptions/no_such_element.html
+Build info: version: &apos;2.53.0&apos;, revision: &apos;35ae25b1534ae328c771e0856c93e187490ca824&apos;, time: &apos;2016-03-15 10:43:46&apos;
+System info: host: &apos;DVA-F0L9N9R-L&apos;, ip: &apos;172.16.128.191&apos;, os.name: &apos;Windows 8.1&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;6.3&apos;, java.version: &apos;1.8.0_131&apos;
+Driver info: org.openqa.selenium.ie.InternetExplorerDriver
+Capabilities [{browserAttachTimeout=0, ie.enableFullPageScreenshot=true, enablePersistentHover=true, ie.forceCreateProcessApi=false, ie.forceShellWindowsApi=false, pageLoadStrategy=normal, ignoreZoomSetting=false, ie.fileUploadDialogTimeout=3000, version=11, platform=WINDOWS, proxy={proxyType=}, nativeEvents=true, ie.ensureCleanSession=false, elementScrollBehavior=0, ie.browserCommandLineSwitches=, requireWindowFocus=false, browserName=internet explorer, initialBrowserUrl=http://localhost:43339/, javascriptEnabled=true, ignoreProtectedModeSettings=false, enableElementCacheCleanup=true, unexpectedAlertBehaviour=dismiss}]
+Session ID: decd90f5-f0fc-4233-a33f-b2fcb94b420c
+*** Element info: {Using=xpath, value=//a[text()=&apos;Patient Admin&apos;]}
+	at sun.reflect.GeneratedConstructorAccessor12.newInstance(Unknown Source)
+	at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(Unknown Source)
+	at java.lang.reflect.Constructor.newInstance(Unknown Source)
+	at org.openqa.selenium.remote.ErrorHandler.createThrowable(ErrorHandler.java:206)
+	at org.openqa.selenium.remote.ErrorHandler.throwIfResponseFailed(ErrorHandler.java:158)
+	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:678)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:363)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElementByXPath(RemoteWebDriver.java:500)
+	at org.openqa.selenium.By$ByXPath.findElement(By.java:361)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:355)
+	at com.vh.ui.actions.ApplicationFunctions.navigateToMenu(ApplicationFunctions.java:154)
+	at com.vh.ui.tests.MedicalEquipmentTest.buildUp(MedicalEquipmentTest.java:55)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:86)
+	at org.testng.internal.Invoker.invokeConfigurationMethod(Invoker.java:514)
+	at org.testng.internal.Invoker.invokeConfigurations(Invoker.java:215)
+	at org.testng.internal.Invoker.invokeConfigurations(Invoker.java:142)
+	at org.testng.internal.TestMethodWorker.invokeBeforeClassMethods(TestMethodWorker.java:178)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:108)
+	at org.testng.TestRunner.privateRun(TestRunner.java:782)
+	at org.testng.TestRunner.run(TestRunner.java:632)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:366)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:361)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:319)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:268)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:86)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1244)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1169)
+	at org.testng.TestNG.run(TestNG.java:1064)
+	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:132)
+	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:230)
+	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:76)
+</pre></div><a href='#' onClick='toggleBox("stack-trace665743262", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace665743262'><pre>org.openqa.selenium.NoSuchElementException: Unable to find element with xpath == //a[text()=&apos;Patient Admin&apos;] (WARNING: The server did not provide any stacktrace information)
+Command duration or timeout: 371 milliseconds
+For documentation on this error, please visit: http://seleniumhq.org/exceptions/no_such_element.html
+Build info: version: &apos;2.53.0&apos;, revision: &apos;35ae25b1534ae328c771e0856c93e187490ca824&apos;, time: &apos;2016-03-15 10:43:46&apos;
+System info: host: &apos;DVA-F0L9N9R-L&apos;, ip: &apos;172.16.128.191&apos;, os.name: &apos;Windows 8.1&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;6.3&apos;, java.version: &apos;1.8.0_131&apos;
+Driver info: org.openqa.selenium.ie.InternetExplorerDriver
+Capabilities [{browserAttachTimeout=0, ie.enableFullPageScreenshot=true, enablePersistentHover=true, ie.forceCreateProcessApi=false, ie.forceShellWindowsApi=false, pageLoadStrategy=normal, ignoreZoomSetting=false, ie.fileUploadDialogTimeout=3000, version=11, platform=WINDOWS, proxy={proxyType=}, nativeEvents=true, ie.ensureCleanSession=false, elementScrollBehavior=0, ie.browserCommandLineSwitches=, requireWindowFocus=false, browserName=internet explorer, initialBrowserUrl=http://localhost:43339/, javascriptEnabled=true, ignoreProtectedModeSettings=false, enableElementCacheCleanup=true, unexpectedAlertBehaviour=dismiss}]
+Session ID: decd90f5-f0fc-4233-a33f-b2fcb94b420c
+*** Element info: {Using=xpath, value=//a[text()=&apos;Patient Admin&apos;]}
+	at sun.reflect.GeneratedConstructorAccessor12.newInstance(Unknown Source)
+	at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(Unknown Source)
+	at java.lang.reflect.Constructor.newInstance(Unknown Source)
+	at org.openqa.selenium.remote.ErrorHandler.createThrowable(ErrorHandler.java:206)
+	at org.openqa.selenium.remote.ErrorHandler.throwIfResponseFailed(ErrorHandler.java:158)
+	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:678)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:363)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElementByXPath(RemoteWebDriver.java:500)
+	at org.openqa.selenium.By$ByXPath.findElement(By.java:361)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:355)
+	at com.vh.ui.actions.ApplicationFunctions.navigateToMenu(ApplicationFunctions.java:154)
+	at com.vh.ui.tests.MedicalEquipmentTest.buildUp(MedicalEquipmentTest.java:55)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:86)
+	at org.testng.internal.Invoker.invokeConfigurationMethod(Invoker.java:514)
+	at org.testng.internal.Invoker.invokeConfigurations(Invoker.java:215)
+	at org.testng.internal.Invoker.invokeConfigurations(Invoker.java:142)
+	at org.testng.internal.TestMethodWorker.invokeBeforeClassMethods(TestMethodWorker.java:178)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:108)
+	at org.testng.TestRunner.privateRun(TestRunner.java:782)
+	at org.testng.TestRunner.run(TestRunner.java:632)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:366)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:361)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:319)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:268)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:86)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1244)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1169)
+	at org.testng.TestNG.run(TestNG.java:1064)
+	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:132)
+	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:230)
+	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:76)
+</pre></div></td>
+<td>0</td>
+<td>com.vh.ui.tests.MedicalEquipmentTest@1bf14704</td></tr>
+</table><p>
+<table width='100%' border='1' class='invocation-skipped'>
+<tr><td colspan='4' align='center'><b>SKIPPED CONFIGURATIONS</b></td></tr>
+<tr><td><b>Test method</b></td>
+<td width="30%"><b>Exception</b></td>
+<td width="10%"><b>Time (seconds)</b></td>
+<td><b>Instance</b></td>
+</tr>
+<tr>
+<td title='com.vh.ui.tests.MedicalEquipmentTest.tearDown()'><b>tearDown</b><br>Test class: com.vh.ui.tests.MedicalEquipmentTest</td>
+<td></td>
+<td>0</td>
+<td>com.vh.ui.tests.MedicalEquipmentTest@1bf14704</td></tr>
+</table><p>
+<table width='100%' border='1' class='invocation-skipped'>
+<tr><td colspan='4' align='center'><b>SKIPPED TESTS</b></td></tr>
 <tr><td><b>Test method</b></td>
 <td width="30%"><b>Exception</b></td>
 <td width="10%"><b>Time (seconds)</b></td>
@@ -77,28 +194,28 @@ function toggleAllBoxes() {
 <tr>
 <td title='com.vh.ui.tests.MedicalEquipmentTest.AddMedicalEquipment()'><b>AddMedicalEquipment</b><br>Test class: com.vh.ui.tests.MedicalEquipmentTest</td>
 <td></td>
-<td>8</td>
-<td>com.vh.ui.tests.MedicalEquipmentTest@60990e5c</td></tr>
+<td>0</td>
+<td>com.vh.ui.tests.MedicalEquipmentTest@1bf14704</td></tr>
 <tr>
 <td title='com.vh.ui.tests.MedicalEquipmentTest.verify_AddMedicalEquipmentPopup()'><b>verify_AddMedicalEquipmentPopup</b><br>Test class: com.vh.ui.tests.MedicalEquipmentTest</td>
 <td></td>
-<td>15</td>
-<td>com.vh.ui.tests.MedicalEquipmentTest@60990e5c</td></tr>
+<td>0</td>
+<td>com.vh.ui.tests.MedicalEquipmentTest@1bf14704</td></tr>
 <tr>
 <td title='com.vh.ui.tests.MedicalEquipmentTest.verify_ColumnSorting()'><b>verify_ColumnSorting</b><br>Test class: com.vh.ui.tests.MedicalEquipmentTest</td>
 <td></td>
-<td>42</td>
-<td>com.vh.ui.tests.MedicalEquipmentTest@60990e5c</td></tr>
+<td>0</td>
+<td>com.vh.ui.tests.MedicalEquipmentTest@1bf14704</td></tr>
 <tr>
 <td title='com.vh.ui.tests.MedicalEquipmentTest.verify_EditableFields()'><b>verify_EditableFields</b><br>Test class: com.vh.ui.tests.MedicalEquipmentTest</td>
 <td></td>
-<td>4</td>
-<td>com.vh.ui.tests.MedicalEquipmentTest@60990e5c</td></tr>
+<td>0</td>
+<td>com.vh.ui.tests.MedicalEquipmentTest@1bf14704</td></tr>
 <tr>
 <td title='com.vh.ui.tests.MedicalEquipmentTest.verify_MedicalEquipmentPage()'><b>verify_MedicalEquipmentPage</b><br>Test class: com.vh.ui.tests.MedicalEquipmentTest</td>
 <td></td>
-<td>2</td>
-<td>com.vh.ui.tests.MedicalEquipmentTest@60990e5c</td></tr>
+<td>0</td>
+<td>com.vh.ui.tests.MedicalEquipmentTest@1bf14704</td></tr>
 </table><p>
 </body>
 </html>

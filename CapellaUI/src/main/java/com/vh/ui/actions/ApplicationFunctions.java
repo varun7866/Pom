@@ -725,12 +725,16 @@ public class ApplicationFunctions extends WebPage
 	 *            The column number of the column to be retrieved
 	 * @param sortOrder
 	 *            "A" for ascending or "D" for descending
+	 * @param controlType
+	 *            The type of control in the column to be sorted (text, dropdown, checkbox)
 	 * @return True if the column is sorted and false if not
 	 * @throws TimeoutException
 	 * @throws WaitException
 	 */
 	public boolean isColumnSorted(By tableLocator, int columnNumber, String sortOrder, String controlType) throws TimeoutException, WaitException
 	{
+		String attributeValue;
+		
 		List<String> columnTextOriginal = new ArrayList<String>();
 		List<String> columnTextSorted = new ArrayList<String>();
 
@@ -747,11 +751,34 @@ public class ApplicationFunctions extends WebPage
 			{
 				if (controlType.equals("dropdown"))
 				{
+					columnTextOriginal.add(columnElement.findElement(By.xpath("./select//option[@ng-reflect-selected='true']")).getText());
+					columnTextSorted.add(columnElement.findElement(By.xpath("./select//option[@ng-reflect-selected='true']")).getText());
+				}
+				else
+				{
+					if (controlType.equals("checkbox"))
+					{
+						attributeValue = columnElement.findElement(By.xpath("./div/input")).getAttribute("ng-reflect-checked");
 
+						try
+						{
+							if (attributeValue.equals(null))
+							{
+								
+							}							
+						}
+						catch (Exception ex)
+						{
+							attributeValue = "zalse";
+						}
+
+						columnTextOriginal.add(attributeValue);
+						columnTextSorted.add(attributeValue);
+					}
 				}
 			}
 		}
-		
+				
 		Collections.sort(columnTextSorted);
 
 		if (sortOrder.equals("D"))
