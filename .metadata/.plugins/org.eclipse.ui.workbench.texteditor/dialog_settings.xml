@@ -2,20 +2,20 @@
 <section name="Workbench">
 	<section name="org.eclipse.ui.texteditor.FindReplaceDialog">
 		<item value="false" key="isRegEx"/>
-		<item value="columnLocator" key="selection"/>
+		<item value="catch" key="selection"/>
 		<item value="false" key="casesensitive"/>
 		<item value="false" key="incremental"/>
 		<item value="true" key="wrap"/>
 		<item value="false" key="wholeword"/>
 		<list key="findhistory">
+			<item value="catch"/>
+			<item value="attributeValue"/>
+			<item value="ng-reflect-checked"/>
 			<item value="columnLocator"/>
 			<item value="equipmentIsInUse"/>
 			<item value="equipmentInUse"/>
 			<item value="selectDateFromCalendar"/>
 			<item value="InUseCheckbox"/>
-			<item value="getAttributeValue"/>
-			<item value="AddMedicalEquipment"/>
-			<item value="contain"/>
 		</list>
 		<list key="replacehistory">
 		</list>
@@ -24,7 +24,7 @@
 		<item value="284" key="DIALOG_WIDTH"/>
 		<item value="1|Segoe UI|9.0|0|WINDOWS|1|-12|0|0|0|400|0|0|0|1|0|0|0|0|Segoe UI" key="DIALOG_FONT_NAME"/>
 		<item value="391" key="DIALOG_HEIGHT"/>
-		<item value="1365" key="DIALOG_X_ORIGIN"/>
-		<item value="241" key="DIALOG_Y_ORIGIN"/>
+		<item value="1543" key="DIALOG_X_ORIGIN"/>
+		<item value="313" key="DIALOG_Y_ORIGIN"/>
 	</section>
 </section>

@@ -21,9 +21,9 @@ public class MedicalEquipmentLocators
 	public static final By CAL_ADDPOPUPDATE = By.xpath("//div[@class='modal-dialog undefined']//label[text()='DATE']/..//input");
 
 	public static final By CBO_FIRSTROWSTATUS = By.xpath("//table[@class='medical-equipment-table']//tr[1]//select");
-	public static final By CBO_ADDPOPUPSOURCE = By.id("source");
-	public static final By CBO_ADDPOPUPEQUIPMENTTYPE = By.id("equipment-type");
-	public static final By CBO_ADDPOPUPSTATUS = By.id("status");
+	public static final By CBO_ADDPOPUPSOURCE = By.xpath("//select[@id='source']");
+	public static final By CBO_ADDPOPUPEQUIPMENTTYPE = By.xpath("//select[@id='equipment-type']");
+	public static final By CBO_ADDPOPUPSTATUS = By.xpath("//div[@class='modal-dialog undefined']//select[@id='status']");
 
 	public static final By CHK_FIRSTROWEQUIPMENTISINUSE = By.xpath("//table[@class='medical-equipment-table']//tr[1]//input");
 	public static final By CHK_ADDPOPUPEQUIPMENTISINUSE = By.id("equipmentInUseCheckbox");

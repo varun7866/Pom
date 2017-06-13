@@ -794,4 +794,34 @@ public class ApplicationFunctions extends WebPage
 			return false;
 		}
 	}
+
+	/**
+	 * Verifies if the options in the passed in drop down match the option in the passed in list
+	 * 
+	 * @param dropDownLocator
+	 *            The <select> tag locator of the drop down
+	 * @param dropDownOptions
+	 *            The list of drop down options to verify against
+	 * @return True if the options match, false if they don't
+	 * @throws TimeoutException
+	 * @throws WaitException
+	 */
+	public boolean verifyDropDownOptions(By dropDownLocator, List<String> dropDownOptions) throws TimeoutException, WaitException
+	{
+		List<String> dropDownOptionsTextFromUI = new ArrayList<String>();
+		List<WebElement> dropDownOptionsFromUI = driver.findElements(By.xpath(dropDownLocator.toString().substring(10) + "/option"));
+
+		for (WebElement webElement : dropDownOptionsFromUI)
+		{
+			dropDownOptionsTextFromUI.add(webElement.getText());
+		}
+	
+		if (dropDownOptionsTextFromUI.equals(dropDownOptions))
+		{
+			return true;
+		} else
+		{
+			return false;
+		}
+	}
 }

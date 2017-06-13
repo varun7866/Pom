@@ -27,7 +27,9 @@ import static com.vh.ui.web.locators.MedicalEquipmentLocators.TBL_MEDICALEQUIPME
 
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.TimeoutException;
@@ -111,6 +113,19 @@ public class MedicalEquipmentPage extends WebPage
 		{
 			return true;
 		}		
+	}
+
+	@Step("Verify the options of the STATUS combo box")
+	public boolean verifyStatusComboBoxOptions() throws TimeoutException, WaitException
+	{
+		List<String> dropDownOptions = new ArrayList<String>();
+		dropDownOptions.add("Delivered");
+		dropDownOptions.add("Error");
+		dropDownOptions.add("Ordered");
+		dropDownOptions.add("Replaced");
+		dropDownOptions.add("Returned");
+
+		return appFunctions.verifyDropDownOptions(CBO_FIRSTROWSTATUS, dropDownOptions);
 	}
 
 	@Step("Verify the visibility of the In Use column header label")
@@ -288,6 +303,17 @@ public class MedicalEquipmentPage extends WebPage
 		return webActions.getVisibiltyOfElementLocatedBy(VISIBILITY, CBO_ADDPOPUPSOURCE);
 	}
 
+	@Step("Verify the options of the Add Medical Equipment popup SOURCE combo box")
+	public boolean verifyAddPopupSourceComboBoxOptions() throws TimeoutException, WaitException
+	{
+		List<String> dropDownOptions = new ArrayList<String>();
+		dropDownOptions.add("Select a value");
+		dropDownOptions.add("Other");
+		dropDownOptions.add("VH Provided");
+
+		return appFunctions.verifyDropDownOptions(CBO_ADDPOPUPSOURCE, dropDownOptions);
+	}
+
 	@Step("Select an option form the Add Medical Equipment popup SOURCE combo box")
 	public void selectAddPopupSourceComboBox(String optionToSelect) throws TimeoutException, WaitException
 	{
@@ -324,6 +350,36 @@ public class MedicalEquipmentPage extends WebPage
 		return webActions.getVisibiltyOfElementLocatedBy(VISIBILITY, CBO_ADDPOPUPEQUIPMENTTYPE);
 	}
 
+	@Step("Verify the options of the Add Medical Equipment popup EQUIPMENT TYPE combo box")
+	public boolean verifyAddPopupEquipmentTypeComboBoxOptions() throws TimeoutException, WaitException
+	{
+		List<String> dropDownOptions = new ArrayList<String>();
+		dropDownOptions.add("Select a value");
+		dropDownOptions.add("Bed Trapeze");
+		dropDownOptions.add("BP Machine");
+		dropDownOptions.add("Cane");
+		dropDownOptions.add("Commode");
+		dropDownOptions.add("Digital Thermometer");
+		dropDownOptions.add("Glucometer");
+		dropDownOptions.add("Hospital Bed");
+		dropDownOptions.add("Hoyer Lift");
+		dropDownOptions.add("Incontinent Supplies");
+		dropDownOptions.add("Nebulizer");
+		dropDownOptions.add("Ostomy Care Supplies");
+		dropDownOptions.add("Oxygen");
+		dropDownOptions.add("PD cycler");
+		dropDownOptions.add("Scale");
+		dropDownOptions.add("Slider Board");
+		dropDownOptions.add("Stethoscope");
+		dropDownOptions.add("Tub/Shower Chair");
+		dropDownOptions.add("Walker");
+		dropDownOptions.add("Wheelchair");
+		dropDownOptions.add("Wound Care Supplies");
+		dropDownOptions.add("Wound Vac");
+
+		return appFunctions.verifyDropDownOptions(CBO_ADDPOPUPEQUIPMENTTYPE, dropDownOptions);
+	}
+
 	@Step("Select an option form the Add Medical Equipment popup EQUIPMENT TYPE combo box")
 	public void selectAddPopupEquipmentTypeComboBox(String optionToSelect) throws TimeoutException, WaitException
 	{
@@ -340,6 +396,20 @@ public class MedicalEquipmentPage extends WebPage
 	public boolean viewAddPopupStatusComboBox() throws TimeoutException, WaitException
 	{
 		return webActions.getVisibiltyOfElementLocatedBy(VISIBILITY, CBO_ADDPOPUPSTATUS);
+	}
+
+	@Step("Verify the options of the Add Medical Equipment popup STATUS combo box")
+	public boolean verifyAddPopupStatusComboBoxOptions() throws TimeoutException, WaitException
+	{
+		List<String> dropDownOptions = new ArrayList<String>();
+		dropDownOptions.add("Select a value");
+		dropDownOptions.add("Delivered");
+		dropDownOptions.add("Error");
+		dropDownOptions.add("Ordered");
+		dropDownOptions.add("Replaced");
+		dropDownOptions.add("Returned");
+
+		return appFunctions.verifyDropDownOptions(CBO_ADDPOPUPSTATUS, dropDownOptions);
 	}
 
 	@Step("Select an option from the Add Medical Equipment popup STATUS combo box")
