@@ -14,7 +14,6 @@
 <fullyQualifiedTypeName name="com.vh.ui.web.locators.LoginLocators"/>
 <fullyQualifiedTypeName name="java.text.DateFormat"/>
 <fullyQualifiedTypeName name="java.util.Date"/>
-<fullyQualifiedTypeName name="java.awt.List"/>
 <fullyQualifiedTypeName name="org.openqa.selenium.By.ByXPath"/>
 <fullyQualifiedTypeName name="java.util.Calendar"/>
 <fullyQualifiedTypeName name="com.vh.ui.pages.MyTasksPage"/>
@@ -22,4 +21,8 @@
 <fullyQualifiedTypeName name="org.openqa.selenium.WebDriver"/>
 <fullyQualifiedTypeName name="com.vh.ui.actions.WebActions"/>
 <fullyQualifiedTypeName name="org.openqa.selenium.By"/>
+<fullyQualifiedTypeName name="java.awt.List"/>
+<fullyQualifiedTypeName name="java.util.List"/>
+<fullyQualifiedTypeName name="com.vh.ui.pages.CurrentLabsPage"/>
+<fullyQualifiedTypeName name="com.vh.ui.web.locators.CurrentLabsLocators"/>
 </qualifiedTypeNameHistroy>

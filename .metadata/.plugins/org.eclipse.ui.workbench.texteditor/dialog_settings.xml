@@ -2,20 +2,20 @@
 <section name="Workbench">
 	<section name="org.eclipse.ui.texteditor.FindReplaceDialog">
 		<item value="false" key="isRegEx"/>
-		<item value="catch" key="selection"/>
+		<item value="conta" key="selection"/>
 		<item value="false" key="casesensitive"/>
 		<item value="false" key="incremental"/>
 		<item value="true" key="wrap"/>
 		<item value="false" key="wholeword"/>
 		<list key="findhistory">
+			<item value="conta"/>
+			<item value="dropdow"/>
 			<item value="catch"/>
 			<item value="attributeValue"/>
 			<item value="ng-reflect-checked"/>
 			<item value="columnLocator"/>
 			<item value="equipmentIsInUse"/>
 			<item value="equipmentInUse"/>
-			<item value="selectDateFromCalendar"/>
-			<item value="InUseCheckbox"/>
 		</list>
 		<list key="replacehistory">
 		</list>
