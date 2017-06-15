@@ -6,4 +6,19 @@
       <class name="com.vh.ui.tests.MedicalEquipmentTest"/>
     </classes>
   </test> <!-- Test -->
+  <test name="Test(failed)">
+    <classes>
+      <class name="com.vh.ui.tests.MedicalEquipmentTest">
+        <methods>
+          <include name="verify_AddMedicalEquipmentPopup"/>
+          <include name="verify_ColumnSorting"/>
+          <include name="verify_EditableFields"/>
+          <include name="AddMedicalEquipment"/>
+          <include name="afterTest"/>
+          <include name="buildUp"/>
+          <include name="verify_MedicalEquipmentPage"/>
+        </methods>
+      </class> <!-- com.vh.ui.tests.MedicalEquipmentTest -->
+    </classes>
+  </test> <!-- Test(failed) -->
 </suite> <!-- Failed suite [Suite] -->

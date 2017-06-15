@@ -55,14 +55,14 @@ public class CurrentLabsTest extends TestBase
 	public void verify_CurrentLabsPage() throws WaitException, URLNavigationException, InterruptedException
 	{
 		Assert.assertTrue(currentLabsPage.viewPageHeaderLabel(), "Failed to identify the Current Labs page header label");
-		Assert.assertTrue(currentLabsPage.viewAddLabButton(), "Failed to identify the ADD LAB button");
+		Assert.assertTrue(currentLabsPage.viewAddLabButton(), "Failed to identify the Add Lab button");
 	}
-
+	
 	@Test(priority = 2)
 	@Step("Verify Add Lab Results popup")
 	public void verify_AddAddLabResultsPopup() throws WaitException, URLNavigationException, InterruptedException
 	{
-		currentLabsPage.clickAddLabButton();
+		currentLabPage.clickAddMedicalEquipmentButton();
 	}
 
 	@AfterClass

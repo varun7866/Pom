@@ -34,15 +34,9 @@ public class CurrentLabsPage extends WebPage
 		return webActions.getVisibiltyOfElementLocatedBy(VISIBILITY, LBL_PAGEHEADER);
 	}
 
-	@Step("Verify the visibility of the ADD LAB button")
+	@Step("Verify the visibility of the Add Lab button")
 	public boolean viewAddLabButton() throws TimeoutException, WaitException
 	{
 		return webActions.getVisibiltyOfElementLocatedBy(VISIBILITY, BTN_ADDLAB);
-	}
-
-	@Step("Click the ADD LAB button")
-	public void clickAddLabButton() throws TimeoutException, WaitException
-	{
-		webActions.click(CLICKABILITY, BTN_ADDLAB);
 	}
 }
