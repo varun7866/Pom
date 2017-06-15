@@ -68,10 +68,6 @@ public class CurrentLabsTest extends TestBase
 
 		Assert.assertTrue(currentLabsPage.viewAddPopupCancelButton(), "Failed to identify the Add Lab Results popup CANCEL button");
 		Assert.assertTrue(currentLabsPage.viewAddPopupSaveButton(), "Failed to identify the Add Lab Results popup SAVE button");
-
-		Assert.assertTrue(currentLabsPage.viewAddPopupApplyThisDateToAllValuesLabel(), "Failed to identify the Add Lab Results popup APPLY THIS DATE TO ALL VALUES label");
-		Assert.assertTrue(currentLabsPage.viewAddPopupDatePicker(), "Failed to identify the Add Lab Results popup APPLY THIS DATE TO ALL VALUES picker");
-		Assert.assertTrue(currentLabsPage.viewAddPopupDatePickerButton(), "Failed to identify the Add Lab Results popup APPLY THIS DATE TO ALL VALUES picker button");
 	}
 
 	@AfterClass

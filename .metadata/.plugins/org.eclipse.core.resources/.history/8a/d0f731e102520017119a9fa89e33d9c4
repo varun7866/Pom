@@ -69,20 +69,20 @@ public class CurrentLabsPage extends WebPage
 	{
 		return webActions.getVisibiltyOfElementLocatedBy(VISIBILITY, BTN_ADDPOPUPSAVE);
 	}
-
-	@Step("Verify the visibility of the Add Lab Results popup APPLY THIS DATE TO ALL VALUES label")
-	public boolean viewAddPopupApplyThisDateToAllValuesLabel() throws TimeoutException, WaitException
+	
+	@Step("Verify the visibility of the Add Medical Equipment popup DATE label")
+	public boolean viewAddPopupDateLabel() throws TimeoutException, WaitException
 	{
 		return webActions.getVisibiltyOfElementLocatedBy(VISIBILITY, LBL_ADDPOPUPDATE);
 	}
 
-	@Step("Verify the visibility of the Add Lab Results popup APPLY THIS DATE TO ALL VALUES picker")
+	@Step("Verify the visibility of the Add Medical Equipment popup DATE picker")
 	public boolean viewAddPopupDatePicker() throws TimeoutException, WaitException
 	{
 		return webActions.getVisibiltyOfElementLocatedBy(VISIBILITY, CAL_ADDPOPUPDATE);
 	}
 
-	@Step("Verify the visibility of the Add Lab Results popup APPLY THIS DATE TO ALL VALUES picker button")
+	@Step("Verify the visibility of the Add Medical Equipment popup DATE picker button")
 	public boolean viewAddPopupDatePickerButton() throws TimeoutException, WaitException
 	{
 		return webActions.getVisibiltyOfElementLocatedBy(VISIBILITY, BTN_ADDPOPUPDATE);

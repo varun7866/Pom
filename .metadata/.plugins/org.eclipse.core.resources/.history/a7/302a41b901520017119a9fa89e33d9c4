@@ -34,7 +34,7 @@ public class MedicalEquipmentLocators
 	public static final By LBL_MODIFIEDCOLUMNHEADER = By.xpath("//tr/th[contains(., 'MODIFIED')]");
 	public static final By LBL_STATUSCOLUMNHEADER = By.xpath("//tr/th[contains(., 'STATUS')]");
 	public static final By LBL_INUSECOLUMNHEADER = By.xpath("//tr/th[contains(., 'IN USE')]");
-	public static final By LBL_ADDPOPUPADDMEDICALEQUIPMENT = By.xpath("//span[text()='Add Medical Equipment']");
+	public static final By LBL_ADDMEDICALEQUIPMENT = By.xpath("//span[text()='Add Medical Equipment']");
 	public static final By LBL_ADDPOPUPDATE = By.xpath("//div[@class='modal-dialog undefined']//label[text()='DATE']");
 	public static final By LBL_ADDPOPUPSOURCE = By.xpath("//div[@class='modal-dialog undefined']//label[text()='SOURCE']");
 	public static final By LBL_ADDPOPUPEQUIPMENTISINUSE = By.xpath("//div[@class='modal-dialog undefined']//label[text()='Equipment is in Use']");

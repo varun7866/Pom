@@ -18,6 +18,6 @@ public class CurrentLabsLocators
 	public static final By BTN_ADDPOPUPSAVE = By.xpath("//button[text()='Save']");
 
 	public static final By LBL_PAGEHEADER = By.xpath("//div[@class='col-sm-6 lab-screennameheader']");
-	public static final By LBL_ADDPOPUPADDLABRESULTS = By.xpath("//span[text()='Add Lab Results']");
-	public static final By LBL_ADDPOPUPAPPLYTHISDATETOALLVALUES = By.xpath("//span[text()='APPLY THIS DATE TO ALL VALUES']");
+	public static final By LBL_ADDLABRESULTS = By.xpath("//span[text()='Add Lab Results']");
+	public static final By LBL_ADDLABRESULTS = By.xpath("//span[text()='Add Lab Results']");
 }

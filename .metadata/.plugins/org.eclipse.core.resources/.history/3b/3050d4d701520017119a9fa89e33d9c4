@@ -11,7 +11,7 @@ import static com.vh.ui.web.locators.MedicalEquipmentLocators.CBO_ADDPOPUPSTATUS
 import static com.vh.ui.web.locators.MedicalEquipmentLocators.CBO_FIRSTROWSTATUS;
 import static com.vh.ui.web.locators.MedicalEquipmentLocators.CHK_ADDPOPUPEQUIPMENTISINUSE;
 import static com.vh.ui.web.locators.MedicalEquipmentLocators.CHK_FIRSTROWEQUIPMENTISINUSE;
-import static com.vh.ui.web.locators.MedicalEquipmentLocators.LBL_ADDPOPUPADDMEDICALEQUIPMENT;
+import static com.vh.ui.web.locators.MedicalEquipmentLocators.LBL_ADDMEDICALEQUIPMENT;
 import static com.vh.ui.web.locators.MedicalEquipmentLocators.LBL_ADDPOPUPDATE;
 import static com.vh.ui.web.locators.MedicalEquipmentLocators.LBL_ADDPOPUPEQUIPMENTISINUSE;
 import static com.vh.ui.web.locators.MedicalEquipmentLocators.LBL_ADDPOPUPEQUIPMENTTYPE;
@@ -201,7 +201,7 @@ public class MedicalEquipmentPage extends WebPage
 	@Step("Verify the visibility of the Add Medical Equipment popup")
 	public boolean viewAddMedicalEquipmentPopup() throws TimeoutException, WaitException
 	{
-		return webActions.getVisibiltyOfElementLocatedBy(VISIBILITY, LBL_ADDPOPUPADDMEDICALEQUIPMENT);
+		return webActions.getVisibiltyOfElementLocatedBy(VISIBILITY, LBL_ADDMEDICALEQUIPMENT);
 	}
 
 	@Step("Verify the visibility of the Add Medical Equipment popup CANCEL button")
