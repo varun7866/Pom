@@ -94,11 +94,6 @@ public class ApplicationFunctions extends WebPage
 			Thread.sleep(1000);
 			loginPage.clickYesAllow();
 		}
-
-		// Thread.sleep(60000);
-
-		// Alert alert = driver.switchTo().alert();
-		// alert.accept();
 	}
 
 	/**

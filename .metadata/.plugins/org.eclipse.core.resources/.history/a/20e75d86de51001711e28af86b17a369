@@ -93,12 +93,7 @@ public class ApplicationFunctions extends WebPage
 			loginPage.clickRememberMyDecision();
 			Thread.sleep(1000);
 			loginPage.clickYesAllow();
-		}
-
-		// Thread.sleep(60000);
-
-		// Alert alert = driver.switchTo().alert();
-		// alert.accept();
+		}		
 	}
 
 	/**
@@ -725,12 +720,16 @@ public class ApplicationFunctions extends WebPage
 	 *            The column number of the column to be retrieved
 	 * @param sortOrder
 	 *            "A" for ascending or "D" for descending
+	 * @param controlType
+	 *            The type of control in the column to be sorted (text, dropdown, checkbox)
 	 * @return True if the column is sorted and false if not
 	 * @throws TimeoutException
 	 * @throws WaitException
 	 */
 	public boolean isColumnSorted(By tableLocator, int columnNumber, String sortOrder, String controlType) throws TimeoutException, WaitException
 	{
+		String attributeValue;
+		
 		List<String> columnTextOriginal = new ArrayList<String>();
 		List<String> columnTextSorted = new ArrayList<String>();
 
@@ -747,13 +746,34 @@ public class ApplicationFunctions extends WebPage
 			{
 				if (controlType.equals("dropdown"))
 				{
-					columnTextOriginal.add(columnElement.findElement(By.xpath("/option[]")).getText());
+					columnTextOriginal.add(columnElement.findElement(By.xpath("./select//option[@ng-reflect-selected='true']")).getText());
+					columnTextSorted.add(columnElement.findElement(By.xpath("./select//option[@ng-reflect-selected='true']")).getText());
+				}
+				else
+				{
+					if (controlType.equals("checkbox"))
+					{
+						attributeValue = columnElement.findElement(By.xpath("./div/input")).getAttribute("ng-reflect-checked");
 
-					columnTextSorted.add(columnElement.getText());
+						try
+						{
+							if (attributeValue.equals(null))
+							{
+								
+							}							
+						}
+						catch (Exception ex)
+						{
+							attributeValue = "zalse";
+						}
+
+						columnTextOriginal.add(attributeValue);
+						columnTextSorted.add(attributeValue);
+					}
 				}
 			}
 		}
-		
+				
 		Collections.sort(columnTextSorted);
 
 		if (sortOrder.equals("D"))
@@ -762,6 +782,36 @@ public class ApplicationFunctions extends WebPage
 		}
 
 		if (columnTextOriginal.equals(columnTextSorted))
+		{
+			return true;
+		} else
+		{
+			return false;
+		}
+	}
+
+	/**
+	 * Verifies if the options in the passed in drop down match the option in the passed in list
+	 * 
+	 * @param dropDownLocator
+	 *            The <select> tag locator of the drop down
+	 * @param dropDownOptions
+	 *            The list of drop down options to verify against
+	 * @return True if the options match, false if they don't
+	 * @throws TimeoutException
+	 * @throws WaitException
+	 */
+	public boolean verifyDropDownOptions(By dropDownLocator, List<String> dropDownOptions) throws TimeoutException, WaitException
+	{
+		List<String> dropDownOptionsTextFromUI = new ArrayList<String>();
+		List<WebElement> dropDownOptionsFromUI = driver.findElements(By.xpath(dropDownLocator.toString().substring(10) + "/option"));
+
+		for (WebElement webElement : dropDownOptionsFromUI)
+		{
+			dropDownOptionsTextFromUI.add(webElement.getText());
+		}
+	
+		if (dropDownOptionsTextFromUI.equals(dropDownOptions))
 		{
 			return true;
 		} else

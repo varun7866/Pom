@@ -63,12 +63,17 @@ public class CurrentLabsTest extends TestBase
 	public void verify_AddAddLabResultsPopup() throws WaitException, URLNavigationException, InterruptedException
 	{
 		currentLabsPage.clickAddLabButton();
+
+		Assert.assertTrue(currentLabsPage.viewAddLabResultsPopup(), "Failed to identify the Add Labs Results popup header label");
+
+		Assert.assertTrue(currentLabsPage.viewAddPopupCancelButton(), "Failed to identify the Add Lab Results popup CANCEL button");
+		Assert.assertTrue(currentLabsPage.viewAddPopupSaveButton(), "Failed to identify the Add Lab Results popup SAVE button");
 	}
 
 	@AfterClass
 	public void tearDown() throws TimeoutException, WaitException
 	{
-		appFunctions.capellaLogout();
-		pageBase.quit();
+		// appFunctions.capellaLogout();
+		// pageBase.quit();
 	}
 }
