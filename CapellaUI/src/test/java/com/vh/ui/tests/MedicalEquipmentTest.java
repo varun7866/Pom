@@ -112,6 +112,7 @@ public class MedicalEquipmentTest extends TestBase
 		Assert.assertTrue(medicalEquipmentPage.isAddPopupDefaultDateCurrentDate(), "The Add Medical Equipment popup default DATE does not match the current date");
 
 		medicalEquipmentPage.clickAddPopupDatePickerButton();
+		Thread.sleep(1000); // Pause to give the calendar a chance to display
 		Assert.assertTrue(medicalEquipmentPage.isAddPopupEnabledDateRangeValid(), "The Add Medical Equipment popup enabled DATE range is invalid");
 
 		medicalEquipmentPage.selectAddPopupCurrentDateFromCalendar();

@@ -122,7 +122,9 @@ public class ApplicationFunctions extends WebPage
 	@Step("Open {0} Patient")
 	public void selectPatientFromMyPatients(String patientName) throws TimeoutException, WaitException, InterruptedException
 	{
-		LOGGER.debug("In ApplicationFunctions - openPatient");
+		LOGGER.debug("In ApplicationFunctions - selectPatientFromMyPatients");
+
+		webActions.click(VISIBILITY, LNK_MENUBAR_MYPATIENTS);
 
 		webActions.click(VISIBILITY, By.xpath("//a[text()='" + patientName + "']"));
 	}
@@ -143,26 +145,50 @@ public class ApplicationFunctions extends WebPage
 
 		String menu[] = menuToNavigate.split("->");		
 		
-		if(menu.length != 1)
+		if(menu.length == 1)
 		{
 			By mainMenu = By.xpath("//a[text()='" + menu[0] + "']");
 			WebElement mainEle = driver.findElement(mainMenu);
-			// Utilities.highlightElement(driver, mainEle);
-		
+			// Utilities.highlightElement(driver, mainMenu);
 			webActions.javascriptClick(mainEle);
-			
-			By subMenu = By.xpath("//a[text()='" + menu[1] + "']");
-			// Utilities.highlightElement(driver, subMenu);
-			webActions.javascriptClick(subMenu);
-		}
-		else if(menu.length == 1)
-		{
-			By mainMenu = By.xpath("//a[contains(., '" + menu[0] + "')]");
-			webActions.click(CLICKABILITY, mainMenu);
 		}
 		else
 		{
-			return false;
+			if (menu.length == 2)
+			{
+				By mainMenu = By.xpath("//a[text()='" + menu[0] + "']");
+				WebElement mainEle = driver.findElement(mainMenu);
+				// Utilities.highlightElement(driver, mainMenu);
+				webActions.javascriptClick(mainEle);
+				
+				By subMenu = By.xpath("//a[contains(., '" + menu[1] + "')]");
+				WebElement subEle = driver.findElement(subMenu);
+				// Utilities.highlightElement(driver, subMenu);
+				webActions.javascriptClick(subEle);
+			}
+			else
+			{
+				if (menu.length == 3)
+				{
+					By mainMenu = By.xpath("//a[text()='" + menu[0] + "']");
+					WebElement mainEle = driver.findElement(mainMenu);
+					// Utilities.highlightElement(driver, mainMenu);
+					webActions.javascriptClick(mainEle);
+
+					By subMenu = By.xpath("//a[text()='" + menu[1] + "']");
+					WebElement subEle = driver.findElement(subMenu);
+					// Utilities.highlightElement(driver, subMenu);
+					webActions.javascriptClick(subEle);
+
+					By subSubMenu = By.xpath("//span[text()='" + menu[2] + "']");
+					WebElement subSubEle = driver.findElement(subSubMenu);
+					// Utilities.highlightElement(driver, subSubMenu);
+					webActions.javascriptClick(subSubEle);
+				} else
+				{
+					return false;
+				}
+			}
 		}
 		return true;
 	}
@@ -509,7 +535,7 @@ public class ApplicationFunctions extends WebPage
 			if (dateToSelectInt == currentDayInt)
 			{
 				// If the date you want to select is the current date, the date needs to be clicked twice to close the calendar.
-				DayLocator = By.xpath(datePickerLocatorXpathString + "/../..//span[@class='currday']");
+				DayLocator = By.xpath(datePickerLocatorXpathString + "/../..//span[@class='markcurrday']");
 				webActions.click(VISIBILITY, DayLocator);
 				webActions.click(VISIBILITY, DayLocator);
 			} else
@@ -606,7 +632,7 @@ public class ApplicationFunctions extends WebPage
 			{
 				if (currentDayMinusXInt == currentDayInt)
 				{
-					DayLocator = By.xpath(datePickerLocatorXpathString + "/../..//span[@class='currday']");
+					DayLocator = By.xpath(datePickerLocatorXpathString + "/../..//span[@class='markcurrday']");
 
 					if (!driver.findElement(DayLocator).isDisplayed())
 					{

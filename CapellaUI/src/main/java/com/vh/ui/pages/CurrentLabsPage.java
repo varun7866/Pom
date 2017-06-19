@@ -1,13 +1,13 @@
 package com.vh.ui.pages;
 
 import static com.vh.ui.web.locators.CurrentLabsLocators.BTN_ADDLAB;
+import static com.vh.ui.web.locators.CurrentLabsLocators.BTN_ADDPOPUPAPPLYTHISDATETOALLVALUES;
 import static com.vh.ui.web.locators.CurrentLabsLocators.BTN_ADDPOPUPCANCEL;
 import static com.vh.ui.web.locators.CurrentLabsLocators.BTN_ADDPOPUPSAVE;
+import static com.vh.ui.web.locators.CurrentLabsLocators.CAL_ADDPOPUPAPPLYTHISDATETOALLVALUES;
 import static com.vh.ui.web.locators.CurrentLabsLocators.LBL_ADDPOPUPADDLABRESULTS;
+import static com.vh.ui.web.locators.CurrentLabsLocators.LBL_ADDPOPUPAPPLYTHISDATETOALLVALUES;
 import static com.vh.ui.web.locators.CurrentLabsLocators.LBL_PAGEHEADER;
-import static com.vh.ui.web.locators.MedicalEquipmentLocators.BTN_ADDPOPUPDATE;
-import static com.vh.ui.web.locators.MedicalEquipmentLocators.CAL_ADDPOPUPDATE;
-import static com.vh.ui.web.locators.MedicalEquipmentLocators.LBL_ADDPOPUPDATE;
 
 import org.openqa.selenium.TimeoutException;
 import org.openqa.selenium.WebDriver;
@@ -73,18 +73,24 @@ public class CurrentLabsPage extends WebPage
 	@Step("Verify the visibility of the Add Lab Results popup APPLY THIS DATE TO ALL VALUES label")
 	public boolean viewAddPopupApplyThisDateToAllValuesLabel() throws TimeoutException, WaitException
 	{
-		return webActions.getVisibiltyOfElementLocatedBy(VISIBILITY, LBL_ADDPOPUPDATE);
+		return webActions.getVisibiltyOfElementLocatedBy(VISIBILITY, LBL_ADDPOPUPAPPLYTHISDATETOALLVALUES);
 	}
 
 	@Step("Verify the visibility of the Add Lab Results popup APPLY THIS DATE TO ALL VALUES picker")
 	public boolean viewAddPopupDatePicker() throws TimeoutException, WaitException
 	{
-		return webActions.getVisibiltyOfElementLocatedBy(VISIBILITY, CAL_ADDPOPUPDATE);
+		return webActions.getVisibiltyOfElementLocatedBy(VISIBILITY, CAL_ADDPOPUPAPPLYTHISDATETOALLVALUES);
 	}
 
 	@Step("Verify the visibility of the Add Lab Results popup APPLY THIS DATE TO ALL VALUES picker button")
 	public boolean viewAddPopupDatePickerButton() throws TimeoutException, WaitException
 	{
-		return webActions.getVisibiltyOfElementLocatedBy(VISIBILITY, BTN_ADDPOPUPDATE);
+		return webActions.getVisibiltyOfElementLocatedBy(VISIBILITY, BTN_ADDPOPUPAPPLYTHISDATETOALLVALUES);
+	}
+
+	@Step("Verify the Add Lab Results popup default date in the APPLY THIS DATE TO ALL VALUES picker is equal to the current date")
+	public boolean isAddPopupDefaultDateCurrentDate() throws TimeoutException, WaitException, InterruptedException
+	{
+		return appFunctions.isCalendarDateEqualToCurrentDate(CAL_ADDPOPUPAPPLYTHISDATETOALLVALUES);
 	}
 }

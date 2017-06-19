@@ -47,7 +47,7 @@ public class CurrentLabsTest extends TestBase
 
 		appFunctions.capellaLogin();
 		appFunctions.selectPatientFromMyPatients("Waliy Al D Holroyd");
-		appFunctions.navigateToMenu("Patient Experience->Labs");
+		appFunctions.navigateToMenu("Patient Experience->Labs->Current Labs");
 	}
 
 	@Test(priority = 1)
@@ -72,6 +72,7 @@ public class CurrentLabsTest extends TestBase
 		Assert.assertTrue(currentLabsPage.viewAddPopupApplyThisDateToAllValuesLabel(), "Failed to identify the Add Lab Results popup APPLY THIS DATE TO ALL VALUES label");
 		Assert.assertTrue(currentLabsPage.viewAddPopupDatePicker(), "Failed to identify the Add Lab Results popup APPLY THIS DATE TO ALL VALUES picker");
 		Assert.assertTrue(currentLabsPage.viewAddPopupDatePickerButton(), "Failed to identify the Add Lab Results popup APPLY THIS DATE TO ALL VALUES picker button");
+		Assert.assertTrue(currentLabsPage.isAddPopupDefaultDateCurrentDate(), "The Add Lab Results popup APPLY THIS DATE TO ALL VALUES default date does not match the current date");
 	}
 
 	@AfterClass

@@ -2,20 +2,20 @@
 <section name="Workbench">
 	<section name="org.eclipse.ui.texteditor.FindReplaceDialog">
 		<item value="false" key="isRegEx"/>
-		<item value="conta" key="selection"/>
+		<item value="currday" key="selection"/>
 		<item value="false" key="casesensitive"/>
 		<item value="false" key="incremental"/>
 		<item value="true" key="wrap"/>
 		<item value="false" key="wholeword"/>
 		<list key="findhistory">
+			<item value="currday"/>
+			<item value="currda"/>
+			<item value="currdate"/>
+			<item value="Failed to identify the Add Lab Results popup APPLY THIS DATE TO ALL VALUES label"/>
+			<item value="Failed to identify the Current Labs page header label"/>
 			<item value="conta"/>
 			<item value="dropdow"/>
 			<item value="catch"/>
-			<item value="attributeValue"/>
-			<item value="ng-reflect-checked"/>
-			<item value="columnLocator"/>
-			<item value="equipmentIsInUse"/>
-			<item value="equipmentInUse"/>
 		</list>
 		<list key="replacehistory">
 		</list>
