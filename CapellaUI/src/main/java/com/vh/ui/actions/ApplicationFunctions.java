@@ -125,6 +125,7 @@ public class ApplicationFunctions extends WebPage
 		LOGGER.debug("In ApplicationFunctions - selectPatientFromMyPatients");
 
 		webActions.click(VISIBILITY, LNK_MENUBAR_MYPATIENTS);
+		webActions.click(VISIBILITY, LNK_MENUBAR_MYPATIENTS);
 
 		webActions.click(VISIBILITY, By.xpath("//a[text()='" + patientName + "']"));
 	}
@@ -534,9 +535,7 @@ public class ApplicationFunctions extends WebPage
 		{
 			if (dateToSelectInt == currentDayInt)
 			{
-				// If the date you want to select is the current date, the date needs to be clicked twice to close the calendar.
 				DayLocator = By.xpath(datePickerLocatorXpathString + "/../..//span[@class='markcurrday']");
-				webActions.click(VISIBILITY, DayLocator);
 				webActions.click(VISIBILITY, DayLocator);
 			} else
 			{

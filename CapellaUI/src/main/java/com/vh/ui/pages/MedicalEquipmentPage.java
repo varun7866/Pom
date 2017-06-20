@@ -264,7 +264,7 @@ public class MedicalEquipmentPage extends WebPage
 		return appFunctions.isCalendarEnabledDateRangeValid(CAL_ADDPOPUPDATE);
 	}
 
-	@Step("Select the Add Medical Equipment popup date from the DATE picker")
+	@Step("Select the Add Medical Equipment popup current date from the DATE picker")
 	public void selectAddPopupCurrentDateFromCalendar() throws TimeoutException, WaitException, InterruptedException
 	{
 		DateFormat dateFormat = new SimpleDateFormat("d");

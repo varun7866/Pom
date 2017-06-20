@@ -55,11 +55,11 @@ function toggleAllBoxes() {
 <body>
 <h2 align='center'>Default test</h2><table border='1' align="center">
 <tr>
-<td>Tests passed/Failed/Skipped:</td><td>4/1/0</td>
+<td>Tests passed/Failed/Skipped:</td><td>5/0/0</td>
 </tr><tr>
-<td>Started on:</td><td>Mon Jun 19 14:54:43 CDT 2017</td>
+<td>Started on:</td><td>Tue Jun 20 08:59:03 CDT 2017</td>
 </tr>
-<tr><td>Total time:</td><td>212 seconds (212250 ms)</td>
+<tr><td>Total time:</td><td>144 seconds (144301 ms)</td>
 </tr><tr>
 <td>Included groups:</td><td></td>
 </tr><tr>
@@ -67,160 +67,6 @@ function toggleAllBoxes() {
 </tr>
 </table><p/>
 <small><i>(Hover the method name to see the test class name)</i></small><p/>
-<table width='100%' border='1' class='invocation-failed'>
-<tr><td colspan='4' align='center'><b>FAILED TESTS</b></td></tr>
-<tr><td><b>Test method</b></td>
-<td width="30%"><b>Exception</b></td>
-<td width="10%"><b>Time (seconds)</b></td>
-<td><b>Instance</b></td>
-</tr>
-<tr>
-<td title='com.vh.ui.tests.MedicalEquipmentTest.verify_AddMedicalEquipmentPopup()'><b>verify_AddMedicalEquipmentPopup</b><br>Test class: com.vh.ui.tests.MedicalEquipmentTest</td>
-<td><div><pre>org.openqa.selenium.TimeoutException: Thread:1	-TIME OUT EXCEPTION while waiting for the VISIBILITY of the element using By class:By.xpath: //div[@class=&apos;modal-dialog undefined&apos;]//label[text()=&apos;DATE&apos;]/..//input/../..//span[@class=&apos;markcurrday&apos;]
-
-Build info: version: &apos;2.53.0&apos;, revision: &apos;35ae25b1534ae328c771e0856c93e187490ca824&apos;, time: &apos;2016-03-15 10:43:46&apos;
-System info: host: &apos;DVA-F0L9N9R-L&apos;, ip: &apos;172.16.128.191&apos;, os.name: &apos;Windows 8.1&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;6.3&apos;, java.version: &apos;1.8.0_131&apos;
-Driver info: driver.version: unknown
-	at com.vh.ui.waits.WebDriverWaits.waitForElementVisibility(WebDriverWaits.java:48)
-	at com.vh.ui.waits.WebDriverWaits.syncLocatorUsing(WebDriverWaits.java:210)
-	at com.vh.ui.actions.WebActions.click(WebActions.java:184)
-	at com.vh.ui.actions.ApplicationFunctions.selectDateFromCalendar(ApplicationFunctions.java:540)
-	at com.vh.ui.pages.MedicalEquipmentPage.selectAddPopupCurrentDateFromCalendar(MedicalEquipmentPage.java:291)
-	at com.vh.ui.tests.MedicalEquipmentTest.verify_AddMedicalEquipmentPopup(MedicalEquipmentTest.java:118)
-	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
-	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
-	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
-	at java.lang.reflect.Method.invoke(Unknown Source)
-	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:86)
-	at org.testng.internal.Invoker.invokeMethod(Invoker.java:643)
-	at org.testng.internal.Invoker.invokeTestMethod(Invoker.java:820)
-	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:1128)
-	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:129)
-	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:112)
-	at org.testng.TestRunner.privateRun(TestRunner.java:782)
-	at org.testng.TestRunner.run(TestRunner.java:632)
-	at org.testng.SuiteRunner.runTest(SuiteRunner.java:366)
-	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:361)
-	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:319)
-	at org.testng.SuiteRunner.run(SuiteRunner.java:268)
-	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
-	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:86)
-	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1244)
-	at org.testng.TestNG.runSuitesLocally(TestNG.java:1169)
-	at org.testng.TestNG.run(TestNG.java:1064)
-	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:132)
-	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:230)
-	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:76)
-Caused by: org.openqa.selenium.TimeoutException: Timed out after 50 seconds waiting for visibility of element located by By.xpath: //div[@class=&apos;modal-dialog undefined&apos;]//label[text()=&apos;DATE&apos;]/..//input/../..//span[@class=&apos;markcurrday&apos;]
-Build info: version: &apos;2.53.0&apos;, revision: &apos;35ae25b1534ae328c771e0856c93e187490ca824&apos;, time: &apos;2016-03-15 10:43:46&apos;
-System info: host: &apos;DVA-F0L9N9R-L&apos;, ip: &apos;172.16.128.191&apos;, os.name: &apos;Windows 8.1&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;6.3&apos;, java.version: &apos;1.8.0_131&apos;
-Driver info: org.openqa.selenium.ie.InternetExplorerDriver
-Capabilities [{browserAttachTimeout=0, ie.enableFullPageScreenshot=true, enablePersistentHover=true, ie.forceCreateProcessApi=false, ie.forceShellWindowsApi=false, pageLoadStrategy=normal, ignoreZoomSetting=false, ie.fileUploadDialogTimeout=3000, version=11, platform=WINDOWS, proxy={proxyType=}, nativeEvents=true, ie.ensureCleanSession=false, elementScrollBehavior=0, ie.browserCommandLineSwitches=, requireWindowFocus=false, browserName=internet explorer, initialBrowserUrl=http://localhost:48201/, javascriptEnabled=true, ignoreProtectedModeSettings=false, enableElementCacheCleanup=true, unexpectedAlertBehaviour=dismiss}]
-Session ID: 5618531c-2397-4654-a71f-7cbd03a9bf24
-	at org.openqa.selenium.support.ui.WebDriverWait.timeoutException(WebDriverWait.java:80)
-	at org.openqa.selenium.support.ui.FluentWait.until(FluentWait.java:261)
-	at com.vh.ui.waits.WebDriverWaits.waitForElementVisibility(WebDriverWaits.java:44)
-	... 29 more
-Caused by: org.openqa.selenium.NoSuchElementException: Unable to find element with xpath == //div[@class=&apos;modal-dialog undefined&apos;]//label[text()=&apos;DATE&apos;]/..//input/../..//span[@class=&apos;markcurrday&apos;] (WARNING: The server did not provide any stacktrace information)
-Command duration or timeout: 462 milliseconds
-For documentation on this error, please visit: http://seleniumhq.org/exceptions/no_such_element.html
-Build info: version: &apos;2.53.0&apos;, revision: &apos;35ae25b1534ae328c771e0856c93e187490ca824&apos;, time: &apos;2016-03-15 10:43:46&apos;
-System info: host: &apos;DVA-F0L9N9R-L&apos;, ip: &apos;172.16.128.191&apos;, os.name: &apos;Windows 8.1&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;6.3&apos;, java.version: &apos;1.8.0_131&apos;
-Driver info: org.openqa.selenium.ie.InternetExplorerDriver
-Capabilities [{browserAttachTimeout=0, ie.enableFullPageScreenshot=true, enablePersistentHover=true, ie.forceCreateProcessApi=false, ie.forceShellWindowsApi=false, pageLoadStrategy=normal, ignoreZoomSetting=false, ie.fileUploadDialogTimeout=3000, version=11, platform=WINDOWS, proxy={proxyType=}, nativeEvents=true, ie.ensureCleanSession=false, elementScrollBehavior=0, ie.browserCommandLineSwitches=, requireWindowFocus=false, browserName=internet explorer, initialBrowserUrl=http://localhost:48201/, javascriptEnabled=true, ignoreProtectedModeSettings=false, enableElementCacheCleanup=true, unexpectedAlertBehaviour=dismiss}]
-Session ID: 5618531c-2397-4654-a71f-7cbd03a9bf24
-*** Element info: {Using=xpath, value=//div[@class=&apos;modal-dialog undefined&apos;]//label[text()=&apos;DATE&apos;]/..//input/../..//span[@class=&apos;markcurrday&apos;]}
-	at sun.reflect.GeneratedConstructorAccessor12.newInstance(Unknown Source)
-	at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(Unknown Source)
-	at java.lang.reflect.Constructor.newInstance(Unknown Source)
-	at org.openqa.selenium.remote.ErrorHandler.createThrowable(ErrorHandler.java:206)
-	at org.openqa.selenium.remote.ErrorHandler.throwIfResponseFailed(ErrorHandler.java:158)
-	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:678)
-	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:363)
-	at org.openqa.selenium.remote.RemoteWebDriver.findElementByXPath(RemoteWebDriver.java:500)
-	at org.openqa.selenium.By$ByXPath.findElement(By.java:361)
-	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:355)
-	at org.openqa.selenium.support.ui.ExpectedConditions.findElement(ExpectedConditions.java:899)
-	at org.openqa.selenium.support.ui.ExpectedConditions.access$000(ExpectedConditions.java:41)
-	at org.openqa.selenium.support.ui.ExpectedConditions$7.apply(ExpectedConditions.java:205)
-	at org.openqa.selenium.support.ui.ExpectedConditions$7.apply(ExpectedConditions.java:201)
-	at org.openqa.selenium.support.ui.FluentWait.until(FluentWait.java:238)
-	... 30 more
-</pre></div><a href='#' onClick='toggleBox("stack-trace602679582", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
-<div class='stack-trace' id='stack-trace602679582'><pre>org.openqa.selenium.TimeoutException: Thread:1	-TIME OUT EXCEPTION while waiting for the VISIBILITY of the element using By class:By.xpath: //div[@class=&apos;modal-dialog undefined&apos;]//label[text()=&apos;DATE&apos;]/..//input/../..//span[@class=&apos;markcurrday&apos;]
-
-Build info: version: &apos;2.53.0&apos;, revision: &apos;35ae25b1534ae328c771e0856c93e187490ca824&apos;, time: &apos;2016-03-15 10:43:46&apos;
-System info: host: &apos;DVA-F0L9N9R-L&apos;, ip: &apos;172.16.128.191&apos;, os.name: &apos;Windows 8.1&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;6.3&apos;, java.version: &apos;1.8.0_131&apos;
-Driver info: driver.version: unknown
-	at com.vh.ui.waits.WebDriverWaits.waitForElementVisibility(WebDriverWaits.java:48)
-	at com.vh.ui.waits.WebDriverWaits.syncLocatorUsing(WebDriverWaits.java:210)
-	at com.vh.ui.actions.WebActions.click(WebActions.java:184)
-	at com.vh.ui.actions.ApplicationFunctions.selectDateFromCalendar(ApplicationFunctions.java:540)
-	at com.vh.ui.pages.MedicalEquipmentPage.selectAddPopupCurrentDateFromCalendar(MedicalEquipmentPage.java:291)
-	at com.vh.ui.tests.MedicalEquipmentTest.verify_AddMedicalEquipmentPopup(MedicalEquipmentTest.java:118)
-	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
-	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
-	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
-	at java.lang.reflect.Method.invoke(Unknown Source)
-	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:86)
-	at org.testng.internal.Invoker.invokeMethod(Invoker.java:643)
-	at org.testng.internal.Invoker.invokeTestMethod(Invoker.java:820)
-	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:1128)
-	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:129)
-	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:112)
-	at org.testng.TestRunner.privateRun(TestRunner.java:782)
-	at org.testng.TestRunner.run(TestRunner.java:632)
-	at org.testng.SuiteRunner.runTest(SuiteRunner.java:366)
-	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:361)
-	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:319)
-	at org.testng.SuiteRunner.run(SuiteRunner.java:268)
-	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
-	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:86)
-	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1244)
-	at org.testng.TestNG.runSuitesLocally(TestNG.java:1169)
-	at org.testng.TestNG.run(TestNG.java:1064)
-	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:132)
-	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:230)
-	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:76)
-Caused by: org.openqa.selenium.TimeoutException: Timed out after 50 seconds waiting for visibility of element located by By.xpath: //div[@class=&apos;modal-dialog undefined&apos;]//label[text()=&apos;DATE&apos;]/..//input/../..//span[@class=&apos;markcurrday&apos;]
-Build info: version: &apos;2.53.0&apos;, revision: &apos;35ae25b1534ae328c771e0856c93e187490ca824&apos;, time: &apos;2016-03-15 10:43:46&apos;
-System info: host: &apos;DVA-F0L9N9R-L&apos;, ip: &apos;172.16.128.191&apos;, os.name: &apos;Windows 8.1&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;6.3&apos;, java.version: &apos;1.8.0_131&apos;
-Driver info: org.openqa.selenium.ie.InternetExplorerDriver
-Capabilities [{browserAttachTimeout=0, ie.enableFullPageScreenshot=true, enablePersistentHover=true, ie.forceCreateProcessApi=false, ie.forceShellWindowsApi=false, pageLoadStrategy=normal, ignoreZoomSetting=false, ie.fileUploadDialogTimeout=3000, version=11, platform=WINDOWS, proxy={proxyType=}, nativeEvents=true, ie.ensureCleanSession=false, elementScrollBehavior=0, ie.browserCommandLineSwitches=, requireWindowFocus=false, browserName=internet explorer, initialBrowserUrl=http://localhost:48201/, javascriptEnabled=true, ignoreProtectedModeSettings=false, enableElementCacheCleanup=true, unexpectedAlertBehaviour=dismiss}]
-Session ID: 5618531c-2397-4654-a71f-7cbd03a9bf24
-	at org.openqa.selenium.support.ui.WebDriverWait.timeoutException(WebDriverWait.java:80)
-	at org.openqa.selenium.support.ui.FluentWait.until(FluentWait.java:261)
-	at com.vh.ui.waits.WebDriverWaits.waitForElementVisibility(WebDriverWaits.java:44)
-	... 29 more
-Caused by: org.openqa.selenium.NoSuchElementException: Unable to find element with xpath == //div[@class=&apos;modal-dialog undefined&apos;]//label[text()=&apos;DATE&apos;]/..//input/../..//span[@class=&apos;markcurrday&apos;] (WARNING: The server did not provide any stacktrace information)
-Command duration or timeout: 462 milliseconds
-For documentation on this error, please visit: http://seleniumhq.org/exceptions/no_such_element.html
-Build info: version: &apos;2.53.0&apos;, revision: &apos;35ae25b1534ae328c771e0856c93e187490ca824&apos;, time: &apos;2016-03-15 10:43:46&apos;
-System info: host: &apos;DVA-F0L9N9R-L&apos;, ip: &apos;172.16.128.191&apos;, os.name: &apos;Windows 8.1&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;6.3&apos;, java.version: &apos;1.8.0_131&apos;
-Driver info: org.openqa.selenium.ie.InternetExplorerDriver
-Capabilities [{browserAttachTimeout=0, ie.enableFullPageScreenshot=true, enablePersistentHover=true, ie.forceCreateProcessApi=false, ie.forceShellWindowsApi=false, pageLoadStrategy=normal, ignoreZoomSetting=false, ie.fileUploadDialogTimeout=3000, version=11, platform=WINDOWS, proxy={proxyType=}, nativeEvents=true, ie.ensureCleanSession=false, elementScrollBehavior=0, ie.browserCommandLineSwitches=, requireWindowFocus=false, browserName=internet explorer, initialBrowserUrl=http://localhost:48201/, javascriptEnabled=true, ignoreProtectedModeSettings=false, enableElementCacheCleanup=true, unexpectedAlertBehaviour=dismiss}]
-Session ID: 5618531c-2397-4654-a71f-7cbd03a9bf24
-*** Element info: {Using=xpath, value=//div[@class=&apos;modal-dialog undefined&apos;]//label[text()=&apos;DATE&apos;]/..//input/../..//span[@class=&apos;markcurrday&apos;]}
-	at sun.reflect.GeneratedConstructorAccessor12.newInstance(Unknown Source)
-	at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(Unknown Source)
-	at java.lang.reflect.Constructor.newInstance(Unknown Source)
-	at org.openqa.selenium.remote.ErrorHandler.createThrowable(ErrorHandler.java:206)
-	at org.openqa.selenium.remote.ErrorHandler.throwIfResponseFailed(ErrorHandler.java:158)
-	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:678)
-	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:363)
-	at org.openqa.selenium.remote.RemoteWebDriver.findElementByXPath(RemoteWebDriver.java:500)
-	at org.openqa.selenium.By$ByXPath.findElement(By.java:361)
-	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:355)
-	at org.openqa.selenium.support.ui.ExpectedConditions.findElement(ExpectedConditions.java:899)
-	at org.openqa.selenium.support.ui.ExpectedConditions.access$000(ExpectedConditions.java:41)
-	at org.openqa.selenium.support.ui.ExpectedConditions$7.apply(ExpectedConditions.java:205)
-	at org.openqa.selenium.support.ui.ExpectedConditions$7.apply(ExpectedConditions.java:201)
-	at org.openqa.selenium.support.ui.FluentWait.until(FluentWait.java:238)
-	... 30 more
-</pre></div></td>
-<td>72</td>
-<td>com.vh.ui.tests.MedicalEquipmentTest@6d67f5eb</td></tr>
-</table><p>
 <table width='100%' border='1' class='invocation-passed'>
 <tr><td colspan='4' align='center'><b>PASSED TESTS</b></td></tr>
 <tr><td><b>Test method</b></td>
@@ -231,23 +77,28 @@ Session ID: 5618531c-2397-4654-a71f-7cbd03a9bf24
 <tr>
 <td title='com.vh.ui.tests.MedicalEquipmentTest.AddMedicalEquipment()'><b>AddMedicalEquipment</b><br>Test class: com.vh.ui.tests.MedicalEquipmentTest</td>
 <td></td>
-<td>9</td>
-<td>com.vh.ui.tests.MedicalEquipmentTest@6d67f5eb</td></tr>
+<td>7</td>
+<td>com.vh.ui.tests.MedicalEquipmentTest@1665fa54</td></tr>
+<tr>
+<td title='com.vh.ui.tests.MedicalEquipmentTest.verify_AddMedicalEquipmentPopup()'><b>verify_AddMedicalEquipmentPopup</b><br>Test class: com.vh.ui.tests.MedicalEquipmentTest</td>
+<td></td>
+<td>18</td>
+<td>com.vh.ui.tests.MedicalEquipmentTest@1665fa54</td></tr>
 <tr>
 <td title='com.vh.ui.tests.MedicalEquipmentTest.verify_ColumnSorting()'><b>verify_ColumnSorting</b><br>Test class: com.vh.ui.tests.MedicalEquipmentTest</td>
 <td></td>
-<td>57</td>
-<td>com.vh.ui.tests.MedicalEquipmentTest@6d67f5eb</td></tr>
+<td>48</td>
+<td>com.vh.ui.tests.MedicalEquipmentTest@1665fa54</td></tr>
 <tr>
 <td title='com.vh.ui.tests.MedicalEquipmentTest.verify_EditableFields()'><b>verify_EditableFields</b><br>Test class: com.vh.ui.tests.MedicalEquipmentTest</td>
 <td></td>
 <td>4</td>
-<td>com.vh.ui.tests.MedicalEquipmentTest@6d67f5eb</td></tr>
+<td>com.vh.ui.tests.MedicalEquipmentTest@1665fa54</td></tr>
 <tr>
 <td title='com.vh.ui.tests.MedicalEquipmentTest.verify_MedicalEquipmentPage()'><b>verify_MedicalEquipmentPage</b><br>Test class: com.vh.ui.tests.MedicalEquipmentTest</td>
 <td></td>
 <td>2</td>
-<td>com.vh.ui.tests.MedicalEquipmentTest@6d67f5eb</td></tr>
+<td>com.vh.ui.tests.MedicalEquipmentTest@1665fa54</td></tr>
 </table><p>
 </body>
 </html>
