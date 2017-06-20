@@ -71,8 +71,12 @@ public class CurrentLabsTest extends TestBase
 
 		Assert.assertTrue(currentLabsPage.viewAddPopupApplyThisDateToAllValuesLabel(), "Failed to identify the Add Lab Results popup APPLY THIS DATE TO ALL VALUES label");
 		Assert.assertTrue(currentLabsPage.viewAddPopupDatePicker(), "Failed to identify the Add Lab Results popup APPLY THIS DATE TO ALL VALUES picker");
-		Assert.assertTrue(currentLabsPage.viewAddPopupDatePickerButton(), "Failed to identify the Add Lab Results popup APPLY THIS DATE TO ALL VALUES picker button");
-		Assert.assertTrue(currentLabsPage.isAddPopupDefaultDateCurrentDate(), "The Add Lab Results popup APPLY THIS DATE TO ALL VALUES default date does not match the current date");
+		Assert.assertTrue(currentLabsPage.viewAddPopupDatePickerButtons(), "Failed to identify all of the Add Lab Results popup date picker buttons");
+		Assert.assertTrue(currentLabsPage.isAddPopupDateAplliedToAllDates(0), "The Add Lab Results popup dates did not all default to current date");
+		Assert.assertTrue(currentLabsPage.isAddPopupDateAplliedToAllDates(-1), "The Add Lab Results popup APPLY THIS DATE TO ALL VALUES was not applied to all dates");
+
+		Assert.assertTrue(currentLabsPage.viewAddpopupHeightLabel(), "Failed to identify the Add Lab Results popup HEIGHT label");
+		Assert.assertTrue(currentLabsPage.viewAddpopupHeightTextBox(), "Failed to identify the Add Lab Results popup HEIGHT text box");
 	}
 
 	@AfterClass

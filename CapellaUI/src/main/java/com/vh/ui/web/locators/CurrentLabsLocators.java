@@ -24,4 +24,7 @@ public class CurrentLabsLocators
 	public static final By LBL_PAGEHEADER = By.xpath("//h2[contains(., 'Labs')]");
 	public static final By LBL_ADDPOPUPADDLABRESULTS = By.xpath("//span[text()='Add Lab Results']");
 	public static final By LBL_ADDPOPUPAPPLYTHISDATETOALLVALUES = By.xpath("//span[text()='APPLY THIS DATE TO ALL VALUES']");
+	public static final By LBL_ADDPOPUPHEIGHT = By.xpath("//span[text()='Height']");
+
+	public static final By TXT_ADDPOPUPHEIGHT = By.xpath("//span[text()='Height']/../../../div[2]/div/input");
 }

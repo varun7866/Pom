@@ -7,10 +7,20 @@ import static com.vh.ui.web.locators.CurrentLabsLocators.BTN_ADDPOPUPSAVE;
 import static com.vh.ui.web.locators.CurrentLabsLocators.CAL_ADDPOPUPAPPLYTHISDATETOALLVALUES;
 import static com.vh.ui.web.locators.CurrentLabsLocators.LBL_ADDPOPUPADDLABRESULTS;
 import static com.vh.ui.web.locators.CurrentLabsLocators.LBL_ADDPOPUPAPPLYTHISDATETOALLVALUES;
+import static com.vh.ui.web.locators.CurrentLabsLocators.LBL_ADDPOPUPHEIGHT;
 import static com.vh.ui.web.locators.CurrentLabsLocators.LBL_PAGEHEADER;
+import static com.vh.ui.web.locators.CurrentLabsLocators.TXT_ADDPOPUPHEIGHT;
 
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+import java.util.Date;
+import java.util.List;
+
+import org.openqa.selenium.By;
 import org.openqa.selenium.TimeoutException;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 
 import com.vh.ui.actions.ApplicationFunctions;
 import com.vh.ui.exceptions.WaitException;
@@ -82,15 +92,79 @@ public class CurrentLabsPage extends WebPage
 		return webActions.getVisibiltyOfElementLocatedBy(VISIBILITY, CAL_ADDPOPUPAPPLYTHISDATETOALLVALUES);
 	}
 
-	@Step("Verify the visibility of the Add Lab Results popup APPLY THIS DATE TO ALL VALUES picker button")
-	public boolean viewAddPopupDatePickerButton() throws TimeoutException, WaitException
+	@Step("Verify the visibility of all the Add Lab Results popup date picker buttons")
+	public boolean viewAddPopupDatePickerButtons() throws TimeoutException, WaitException
 	{
-		return webActions.getVisibiltyOfElementLocatedBy(VISIBILITY, BTN_ADDPOPUPAPPLYTHISDATETOALLVALUES);
+		List<WebElement> labsDates = driver.findElements(By.xpath("//div[@class='modal-dialog modal-lg']//button[@class='btnpicker btnpickerenabled']"));
+
+		if (labsDates.size() == 24)
+		{
+			return true;
+		} else
+		{
+			return false;
+		}
 	}
 
 	@Step("Verify the Add Lab Results popup default date in the APPLY THIS DATE TO ALL VALUES picker is equal to the current date")
 	public boolean isAddPopupDefaultDateCurrentDate() throws TimeoutException, WaitException, InterruptedException
 	{
 		return appFunctions.isCalendarDateEqualToCurrentDate(CAL_ADDPOPUPAPPLYTHISDATETOALLVALUES);
+	}
+
+	@Step("Verify the Add Lab Results popup APPLY THIS DATE TO ALL VALUES applies the date to all date pickers")
+	public boolean isAddPopupDateAplliedToAllDates(int dayChangeBy) throws TimeoutException, WaitException, InterruptedException
+	{
+		String currentDayMinusXDay;
+		String currentDayMinusXDayGregorian;
+		String attributeValue;
+		
+		if (dayChangeBy != 0) // If not checking the current date
+		{
+			webActions.click(VISIBILITY, BTN_ADDPOPUPAPPLYTHISDATETOALLVALUES);
+		}
+
+		Calendar cal = Calendar.getInstance();
+		DateFormat dateFormatDay = new SimpleDateFormat("d");
+		DateFormat dateFormatGregorian = new SimpleDateFormat("MM/dd/yyyy");
+		cal.add(Calendar.DATE, dayChangeBy);
+		currentDayMinusXDay = dateFormatDay.format(new Date(cal.getTimeInMillis()));
+		currentDayMinusXDayGregorian = dateFormatGregorian.format(new Date(cal.getTimeInMillis()));
+
+		if (dayChangeBy != 0) // If not checking the current date
+		{
+			appFunctions.selectDateFromCalendar(CAL_ADDPOPUPAPPLYTHISDATETOALLVALUES, currentDayMinusXDay);
+		}
+
+		List<WebElement> labsDates = driver.findElements(By.xpath("//div[@class='modal-dialog modal-lg']//input[@class='selection inputnoteditable ng-untouched ng-pristine ng-valid']"));
+		
+		if (labsDates.size() != 24)
+		{
+			return false;
+		}
+
+		for (WebElement labDate : labsDates)
+		{
+			attributeValue = labDate.getAttribute("ng-reflect-value");
+
+			if (!attributeValue.equals(currentDayMinusXDayGregorian))
+			{
+				return false;
+			}
+		}
+
+		return true;
+	}
+
+	@Step("Verify the visibility of the Add Lab Results popup HEIGHT label")
+	public boolean viewAddpopupHeightLabel() throws TimeoutException, WaitException
+	{
+		return webActions.getVisibiltyOfElementLocatedBy(VISIBILITY, LBL_ADDPOPUPHEIGHT);
+	}
+
+	@Step("Verify the visibility of the Add Lab Results popup HEIGHT text box")
+	public boolean viewAddpopupHeightTextBox() throws TimeoutException, WaitException
+	{
+		return webActions.getVisibiltyOfElementLocatedBy(VISIBILITY, TXT_ADDPOPUPHEIGHT);
 	}
 }

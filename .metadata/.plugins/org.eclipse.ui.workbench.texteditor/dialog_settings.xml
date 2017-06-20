@@ -2,12 +2,13 @@
 <section name="Workbench">
 	<section name="org.eclipse.ui.texteditor.FindReplaceDialog">
 		<item value="false" key="isRegEx"/>
-		<item value="currday" key="selection"/>
+		<item value="" key="selection"/>
 		<item value="false" key="casesensitive"/>
 		<item value="false" key="incremental"/>
 		<item value="true" key="wrap"/>
 		<item value="false" key="wholeword"/>
 		<list key="findhistory">
+			<item value="textbox"/>
 			<item value="currday"/>
 			<item value="currda"/>
 			<item value="currdate"/>
@@ -15,7 +16,6 @@
 			<item value="Failed to identify the Current Labs page header label"/>
 			<item value="conta"/>
 			<item value="dropdow"/>
-			<item value="catch"/>
 		</list>
 		<list key="replacehistory">
 		</list>
