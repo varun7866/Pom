@@ -2,20 +2,20 @@
 <section name="Workbench">
 	<section name="org.eclipse.ui.texteditor.FindReplaceDialog">
 		<item value="false" key="isRegEx"/>
-		<item value="" key="selection"/>
+		<item value="Failed to identify the Add Medical Equipment popup STATUS placeholder" key="selection"/>
 		<item value="false" key="casesensitive"/>
 		<item value="false" key="incremental"/>
 		<item value="true" key="wrap"/>
 		<item value="false" key="wholeword"/>
 		<list key="findhistory">
+			<item value="Failed to identify the Add Medical Equipment popup STATUS placeholder"/>
+			<item value="Failed to identify the Add Medical Equipment popup EQUIPMENT TYPE placeholder"/>
 			<item value="textbox"/>
 			<item value="currday"/>
 			<item value="currda"/>
 			<item value="currdate"/>
 			<item value="Failed to identify the Add Lab Results popup APPLY THIS DATE TO ALL VALUES label"/>
 			<item value="Failed to identify the Current Labs page header label"/>
-			<item value="conta"/>
-			<item value="dropdow"/>
 		</list>
 		<list key="replacehistory">
 		</list>

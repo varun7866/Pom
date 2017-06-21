@@ -85,6 +85,7 @@ public class MedicalEquipmentTest extends TestBase
 
 		Assert.assertTrue(medicalEquipmentPage.viewAddPopupSourceLabel(), "Failed to identify the Add Medical Equipment popup SOURCE label");
 		Assert.assertTrue(medicalEquipmentPage.viewAddPopupSourceComboBox(), "Failed to identify the Add Medical Equipment popup SOURCE combo box");
+		Assert.assertTrue(medicalEquipmentPage.viewAddpopupSourcePlaceholder(), "Failed to identify the Add Medical Equipment popup SOURCE placeholder");
 		Assert.assertTrue(medicalEquipmentPage.verifyAddPopupSourceComboBoxOptions(), "The Add Medical Equipment popup SOURCE drop down options are incorrect");
 
 		Assert.assertTrue(medicalEquipmentPage.viewAddPopupEquipmentIsInUseLabel(), "Failed to identify the Add Medical Equipment popup Equipment is in Use label");
@@ -92,10 +93,12 @@ public class MedicalEquipmentTest extends TestBase
 
 		Assert.assertTrue(medicalEquipmentPage.viewAddPopupEquipmentTypeLabel(), "Failed to identify the Add Medical Equipment popup EQUIPMENT TYPE label");
 		Assert.assertTrue(medicalEquipmentPage.viewAddPopupEquipmentTypeComboBox(), "Failed to identify the Add Medical Equipment popup EQUIPMENT TYPE combo box");
+		Assert.assertTrue(medicalEquipmentPage.viewAddpopupEquipmentTypePlaceholder(), "Failed to identify the Add Medical Equipment popup EQUIPMENT TYPE placeholder");
 		Assert.assertTrue(medicalEquipmentPage.verifyAddPopupEquipmentTypeComboBoxOptions(), "The Add Medical Equipment popup EQUIPMENT TYPE drop down options are incorrect");
 
 		Assert.assertTrue(medicalEquipmentPage.viewAddPopupStatusLabel(), "Failed to identify the Add Medical Equipment popup STATUS label");
 		Assert.assertTrue(medicalEquipmentPage.viewAddPopupStatusComboBox(), "Failed to identify the Add Medical Equipment popup STATUS combo box");
+		Assert.assertTrue(medicalEquipmentPage.viewAddpopupStatusPlaceholder(), "Failed to identify the Add Medical Equipment popup STATUS placeholder");
 		Assert.assertTrue(medicalEquipmentPage.verifyAddPopupStatusComboBoxOptions(), "The Add Medical Equipment popup STATUS drop down options are incorrect");
 
 		Assert.assertFalse(medicalEquipmentPage.isAddPopupAddButtonEnabled(), "The Add Medical Equipment popup ADD button should not be enabled at this point (1)");

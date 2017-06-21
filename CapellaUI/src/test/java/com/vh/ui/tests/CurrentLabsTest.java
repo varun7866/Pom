@@ -77,6 +77,11 @@ public class CurrentLabsTest extends TestBase
 
 		Assert.assertTrue(currentLabsPage.viewAddpopupHeightLabel(), "Failed to identify the Add Lab Results popup HEIGHT label");
 		Assert.assertTrue(currentLabsPage.viewAddpopupHeightTextBox(), "Failed to identify the Add Lab Results popup HEIGHT text box");
+		Assert.assertTrue(currentLabsPage.viewAddpopupHeightPlaceholder(), "Failed to identify the Add Lab Results popup HEIGHT placeholder");
+
+		Assert.assertTrue(currentLabsPage.viewAddpopupTargetDryWeightLabel(), "Failed to identify the Add Lab Results popup TARGET DRY WEIGHT label");
+		Assert.assertTrue(currentLabsPage.viewAddpopupTargetDryWeightTextBox(), "Failed to identify the Add Lab Results popup TARGET DRY WEIGHT text box");
+		Assert.assertTrue(currentLabsPage.viewAddpopupTargetDryWeightPlaceholder(), "Failed to identify the Add Lab Results popup TARGET DRY WEIGHT placeholder");
 	}
 
 	@AfterClass

@@ -23,6 +23,9 @@ import static com.vh.ui.web.locators.MedicalEquipmentLocators.LBL_MODIFIEDCOLUMN
 import static com.vh.ui.web.locators.MedicalEquipmentLocators.LBL_PAGEHEADER;
 import static com.vh.ui.web.locators.MedicalEquipmentLocators.LBL_SOURCECOLUMNHEADER;
 import static com.vh.ui.web.locators.MedicalEquipmentLocators.LBL_STATUSCOLUMNHEADER;
+import static com.vh.ui.web.locators.MedicalEquipmentLocators.PLH_ADDPOPUPEQUIPMENTTYPE;
+import static com.vh.ui.web.locators.MedicalEquipmentLocators.PLH_ADDPOPUPSOURCE;
+import static com.vh.ui.web.locators.MedicalEquipmentLocators.PLH_ADDPOPUPSTATUS;
 import static com.vh.ui.web.locators.MedicalEquipmentLocators.TBL_MEDICALEQUIPMENT;
 
 import java.text.DateFormat;
@@ -303,6 +306,12 @@ public class MedicalEquipmentPage extends WebPage
 		return webActions.getVisibiltyOfElementLocatedBy(VISIBILITY, CBO_ADDPOPUPSOURCE);
 	}
 
+	@Step("Verify the visibility of the Add Medical Equipment popup SOURCE placeholder")
+	public boolean viewAddpopupSourcePlaceholder() throws TimeoutException, WaitException
+	{
+		return webActions.getVisibiltyOfElementLocatedBy(VISIBILITY, PLH_ADDPOPUPSOURCE);
+	}
+
 	@Step("Verify the options of the Add Medical Equipment popup SOURCE combo box")
 	public boolean verifyAddPopupSourceComboBoxOptions() throws TimeoutException, WaitException
 	{
@@ -348,6 +357,12 @@ public class MedicalEquipmentPage extends WebPage
 	public boolean viewAddPopupEquipmentTypeComboBox() throws TimeoutException, WaitException
 	{
 		return webActions.getVisibiltyOfElementLocatedBy(VISIBILITY, CBO_ADDPOPUPEQUIPMENTTYPE);
+	}
+
+	@Step("Verify the visibility of the Add Medical Equipment popup EQUIPMENT TYPE placeholder")
+	public boolean viewAddpopupEquipmentTypePlaceholder() throws TimeoutException, WaitException
+	{
+		return webActions.getVisibiltyOfElementLocatedBy(VISIBILITY, PLH_ADDPOPUPEQUIPMENTTYPE);
 	}
 
 	@Step("Verify the options of the Add Medical Equipment popup EQUIPMENT TYPE combo box")
@@ -396,6 +411,12 @@ public class MedicalEquipmentPage extends WebPage
 	public boolean viewAddPopupStatusComboBox() throws TimeoutException, WaitException
 	{
 		return webActions.getVisibiltyOfElementLocatedBy(VISIBILITY, CBO_ADDPOPUPSTATUS);
+	}
+
+	@Step("Verify the visibility of the Add Medical Equipment popup STATUS placeholder")
+	public boolean viewAddpopupStatusPlaceholder() throws TimeoutException, WaitException
+	{
+		return webActions.getVisibiltyOfElementLocatedBy(VISIBILITY, PLH_ADDPOPUPSTATUS);
 	}
 
 	@Step("Verify the options of the Add Medical Equipment popup STATUS combo box")

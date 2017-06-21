@@ -6,16 +6,4 @@
       <class name="com.vh.ui.tests.CurrentLabsTest"/>
     </classes>
   </test> <!-- Default test -->
-  <test name="Default test(failed)">
-    <classes>
-      <class name="com.vh.ui.tests.CurrentLabsTest">
-        <methods>
-          <include name="verify_AddAddLabResultsPopup"/>
-          <include name="afterTest"/>
-          <include name="buildUp"/>
-          <include name="verify_CurrentLabsPage"/>
-        </methods>
-      </class> <!-- com.vh.ui.tests.CurrentLabsTest -->
-    </classes>
-  </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->
