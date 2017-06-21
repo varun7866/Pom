@@ -23,7 +23,6 @@ public class CurrentLabsLocators
 
 	public static final By GOL_ADDPOPUPPHOSPHOROUS = By.xpath("//span[text()='Phosphorous']/../../../div[3]/div/div/span[text()='Goal: Between 0.5 and 5.5']");
 	public static final By GOL_ADDPOPUPGFR = By.xpath("//span[text()='GFR']/../../../div[3]/div/div/span[text()='Goal: Between 30 and 125']");
-	public static final By GOL_ADDPOPUPLDL = By.xpath("//span[text()='LDL']/../../../div[3]/div/div/span[text()='Goal: Between 0 and 100']");
 
 	public static final By LBL_PAGEHEADER = By.xpath("//h2[contains(., 'Labs')]");
 	public static final By LBL_ADDPOPUPADDLABRESULTS = By.xpath("//span[text()='Add Lab Results']");
@@ -41,5 +40,4 @@ public class CurrentLabsLocators
 	public static final By TXT_ADDPOPUPTARGETDRYWEIGHT = By.xpath("//span[text()='Target Dry Weight']/../../../div[2]/div/input");
 	public static final By TXT_ADDPOPUPPHOSPHOROUS = By.xpath("//span[text()='Phosphorous']/../../../div[2]/div/input");
 	public static final By TXT_ADDPOPUPGFR = By.xpath("//span[text()='GFR']/../../../div[2]/div/input");
-	public static final By TXT_ADDPOPUPLDL = By.xpath("//span[text()='LDL']/../../../div[2]/div/input");
 }

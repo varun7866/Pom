@@ -2,20 +2,20 @@
 <testng-results skipped="0" failed="0" total="2" passed="2">
   <reporter-output>
   </reporter-output>
-  <suite name="Default suite" duration-ms="78789" started-at="2017-06-21T17:33:59Z" finished-at="2017-06-21T17:35:18Z">
+  <suite name="Default suite" duration-ms="70311" started-at="2017-06-21T20:07:05Z" finished-at="2017-06-21T20:08:15Z">
     <groups>
     </groups>
-    <test name="Default test" duration-ms="78789" started-at="2017-06-21T17:33:59Z" finished-at="2017-06-21T17:35:18Z">
+    <test name="Default test" duration-ms="70311" started-at="2017-06-21T20:07:05Z" finished-at="2017-06-21T20:08:15Z">
       <class name="com.vh.ui.tests.CurrentLabsTest">
-        <test-method status="PASS" signature="buildUp()[pri:0, instance:com.vh.ui.tests.CurrentLabsTest@188598ad]" name="buildUp" is-config="true" duration-ms="62384" started-at="2017-06-21T12:33:59Z" finished-at="2017-06-21T12:35:01Z">
+        <test-method status="PASS" signature="buildUp()[pri:0, instance:com.vh.ui.tests.CurrentLabsTest@6bfaa0a6]" name="buildUp" is-config="true" duration-ms="60066" started-at="2017-06-21T15:07:05Z" finished-at="2017-06-21T15:08:05Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- buildUp -->
-        <test-method status="PASS" signature="verify_CurrentLabsPage()[pri:1, instance:com.vh.ui.tests.CurrentLabsTest@188598ad]" name="verify_CurrentLabsPage" duration-ms="864" started-at="2017-06-21T12:35:01Z" finished-at="2017-06-21T12:35:02Z">
+        <test-method status="PASS" signature="verify_CurrentLabsPage()[pri:1, instance:com.vh.ui.tests.CurrentLabsTest@6bfaa0a6]" name="verify_CurrentLabsPage" duration-ms="436" started-at="2017-06-21T15:08:05Z" finished-at="2017-06-21T15:08:05Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- verify_CurrentLabsPage -->
-        <test-method status="PASS" signature="afterTest(java.lang.reflect.Method, org.testng.ITestResult)[pri:0, instance:com.vh.ui.tests.CurrentLabsTest@188598ad]" name="afterTest" is-config="true" duration-ms="2" started-at="2017-06-21T12:35:02Z" finished-at="2017-06-21T12:35:02Z">
+        <test-method status="PASS" signature="afterTest(java.lang.reflect.Method, org.testng.ITestResult)[pri:0, instance:com.vh.ui.tests.CurrentLabsTest@6bfaa0a6]" name="afterTest" is-config="true" duration-ms="2" started-at="2017-06-21T15:08:05Z" finished-at="2017-06-21T15:08:05Z">
           <params>
             <param index="0">
               <value>
@@ -24,22 +24,18 @@
             </param>
             <param index="1">
               <value>
-                <![CDATA[[TestResult name=verify_CurrentLabsPage status=SUCCESS method=CurrentLabsTest.verify_CurrentLabsPage()[pri:1, instance:com.vh.ui.tests.CurrentLabsTest@188598ad] output={null}]]]>
+                <![CDATA[[TestResult name=verify_CurrentLabsPage status=SUCCESS method=CurrentLabsTest.verify_CurrentLabsPage()[pri:1, instance:com.vh.ui.tests.CurrentLabsTest@6bfaa0a6] output={null}]]]>
               </value>
             </param>
           </params>
           <reporter-output>
           </reporter-output>
         </test-method> <!-- afterTest -->
-        <test-method status="PASS" signature="verify_AddAddLabResultsPopup()[pri:2, instance:com.vh.ui.tests.CurrentLabsTest@188598ad]" name="verify_AddAddLabResultsPopup" duration-ms="15470" started-at="2017-06-21T12:35:02Z" finished-at="2017-06-21T12:35:18Z">
+        <test-method status="PASS" signature="verify_AddAddLabResultsPopup()[pri:2, instance:com.vh.ui.tests.CurrentLabsTest@6bfaa0a6]" name="verify_AddAddLabResultsPopup" duration-ms="9744" started-at="2017-06-21T15:08:05Z" finished-at="2017-06-21T15:08:15Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- verify_AddAddLabResultsPopup -->
-        <test-method status="PASS" signature="tearDown()[pri:0, instance:com.vh.ui.tests.CurrentLabsTest@188598ad]" name="tearDown" is-config="true" duration-ms="0" started-at="2017-06-21T12:35:18Z" finished-at="2017-06-21T12:35:18Z">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- tearDown -->
-        <test-method status="PASS" signature="afterTest(java.lang.reflect.Method, org.testng.ITestResult)[pri:0, instance:com.vh.ui.tests.CurrentLabsTest@188598ad]" name="afterTest" is-config="true" duration-ms="0" started-at="2017-06-21T12:35:18Z" finished-at="2017-06-21T12:35:18Z">
+        <test-method status="PASS" signature="afterTest(java.lang.reflect.Method, org.testng.ITestResult)[pri:0, instance:com.vh.ui.tests.CurrentLabsTest@6bfaa0a6]" name="afterTest" is-config="true" duration-ms="1" started-at="2017-06-21T15:08:15Z" finished-at="2017-06-21T15:08:15Z">
           <params>
             <param index="0">
               <value>
@@ -48,13 +44,17 @@
             </param>
             <param index="1">
               <value>
-                <![CDATA[[TestResult name=verify_AddAddLabResultsPopup status=SUCCESS method=CurrentLabsTest.verify_AddAddLabResultsPopup()[pri:2, instance:com.vh.ui.tests.CurrentLabsTest@188598ad] output={null}]]]>
+                <![CDATA[[TestResult name=verify_AddAddLabResultsPopup status=SUCCESS method=CurrentLabsTest.verify_AddAddLabResultsPopup()[pri:2, instance:com.vh.ui.tests.CurrentLabsTest@6bfaa0a6] output={null}]]]>
               </value>
             </param>
           </params>
           <reporter-output>
           </reporter-output>
         </test-method> <!-- afterTest -->
+        <test-method status="PASS" signature="tearDown()[pri:0, instance:com.vh.ui.tests.CurrentLabsTest@6bfaa0a6]" name="tearDown" is-config="true" duration-ms="0" started-at="2017-06-21T15:08:15Z" finished-at="2017-06-21T15:08:15Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- tearDown -->
       </class> <!-- com.vh.ui.tests.CurrentLabsTest -->
     </test> <!-- Default test -->
   </suite> <!-- Default suite -->

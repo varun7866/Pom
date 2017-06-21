@@ -6,13 +6,11 @@ import static com.vh.ui.web.locators.CurrentLabsLocators.BTN_ADDPOPUPCANCEL;
 import static com.vh.ui.web.locators.CurrentLabsLocators.BTN_ADDPOPUPSAVE;
 import static com.vh.ui.web.locators.CurrentLabsLocators.CAL_ADDPOPUPAPPLYTHISDATETOALLVALUES;
 import static com.vh.ui.web.locators.CurrentLabsLocators.GOL_ADDPOPUPGFR;
-import static com.vh.ui.web.locators.CurrentLabsLocators.GOL_ADDPOPUPLDL;
 import static com.vh.ui.web.locators.CurrentLabsLocators.GOL_ADDPOPUPPHOSPHOROUS;
 import static com.vh.ui.web.locators.CurrentLabsLocators.LBL_ADDPOPUPADDLABRESULTS;
 import static com.vh.ui.web.locators.CurrentLabsLocators.LBL_ADDPOPUPAPPLYTHISDATETOALLVALUES;
 import static com.vh.ui.web.locators.CurrentLabsLocators.LBL_ADDPOPUPGFR;
 import static com.vh.ui.web.locators.CurrentLabsLocators.LBL_ADDPOPUPHEIGHT;
-import static com.vh.ui.web.locators.CurrentLabsLocators.LBL_ADDPOPUPLDL;
 import static com.vh.ui.web.locators.CurrentLabsLocators.LBL_ADDPOPUPPHOSPHOROUS;
 import static com.vh.ui.web.locators.CurrentLabsLocators.LBL_ADDPOPUPTARGETDRYWEIGHT;
 import static com.vh.ui.web.locators.CurrentLabsLocators.LBL_PAGEHEADER;
@@ -20,7 +18,6 @@ import static com.vh.ui.web.locators.CurrentLabsLocators.PLH_ADDPOPUPHEIGHT;
 import static com.vh.ui.web.locators.CurrentLabsLocators.PLH_ADDPOPUPTARGETDRYWEIGHT;
 import static com.vh.ui.web.locators.CurrentLabsLocators.TXT_ADDPOPUPGFR;
 import static com.vh.ui.web.locators.CurrentLabsLocators.TXT_ADDPOPUPHEIGHT;
-import static com.vh.ui.web.locators.CurrentLabsLocators.TXT_ADDPOPUPLDL;
 import static com.vh.ui.web.locators.CurrentLabsLocators.TXT_ADDPOPUPPHOSPHOROUS;
 import static com.vh.ui.web.locators.CurrentLabsLocators.TXT_ADDPOPUPTARGETDRYWEIGHT;
 
@@ -240,7 +237,7 @@ public class CurrentLabsPage extends WebPage
 	{
 		return webActions.getVisibiltyOfElementLocatedBy(VISIBILITY, GOL_ADDPOPUPGFR);
 	}
-
+	
 	@Step("Verify the visibility of the Add Lab Results popup LDL label")
 	public boolean viewAddpopupLDLLabel() throws TimeoutException, WaitException
 	{
