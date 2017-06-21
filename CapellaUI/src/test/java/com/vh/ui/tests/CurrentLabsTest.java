@@ -59,7 +59,7 @@ public class CurrentLabsTest extends TestBase
 	}
 
 	@Test(priority = 2)
-	@Step("Verify Add Lab Results popup")
+	@Step("Verify the Add Lab Results popup")
 	public void verify_AddAddLabResultsPopup() throws WaitException, URLNavigationException, InterruptedException
 	{
 		currentLabsPage.clickAddLabButton();
@@ -82,6 +82,14 @@ public class CurrentLabsTest extends TestBase
 		Assert.assertTrue(currentLabsPage.viewAddpopupTargetDryWeightLabel(), "Failed to identify the Add Lab Results popup TARGET DRY WEIGHT label");
 		Assert.assertTrue(currentLabsPage.viewAddpopupTargetDryWeightTextBox(), "Failed to identify the Add Lab Results popup TARGET DRY WEIGHT text box");
 		Assert.assertTrue(currentLabsPage.viewAddpopupTargetDryWeightPlaceholder(), "Failed to identify the Add Lab Results popup TARGET DRY WEIGHT placeholder");
+
+		Assert.assertTrue(currentLabsPage.viewAddpopupPhosphorousLabel(), "Failed to identify the Add Lab Results popup PHOSPHOROUS label");
+		Assert.assertTrue(currentLabsPage.viewAddpopupPhosphorousTextBox(), "Failed to identify the Add Lab Results popup PHOSPHOROUS text box");
+		Assert.assertTrue(currentLabsPage.viewAddpopupPhosphorousGoal(), "Failed to identify the Add Lab Results popup PHOSPHOROUS goal");
+
+		Assert.assertTrue(currentLabsPage.viewAddpopupGFRLabel(), "Failed to identify the Add Lab Results popup GFR label");
+		Assert.assertTrue(currentLabsPage.viewAddpopupGFRTextBox(), "Failed to identify the Add Lab Results popup GFR text box");
+		Assert.assertTrue(currentLabsPage.viewAddpopupGFRGoal(), "Failed to identify the Add Lab Results popup GFR goal");
 	}
 
 	@AfterClass

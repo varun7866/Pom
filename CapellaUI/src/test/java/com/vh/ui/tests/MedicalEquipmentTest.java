@@ -69,7 +69,7 @@ public class MedicalEquipmentTest extends TestBase
 	}
 
 	@Test(priority = 2)
-	@Step("Verify Add Medical Equipment popup")
+	@Step("Verify the Add Medical Equipment popup")
 	public void verify_AddMedicalEquipmentPopup() throws WaitException, URLNavigationException, InterruptedException
 	{
 		medicalEquipmentPage.clickAddMedicalEquipmentButton();

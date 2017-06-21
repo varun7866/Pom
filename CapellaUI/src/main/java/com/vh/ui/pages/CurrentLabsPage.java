@@ -5,14 +5,20 @@ import static com.vh.ui.web.locators.CurrentLabsLocators.BTN_ADDPOPUPAPPLYTHISDA
 import static com.vh.ui.web.locators.CurrentLabsLocators.BTN_ADDPOPUPCANCEL;
 import static com.vh.ui.web.locators.CurrentLabsLocators.BTN_ADDPOPUPSAVE;
 import static com.vh.ui.web.locators.CurrentLabsLocators.CAL_ADDPOPUPAPPLYTHISDATETOALLVALUES;
+import static com.vh.ui.web.locators.CurrentLabsLocators.GOL_ADDPOPUPGFR;
+import static com.vh.ui.web.locators.CurrentLabsLocators.GOL_ADDPOPUPPHOSPHOROUS;
 import static com.vh.ui.web.locators.CurrentLabsLocators.LBL_ADDPOPUPADDLABRESULTS;
 import static com.vh.ui.web.locators.CurrentLabsLocators.LBL_ADDPOPUPAPPLYTHISDATETOALLVALUES;
+import static com.vh.ui.web.locators.CurrentLabsLocators.LBL_ADDPOPUPGFR;
 import static com.vh.ui.web.locators.CurrentLabsLocators.LBL_ADDPOPUPHEIGHT;
+import static com.vh.ui.web.locators.CurrentLabsLocators.LBL_ADDPOPUPPHOSPHOROUS;
 import static com.vh.ui.web.locators.CurrentLabsLocators.LBL_ADDPOPUPTARGETDRYWEIGHT;
 import static com.vh.ui.web.locators.CurrentLabsLocators.LBL_PAGEHEADER;
 import static com.vh.ui.web.locators.CurrentLabsLocators.PLH_ADDPOPUPHEIGHT;
 import static com.vh.ui.web.locators.CurrentLabsLocators.PLH_ADDPOPUPTARGETDRYWEIGHT;
+import static com.vh.ui.web.locators.CurrentLabsLocators.TXT_ADDPOPUPGFR;
 import static com.vh.ui.web.locators.CurrentLabsLocators.TXT_ADDPOPUPHEIGHT;
+import static com.vh.ui.web.locators.CurrentLabsLocators.TXT_ADDPOPUPPHOSPHOROUS;
 import static com.vh.ui.web.locators.CurrentLabsLocators.TXT_ADDPOPUPTARGETDRYWEIGHT;
 
 import java.text.DateFormat;
@@ -194,5 +200,41 @@ public class CurrentLabsPage extends WebPage
 	public boolean viewAddpopupTargetDryWeightPlaceholder() throws TimeoutException, WaitException
 	{
 		return webActions.getVisibiltyOfElementLocatedBy(VISIBILITY, PLH_ADDPOPUPTARGETDRYWEIGHT);
+	}
+
+	@Step("Verify the visibility of the Add Lab Results popup PHOSPHOROUS label")
+	public boolean viewAddpopupPhosphorousLabel() throws TimeoutException, WaitException
+	{
+		return webActions.getVisibiltyOfElementLocatedBy(VISIBILITY, LBL_ADDPOPUPPHOSPHOROUS);
+	}
+
+	@Step("Verify the visibility of the Add Lab Results popup PHOSPHOROUS text box")
+	public boolean viewAddpopupPhosphorousTextBox() throws TimeoutException, WaitException
+	{
+		return webActions.getVisibiltyOfElementLocatedBy(VISIBILITY, TXT_ADDPOPUPPHOSPHOROUS);
+	}
+
+	@Step("Verify the visibility of the Add Lab Results popup PHOSPHOROUS goal")
+	public boolean viewAddpopupPhosphorousGoal() throws TimeoutException, WaitException
+	{
+		return webActions.getVisibiltyOfElementLocatedBy(VISIBILITY, GOL_ADDPOPUPPHOSPHOROUS);
+	}
+
+	@Step("Verify the visibility of the Add Lab Results popup GFR label")
+	public boolean viewAddpopupGFRLabel() throws TimeoutException, WaitException
+	{
+		return webActions.getVisibiltyOfElementLocatedBy(VISIBILITY, LBL_ADDPOPUPGFR);
+	}
+
+	@Step("Verify the visibility of the Add Lab Results popup GFR text box")
+	public boolean viewAddpopupGFRTextBox() throws TimeoutException, WaitException
+	{
+		return webActions.getVisibiltyOfElementLocatedBy(VISIBILITY, TXT_ADDPOPUPGFR);
+	}
+
+	@Step("Verify the visibility of the Add Lab Results popup GFR goal")
+	public boolean viewAddpopupGFRGoal() throws TimeoutException, WaitException
+	{
+		return webActions.getVisibiltyOfElementLocatedBy(VISIBILITY, GOL_ADDPOPUPGFR);
 	}
 }
