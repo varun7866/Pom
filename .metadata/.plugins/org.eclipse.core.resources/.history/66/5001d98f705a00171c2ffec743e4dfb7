@@ -47,5 +47,5 @@ public class MedicalEquipmentLocators
 
 	public static final By TBL_MEDICALEQUIPMENT = By.xpath("//table[@class='medical-equipment-table']");
 
-	public static final By TXT_ADDPOPUPDATE = By.xpath("//div[@class='modal-content']//input/@ng-reflect-model");
+	public static final By TXT_ADDPOPUPDATE = By.xpath("//div[@class='modal-dialog undefined']//input/@ng-reflect-model");
 }
