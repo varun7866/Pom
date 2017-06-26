@@ -460,6 +460,9 @@ public class WebActions {
 		} else {
 			isVisible = wait.checkForElementVisibility(driver, locator);
 		}
+
+		Utilities.highlightElement(driver, locator);
+
 		return isVisible;
 	}
 

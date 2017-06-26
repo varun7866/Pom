@@ -97,7 +97,7 @@ public class Utilities {
 	
 	public static void highlightElement(WebDriver driver, WebElement element) 
     {
-        for (int i = 0; i <5; i++)
+		for (int i = 0; i < 5; i++)
         {
             JavascriptExecutor js = (JavascriptExecutor) driver;
             js.executeScript("arguments[0].setAttribute('style', arguments[1]);", element, "color: red; border: 2px solid red;");
@@ -108,7 +108,8 @@ public class Utilities {
 	public static void highlightElement(WebDriver driver, By locator)
 	{
 		WebElement element = driver.findElement(locator);
-		for (int i = 0; i <5; i++)
+
+		for (int i = 0; i < 1; i++)
         {
             JavascriptExecutor js = (JavascriptExecutor) driver;
             js.executeScript("arguments[0].setAttribute('style', arguments[1]);", element, "color: red; border: 2px solid red;");

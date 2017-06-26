@@ -26,4 +26,5 @@
 <fullyQualifiedTypeName name="com.vh.ui.web.locators.PatientBannerLocators"/>
 <fullyQualifiedTypeName name="com.vh.ui.web.locators.ApplicationLocators"/>
 <fullyQualifiedTypeName name="com.vh.ui.web.locators.CurrentLabsLocators"/>
+<fullyQualifiedTypeName name="com.thoughtworks.selenium.webdriven.commands.Highlight"/>
 </qualifiedTypeNameHistroy>
