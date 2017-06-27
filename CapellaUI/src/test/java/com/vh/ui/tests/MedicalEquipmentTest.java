@@ -31,7 +31,7 @@ import ru.yandex.qatools.allure.annotations.Step;
  * 1. Change the "username" and "password" parameters in the "resources\application.properties" file to your own
  * 2. Clear your browser's cache
  * 3. Change the Patient name to a Patient under your ID in the call to the selectPatientFromMyPatients() method in the buildUp() method
- * 4. It's not required, but it would be a good idea to delete all existing medical equipment
+ * 4. It's not required, but it would be a good idea to delete all existing medical equipment from table PTME_PATIENT_MEDICAL_EQUIP
  */
 
 public class MedicalEquipmentTest extends TestBase
@@ -122,7 +122,7 @@ public class MedicalEquipmentTest extends TestBase
 
 	@Test(priority = 3)
 	@Step("Verify adding Medical Equipment")
-	public void AddMedicalEquipment() throws WaitException, URLNavigationException, InterruptedException
+	public void verify_AddMedicalEquipment() throws WaitException, URLNavigationException, InterruptedException
 	{
 		medicalEquipmentPage.checkAddPopupEquipmentIsInUseCheckBox();
 

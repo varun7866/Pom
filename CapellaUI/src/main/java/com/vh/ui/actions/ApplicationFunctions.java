@@ -79,10 +79,7 @@ public class ApplicationFunctions extends WebPage
 		LOGGER.debug("In ApplicationFunctions - capellaLogin");
 
 		loginPage = (LoginPage) pageBase.navigateTo(applicationProperty.getProperty("webURL"));
-		Thread.sleep(5000);
 
-		Assert.assertTrue(loginPage.viewUserNameTextField(), "Failed to identify UserName text field");
-		Assert.assertTrue(loginPage.viewPasswordTextField(), "Failed to identify Password text field");
 		loginPage.enterUserName(applicationProperty.getProperty("username"));
 		loginPage.enterPassword(applicationProperty.getProperty("password"));
 		loginPage.clickLogin();

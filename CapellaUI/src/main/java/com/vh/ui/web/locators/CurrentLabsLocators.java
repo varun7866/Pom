@@ -32,6 +32,20 @@ public class CurrentLabsLocators
 	public static final By GOL_ADDPOPUPTSAT = By.xpath("//span[text()='TSAT']/../../../div[3]/div/div/span[text()='Goal: Between 20 and 100']");
 	public static final By GOL_ADDPOPUPBLOODPRESUREDIASTOLIC = By.xpath("//span[text()='Blood Pressure Diastolic']/../../../div[3]/div/div/span[text()='Goal: Between 0 and 80']");
 	public static final By GOL_ADDPOPUPCALCIUMXPHOSPHOROUS = By.xpath("//span[text()='Calcium X Phosphorous']/../../../div[3]/div/div/span[text()='Goal: Between 30 and 60']");
+	public static final By GOL_ADDPOPUPCREATININE = By.xpath("//span[text()='Creatinine']/../../../div[3]/div/div/span[text()='Goal: Between 0.5 and 1.5']");
+	public static final By GOL_ADDPOPUPHGBA1C = By.xpath("//span[text()='Hgb A1C']/../../../div[3]/div/div/span[text()='Goal: Between 3 and 8']");
+	public static final By GOL_ADDPOPUPHGB = By.xpath("//span[text()='Hgb']/../../../div[3]/div/div/span[text()='Goal: Between 0 and 11']");
+	public static final By GOL_ADDPOPUPURINEALBUMINCREATININERATIO = By.xpath("//span[text()='Urine Albumin/Creatinine Ratio']/../../../div[3]/div/div/span[text()='Goal: CKD between 0 and 30']");
+	public static final By GOL_ADDPOPUPCALCIUM1 = By.xpath("//span[text()='Calcium']/../../../div[3]/div/div/span[text()='Goals: CKD between 8.6 and 10.3']");
+	public static final By GOL_ADDPOPUPCALCIUM2 = By.xpath("//span[text()='Calcium']/../../../div[3]/div/div/span[text()=' ESRD between 8.4 and 9.5']");
+	public static final By GOL_ADDPOPUPURR = By.xpath("//span[text()='URR']/../../../div[3]/div/div/span[text()='Goal: ESRD between 65 and 99']");
+	public static final By GOL_ADDPOPUPPTH1 = By.xpath("//span[text()='PTH']/../../../div[3]/div/div/span[text()='Goals: CKD 1 between 0 and 9999']");
+	public static final By GOL_ADDPOPUPPTH2 = By.xpath("//span[text()='PTH']/../../../div[3]/div/div/span[text()=' CKD 2 between 0 and 9999']");
+	public static final By GOL_ADDPOPUPPTH3 = By.xpath("//span[text()='PTH']/../../../div[3]/div/div/span[text()=' CKD 3 between 35 and 70']");
+	public static final By GOL_ADDPOPUPPTH4 = By.xpath("//span[text()='PTH']/../../../div[3]/div/div/span[text()=' CKD 4 between 71 and 110']");
+	public static final By GOL_ADDPOPUPPTH5 = By.xpath("//span[text()='PTH']/../../../div[3]/div/div/span[text()=' ESRD between 150 and 600']");
+	public static final By GOL_ADDPOPUPFERRITIN = By.xpath("//span[text()='Ferritin']/../../../div[3]/div/div/span[text()='Goal: Between 100 and 500']");
+	public static final By GOL_ADDPOPUPBLOODPRESURESYSTOLIC = By.xpath("//span[text()='Blood Pressure Systolic']/../../../div[3]/div/div/span[text()='Goal: Between 60 and 130']");
 
 	public static final By LBL_PAGEHEADER = By.xpath("//h2[contains(., 'Labs')]");
 	public static final By LBL_ADDPOPUPADDLABRESULTS = By.xpath("//span[text()='Add Lab Results']");
@@ -50,6 +64,15 @@ public class CurrentLabsLocators
 	public static final By LBL_ADDPOPUPBLOODPRESUREDIASTOLIC = By.xpath("//div[@class='modal-dialog modal-lg']//span[text()='Blood Pressure Diastolic']");
 	public static final By LBL_ADDPOPUPWEIGHT = By.xpath("//div[@class='modal-dialog modal-lg']//span[text()='Weight']");
 	public static final By LBL_ADDPOPUPCALCIUMXPHOSPHOROUS = By.xpath("//div[@class='modal-dialog modal-lg']//span[text()='Calcium X Phosphorous']");
+	public static final By LBL_ADDPOPUPCREATININE = By.xpath("//div[@class='modal-dialog modal-lg']//span[text()='Creatinine']");
+	public static final By LBL_ADDPOPUPHGBA1C = By.xpath("//div[@class='modal-dialog modal-lg']//span[text()='Hgb A1C']");
+	public static final By LBL_ADDPOPUPHGB = By.xpath("//div[@class='modal-dialog modal-lg']//span[text()='Hgb']");
+	public static final By LBL_ADDPOPUPURINEALBUMINCREATININERATIO = By.xpath("//div[@class='modal-dialog modal-lg']//span[text()='Urine Albumin/Creatinine Ratio']");
+	public static final By LBL_ADDPOPUPCALCIUM = By.xpath("//div[@class='modal-dialog modal-lg']//span[text()='Calcium']");
+	public static final By LBL_ADDPOPUPURR = By.xpath("//div[@class='modal-dialog modal-lg']//span[text()='URR']");
+	public static final By LBL_ADDPOPUPTH = By.xpath("//div[@class='modal-dialog modal-lg']//span[text()='PTH']");
+	public static final By LBL_ADDPOPUPFERRITIN = By.xpath("//div[@class='modal-dialog modal-lg']//span[text()='Ferritin']");
+	public static final By LBL_ADDPOPUPBLOODPRESURESYSTOLIC = By.xpath("//div[@class='modal-dialog modal-lg']//span[text()='Blood Pressure Systolic']");
 
 	public static final By PLH_ADDPOPUPHEIGHT = By.xpath("//span[text()='Height']/../../../div[2]/div/input[@placeholder='cm']");
 	public static final By PLH_ADDPOPUPTARGETDRYWEIGHT = By.xpath("//span[text()='Target Dry Weight']/../../../div[2]/div/input[@placeholder='kg']");
@@ -69,4 +92,13 @@ public class CurrentLabsLocators
 	public static final By TXT_ADDPOPUPBLOODPRESUREDIASTOLIC = By.xpath("//span[text()='Blood Pressure Diastolic']/../../../div[2]/div/input");
 	public static final By TXT_ADDPOPUPWEIGHT = By.xpath("//span[text()='Weight']/../../../div[2]/div/input");
 	public static final By TXT_ADDPOPUPCALCIUMXPHOSPHOROUS = By.xpath("//span[text()='Calcium X Phosphorous']/../../../div[2]/div/input");
+	public static final By TXT_ADDPOPUPCREATININE = By.xpath("//span[text()='Creatinine']/../../../div[2]/div/input");
+	public static final By TXT_ADDPOPUPHGBA1C = By.xpath("//span[text()='Hgb A1C']/../../../div[2]/div/input");
+	public static final By TXT_ADDPOPUPHGB = By.xpath("//span[text()='Hgb']/../../../div[2]/div/input");
+	public static final By TXT_ADDPOPUPURINEALBUMINCREATININERATIO = By.xpath("//span[text()='Urine Albumin/Creatinine Ratio']/../../../div[2]/div/input");
+	public static final By TXT_ADDPOPUPCALCIUM = By.xpath("//span[text()='Calcium']/../../../div[2]/div/input");
+	public static final By TXT_ADDPOPUPURR = By.xpath("//span[text()='URR']/../../../div[2]/div/input");
+	public static final By TXT_ADDPOPUPPTH = By.xpath("//span[text()='PTH']/../../../div[2]/div/input");
+	public static final By TXT_ADDPOPUPFERRITIN = By.xpath("//span[text()='Ferritin']/../../../div[2]/div/input");
+	public static final By TXT_ADDPOPUPBLOODPRESURESYSTOLIC = By.xpath("//span[text()='Blood Pressure Systolic']/../../../div[2]/div/input");
 }

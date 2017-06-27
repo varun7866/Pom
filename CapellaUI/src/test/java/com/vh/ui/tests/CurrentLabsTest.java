@@ -26,7 +26,7 @@ import ru.yandex.qatools.allure.annotations.Step;
  * 1. Change the "username" and "password" parameters in the "resources\application.properties" file to your own
  * 2. Clear your browser's cache
  * 3. Change the Patient name to a Patient under your ID in the call to the selectPatientFromMyPatients() method in the buildUp() method
- * 4. It's not required, but it would be a good idea to delete all existing Labs
+ * 4. It's not required, but it would be a good idea to delete all existing Labs from table PTLB_PATIENT_LABS
  */
 
 public class CurrentLabsTest extends TestBase
@@ -63,6 +63,8 @@ public class CurrentLabsTest extends TestBase
 	public void verify_AddAddLabResultsPopup() throws WaitException, URLNavigationException, InterruptedException
 	{
 		currentLabsPage.clickAddLabButton();
+
+		Thread.sleep(2000); // Give time for the Add Lab Results popup to be displayed
 
 		Assert.assertTrue(currentLabsPage.viewAddLabResultsPopup(), "Failed to identify the Add Labs Results popup header label");
 
@@ -130,12 +132,60 @@ public class CurrentLabsTest extends TestBase
 		Assert.assertTrue(currentLabsPage.viewAddpopupCalciumXPhosphorousLabel(), "Failed to identify the Add Lab Results popup CALCIUM X PHOSPHOROUS label");
 		Assert.assertTrue(currentLabsPage.viewAddpopupCalciumXPhosphorousTextBox(), "Failed to identify the Add Lab Results popup CALCIUM X PHOSPHOROUS text box");
 		Assert.assertTrue(currentLabsPage.viewAddpopupCalciumXPhosphorousGoal(), "Failed to identify the Add Lab Results popup CALCIUM X PHOSPHOROUS goal");
+
+		Assert.assertTrue(currentLabsPage.viewAddpopupCreatinineLabel(), "Failed to identify the Add Lab Results popup CREATININE label");
+		Assert.assertTrue(currentLabsPage.viewAddpopupCreatinineTextBox(), "Failed to identify the Add Lab Results popup CREATININE text box");
+		Assert.assertTrue(currentLabsPage.viewAddpopupCreatinineGoal(), "Failed to identify the Add Lab Results popup CCREATININE goal");
+
+		Assert.assertTrue(currentLabsPage.viewAddpopupHGBA1CLabel(), "Failed to identify the Add Lab Results popup HGB A1C label");
+		Assert.assertTrue(currentLabsPage.viewAddpopupHGBA1CTextBox(), "Failed to identify the Add Lab Results popup HGB A1C text box");
+		Assert.assertTrue(currentLabsPage.viewAddpopupHGBA1CGoal(), "Failed to identify the Add Lab Results popup HGB A1C goal");
+
+		Assert.assertTrue(currentLabsPage.viewAddpopupHGBLabel(), "Failed to identify the Add Lab Results popup HGB label");
+		Assert.assertTrue(currentLabsPage.viewAddpopupHGBTextBox(), "Failed to identify the Add Lab Results popup HGB text box");
+		Assert.assertTrue(currentLabsPage.viewAddpopupHGBGoal(), "Failed to identify the Add Lab Results popup HGB goal");
+
+		Assert.assertTrue(currentLabsPage.viewAddpopupUrineAlbuminCreatinineRatioLabel(), "Failed to identify the Add Lab Results popup URINE ALBUMIN/CREATININE RATIO label");
+		Assert.assertTrue(currentLabsPage.viewAddpopupUrineAlbuminCreatinineRatioTextBox(), "Failed to identify the Add Lab Results popup URINE ALBUMIN/CREATININE RATIO text box");
+		Assert.assertTrue(currentLabsPage.viewAddpopupUrineAlbuminCreatinineRatioGoal(), "Failed to identify the Add Lab Results popup URINE ALBUMIN/CREATININE RATIO goal");
+
+		Assert.assertTrue(currentLabsPage.viewAddpopupCalciumLabel(), "Failed to identify the Add Lab Results popup CALCIUM label");
+		Assert.assertTrue(currentLabsPage.viewAddpopupCalciumTextBox(), "Failed to identify the Add Lab Results popup CALCIUM text box");
+		Assert.assertTrue(currentLabsPage.viewAddpopupCalciumGoal1(), "Failed to identify the Add Lab Results popup CALCIUM goal 1");
+		Assert.assertTrue(currentLabsPage.viewAddpopupCalciumGoal2(), "Failed to identify the Add Lab Results popup CALCIUM goal 2");
+
+		Assert.assertTrue(currentLabsPage.viewAddpopupURRLabel(), "Failed to identify the Add Lab Results popup URR label");
+		Assert.assertTrue(currentLabsPage.viewAddpopupURRTextBox(), "Failed to identify the Add Lab Results popup URR text box");
+		Assert.assertTrue(currentLabsPage.viewAddpopupURRGoal(), "Failed to identify the Add Lab Results popup URR goal");
+
+		Assert.assertTrue(currentLabsPage.viewAddpopupPTHLabel(), "Failed to identify the Add Lab Results popup PTH label");
+		Assert.assertTrue(currentLabsPage.viewAddpopupPTHTextBox(), "Failed to identify the Add Lab Results popup PTH text box");
+		Assert.assertTrue(currentLabsPage.viewAddpopupPTHGoal1(), "Failed to identify the Add Lab Results popup PTH goal 1");
+		Assert.assertTrue(currentLabsPage.viewAddpopupPTHGoal2(), "Failed to identify the Add Lab Results popup PTH goal 2");
+		Assert.assertTrue(currentLabsPage.viewAddpopupPTHGoal3(), "Failed to identify the Add Lab Results popup PTH goal 3");
+		Assert.assertTrue(currentLabsPage.viewAddpopupPTHGoal4(), "Failed to identify the Add Lab Results popup PTH goal 4");
+		Assert.assertTrue(currentLabsPage.viewAddpopupPTHGoal5(), "Failed to identify the Add Lab Results popup PTH goal 5");
+
+		Assert.assertTrue(currentLabsPage.viewAddpopupFerritinLabel(), "Failed to identify the Add Lab Results popup FERRITIN label");
+		Assert.assertTrue(currentLabsPage.viewAddpopupFerritinTextBox(), "Failed to identify the Add Lab Results popup FERRITIN text box");
+		Assert.assertTrue(currentLabsPage.viewAddpopupFerritinGoal(), "Failed to identify the Add Lab Results popup FERRITIN goal");
+
+		Assert.assertTrue(currentLabsPage.viewAddpopupBloodPressureSystolicLabel(), "Failed to identify the Add Lab Results popup BLOOD PRESURE SYSTOLIC label");
+		Assert.assertTrue(currentLabsPage.viewAddpopupBloodPressureSystolicTextBox(), "Failed to identify the Add Lab Results popup BLOOD PRESURE SYSTOLIC text box");
+		Assert.assertTrue(currentLabsPage.viewAddpopupBloodPressureSystolicGoal(), "Failed to identify the Add Lab Results popup BLOOD PRESURE SYSTOLIC goal");
+	}
+
+	@Test(priority = 3)
+	@Step("Verify adding Labs")
+	public void verify_AddLabs() throws WaitException, URLNavigationException, InterruptedException
+	{
+		currentLabsPage.enterHeight("182.88").enterTargetDryWeight("77.1107").enterPhosphorous("3.5").enterGFR("70");
 	}
 
 	@AfterClass
 	public void tearDown() throws TimeoutException, WaitException
 	{
-		appFunctions.capellaLogout();
-		pageBase.quit();
+		// appFunctions.capellaLogout();
+		// pageBase.quit();
 	}
 }

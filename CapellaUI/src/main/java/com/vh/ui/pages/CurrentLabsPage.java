@@ -7,30 +7,53 @@ import static com.vh.ui.web.locators.CurrentLabsLocators.BTN_ADDPOPUPSAVE;
 import static com.vh.ui.web.locators.CurrentLabsLocators.CAL_ADDPOPUPAPPLYTHISDATETOALLVALUES;
 import static com.vh.ui.web.locators.CurrentLabsLocators.GOL_ADDPOPUPALBUMIN;
 import static com.vh.ui.web.locators.CurrentLabsLocators.GOL_ADDPOPUPBLOODPRESUREDIASTOLIC;
+import static com.vh.ui.web.locators.CurrentLabsLocators.GOL_ADDPOPUPBLOODPRESURESYSTOLIC;
+import static com.vh.ui.web.locators.CurrentLabsLocators.GOL_ADDPOPUPCALCIUM1;
+import static com.vh.ui.web.locators.CurrentLabsLocators.GOL_ADDPOPUPCALCIUM2;
 import static com.vh.ui.web.locators.CurrentLabsLocators.GOL_ADDPOPUPCALCIUMXPHOSPHOROUS;
 import static com.vh.ui.web.locators.CurrentLabsLocators.GOL_ADDPOPUPCO2LEVEL;
+import static com.vh.ui.web.locators.CurrentLabsLocators.GOL_ADDPOPUPCREATININE;
+import static com.vh.ui.web.locators.CurrentLabsLocators.GOL_ADDPOPUPFERRITIN;
 import static com.vh.ui.web.locators.CurrentLabsLocators.GOL_ADDPOPUPGFR;
 import static com.vh.ui.web.locators.CurrentLabsLocators.GOL_ADDPOPUPHEPATITISBTITER;
+import static com.vh.ui.web.locators.CurrentLabsLocators.GOL_ADDPOPUPHGB;
+import static com.vh.ui.web.locators.CurrentLabsLocators.GOL_ADDPOPUPHGBA1C;
 import static com.vh.ui.web.locators.CurrentLabsLocators.GOL_ADDPOPUPKTV;
 import static com.vh.ui.web.locators.CurrentLabsLocators.GOL_ADDPOPUPLDL;
 import static com.vh.ui.web.locators.CurrentLabsLocators.GOL_ADDPOPUPPHOSPHOROUS;
 import static com.vh.ui.web.locators.CurrentLabsLocators.GOL_ADDPOPUPPOTASSIUM;
+import static com.vh.ui.web.locators.CurrentLabsLocators.GOL_ADDPOPUPPTH1;
+import static com.vh.ui.web.locators.CurrentLabsLocators.GOL_ADDPOPUPPTH2;
+import static com.vh.ui.web.locators.CurrentLabsLocators.GOL_ADDPOPUPPTH3;
+import static com.vh.ui.web.locators.CurrentLabsLocators.GOL_ADDPOPUPPTH4;
+import static com.vh.ui.web.locators.CurrentLabsLocators.GOL_ADDPOPUPPTH5;
 import static com.vh.ui.web.locators.CurrentLabsLocators.GOL_ADDPOPUPTSAT;
+import static com.vh.ui.web.locators.CurrentLabsLocators.GOL_ADDPOPUPURINEALBUMINCREATININERATIO;
+import static com.vh.ui.web.locators.CurrentLabsLocators.GOL_ADDPOPUPURR;
 import static com.vh.ui.web.locators.CurrentLabsLocators.LBL_ADDPOPUPADDLABRESULTS;
 import static com.vh.ui.web.locators.CurrentLabsLocators.LBL_ADDPOPUPALBUMIN;
 import static com.vh.ui.web.locators.CurrentLabsLocators.LBL_ADDPOPUPAPPLYTHISDATETOALLVALUES;
 import static com.vh.ui.web.locators.CurrentLabsLocators.LBL_ADDPOPUPBLOODPRESUREDIASTOLIC;
+import static com.vh.ui.web.locators.CurrentLabsLocators.LBL_ADDPOPUPBLOODPRESURESYSTOLIC;
+import static com.vh.ui.web.locators.CurrentLabsLocators.LBL_ADDPOPUPCALCIUM;
 import static com.vh.ui.web.locators.CurrentLabsLocators.LBL_ADDPOPUPCALCIUMXPHOSPHOROUS;
 import static com.vh.ui.web.locators.CurrentLabsLocators.LBL_ADDPOPUPCO2LEVEL;
+import static com.vh.ui.web.locators.CurrentLabsLocators.LBL_ADDPOPUPCREATININE;
+import static com.vh.ui.web.locators.CurrentLabsLocators.LBL_ADDPOPUPFERRITIN;
 import static com.vh.ui.web.locators.CurrentLabsLocators.LBL_ADDPOPUPGFR;
 import static com.vh.ui.web.locators.CurrentLabsLocators.LBL_ADDPOPUPHEIGHT;
 import static com.vh.ui.web.locators.CurrentLabsLocators.LBL_ADDPOPUPHEPATITISBTITER;
+import static com.vh.ui.web.locators.CurrentLabsLocators.LBL_ADDPOPUPHGB;
+import static com.vh.ui.web.locators.CurrentLabsLocators.LBL_ADDPOPUPHGBA1C;
 import static com.vh.ui.web.locators.CurrentLabsLocators.LBL_ADDPOPUPKTV;
 import static com.vh.ui.web.locators.CurrentLabsLocators.LBL_ADDPOPUPLDL;
 import static com.vh.ui.web.locators.CurrentLabsLocators.LBL_ADDPOPUPPHOSPHOROUS;
 import static com.vh.ui.web.locators.CurrentLabsLocators.LBL_ADDPOPUPPOTASSIUM;
 import static com.vh.ui.web.locators.CurrentLabsLocators.LBL_ADDPOPUPTARGETDRYWEIGHT;
+import static com.vh.ui.web.locators.CurrentLabsLocators.LBL_ADDPOPUPTH;
 import static com.vh.ui.web.locators.CurrentLabsLocators.LBL_ADDPOPUPTSAT;
+import static com.vh.ui.web.locators.CurrentLabsLocators.LBL_ADDPOPUPURINEALBUMINCREATININERATIO;
+import static com.vh.ui.web.locators.CurrentLabsLocators.LBL_ADDPOPUPURR;
 import static com.vh.ui.web.locators.CurrentLabsLocators.LBL_ADDPOPUPWEIGHT;
 import static com.vh.ui.web.locators.CurrentLabsLocators.LBL_PAGEHEADER;
 import static com.vh.ui.web.locators.CurrentLabsLocators.PLH_ADDPOPUPHEIGHT;
@@ -38,17 +61,26 @@ import static com.vh.ui.web.locators.CurrentLabsLocators.PLH_ADDPOPUPTARGETDRYWE
 import static com.vh.ui.web.locators.CurrentLabsLocators.PLH_ADDPOPUPWEIGHT;
 import static com.vh.ui.web.locators.CurrentLabsLocators.TXT_ADDPOPUPALBUMIN;
 import static com.vh.ui.web.locators.CurrentLabsLocators.TXT_ADDPOPUPBLOODPRESUREDIASTOLIC;
+import static com.vh.ui.web.locators.CurrentLabsLocators.TXT_ADDPOPUPBLOODPRESURESYSTOLIC;
+import static com.vh.ui.web.locators.CurrentLabsLocators.TXT_ADDPOPUPCALCIUM;
 import static com.vh.ui.web.locators.CurrentLabsLocators.TXT_ADDPOPUPCALCIUMXPHOSPHOROUS;
 import static com.vh.ui.web.locators.CurrentLabsLocators.TXT_ADDPOPUPCO2LEVEL;
+import static com.vh.ui.web.locators.CurrentLabsLocators.TXT_ADDPOPUPCREATININE;
+import static com.vh.ui.web.locators.CurrentLabsLocators.TXT_ADDPOPUPFERRITIN;
 import static com.vh.ui.web.locators.CurrentLabsLocators.TXT_ADDPOPUPGFR;
 import static com.vh.ui.web.locators.CurrentLabsLocators.TXT_ADDPOPUPHEIGHT;
 import static com.vh.ui.web.locators.CurrentLabsLocators.TXT_ADDPOPUPHEPATITISBTITER;
+import static com.vh.ui.web.locators.CurrentLabsLocators.TXT_ADDPOPUPHGB;
+import static com.vh.ui.web.locators.CurrentLabsLocators.TXT_ADDPOPUPHGBA1C;
 import static com.vh.ui.web.locators.CurrentLabsLocators.TXT_ADDPOPUPKTV;
 import static com.vh.ui.web.locators.CurrentLabsLocators.TXT_ADDPOPUPLDL;
 import static com.vh.ui.web.locators.CurrentLabsLocators.TXT_ADDPOPUPPHOSPHOROUS;
 import static com.vh.ui.web.locators.CurrentLabsLocators.TXT_ADDPOPUPPOTASSIUM;
+import static com.vh.ui.web.locators.CurrentLabsLocators.TXT_ADDPOPUPPTH;
 import static com.vh.ui.web.locators.CurrentLabsLocators.TXT_ADDPOPUPTARGETDRYWEIGHT;
 import static com.vh.ui.web.locators.CurrentLabsLocators.TXT_ADDPOPUPTSAT;
+import static com.vh.ui.web.locators.CurrentLabsLocators.TXT_ADDPOPUPURINEALBUMINCREATININERATIO;
+import static com.vh.ui.web.locators.CurrentLabsLocators.TXT_ADDPOPUPURR;
 import static com.vh.ui.web.locators.CurrentLabsLocators.TXT_ADDPOPUPWEIGHT;
 
 import java.text.DateFormat;
@@ -447,4 +479,225 @@ public class CurrentLabsPage extends WebPage
 	{
 		return webActions.getVisibiltyOfElementLocatedBy(VISIBILITY, GOL_ADDPOPUPCALCIUMXPHOSPHOROUS);
 	}
+
+	@Step("Verify the visibility of the Add Lab Results popup CREATININE label")
+	public boolean viewAddpopupCreatinineLabel() throws TimeoutException, WaitException
+	{
+		return webActions.getVisibiltyOfElementLocatedBy(VISIBILITY, LBL_ADDPOPUPCREATININE);
+	}
+
+	@Step("Verify the visibility of the Add Lab Results popup CREATININE text box")
+	public boolean viewAddpopupCreatinineTextBox() throws TimeoutException, WaitException
+	{
+		return webActions.getVisibiltyOfElementLocatedBy(VISIBILITY, TXT_ADDPOPUPCREATININE);
+	}
+
+	@Step("Verify the visibility of the Add Lab Results popup CREATININE goal")
+	public boolean viewAddpopupCreatinineGoal() throws TimeoutException, WaitException
+	{
+		return webActions.getVisibiltyOfElementLocatedBy(VISIBILITY, GOL_ADDPOPUPCREATININE);
+	}
+
+	@Step("Verify the visibility of the Add Lab Results popup HGB A1C label")
+	public boolean viewAddpopupHGBA1CLabel() throws TimeoutException, WaitException
+	{
+		return webActions.getVisibiltyOfElementLocatedBy(VISIBILITY, LBL_ADDPOPUPHGBA1C);
+	}
+
+	@Step("Verify the visibility of the Add Lab Results popup HGB A1C text box")
+	public boolean viewAddpopupHGBA1CTextBox() throws TimeoutException, WaitException
+	{
+		return webActions.getVisibiltyOfElementLocatedBy(VISIBILITY, TXT_ADDPOPUPHGBA1C);
+	}
+
+	@Step("Verify the visibility of the Add Lab Results popup HGB A1C goal")
+	public boolean viewAddpopupHGBA1CGoal() throws TimeoutException, WaitException
+	{
+		return webActions.getVisibiltyOfElementLocatedBy(VISIBILITY, GOL_ADDPOPUPHGBA1C);
+	}
+
+	@Step("Verify the visibility of the Add Lab Results popup HGB label")
+	public boolean viewAddpopupHGBLabel() throws TimeoutException, WaitException
+	{
+		return webActions.getVisibiltyOfElementLocatedBy(VISIBILITY, LBL_ADDPOPUPHGB);
+	}
+
+	@Step("Verify the visibility of the Add Lab Results popup HGB text box")
+	public boolean viewAddpopupHGBTextBox() throws TimeoutException, WaitException
+	{
+		return webActions.getVisibiltyOfElementLocatedBy(VISIBILITY, TXT_ADDPOPUPHGB);
+	}
+
+	@Step("Verify the visibility of the Add Lab Results popup HGB goal")
+	public boolean viewAddpopupHGBGoal() throws TimeoutException, WaitException
+	{
+		return webActions.getVisibiltyOfElementLocatedBy(VISIBILITY, GOL_ADDPOPUPHGB);
+	}
+
+	@Step("Verify the visibility of the Add Lab Results popup URINE ALBUMIN/CREATININE RATIO label")
+	public boolean viewAddpopupUrineAlbuminCreatinineRatioLabel() throws TimeoutException, WaitException
+	{
+		return webActions.getVisibiltyOfElementLocatedBy(VISIBILITY, LBL_ADDPOPUPURINEALBUMINCREATININERATIO);
+	}
+
+	@Step("Verify the visibility of the Add Lab Results popup URINE ALBUMIN/CREATININE RATIO text box")
+	public boolean viewAddpopupUrineAlbuminCreatinineRatioTextBox() throws TimeoutException, WaitException
+	{
+		return webActions.getVisibiltyOfElementLocatedBy(VISIBILITY, TXT_ADDPOPUPURINEALBUMINCREATININERATIO);
+	}
+
+	@Step("Verify the visibility of the Add Lab Results popup URINE ALBUMIN/CREATININE RATIO goal")
+	public boolean viewAddpopupUrineAlbuminCreatinineRatioGoal() throws TimeoutException, WaitException
+	{
+		return webActions.getVisibiltyOfElementLocatedBy(VISIBILITY, GOL_ADDPOPUPURINEALBUMINCREATININERATIO);
+	}
+
+	@Step("Verify the visibility of the Add Lab Results popup CALCIUM label")
+	public boolean viewAddpopupCalciumLabel() throws TimeoutException, WaitException
+	{
+		return webActions.getVisibiltyOfElementLocatedBy(VISIBILITY, LBL_ADDPOPUPCALCIUM);
+	}
+
+	@Step("Verify the visibility of the Add Lab Results popup CALCIUM text box")
+	public boolean viewAddpopupCalciumTextBox() throws TimeoutException, WaitException
+	{
+		return webActions.getVisibiltyOfElementLocatedBy(VISIBILITY, TXT_ADDPOPUPCALCIUM);
+	}
+
+	@Step("Verify the visibility of the Add Lab Results popup CALCIUM goal 1")
+	public boolean viewAddpopupCalciumGoal1() throws TimeoutException, WaitException
+	{
+		return webActions.getVisibiltyOfElementLocatedBy(VISIBILITY, GOL_ADDPOPUPCALCIUM1);
+	}
+
+	@Step("Verify the visibility of the Add Lab Results popup CALCIUM goal 2")
+	public boolean viewAddpopupCalciumGoal2() throws TimeoutException, WaitException
+	{
+		return webActions.getVisibiltyOfElementLocatedBy(VISIBILITY, GOL_ADDPOPUPCALCIUM2);
+	}
+
+	@Step("Verify the visibility of the Add Lab Results popup URR label")
+	public boolean viewAddpopupURRLabel() throws TimeoutException, WaitException
+	{
+		return webActions.getVisibiltyOfElementLocatedBy(VISIBILITY, LBL_ADDPOPUPURR);
+	}
+
+	@Step("Verify the visibility of the Add Lab Results popup URR text box")
+	public boolean viewAddpopupURRTextBox() throws TimeoutException, WaitException
+	{
+		return webActions.getVisibiltyOfElementLocatedBy(VISIBILITY, TXT_ADDPOPUPURR);
+	}
+
+	@Step("Verify the visibility of the Add Lab Results popup URR goal")
+	public boolean viewAddpopupURRGoal() throws TimeoutException, WaitException
+	{
+		return webActions.getVisibiltyOfElementLocatedBy(VISIBILITY, GOL_ADDPOPUPURR);
+	}
+
+	@Step("Verify the visibility of the Add Lab Results popup PTH label")
+	public boolean viewAddpopupPTHLabel() throws TimeoutException, WaitException
+	{
+		return webActions.getVisibiltyOfElementLocatedBy(VISIBILITY, LBL_ADDPOPUPTH);
+	}
+
+	@Step("Verify the visibility of the Add Lab Results popup PTH text box")
+	public boolean viewAddpopupPTHTextBox() throws TimeoutException, WaitException
+	{
+		return webActions.getVisibiltyOfElementLocatedBy(VISIBILITY, TXT_ADDPOPUPPTH);
+	}
+
+	@Step("Verify the visibility of the Add Lab Results popup PTH goal 1")
+	public boolean viewAddpopupPTHGoal1() throws TimeoutException, WaitException
+	{
+		return webActions.getVisibiltyOfElementLocatedBy(VISIBILITY, GOL_ADDPOPUPPTH1);
+	}
+
+	@Step("Verify the visibility of the Add Lab Results popup PTH goal 2")
+	public boolean viewAddpopupPTHGoal2() throws TimeoutException, WaitException
+	{
+		return webActions.getVisibiltyOfElementLocatedBy(VISIBILITY, GOL_ADDPOPUPPTH2);
+	}
+
+	@Step("Verify the visibility of the Add Lab Results popup PTH goal 3")
+	public boolean viewAddpopupPTHGoal3() throws TimeoutException, WaitException
+	{
+		return webActions.getVisibiltyOfElementLocatedBy(VISIBILITY, GOL_ADDPOPUPPTH3);
+	}
+
+	@Step("Verify the visibility of the Add Lab Results popup PTH goal 4")
+	public boolean viewAddpopupPTHGoal4() throws TimeoutException, WaitException
+	{
+		return webActions.getVisibiltyOfElementLocatedBy(VISIBILITY, GOL_ADDPOPUPPTH4);
+	}
+
+	@Step("Verify the visibility of the Add Lab Results popup PTH goal 5")
+	public boolean viewAddpopupPTHGoal5() throws TimeoutException, WaitException
+	{
+		return webActions.getVisibiltyOfElementLocatedBy(VISIBILITY, GOL_ADDPOPUPPTH5);
+	}
+
+	@Step("Verify the visibility of the Add Lab Results popup FERRITIN label")
+	public boolean viewAddpopupFerritinLabel() throws TimeoutException, WaitException
+	{
+		return webActions.getVisibiltyOfElementLocatedBy(VISIBILITY, LBL_ADDPOPUPFERRITIN);
+	}
+
+	@Step("Verify the visibility of the Add Lab Results popup FERRITIN text box")
+	public boolean viewAddpopupFerritinTextBox() throws TimeoutException, WaitException
+	{
+		return webActions.getVisibiltyOfElementLocatedBy(VISIBILITY, TXT_ADDPOPUPFERRITIN);
+	}
+
+	@Step("Verify the visibility of the Add Lab Results popup FERRITIN goal 1")
+	public boolean viewAddpopupFerritinGoal() throws TimeoutException, WaitException
+	{
+		return webActions.getVisibiltyOfElementLocatedBy(VISIBILITY, GOL_ADDPOPUPFERRITIN);
+	}
+
+	@Step("Verify the visibility of the Add Lab Results popup BLOOD PRESURE SYSTOLIC label")
+	public boolean viewAddpopupBloodPressureSystolicLabel() throws TimeoutException, WaitException
+	{
+		return webActions.getVisibiltyOfElementLocatedBy(VISIBILITY, LBL_ADDPOPUPBLOODPRESURESYSTOLIC);
+	}
+
+	@Step("Verify the visibility of the Add Lab Results popup BLOOD PRESURE SYSTOLIC text box")
+	public boolean viewAddpopupBloodPressureSystolicTextBox() throws TimeoutException, WaitException
+	{
+		return webActions.getVisibiltyOfElementLocatedBy(VISIBILITY, TXT_ADDPOPUPBLOODPRESURESYSTOLIC);
+	}
+
+	@Step("Verify the visibility of the Add Lab Results popup BLOOD PRESURE SYSTOLIC goal")
+	public boolean viewAddpopupBloodPressureSystolicGoal() throws TimeoutException, WaitException
+	{
+		return webActions.getVisibiltyOfElementLocatedBy(VISIBILITY, GOL_ADDPOPUPBLOODPRESURESYSTOLIC);
+	}
+
+	@Step("Entered {0} in the HEIGHT text field")
+	public CurrentLabsPage enterHeight(String heightVal) throws TimeoutException, WaitException
+	{
+		webActions.enterText(VISIBILITY, TXT_ADDPOPUPHEIGHT, heightVal);
+		return this;
+	}
+
+	@Step("Entered {0} in the TARGET DRY WEIGHT text field")
+	public CurrentLabsPage enterTargetDryWeight(String targetDryWeightVal) throws TimeoutException, WaitException
+	{
+		webActions.enterText(VISIBILITY, TXT_ADDPOPUPTARGETDRYWEIGHT, targetDryWeightVal);
+		return this;
+	}
+
+	@Step("Entered {0} in the PHOSPHOROUS text field")
+	public CurrentLabsPage enterPhosphorous(String phosphorousVal) throws TimeoutException, WaitException
+	{
+		webActions.enterText(VISIBILITY, TXT_ADDPOPUPPHOSPHOROUS, phosphorousVal);
+		return this;
+	}
+
+	@Step("Entered {0} in the GFR text field")
+	public CurrentLabsPage enterGFR(String gfrVal) throws TimeoutException, WaitException
+	{
+		webActions.enterText(VISIBILITY, TXT_ADDPOPUPGFR, gfrVal);
+		return this;
+	}
+
 }

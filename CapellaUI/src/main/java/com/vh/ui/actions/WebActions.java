@@ -461,7 +461,7 @@ public class WebActions {
 			isVisible = wait.checkForElementVisibility(driver, locator);
 		}
 
-		Utilities.highlightElement(driver, locator);
+		// Utilities.highlightElement(driver, locator);
 
 		return isVisible;
 	}
