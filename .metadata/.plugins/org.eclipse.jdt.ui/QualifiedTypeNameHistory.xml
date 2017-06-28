@@ -27,4 +27,6 @@
 <fullyQualifiedTypeName name="com.vh.ui.web.locators.ApplicationLocators"/>
 <fullyQualifiedTypeName name="com.vh.ui.web.locators.CurrentLabsLocators"/>
 <fullyQualifiedTypeName name="com.thoughtworks.selenium.webdriven.commands.Highlight"/>
+<fullyQualifiedTypeName name="com.vh.ui.web.locators.MyTasksLocators"/>
+<fullyQualifiedTypeName name="org.seleniumhq.jetty9.server.handler.ContextHandler.ApprovePathPrefixAliases"/>
 </qualifiedTypeNameHistroy>

@@ -121,8 +121,9 @@ public class ApplicationFunctions extends WebPage
 	{
 		LOGGER.debug("In ApplicationFunctions - selectPatientFromMyPatients");
 
-		webActions.click(VISIBILITY, LNK_MENUBAR_MYPATIENTS);
-		webActions.click(VISIBILITY, LNK_MENUBAR_MYPATIENTS);
+		clickMyPatientsMenuBar();
+		Thread.sleep(200);
+		clickMyPatientsMenuBar();
 
 		webActions.click(VISIBILITY, By.xpath("//a[text()='" + patientName + "']"));
 	}
