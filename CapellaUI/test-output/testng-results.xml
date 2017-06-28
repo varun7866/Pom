@@ -2,20 +2,20 @@
 <testng-results skipped="0" failed="0" total="1" passed="1">
   <reporter-output>
   </reporter-output>
-  <suite name="Default suite" duration-ms="66157" started-at="2017-06-28T17:29:56Z" finished-at="2017-06-28T17:31:03Z">
+  <suite name="Default suite" duration-ms="75070" started-at="2017-06-28T17:40:22Z" finished-at="2017-06-28T17:41:37Z">
     <groups>
     </groups>
-    <test name="Default test" duration-ms="66157" started-at="2017-06-28T17:29:56Z" finished-at="2017-06-28T17:31:03Z">
+    <test name="Default test" duration-ms="75070" started-at="2017-06-28T17:40:22Z" finished-at="2017-06-28T17:41:37Z">
       <class name="com.vh.ui.tests.MyTasksTest">
-        <test-method status="PASS" signature="buildUp()[pri:0, instance:com.vh.ui.tests.MyTasksTest@1ee27d73]" name="buildUp" is-config="true" duration-ms="37707" started-at="2017-06-28T12:29:56Z" finished-at="2017-06-28T12:30:34Z">
+        <test-method status="PASS" signature="buildUp()[pri:0, instance:com.vh.ui.tests.MyTasksTest@40230eb9]" name="buildUp" is-config="true" duration-ms="35974" started-at="2017-06-28T12:40:22Z" finished-at="2017-06-28T12:40:58Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- buildUp -->
-        <test-method status="PASS" signature="verify_MyTasksPage()[pri:1, instance:com.vh.ui.tests.MyTasksTest@1ee27d73]" name="verify_MyTasksPage" duration-ms="28313" started-at="2017-06-28T12:30:34Z" finished-at="2017-06-28T12:31:03Z">
+        <test-method status="PASS" signature="verify_MyTasksPage()[pri:1, instance:com.vh.ui.tests.MyTasksTest@40230eb9]" name="verify_MyTasksPage" duration-ms="36799" started-at="2017-06-28T12:40:58Z" finished-at="2017-06-28T12:41:35Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- verify_MyTasksPage -->
-        <test-method status="PASS" signature="afterTest(java.lang.reflect.Method, org.testng.ITestResult)[pri:0, instance:com.vh.ui.tests.MyTasksTest@1ee27d73]" name="afterTest" is-config="true" duration-ms="4" started-at="2017-06-28T12:31:03Z" finished-at="2017-06-28T12:31:03Z">
+        <test-method status="PASS" signature="afterTest(java.lang.reflect.Method, org.testng.ITestResult)[pri:0, instance:com.vh.ui.tests.MyTasksTest@40230eb9]" name="afterTest" is-config="true" duration-ms="7" started-at="2017-06-28T12:41:35Z" finished-at="2017-06-28T12:41:35Z">
           <params>
             <param index="0">
               <value>
@@ -24,14 +24,14 @@
             </param>
             <param index="1">
               <value>
-                <![CDATA[[TestResult name=verify_MyTasksPage status=SUCCESS method=MyTasksTest.verify_MyTasksPage()[pri:1, instance:com.vh.ui.tests.MyTasksTest@1ee27d73] output={null}]]]>
+                <![CDATA[[TestResult name=verify_MyTasksPage status=SUCCESS method=MyTasksTest.verify_MyTasksPage()[pri:1, instance:com.vh.ui.tests.MyTasksTest@40230eb9] output={null}]]]>
               </value>
             </param>
           </params>
           <reporter-output>
           </reporter-output>
         </test-method> <!-- afterTest -->
-        <test-method status="PASS" signature="tearDown()[pri:0, instance:com.vh.ui.tests.MyTasksTest@1ee27d73]" name="tearDown" is-config="true" duration-ms="0" started-at="2017-06-28T12:31:03Z" finished-at="2017-06-28T12:31:03Z">
+        <test-method status="PASS" signature="tearDown()[pri:0, instance:com.vh.ui.tests.MyTasksTest@40230eb9]" name="tearDown" is-config="true" duration-ms="2198" started-at="2017-06-28T12:41:35Z" finished-at="2017-06-28T12:41:37Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- tearDown -->
