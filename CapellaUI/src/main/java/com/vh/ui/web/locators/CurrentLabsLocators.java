@@ -73,6 +73,7 @@ public class CurrentLabsLocators
 	public static final By LBL_ADDPOPUPTH = By.xpath("//div[@class='modal-dialog modal-lg']//span[text()='PTH']");
 	public static final By LBL_ADDPOPUPFERRITIN = By.xpath("//div[@class='modal-dialog modal-lg']//span[text()='Ferritin']");
 	public static final By LBL_ADDPOPUPBLOODPRESURESYSTOLIC = By.xpath("//div[@class='modal-dialog modal-lg']//span[text()='Blood Pressure Systolic']");
+	public static final By LBL_ADDPOPUPDIPSTICKFORPROTEIN = By.xpath("//div[@class='modal-dialog modal-lg']//span[text()='Dipstick For Protein']");
 
 	public static final By PLH_ADDPOPUPHEIGHT = By.xpath("//span[text()='Height']/../../../div[2]/div/input[@placeholder='cm']");
 	public static final By PLH_ADDPOPUPTARGETDRYWEIGHT = By.xpath("//span[text()='Target Dry Weight']/../../../div[2]/div/input[@placeholder='kg']");
