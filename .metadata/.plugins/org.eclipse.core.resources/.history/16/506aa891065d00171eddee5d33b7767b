@@ -52,7 +52,7 @@ public class MedicalEquipmentTest extends TestBase
 
 		appFunctions.capellaLogin();
 		appFunctions.selectPatientFromMyPatients("Waliy Al D Holroyd"); // QA
-		// appFunctions.selectPatientFromMyPatients("Alim Clear"); // Stage
+		//appFunctions.selectPatientFromMyPatients("Alim Clear"); // Stage
 		appFunctions.navigateToMenu("Patient Admin->Medical Equipment");
 	}
 

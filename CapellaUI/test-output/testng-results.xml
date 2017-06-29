@@ -1,21 +1,85 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testng-results skipped="0" failed="0" total="1" passed="1">
+<testng-results skipped="0" failed="1" total="1" passed="0">
   <reporter-output>
   </reporter-output>
-  <suite name="Default suite" duration-ms="97811" started-at="2017-06-29T16:37:47Z" finished-at="2017-06-29T16:39:25Z">
+  <suite name="Default suite" duration-ms="68357" started-at="2017-06-29T20:22:38Z" finished-at="2017-06-29T20:23:46Z">
     <groups>
     </groups>
-    <test name="Default test" duration-ms="97811" started-at="2017-06-29T16:37:47Z" finished-at="2017-06-29T16:39:25Z">
+    <test name="Default test" duration-ms="68357" started-at="2017-06-29T20:22:38Z" finished-at="2017-06-29T20:23:46Z">
       <class name="com.vh.ui.tests.PatientNavigationTest">
-        <test-method status="PASS" signature="buildUp()[pri:0, instance:com.vh.ui.tests.PatientNavigationTest@5e5aafc6]" name="buildUp" is-config="true" duration-ms="95297" started-at="2017-06-29T11:37:47Z" finished-at="2017-06-29T11:39:23Z">
+        <test-method status="PASS" signature="buildUp()[pri:0, instance:com.vh.ui.tests.PatientNavigationTest@316acbb5]" name="buildUp" is-config="true" duration-ms="65371" started-at="2017-06-29T15:22:38Z" finished-at="2017-06-29T15:23:43Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- buildUp -->
-        <test-method status="PASS" signature="verify_LeftNavigationPane()[pri:1, instance:com.vh.ui.tests.PatientNavigationTest@5e5aafc6]" name="verify_LeftNavigationPane" duration-ms="2360" started-at="2017-06-29T11:39:23Z" finished-at="2017-06-29T11:39:25Z">
+        <test-method status="FAIL" signature="verify_LeftNavigationPane()[pri:1, instance:com.vh.ui.tests.PatientNavigationTest@316acbb5]" name="verify_LeftNavigationPane" duration-ms="2393" started-at="2017-06-29T15:23:43Z" finished-at="2017-06-29T15:23:45Z">
+          <exception class="org.openqa.selenium.UnhandledAlertException">
+            <message>
+              <![CDATA[Modal dialog present: Screen Not Implemented Yet!
+Build info: version: '2.53.0', revision: '35ae25b1534ae328c771e0856c93e187490ca824', time: '2016-03-15 10:43:46'
+System info: host: 'DVA-F0L9N9R-L', ip: '172.16.128.186', os.name: 'Windows 8.1', os.arch: 'amd64', os.version: '6.3', java.version: '1.8.0_131'
+Driver info: org.openqa.selenium.ie.InternetExplorerDriver
+Capabilities [{browserAttachTimeout=0, ie.enableFullPageScreenshot=true, enablePersistentHover=true, ie.forceCreateProcessApi=false, ie.forceShellWindowsApi=false, pageLoadStrategy=normal, ignoreZoomSetting=false, ie.fileUploadDialogTimeout=3000, version=11, platform=WINDOWS, proxy={proxyType=}, nativeEvents=true, ie.ensureCleanSession=false, elementScrollBehavior=0, ie.browserCommandLineSwitches=, requireWindowFocus=false, browserName=internet explorer, initialBrowserUrl=http://localhost:27416/, javascriptEnabled=true, ignoreProtectedModeSettings=false, enableElementCacheCleanup=true, unexpectedAlertBehaviour=dismiss}]
+Session ID: c891ba78-1aae-4654-985a-f505f2a46443
+*** Element info: {Using=xpath, value=//a[contains(., 'Overview')]}]]>
+            </message>
+            <full-stacktrace>
+              <![CDATA[org.openqa.selenium.UnhandledAlertException: Modal dialog present: Screen Not Implemented Yet!
+Build info: version: '2.53.0', revision: '35ae25b1534ae328c771e0856c93e187490ca824', time: '2016-03-15 10:43:46'
+System info: host: 'DVA-F0L9N9R-L', ip: '172.16.128.186', os.name: 'Windows 8.1', os.arch: 'amd64', os.version: '6.3', java.version: '1.8.0_131'
+Driver info: org.openqa.selenium.ie.InternetExplorerDriver
+Capabilities [{browserAttachTimeout=0, ie.enableFullPageScreenshot=true, enablePersistentHover=true, ie.forceCreateProcessApi=false, ie.forceShellWindowsApi=false, pageLoadStrategy=normal, ignoreZoomSetting=false, ie.fileUploadDialogTimeout=3000, version=11, platform=WINDOWS, proxy={proxyType=}, nativeEvents=true, ie.ensureCleanSession=false, elementScrollBehavior=0, ie.browserCommandLineSwitches=, requireWindowFocus=false, browserName=internet explorer, initialBrowserUrl=http://localhost:27416/, javascriptEnabled=true, ignoreProtectedModeSettings=false, enableElementCacheCleanup=true, unexpectedAlertBehaviour=dismiss}]
+Session ID: c891ba78-1aae-4654-985a-f505f2a46443
+*** Element info: {Using=xpath, value=//a[contains(., 'Overview')]}
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance(Unknown Source)
+	at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(Unknown Source)
+	at java.lang.reflect.Constructor.newInstance(Unknown Source)
+	at org.openqa.selenium.remote.ErrorHandler.createThrowable(ErrorHandler.java:206)
+	at org.openqa.selenium.remote.ErrorHandler.createUnhandledAlertException(ErrorHandler.java:187)
+	at org.openqa.selenium.remote.ErrorHandler.throwIfResponseFailed(ErrorHandler.java:154)
+	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:678)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:363)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElementByXPath(RemoteWebDriver.java:500)
+	at org.openqa.selenium.By$ByXPath.findElement(By.java:361)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:355)
+	at com.vh.ui.waits.WebDriverWaits$1.apply(WebDriverWaits.java:190)
+	at com.vh.ui.waits.WebDriverWaits$1.apply(WebDriverWaits.java:1)
+	at org.openqa.selenium.support.ui.FluentWait.until(FluentWait.java:238)
+	at com.vh.ui.waits.WebDriverWaits.checkForElementVisibility(WebDriverWaits.java:188)
+	at com.vh.ui.actions.WebActions.getVisibiltyOfElementLocatedBy(WebActions.java:461)
+	at com.vh.ui.pages.PatientNavigationPage.viewPlanOfCareOverviewScreen(PatientNavigationPage.java:45)
+	at com.vh.ui.tests.PatientNavigationTest.verify_LeftNavigationPane(PatientNavigationTest.java:53)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:86)
+	at org.testng.internal.Invoker.invokeMethod(Invoker.java:643)
+	at org.testng.internal.Invoker.invokeTestMethod(Invoker.java:820)
+	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:1128)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:129)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:112)
+	at org.testng.TestRunner.privateRun(TestRunner.java:782)
+	at org.testng.TestRunner.run(TestRunner.java:632)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:366)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:361)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:319)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:268)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:86)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1244)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1169)
+	at org.testng.TestNG.run(TestNG.java:1064)
+	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:132)
+	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:230)
+	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:76)
+]]>
+            </full-stacktrace>
+          </exception> <!-- org.openqa.selenium.UnhandledAlertException -->
           <reporter-output>
           </reporter-output>
         </test-method> <!-- verify_LeftNavigationPane -->
-        <test-method status="PASS" signature="afterTest(java.lang.reflect.Method, org.testng.ITestResult)[pri:0, instance:com.vh.ui.tests.PatientNavigationTest@5e5aafc6]" name="afterTest" is-config="true" duration-ms="2" started-at="2017-06-29T11:39:25Z" finished-at="2017-06-29T11:39:25Z">
+        <test-method status="PASS" signature="afterTest(java.lang.reflect.Method, org.testng.ITestResult)[pri:0, instance:com.vh.ui.tests.PatientNavigationTest@316acbb5]" name="afterTest" is-config="true" duration-ms="492" started-at="2017-06-29T15:23:45Z" finished-at="2017-06-29T15:23:46Z">
           <params>
             <param index="0">
               <value>
@@ -24,14 +88,14 @@
             </param>
             <param index="1">
               <value>
-                <![CDATA[[TestResult name=verify_LeftNavigationPane status=SUCCESS method=PatientNavigationTest.verify_LeftNavigationPane()[pri:1, instance:com.vh.ui.tests.PatientNavigationTest@5e5aafc6] output={null}]]]>
+                <![CDATA[[TestResult name=verify_LeftNavigationPane status=FAILURE method=PatientNavigationTest.verify_LeftNavigationPane()[pri:1, instance:com.vh.ui.tests.PatientNavigationTest@316acbb5] output={null}]]]>
               </value>
             </param>
           </params>
           <reporter-output>
           </reporter-output>
         </test-method> <!-- afterTest -->
-        <test-method status="PASS" signature="tearDown()[pri:0, instance:com.vh.ui.tests.PatientNavigationTest@5e5aafc6]" name="tearDown" is-config="true" duration-ms="1" started-at="2017-06-29T11:39:25Z" finished-at="2017-06-29T11:39:25Z">
+        <test-method status="PASS" signature="tearDown()[pri:0, instance:com.vh.ui.tests.PatientNavigationTest@316acbb5]" name="tearDown" is-config="true" duration-ms="0" started-at="2017-06-29T15:23:46Z" finished-at="2017-06-29T15:23:46Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- tearDown -->

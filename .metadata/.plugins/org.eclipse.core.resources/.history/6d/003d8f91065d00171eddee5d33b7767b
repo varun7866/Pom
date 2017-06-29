@@ -51,8 +51,8 @@ public class MedicalEquipmentTest extends TestBase
 		medicalEquipmentPage = new MedicalEquipmentPage(driver);
 
 		appFunctions.capellaLogin();
-		appFunctions.selectPatientFromMyPatients("Waliy Al D Holroyd"); // QA
-		// appFunctions.selectPatientFromMyPatients("Alim Clear"); // Stage
+		// appFunctions.selectPatientFromMyPatients("Waliy Al D Holroyd"); // QA
+		appFunctions.selectPatientFromMyPatients("Alim Clear"); // Stage
 		appFunctions.navigateToMenu("Patient Admin->Medical Equipment");
 	}
 
