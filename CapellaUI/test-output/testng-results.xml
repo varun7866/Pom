@@ -1,21 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testng-results skipped="0" failed="1" total="4" passed="3">
+<testng-results skipped="0" failed="0" total="5" passed="5">
   <reporter-output>
   </reporter-output>
-  <suite name="Default suite" duration-ms="277900" started-at="2017-06-28T20:13:09Z" finished-at="2017-06-28T20:17:46Z">
+  <suite name="Default suite" duration-ms="216256" started-at="2017-06-29T14:23:19Z" finished-at="2017-06-29T14:26:55Z">
     <groups>
     </groups>
-    <test name="Default test" duration-ms="277900" started-at="2017-06-28T20:13:09Z" finished-at="2017-06-28T20:17:46Z">
+    <test name="Default test" duration-ms="216256" started-at="2017-06-29T14:23:19Z" finished-at="2017-06-29T14:26:55Z">
       <class name="com.vh.ui.tests.CurrentLabsTest">
-        <test-method status="PASS" signature="buildUp()[pri:0, instance:com.vh.ui.tests.CurrentLabsTest@615efd1c]" name="buildUp" is-config="true" duration-ms="70874" started-at="2017-06-28T15:13:09Z" finished-at="2017-06-28T15:14:19Z">
+        <test-method status="PASS" signature="buildUp()[pri:0, instance:com.vh.ui.tests.CurrentLabsTest@e91b4f4]" name="buildUp" is-config="true" duration-ms="70126" started-at="2017-06-29T09:23:19Z" finished-at="2017-06-29T09:24:29Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- buildUp -->
-        <test-method status="PASS" signature="verify_CurrentLabsPage()[pri:1, instance:com.vh.ui.tests.CurrentLabsTest@615efd1c]" name="verify_CurrentLabsPage" duration-ms="1726" started-at="2017-06-28T15:14:19Z" finished-at="2017-06-28T15:14:21Z">
+        <test-method status="PASS" signature="verify_CurrentLabsPage()[pri:1, instance:com.vh.ui.tests.CurrentLabsTest@e91b4f4]" name="verify_CurrentLabsPage" duration-ms="675" started-at="2017-06-29T09:24:29Z" finished-at="2017-06-29T09:24:29Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- verify_CurrentLabsPage -->
-        <test-method status="PASS" signature="afterTest(java.lang.reflect.Method, org.testng.ITestResult)[pri:0, instance:com.vh.ui.tests.CurrentLabsTest@615efd1c]" name="afterTest" is-config="true" duration-ms="7" started-at="2017-06-28T15:14:21Z" finished-at="2017-06-28T15:14:21Z">
+        <test-method status="PASS" signature="afterTest(java.lang.reflect.Method, org.testng.ITestResult)[pri:0, instance:com.vh.ui.tests.CurrentLabsTest@e91b4f4]" name="afterTest" is-config="true" duration-ms="2" started-at="2017-06-29T09:24:29Z" finished-at="2017-06-29T09:24:29Z">
           <params>
             <param index="0">
               <value>
@@ -24,79 +24,62 @@
             </param>
             <param index="1">
               <value>
-                <![CDATA[[TestResult name=verify_CurrentLabsPage status=SUCCESS method=CurrentLabsTest.verify_CurrentLabsPage()[pri:1, instance:com.vh.ui.tests.CurrentLabsTest@615efd1c] output={null}]]]>
+                <![CDATA[[TestResult name=verify_CurrentLabsPage status=SUCCESS method=CurrentLabsTest.verify_CurrentLabsPage()[pri:1, instance:com.vh.ui.tests.CurrentLabsTest@e91b4f4] output={null}]]]>
               </value>
             </param>
           </params>
           <reporter-output>
           </reporter-output>
         </test-method> <!-- afterTest -->
-        <test-method status="FAIL" signature="verify_AddAddLabResultsPopupCKD()[pri:2, instance:com.vh.ui.tests.CurrentLabsTest@615efd1c]" name="verify_AddAddLabResultsPopupCKD" duration-ms="48936" started-at="2017-06-28T15:14:21Z" finished-at="2017-06-28T15:15:10Z">
-          <exception class="java.lang.AssertionError">
-            <message>
-              <![CDATA[The Add Lab Results popup APPLY THIS DATE TO ALL VALUES was not applied to all dates expected [true] but found [false]]]>
-            </message>
-            <full-stacktrace>
-              <![CDATA[java.lang.AssertionError: The Add Lab Results popup APPLY THIS DATE TO ALL VALUES was not applied to all dates expected [true] but found [false]
-	at org.testng.Assert.fail(Assert.java:94)
-	at org.testng.Assert.failNotEquals(Assert.java:513)
-	at org.testng.Assert.assertTrue(Assert.java:42)
-	at com.vh.ui.tests.CurrentLabsTest.verify_AddAddLabResultsPopupCKD(CurrentLabsTest.java:77)
-	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
-	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
-	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
-	at java.lang.reflect.Method.invoke(Unknown Source)
-	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:86)
-	at org.testng.internal.Invoker.invokeMethod(Invoker.java:643)
-	at org.testng.internal.Invoker.invokeTestMethod(Invoker.java:820)
-	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:1128)
-	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:129)
-	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:112)
-	at org.testng.TestRunner.privateRun(TestRunner.java:782)
-	at org.testng.TestRunner.run(TestRunner.java:632)
-	at org.testng.SuiteRunner.runTest(SuiteRunner.java:366)
-	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:361)
-	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:319)
-	at org.testng.SuiteRunner.run(SuiteRunner.java:268)
-	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
-	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:86)
-	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1244)
-	at org.testng.TestNG.runSuitesLocally(TestNG.java:1169)
-	at org.testng.TestNG.run(TestNG.java:1064)
-	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:132)
-	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:230)
-	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:76)
-]]>
-            </full-stacktrace>
-          </exception> <!-- java.lang.AssertionError -->
+        <test-method status="PASS" signature="verify_AddLabResultsPopupCKD()[pri:2, instance:com.vh.ui.tests.CurrentLabsTest@e91b4f4]" name="verify_AddLabResultsPopupCKD" duration-ms="43812" started-at="2017-06-29T09:24:29Z" finished-at="2017-06-29T09:25:13Z">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- verify_AddAddLabResultsPopupCKD -->
-        <test-method status="PASS" signature="afterTest(java.lang.reflect.Method, org.testng.ITestResult)[pri:0, instance:com.vh.ui.tests.CurrentLabsTest@615efd1c]" name="afterTest" is-config="true" duration-ms="522" started-at="2017-06-28T15:15:10Z" finished-at="2017-06-28T15:15:11Z">
+        </test-method> <!-- verify_AddLabResultsPopupCKD -->
+        <test-method status="PASS" signature="afterTest(java.lang.reflect.Method, org.testng.ITestResult)[pri:0, instance:com.vh.ui.tests.CurrentLabsTest@e91b4f4]" name="afterTest" is-config="true" duration-ms="1" started-at="2017-06-29T09:25:13Z" finished-at="2017-06-29T09:25:13Z">
           <params>
             <param index="0">
               <value>
-                <![CDATA[public void com.vh.ui.tests.CurrentLabsTest.verify_AddAddLabResultsPopupCKD() throws com.vh.ui.exceptions.WaitException,com.vh.ui.exceptions.URLNavigationException,java.lang.InterruptedException]]>
+                <![CDATA[public void com.vh.ui.tests.CurrentLabsTest.verify_AddLabResultsPopupCKD() throws com.vh.ui.exceptions.WaitException,com.vh.ui.exceptions.URLNavigationException,java.lang.InterruptedException]]>
               </value>
             </param>
             <param index="1">
               <value>
-                <![CDATA[[TestResult name=verify_AddAddLabResultsPopupCKD status=FAILURE method=CurrentLabsTest.verify_AddAddLabResultsPopupCKD()[pri:2, instance:com.vh.ui.tests.CurrentLabsTest@615efd1c] output={null}]]]>
+                <![CDATA[[TestResult name=verify_AddLabResultsPopupCKD status=SUCCESS method=CurrentLabsTest.verify_AddLabResultsPopupCKD()[pri:2, instance:com.vh.ui.tests.CurrentLabsTest@e91b4f4] output={null}]]]>
               </value>
             </param>
           </params>
           <reporter-output>
           </reporter-output>
         </test-method> <!-- afterTest -->
-        <test-method status="PASS" signature="verify_AddAddLabResultsPopupESRD()[pri:3, instance:com.vh.ui.tests.CurrentLabsTest@615efd1c]" name="verify_AddAddLabResultsPopupESRD" duration-ms="119422" started-at="2017-06-28T15:15:11Z" finished-at="2017-06-28T15:17:10Z">
+        <test-method status="PASS" signature="verify_AddPopupValidationCKD()[pri:3, instance:com.vh.ui.tests.CurrentLabsTest@e91b4f4]" name="verify_AddPopupValidationCKD" duration-ms="31257" started-at="2017-06-29T09:25:13Z" finished-at="2017-06-29T09:25:45Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- verify_AddPopupValidationCKD -->
+        <test-method status="PASS" signature="verify_AddAddLabResultsPopupESRD()[pri:4, instance:com.vh.ui.tests.CurrentLabsTest@e91b4f4]" name="verify_AddAddLabResultsPopupESRD" duration-ms="41120" started-at="2017-06-29T09:25:45Z" finished-at="2017-06-29T09:26:26Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- verify_AddAddLabResultsPopupESRD -->
-        <test-method status="PASS" signature="verify_AddLabs()[pri:4, instance:com.vh.ui.tests.CurrentLabsTest@615efd1c]" name="verify_AddLabs" duration-ms="36316" started-at="2017-06-28T15:17:10Z" finished-at="2017-06-28T15:17:46Z">
+        <test-method status="PASS" signature="afterTest(java.lang.reflect.Method, org.testng.ITestResult)[pri:0, instance:com.vh.ui.tests.CurrentLabsTest@e91b4f4]" name="afterTest" is-config="true" duration-ms="0" started-at="2017-06-29T09:25:45Z" finished-at="2017-06-29T09:25:45Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[public void com.vh.ui.tests.CurrentLabsTest.verify_AddPopupValidationCKD() throws com.vh.ui.exceptions.WaitException,com.vh.ui.exceptions.URLNavigationException,java.lang.InterruptedException]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[[TestResult name=verify_AddPopupValidationCKD status=SUCCESS method=CurrentLabsTest.verify_AddPopupValidationCKD()[pri:3, instance:com.vh.ui.tests.CurrentLabsTest@e91b4f4] output={null}]]]>
+              </value>
+            </param>
+          </params>
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- verify_AddLabs -->
-        <test-method status="PASS" signature="afterTest(java.lang.reflect.Method, org.testng.ITestResult)[pri:0, instance:com.vh.ui.tests.CurrentLabsTest@615efd1c]" name="afterTest" is-config="true" duration-ms="0" started-at="2017-06-28T15:17:10Z" finished-at="2017-06-28T15:17:10Z">
+        </test-method> <!-- afterTest -->
+        <test-method status="PASS" signature="verify_AddPopupValidationESRD()[pri:5, instance:com.vh.ui.tests.CurrentLabsTest@e91b4f4]" name="verify_AddPopupValidationESRD" duration-ms="29181" started-at="2017-06-29T09:26:26Z" finished-at="2017-06-29T09:26:55Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- verify_AddPopupValidationESRD -->
+        <test-method status="PASS" signature="afterTest(java.lang.reflect.Method, org.testng.ITestResult)[pri:0, instance:com.vh.ui.tests.CurrentLabsTest@e91b4f4]" name="afterTest" is-config="true" duration-ms="0" started-at="2017-06-29T09:26:26Z" finished-at="2017-06-29T09:26:26Z">
           <params>
             <param index="0">
               <value>
@@ -105,33 +88,33 @@
             </param>
             <param index="1">
               <value>
-                <![CDATA[[TestResult name=verify_AddAddLabResultsPopupESRD status=SUCCESS method=CurrentLabsTest.verify_AddAddLabResultsPopupESRD()[pri:3, instance:com.vh.ui.tests.CurrentLabsTest@615efd1c] output={null}]]]>
+                <![CDATA[[TestResult name=verify_AddAddLabResultsPopupESRD status=SUCCESS method=CurrentLabsTest.verify_AddAddLabResultsPopupESRD()[pri:4, instance:com.vh.ui.tests.CurrentLabsTest@e91b4f4] output={null}]]]>
               </value>
             </param>
           </params>
           <reporter-output>
           </reporter-output>
         </test-method> <!-- afterTest -->
-        <test-method status="PASS" signature="afterTest(java.lang.reflect.Method, org.testng.ITestResult)[pri:0, instance:com.vh.ui.tests.CurrentLabsTest@615efd1c]" name="afterTest" is-config="true" duration-ms="0" started-at="2017-06-28T15:17:46Z" finished-at="2017-06-28T15:17:46Z">
+        <test-method status="PASS" signature="tearDown()[pri:0, instance:com.vh.ui.tests.CurrentLabsTest@e91b4f4]" name="tearDown" is-config="true" duration-ms="1" started-at="2017-06-29T09:26:55Z" finished-at="2017-06-29T09:26:55Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- tearDown -->
+        <test-method status="PASS" signature="afterTest(java.lang.reflect.Method, org.testng.ITestResult)[pri:0, instance:com.vh.ui.tests.CurrentLabsTest@e91b4f4]" name="afterTest" is-config="true" duration-ms="0" started-at="2017-06-29T09:26:55Z" finished-at="2017-06-29T09:26:55Z">
           <params>
             <param index="0">
               <value>
-                <![CDATA[public void com.vh.ui.tests.CurrentLabsTest.verify_AddLabs() throws com.vh.ui.exceptions.WaitException,com.vh.ui.exceptions.URLNavigationException,java.lang.InterruptedException]]>
+                <![CDATA[public void com.vh.ui.tests.CurrentLabsTest.verify_AddPopupValidationESRD() throws com.vh.ui.exceptions.WaitException,com.vh.ui.exceptions.URLNavigationException,java.lang.InterruptedException]]>
               </value>
             </param>
             <param index="1">
               <value>
-                <![CDATA[[TestResult name=verify_AddLabs status=SUCCESS method=CurrentLabsTest.verify_AddLabs()[pri:4, instance:com.vh.ui.tests.CurrentLabsTest@615efd1c] output={null}]]]>
+                <![CDATA[[TestResult name=verify_AddPopupValidationESRD status=SUCCESS method=CurrentLabsTest.verify_AddPopupValidationESRD()[pri:5, instance:com.vh.ui.tests.CurrentLabsTest@e91b4f4] output={null}]]]>
               </value>
             </param>
           </params>
           <reporter-output>
           </reporter-output>
         </test-method> <!-- afterTest -->
-        <test-method status="PASS" signature="tearDown()[pri:0, instance:com.vh.ui.tests.CurrentLabsTest@615efd1c]" name="tearDown" is-config="true" duration-ms="0" started-at="2017-06-28T15:17:46Z" finished-at="2017-06-28T15:17:46Z">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- tearDown -->
       </class> <!-- com.vh.ui.tests.CurrentLabsTest -->
     </test> <!-- Default test -->
   </suite> <!-- Default suite -->

@@ -59,7 +59,7 @@ public class CurrentLabsTest extends TestBase
 
 	@Test(priority = 2)
 	@Step("Verify the Add Lab Results popup for CKD Patients")
-	public void verify_AddAddLabResultsPopupCKD() throws WaitException, URLNavigationException, InterruptedException
+	public void verify_AddLabResultsPopupCKD() throws WaitException, URLNavigationException, InterruptedException
 	{
 		currentLabsPage.clickAddLabButton();
 
@@ -101,6 +101,10 @@ public class CurrentLabsTest extends TestBase
 		Assert.assertTrue(currentLabsPage.viewAddpopupAlbuminGoal(), "Failed to identify the Add Lab Results popup ALBUMIN goal");
 
 		Assert.assertTrue(currentLabsPage.viewAddpopupDipstickForProteinLabel(), "Failed to identify the Add Lab Results popup DIPSTICK FOR PROTEIN label");
+		Assert.assertTrue(currentLabsPage.viewAddPopupDipstickForProteinComboBox(), "Failed to identify the Add Lab Results popup DIPSTICK FOR PROTEIN combo box");
+		Assert.assertTrue(currentLabsPage.viewAddpopupDipstickForProteinPlaceholder(), "Failed to identify the Add Lab Results popup DIPSTICK FOR PROTEIN placeholder");
+		Assert.assertTrue(currentLabsPage.verifyAddPopupDipstickForProteinComboBoxOptions(), "The Add Lab Results popup DIPSTICK FOR DIPSTICK FOR PROTEIN drop down options are incorrect");
+		Assert.assertTrue(currentLabsPage.viewAddpopupDipstickForProteinGoal(), "Failed to identify the Add Lab Results popup DIPSTICK FOR PROTEIN goal");
 
 		Assert.assertTrue(currentLabsPage.viewAddpopupCalciumLabel(), "Failed to identify the Add Lab Results popup CALCIUM label");
 		Assert.assertTrue(currentLabsPage.viewAddpopupCalciumTextBox(), "Failed to identify the Add Lab Results popup CALCIUM text box");
@@ -174,11 +178,16 @@ public class CurrentLabsTest extends TestBase
 		Assert.assertTrue(currentLabsPage.viewAddpopupBloodPressureDiastolicLabel(), "Failed to identify the Add Lab Results popup BLOOD PRESURE DIASTOLIC label");
 		Assert.assertTrue(currentLabsPage.viewAddpopupBloodPressureDiastolicTextBox(), "Failed to identify the Add Lab Results popup BLOOD PRESURE DIASTOLIC text box");
 		Assert.assertTrue(currentLabsPage.viewAddpopupBloodPressureDiastolicGoal(), "Failed to identify the Add Lab Results popup BLOOD PRESURE DIASTOLIC goal");
-
-		currentLabsPage.clickAddPopupCancelButton();
 	}
 
 	@Test(priority = 3)
+	@Step("Verify the Add Lab Results popup validation for CKD Patients")
+	public void verify_AddPopupValidationCKD() throws WaitException, URLNavigationException, InterruptedException
+	{
+		currentLabsPage.populateAddPopupAllCKD();
+	}
+
+	@Test(priority = 4)
 	@Step("Verify the Add Lab Results popup for ESRD Patients")
 	public void verify_AddAddLabResultsPopupESRD() throws WaitException, URLNavigationException, InterruptedException
 	{
@@ -299,11 +308,11 @@ public class CurrentLabsTest extends TestBase
 		Assert.assertTrue(currentLabsPage.viewAddpopupBloodPressureSystolicGoal(), "Failed to identify the Add Lab Results popup BLOOD PRESURE SYSTOLIC goal");
 	}
 
-	@Test(priority = 4)
-	@Step("Verify adding Labs")
-	public void verify_AddLabs() throws WaitException, URLNavigationException, InterruptedException
+	@Test(priority = 5)
+	@Step("Verify the Add Lab Results popup validation for ESRD Patients")
+	public void verify_AddPopupValidationESRD() throws WaitException, URLNavigationException, InterruptedException
 	{
-		Assert.assertTrue(currentLabsPage.verify_AddingLabsCKD(), "Failed to add Labs for a CKD Patient");
+		currentLabsPage.populateAddPopupAllESRD();
 	}
 
 	@AfterClass

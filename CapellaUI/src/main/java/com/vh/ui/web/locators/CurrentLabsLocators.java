@@ -21,6 +21,8 @@ public class CurrentLabsLocators
 
 	public static final By CAL_ADDPOPUPAPPLYTHISDATETOALLVALUES = By.xpath("//div[@class='modal-dialog modal-lg']//span[text()='APPLY THIS DATE TO ALL VALUES']/../../..//input");
 
+	public static final By CBO_ADDPOPUPDIPSTICKFORPROTEIN = By.xpath("//select[@id='labToAddDipstickForProteinDropdown']");
+
 	public static final By GOL_ADDPOPUPPHOSPHOROUS = By.xpath("//span[text()='Phosphorous']/../../../div[3]/div/div/span[text()='Goal: Between 0.5 and 5.5']");
 	public static final By GOL_ADDPOPUPGFR = By.xpath("//span[text()='GFR']/../../../div[3]/div/div/span[text()='Goal: Between 30 and 125']");
 	public static final By GOL_ADDPOPUPLDL = By.xpath("//span[text()='LDL']/../../../div[3]/div/div/span[text()='Goal: Between 0 and 100']");
@@ -46,6 +48,7 @@ public class CurrentLabsLocators
 	public static final By GOL_ADDPOPUPPTH5 = By.xpath("//span[text()='PTH']/../../../div[3]/div/div/span[text()=' ESRD between 150 and 600']");
 	public static final By GOL_ADDPOPUPFERRITIN = By.xpath("//span[text()='Ferritin']/../../../div[3]/div/div/span[text()='Goal: Between 100 and 500']");
 	public static final By GOL_ADDPOPUPBLOODPRESURESYSTOLIC = By.xpath("//span[text()='Blood Pressure Systolic']/../../../div[3]/div/div/span[text()='Goal: Between 60 and 130']");
+	public static final By GOL_ADDPOPUPDIPSTICKFORPROTEIN = By.xpath("//span[text()='Dipstick For Protein']/../../../div[3]/div/div/span[text()='Goal: Negative']");
 
 	public static final By LBL_PAGEHEADER = By.xpath("//h2[contains(., 'Labs')]");
 	public static final By LBL_ADDPOPUPADDLABRESULTS = By.xpath("//span[text()='Add Lab Results']");
@@ -78,6 +81,7 @@ public class CurrentLabsLocators
 	public static final By PLH_ADDPOPUPHEIGHT = By.xpath("//span[text()='Height']/../../../div[2]/div/input[@placeholder='cm']");
 	public static final By PLH_ADDPOPUPTARGETDRYWEIGHT = By.xpath("//span[text()='Target Dry Weight']/../../../div[2]/div/input[@placeholder='kg']");
 	public static final By PLH_ADDPOPUPWEIGHT = By.xpath("//span[text()='Weight']/../../../div[2]/div/input[@placeholder='kg']");
+	public static final By PLH_ADDPOPUPDIPSTICKFORPROTEIN = By.xpath("//span[text()='Dipstick For Protein']/../../../div[2]/div/select[@ng-reflect-model='No Test']");
 
 	public static final By TXT_ADDPOPUPHEIGHT = By.xpath("//span[text()='Height']/../../../div[2]/div/input");
 	public static final By TXT_ADDPOPUPTARGETDRYWEIGHT = By.xpath("//span[text()='Target Dry Weight']/../../../div[2]/div/input");

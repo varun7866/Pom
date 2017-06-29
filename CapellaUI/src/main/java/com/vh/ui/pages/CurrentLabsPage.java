@@ -5,6 +5,7 @@ import static com.vh.ui.web.locators.CurrentLabsLocators.BTN_ADDPOPUPAPPLYTHISDA
 import static com.vh.ui.web.locators.CurrentLabsLocators.BTN_ADDPOPUPCANCEL;
 import static com.vh.ui.web.locators.CurrentLabsLocators.BTN_ADDPOPUPSAVE;
 import static com.vh.ui.web.locators.CurrentLabsLocators.CAL_ADDPOPUPAPPLYTHISDATETOALLVALUES;
+import static com.vh.ui.web.locators.CurrentLabsLocators.CBO_ADDPOPUPDIPSTICKFORPROTEIN;
 import static com.vh.ui.web.locators.CurrentLabsLocators.GOL_ADDPOPUPALBUMIN;
 import static com.vh.ui.web.locators.CurrentLabsLocators.GOL_ADDPOPUPBLOODPRESUREDIASTOLIC;
 import static com.vh.ui.web.locators.CurrentLabsLocators.GOL_ADDPOPUPBLOODPRESURESYSTOLIC;
@@ -13,6 +14,7 @@ import static com.vh.ui.web.locators.CurrentLabsLocators.GOL_ADDPOPUPCALCIUM2;
 import static com.vh.ui.web.locators.CurrentLabsLocators.GOL_ADDPOPUPCALCIUMXPHOSPHOROUS;
 import static com.vh.ui.web.locators.CurrentLabsLocators.GOL_ADDPOPUPCO2LEVEL;
 import static com.vh.ui.web.locators.CurrentLabsLocators.GOL_ADDPOPUPCREATININE;
+import static com.vh.ui.web.locators.CurrentLabsLocators.GOL_ADDPOPUPDIPSTICKFORPROTEIN;
 import static com.vh.ui.web.locators.CurrentLabsLocators.GOL_ADDPOPUPFERRITIN;
 import static com.vh.ui.web.locators.CurrentLabsLocators.GOL_ADDPOPUPGFR;
 import static com.vh.ui.web.locators.CurrentLabsLocators.GOL_ADDPOPUPHEPATITISBTITER;
@@ -57,6 +59,7 @@ import static com.vh.ui.web.locators.CurrentLabsLocators.LBL_ADDPOPUPURINEALBUMI
 import static com.vh.ui.web.locators.CurrentLabsLocators.LBL_ADDPOPUPURR;
 import static com.vh.ui.web.locators.CurrentLabsLocators.LBL_ADDPOPUPWEIGHT;
 import static com.vh.ui.web.locators.CurrentLabsLocators.LBL_PAGEHEADER;
+import static com.vh.ui.web.locators.CurrentLabsLocators.PLH_ADDPOPUPDIPSTICKFORPROTEIN;
 import static com.vh.ui.web.locators.CurrentLabsLocators.PLH_ADDPOPUPHEIGHT;
 import static com.vh.ui.web.locators.CurrentLabsLocators.PLH_ADDPOPUPTARGETDRYWEIGHT;
 import static com.vh.ui.web.locators.CurrentLabsLocators.PLH_ADDPOPUPWEIGHT;
@@ -86,6 +89,7 @@ import static com.vh.ui.web.locators.CurrentLabsLocators.TXT_ADDPOPUPWEIGHT;
 
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
@@ -691,29 +695,51 @@ public class CurrentLabsPage extends WebPage
 		return webActions.getVisibiltyOfElementLocatedBy(VISIBILITY, LBL_ADDPOPUPDIPSTICKFORPROTEIN);
 	}
 
-	@Step("Verify adding Labs for an CKD Patient")
-	public boolean verify_AddingLabsCKD() throws TimeoutException, WaitException
+	@Step("Verify the visibility of the Add Lab Results popup DIPSTICK FOR PROTEIN combo box")
+	public boolean viewAddPopupDipstickForProteinComboBox() throws TimeoutException, WaitException
 	{
-		enterHeight("182.88").enterTargetDryWeight("77.1107").enterPhosphorous("3.5").enterGFR("70").enterLDL("50").enterAlbumin("5").enterCO2Level("25").enterKTV("1.5")
-		        .enterPotassium("4.1").enterHepatitisBTiter("50").enterTSAT("50").enterBloodPressureDiastolic("30").enterWeight("77.1107").enterAlbumin("45").enterCreatinineString("1.2")
-		        .enterHGBA1C("6").enterHGB("5").enterUrineAlbuminCreatinineRatio("15").enterCalcium("9.1").enterURR("70").enterPTH("200").enterFerritin("250")
-		        .enterBloodPressureSystolic("100");
-
-		clickAddPopupSaveButton();
-
-		return true;
+		return webActions.getVisibiltyOfElementLocatedBy(VISIBILITY, CBO_ADDPOPUPDIPSTICKFORPROTEIN);
 	}
 
-	@Step("Verify adding Labs for a ESRD Patient")
-	public boolean verify_AddingLabsESRD() throws TimeoutException, WaitException
+	@Step("Verify the visibility of the Add Medical Equipment popup DIPSTICK FOR PROTEIN placeholder")
+	public boolean viewAddpopupDipstickForProteinPlaceholder() throws TimeoutException, WaitException
+	{
+		return webActions.getVisibiltyOfElementLocatedBy(VISIBILITY, PLH_ADDPOPUPDIPSTICKFORPROTEIN);
+	}
+
+	@Step("Verify the options of the Add Medical Equipment popup DIPSTICK FOR PROTEIN combo box")
+	public boolean verifyAddPopupDipstickForProteinComboBoxOptions() throws TimeoutException, WaitException
+	{
+		List<String> dropDownOptions = new ArrayList<String>();
+		dropDownOptions.add("No Test");
+		dropDownOptions.add("Negative");
+		dropDownOptions.add("Positive");
+
+		return appFunctions.verifyDropDownOptions(CBO_ADDPOPUPDIPSTICKFORPROTEIN, dropDownOptions);
+	}
+
+	@Step("Verify the visibility of the Add Lab Results popup DIPSTICK FOR PROTEIN goal")
+	public boolean viewAddpopupDipstickForProteinGoal() throws TimeoutException, WaitException
+	{
+		return webActions.getVisibiltyOfElementLocatedBy(VISIBILITY, GOL_ADDPOPUPDIPSTICKFORPROTEIN);
+	}
+
+	@Step("Populate all fields on the Add Lab Results popup for a CKD Patient")
+	public void populateAddPopupAllCKD() throws TimeoutException, WaitException
+	{
+		enterHeight("182.88").enterTargetDryWeight("77.1107").enterPhosphorous("3.5").enterGFR("70").enterLDL("50").enterAlbumin("5").enterDipstickForProtein("Positive").enterCalcium("9.1")
+		        .enterURR("70").enterPTH("300").enterFerritin("250").enterBloodPressureSystolic("100").enterWeight("77.1107").enterCalciumXPhosphorous("45").enterCreatinineString("1.2")
+		        .enterHGBA1C("6").enterHGB("5").enterUrineAlbuminCreatinineRatio("15").enterCO2Level("25").enterKTV("1.5").enterPotassium("4.1").enterHepatitisBTiter("50").enterTSAT("50")
+		        .enterBloodPressureDiastolic("30");
+	}
+
+	@Step("Populate all fields on the Add Lab Results popup for an ESRD Patient")
+	public void populateAddPopupAllESRD() throws TimeoutException, WaitException
 	{
 		enterHeight("182.88").enterTargetDryWeight("77.1107").enterPhosphorous("3.5").enterGFR("70").enterLDL("50").enterAlbumin("5").enterCO2Level("25").enterKTV("1.5")
-        .enterPotassium("4.1").enterHepatitisBTiter("50").enterTSAT("50").enterBloodPressureDiastolic("30").enterWeight("77.1107").enterAlbumin("45").enterCreatinineString("1.2")
-        .enterHGBA1C("6").enterHGB("5").enterUrineAlbuminCreatinineRatio("15").enterCalcium("9.1").enterURR("70").enterPTH("200").enterFerritin("250").enterBloodPressureSystolic("100");
-
-		clickAddPopupSaveButton();
-
-		return true;
+		        .enterPotassium("4.1").enterHepatitisBTiter("50").enterTSAT("50").enterBloodPressureDiastolic("30").enterWeight("77.1107").enterCalciumXPhosphorous("45")
+		        .enterCreatinineString("1.2").enterHGBA1C("6").enterHGB("5").enterUrineAlbuminCreatinineRatio("15").enterCalcium("9.1").enterURR("70").enterPTH("200").enterFerritin("250")
+		        .enterBloodPressureSystolic("100");
 	}
 
 	@Step("Entered {0} in the HEIGHT text field")
@@ -874,6 +900,13 @@ public class CurrentLabsPage extends WebPage
 	public CurrentLabsPage enterBloodPressureSystolic(String bloodPressureSystolicVal) throws TimeoutException, WaitException
 	{
 		webActions.enterText(VISIBILITY, TXT_ADDPOPUPBLOODPRESURESYSTOLIC, bloodPressureSystolicVal);
+		return this;
+	}
+
+	@Step("Entered {0} in the DIPSTICK FOR PROTEIN combo box")
+	public CurrentLabsPage enterDipstickForProtein(String dipstickForProteinVal) throws TimeoutException, WaitException
+	{
+		webActions.selectFromDropDown(CLICKABILITY, CBO_ADDPOPUPDIPSTICKFORPROTEIN, dipstickForProteinVal);
 		return this;
 	}
 }
