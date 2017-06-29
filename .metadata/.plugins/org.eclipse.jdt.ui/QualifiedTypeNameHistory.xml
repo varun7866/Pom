@@ -18,7 +18,6 @@
 <fullyQualifiedTypeName name="com.vh.ui.pages.MyTasksPage"/>
 <fullyQualifiedTypeName name="com.vh.ui.pages.MySchedulePage"/>
 <fullyQualifiedTypeName name="org.openqa.selenium.WebDriver"/>
-<fullyQualifiedTypeName name="com.vh.ui.actions.WebActions"/>
 <fullyQualifiedTypeName name="org.openqa.selenium.By"/>
 <fullyQualifiedTypeName name="java.awt.List"/>
 <fullyQualifiedTypeName name="java.util.List"/>
@@ -29,4 +28,7 @@
 <fullyQualifiedTypeName name="com.thoughtworks.selenium.webdriven.commands.Highlight"/>
 <fullyQualifiedTypeName name="com.vh.ui.web.locators.MyTasksLocators"/>
 <fullyQualifiedTypeName name="org.seleniumhq.jetty9.server.handler.ContextHandler.ApprovePathPrefixAliases"/>
+<fullyQualifiedTypeName name="com.vh.ui.actions.WebActions"/>
+<fullyQualifiedTypeName name="com.vh.ui.pages.PatientNavigationPage"/>
+<fullyQualifiedTypeName name="com.vh.ui.web.locators.PatientNavigationLocators"/>
 </qualifiedTypeNameHistroy>

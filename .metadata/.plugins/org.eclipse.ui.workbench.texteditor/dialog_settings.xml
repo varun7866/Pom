@@ -2,12 +2,17 @@
 <section name="Workbench">
 	<section name="org.eclipse.ui.texteditor.FindReplaceDialog">
 		<item value="false" key="isRegEx"/>
-		<item value="The Add Lab Results popup APPLY THIS DATE TO ALL VALUES was not applied to all dates" key="selection"/>
+		<item value="conta" key="selection"/>
 		<item value="false" key="casesensitive"/>
 		<item value="false" key="incremental"/>
 		<item value="true" key="wrap"/>
 		<item value="false" key="wholeword"/>
 		<list key="findhistory">
+			<item value="conta"/>
+			<item value="cont"/>
+			<item value="caont"/>
+			<item value="calcium"/>
+			<item value="DIPSTICK FOR PROTEIN"/>
 			<item value="The Add Lab Results popup APPLY THIS DATE TO ALL VALUES was not applied to all dates"/>
 			<item value="task"/>
 			<item value="webac"/>

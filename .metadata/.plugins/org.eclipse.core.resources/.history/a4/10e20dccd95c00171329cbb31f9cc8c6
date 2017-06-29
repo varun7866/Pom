@@ -1,0 +1,15 @@
+/**
+ * 
+ */
+package com.vh.ui.web.locators;
+
+/*
+ * @author Harvy Ackermans
+ * @date   June 29, 2017
+ * @class  PatientNavigationLocators.java
+ */
+
+public class PatientNavigationLocators
+{
+	public static final By LBL_PLANOFCARE = By.xpath("//a[text()='Plan of Care']");
+}
