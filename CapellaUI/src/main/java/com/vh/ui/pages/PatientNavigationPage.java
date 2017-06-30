@@ -3,7 +3,12 @@ package com.vh.ui.pages;
 import static com.vh.ui.web.locators.PatientNavigationLocators.LBL_PATIENTCARECARETEAM;
 import static com.vh.ui.web.locators.PatientNavigationLocators.LBL_PATIENTCAREPATIENTRECAP;
 import static com.vh.ui.web.locators.PatientNavigationLocators.LBL_PATIENTCAREPATIENTTASKS;
+import static com.vh.ui.web.locators.PatientNavigationLocators.LBL_PATIENTEXPERIENCEACCESS;
+import static com.vh.ui.web.locators.PatientNavigationLocators.LBL_PATIENTEXPERIENCEDEPRESSION;
+import static com.vh.ui.web.locators.PatientNavigationLocators.LBL_PATIENTEXPERIENCEDIABETES;
+import static com.vh.ui.web.locators.PatientNavigationLocators.LBL_PATIENTEXPERIENCEFLUID;
 import static com.vh.ui.web.locators.PatientNavigationLocators.LBL_PATIENTEXPERIENCEHOSPITALIZATIONS;
+import static com.vh.ui.web.locators.PatientNavigationLocators.LBL_PATIENTEXPERIENCEMEDICATIONS;
 import static com.vh.ui.web.locators.PatientNavigationLocators.LBL_PLANOFCARECONSOLIDATEDSTORY;
 import static com.vh.ui.web.locators.PatientNavigationLocators.LBL_PLANOFCAREHISTORY;
 import static com.vh.ui.web.locators.PatientNavigationLocators.LBL_PLANOFCAREMANAGEMENT;
@@ -14,7 +19,12 @@ import static com.vh.ui.web.locators.PatientNavigationLocators.MNU_PATIENTCARECA
 import static com.vh.ui.web.locators.PatientNavigationLocators.MNU_PATIENTCAREPATIENTRECAP;
 import static com.vh.ui.web.locators.PatientNavigationLocators.MNU_PATIENTCAREPATIENTTASKS;
 import static com.vh.ui.web.locators.PatientNavigationLocators.MNU_PATIENTEXPERIENCE;
+import static com.vh.ui.web.locators.PatientNavigationLocators.MNU_PATIENTEXPERIENCEACCESS;
+import static com.vh.ui.web.locators.PatientNavigationLocators.MNU_PATIENTEXPERIENCEDEPRESSION;
+import static com.vh.ui.web.locators.PatientNavigationLocators.MNU_PATIENTEXPERIENCEDIABETES;
+import static com.vh.ui.web.locators.PatientNavigationLocators.MNU_PATIENTEXPERIENCEFLUID;
 import static com.vh.ui.web.locators.PatientNavigationLocators.MNU_PATIENTEXPERIENCEHOSPITALIZATIONS;
+import static com.vh.ui.web.locators.PatientNavigationLocators.MNU_PATIENTEXPERIENCEMEDICATIONS;
 import static com.vh.ui.web.locators.PatientNavigationLocators.MNU_PLANOFCARE;
 import static com.vh.ui.web.locators.PatientNavigationLocators.MNU_PLANOFCARECONSOLIDATEDSTORY;
 import static com.vh.ui.web.locators.PatientNavigationLocators.MNU_PLANOFCAREHISTORY;
@@ -146,5 +156,45 @@ public class PatientNavigationPage extends WebPage
 		webActions.click(CLICKABILITY, MNU_PATIENTEXPERIENCEHOSPITALIZATIONS);
 
 		return webActions.getVisibiltyOfElementLocatedBy(VISIBILITY, LBL_PATIENTEXPERIENCEHOSPITALIZATIONS);
+	}
+
+	@Step("Verify the Fluid screen is displayed")
+	public boolean viewPatientExperienceFluidScreen() throws TimeoutException, WaitException
+	{
+		webActions.click(CLICKABILITY, MNU_PATIENTEXPERIENCEFLUID);
+
+		return webActions.getVisibiltyOfElementLocatedBy(VISIBILITY, LBL_PATIENTEXPERIENCEFLUID);
+	}
+
+	@Step("Verify the Access screen is displayed")
+	public boolean viewPatientExperienceAccessScreen() throws TimeoutException, WaitException
+	{
+		webActions.click(CLICKABILITY, MNU_PATIENTEXPERIENCEACCESS);
+
+		return webActions.getVisibiltyOfElementLocatedBy(VISIBILITY, LBL_PATIENTEXPERIENCEACCESS);
+	}
+
+	@Step("Verify the Medications screen is displayed")
+	public boolean viewPatientExperienceMedicationsScreen() throws TimeoutException, WaitException
+	{
+		webActions.click(CLICKABILITY, MNU_PATIENTEXPERIENCEMEDICATIONS);
+
+		return webActions.getVisibiltyOfElementLocatedBy(VISIBILITY, LBL_PATIENTEXPERIENCEMEDICATIONS);
+	}
+
+	@Step("Verify the Diabetes screen is displayed")
+	public boolean viewPatientExperienceDiabetesScreen() throws TimeoutException, WaitException
+	{
+		webActions.click(CLICKABILITY, MNU_PATIENTEXPERIENCEDIABETES);
+
+		return webActions.getVisibiltyOfElementLocatedBy(VISIBILITY, LBL_PATIENTEXPERIENCEDIABETES);
+	}
+
+	@Step("Verify the Depression screen is displayed")
+	public boolean viewPatientExperienceDepressionScreen() throws TimeoutException, WaitException
+	{
+		webActions.click(CLICKABILITY, MNU_PATIENTEXPERIENCEDEPRESSION);
+
+		return webActions.getVisibiltyOfElementLocatedBy(VISIBILITY, LBL_PATIENTEXPERIENCEDEPRESSION);
 	}
 }

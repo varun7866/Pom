@@ -64,6 +64,11 @@ public class PatientNavigationTest extends TestBase
 		Assert.assertTrue(patientNavigationPage.viewPatientExperienceMenu(), "Failed to identify the Patient Experience menu");
 		Assert.assertTrue(patientNavigationPage.viewPatientExperienceMenuExpanded(), "Failed to expand the Patient Experience menu");
 		Assert.assertTrue(patientNavigationPage.viewPatientExperienceHospitalizationsScreen(), "Failed to display the Hospitalizations screen");
+		// Assert.assertTrue(patientNavigationPage.viewPatientExperienceFluidScreen(), "Failed to display the Fluid screen");
+		// Assert.assertTrue(patientNavigationPage.viewPatientExperienceAccessScreen(), "Failed to display the Access screen");
+		// Assert.assertTrue(patientNavigationPage.viewPatientExperienceMedicationsScreen(), "Failed to display the Medications screen");
+		// Assert.assertTrue(patientNavigationPage.viewPatientExperienceDiabetesScreen(), "Failed to display the Diabetes screen");
+		// Assert.assertTrue(patientNavigationPage.viewPatientExperienceDepressionScreen(), "Failed to display the Depression screen");
 	}
 
 	@AfterClass

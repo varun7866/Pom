@@ -88,7 +88,7 @@
             <children xsi:type="basic:PartSashContainer" xmi:id="_8Zi4v0xyEeeka65U4RVexg" containerData="8255" selectedElement="_8Zi4wExyEeeka65U4RVexg" horizontal="true">
               <children xsi:type="basic:PartSashContainer" xmi:id="_8Zi4wExyEeeka65U4RVexg" containerData="5000" selectedElement="_8Zi4wUxyEeeka65U4RVexg">
                 <children xsi:type="advanced:Placeholder" xmi:id="_8Zi4wUxyEeeka65U4RVexg" elementId="org.eclipse.ui.editorss" containerData="7100" ref="_8Zi6IExyEeeka65U4RVexg"/>
-                <children xsi:type="basic:PartStack" xmi:id="_8Zi4wkxyEeeka65U4RVexg" elementId="bottom" containerData="2900" selectedElement="_8Zi4x0xyEeeka65U4RVexg">
+                <children xsi:type="basic:PartStack" xmi:id="_8Zi4wkxyEeeka65U4RVexg" elementId="bottom" containerData="2900" selectedElement="_8Zi4w0xyEeeka65U4RVexg">
                   <tags>org.eclipse.e4.secondaryDataStack</tags>
                   <tags>Java</tags>
                   <children xsi:type="advanced:Placeholder" xmi:id="_8Zi4w0xyEeeka65U4RVexg" elementId="org.eclipse.ui.views.ProblemView" ref="_8Zjf4kxyEeeka65U4RVexg"/>
@@ -292,7 +292,7 @@
           <tags>removeOnHide</tags>
         </children>
         <children xsi:type="basic:Part" xmi:id="_CRNxkFzYEeeMVZ8GYWrtdg" elementId="org.eclipse.e4.ui.compatibility.editor" contributionURI="bundleclass://org.eclipse.ui.workbench/org.eclipse.ui.internal.e4.compatibility.CompatibilityEditor" label="PatientNavigationTest.java" iconURI="platform:/plugin/org.eclipse.jdt.ui/icons/full/obj16/jcu_obj.png" closeable="true">
-          <persistedState key="memento" value="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?>&#xD;&#xA;&lt;editor id=&quot;org.eclipse.jdt.ui.CompilationUnitEditor&quot; name=&quot;PatientNavigationTest.java&quot; partName=&quot;PatientNavigationTest.java&quot; title=&quot;PatientNavigationTest.java&quot; tooltip=&quot;CapellaUI/src/test/java/com/vh/ui/tests/PatientNavigationTest.java&quot;>&#xD;&#xA;&lt;input factoryID=&quot;org.eclipse.ui.part.FileEditorInputFactory&quot; path=&quot;/CapellaUI/src/test/java/com/vh/ui/tests/PatientNavigationTest.java&quot;/>&#xD;&#xA;&lt;editorState selectionHorizontalPixel=&quot;0&quot; selectionLength=&quot;0&quot; selectionOffset=&quot;2496&quot; selectionTopPixel=&quot;891&quot;/>&#xD;&#xA;&lt;/editor>"/>
+          <persistedState key="memento" value="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?>&#xD;&#xA;&lt;editor id=&quot;org.eclipse.jdt.ui.CompilationUnitEditor&quot; name=&quot;PatientNavigationTest.java&quot; partName=&quot;PatientNavigationTest.java&quot; title=&quot;PatientNavigationTest.java&quot; tooltip=&quot;CapellaUI/src/test/java/com/vh/ui/tests/PatientNavigationTest.java&quot;>&#xD;&#xA;&lt;input factoryID=&quot;org.eclipse.ui.part.FileEditorInputFactory&quot; path=&quot;/CapellaUI/src/test/java/com/vh/ui/tests/PatientNavigationTest.java&quot;/>&#xD;&#xA;&lt;editorState selectionHorizontalPixel=&quot;3&quot; selectionLength=&quot;0&quot; selectionOffset=&quot;3770&quot; selectionTopPixel=&quot;976&quot;/>&#xD;&#xA;&lt;/editor>"/>
           <tags>Editor</tags>
           <tags>org.eclipse.jdt.ui.CompilationUnitEditor</tags>
           <tags>removeOnHide</tags>
@@ -300,13 +300,13 @@
           <tags>activeOnClose</tags>
         </children>
         <children xsi:type="basic:Part" xmi:id="_Xg1xAFzYEeeMVZ8GYWrtdg" elementId="org.eclipse.e4.ui.compatibility.editor" contributionURI="bundleclass://org.eclipse.ui.workbench/org.eclipse.ui.internal.e4.compatibility.CompatibilityEditor" label="PatientNavigationPage.java" iconURI="platform:/plugin/org.eclipse.jdt.ui/icons/full/obj16/jcu_obj.png" closeable="true">
-          <persistedState key="memento" value="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?>&#xD;&#xA;&lt;editor id=&quot;org.eclipse.jdt.ui.CompilationUnitEditor&quot; name=&quot;PatientNavigationPage.java&quot; partName=&quot;PatientNavigationPage.java&quot; title=&quot;PatientNavigationPage.java&quot; tooltip=&quot;CapellaUI/src/main/java/com/vh/ui/pages/PatientNavigationPage.java&quot;>&#xD;&#xA;&lt;input factoryID=&quot;org.eclipse.ui.part.FileEditorInputFactory&quot; path=&quot;/CapellaUI/src/main/java/com/vh/ui/pages/PatientNavigationPage.java&quot;/>&#xD;&#xA;&lt;editorState selectionHorizontalPixel=&quot;0&quot; selectionLength=&quot;0&quot; selectionOffset=&quot;404&quot; selectionTopPixel=&quot;2149&quot;/>&#xD;&#xA;&lt;/editor>"/>
+          <persistedState key="memento" value="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?>&#xD;&#xA;&lt;editor id=&quot;org.eclipse.jdt.ui.CompilationUnitEditor&quot; name=&quot;PatientNavigationPage.java&quot; partName=&quot;PatientNavigationPage.java&quot; title=&quot;PatientNavigationPage.java&quot; tooltip=&quot;CapellaUI/src/main/java/com/vh/ui/pages/PatientNavigationPage.java&quot;>&#xD;&#xA;&lt;input factoryID=&quot;org.eclipse.ui.part.FileEditorInputFactory&quot; path=&quot;/CapellaUI/src/main/java/com/vh/ui/pages/PatientNavigationPage.java&quot;/>&#xD;&#xA;&lt;editorState selectionHorizontalPixel=&quot;0&quot; selectionLength=&quot;0&quot; selectionOffset=&quot;8721&quot; selectionTopPixel=&quot;2999&quot;/>&#xD;&#xA;&lt;/editor>"/>
           <tags>Editor</tags>
           <tags>org.eclipse.jdt.ui.CompilationUnitEditor</tags>
           <tags>removeOnHide</tags>
         </children>
         <children xsi:type="basic:Part" xmi:id="_2PBLAFzXEeeMVZ8GYWrtdg" elementId="org.eclipse.e4.ui.compatibility.editor" contributionURI="bundleclass://org.eclipse.ui.workbench/org.eclipse.ui.internal.e4.compatibility.CompatibilityEditor" label="PatientNavigationLocators.java" iconURI="platform:/plugin/org.eclipse.jdt.ui/icons/full/obj16/jcu_obj.png" closeable="true">
-          <persistedState key="memento" value="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?>&#xD;&#xA;&lt;editor id=&quot;org.eclipse.jdt.ui.CompilationUnitEditor&quot; name=&quot;PatientNavigationLocators.java&quot; partName=&quot;PatientNavigationLocators.java&quot; title=&quot;PatientNavigationLocators.java&quot; tooltip=&quot;CapellaUI/src/main/java/com/vh/ui/web/locators/PatientNavigationLocators.java&quot;>&#xD;&#xA;&lt;input factoryID=&quot;org.eclipse.ui.part.FileEditorInputFactory&quot; path=&quot;/CapellaUI/src/main/java/com/vh/ui/web/locators/PatientNavigationLocators.java&quot;/>&#xD;&#xA;&lt;editorState selectionHorizontalPixel=&quot;0&quot; selectionLength=&quot;0&quot; selectionOffset=&quot;1329&quot; selectionTopPixel=&quot;228&quot;/>&#xD;&#xA;&lt;/editor>"/>
+          <persistedState key="memento" value="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?>&#xD;&#xA;&lt;editor id=&quot;org.eclipse.jdt.ui.CompilationUnitEditor&quot; name=&quot;PatientNavigationLocators.java&quot; partName=&quot;PatientNavigationLocators.java&quot; title=&quot;PatientNavigationLocators.java&quot; tooltip=&quot;CapellaUI/src/main/java/com/vh/ui/web/locators/PatientNavigationLocators.java&quot;>&#xD;&#xA;&lt;input factoryID=&quot;org.eclipse.ui.part.FileEditorInputFactory&quot; path=&quot;/CapellaUI/src/main/java/com/vh/ui/web/locators/PatientNavigationLocators.java&quot;/>&#xD;&#xA;&lt;editorState selectionHorizontalPixel=&quot;0&quot; selectionLength=&quot;0&quot; selectionOffset=&quot;1562&quot; selectionTopPixel=&quot;278&quot;/>&#xD;&#xA;&lt;/editor>"/>
           <tags>Editor</tags>
           <tags>org.eclipse.jdt.ui.CompilationUnitEditor</tags>
           <tags>removeOnHide</tags>
@@ -377,7 +377,7 @@
         <tags>popup:org.eclipse.ui.views.ProblemView</tags>
         <tags>popup:org.eclipse.ui.ide.MarkersView</tags>
       </menus>
-      <toolbar xmi:id="_8Zjf8ExyEeeka65U4RVexg" elementId="org.eclipse.ui.views.ProblemView" visible="false"/>
+      <toolbar xmi:id="_8Zjf8ExyEeeka65U4RVexg" elementId="org.eclipse.ui.views.ProblemView"/>
     </sharedElements>
     <sharedElements xsi:type="basic:Part" xmi:id="_8Zjf80xyEeeka65U4RVexg" elementId="org.eclipse.jdt.ui.JavadocView" contributionURI="bundleclass://org.eclipse.ui.workbench/org.eclipse.ui.internal.e4.compatibility.CompatibilityView" label="Javadoc" iconURI="platform:/plugin/org.eclipse.jdt.ui/icons/full/eview16/javadoc.png" tooltip="" closeable="true">
       <persistedState key="originalCompatibilityViewClass" value="org.eclipse.jdt.internal.ui.infoviews.JavadocView"/>
@@ -429,7 +429,7 @@
         <tags>menuContribution:popup</tags>
         <tags>popup:org.eclipse.debug.ui.ProcessConsoleType.#ContextMenu</tags>
       </menus>
-      <toolbar xmi:id="_8Zjf_0xyEeeka65U4RVexg" elementId="org.eclipse.ui.console.ConsoleView"/>
+      <toolbar xmi:id="_8Zjf_0xyEeeka65U4RVexg" elementId="org.eclipse.ui.console.ConsoleView" visible="false"/>
     </sharedElements>
     <sharedElements xsi:type="basic:Part" xmi:id="_8ZjgDkxyEeeka65U4RVexg" elementId="org.eclipse.ui.views.BookmarkView" contributionURI="bundleclass://org.eclipse.ui.workbench/org.eclipse.ui.internal.e4.compatibility.CompatibilityView" label="Bookmarks" iconURI="platform:/plugin/org.eclipse.ui.ide/icons/full/eview16/bkmrk_nav.png" tooltip="" closeable="true">
       <persistedState key="originalCompatibilityViewClass" value="org.eclipse.ui.internal.views.markers.BookmarksView"/>
@@ -670,7 +670,7 @@
       </children>
       <children xsi:type="menu:ToolBar" xmi:id="_8ZjgoExyEeeka65U4RVexg" elementId="org.eclipse.ui.workbench.file">
         <tags>Draggable</tags>
-        <children xsi:type="menu:HandledToolItem" xmi:id="_Repi0F2NEeeE78RTFVaBJg" elementId="print" visible="false" iconURI="platform:/plugin/org.eclipse.ui/icons/full/etool16/print_edit.png" tooltip="Print" command="_8ZlVTkxyEeeka65U4RVexg"/>
+        <children xsi:type="menu:HandledToolItem" xmi:id="_kAUtcF29EeenwJTolN82sg" elementId="print" visible="false" iconURI="platform:/plugin/org.eclipse.ui/icons/full/etool16/print_edit.png" tooltip="Print" command="_8ZlVTkxyEeeka65U4RVexg"/>
       </children>
       <children xsi:type="menu:ToolBar" xmi:id="_8ZjgrUxyEeeka65U4RVexg" elementId="additions" toBeRendered="false">
         <tags>toolbarSeparator</tags>
@@ -697,7 +697,7 @@
       </children>
       <children xsi:type="menu:ToolBar" xmi:id="_8Zjg-0xyEeeka65U4RVexg" elementId="org.eclipse.ui.workbench.navigate">
         <tags>Draggable</tags>
-        <children xsi:type="menu:HandledToolItem" xmi:id="_ResmIF2NEeeE78RTFVaBJg" elementId="org.eclipse.ui.window.pinEditor" visible="false" iconURI="platform:/plugin/org.eclipse.ui/icons/full/etool16/pin_editor.png" tooltip="Pin Editor" type="Check" command="_8ZkxkUxyEeeka65U4RVexg"/>
+        <children xsi:type="menu:HandledToolItem" xmi:id="_kAXwwF29EeenwJTolN82sg" elementId="org.eclipse.ui.window.pinEditor" visible="false" iconURI="platform:/plugin/org.eclipse.ui/icons/full/etool16/pin_editor.png" tooltip="Pin Editor" type="Check" command="_8ZkxkUxyEeeka65U4RVexg"/>
       </children>
       <children xsi:type="menu:ToolBar" xmi:id="_8ZjhBkxyEeeka65U4RVexg" elementId="group.editor" toBeRendered="false">
         <tags>toolbarSeparator</tags>

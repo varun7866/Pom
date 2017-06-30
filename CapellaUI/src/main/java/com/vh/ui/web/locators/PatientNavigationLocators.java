@@ -22,6 +22,11 @@ public class PatientNavigationLocators
 	public static final By LBL_PATIENTCAREPATIENTTASKS = By.xpath("//h2[text()='Tasks']");
 	public static final By LBL_PATIENTCARECARETEAM = By.xpath("//div[contains(., 'PROVIDERS AND TEAM') and @class='col-sm-6 providers-team-screennameheader']");
 	public static final By LBL_PATIENTEXPERIENCEHOSPITALIZATIONS = By.xpath("//span[text()='HOSPITALIZATIONS']");
+	public static final By LBL_PATIENTEXPERIENCEFLUID = By.xpath("//h2[text()='Fluid']");
+	public static final By LBL_PATIENTEXPERIENCEACCESS = By.xpath("//h2[text()='Access']");
+	public static final By LBL_PATIENTEXPERIENCEMEDICATIONS = By.xpath("//h2[text()='Medications']");
+	public static final By LBL_PATIENTEXPERIENCEDIABETES = By.xpath("//h2[text()='Diabetes']");
+	public static final By LBL_PATIENTEXPERIENCEDEPRESSION = By.xpath("//h2[text()='Depression']");
 
 	public static final By MNU_PLANOFCARE = By.xpath("//a[text()='Plan of Care']");
 	public static final By MNU_PLANOFCAREOVERVIEW = By.id("Overview-1");
@@ -35,4 +40,9 @@ public class PatientNavigationLocators
 	public static final By MNU_PATIENTCARECARETEAM = By.id("CareTeam-8");
 	public static final By MNU_PATIENTEXPERIENCE = By.xpath("//a[text()='Patient Experience']");
 	public static final By MNU_PATIENTEXPERIENCEHOSPITALIZATIONS = By.id("Hospitalizations-9");
+	public static final By MNU_PATIENTEXPERIENCEFLUID = By.id("Fluid-10");
+	public static final By MNU_PATIENTEXPERIENCEACCESS = By.id("Access-11");
+	public static final By MNU_PATIENTEXPERIENCEMEDICATIONS = By.id("Medications-12");
+	public static final By MNU_PATIENTEXPERIENCEDIABETES = By.id("Diabetes-13");
+	public static final By MNU_PATIENTEXPERIENCEDEPRESSION = By.id("Depression-14");
 }
