@@ -2,12 +2,14 @@
 <section name="Workbench">
 	<section name="org.eclipse.ui.texteditor.FindReplaceDialog">
 		<item value="false" key="isRegEx"/>
-		<item value="conta" key="selection"/>
+		<item value="" key="selection"/>
 		<item value="false" key="casesensitive"/>
 		<item value="false" key="incremental"/>
 		<item value="true" key="wrap"/>
 		<item value="false" key="wholeword"/>
 		<list key="findhistory">
+			<item value="MNU_PATIENTEXPERIENCELABSCURRENTLABSCLICK"/>
+			<item value="expanded"/>
 			<item value="conta"/>
 			<item value="cont"/>
 			<item value="caont"/>
@@ -21,7 +23,6 @@
 			<item value="highl"/>
 			<item value="Failed to identify the Add Medical Equipment popup STATUS placeholder"/>
 			<item value="Failed to identify the Add Medical Equipment popup EQUIPMENT TYPE placeholder"/>
-			<item value="textbox"/>
 		</list>
 		<list key="replacehistory">
 		</list>
