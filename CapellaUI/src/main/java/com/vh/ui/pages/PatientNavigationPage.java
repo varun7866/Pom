@@ -1,6 +1,11 @@
 package com.vh.ui.pages;
 
+import static com.vh.ui.web.locators.PatientNavigationLocators.LBL_PATIENTADMINFALCON;
+import static com.vh.ui.web.locators.PatientNavigationLocators.LBL_PATIENTADMINMANAGEDOCUMENTS;
+import static com.vh.ui.web.locators.PatientNavigationLocators.LBL_PATIENTADMINMATERIALFULFILLMENT;
+import static com.vh.ui.web.locators.PatientNavigationLocators.LBL_PATIENTADMINMEDICALEQUIPMENT;
 import static com.vh.ui.web.locators.PatientNavigationLocators.LBL_PATIENTADMINPATIENTINFO;
+import static com.vh.ui.web.locators.PatientNavigationLocators.LBL_PATIENTADMINREFERRALS;
 import static com.vh.ui.web.locators.PatientNavigationLocators.LBL_PATIENTCARECARETEAM;
 import static com.vh.ui.web.locators.PatientNavigationLocators.LBL_PATIENTCAREPATIENTRECAP;
 import static com.vh.ui.web.locators.PatientNavigationLocators.LBL_PATIENTCAREPATIENTTASKS;
@@ -21,7 +26,12 @@ import static com.vh.ui.web.locators.PatientNavigationLocators.LBL_PLANOFCAREMAN
 import static com.vh.ui.web.locators.PatientNavigationLocators.LBL_PLANOFCARENOTES;
 import static com.vh.ui.web.locators.PatientNavigationLocators.LBL_PLANOFCAREOVERVIEW;
 import static com.vh.ui.web.locators.PatientNavigationLocators.MNU_PATIENTADMIN;
+import static com.vh.ui.web.locators.PatientNavigationLocators.MNU_PATIENTADMINFALCON;
+import static com.vh.ui.web.locators.PatientNavigationLocators.MNU_PATIENTADMINMANAGEDOCUMENTS;
+import static com.vh.ui.web.locators.PatientNavigationLocators.MNU_PATIENTADMINMATERIALFULFILLMENT;
+import static com.vh.ui.web.locators.PatientNavigationLocators.MNU_PATIENTADMINMEDICALEQUIPMENT;
 import static com.vh.ui.web.locators.PatientNavigationLocators.MNU_PATIENTADMINPATIENTINFO;
+import static com.vh.ui.web.locators.PatientNavigationLocators.MNU_PATIENTADMINREFERRALS;
 import static com.vh.ui.web.locators.PatientNavigationLocators.MNU_PATIENTCARE;
 import static com.vh.ui.web.locators.PatientNavigationLocators.MNU_PATIENTCARECARETEAM;
 import static com.vh.ui.web.locators.PatientNavigationLocators.MNU_PATIENTCAREPATIENTRECAP;
@@ -287,5 +297,45 @@ public class PatientNavigationPage extends WebPage
 		webActions.click(CLICKABILITY, MNU_PATIENTADMINPATIENTINFO);
 
 		return webActions.getVisibiltyOfElementLocatedBy(VISIBILITY, LBL_PATIENTADMINPATIENTINFO);
+	}
+
+	@Step("Verify the Medical Equipment screen is displayed")
+	public boolean viewPatientAdminMedicalEquipmentScreen() throws TimeoutException, WaitException
+	{
+		webActions.click(CLICKABILITY, MNU_PATIENTADMINMEDICALEQUIPMENT);
+
+		return webActions.getVisibiltyOfElementLocatedBy(VISIBILITY, LBL_PATIENTADMINMEDICALEQUIPMENT);
+	}
+
+	@Step("Verify the Manage Documents screen is displayed")
+	public boolean viewPatientAdminManageDocumentsScreen() throws TimeoutException, WaitException
+	{
+		webActions.click(CLICKABILITY, MNU_PATIENTADMINMANAGEDOCUMENTS);
+
+		return webActions.getVisibiltyOfElementLocatedBy(VISIBILITY, LBL_PATIENTADMINMANAGEDOCUMENTS);
+	}
+
+	@Step("Verify the Falcon screen is displayed")
+	public boolean viewPatientAdminFalconScreen() throws TimeoutException, WaitException
+	{
+		webActions.click(CLICKABILITY, MNU_PATIENTADMINFALCON);
+
+		return webActions.getVisibiltyOfElementLocatedBy(VISIBILITY, LBL_PATIENTADMINFALCON);
+	}
+
+	@Step("Verify the Material Fulfillment screen is displayed")
+	public boolean viewPatientAdminMaterialFulfillmentScreen() throws TimeoutException, WaitException
+	{
+		webActions.click(CLICKABILITY, MNU_PATIENTADMINMATERIALFULFILLMENT);
+
+		return webActions.getVisibiltyOfElementLocatedBy(VISIBILITY, LBL_PATIENTADMINMATERIALFULFILLMENT);
+	}
+
+	@Step("Verify the Referrals screen is displayed")
+	public boolean viewPatientAdminReferralsScreen() throws TimeoutException, WaitException
+	{
+		webActions.click(CLICKABILITY, MNU_PATIENTADMINREFERRALS);
+
+		return webActions.getVisibiltyOfElementLocatedBy(VISIBILITY, LBL_PATIENTADMINREFERRALS);
 	}
 }

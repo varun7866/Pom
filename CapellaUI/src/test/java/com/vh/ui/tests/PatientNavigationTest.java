@@ -41,8 +41,8 @@ public class PatientNavigationTest extends TestBase
 		patientNavigationPage = new PatientNavigationPage(driver);
 
 		appFunctions.capellaLogin();
-		// appFunctions.selectPatientFromMyPatients("Waliy Al D Holroyd"); //QA
-		appFunctions.selectPatientFromMyPatients("Aasaf Whoriskey"); // Stage
+		appFunctions.selectPatientFromMyPatients("Waliy Al D Holroyd"); // QA
+		// appFunctions.selectPatientFromMyPatients("Aasaf Whoriskey"); // Stage
 	}
 
 	@Test(priority = 1)
@@ -87,12 +87,17 @@ public class PatientNavigationTest extends TestBase
 		Assert.assertTrue(patientNavigationPage.viewPatientAdminMenu(), "Failed to identify the Patient Admin menu");
 		Assert.assertTrue(patientNavigationPage.verifyPatientAdminMenuExpanded(), "Failed to expand the Patient Admin menu");
 		Assert.assertTrue(patientNavigationPage.viewPatientAdminPatientInfoScreen(), "Failed to display the Patient Info screen");
+		Assert.assertTrue(patientNavigationPage.viewPatientAdminMedicalEquipmentScreen(), "Failed to display the Medical Equipment screen");
+		Assert.assertTrue(patientNavigationPage.viewPatientAdminManageDocumentsScreen(), "Failed to display the Manage Documents screen");
+		// Assert.assertTrue(patientNavigationPage.viewPatientAdminFalconScreen(), "Failed to display the Falcon screen");
+		// Assert.assertTrue(patientNavigationPage.viewPatientAdminMaterialFulfillmentScreen(), "Failed to display the Material Fulfillment screen");
+		Assert.assertTrue(patientNavigationPage.viewPatientAdminReferralsScreen(), "Failed to display the Referrals screen");
 	}
 
 	@AfterClass
 	public void tearDown() throws TimeoutException, WaitException
 	{
-		// appFunctions.capellaLogout();
-		// pageBase.quit();
+		appFunctions.capellaLogout();
+		pageBase.quit();
 	}
 }

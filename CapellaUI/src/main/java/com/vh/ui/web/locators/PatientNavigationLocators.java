@@ -33,6 +33,11 @@ public class PatientNavigationLocators
 	public static final By LBL_PATIENTEXPERIENCELABSCURRENTLABS = By.xpath("//h2[contains(., 'Labs')]");
 	public static final By LBL_PATIENTEXPERIENCELABSLABSHISTORY = By.xpath("//h2[contains(., 'Labs History')]");
 	public static final By LBL_PATIENTADMINPATIENTINFO = By.xpath("//h2[text()='Patient Info']");
+	public static final By LBL_PATIENTADMINMEDICALEQUIPMENT = By.xpath("//h2[text()='MEDICAL EQUIPMENT']");
+	public static final By LBL_PATIENTADMINMANAGEDOCUMENTS = By.xpath("//h2[text()='MANAGE DOCUMENTS']");
+	public static final By LBL_PATIENTADMINFALCON = By.xpath("//h2[text()='FALCON']");
+	public static final By LBL_PATIENTADMINMATERIALFULFILLMENT = By.xpath("//h2[text()='MATERIAL FULFILLMENT']");
+	public static final By LBL_PATIENTADMINREFERRALS = By.xpath("//h2[contains(., 'Referrals')]");
 
 	public static final By MNU_PLANOFCARE = By.xpath("//a[text()='Plan of Care']");
 	public static final By MNU_PLANOFCAREOVERVIEW = By.id("Overview-1");
@@ -61,4 +66,9 @@ public class PatientNavigationLocators
 	public static final By MNU_PATIENTEXPERIENCELABSLABSHISTORYCLICK = By.id("LabsHistory-19");
 	public static final By MNU_PATIENTADMIN = By.xpath("//a[text()='Patient Admin']");
 	public static final By MNU_PATIENTADMINPATIENTINFO = By.id("PatientInfo-20");
+	public static final By MNU_PATIENTADMINMEDICALEQUIPMENT = By.id("MedicalEquipment-23");
+	public static final By MNU_PATIENTADMINMANAGEDOCUMENTS = By.id("ManageDocuments-24");
+	public static final By MNU_PATIENTADMINFALCON = By.id("Falcon-25");
+	public static final By MNU_PATIENTADMINMATERIALFULFILLMENT = By.id("Material Fulfillment-26");
+	public static final By MNU_PATIENTADMINREFERRALS = By.id("Referrals-27");
 }
