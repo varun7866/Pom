@@ -2,20 +2,20 @@
 <testng-results skipped="0" failed="0" total="1" passed="1">
   <reporter-output>
   </reporter-output>
-  <suite name="Default suite" duration-ms="70947" started-at="2017-06-30T18:32:50Z" finished-at="2017-06-30T18:34:01Z">
+  <suite name="Default suite" duration-ms="84362" started-at="2017-07-05T16:15:42Z" finished-at="2017-07-05T16:17:06Z">
     <groups>
     </groups>
-    <test name="Default test" duration-ms="70947" started-at="2017-06-30T18:32:50Z" finished-at="2017-06-30T18:34:01Z">
+    <test name="Default test" duration-ms="84362" started-at="2017-07-05T16:15:42Z" finished-at="2017-07-05T16:17:06Z">
       <class name="com.vh.ui.tests.PatientNavigationTest">
-        <test-method status="PASS" signature="buildUp()[pri:0, instance:com.vh.ui.tests.PatientNavigationTest@793d163b]" name="buildUp" is-config="true" duration-ms="62684" started-at="2017-06-30T13:32:50Z" finished-at="2017-06-30T13:33:53Z">
+        <test-method status="PASS" signature="buildUp()[pri:0, instance:com.vh.ui.tests.PatientNavigationTest@109f8c7e]" name="buildUp" is-config="true" duration-ms="59414" started-at="2017-07-05T11:15:42Z" finished-at="2017-07-05T11:16:42Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- buildUp -->
-        <test-method status="PASS" signature="verify_LeftNavigationPane()[pri:1, instance:com.vh.ui.tests.PatientNavigationTest@793d163b]" name="verify_LeftNavigationPane" duration-ms="8189" started-at="2017-06-30T13:33:53Z" finished-at="2017-06-30T13:34:01Z">
+        <test-method status="PASS" signature="verify_LeftNavigationPane()[pri:1, instance:com.vh.ui.tests.PatientNavigationTest@109f8c7e]" name="verify_LeftNavigationPane" duration-ms="24875" started-at="2017-07-05T11:16:42Z" finished-at="2017-07-05T11:17:06Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- verify_LeftNavigationPane -->
-        <test-method status="PASS" signature="afterTest(java.lang.reflect.Method, org.testng.ITestResult)[pri:0, instance:com.vh.ui.tests.PatientNavigationTest@793d163b]" name="afterTest" is-config="true" duration-ms="2" started-at="2017-06-30T13:34:01Z" finished-at="2017-06-30T13:34:01Z">
+        <test-method status="PASS" signature="afterTest(java.lang.reflect.Method, org.testng.ITestResult)[pri:0, instance:com.vh.ui.tests.PatientNavigationTest@109f8c7e]" name="afterTest" is-config="true" duration-ms="3" started-at="2017-07-05T11:17:06Z" finished-at="2017-07-05T11:17:06Z">
           <params>
             <param index="0">
               <value>
@@ -24,14 +24,14 @@
             </param>
             <param index="1">
               <value>
-                <![CDATA[[TestResult name=verify_LeftNavigationPane status=SUCCESS method=PatientNavigationTest.verify_LeftNavigationPane()[pri:1, instance:com.vh.ui.tests.PatientNavigationTest@793d163b] output={null}]]]>
+                <![CDATA[[TestResult name=verify_LeftNavigationPane status=SUCCESS method=PatientNavigationTest.verify_LeftNavigationPane()[pri:1, instance:com.vh.ui.tests.PatientNavigationTest@109f8c7e] output={null}]]]>
               </value>
             </param>
           </params>
           <reporter-output>
           </reporter-output>
         </test-method> <!-- afterTest -->
-        <test-method status="PASS" signature="tearDown()[pri:0, instance:com.vh.ui.tests.PatientNavigationTest@793d163b]" name="tearDown" is-config="true" duration-ms="1" started-at="2017-06-30T13:34:01Z" finished-at="2017-06-30T13:34:01Z">
+        <test-method status="PASS" signature="tearDown()[pri:0, instance:com.vh.ui.tests.PatientNavigationTest@109f8c7e]" name="tearDown" is-config="true" duration-ms="0" started-at="2017-07-05T11:17:06Z" finished-at="2017-07-05T11:17:06Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- tearDown -->

@@ -41,34 +41,52 @@ public class PatientNavigationTest extends TestBase
 		patientNavigationPage = new PatientNavigationPage(driver);
 
 		appFunctions.capellaLogin();
-		appFunctions.selectPatientFromMyPatients("Waliy Al D Holroyd");
+		// appFunctions.selectPatientFromMyPatients("Waliy Al D Holroyd"); //QA
+		appFunctions.selectPatientFromMyPatients("Aasaf Whoriskey"); // Stage
 	}
 
 	@Test(priority = 1)
 	@Step("Verify the left navigation pane")
 	public void verify_LeftNavigationPane() throws WaitException, URLNavigationException, InterruptedException
 	{
+		// Plan of Care
 		Assert.assertTrue(patientNavigationPage.viewPlanOfCareMenu(), "Failed to identify the Plan of Care menu");
-		Assert.assertTrue(patientNavigationPage.viewPlanOfCareMenuExpanded(), "Failed to expand the Plan of Care menu");
+		Assert.assertTrue(patientNavigationPage.verifyPlanOfCareMenuExpanded(), "Failed to expand the Plan of Care menu");
 		// Assert.assertTrue(patientNavigationPage.viewPlanOfCareOverviewScreen(), "Failed to display the Overview screen");
 		// Assert.assertTrue(patientNavigationPage.viewPlanOfCareManagementScreen(), "Failed to display the Management screen");
 		// Assert.assertTrue(patientNavigationPage.viewPlanOfCareHistoryScreen(), "Failed to display the History screen");
 		// Assert.assertTrue(patientNavigationPage.viewPlanOfCareNotesScreen(), "Failed to display the Notes screen");
 		Assert.assertTrue(patientNavigationPage.viewPlanOfCareConsolidatedStoryScreen(), "Failed to display the ConsolidatedStory screen");
 
+		// Patient Care
 		Assert.assertTrue(patientNavigationPage.viewPatientCareMenu(), "Failed to identify the Patient Care menu");
 		Assert.assertTrue(patientNavigationPage.viewPatientCarePatientRecapScreen(), "Failed to display the Patient Recap screen");
 		// Assert.assertTrue(patientNavigationPage.viewPatientCarePatientTasksScreen(), "Failed to display the Patient Tasks screen");
 		Assert.assertTrue(patientNavigationPage.viewPatientCareCareTeamScreen(), "Failed to display the Care Team screen");
 
+		// Patient Experience
 		Assert.assertTrue(patientNavigationPage.viewPatientExperienceMenu(), "Failed to identify the Patient Experience menu");
-		Assert.assertTrue(patientNavigationPage.viewPatientExperienceMenuExpanded(), "Failed to expand the Patient Experience menu");
+		Assert.assertTrue(patientNavigationPage.verifyPatientExperienceMenuExpanded(), "Failed to expand the Patient Experience menu");
 		Assert.assertTrue(patientNavigationPage.viewPatientExperienceHospitalizationsScreen(), "Failed to display the Hospitalizations screen");
 		// Assert.assertTrue(patientNavigationPage.viewPatientExperienceFluidScreen(), "Failed to display the Fluid screen");
 		// Assert.assertTrue(patientNavigationPage.viewPatientExperienceAccessScreen(), "Failed to display the Access screen");
 		// Assert.assertTrue(patientNavigationPage.viewPatientExperienceMedicationsScreen(), "Failed to display the Medications screen");
 		// Assert.assertTrue(patientNavigationPage.viewPatientExperienceDiabetesScreen(), "Failed to display the Diabetes screen");
 		// Assert.assertTrue(patientNavigationPage.viewPatientExperienceDepressionScreen(), "Failed to display the Depression screen");
+		// Assert.assertTrue(patientNavigationPage.viewPatientExperienceImmunizationsScreen(), "Failed to display the Immunizations screen");
+		// Assert.assertTrue(patientNavigationPage.viewPatientExperienceIPathwaysScreeningsScreen(), "Failed to display the Pathways/Screenings screen");
+		// Assert.assertTrue(patientNavigationPage.viewPatientExperienceIComorbidsComplaintsScreen(), "Failed to display the Comorbids/Complaints screen");
+
+		// Labs
+		Assert.assertTrue(patientNavigationPage.viewPatientExperienceLabsMenu(), "Failed to identify the Patient Experience Labs menu");
+		Assert.assertTrue(patientNavigationPage.verifyPatientExperienceLabsMenuExpanded(), "Failed to expand the Patient Experience Labs menu");
+		Assert.assertTrue(patientNavigationPage.viewPatientExperienceLabsCurrentLabsScreen(), "Failed to display the Current Labs screen");
+		Assert.assertTrue(patientNavigationPage.viewPatientExperienceLabsLabsHistoryScreen(), "Failed to display the Labs History screen");
+
+		// Patient Admin
+		Assert.assertTrue(patientNavigationPage.viewPatientAdminMenu(), "Failed to identify the Patient Admin menu");
+		Assert.assertTrue(patientNavigationPage.verifyPatientAdminMenuExpanded(), "Failed to expand the Patient Admin menu");
+		Assert.assertTrue(patientNavigationPage.viewPatientAdminPatientInfoScreen(), "Failed to display the Patient Info screen");
 	}
 
 	@AfterClass

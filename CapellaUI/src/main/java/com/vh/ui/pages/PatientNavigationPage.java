@@ -1,30 +1,45 @@
 package com.vh.ui.pages;
 
+import static com.vh.ui.web.locators.PatientNavigationLocators.LBL_PATIENTADMINPATIENTINFO;
 import static com.vh.ui.web.locators.PatientNavigationLocators.LBL_PATIENTCARECARETEAM;
 import static com.vh.ui.web.locators.PatientNavigationLocators.LBL_PATIENTCAREPATIENTRECAP;
 import static com.vh.ui.web.locators.PatientNavigationLocators.LBL_PATIENTCAREPATIENTTASKS;
 import static com.vh.ui.web.locators.PatientNavigationLocators.LBL_PATIENTEXPERIENCEACCESS;
+import static com.vh.ui.web.locators.PatientNavigationLocators.LBL_PATIENTEXPERIENCECOMORBIDSCOMPLAINTS;
 import static com.vh.ui.web.locators.PatientNavigationLocators.LBL_PATIENTEXPERIENCEDEPRESSION;
 import static com.vh.ui.web.locators.PatientNavigationLocators.LBL_PATIENTEXPERIENCEDIABETES;
 import static com.vh.ui.web.locators.PatientNavigationLocators.LBL_PATIENTEXPERIENCEFLUID;
 import static com.vh.ui.web.locators.PatientNavigationLocators.LBL_PATIENTEXPERIENCEHOSPITALIZATIONS;
+import static com.vh.ui.web.locators.PatientNavigationLocators.LBL_PATIENTEXPERIENCEIMMUNIZATIONS;
+import static com.vh.ui.web.locators.PatientNavigationLocators.LBL_PATIENTEXPERIENCELABSCURRENTLABS;
+import static com.vh.ui.web.locators.PatientNavigationLocators.LBL_PATIENTEXPERIENCELABSLABSHISTORY;
 import static com.vh.ui.web.locators.PatientNavigationLocators.LBL_PATIENTEXPERIENCEMEDICATIONS;
+import static com.vh.ui.web.locators.PatientNavigationLocators.LBL_PATIENTEXPERIENCEPATHWAYSSCREENINGS;
 import static com.vh.ui.web.locators.PatientNavigationLocators.LBL_PLANOFCARECONSOLIDATEDSTORY;
 import static com.vh.ui.web.locators.PatientNavigationLocators.LBL_PLANOFCAREHISTORY;
 import static com.vh.ui.web.locators.PatientNavigationLocators.LBL_PLANOFCAREMANAGEMENT;
 import static com.vh.ui.web.locators.PatientNavigationLocators.LBL_PLANOFCARENOTES;
 import static com.vh.ui.web.locators.PatientNavigationLocators.LBL_PLANOFCAREOVERVIEW;
+import static com.vh.ui.web.locators.PatientNavigationLocators.MNU_PATIENTADMIN;
+import static com.vh.ui.web.locators.PatientNavigationLocators.MNU_PATIENTADMINPATIENTINFO;
 import static com.vh.ui.web.locators.PatientNavigationLocators.MNU_PATIENTCARE;
 import static com.vh.ui.web.locators.PatientNavigationLocators.MNU_PATIENTCARECARETEAM;
 import static com.vh.ui.web.locators.PatientNavigationLocators.MNU_PATIENTCAREPATIENTRECAP;
 import static com.vh.ui.web.locators.PatientNavigationLocators.MNU_PATIENTCAREPATIENTTASKS;
 import static com.vh.ui.web.locators.PatientNavigationLocators.MNU_PATIENTEXPERIENCE;
 import static com.vh.ui.web.locators.PatientNavigationLocators.MNU_PATIENTEXPERIENCEACCESS;
+import static com.vh.ui.web.locators.PatientNavigationLocators.MNU_PATIENTEXPERIENCECOMORBIDSCOMPLAINTS;
 import static com.vh.ui.web.locators.PatientNavigationLocators.MNU_PATIENTEXPERIENCEDEPRESSION;
 import static com.vh.ui.web.locators.PatientNavigationLocators.MNU_PATIENTEXPERIENCEDIABETES;
 import static com.vh.ui.web.locators.PatientNavigationLocators.MNU_PATIENTEXPERIENCEFLUID;
 import static com.vh.ui.web.locators.PatientNavigationLocators.MNU_PATIENTEXPERIENCEHOSPITALIZATIONS;
+import static com.vh.ui.web.locators.PatientNavigationLocators.MNU_PATIENTEXPERIENCEIMMUNIZATIONS;
+import static com.vh.ui.web.locators.PatientNavigationLocators.MNU_PATIENTEXPERIENCELABS;
+import static com.vh.ui.web.locators.PatientNavigationLocators.MNU_PATIENTEXPERIENCELABSCURRENTLABS;
+import static com.vh.ui.web.locators.PatientNavigationLocators.MNU_PATIENTEXPERIENCELABSCURRENTLABSCLICK;
+import static com.vh.ui.web.locators.PatientNavigationLocators.MNU_PATIENTEXPERIENCELABSLABSHISTORYCLICK;
 import static com.vh.ui.web.locators.PatientNavigationLocators.MNU_PATIENTEXPERIENCEMEDICATIONS;
+import static com.vh.ui.web.locators.PatientNavigationLocators.MNU_PATIENTEXPERIENCEPATHWAYSSCREENINGS;
 import static com.vh.ui.web.locators.PatientNavigationLocators.MNU_PLANOFCARE;
 import static com.vh.ui.web.locators.PatientNavigationLocators.MNU_PLANOFCARECONSOLIDATEDSTORY;
 import static com.vh.ui.web.locators.PatientNavigationLocators.MNU_PLANOFCAREHISTORY;
@@ -59,7 +74,7 @@ public class PatientNavigationPage extends WebPage
 	}
 
 	@Step("Verify the expansion of the Plan of Care menu")
-	public boolean viewPlanOfCareMenuExpanded() throws TimeoutException, WaitException
+	public boolean verifyPlanOfCareMenuExpanded() throws TimeoutException, WaitException
 	{
 		webActions.click(CLICKABILITY, MNU_PLANOFCARE);
 
@@ -143,7 +158,7 @@ public class PatientNavigationPage extends WebPage
 	}
 
 	@Step("Verify the expansion of the Patient Experience menu")
-	public boolean viewPatientExperienceMenuExpanded() throws TimeoutException, WaitException
+	public boolean verifyPatientExperienceMenuExpanded() throws TimeoutException, WaitException
 	{
 		webActions.click(CLICKABILITY, MNU_PATIENTEXPERIENCE);
 
@@ -196,5 +211,81 @@ public class PatientNavigationPage extends WebPage
 		webActions.click(CLICKABILITY, MNU_PATIENTEXPERIENCEDEPRESSION);
 
 		return webActions.getVisibiltyOfElementLocatedBy(VISIBILITY, LBL_PATIENTEXPERIENCEDEPRESSION);
+	}
+
+	@Step("Verify the Immunizations screen is displayed")
+	public boolean viewPatientExperienceImmunizationsScreen() throws TimeoutException, WaitException
+	{
+		webActions.click(CLICKABILITY, MNU_PATIENTEXPERIENCEIMMUNIZATIONS);
+
+		return webActions.getVisibiltyOfElementLocatedBy(VISIBILITY, LBL_PATIENTEXPERIENCEIMMUNIZATIONS);
+	}
+
+	@Step("Verify the Pathways/Screenings screen is displayed")
+	public boolean viewPatientExperiencePathwaysScreeningsScreen() throws TimeoutException, WaitException
+	{
+		webActions.click(CLICKABILITY, MNU_PATIENTEXPERIENCEPATHWAYSSCREENINGS);
+
+		return webActions.getVisibiltyOfElementLocatedBy(VISIBILITY, LBL_PATIENTEXPERIENCEPATHWAYSSCREENINGS);
+	}
+
+	@Step("Verify the Comorbids/Complaints screen is displayed")
+	public boolean viewPatientExperienceComorbidsComplaintsScreen() throws TimeoutException, WaitException
+	{
+		webActions.click(CLICKABILITY, MNU_PATIENTEXPERIENCECOMORBIDSCOMPLAINTS);
+
+		return webActions.getVisibiltyOfElementLocatedBy(VISIBILITY, LBL_PATIENTEXPERIENCECOMORBIDSCOMPLAINTS);
+	}
+
+	@Step("Verify the visibility of the Patient Experience Labs menu")
+	public boolean viewPatientExperienceLabsMenu() throws TimeoutException, WaitException
+	{
+		return webActions.getVisibiltyOfElementLocatedBy(VISIBILITY, MNU_PATIENTEXPERIENCELABS);
+	}
+
+	@Step("Verify the expansion of the Patient Experience Labs menu")
+	public boolean verifyPatientExperienceLabsMenuExpanded() throws TimeoutException, WaitException
+	{
+		webActions.click(CLICKABILITY, MNU_PATIENTEXPERIENCELABS);
+
+		return webActions.getVisibiltyOfElementLocatedBy(VISIBILITY, MNU_PATIENTEXPERIENCELABSCURRENTLABS);
+	}
+
+	@Step("Verify the Current Labs screen is displayed")
+	public boolean viewPatientExperienceLabsCurrentLabsScreen() throws TimeoutException, WaitException
+	{
+		webActions.click(CLICKABILITY, MNU_PATIENTEXPERIENCELABSCURRENTLABSCLICK);
+
+		return webActions.getVisibiltyOfElementLocatedBy(VISIBILITY, LBL_PATIENTEXPERIENCELABSCURRENTLABS);
+	}
+
+	@Step("Verify the Labs History screen is displayed")
+	public boolean viewPatientExperienceLabsLabsHistoryScreen() throws TimeoutException, WaitException
+	{
+		webActions.click(CLICKABILITY, MNU_PATIENTEXPERIENCELABSLABSHISTORYCLICK);
+
+		return webActions.getVisibiltyOfElementLocatedBy(VISIBILITY, LBL_PATIENTEXPERIENCELABSLABSHISTORY);
+	}
+
+	@Step("Verify the visibility of the Patient Admin menu")
+	public boolean viewPatientAdminMenu() throws TimeoutException, WaitException
+	{
+		return webActions.getVisibiltyOfElementLocatedBy(VISIBILITY, MNU_PATIENTADMIN);
+	}
+
+	@Step("Verify the expansion of the Patient Admin menu")
+	public boolean verifyPatientAdminMenuExpanded() throws TimeoutException, WaitException
+	{
+		webActions.click(CLICKABILITY, MNU_PATIENTADMIN);
+
+		return webActions.getVisibiltyOfElementLocatedBy(VISIBILITY, MNU_PATIENTADMINPATIENTINFO);
+	}
+
+	@Step("Verify the Patient Info screen is displayed")
+	public boolean viewPatientAdminPatientInfoScreen() throws TimeoutException, WaitException
+	{
+		webActions.click(CLICKABILITY, MNU_PATIENTADMINPATIENTINFO);
+
+		return webActions.getVisibiltyOfElementLocatedBy(VISIBILITY, LBL_PATIENTADMINPATIENTINFO);
 	}
 }

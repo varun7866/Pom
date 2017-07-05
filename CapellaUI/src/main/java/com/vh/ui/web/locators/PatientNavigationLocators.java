@@ -27,6 +27,12 @@ public class PatientNavigationLocators
 	public static final By LBL_PATIENTEXPERIENCEMEDICATIONS = By.xpath("//h2[text()='Medications']");
 	public static final By LBL_PATIENTEXPERIENCEDIABETES = By.xpath("//h2[text()='Diabetes']");
 	public static final By LBL_PATIENTEXPERIENCEDEPRESSION = By.xpath("//h2[text()='Depression']");
+	public static final By LBL_PATIENTEXPERIENCEIMMUNIZATIONS = By.xpath("//h2[text()='Immunizations']");
+	public static final By LBL_PATIENTEXPERIENCEPATHWAYSSCREENINGS = By.xpath("//h2[text()='Pathways/Screening']");
+	public static final By LBL_PATIENTEXPERIENCECOMORBIDSCOMPLAINTS = By.xpath("//h2[text()='Comorbids/Complaints]");
+	public static final By LBL_PATIENTEXPERIENCELABSCURRENTLABS = By.xpath("//h2[contains(., 'Labs')]");
+	public static final By LBL_PATIENTEXPERIENCELABSLABSHISTORY = By.xpath("//h2[contains(., 'Labs History')]");
+	public static final By LBL_PATIENTADMINPATIENTINFO = By.xpath("//h2[text()='Patient Info']");
 
 	public static final By MNU_PLANOFCARE = By.xpath("//a[text()='Plan of Care']");
 	public static final By MNU_PLANOFCAREOVERVIEW = By.id("Overview-1");
@@ -45,4 +51,14 @@ public class PatientNavigationLocators
 	public static final By MNU_PATIENTEXPERIENCEMEDICATIONS = By.id("Medications-12");
 	public static final By MNU_PATIENTEXPERIENCEDIABETES = By.id("Diabetes-13");
 	public static final By MNU_PATIENTEXPERIENCEDEPRESSION = By.id("Depression-14");
+	public static final By MNU_PATIENTEXPERIENCEIMMUNIZATIONS = By.id("Immunizations-15");
+	public static final By MNU_PATIENTEXPERIENCEPATHWAYSSCREENINGS = By.id("PathwaysScreenings-16");
+	public static final By MNU_PATIENTEXPERIENCECOMORBIDSCOMPLAINTS = By.id("Comorbids-17");
+	public static final By MNU_PATIENTEXPERIENCELABS = By.xpath("//a[text()='Labs']");
+	public static final By MNU_PATIENTEXPERIENCELABSCURRENTLABS = By.xpath("//span[text()='Current Labs']");
+	public static final By MNU_PATIENTEXPERIENCELABSCURRENTLABSCLICK = By.id("CurrentLabs-18");
+	public static final By MNU_PATIENTEXPERIENCELABSLABSHISTORY = By.xpath("//span[text()='Labs History']");
+	public static final By MNU_PATIENTEXPERIENCELABSLABSHISTORYCLICK = By.id("LabsHistory-19");
+	public static final By MNU_PATIENTADMIN = By.xpath("//a[text()='Patient Admin']");
+	public static final By MNU_PATIENTADMINPATIENTINFO = By.id("PatientInfo-20");
 }
