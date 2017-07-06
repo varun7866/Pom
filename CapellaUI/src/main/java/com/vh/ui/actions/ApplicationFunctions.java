@@ -83,7 +83,6 @@ public class ApplicationFunctions extends WebPage
 		loginPage.enterUserName(applicationProperty.getProperty("username"));
 		loginPage.enterPassword(applicationProperty.getProperty("password"));
 		loginPage.clickLogin();
-		Thread.sleep(3000);
 
 		if (wait.checkForElementVisibility(driver, BTN_YESALLOW))
 		{
@@ -121,6 +120,7 @@ public class ApplicationFunctions extends WebPage
 	{
 		LOGGER.debug("In ApplicationFunctions - selectPatientFromMyPatients");
 
+		// A double click is needed sometimes
 		clickMyPatientsMenuBar();
 		Thread.sleep(200);
 		clickMyPatientsMenuBar();
@@ -558,7 +558,7 @@ public class ApplicationFunctions extends WebPage
 		DateFormat dateFormat = new SimpleDateFormat("MM/dd/yyyy");
 		Date dateObject = new Date();
 
-		String attributeValue = webActions.getAttributeValue("visibility", datePickerLocator, "ng-reflect-value");
+		String attributeValue = webActions.getAttributeValue("visibility", datePickerLocator, "ng-reflect-model");
 
 		return attributeValue.equals(dateFormat.format(dateObject));
 	}
@@ -744,7 +744,7 @@ public class ApplicationFunctions extends WebPage
 	 * @param sortOrder
 	 *            "A" for ascending or "D" for descending
 	 * @param controlType
-	 *            The type of control in the column to be sorted (text, dropdown, checkbox)
+	 *            The type of control in the column to be sorted (text, drop down, check box)
 	 * @return True if the column is sorted and false if not
 	 * @throws TimeoutException
 	 * @throws WaitException
@@ -752,6 +752,7 @@ public class ApplicationFunctions extends WebPage
 	public boolean isColumnSorted(By tableLocator, int columnNumber, String sortOrder, String controlType) throws TimeoutException, WaitException
 	{
 		String attributeValue;
+		String innerText;
 		
 		List<String> columnTextOriginal = new ArrayList<String>();
 		List<String> columnTextSorted = new ArrayList<String>();
@@ -769,8 +770,14 @@ public class ApplicationFunctions extends WebPage
 			{
 				if (controlType.equals("dropdown"))
 				{
-					columnTextOriginal.add(columnElement.findElement(By.xpath("./select//option[@ng-reflect-selected='true']")).getText());
-					columnTextSorted.add(columnElement.findElement(By.xpath("./select//option[@ng-reflect-selected='true']")).getText());
+					// Commented out because the select tag no longer has a "ng-reflect-selected" attribute.
+					// columnTextOriginal.add(columnElement.findElement(By.xpath("./select//option[@ng-reflect-selected='true']")).getText());
+					// columnTextSorted.add(columnElement.findElement(By.xpath("./select//option[@ng-reflect-selected='true']")).getText());
+
+					attributeValue = columnElement.findElement(By.xpath("./select")).getAttribute("ng-reflect-model");
+					innerText = columnElement.findElement(By.xpath("./select//option[@ng-reflect-value='" + attributeValue + "']")).getText();
+					columnTextOriginal.add(innerText);
+					columnTextSorted.add(innerText);
 				}
 				else
 				{

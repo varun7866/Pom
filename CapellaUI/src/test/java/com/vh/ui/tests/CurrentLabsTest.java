@@ -63,8 +63,6 @@ public class CurrentLabsTest extends TestBase
 	{
 		currentLabsPage.clickAddLabButton();
 
-		Thread.sleep(2000); // Give time for the Add Lab Results popup to be displayed
-
 		Assert.assertTrue(currentLabsPage.viewAddLabResultsPopup(), "Failed to identify the Add Labs Results popup header label");
 
 		Assert.assertTrue(currentLabsPage.viewAddPopupCancelButton(), "Failed to identify the Add Lab Results popup CANCEL button");
@@ -196,8 +194,6 @@ public class CurrentLabsTest extends TestBase
 		appFunctions.navigateToMenu("Patient Experience->Labs->Current Labs");
 
 		currentLabsPage.clickAddLabButton();
-
-		Thread.sleep(2000); // Give time for the Add Lab Results popup to be displayed
 
 		Assert.assertTrue(currentLabsPage.viewAddLabResultsPopup(), "Failed to identify the Add Labs Results popup header label");
 

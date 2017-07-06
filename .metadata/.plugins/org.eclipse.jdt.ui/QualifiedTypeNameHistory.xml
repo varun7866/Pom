@@ -6,7 +6,6 @@
 <fullyQualifiedTypeName name="com.vh.ui.pages.MyPatientsPage"/>
 <fullyQualifiedTypeName name="com.vh.ui.web.locators.MyPatientsLocators"/>
 <fullyQualifiedTypeName name="com.vh.ui.web.locators.AdminLocators"/>
-<fullyQualifiedTypeName name="java.lang.Thread"/>
 <fullyQualifiedTypeName name="com.vh.ui.utilities.Utilities"/>
 <fullyQualifiedTypeName name="java.lang.System"/>
 <fullyQualifiedTypeName name="com.vh.ui.web.locators.MedicalEquipmentLocators"/>
@@ -31,4 +30,6 @@
 <fullyQualifiedTypeName name="com.vh.ui.actions.WebActions"/>
 <fullyQualifiedTypeName name="com.vh.ui.pages.PatientNavigationPage"/>
 <fullyQualifiedTypeName name="com.vh.ui.web.locators.PatientNavigationLocators"/>
+<fullyQualifiedTypeName name="java.lang.Thread"/>
+<fullyQualifiedTypeName name="com.thoughtworks.selenium.webdriven.commands.GetAttribute"/>
 </qualifiedTypeNameHistroy>

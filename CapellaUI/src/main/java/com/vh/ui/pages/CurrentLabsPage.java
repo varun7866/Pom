@@ -234,7 +234,7 @@ public class CurrentLabsPage extends WebPage
 
 		for (WebElement labDate : labsDates)
 		{
-			attributeValue = labDate.getAttribute("ng-reflect-value");
+			attributeValue = labDate.getAttribute("ng-reflect-model");
 
 			if (!attributeValue.equals(currentDayMinusXDayGregorian))
 			{
