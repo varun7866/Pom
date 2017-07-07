@@ -27,7 +27,7 @@ import ru.yandex.qatools.allure.annotations.Step;
  * 3. You will need a CKD and an ESRD Patient:
  *    Change the CKD Patient name to a Patient under your ID in the call to the selectPatientFromMyPatients() method in the buildUp() method.
  *    Change the ESRD Patient name to a Patient under your ID in the call to the selectPatientFromMyPatients() method in the verify_AddAddLabResultsPopupESRD() method.
- * 4. It's not required, but it would be a good idea to delete all existing Labs from table PTLB_PATIENT_LABS
+ * 4. It's not required, but it would be a good idea to delete all existing Labs from table PTLB_PATIENT_LABS for your Patients
  */
 
 public class CurrentLabsTest extends TestBase
@@ -188,6 +188,11 @@ public class CurrentLabsTest extends TestBase
 
 		Assert.assertTrue(currentLabsPage.viewAddpopupKTVErrorMessage(), "Failed to identify the Add Lab Results popup KT/V error message");
 		Assert.assertTrue(currentLabsPage.viewAddpopupURRErrorMessage(), "Failed to identify the Add Lab Results popup URR error message");
+
+		currentLabsPage.clearKTVTextBox();
+		currentLabsPage.clearURRTextBox();
+		Thread.sleep(1000); // Pause to give time to clear the text boxes before clicking Save
+		currentLabsPage.clickAddPopupSaveButton();
 	}
 
 	@Test(priority = 4)
@@ -318,6 +323,10 @@ public class CurrentLabsTest extends TestBase
 		currentLabsPage.clickAddPopupSaveButton();
 
 		Assert.assertTrue(currentLabsPage.viewAddpopupUrineAlbuminCreatinineRatioErrorMessage(), "Failed to identify the Add Lab Results popup Urine Albumin Creatinine Ratio error message");
+
+		currentLabsPage.clearUrineAlbuminCreatinineRatioTextBox();
+
+		currentLabsPage.clickAddPopupSaveButton();
 	}
 
 	@AfterClass

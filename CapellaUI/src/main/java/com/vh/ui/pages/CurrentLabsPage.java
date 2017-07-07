@@ -930,4 +930,22 @@ public class CurrentLabsPage extends WebPage
 	{
 		return webActions.getVisibiltyOfElementLocatedBy(VISIBILITY, LBL_ADDPOPUPURINEALBUMINCREATININERATIOERRORMESSAGE);
 	}
+
+	@Step("clear the KTV text box")
+	public void clearKTVTextBox() throws TimeoutException, WaitException
+	{
+		webActions.clearTextBox(VISIBILITY, TXT_ADDPOPUPKTV);
+	}
+
+	@Step("clear the URR text box")
+	public void clearURRTextBox() throws TimeoutException, WaitException
+	{
+		webActions.clearTextBox(VISIBILITY, TXT_ADDPOPUPURR);
+	}
+
+	@Step("clear the Urine Albumin Creatinine Ratio text box")
+	public void clearUrineAlbuminCreatinineRatioTextBox() throws TimeoutException, WaitException
+	{
+		webActions.clearTextBox(VISIBILITY, TXT_ADDPOPUPURINEALBUMINCREATININERATIO);
+	}
 }

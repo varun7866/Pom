@@ -639,4 +639,20 @@ public class WebActions {
 
 		return driver.findElement(locator).isEnabled();
 	}
+
+	/**
+	 * Clear the passed in text box
+	 * 
+	 * @param expectedCondition
+	 *            to wait for. The conditions can be notrequired, visibility, clickability, and presence
+	 * @param locator
+	 *            used to identify the element
+	 * @throws WaitException
+	 */
+	public void clearTextBox(String expectedCondition, By locator) throws WaitException
+	{
+		LOGGER.info(Utilities.getCurrentThreadId() + "Clearing text box");
+
+		driver.findElement(locator).clear();
+	}
 }
