@@ -124,6 +124,8 @@ public class ApplicationFunctions extends WebPage
 		clickMyPatientsMenuBar();
 		Thread.sleep(200);
 		clickMyPatientsMenuBar();
+		Thread.sleep(200);
+		clickMyPatientsMenuBar();
 
 		webActions.click(VISIBILITY, By.xpath("//a[text()='" + patientName + "']"));
 	}

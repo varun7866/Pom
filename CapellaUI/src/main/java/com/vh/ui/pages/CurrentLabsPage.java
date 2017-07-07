@@ -49,6 +49,7 @@ import static com.vh.ui.web.locators.CurrentLabsLocators.LBL_ADDPOPUPHEPATITISBT
 import static com.vh.ui.web.locators.CurrentLabsLocators.LBL_ADDPOPUPHGB;
 import static com.vh.ui.web.locators.CurrentLabsLocators.LBL_ADDPOPUPHGBA1C;
 import static com.vh.ui.web.locators.CurrentLabsLocators.LBL_ADDPOPUPKTV;
+import static com.vh.ui.web.locators.CurrentLabsLocators.LBL_ADDPOPUPKTVERRORMESSAGE;
 import static com.vh.ui.web.locators.CurrentLabsLocators.LBL_ADDPOPUPLDL;
 import static com.vh.ui.web.locators.CurrentLabsLocators.LBL_ADDPOPUPPHOSPHOROUS;
 import static com.vh.ui.web.locators.CurrentLabsLocators.LBL_ADDPOPUPPOTASSIUM;
@@ -56,7 +57,9 @@ import static com.vh.ui.web.locators.CurrentLabsLocators.LBL_ADDPOPUPTARGETDRYWE
 import static com.vh.ui.web.locators.CurrentLabsLocators.LBL_ADDPOPUPTH;
 import static com.vh.ui.web.locators.CurrentLabsLocators.LBL_ADDPOPUPTSAT;
 import static com.vh.ui.web.locators.CurrentLabsLocators.LBL_ADDPOPUPURINEALBUMINCREATININERATIO;
+import static com.vh.ui.web.locators.CurrentLabsLocators.LBL_ADDPOPUPURINEALBUMINCREATININERATIOERRORMESSAGE;
 import static com.vh.ui.web.locators.CurrentLabsLocators.LBL_ADDPOPUPURR;
+import static com.vh.ui.web.locators.CurrentLabsLocators.LBL_ADDPOPUPURRERRORMESSAGE;
 import static com.vh.ui.web.locators.CurrentLabsLocators.LBL_ADDPOPUPWEIGHT;
 import static com.vh.ui.web.locators.CurrentLabsLocators.LBL_PAGEHEADER;
 import static com.vh.ui.web.locators.CurrentLabsLocators.PLH_ADDPOPUPDIPSTICKFORPROTEIN;
@@ -908,5 +911,23 @@ public class CurrentLabsPage extends WebPage
 	{
 		webActions.selectFromDropDown(CLICKABILITY, CBO_ADDPOPUPDIPSTICKFORPROTEIN, dipstickForProteinVal);
 		return this;
+	}
+
+	@Step("Verify the visibility of the Add Lab Results popup KT/VD error message")
+	public boolean viewAddpopupKTVErrorMessage() throws TimeoutException, WaitException
+	{
+		return webActions.getVisibiltyOfElementLocatedBy(VISIBILITY, LBL_ADDPOPUPKTVERRORMESSAGE);
+	}
+
+	@Step("Verify the visibility of the Add Lab Results popup URR error message")
+	public boolean viewAddpopupURRErrorMessage() throws TimeoutException, WaitException
+	{
+		return webActions.getVisibiltyOfElementLocatedBy(VISIBILITY, LBL_ADDPOPUPURRERRORMESSAGE);
+	}
+
+	@Step("Verify the visibility of the Add Lab Results popup Urine Albumin Creatinine Ratio error message")
+	public boolean viewAddpopupUrineAlbuminCreatinineRatioErrorMessage() throws TimeoutException, WaitException
+	{
+		return webActions.getVisibiltyOfElementLocatedBy(VISIBILITY, LBL_ADDPOPUPURINEALBUMINCREATININERATIOERRORMESSAGE);
 	}
 }

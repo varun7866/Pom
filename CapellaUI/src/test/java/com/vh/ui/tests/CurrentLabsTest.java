@@ -183,6 +183,11 @@ public class CurrentLabsTest extends TestBase
 	public void verify_AddPopupValidationCKD() throws WaitException, URLNavigationException, InterruptedException
 	{
 		currentLabsPage.populateAddPopupAllCKD();
+
+		currentLabsPage.clickAddPopupSaveButton();
+
+		Assert.assertTrue(currentLabsPage.viewAddpopupKTVErrorMessage(), "Failed to identify the Add Lab Results popup KT/V error message");
+		Assert.assertTrue(currentLabsPage.viewAddpopupURRErrorMessage(), "Failed to identify the Add Lab Results popup URR error message");
 	}
 
 	@Test(priority = 4)
@@ -309,6 +314,10 @@ public class CurrentLabsTest extends TestBase
 	public void verify_AddPopupValidationESRD() throws WaitException, URLNavigationException, InterruptedException
 	{
 		currentLabsPage.populateAddPopupAllESRD();
+
+		currentLabsPage.clickAddPopupSaveButton();
+
+		Assert.assertTrue(currentLabsPage.viewAddpopupUrineAlbuminCreatinineRatioErrorMessage(), "Failed to identify the Add Lab Results popup Urine Albumin Creatinine Ratio error message");
 	}
 
 	@AfterClass
