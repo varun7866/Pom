@@ -1,7 +1,5 @@
 package com.vh.ui.tests;
 
-import java.util.Map;
-
 import org.openqa.selenium.TimeoutException;
 import org.openqa.selenium.WebDriver;
 import org.testng.Assert;

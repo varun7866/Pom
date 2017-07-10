@@ -1,7 +1,5 @@
 package com.vh.ui.tests;
 
-import java.util.Map;
-
 import org.openqa.selenium.TimeoutException;
 import org.openqa.selenium.WebDriver;
 import org.testng.Assert;
@@ -180,9 +178,9 @@ public class CurrentLabsTest extends TestBase
 		Assert.assertTrue(currentLabsPage.viewAddpopupBloodPressureDiastolicGoal(), "Failed to identify the Add Lab Results popup BLOOD PRESURE DIASTOLIC goal");
 	}
 
-	@Test(priority = 3, dataProvider = "CapellaDataProvider")
+	@Test(priority = 3)
 	@Step("Verify the Add Lab Results popup validation for CKD Patients")
-	public void verify_AddPopupValidationCKD(Map<String, String> map) throws WaitException, URLNavigationException, InterruptedException
+	public void verify_AddPopupValidationCKD() throws WaitException, URLNavigationException, InterruptedException
 	{
 		currentLabsPage.populateAddPopupAllCKD();
 
