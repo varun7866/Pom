@@ -179,9 +179,12 @@ public class WebActions {
 	 * @throws TimeoutException
 	 * @throws WaitException
 	 */
-	public void click(String expectedCondition, By locator) throws TimeoutException, WaitException {
+	public void click(String expectedCondition, By locator) throws TimeoutException, WaitException
+	{
 		LOGGER.info(Utilities.getCurrentThreadId() + "Clicking on element with locator:" + locator);
+
 		wait.syncLocatorUsing(expectedCondition, driver, locator).click();
+
 		LOGGER.info(Utilities.getCurrentThreadId() + "Clicked on element with locator:" + locator);
 	}
 

@@ -113,4 +113,7 @@ public class CurrentLabsLocators
 	public static final By TXT_ADDPOPUPPTH = By.xpath("//span[text()='PTH']/../../../div[2]/div/input");
 	public static final By TXT_ADDPOPUPFERRITIN = By.xpath("//span[text()='Ferritin']/../../../div[2]/div/input");
 	public static final By TXT_ADDPOPUPBLOODPRESURESYSTOLIC = By.xpath("//span[text()='Blood Pressure Systolic']/../../../div[2]/div/input");
+
+	public static final By XXX_ADDPOPUPKTV = By.xpath("//span[text()='KT/V']/../../../div[2]/div/input");
+	public static final By XXX_ADDPOPUPURR = By.xpath("//span[text()='URR']/../../../div[2]/div/input");
 }

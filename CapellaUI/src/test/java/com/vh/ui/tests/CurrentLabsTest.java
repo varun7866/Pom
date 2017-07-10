@@ -57,8 +57,8 @@ public class CurrentLabsTest extends TestBase
 		Assert.assertTrue(currentLabsPage.viewAddLabButton(), "Failed to identify the ADD LAB button");
 	}
 
-	@Test(priority = 2)
-	@Step("Verify the Add Lab Results popup for CKD Patients")
+	// @Test(priority = 2)
+	// @Step("Verify the Add Lab Results popup for CKD Patients")
 	public void verify_AddLabResultsPopupCKD() throws WaitException, URLNavigationException, InterruptedException
 	{
 		currentLabsPage.clickAddLabButton();
@@ -191,12 +191,12 @@ public class CurrentLabsTest extends TestBase
 
 		currentLabsPage.clearKTVTextBox();
 		currentLabsPage.clearURRTextBox();
-		Thread.sleep(1000); // Pause to give time to clear the text boxes before clicking Save
+
 		currentLabsPage.clickAddPopupSaveButton();
 	}
 
-	@Test(priority = 4)
-	@Step("Verify the Add Lab Results popup for ESRD Patients")
+	// @Test(priority = 4)
+	// @Step("Verify the Add Lab Results popup for ESRD Patients")
 	public void verify_AddAddLabResultsPopupESRD() throws WaitException, URLNavigationException, InterruptedException
 	{
 		appFunctions.selectPatientFromMyPatients("Waliy Al D Holroyd"); // ESRD Patient
@@ -314,8 +314,8 @@ public class CurrentLabsTest extends TestBase
 		Assert.assertTrue(currentLabsPage.viewAddpopupBloodPressureSystolicGoal(), "Failed to identify the Add Lab Results popup BLOOD PRESURE SYSTOLIC goal");
 	}
 
-	@Test(priority = 5)
-	@Step("Verify the Add Lab Results popup validation for ESRD Patients")
+	// @Test(priority = 5)
+	// @Step("Verify the Add Lab Results popup validation for ESRD Patients")
 	public void verify_AddPopupValidationESRD() throws WaitException, URLNavigationException, InterruptedException
 	{
 		currentLabsPage.populateAddPopupAllESRD();

@@ -32,4 +32,8 @@
 <fullyQualifiedTypeName name="com.vh.ui.web.locators.PatientNavigationLocators"/>
 <fullyQualifiedTypeName name="java.lang.Thread"/>
 <fullyQualifiedTypeName name="com.thoughtworks.selenium.webdriven.commands.GetAttribute"/>
+<fullyQualifiedTypeName name="org.openqa.selenium.Keys"/>
+<fullyQualifiedTypeName name="org.openqa.selenium.support.events.WebDriverEventListener"/>
+<fullyQualifiedTypeName name="org.openqa.selenium.remote.server.handler.FindElement"/>
+<fullyQualifiedTypeName name="org.openqa.selenium.WebElement"/>
 </qualifiedTypeNameHistroy>

@@ -98,6 +98,7 @@ import java.util.Date;
 import java.util.List;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.TimeoutException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -730,7 +731,7 @@ public class CurrentLabsPage extends WebPage
 	@Step("Populate all fields on the Add Lab Results popup for a CKD Patient")
 	public void populateAddPopupAllCKD() throws TimeoutException, WaitException
 	{
-		enterHeight("182.88").enterTargetDryWeight("77.1107").enterPhosphorous("3.5").enterGFR("70").enterLDL("50").enterAlbumin("5").enterDipstickForProtein("Positive").enterCalcium("9.1")
+		enterHeight("182.88").enterTargetDryWeight("77.1107").enterPhosphorous("3.5").enterGFR("70").enterLDL("50").enterAlbumin("5").enterDipstickForProtein("Negative").enterCalcium("9.1")
 		        .enterURR("70").enterPTH("300").enterFerritin("250").enterBloodPressureSystolic("100").enterWeight("77.1107").enterCalciumXPhosphorous("45").enterCreatinineString("1.2")
 		        .enterHGBA1C("6").enterHGB("5").enterUrineAlbuminCreatinineRatio("15").enterCO2Level("25").enterKTV("1.5").enterPotassium("4.1").enterHepatitisBTiter("50").enterTSAT("50")
 		        .enterBloodPressureDiastolic("30");
@@ -934,18 +935,22 @@ public class CurrentLabsPage extends WebPage
 	@Step("clear the KTV text box")
 	public void clearKTVTextBox() throws TimeoutException, WaitException
 	{
-		webActions.clearTextBox(VISIBILITY, TXT_ADDPOPUPKTV);
+		webActions.pressKey(VISIBILITY, TXT_ADDPOPUPKTV, Keys.BACK_SPACE);
+		webActions.pressKey(VISIBILITY, TXT_ADDPOPUPKTV, Keys.BACK_SPACE);
+		webActions.pressKey(VISIBILITY, TXT_ADDPOPUPKTV, Keys.BACK_SPACE);
 	}
 
 	@Step("clear the URR text box")
 	public void clearURRTextBox() throws TimeoutException, WaitException
 	{
-		webActions.clearTextBox(VISIBILITY, TXT_ADDPOPUPURR);
+		webActions.pressKey(VISIBILITY, TXT_ADDPOPUPURR, Keys.BACK_SPACE);
+		webActions.pressKey(VISIBILITY, TXT_ADDPOPUPURR, Keys.BACK_SPACE);
 	}
 
 	@Step("clear the Urine Albumin Creatinine Ratio text box")
 	public void clearUrineAlbuminCreatinineRatioTextBox() throws TimeoutException, WaitException
 	{
-		webActions.clearTextBox(VISIBILITY, TXT_ADDPOPUPURINEALBUMINCREATININERATIO);
+		webActions.pressKey(VISIBILITY, TXT_ADDPOPUPURINEALBUMINCREATININERATIO, Keys.BACK_SPACE);
+		webActions.pressKey(VISIBILITY, TXT_ADDPOPUPURINEALBUMINCREATININERATIO, Keys.BACK_SPACE);
 	}
 }
