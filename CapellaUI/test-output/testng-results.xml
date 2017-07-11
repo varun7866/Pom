@@ -1,59 +1,28 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testng-results skipped="0" failed="0" total="3" passed="3">
+<testng-results skipped="0" failed="0" total="2" passed="2">
   <reporter-output>
   </reporter-output>
-  <suite name="Default suite" duration-ms="205049" started-at="2017-07-11T17:59:53Z" finished-at="2017-07-11T18:03:18Z">
+  <suite name="Default suite" duration-ms="188586" started-at="2017-07-11T20:37:22Z" finished-at="2017-07-11T20:40:31Z">
     <groups>
     </groups>
-    <test name="Default test" duration-ms="205049" started-at="2017-07-11T17:59:53Z" finished-at="2017-07-11T18:03:18Z">
+    <test name="Default test" duration-ms="188586" started-at="2017-07-11T20:37:22Z" finished-at="2017-07-11T20:40:31Z">
       <class name="com.vh.ui.tests.CurrentLabsTest">
-        <test-method status="PASS" signature="buildUp()[pri:0, instance:com.vh.ui.tests.CurrentLabsTest@191a0351]" name="buildUp" is-config="true" duration-ms="98120" started-at="2017-07-11T12:59:53Z" finished-at="2017-07-11T13:01:32Z">
+        <test-method status="PASS" signature="buildUp()[pri:0, instance:com.vh.ui.tests.CurrentLabsTest@49ca94a9]" name="buildUp" is-config="true" duration-ms="99976" started-at="2017-07-11T15:37:22Z" finished-at="2017-07-11T15:39:02Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- buildUp -->
-        <test-method status="PASS" signature="verify_CurrentLabsPage()[pri:1, instance:com.vh.ui.tests.CurrentLabsTest@191a0351]" name="verify_CurrentLabsPage" duration-ms="2098" started-at="2017-07-11T13:01:32Z" finished-at="2017-07-11T13:01:34Z">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- verify_CurrentLabsPage -->
-        <test-method status="PASS" signature="afterTest(java.lang.reflect.Method, org.testng.ITestResult)[pri:0, instance:com.vh.ui.tests.CurrentLabsTest@191a0351]" name="afterTest" is-config="true" duration-ms="5" started-at="2017-07-11T13:01:34Z" finished-at="2017-07-11T13:01:34Z">
+        <test-method status="PASS" signature="verify_AddingLabs(java.util.Map)[pri:4, instance:com.vh.ui.tests.CurrentLabsTest@49ca94a9]" name="verify_AddingLabs" duration-ms="48520" started-at="2017-07-11T15:39:03Z" data-provider="CapellaDataProvider" finished-at="2017-07-11T15:39:52Z">
           <params>
             <param index="0">
               <value>
-                <![CDATA[public void com.vh.ui.tests.CurrentLabsTest.verify_CurrentLabsPage() throws com.vh.ui.exceptions.WaitException,com.vh.ui.exceptions.URLNavigationException,java.lang.InterruptedException]]>
-              </value>
-            </param>
-            <param index="1">
-              <value>
-                <![CDATA[[TestResult name=verify_CurrentLabsPage status=SUCCESS method=CurrentLabsTest.verify_CurrentLabsPage()[pri:1, instance:com.vh.ui.tests.CurrentLabsTest@191a0351] output={null}]]]>
-              </value>
-            </param>
-          </params>
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- afterTest -->
-        <test-method status="PASS" signature="verify_AddingLabs(java.util.Map)[pri:4, instance:com.vh.ui.tests.CurrentLabsTest@191a0351]" name="verify_AddingLabs" duration-ms="25140" started-at="2017-07-11T13:02:52Z" data-provider="CapellaDataProvider" finished-at="2017-07-11T13:03:18Z">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[{TestScenario=CKD, HEIGHT=182.88, WEIGHT=77.11}]]>
+                <![CDATA[{DIPSTICKFORPROTEIN=Negative, CO2LEVEL=25.0, PTH=500.0, TestScenario=CKD, KTV=1.5, URINEALBUMINCREATININERATIO=15.0, CALCIUMXPHOSPHOROUS=45.0, GFR=70.0, HEPATITISBTITER=50.0, HGBA1C=6.0, URR=70.0, LDL=50.0, TSAT=50.0, TARGETDRYWEIGHT=77.11, CALCIUM=9.1, PHOSPHOROUS=3.5, BLOODPRESSURESYSTOLIC=100.0, ALBUMIN=5.0, WEIGHT=77.11, HGB=5.0, POTASIUM=4.1, PatientName=Glayds Whoriskey, HEIGHT=182.88, BLOODPRESSUREDIASTOLIC=30.0, CREATININE=1.2, FERRITIN=250.0}]]>
               </value>
             </param>
           </params>
           <reporter-output>
           </reporter-output>
         </test-method> <!-- verify_AddingLabs -->
-        <test-method status="PASS" signature="verify_AddingLabs(java.util.Map)[pri:4, instance:com.vh.ui.tests.CurrentLabsTest@191a0351]" name="verify_AddingLabs" duration-ms="867" started-at="2017-07-11T13:03:18Z" data-provider="CapellaDataProvider" finished-at="2017-07-11T13:03:18Z">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[{TestScenario=ESRD, HEIGHT=182.88, WEIGHT=77.11}]]>
-              </value>
-            </param>
-          </params>
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- verify_AddingLabs -->
-        <test-method status="PASS" signature="afterTest(java.lang.reflect.Method, org.testng.ITestResult)[pri:0, instance:com.vh.ui.tests.CurrentLabsTest@191a0351]" name="afterTest" is-config="true" duration-ms="0" started-at="2017-07-11T13:03:18Z" finished-at="2017-07-11T13:03:18Z">
+        <test-method status="PASS" signature="afterTest(java.lang.reflect.Method, org.testng.ITestResult)[pri:0, instance:com.vh.ui.tests.CurrentLabsTest@49ca94a9]" name="afterTest" is-config="true" duration-ms="12" started-at="2017-07-11T15:39:52Z" finished-at="2017-07-11T15:39:52Z">
           <params>
             <param index="0">
               <value>
@@ -62,14 +31,25 @@
             </param>
             <param index="1">
               <value>
-                <![CDATA[[TestResult name=verify_AddingLabs status=SUCCESS method=CurrentLabsTest.verify_AddingLabs(java.util.Map)[pri:4, instance:com.vh.ui.tests.CurrentLabsTest@191a0351] output={null}]]]>
+                <![CDATA[[TestResult name=verify_AddingLabs status=SUCCESS method=CurrentLabsTest.verify_AddingLabs(java.util.Map)[pri:4, instance:com.vh.ui.tests.CurrentLabsTest@49ca94a9] output={null}]]]>
               </value>
             </param>
           </params>
           <reporter-output>
           </reporter-output>
         </test-method> <!-- afterTest -->
-        <test-method status="PASS" signature="afterTest(java.lang.reflect.Method, org.testng.ITestResult)[pri:0, instance:com.vh.ui.tests.CurrentLabsTest@191a0351]" name="afterTest" is-config="true" duration-ms="0" started-at="2017-07-11T13:03:18Z" finished-at="2017-07-11T13:03:18Z">
+        <test-method status="PASS" signature="verify_AddingLabs(java.util.Map)[pri:4, instance:com.vh.ui.tests.CurrentLabsTest@49ca94a9]" name="verify_AddingLabs" duration-ms="39118" started-at="2017-07-11T15:39:52Z" data-provider="CapellaDataProvider" finished-at="2017-07-11T15:40:31Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[{DIPSTICKFORPROTEIN=null, CO2LEVEL=25.0, PTH=500.0, TestScenario=ESRD, KTV=1.5, URINEALBUMINCREATININERATIO=15.0, CALCIUMXPHOSPHOROUS=45.0, GFR=70.0, HEPATITISBTITER=50.0, HGBA1C=6.0, URR=70.0, LDL=50.0, TSAT=50.0, TARGETDRYWEIGHT=77.11, CALCIUM=9.1, PHOSPHOROUS=3.5, BLOODPRESSURESYSTOLIC=100.0, ALBUMIN=5.0, WEIGHT=77.11, HGB=5.0, POTASIUM=4.1, PatientName=Waliy Al D Holroyd, HEIGHT=182.88, BLOODPRESSUREDIASTOLIC=30.0, CREATININE=1.2, FERRITIN=250.0}]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- verify_AddingLabs -->
+        <test-method status="PASS" signature="afterTest(java.lang.reflect.Method, org.testng.ITestResult)[pri:0, instance:com.vh.ui.tests.CurrentLabsTest@49ca94a9]" name="afterTest" is-config="true" duration-ms="0" started-at="2017-07-11T15:40:31Z" finished-at="2017-07-11T15:40:31Z">
           <params>
             <param index="0">
               <value>
@@ -78,14 +58,14 @@
             </param>
             <param index="1">
               <value>
-                <![CDATA[[TestResult name=verify_AddingLabs status=SUCCESS method=CurrentLabsTest.verify_AddingLabs(java.util.Map)[pri:4, instance:com.vh.ui.tests.CurrentLabsTest@191a0351] output={null}]]]>
+                <![CDATA[[TestResult name=verify_AddingLabs status=SUCCESS method=CurrentLabsTest.verify_AddingLabs(java.util.Map)[pri:4, instance:com.vh.ui.tests.CurrentLabsTest@49ca94a9] output={null}]]]>
               </value>
             </param>
           </params>
           <reporter-output>
           </reporter-output>
         </test-method> <!-- afterTest -->
-        <test-method status="PASS" signature="tearDown()[pri:0, instance:com.vh.ui.tests.CurrentLabsTest@191a0351]" name="tearDown" is-config="true" duration-ms="1" started-at="2017-07-11T13:03:18Z" finished-at="2017-07-11T13:03:18Z">
+        <test-method status="PASS" signature="tearDown()[pri:0, instance:com.vh.ui.tests.CurrentLabsTest@49ca94a9]" name="tearDown" is-config="true" duration-ms="1" started-at="2017-07-11T15:40:31Z" finished-at="2017-07-11T15:40:31Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- tearDown -->

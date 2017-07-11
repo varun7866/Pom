@@ -51,8 +51,8 @@ public class CurrentLabsTest extends TestBase
 		appFunctions.navigateToMenu("Patient Experience->Labs->Current Labs");
 	}
 
-	@Test(priority = 1)
-	@Step("Verify the Current Labs page")
+	// @Test(priority = 1)
+	// @Step("Verify the Current Labs page")
 	public void verify_CurrentLabsPage() throws WaitException, URLNavigationException, InterruptedException
 	{
 		Assert.assertTrue(currentLabsPage.viewPageHeaderLabel(), "Failed to identify the Current Labs page header label");
@@ -307,14 +307,24 @@ public class CurrentLabsTest extends TestBase
 	@Step("Verify Adding Labs with different scenarios")
 	public void verify_AddingLabs(Map<String, String> map) throws WaitException, URLNavigationException, InterruptedException
 	{
-		String temp = map.get("HEIGHT");
-		// appFunctions.selectPatientFromMyPatients("Waliy Al D Holroyd"); // ESRD Patient
+		appFunctions.selectPatientFromMyPatients(map.get("PatientName"));
 
-		// appFunctions.navigateToMenu("Patient Experience->Labs->Current Labs");
+		appFunctions.navigateToMenu("Patient Experience->Labs->Current Labs");
 
-		// currentLabsPage.clickAddLabButton();
+		currentLabsPage.clickAddLabButton();
 
-		// currentLabsPage.populateAddPopupAllCKD();
+		if (map.get("TestScenario").equals("CKD"))
+		{
+			currentLabsPage.populateAddPopupAllCKD(map);
+		}
+		else
+		{
+			if (map.get("TestScenario").equals("ESRD"))
+			{
+				currentLabsPage.populateAddPopupAllESRD(map);
+			}
+		}
+
 		// currentLabsPage.clickAddPopupSaveButton();
 		// Assert.assertTrue(currentLabsPage.viewAddpopupKTVErrorMessage(), "Failed to identify the Add Lab Results popup KT/V error message");
 		// Assert.assertTrue(currentLabsPage.viewAddpopupURRErrorMessage(), "Failed to identify the Add Lab Results popup URR error message");

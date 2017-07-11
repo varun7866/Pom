@@ -96,6 +96,7 @@ import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
+import java.util.Map;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
@@ -729,21 +730,25 @@ public class CurrentLabsPage extends WebPage
 	}
 
 	@Step("Populate all fields on the Add Lab Results popup for a CKD Patient")
-	public void populateAddPopupAllCKD() throws TimeoutException, WaitException
+	public void populateAddPopupAllCKD(Map<String, String> map) throws TimeoutException, WaitException
 	{
-		enterHeight("182.88").enterTargetDryWeight("77.1107").enterPhosphorous("3.5").enterGFR("70").enterLDL("50").enterAlbumin("5").enterDipstickForProtein("Negative").enterCalcium("9.1")
-		        .enterURR("70").enterPTH("300").enterFerritin("250").enterBloodPressureSystolic("100").enterWeight("77.1107").enterCalciumXPhosphorous("45").enterCreatinineString("1.2")
-		        .enterHGBA1C("6").enterHGB("5").enterUrineAlbuminCreatinineRatio("15").enterCO2Level("25").enterKTV("1.5").enterPotassium("4.1").enterHepatitisBTiter("50").enterTSAT("50")
-		        .enterBloodPressureDiastolic("30");
+		enterHeight(map.get("HEIGHT")).enterWeight(map.get("WEIGHT")).enterTargetDryWeight(map.get("TARGETDRYWEIGHT")).enterCalciumXPhosphorous(map.get("CALCIUMXPHOSPHOROUS"))
+		        .enterPhosphorous(map.get("PHOSPHOROUS")).enterCreatinineString(map.get("CREATININE")).enterGFR(map.get("GFR")).enterHGBA1C(map.get("HGBA1C")).enterLDL(map.get("LDL"))
+		        .enterHGB(map.get("HGB")).enterAlbumin(map.get("ALBUMIN")).enterUrineAlbuminCreatinineRatio(map.get("URINEALBUMINCREATININERATIO"))
+		        .enterDipstickForProtein(map.get("DIPSTICKFORPROTEIN")).enterCO2Level(map.get("CO2LEVEL")).enterCalcium(map.get("CALCIUM")).enterKTV(map.get("KTV")).enterURR(map.get("URR"))
+		        .enterPotassium(map.get("POTASIUM")).enterPTH(map.get("PTH")).enterHepatitisBTiter(map.get("HEPATITISBTITER")).enterFerritin(map.get("FERRITIN")).enterTSAT(map.get("TSAT"))
+		        .enterBloodPressureSystolic(map.get("BLOODPRESSURESYSTOLIC")).enterBloodPressureDiastolic(map.get("BLOODPRESSUREDIASTOLIC"));
 	}
 
 	@Step("Populate all fields on the Add Lab Results popup for an ESRD Patient")
-	public void populateAddPopupAllESRD() throws TimeoutException, WaitException
+	public void populateAddPopupAllESRD(Map<String, String> map) throws TimeoutException, WaitException
 	{
-		enterHeight("182.88").enterTargetDryWeight("77.1107").enterPhosphorous("3.5").enterGFR("70").enterLDL("50").enterAlbumin("5").enterCO2Level("25").enterKTV("1.5")
-		        .enterPotassium("4.1").enterHepatitisBTiter("50").enterTSAT("50").enterBloodPressureDiastolic("30").enterWeight("77.1107").enterCalciumXPhosphorous("45")
-		        .enterCreatinineString("1.2").enterHGBA1C("6").enterHGB("5").enterUrineAlbuminCreatinineRatio("15").enterCalcium("9.1").enterURR("70").enterPTH("200").enterFerritin("250")
-		        .enterBloodPressureSystolic("100");
+		enterHeight(map.get("HEIGHT")).enterWeight(map.get("WEIGHT")).enterTargetDryWeight(map.get("TARGETDRYWEIGHT")).enterCalciumXPhosphorous(map.get("CALCIUMXPHOSPHOROUS"))
+		        .enterPhosphorous(map.get("PHOSPHOROUS")).enterCreatinineString(map.get("CREATININE")).enterGFR(map.get("GFR")).enterHGBA1C(map.get("HGBA1C")).enterLDL(map.get("LDL"))
+		        .enterHGB(map.get("HGB")).enterAlbumin(map.get("ALBUMIN")).enterUrineAlbuminCreatinineRatio(map.get("URINEALBUMINCREATININERATIO")).enterCO2Level(map.get("CO2LEVEL"))
+		        .enterCalcium(map.get("CALCIUM")).enterKTV(map.get("KTV")).enterURR(map.get("URR")).enterPotassium(map.get("POTASIUM")).enterPTH(map.get("PTH"))
+		        .enterHepatitisBTiter(map.get("HEPATITISBTITER")).enterFerritin(map.get("FERRITIN")).enterTSAT(map.get("TSAT")).enterBloodPressureSystolic(map.get("BLOODPRESSURESYSTOLIC"))
+		        .enterBloodPressureDiastolic(map.get("BLOODPRESSUREDIASTOLIC"));
 	}
 
 	@Step("Entered {0} in the HEIGHT text field")
