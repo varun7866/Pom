@@ -49,7 +49,7 @@
               <ul>
                 <li>
                   <a href="#" class="navigator-link " panel-name="test-xml-Default_suite">
-                    <span>C:\Users\hackermans\AppData\Local\Temp\testng-eclipse--156975266\testng-customsuite.xml</span>
+                    <span>C:\Users\hackermans\AppData\Local\Temp\testng-eclipse-1877400293\testng-customsuite.xml</span>
                   </a> <!-- navigator-link  -->
                 </li>
                 <li>
@@ -91,7 +91,7 @@
               <div class="suite-section-content">
                 <ul>
                   <li>
-                    <span class="method-stats">2 methods,   2 passed</span>
+                    <span class="method-stats">3 methods,   3 passed</span>
                   </li>
                   <li>
                     <span class="method-list-title passed">Passed methods</span>
@@ -102,7 +102,12 @@
                     <div class="method-list-content passed suite-Default_suite">
                       <span>
                         <img width="3%" src="passed.png"/>
-                        <a href="#" class="method navigator-link" panel-name="suite-Default_suite" title="com.vh.ui.tests.CurrentLabsTest" hash-for-method="verify_AddPopupValidationCKD">verify_AddPopupValidationCKD</a> <!-- method navigator-link -->
+                        <a href="#" class="method navigator-link" panel-name="suite-Default_suite" title="com.vh.ui.tests.CurrentLabsTest" hash-for-method="verify_AddingLabs({TestScenario=CKD, HEIGHT=182.88, WEIGHT=77.11})">verify_AddingLabs({TestScenario=CKD, HEIGHT=182.88, WEIGHT=77.11})</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img width="3%" src="passed.png"/>
+                        <a href="#" class="method navigator-link" panel-name="suite-Default_suite" title="com.vh.ui.tests.CurrentLabsTest" hash-for-method="verify_AddingLabs({TestScenario=ESRD, HEIGHT=182.88, WEIGHT=77.11})">verify_AddingLabs({TestScenario=ESRD, HEIGHT=182.88, WEIGHT=77.11})</a> <!-- method navigator-link -->
                       </span>
                       <br/>
                       <span>
@@ -130,9 +135,18 @@
             <div class="main-panel-content rounded-window-bottom">
               <div class="method">
                 <div class="method-content">
-                  <a name="verify_AddPopupValidationCKD">
-                  </a> <!-- verify_AddPopupValidationCKD -->
-                  <span class="method-name">verify_AddPopupValidationCKD</span>
+                  <a name="verify_AddingLabs({TestScenario=CKD, HEIGHT=182.88, WEIGHT=77.11})">
+                  </a> <!-- verify_AddingLabs({TestScenario=CKD, HEIGHT=182.88, WEIGHT=77.11}) -->
+                  <span class="method-name">verify_AddingLabs</span>
+                  <span class="parameters">({TestScenario=CKD, HEIGHT=182.88, WEIGHT=77.11})</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="verify_AddingLabs({TestScenario=ESRD, HEIGHT=182.88, WEIGHT=77.11})">
+                  </a> <!-- verify_AddingLabs({TestScenario=ESRD, HEIGHT=182.88, WEIGHT=77.11}) -->
+                  <span class="method-name">verify_AddingLabs</span>
+                  <span class="parameters">({TestScenario=ESRD, HEIGHT=182.88, WEIGHT=77.11})</span>
                 </div> <!-- method-content -->
               </div> <!-- method -->
               <div class="method">
@@ -147,7 +161,7 @@
         </div> <!-- panel Default_suite -->
         <div panel-name="test-xml-Default_suite" class="panel">
           <div class="main-panel-header rounded-window-top">
-            <span class="header-content">C:\Users\hackermans\AppData\Local\Temp\testng-eclipse--156975266\testng-customsuite.xml</span>
+            <span class="header-content">C:\Users\hackermans\AppData\Local\Temp\testng-eclipse-1877400293\testng-customsuite.xml</span>
           </div> <!-- main-panel-header rounded-window-top -->
           <div class="main-panel-content rounded-window-bottom">
             <pre>
@@ -196,20 +210,24 @@ data.addColumn('number', 'Number');
 data.addColumn('string', 'Method');
 data.addColumn('string', 'Class');
 data.addColumn('number', 'Time (ms)');
-data.addRows(2);
+data.addRows(3);
 data.setCell(0, 0, 0)
-data.setCell(0, 1, 'verify_AddPopupValidationCKD')
+data.setCell(0, 1, 'verify_AddingLabs')
 data.setCell(0, 2, 'com.vh.ui.tests.CurrentLabsTest')
-data.setCell(0, 3, 46652);
+data.setCell(0, 3, 25140);
 data.setCell(1, 0, 1)
 data.setCell(1, 1, 'verify_CurrentLabsPage')
 data.setCell(1, 2, 'com.vh.ui.tests.CurrentLabsTest')
-data.setCell(1, 3, 1882);
+data.setCell(1, 3, 2098);
+data.setCell(2, 0, 2)
+data.setCell(2, 1, 'verify_AddingLabs')
+data.setCell(2, 2, 'com.vh.ui.tests.CurrentLabsTest')
+data.setCell(2, 3, 867);
 window.suiteTableData['Default_suite']= { tableData: data, tableDiv: 'times-div-Default_suite'}
 return data;
 }
               </script>
-              <span class="suite-total-time">Total running time: 48 seconds</span>
+              <span class="suite-total-time">Total running time: 28 seconds</span>
               <div id="times-div-Default_suite">
               </div> <!-- times-div-Default_suite -->
             </div> <!-- times-div -->
@@ -242,23 +260,31 @@ return data;
               </div> <!-- configuration-class before -->
               <div class="test-method">
                 <span class="method-name">verify_CurrentLabsPage</span>
-                <span class="method-start">96493 ms</span>
+                <span class="method-start">98137 ms</span>
               </div> <!-- test-method -->
               <div class="configuration-method after">
                 <span class="method-name">afterTest(public void com.vh.ui.tests.CurrentLabsTest.verify_CurrentLabsPage() throws com.vh.ui.exceptions.Wai...)</span>
-                <span class="method-start">98383 ms</span>
+                <span class="method-start">100247 ms</span>
               </div> <!-- configuration-method after -->
               <div class="test-method">
-                <span class="method-name">verify_AddPopupValidationCKD</span>
-                <span class="method-start">98386 ms</span>
+                <span class="method-name">verify_AddingLabs({TestScenario=CKD, HEIGHT=182.88, WEIGHT=77.11})</span>
+                <span class="method-start">178983 ms</span>
               </div> <!-- test-method -->
               <div class="configuration-method after">
-                <span class="method-name">afterTest(public void com.vh.ui.tests.CurrentLabsTest.verify_AddPopupValidationCKD() throws com.vh.ui.exceptio...)</span>
-                <span class="method-start">145040 ms</span>
+                <span class="method-name">afterTest(public void com.vh.ui.tests.CurrentLabsTest.verify_AddingLabs(java.util.Map) throws com.vh.ui.except...)</span>
+                <span class="method-start">204127 ms</span>
+              </div> <!-- configuration-method after -->
+              <div class="test-method">
+                <span class="method-name">verify_AddingLabs({TestScenario=ESRD, HEIGHT=182.88, WEIGHT=77.11})</span>
+                <span class="method-start">204127 ms</span>
+              </div> <!-- test-method -->
+              <div class="configuration-method after">
+                <span class="method-name">afterTest(public void com.vh.ui.tests.CurrentLabsTest.verify_AddingLabs(java.util.Map) throws com.vh.ui.except...)</span>
+                <span class="method-start">204996 ms</span>
               </div> <!-- configuration-method after -->
               <div class="configuration-class after">
                 <span class="method-name">tearDown</span>
-                <span class="method-start">145040 ms</span>
+                <span class="method-start">204996 ms</span>
               </div> <!-- configuration-class after -->
           </div> <!-- main-panel-content rounded-window-bottom -->
         </div> <!-- panel -->

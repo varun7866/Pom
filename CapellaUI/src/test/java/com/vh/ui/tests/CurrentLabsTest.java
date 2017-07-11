@@ -178,26 +178,11 @@ public class CurrentLabsTest extends TestBase
 		Assert.assertTrue(currentLabsPage.viewAddpopupBloodPressureDiastolicLabel(), "Failed to identify the Add Lab Results popup BLOOD PRESURE DIASTOLIC label");
 		Assert.assertTrue(currentLabsPage.viewAddpopupBloodPressureDiastolicTextBox(), "Failed to identify the Add Lab Results popup BLOOD PRESURE DIASTOLIC text box");
 		Assert.assertTrue(currentLabsPage.viewAddpopupBloodPressureDiastolicGoal(), "Failed to identify the Add Lab Results popup BLOOD PRESURE DIASTOLIC goal");
+
+		currentLabsPage.clickAddPopupCancelButton();
 	}
 
-	@Test(priority = 3, dataProvider = "CapellaDataProvider")
-	@Step("Verify the Add Lab Results popup validation for CKD Patients")
-	public void verify_AddPopupValidationCKD(Map<String, String> map) throws WaitException, URLNavigationException, InterruptedException
-	{
-		currentLabsPage.populateAddPopupAllCKD();
-
-		currentLabsPage.clickAddPopupSaveButton();
-
-		Assert.assertTrue(currentLabsPage.viewAddpopupKTVErrorMessage(), "Failed to identify the Add Lab Results popup KT/V error message");
-		Assert.assertTrue(currentLabsPage.viewAddpopupURRErrorMessage(), "Failed to identify the Add Lab Results popup URR error message");
-
-		currentLabsPage.clearKTVTextBox();
-		currentLabsPage.clearURRTextBox();
-
-		currentLabsPage.clickAddPopupSaveButton();
-	}
-
-	// @Test(priority = 4)
+	// @Test(priority = 3)
 	// @Step("Verify the Add Lab Results popup for ESRD Patients")
 	public void verify_AddAddLabResultsPopupESRD() throws WaitException, URLNavigationException, InterruptedException
 	{
@@ -314,21 +299,30 @@ public class CurrentLabsTest extends TestBase
 		Assert.assertTrue(currentLabsPage.viewAddpopupBloodPressureSystolicLabel(), "Failed to identify the Add Lab Results popup BLOOD PRESURE SYSTOLIC label");
 		Assert.assertTrue(currentLabsPage.viewAddpopupBloodPressureSystolicTextBox(), "Failed to identify the Add Lab Results popup BLOOD PRESURE SYSTOLIC text box");
 		Assert.assertTrue(currentLabsPage.viewAddpopupBloodPressureSystolicGoal(), "Failed to identify the Add Lab Results popup BLOOD PRESURE SYSTOLIC goal");
+
+		currentLabsPage.clickAddPopupCancelButton();
 	}
 
-	// @Test(priority = 5)
-	// @Step("Verify the Add Lab Results popup validation for ESRD Patients")
-	public void verify_AddPopupValidationESRD() throws WaitException, URLNavigationException, InterruptedException
+	@Test(priority = 4, dataProvider = "CapellaDataProvider")
+	@Step("Verify Adding Labs with different scenarios")
+	public void verify_AddingLabs(Map<String, String> map) throws WaitException, URLNavigationException, InterruptedException
 	{
-		currentLabsPage.populateAddPopupAllESRD();
+		String temp = map.get("HEIGHT");
+		// appFunctions.selectPatientFromMyPatients("Waliy Al D Holroyd"); // ESRD Patient
 
-		currentLabsPage.clickAddPopupSaveButton();
+		// appFunctions.navigateToMenu("Patient Experience->Labs->Current Labs");
 
-		Assert.assertTrue(currentLabsPage.viewAddpopupUrineAlbuminCreatinineRatioErrorMessage(), "Failed to identify the Add Lab Results popup Urine Albumin Creatinine Ratio error message");
+		// currentLabsPage.clickAddLabButton();
 
-		currentLabsPage.clearUrineAlbuminCreatinineRatioTextBox();
-
-		currentLabsPage.clickAddPopupSaveButton();
+		// currentLabsPage.populateAddPopupAllCKD();
+		// currentLabsPage.clickAddPopupSaveButton();
+		// Assert.assertTrue(currentLabsPage.viewAddpopupKTVErrorMessage(), "Failed to identify the Add Lab Results popup KT/V error message");
+		// Assert.assertTrue(currentLabsPage.viewAddpopupURRErrorMessage(), "Failed to identify the Add Lab Results popup URR error message");
+		// currentLabsPage.clearKTVTextBox();
+		// currentLabsPage.clearURRTextBox();
+		// Assert.assertTrue(currentLabsPage.viewAddpopupUrineAlbuminCreatinineRatioErrorMessage(), "Failed to identify the Add Lab Results popup Urine Albumin Creatinine Ratio error message");
+		// currentLabsPage.clearUrineAlbuminCreatinineRatioTextBox();
+		// currentLabsPage.clickAddPopupSaveButton();
 	}
 
 	@AfterClass
