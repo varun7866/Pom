@@ -41,7 +41,7 @@ public class PatientNavigationTest extends TestBase
 		patientNavigationPage = new PatientNavigationPage(driver);
 
 		appFunctions.capellaLogin();
-		appFunctions.selectPatientFromMyPatients("Waliy Al D Holroyd"); // QA
+		appFunctions.selectPatientFromMyPatients("Mikal Gallogly"); // QA
 		// appFunctions.selectPatientFromMyPatients("Aasaf Whoriskey"); // Stage
 	}
 
