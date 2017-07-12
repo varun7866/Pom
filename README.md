@@ -15,29 +15,27 @@ Steps to Install all the Tools/Software for Automation.
 	2.2 Copy the files to your local folder.
 
 
-3)	Download Maven – Binary zip archive. Use below link.
+3) Download Maven – Binary zip archive.  Use below link.
 
- Maven: https://maven.apache.org/download.cgi
+ 	Maven: https://maven.apache.org/download.cgi
 
  
-4)	Install Maven using below steps:
-4.1	Ensure JAVA_HOME environment variable is set and points to your JDK installation.
-4.2	Extract distribution archive in any directory
-4.3 Add the bin directory of the created directory apache-maven-3.5.0 to                     the PATH environment variable
-4.4 Confirm with mvn -v in a new shell. The result should look similar to:
+4) Install Maven using the below steps:
+	4.1 Ensure JAVA_HOME environment variable is set and points to your JDK installation.
+	4.2 Extract distribution archive in any directory.
+	4.3 Add the bin directory of the created directory apache-maven-3.5.0 to the PATH environment variable.
+	4.4 Confirm with mvn -v in a new shell. The result should look similar to:
  
 
-5)	Download and Install Github Desktop. Use below link
-Github desktop: https://desktop.github.com/
+5) Download and Install Github Desktop. Use below link
 
-	5.1  Login to Github and Sign-in with your credentials.
-	NOTE: If you don’t have access to VH repository ask Amit to give access.
+	Github desktop: https://desktop.github.com/
 
-	5.2  After login go to Capella_QA_Automation.
-	5.3  Open Eclipse and create a workspace by giving desired path.
-
-	5.4  Go back to Github and click on ‘Clone’ or ‘Download’.
-
+	5.1 Login to Github and Sign-in with your credentials.
+		NOTE: If you don’t have access to the Village Health repository, ask Amit for access.
+	5.2 After login go to the Capella-QA-Automation repository.
+	5.3 Open Eclipse and create a workspace by giving desired path.
+	5.4 Go back to Github and click on "Clone or Download".
 	5.5  Click on open in Desktop or Download Zip.
 Github desktop will be opened and browse to the Eclipse workspace that was created above.
 
