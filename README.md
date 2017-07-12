@@ -1,19 +1,18 @@
 # Capella-QA-Automation
 Steps to Install all the Tools/Software for Automation.
-1)	Download and Install JDK 8 (Win 64). Use below link.
+1) Download and Install JDK 8 (Win 64).  Use below link.
 
-JDK: http://www.oracle.com/technetwork/pt/java/javase/downloads/jdk8-downloads-2133151.html
+	JDK: http://www.oracle.com/technetwork/pt/java/javase/downloads/jdk8-downloads-2133151.html
 
-1.1	To verify if JDK is installed successfully go to the cmd: prompt and 
-type ‘java –version’.
+	1.1 To verify if JDK is installed successfully open a Command prompt and type "java –version".
 		
 			
-2)	Download and Install Eclipse Neon (Win 64). Use below link.
+2) Download and Install Eclipse Neon (Win 64).  Use below link.
 
-Neon Eclipse: http://www.eclipse.org/downloads/download.php?file=/technology/epp/downloads/release/neon/R/eclipse-java-neon-R-win32-x86_64.zip
+	Neon Eclipse: http://www.eclipse.org/downloads/download.php?file=/technology/epp/downloads/release/neon/R/eclipse-java-neon-R-win32-x86_64.zip
 
-2.1	Extract the Eclipse files from the downloads.
-2.2	Copy the files on your local folder.
+	2.1 Extract the Eclipse files from the download.
+	2.2 Copy the files to your local folder.
 
 
 3)	Download Maven – Binary zip archive. Use below link.
