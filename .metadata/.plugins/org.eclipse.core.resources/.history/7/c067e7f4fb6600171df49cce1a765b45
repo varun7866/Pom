@@ -47,8 +47,8 @@ public class CurrentLabsTest extends TestBase
 		currentLabsPage = new CurrentLabsPage(driver);
 
 		appFunctions.capellaLogin();
-		// appFunctions.selectPatientFromMyPatients("Glayds Whoriskey"); // CKD Patient
-		// appFunctions.navigateToMenu("Patient Experience->Labs->Current Labs");
+		appFunctions.selectPatientFromMyPatients("Glayds Whoriskey"); // CKD Patient
+		appFunctions.navigateToMenu("Patient Experience->Labs->Current Labs");
 	}
 
 	// @Test(priority = 1)
@@ -313,28 +313,26 @@ public class CurrentLabsTest extends TestBase
 
 		currentLabsPage.clickAddLabButton();
 
-		if (map.get("TestScenario").equals("CKD") && map.get("SubScenario").equals("All"))
+		if (map.get("TestScenario").equals("CKD"))
 		{
 			currentLabsPage.populateAddPopupAllCKD(map);
-			currentLabsPage.clickAddPopupSaveButton();
-			Assert.assertTrue(currentLabsPage.viewAddpopupKTVErrorMessage(), "Failed to identify the Add Lab Results popup KT/V error message");
-			Assert.assertTrue(currentLabsPage.viewAddpopupURRErrorMessage(), "Failed to identify the Add Lab Results popup URR error message");
-			currentLabsPage.clearKTVTextBox();
-			currentLabsPage.clearURRTextBox();
 		}
 		else
 		{
-			if (map.get("TestScenario").equals("ESRD") && map.get("SubScenario").equals("All"))
+			if (map.get("TestScenario").equals("ESRD"))
 			{
 				currentLabsPage.populateAddPopupAllESRD(map);
-				currentLabsPage.clickAddPopupSaveButton();
-				Assert.assertTrue(currentLabsPage.viewAddpopupUrineAlbuminCreatinineRatioErrorMessage(),
-				        "Failed to identify the Add Lab Results popup Urine Albumin Creatinine Ratio error message");
-				currentLabsPage.clearUrineAlbuminCreatinineRatioTextBox();
 			}
 		}
 
-		currentLabsPage.clickAddPopupSaveButton();
+		// currentLabsPage.clickAddPopupSaveButton();
+		// Assert.assertTrue(currentLabsPage.viewAddpopupKTVErrorMessage(), "Failed to identify the Add Lab Results popup KT/V error message");
+		// Assert.assertTrue(currentLabsPage.viewAddpopupURRErrorMessage(), "Failed to identify the Add Lab Results popup URR error message");
+		// currentLabsPage.clearKTVTextBox();
+		// currentLabsPage.clearURRTextBox();
+		// Assert.assertTrue(currentLabsPage.viewAddpopupUrineAlbuminCreatinineRatioErrorMessage(), "Failed to identify the Add Lab Results popup Urine Albumin Creatinine Ratio error message");
+		// currentLabsPage.clearUrineAlbuminCreatinineRatioTextBox();
+		// currentLabsPage.clickAddPopupSaveButton();
 	}
 
 	@AfterClass

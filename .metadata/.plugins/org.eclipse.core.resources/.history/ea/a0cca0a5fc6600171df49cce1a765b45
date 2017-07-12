@@ -47,8 +47,8 @@ public class CurrentLabsTest extends TestBase
 		currentLabsPage = new CurrentLabsPage(driver);
 
 		appFunctions.capellaLogin();
-		// appFunctions.selectPatientFromMyPatients("Glayds Whoriskey"); // CKD Patient
-		// appFunctions.navigateToMenu("Patient Experience->Labs->Current Labs");
+		//appFunctions.selectPatientFromMyPatients("Glayds Whoriskey"); // CKD Patient
+		//appFunctions.navigateToMenu("Patient Experience->Labs->Current Labs");
 	}
 
 	// @Test(priority = 1)
