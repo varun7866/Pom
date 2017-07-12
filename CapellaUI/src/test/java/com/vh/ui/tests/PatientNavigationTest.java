@@ -41,7 +41,7 @@ public class PatientNavigationTest extends TestBase
 		patientNavigationPage = new PatientNavigationPage(driver);
 
 		appFunctions.capellaLogin();
-		appFunctions.selectPatientFromMyPatients("Mikal Gallogly"); // QA
+		// appFunctions.selectPatientFromMyPatients("Mikal Gallogly"); // QA
 		// appFunctions.selectPatientFromMyPatients("Aasaf Whoriskey"); // Stage
 	}
 
@@ -94,10 +94,17 @@ public class PatientNavigationTest extends TestBase
 		Assert.assertTrue(patientNavigationPage.viewPatientAdminReferralsScreen(), "Failed to display the Referrals screen");
 	}
 
+	@Test(priority = 2)
+	@Step("Verify the right information icon hover")
+	public void verify_RightInformationIconHover() throws WaitException, URLNavigationException, InterruptedException
+	{
+		patientNavigationPage.testHover();
+	}
+
 	@AfterClass
 	public void tearDown() throws TimeoutException, WaitException
 	{
-		appFunctions.capellaLogout();
-		pageBase.quit();
+		// appFunctions.capellaLogout();
+		// pageBase.quit();
 	}
 }

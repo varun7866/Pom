@@ -656,6 +656,25 @@ public class WebActions {
 	{
 		LOGGER.info(Utilities.getCurrentThreadId() + "Clearing text box");
 
-		driver.findElement(locator).clear();
+		wait.syncLocatorUsing(expectedCondition, driver, locator).clear();
+	}
+
+	/**
+	 * Moves the mouse pointer to the passed in locator
+	 * 
+	 * @param expectedCondition
+	 *            to wait for. The conditions can be notrequired, visibility, clickability, and presence
+	 * @param locator
+	 *            used to identify the element
+	 * @throws WaitException
+	 */
+	public void moveMouseToElement(String expectedCondition, By locator) throws WaitException
+	{
+		LOGGER.info(Utilities.getCurrentThreadId() + "Moving the mouse pointer");
+
+		Actions builder = new Actions(driver);
+		WebElement targetElement = wait.syncLocatorUsing(expectedCondition, driver, locator);
+		builder.moveToElement(targetElement);
+		builder.perform();
 	}
 }

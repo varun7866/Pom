@@ -43,6 +43,7 @@ import static com.vh.ui.web.locators.PatientNavigationLocators.MNU_PATIENTEXPERI
 import static com.vh.ui.web.locators.PatientNavigationLocators.MNU_PATIENTEXPERIENCEDIABETES;
 import static com.vh.ui.web.locators.PatientNavigationLocators.MNU_PATIENTEXPERIENCEFLUID;
 import static com.vh.ui.web.locators.PatientNavigationLocators.MNU_PATIENTEXPERIENCEHOSPITALIZATIONS;
+import static com.vh.ui.web.locators.PatientNavigationLocators.MNU_PATIENTEXPERIENCEHOSPITALIZATIONSINFOICON;
 import static com.vh.ui.web.locators.PatientNavigationLocators.MNU_PATIENTEXPERIENCEIMMUNIZATIONS;
 import static com.vh.ui.web.locators.PatientNavigationLocators.MNU_PATIENTEXPERIENCELABS;
 import static com.vh.ui.web.locators.PatientNavigationLocators.MNU_PATIENTEXPERIENCELABSCURRENTLABS;
@@ -337,5 +338,11 @@ public class PatientNavigationPage extends WebPage
 		webActions.click(CLICKABILITY, MNU_PATIENTADMINREFERRALS);
 
 		return webActions.getVisibiltyOfElementLocatedBy(VISIBILITY, LBL_PATIENTADMINREFERRALS);
+	}
+
+	@Step("Test Hover")
+	public void testHover() throws TimeoutException, WaitException
+	{
+		webActions.moveMouseToElement(VISIBILITY, MNU_PATIENTEXPERIENCEHOSPITALIZATIONSINFOICON);
 	}
 }
