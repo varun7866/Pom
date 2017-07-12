@@ -140,7 +140,7 @@ public class CurrentLabsPage extends WebPage
 
 	@Step("Click the ADD LAB button")
 	public void clickAddLabButton() throws TimeoutException, WaitException
-	{
+	{		
 		webActions.click(VISIBILITY, BTN_ADDLAB);
 	}
 

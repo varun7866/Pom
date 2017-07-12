@@ -307,10 +307,12 @@ public class ReadExcel {
 		{
 			if (Cell.CELL_TYPE_NUMERIC == cell.getCellType()) {
 //				LOGGER.info(Utilities.getCurrentThreadId() + "Cell Contains value "
-				// + cell.getDateCellValue());
+//				+ cell.getDateCellValue());
+				// value = String.valueOf((int)Math.round(cell.getNumericCellValue()));
 				value = String.valueOf(cell.getNumericCellValue());
-				decimalIndex = value.indexOf(".0");
-				if (decimalIndex != -1)
+				decimalIndex = value.indexOf(".");
+
+				if (decimalIndex == 0)
 				{
 					value = String.valueOf((int) Math.round(cell.getNumericCellValue()));
 				}

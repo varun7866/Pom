@@ -299,20 +299,18 @@ public class ReadExcel {
 		}
 	}
 	
-	private static String getCellValue(Cell cell)
-	{
-		int decimalIndex;
+	private static String getCellValue(Cell cell) {
 		String value = null;
 		try
 		{
 			if (Cell.CELL_TYPE_NUMERIC == cell.getCellType()) {
 //				LOGGER.info(Utilities.getCurrentThreadId() + "Cell Contains value "
-				// + cell.getDateCellValue());
+//				+ cell.getDateCellValue());
+				// value = String.valueOf((int)Math.round(cell.getNumericCellValue()));
 				value = String.valueOf(cell.getNumericCellValue());
-				decimalIndex = value.indexOf(".0");
-				if (decimalIndex != -1)
+				if (value.indexOf("."))
 				{
-					value = String.valueOf((int) Math.round(cell.getNumericCellValue()));
+					
 				}
 			} else if (Cell.CELL_TYPE_STRING == cell.getCellType()) {
 //				LOGGER.info(Utilities.getCurrentThreadId() + "Cell Contains value "
