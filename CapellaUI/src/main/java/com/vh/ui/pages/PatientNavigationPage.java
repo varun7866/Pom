@@ -56,6 +56,7 @@ import static com.vh.ui.web.locators.PatientNavigationLocators.MNU_PLANOFCAREHIS
 import static com.vh.ui.web.locators.PatientNavigationLocators.MNU_PLANOFCAREMANAGEMENT;
 import static com.vh.ui.web.locators.PatientNavigationLocators.MNU_PLANOFCARENOTES;
 import static com.vh.ui.web.locators.PatientNavigationLocators.MNU_PLANOFCAREOVERVIEW;
+import static com.vh.ui.web.locators.PatientNavigationLocators.MNU_PLANOFCARECOLLAPSE;
 
 import org.openqa.selenium.TimeoutException;
 import org.openqa.selenium.WebDriver;
@@ -131,6 +132,14 @@ public class PatientNavigationPage extends WebPage
 		return webActions.getVisibiltyOfElementLocatedBy(VISIBILITY, LBL_PLANOFCARECONSOLIDATEDSTORY);
 	}
 
+	@Step("Verify the collapse of the Plan of Care menu")
+	public boolean verifyPlanOfCareMenuCollapse() throws TimeoutException, WaitException
+	{
+		webActions.click(CLICKABILITY, MNU_PLANOFCARE);
+
+		return webActions.getVisibiltyOfElementLocatedBy(VISIBILITY, MNU_PLANOFCARECOLLAPSE);
+	}
+	
 	@Step("Verify the visibility of the Patient Care menu")
 	public boolean viewPatientCareMenu() throws TimeoutException, WaitException
 	{
