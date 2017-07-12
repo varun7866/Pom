@@ -313,7 +313,7 @@ public class CurrentLabsTest extends TestBase
 
 		currentLabsPage.clickAddLabButton();
 
-		if (map.get("TestScenario").equals("CKD"))
+		if (map.get("TestScenario").equals("CKD-ALL"))
 		{
 			currentLabsPage.populateAddPopupAllCKD(map);
 			currentLabsPage.clickAddPopupSaveButton();
@@ -324,7 +324,7 @@ public class CurrentLabsTest extends TestBase
 		}
 		else
 		{
-			if (map.get("TestScenario").equals("ESRD"))
+			if (map.get("TestScenario").equals("ESRD-ALL"))
 			{
 				currentLabsPage.populateAddPopupAllESRD(map);
 				currentLabsPage.clickAddPopupSaveButton();

@@ -730,8 +730,17 @@ public class CurrentLabsPage extends WebPage
 	}
 
 	@Step("Populate all fields on the Add Lab Results popup for a CKD Patient")
-	public void populateAddPopupAllCKD(Map<String, String> map) throws TimeoutException, WaitException
+	public void populateAddPopupAllCKD(Map<String, String> map) throws TimeoutException, WaitException, InterruptedException
 	{
+		webActions.click(VISIBILITY, BTN_ADDPOPUPAPPLYTHISDATETOALLVALUES);
+
+		Calendar cal = Calendar.getInstance();
+		DateFormat dateFormatDay = new SimpleDateFormat("d");		
+		cal.add(Calendar.DATE, Integer.parseInt(map.get("APPLYTHISDATETOALLVALUES")));
+		String currentDayMinusXDay = dateFormatDay.format(new Date(cal.getTimeInMillis()));
+		
+		appFunctions.selectDateFromCalendar(CAL_ADDPOPUPAPPLYTHISDATETOALLVALUES, currentDayMinusXDay);
+
 		enterHeight(map.get("HEIGHT")).enterWeight(map.get("WEIGHT")).enterTargetDryWeight(map.get("TARGETDRYWEIGHT")).enterCalciumXPhosphorous(map.get("CALCIUMXPHOSPHOROUS"))
 		        .enterPhosphorous(map.get("PHOSPHOROUS")).enterCreatinineString(map.get("CREATININE")).enterGFR(map.get("GFR")).enterHGBA1C(map.get("HGBA1C")).enterLDL(map.get("LDL"))
 		        .enterHGB(map.get("HGB")).enterAlbumin(map.get("ALBUMIN")).enterUrineAlbuminCreatinineRatio(map.get("URINEALBUMINCREATININERATIO"))
@@ -741,8 +750,17 @@ public class CurrentLabsPage extends WebPage
 	}
 
 	@Step("Populate all fields on the Add Lab Results popup for an ESRD Patient")
-	public void populateAddPopupAllESRD(Map<String, String> map) throws TimeoutException, WaitException
+	public void populateAddPopupAllESRD(Map<String, String> map) throws TimeoutException, WaitException, InterruptedException
 	{
+		webActions.click(VISIBILITY, BTN_ADDPOPUPAPPLYTHISDATETOALLVALUES);
+
+		Calendar cal = Calendar.getInstance();
+		DateFormat dateFormatDay = new SimpleDateFormat("d");
+		cal.add(Calendar.DATE, Integer.parseInt(map.get("APPLYTHISDATETOALLVALUES")));
+		String currentDayMinusXDay = dateFormatDay.format(new Date(cal.getTimeInMillis()));
+
+		appFunctions.selectDateFromCalendar(CAL_ADDPOPUPAPPLYTHISDATETOALLVALUES, currentDayMinusXDay);
+
 		enterHeight(map.get("HEIGHT")).enterWeight(map.get("WEIGHT")).enterTargetDryWeight(map.get("TARGETDRYWEIGHT")).enterCalciumXPhosphorous(map.get("CALCIUMXPHOSPHOROUS"))
 		        .enterPhosphorous(map.get("PHOSPHOROUS")).enterCreatinineString(map.get("CREATININE")).enterGFR(map.get("GFR")).enterHGBA1C(map.get("HGBA1C")).enterLDL(map.get("LDL"))
 		        .enterHGB(map.get("HGB")).enterAlbumin(map.get("ALBUMIN")).enterUrineAlbuminCreatinineRatio(map.get("URINEALBUMINCREATININERATIO")).enterCO2Level(map.get("CO2LEVEL"))
