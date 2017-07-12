@@ -36,8 +36,7 @@ Steps to Install all the Tools/Software for Automation.
 	5.2 After login go to the Capella-QA-Automation repository.
 	5.3 Open Eclipse and create a workspace by giving desired path.
 	5.4 Go back to Github and click on "Clone or Download".
-	5.5  Click on open in Desktop or Download Zip.
-Github desktop will be opened and browse to the Eclipse workspace that was created above.
+	5.5  Click on "Open in Desktop".  Github desktop will be opened and browse to the Eclipse workspace that was created above.
 
 				
 5.6  Once the project is cloned it is defaulted to Master Branch to change the branch to ‘Develop’ branch.
