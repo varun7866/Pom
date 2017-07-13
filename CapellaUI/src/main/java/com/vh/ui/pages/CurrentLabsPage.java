@@ -976,4 +976,20 @@ public class CurrentLabsPage extends WebPage
 		webActions.pressKey(VISIBILITY, TXT_ADDPOPUPURINEALBUMINCREATININERATIO, Keys.BACK_SPACE);
 		webActions.pressKey(VISIBILITY, TXT_ADDPOPUPURINEALBUMINCREATININERATIO, Keys.BACK_SPACE);
 	}
+
+	@Step("Verify the visibility of the HEIGHT label/value")
+	public boolean viewHeightLabelValue(String labValue) throws TimeoutException, WaitException
+	{
+		final By LBL_HEIGHT = By.xpath("//span[text()='Height (" + labValue + ")']");
+
+		return webActions.getVisibiltyOfElementLocatedBy(VISIBILITY, LBL_HEIGHT);
+	}
+
+	@Step("Verify the visibility of the HEIGHT draw date")
+	public boolean viewHeightDrawDate(String drawDate) throws TimeoutException, WaitException
+	{
+		final By LBL_HEIGHTDRAWDATE = By.xpath("//span[contains(., 'Height (']/../../..//span[text()='" + drawDate + "']");
+
+		return webActions.getVisibiltyOfElementLocatedBy(VISIBILITY, LBL_HEIGHTDRAWDATE);
+	}
 }

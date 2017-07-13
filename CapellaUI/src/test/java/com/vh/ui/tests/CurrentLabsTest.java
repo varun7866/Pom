@@ -313,28 +313,42 @@ public class CurrentLabsTest extends TestBase
 
 		currentLabsPage.clickAddLabButton();
 
-		if (map.get("TestScenario").equals("CKD-ALL"))
+		if (map.get("PatientType").equals("CKD"))
 		{
 			currentLabsPage.populateAddPopupAllCKD(map);
-			currentLabsPage.clickAddPopupSaveButton();
-			Assert.assertTrue(currentLabsPage.viewAddpopupKTVErrorMessage(), "Failed to identify the Add Lab Results popup KT/V error message");
-			Assert.assertTrue(currentLabsPage.viewAddpopupURRErrorMessage(), "Failed to identify the Add Lab Results popup URR error message");
-			currentLabsPage.clearKTVTextBox();
-			currentLabsPage.clearURRTextBox();
-		}
-		else
+		} else
 		{
-			if (map.get("TestScenario").equals("ESRD-ALL"))
+			if (map.get("PatientType").equals("ESRD"))
 			{
 				currentLabsPage.populateAddPopupAllESRD(map);
-				currentLabsPage.clickAddPopupSaveButton();
-				Assert.assertTrue(currentLabsPage.viewAddpopupUrineAlbuminCreatinineRatioErrorMessage(),
-				        "Failed to identify the Add Lab Results popup Urine Albumin Creatinine Ratio error message");
-				currentLabsPage.clearUrineAlbuminCreatinineRatioTextBox();
 			}
 		}
 
 		currentLabsPage.clickAddPopupSaveButton();
+
+		if (map.get("PatientType").equals("CKD") && map.get("CheckValidation").equals("Y"))
+		{
+			Assert.assertTrue(currentLabsPage.viewAddpopupKTVErrorMessage(), "Failed to identify the Add Lab Results popup KT/V error message");
+			Assert.assertTrue(currentLabsPage.viewAddpopupURRErrorMessage(), "Failed to identify the Add Lab Results popup URR error message");
+			currentLabsPage.clearKTVTextBox();
+			currentLabsPage.clearURRTextBox();
+			currentLabsPage.clickAddPopupSaveButton();
+		}
+		else
+		{
+			if (map.get("PatientType").equals("ESRD") && map.get("CheckValidation").equals("Y"))
+			{
+				Assert.assertTrue(currentLabsPage.viewAddpopupUrineAlbuminCreatinineRatioErrorMessage(),
+				        "Failed to identify the Add Lab Results popup Urine Albumin Creatinine Ratio error message");
+				currentLabsPage.clearUrineAlbuminCreatinineRatioTextBox();
+				currentLabsPage.clickAddPopupSaveButton();
+			}
+		}
+
+		Thread.sleep(6000);
+
+		Assert.assertTrue(currentLabsPage.viewHeightLabelValue(map.get("HEIGHT")), "Failed to identify the HEIGHT label/value");
+		Assert.assertTrue(currentLabsPage.viewHeightDrawDate(map.get("APPLYTHISDATETOALLVALUES")), "Failed to identify the HEIGHT draw date");
 	}
 
 	@AfterClass

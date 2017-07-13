@@ -84,7 +84,6 @@ public class CurrentLabsLocators
 	public static final By LBL_ADDPOPUPURINEALBUMINCREATININERATIOERRORMESSAGE = By
 	        .xpath("//div[@class='modal-dialog modal-lg']//div[@role='alert']//div[contains(., \"Labtype 'UrineAlbuminCreatinineRatio' not valid for this patient\")]");
 
-
 	public static final By PLH_ADDPOPUPHEIGHT = By.xpath("//span[text()='Height']/../../../div[2]/div/input[@placeholder='cm']");
 	public static final By PLH_ADDPOPUPTARGETDRYWEIGHT = By.xpath("//span[text()='Target Dry Weight']/../../../div[2]/div/input[@placeholder='kg']");
 	public static final By PLH_ADDPOPUPWEIGHT = By.xpath("//span[text()='Weight']/../../../div[2]/div/input[@placeholder='kg']");
