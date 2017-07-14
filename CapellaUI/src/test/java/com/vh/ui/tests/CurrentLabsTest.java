@@ -347,8 +347,10 @@ public class CurrentLabsTest extends TestBase
 
 		Thread.sleep(6000);
 
+		String drawDateGregorian = appFunctions.adjustCurrentDateBy(map.get("APPLYTHISDATETOALLVALUES"), "G");
+
 		Assert.assertTrue(currentLabsPage.viewHeightLabelValue(map.get("HEIGHT")), "Failed to identify the HEIGHT label/value");
-		Assert.assertTrue(currentLabsPage.viewHeightDrawDate(map.get("APPLYTHISDATETOALLVALUES")), "Failed to identify the HEIGHT draw date");
+		Assert.assertTrue(currentLabsPage.viewHeightDrawDate(drawDateGregorian), "Failed to identify the HEIGHT draw date");
 	}
 
 	@AfterClass

@@ -988,7 +988,7 @@ public class CurrentLabsPage extends WebPage
 	@Step("Verify the visibility of the HEIGHT draw date")
 	public boolean viewHeightDrawDate(String drawDate) throws TimeoutException, WaitException
 	{
-		final By LBL_HEIGHTDRAWDATE = By.xpath("//span[contains(., 'Height (']/../../..//span[text()='" + drawDate + "']");
+		final By LBL_HEIGHTDRAWDATE = By.xpath("//span[contains(., 'Height (')]/../../..//span[text()='" + drawDate + "']");
 
 		return webActions.getVisibiltyOfElementLocatedBy(VISIBILITY, LBL_HEIGHTDRAWDATE);
 	}
