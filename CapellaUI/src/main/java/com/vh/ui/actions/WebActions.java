@@ -677,7 +677,8 @@ public class WebActions {
 		builder.perform();
 	}
 	
-	public boolean waitTillLoading() {
+	public boolean waitUntilLoaded()
+	{
 		wait.waitForElementInvisible(driver, By.xpath("//md-progress-bar"));
 		return false;
 		

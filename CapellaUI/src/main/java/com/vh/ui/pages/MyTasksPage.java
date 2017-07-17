@@ -1,6 +1,17 @@
 package com.vh.ui.pages;
 
-import static com.vh.ui.web.locators.MyTasksLocators.*;
+import static com.vh.ui.web.locators.MyTasksLocators.BTN_ADD;
+import static com.vh.ui.web.locators.MyTasksLocators.BTN_CANCEL;
+import static com.vh.ui.web.locators.MyTasksLocators.BTN_NEWTASK;
+import static com.vh.ui.web.locators.MyTasksLocators.LBL_DUEDATE;
+import static com.vh.ui.web.locators.MyTasksLocators.LBL_NEWTASKPOPUPNEWTASK;
+import static com.vh.ui.web.locators.MyTasksLocators.LBL_PRIORITY;
+import static com.vh.ui.web.locators.MyTasksLocators.TXT_ASSIGNEDTO;
+import static com.vh.ui.web.locators.MyTasksLocators.TXT_DUEDATE;
+import static com.vh.ui.web.locators.MyTasksLocators.TXT_PATIENTNAME;
+import static com.vh.ui.web.locators.MyTasksLocators.TXT_PRIORITY;
+import static com.vh.ui.web.locators.MyTasksLocators.TXT_TASKDESCRIPTION;
+import static com.vh.ui.web.locators.MyTasksLocators.TXT_TASKTITLE;
 
 import org.openqa.selenium.TimeoutException;
 import org.openqa.selenium.WebDriver;
@@ -146,6 +157,6 @@ public class MyTasksPage extends WebPage
 		
 	@Step("Wait for the screen to load")
 	public void waitForTaskLoading() {
-		webActions.waitTillLoading();
+		webActions.waitUntilLoaded();
 	}
 }
