@@ -1,43 +1,70 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testng-results skipped="2" failed="0" total="2" passed="0">
+<testng-results skipped="0" failed="2" total="2" passed="0">
   <reporter-output>
   </reporter-output>
-  <suite name="Default suite" duration-ms="65805" started-at="2017-07-17T15:20:59Z" finished-at="2017-07-17T15:22:05Z">
+  <suite name="Default suite" duration-ms="360782" started-at="2017-07-17T16:39:14Z" finished-at="2017-07-17T16:45:15Z">
     <groups>
     </groups>
-    <test name="Default test" duration-ms="65805" started-at="2017-07-17T15:20:59Z" finished-at="2017-07-17T15:22:05Z">
+    <test name="Default test" duration-ms="360782" started-at="2017-07-17T16:39:14Z" finished-at="2017-07-17T16:45:15Z">
       <class name="com.vh.ui.tests.CurrentLabsTest">
-        <test-method status="FAIL" signature="buildUp()[pri:0, instance:com.vh.ui.tests.CurrentLabsTest@4f2d014a]" name="buildUp" is-config="true" duration-ms="0" started-at="2017-07-17T10:20:59Z" finished-at="2017-07-17T10:20:59Z">
-          <exception class="org.openqa.selenium.TimeoutException">
+        <test-method status="PASS" signature="buildUp()[pri:0, instance:com.vh.ui.tests.CurrentLabsTest@22dc59b2]" name="buildUp" is-config="true" duration-ms="90083" started-at="2017-07-17T11:39:14Z" finished-at="2017-07-17T11:40:44Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- buildUp -->
+        <test-method status="FAIL" signature="verify_AddingLabs(java.util.Map)[pri:4, instance:com.vh.ui.tests.CurrentLabsTest@22dc59b2]" name="verify_AddingLabs" duration-ms="135152" started-at="2017-07-17T11:40:45Z" data-provider="CapellaDataProvider" finished-at="2017-07-17T11:43:00Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[{PatientType=CKD, DIPSTICKFORPROTEIN=Negative, CO2LEVEL=25, PTH=500, KTV=1.5, URINEALBUMINCREATININERATIO=15, CALCIUMXPHOSPHOROUS=45, APPLYTHISDATETOALLVALUES=0, GFR=70, HEPATITISBTITER=50, HGBA1C=6, URR=70, LDL=50, TSAT=50, TARGETDRYWEIGHT=77.11, CALCIUM=9.1, PHOSPHOROUS=3.5, BLOODPRESSURESYSTOLIC=100, ALBUMIN=5, WEIGHT=77.11, HGB=5, POTASIUM=4.1, PatientName=Glayds Whoriskey, HEIGHT=182.88, BLOODPRESSUREDIASTOLIC=30, CREATININE=1.2, CheckValidation=Y, FERRITIN=250}]]>
+              </value>
+            </param>
+          </params>
+          <exception class="org.openqa.selenium.NoSuchElementException">
             <message>
-              <![CDATA[Thread:1	-TIME OUT EXCEPTION while waiting for the VISIBILITY of the element using By class:By.id: username
-
+              <![CDATA[Unable to find element with xpath == //span[text()='Target Dry Height (77.11)'] (WARNING: The server did not provide any stacktrace information)
+Command duration or timeout: 421 milliseconds
+For documentation on this error, please visit: http://seleniumhq.org/exceptions/no_such_element.html
 Build info: version: '2.53.0', revision: '35ae25b1534ae328c771e0856c93e187490ca824', time: '2016-03-15 10:43:46'
 System info: host: 'DVA-F0L9N9R-L', ip: '172.16.128.186', os.name: 'Windows 8.1', os.arch: 'amd64', os.version: '6.3', java.version: '1.8.0_131'
-Driver info: driver.version: unknown]]>
+Driver info: org.openqa.selenium.ie.InternetExplorerDriver
+Capabilities [{browserAttachTimeout=0, ie.enableFullPageScreenshot=true, enablePersistentHover=true, ie.forceCreateProcessApi=false, ie.forceShellWindowsApi=false, pageLoadStrategy=normal, ignoreZoomSetting=false, ie.fileUploadDialogTimeout=3000, version=11, platform=WINDOWS, proxy={proxyType=}, nativeEvents=true, ie.ensureCleanSession=false, elementScrollBehavior=0, ie.browserCommandLineSwitches=, requireWindowFocus=false, browserName=internet explorer, initialBrowserUrl=http://localhost:3836/, javascriptEnabled=true, ignoreProtectedModeSettings=false, enableElementCacheCleanup=true, unexpectedAlertBehaviour=dismiss}]
+Session ID: c9e92e73-5bdf-4cdf-afb0-67a398d170fd
+*** Element info: {Using=xpath, value=//span[text()='Target Dry Height (77.11)']}]]>
             </message>
             <full-stacktrace>
-              <![CDATA[org.openqa.selenium.TimeoutException: Thread:1	-TIME OUT EXCEPTION while waiting for the VISIBILITY of the element using By class:By.id: username
-
+              <![CDATA[org.openqa.selenium.NoSuchElementException: Unable to find element with xpath == //span[text()='Target Dry Height (77.11)'] (WARNING: The server did not provide any stacktrace information)
+Command duration or timeout: 421 milliseconds
+For documentation on this error, please visit: http://seleniumhq.org/exceptions/no_such_element.html
 Build info: version: '2.53.0', revision: '35ae25b1534ae328c771e0856c93e187490ca824', time: '2016-03-15 10:43:46'
 System info: host: 'DVA-F0L9N9R-L', ip: '172.16.128.186', os.name: 'Windows 8.1', os.arch: 'amd64', os.version: '6.3', java.version: '1.8.0_131'
-Driver info: driver.version: unknown
-	at com.vh.ui.waits.WebDriverWaits.waitForElementVisibility(WebDriverWaits.java:48)
-	at com.vh.ui.waits.WebDriverWaits.syncLocatorUsing(WebDriverWaits.java:210)
-	at com.vh.ui.actions.WebActions.enterText(WebActions.java:117)
-	at com.vh.ui.pages.LoginPage.enterUserName(LoginPage.java:48)
-	at com.vh.ui.actions.ApplicationFunctions.capellaLogin(ApplicationFunctions.java:83)
-	at com.vh.ui.tests.CurrentLabsTest.buildUp(CurrentLabsTest.java:49)
+Driver info: org.openqa.selenium.ie.InternetExplorerDriver
+Capabilities [{browserAttachTimeout=0, ie.enableFullPageScreenshot=true, enablePersistentHover=true, ie.forceCreateProcessApi=false, ie.forceShellWindowsApi=false, pageLoadStrategy=normal, ignoreZoomSetting=false, ie.fileUploadDialogTimeout=3000, version=11, platform=WINDOWS, proxy={proxyType=}, nativeEvents=true, ie.ensureCleanSession=false, elementScrollBehavior=0, ie.browserCommandLineSwitches=, requireWindowFocus=false, browserName=internet explorer, initialBrowserUrl=http://localhost:3836/, javascriptEnabled=true, ignoreProtectedModeSettings=false, enableElementCacheCleanup=true, unexpectedAlertBehaviour=dismiss}]
+Session ID: c9e92e73-5bdf-4cdf-afb0-67a398d170fd
+*** Element info: {Using=xpath, value=//span[text()='Target Dry Height (77.11)']}
+	at sun.reflect.GeneratedConstructorAccessor10.newInstance(Unknown Source)
+	at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(Unknown Source)
+	at java.lang.reflect.Constructor.newInstance(Unknown Source)
+	at org.openqa.selenium.remote.ErrorHandler.createThrowable(ErrorHandler.java:206)
+	at org.openqa.selenium.remote.ErrorHandler.throwIfResponseFailed(ErrorHandler.java:158)
+	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:678)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:363)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElementByXPath(RemoteWebDriver.java:500)
+	at org.openqa.selenium.By$ByXPath.findElement(By.java:361)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:355)
+	at com.vh.ui.utilities.Utilities.highlightElement(Utilities.java:110)
+	at com.vh.ui.actions.WebActions.getVisibiltyOfElementLocatedBy(WebActions.java:466)
+	at com.vh.ui.pages.CurrentLabsPage.viewTargetDryWeightLabelValue(CurrentLabsPage.java:1019)
+	at com.vh.ui.tests.CurrentLabsTest.verify_AddingLabs(CurrentLabsTest.java:360)
 	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
 	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
 	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
 	at java.lang.reflect.Method.invoke(Unknown Source)
 	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:86)
-	at org.testng.internal.Invoker.invokeConfigurationMethod(Invoker.java:514)
-	at org.testng.internal.Invoker.invokeConfigurations(Invoker.java:215)
-	at org.testng.internal.Invoker.invokeConfigurations(Invoker.java:142)
-	at org.testng.internal.TestMethodWorker.invokeBeforeClassMethods(TestMethodWorker.java:178)
-	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:108)
+	at org.testng.internal.Invoker.invokeMethod(Invoker.java:643)
+	at org.testng.internal.Invoker.invokeTestMethod(Invoker.java:820)
+	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:1128)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:129)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:112)
 	at org.testng.TestRunner.privateRun(TestRunner.java:782)
 	at org.testng.TestRunner.run(TestRunner.java:632)
 	at org.testng.SuiteRunner.runTest(SuiteRunner.java:366)
@@ -52,59 +79,13 @@ Driver info: driver.version: unknown
 	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:132)
 	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:230)
 	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:76)
-Caused by: org.openqa.selenium.TimeoutException: Timed out after 50 seconds waiting for visibility of element located by By.id: username
-Build info: version: '2.53.0', revision: '35ae25b1534ae328c771e0856c93e187490ca824', time: '2016-03-15 10:43:46'
-System info: host: 'DVA-F0L9N9R-L', ip: '172.16.128.186', os.name: 'Windows 8.1', os.arch: 'amd64', os.version: '6.3', java.version: '1.8.0_131'
-Driver info: org.openqa.selenium.ie.InternetExplorerDriver
-Capabilities [{browserAttachTimeout=0, ie.enableFullPageScreenshot=true, enablePersistentHover=true, ie.forceCreateProcessApi=false, ie.forceShellWindowsApi=false, pageLoadStrategy=normal, ignoreZoomSetting=false, ie.fileUploadDialogTimeout=3000, version=11, platform=WINDOWS, proxy={proxyType=}, nativeEvents=true, ie.ensureCleanSession=false, elementScrollBehavior=0, ie.browserCommandLineSwitches=, requireWindowFocus=false, browserName=internet explorer, initialBrowserUrl=http://localhost:23768/, javascriptEnabled=true, ignoreProtectedModeSettings=false, enableElementCacheCleanup=true, unexpectedAlertBehaviour=dismiss}]
-Session ID: 8f21dfdb-ca4e-4459-b7ff-1bc393bcd97e
-	at org.openqa.selenium.support.ui.WebDriverWait.timeoutException(WebDriverWait.java:80)
-	at org.openqa.selenium.support.ui.FluentWait.until(FluentWait.java:261)
-	at com.vh.ui.waits.WebDriverWaits.waitForElementVisibility(WebDriverWaits.java:44)
-	... 29 more
-Caused by: org.openqa.selenium.NoSuchElementException: Unable to find element with id == username (WARNING: The server did not provide any stacktrace information)
-Command duration or timeout: 420 milliseconds
-For documentation on this error, please visit: http://seleniumhq.org/exceptions/no_such_element.html
-Build info: version: '2.53.0', revision: '35ae25b1534ae328c771e0856c93e187490ca824', time: '2016-03-15 10:43:46'
-System info: host: 'DVA-F0L9N9R-L', ip: '172.16.128.186', os.name: 'Windows 8.1', os.arch: 'amd64', os.version: '6.3', java.version: '1.8.0_131'
-Driver info: org.openqa.selenium.ie.InternetExplorerDriver
-Capabilities [{browserAttachTimeout=0, ie.enableFullPageScreenshot=true, enablePersistentHover=true, ie.forceCreateProcessApi=false, ie.forceShellWindowsApi=false, pageLoadStrategy=normal, ignoreZoomSetting=false, ie.fileUploadDialogTimeout=3000, version=11, platform=WINDOWS, proxy={proxyType=}, nativeEvents=true, ie.ensureCleanSession=false, elementScrollBehavior=0, ie.browserCommandLineSwitches=, requireWindowFocus=false, browserName=internet explorer, initialBrowserUrl=http://localhost:23768/, javascriptEnabled=true, ignoreProtectedModeSettings=false, enableElementCacheCleanup=true, unexpectedAlertBehaviour=dismiss}]
-Session ID: 8f21dfdb-ca4e-4459-b7ff-1bc393bcd97e
-*** Element info: {Using=id, value=username}
-	at sun.reflect.GeneratedConstructorAccessor10.newInstance(Unknown Source)
-	at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(Unknown Source)
-	at java.lang.reflect.Constructor.newInstance(Unknown Source)
-	at org.openqa.selenium.remote.ErrorHandler.createThrowable(ErrorHandler.java:206)
-	at org.openqa.selenium.remote.ErrorHandler.throwIfResponseFailed(ErrorHandler.java:158)
-	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:678)
-	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:363)
-	at org.openqa.selenium.remote.RemoteWebDriver.findElementById(RemoteWebDriver.java:413)
-	at org.openqa.selenium.By$ById.findElement(By.java:218)
-	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:355)
-	at org.openqa.selenium.support.ui.ExpectedConditions.findElement(ExpectedConditions.java:899)
-	at org.openqa.selenium.support.ui.ExpectedConditions.access$000(ExpectedConditions.java:41)
-	at org.openqa.selenium.support.ui.ExpectedConditions$7.apply(ExpectedConditions.java:205)
-	at org.openqa.selenium.support.ui.ExpectedConditions$7.apply(ExpectedConditions.java:201)
-	at org.openqa.selenium.support.ui.FluentWait.until(FluentWait.java:238)
-	... 30 more
 ]]>
             </full-stacktrace>
-          </exception> <!-- org.openqa.selenium.TimeoutException -->
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- buildUp -->
-        <test-method status="SKIP" signature="verify_AddingLabs(java.util.Map)[pri:4, instance:com.vh.ui.tests.CurrentLabsTest@4f2d014a]" name="verify_AddingLabs" duration-ms="15" started-at="2017-07-17T10:22:05Z" data-provider="CapellaDataProvider" finished-at="2017-07-17T10:22:05Z">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[{PatientType=CKD, DIPSTICKFORPROTEIN=Negative, CO2LEVEL=25, PTH=500, KTV=1.5, URINEALBUMINCREATININERATIO=15, CALCIUMXPHOSPHOROUS=45, APPLYTHISDATETOALLVALUES=0, GFR=70, HEPATITISBTITER=50, HGBA1C=6, URR=70, LDL=50, TSAT=50, TARGETDRYWEIGHT=77.11, CALCIUM=9.1, PHOSPHOROUS=3.5, BLOODPRESSURESYSTOLIC=100, ALBUMIN=5, WEIGHT=77.11, HGB=5, POTASIUM=4.1, PatientName=Glayds Whoriskey, HEIGHT=182.88, BLOODPRESSUREDIASTOLIC=30, CREATININE=1.2, CheckValidation=Y, FERRITIN=250}]]>
-              </value>
-            </param>
-          </params>
+          </exception> <!-- org.openqa.selenium.NoSuchElementException -->
           <reporter-output>
           </reporter-output>
         </test-method> <!-- verify_AddingLabs -->
-        <test-method status="PASS" signature="afterTest(java.lang.reflect.Method, org.testng.ITestResult)[pri:0, instance:com.vh.ui.tests.CurrentLabsTest@4f2d014a]" name="afterTest" is-config="true" duration-ms="4" started-at="2017-07-17T10:22:05Z" finished-at="2017-07-17T10:22:05Z">
+        <test-method status="PASS" signature="afterTest(java.lang.reflect.Method, org.testng.ITestResult)[pri:0, instance:com.vh.ui.tests.CurrentLabsTest@22dc59b2]" name="afterTest" is-config="true" duration-ms="481" started-at="2017-07-17T11:43:00Z" finished-at="2017-07-17T11:43:01Z">
           <params>
             <param index="0">
               <value>
@@ -113,14 +94,14 @@ Session ID: 8f21dfdb-ca4e-4459-b7ff-1bc393bcd97e
             </param>
             <param index="1">
               <value>
-                <![CDATA[[TestResult name=verify_AddingLabs status=SKIP method=CurrentLabsTest.verify_AddingLabs(java.util.Map)[pri:4, instance:com.vh.ui.tests.CurrentLabsTest@4f2d014a] output={null}]]]>
+                <![CDATA[[TestResult name=verify_AddingLabs status=FAILURE method=CurrentLabsTest.verify_AddingLabs(java.util.Map)[pri:4, instance:com.vh.ui.tests.CurrentLabsTest@22dc59b2] output={null}]]]>
               </value>
             </param>
           </params>
           <reporter-output>
           </reporter-output>
         </test-method> <!-- afterTest -->
-        <test-method status="SKIP" signature="verify_AddingLabs(java.util.Map)[pri:4, instance:com.vh.ui.tests.CurrentLabsTest@4f2d014a]" name="verify_AddingLabs" duration-ms="6" started-at="2017-07-17T10:22:05Z" data-provider="CapellaDataProvider" finished-at="2017-07-17T10:22:05Z">
+        <test-method status="FAIL" signature="verify_AddingLabs(java.util.Map)[pri:4, instance:com.vh.ui.tests.CurrentLabsTest@22dc59b2]" name="verify_AddingLabs" duration-ms="133965" started-at="2017-07-17T11:43:01Z" data-provider="CapellaDataProvider" finished-at="2017-07-17T11:45:15Z">
           <params>
             <param index="0">
               <value>
@@ -128,14 +109,73 @@ Session ID: 8f21dfdb-ca4e-4459-b7ff-1bc393bcd97e
               </value>
             </param>
           </params>
+          <exception class="org.openqa.selenium.NoSuchElementException">
+            <message>
+              <![CDATA[Unable to find element with xpath == //span[text()='Target Dry Height (77.11)'] (WARNING: The server did not provide any stacktrace information)
+Command duration or timeout: 459 milliseconds
+For documentation on this error, please visit: http://seleniumhq.org/exceptions/no_such_element.html
+Build info: version: '2.53.0', revision: '35ae25b1534ae328c771e0856c93e187490ca824', time: '2016-03-15 10:43:46'
+System info: host: 'DVA-F0L9N9R-L', ip: '172.16.128.186', os.name: 'Windows 8.1', os.arch: 'amd64', os.version: '6.3', java.version: '1.8.0_131'
+Driver info: org.openqa.selenium.ie.InternetExplorerDriver
+Capabilities [{browserAttachTimeout=0, ie.enableFullPageScreenshot=true, enablePersistentHover=true, ie.forceCreateProcessApi=false, ie.forceShellWindowsApi=false, pageLoadStrategy=normal, ignoreZoomSetting=false, ie.fileUploadDialogTimeout=3000, version=11, platform=WINDOWS, proxy={proxyType=}, nativeEvents=true, ie.ensureCleanSession=false, elementScrollBehavior=0, ie.browserCommandLineSwitches=, requireWindowFocus=false, browserName=internet explorer, initialBrowserUrl=http://localhost:3836/, javascriptEnabled=true, ignoreProtectedModeSettings=false, enableElementCacheCleanup=true, unexpectedAlertBehaviour=dismiss}]
+Session ID: c9e92e73-5bdf-4cdf-afb0-67a398d170fd
+*** Element info: {Using=xpath, value=//span[text()='Target Dry Height (77.11)']}]]>
+            </message>
+            <full-stacktrace>
+              <![CDATA[org.openqa.selenium.NoSuchElementException: Unable to find element with xpath == //span[text()='Target Dry Height (77.11)'] (WARNING: The server did not provide any stacktrace information)
+Command duration or timeout: 459 milliseconds
+For documentation on this error, please visit: http://seleniumhq.org/exceptions/no_such_element.html
+Build info: version: '2.53.0', revision: '35ae25b1534ae328c771e0856c93e187490ca824', time: '2016-03-15 10:43:46'
+System info: host: 'DVA-F0L9N9R-L', ip: '172.16.128.186', os.name: 'Windows 8.1', os.arch: 'amd64', os.version: '6.3', java.version: '1.8.0_131'
+Driver info: org.openqa.selenium.ie.InternetExplorerDriver
+Capabilities [{browserAttachTimeout=0, ie.enableFullPageScreenshot=true, enablePersistentHover=true, ie.forceCreateProcessApi=false, ie.forceShellWindowsApi=false, pageLoadStrategy=normal, ignoreZoomSetting=false, ie.fileUploadDialogTimeout=3000, version=11, platform=WINDOWS, proxy={proxyType=}, nativeEvents=true, ie.ensureCleanSession=false, elementScrollBehavior=0, ie.browserCommandLineSwitches=, requireWindowFocus=false, browserName=internet explorer, initialBrowserUrl=http://localhost:3836/, javascriptEnabled=true, ignoreProtectedModeSettings=false, enableElementCacheCleanup=true, unexpectedAlertBehaviour=dismiss}]
+Session ID: c9e92e73-5bdf-4cdf-afb0-67a398d170fd
+*** Element info: {Using=xpath, value=//span[text()='Target Dry Height (77.11)']}
+	at sun.reflect.GeneratedConstructorAccessor10.newInstance(Unknown Source)
+	at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(Unknown Source)
+	at java.lang.reflect.Constructor.newInstance(Unknown Source)
+	at org.openqa.selenium.remote.ErrorHandler.createThrowable(ErrorHandler.java:206)
+	at org.openqa.selenium.remote.ErrorHandler.throwIfResponseFailed(ErrorHandler.java:158)
+	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:678)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:363)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElementByXPath(RemoteWebDriver.java:500)
+	at org.openqa.selenium.By$ByXPath.findElement(By.java:361)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:355)
+	at com.vh.ui.utilities.Utilities.highlightElement(Utilities.java:110)
+	at com.vh.ui.actions.WebActions.getVisibiltyOfElementLocatedBy(WebActions.java:466)
+	at com.vh.ui.pages.CurrentLabsPage.viewTargetDryWeightLabelValue(CurrentLabsPage.java:1019)
+	at com.vh.ui.tests.CurrentLabsTest.verify_AddingLabs(CurrentLabsTest.java:360)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:86)
+	at org.testng.internal.Invoker.invokeMethod(Invoker.java:643)
+	at org.testng.internal.Invoker.invokeTestMethod(Invoker.java:820)
+	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:1128)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:129)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:112)
+	at org.testng.TestRunner.privateRun(TestRunner.java:782)
+	at org.testng.TestRunner.run(TestRunner.java:632)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:366)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:361)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:319)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:268)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:86)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1244)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1169)
+	at org.testng.TestNG.run(TestNG.java:1064)
+	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:132)
+	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:230)
+	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:76)
+]]>
+            </full-stacktrace>
+          </exception> <!-- org.openqa.selenium.NoSuchElementException -->
           <reporter-output>
           </reporter-output>
         </test-method> <!-- verify_AddingLabs -->
-        <test-method status="SKIP" signature="tearDown()[pri:0, instance:com.vh.ui.tests.CurrentLabsTest@4f2d014a]" name="tearDown" is-config="true" duration-ms="0" started-at="2017-07-17T10:22:05Z" finished-at="2017-07-17T10:22:05Z">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- tearDown -->
-        <test-method status="PASS" signature="afterTest(java.lang.reflect.Method, org.testng.ITestResult)[pri:0, instance:com.vh.ui.tests.CurrentLabsTest@4f2d014a]" name="afterTest" is-config="true" duration-ms="0" started-at="2017-07-17T10:22:05Z" finished-at="2017-07-17T10:22:05Z">
+        <test-method status="PASS" signature="afterTest(java.lang.reflect.Method, org.testng.ITestResult)[pri:0, instance:com.vh.ui.tests.CurrentLabsTest@22dc59b2]" name="afterTest" is-config="true" duration-ms="234" started-at="2017-07-17T11:45:15Z" finished-at="2017-07-17T11:45:15Z">
           <params>
             <param index="0">
               <value>
@@ -144,13 +184,17 @@ Session ID: 8f21dfdb-ca4e-4459-b7ff-1bc393bcd97e
             </param>
             <param index="1">
               <value>
-                <![CDATA[[TestResult name=verify_AddingLabs status=SKIP method=CurrentLabsTest.verify_AddingLabs(java.util.Map)[pri:4, instance:com.vh.ui.tests.CurrentLabsTest@4f2d014a] output={null}]]]>
+                <![CDATA[[TestResult name=verify_AddingLabs status=FAILURE method=CurrentLabsTest.verify_AddingLabs(java.util.Map)[pri:4, instance:com.vh.ui.tests.CurrentLabsTest@22dc59b2] output={null}]]]>
               </value>
             </param>
           </params>
           <reporter-output>
           </reporter-output>
         </test-method> <!-- afterTest -->
+        <test-method status="PASS" signature="tearDown()[pri:0, instance:com.vh.ui.tests.CurrentLabsTest@22dc59b2]" name="tearDown" is-config="true" duration-ms="0" started-at="2017-07-17T11:45:15Z" finished-at="2017-07-17T11:45:15Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- tearDown -->
       </class> <!-- com.vh.ui.tests.CurrentLabsTest -->
     </test> <!-- Default test -->
   </suite> <!-- Default suite -->

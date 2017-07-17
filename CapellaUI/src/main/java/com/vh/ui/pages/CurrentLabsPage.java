@@ -64,6 +64,7 @@ import static com.vh.ui.web.locators.CurrentLabsLocators.LBL_ADDPOPUPWEIGHT;
 import static com.vh.ui.web.locators.CurrentLabsLocators.LBL_CALCIUMXPHOSPHOROUSSOURCE;
 import static com.vh.ui.web.locators.CurrentLabsLocators.LBL_HEIGHTSOURCE;
 import static com.vh.ui.web.locators.CurrentLabsLocators.LBL_PAGEHEADER;
+import static com.vh.ui.web.locators.CurrentLabsLocators.LBL_PHOSPHOROUSSOURCE;
 import static com.vh.ui.web.locators.CurrentLabsLocators.LBL_TARGETDRYWEIGHTSOURCE;
 import static com.vh.ui.web.locators.CurrentLabsLocators.LBL_WEIGHTSOURCE;
 import static com.vh.ui.web.locators.CurrentLabsLocators.PLH_ADDPOPUPDIPSTICKFORPROTEIN;
@@ -992,7 +993,7 @@ public class CurrentLabsPage extends WebPage
 	@Step("Verify the visibility of the WEIGHT label/value")
 	public boolean viewWeightLabelValue(String labValue) throws TimeoutException, WaitException
 	{
-		final By LBL_WEIGHT = By.xpath("//span[text()='Height (" + labValue + ")']");
+		final By LBL_WEIGHT = By.xpath("//span[text()='Weight (" + labValue + ")']");
 
 		return webActions.getVisibiltyOfElementLocatedBy(VISIBILITY, LBL_WEIGHT);
 	}
@@ -1014,7 +1015,7 @@ public class CurrentLabsPage extends WebPage
 	@Step("Verify the visibility of the TARGET DRY WEIGHT label/value")
 	public boolean viewTargetDryWeightLabelValue(String labValue) throws TimeoutException, WaitException
 	{
-		final By LBL_TARGETDRYWEIGHT = By.xpath("//span[text()='Target Dry Height (" + labValue + ")']");
+		final By LBL_TARGETDRYWEIGHT = By.xpath("//span[text()='Target Dry Weight (" + labValue + ")']");
 
 		return webActions.getVisibiltyOfElementLocatedBy(VISIBILITY, LBL_TARGETDRYWEIGHT);
 	}
@@ -1036,7 +1037,7 @@ public class CurrentLabsPage extends WebPage
 	@Step("Verify the visibility of the CALCIUM X PHOSPHOROUS label/value")
 	public boolean viewCalciumXPhosphorousLabelValue(String labValue) throws TimeoutException, WaitException
 	{
-		final By LBL_CALCIUMXPHOSPHOROUS = By.xpath("//span[text()='Target Dry Height (" + labValue + ")']");
+		final By LBL_CALCIUMXPHOSPHOROUS = By.xpath("//span[text()='Calcium X Phosphorous (" + labValue + ")']");
 
 		return webActions.getVisibiltyOfElementLocatedBy(VISIBILITY, LBL_CALCIUMXPHOSPHOROUS);
 	}
@@ -1044,7 +1045,7 @@ public class CurrentLabsPage extends WebPage
 	@Step("Verify the visibility of the CALCIUM X PHOSPHOROUS draw date")
 	public boolean viewCalciumXPhosphorousDrawDate(String drawDate) throws TimeoutException, WaitException
 	{
-		final By LBL_CALCIUMXPHOSPHOROUSDRAWDATE = By.xpath("//span[contains(., 'Target Dry Weight (')]/../../..//span[text()='" + drawDate + "']");
+		final By LBL_CALCIUMXPHOSPHOROUSDRAWDATE = By.xpath("//span[contains(., 'Calcium X Phosphorous (')]/../../..//span[text()='" + drawDate + "']");
 
 		return webActions.getVisibiltyOfElementLocatedBy(VISIBILITY, LBL_CALCIUMXPHOSPHOROUSDRAWDATE);
 	}
@@ -1053,5 +1054,27 @@ public class CurrentLabsPage extends WebPage
 	public boolean viewCalciumXPhosphorousSource() throws TimeoutException, WaitException
 	{
 		return webActions.getVisibiltyOfElementLocatedBy(VISIBILITY, LBL_CALCIUMXPHOSPHOROUSSOURCE);
+	}
+
+	@Step("Verify the visibility of the CALCIUM X PHOSPHOROUS label/value")
+	public boolean viewPhosphorousLabelValue(String labValue) throws TimeoutException, WaitException
+	{
+		final By LBL_PHOSPHOROUS = By.xpath("//span[text()='Phosphorous (" + labValue + ")']");
+
+		return webActions.getVisibiltyOfElementLocatedBy(VISIBILITY, LBL_PHOSPHOROUS);
+	}
+
+	@Step("Verify the visibility of the PHOSPHOROUS draw date")
+	public boolean viewPhosphorousDrawDate(String drawDate) throws TimeoutException, WaitException
+	{
+		final By LBL_PHOROUSDRAWDATE = By.xpath("//span[contains(., 'Phosphorous (')]/../../..//span[text()='" + drawDate + "']");
+
+		return webActions.getVisibiltyOfElementLocatedBy(VISIBILITY, LBL_PHOROUSDRAWDATE);
+	}
+
+	@Step("Verify the visibility of the PHOSPHOROUS Source")
+	public boolean viewPhosphorousSource() throws TimeoutException, WaitException
+	{
+		return webActions.getVisibiltyOfElementLocatedBy(VISIBILITY, LBL_PHOSPHOROUSSOURCE);
 	}
 }

@@ -3,7 +3,7 @@
 <suite name="Suite">
   <test name="Test">
     <classes>
-      <class name="com.vh.ui.tests.MedicalEquipmentTest"/>
+      <class name="com.vh.ui.tests.MyTasksTest"/>
     </classes>
   </test> <!-- Test -->
 </suite> <!-- Suite -->

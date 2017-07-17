@@ -11,8 +11,9 @@
       <class name="com.vh.ui.tests.CurrentLabsTest">
         <methods>
           <include name="afterTest"/>
-          <include name="verify_AddingLabs"/>
+          <include name="verify_AddingLabs" invocation-numbers="0 1"/>
           <include name="buildUp"/>
+          <include name="tearDown"/>
         </methods>
       </class> <!-- com.vh.ui.tests.CurrentLabsTest -->
     </classes>
