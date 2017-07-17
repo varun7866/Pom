@@ -857,29 +857,17 @@ public class ApplicationFunctions extends WebPage
 	 * 
 	 * @param dayChangeBy
 	 *            The value to change the date by
-	 * @param dateFormatString
-	 *            The format of the date returned. "G" for MM/DD/YYYY, "D" for day only.
+	 * @param dateFormatMask
+	 *            The format of the date to be returned. Ex. MM/dd/YYYY.
 	 * @throws WaitException
 	 */
-	public String adjustCurrentDateBy(String dayChangeBy, String dateFormatString) throws WaitException
+	public String adjustCurrentDateBy(String dayChangeBy, String dateFormatMask) throws WaitException
 	{
 		String adjustedDate;
 		DateFormat dateFormatObject = null;
 
 		Calendar cal = Calendar.getInstance();
-		
-		if (dateFormatString.equals("G"))
-		{
-			dateFormatObject = new SimpleDateFormat("MM/dd/yyyy");
-		}
-		else
-		{
-			if (dateFormatString.equals("D"))
-			{
-				dateFormatObject = new SimpleDateFormat("d");
-			}
-		}
-
+		dateFormatObject = new SimpleDateFormat(dateFormatMask);
 		cal.add(Calendar.DATE, Integer.parseInt(dayChangeBy));
 		adjustedDate = dateFormatObject.format(new Date(cal.getTimeInMillis()));
 

@@ -345,12 +345,13 @@ public class CurrentLabsTest extends TestBase
 			}
 		}
 
-		Thread.sleep(6000);
+		Thread.sleep(7000);
 
-		String drawDateGregorian = appFunctions.adjustCurrentDateBy(map.get("APPLYTHISDATETOALLVALUES"), "G");
+		String drawDateGregorian = appFunctions.adjustCurrentDateBy(map.get("APPLYTHISDATETOALLVALUES"), "MM/dd/YYYY");
 
 		Assert.assertTrue(currentLabsPage.viewHeightLabelValue(map.get("HEIGHT")), "Failed to identify the HEIGHT label/value");
 		Assert.assertTrue(currentLabsPage.viewHeightDrawDate(drawDateGregorian), "Failed to identify the HEIGHT draw date");
+		Assert.assertTrue(currentLabsPage.viewHeightSource(), "Failed to identify the HEIGHT Source");
 	}
 
 	@AfterClass
