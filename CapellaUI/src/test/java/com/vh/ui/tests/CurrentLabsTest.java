@@ -86,50 +86,50 @@ public class CurrentLabsTest extends TestBase
 
 		Assert.assertTrue(currentLabsPage.viewAddpopupPhosphorousLabel(), "Failed to identify the Add Lab Results popup PHOSPHOROUS label");
 		Assert.assertTrue(currentLabsPage.viewAddpopupPhosphorousTextBox(), "Failed to identify the Add Lab Results popup PHOSPHOROUS text box");
-		Assert.assertTrue(currentLabsPage.viewAddpopupPhosphorousGoal(), "Failed to identify the Add Lab Results popup PHOSPHOROUS goal");
+		Assert.assertTrue(currentLabsPage.viewAddpopupPhosphorousGoal(), "Failed to identify the Add Lab Results popup PHOSPHOROUS Goal");
 
 		Assert.assertTrue(currentLabsPage.viewAddpopupGFRLabel(), "Failed to identify the Add Lab Results popup GFR label");
 		Assert.assertTrue(currentLabsPage.viewAddpopupGFRTextBox(), "Failed to identify the Add Lab Results popup GFR text box");
-		Assert.assertTrue(currentLabsPage.viewAddpopupGFRGoal(), "Failed to identify the Add Lab Results popup GFR goal");
+		Assert.assertTrue(currentLabsPage.viewAddpopupGFRGoal(), "Failed to identify the Add Lab Results popup GFR Goal");
 
 		Assert.assertTrue(currentLabsPage.viewAddpopupLDLLabel(), "Failed to identify the Add Lab Results popup LDL label");
 		Assert.assertTrue(currentLabsPage.viewAddpopupLDLTextBox(), "Failed to identify the Add Lab Results popup LDL text box");
-		Assert.assertTrue(currentLabsPage.viewAddpopupLDLGoal(), "Failed to identify the Add Lab Results popup LDL goal");
+		Assert.assertTrue(currentLabsPage.viewAddpopupLDLGoal(), "Failed to identify the Add Lab Results popup LDL Goal");
 
 		Assert.assertTrue(currentLabsPage.viewAddpopupAlbuminLabel(), "Failed to identify the Add Lab Results popup ALBUMIN label");
 		Assert.assertTrue(currentLabsPage.viewAddpopupAlbuminTextBox(), "Failed to identify the Add Lab Results popup ALBUMIN text box");
-		Assert.assertTrue(currentLabsPage.viewAddpopupAlbuminGoal(), "Failed to identify the Add Lab Results popup ALBUMIN goal");
+		Assert.assertTrue(currentLabsPage.viewAddpopupAlbuminGoal(), "Failed to identify the Add Lab Results popup ALBUMIN Goal");
 
 		Assert.assertTrue(currentLabsPage.viewAddpopupDipstickForProteinLabel(), "Failed to identify the Add Lab Results popup DIPSTICK FOR PROTEIN label");
 		Assert.assertTrue(currentLabsPage.viewAddPopupDipstickForProteinComboBox(), "Failed to identify the Add Lab Results popup DIPSTICK FOR PROTEIN combo box");
 		Assert.assertTrue(currentLabsPage.viewAddpopupDipstickForProteinPlaceholder(), "Failed to identify the Add Lab Results popup DIPSTICK FOR PROTEIN placeholder");
 		Assert.assertTrue(currentLabsPage.verifyAddPopupDipstickForProteinComboBoxOptions(), "The Add Lab Results popup DIPSTICK FOR DIPSTICK FOR PROTEIN drop down options are incorrect");
-		Assert.assertTrue(currentLabsPage.viewAddpopupDipstickForProteinGoal(), "Failed to identify the Add Lab Results popup DIPSTICK FOR PROTEIN goal");
+		Assert.assertTrue(currentLabsPage.viewAddpopupDipstickForProteinGoal(), "Failed to identify the Add Lab Results popup DIPSTICK FOR PROTEIN Goal");
 
 		Assert.assertTrue(currentLabsPage.viewAddpopupCalciumLabel(), "Failed to identify the Add Lab Results popup CALCIUM label");
 		Assert.assertTrue(currentLabsPage.viewAddpopupCalciumTextBox(), "Failed to identify the Add Lab Results popup CALCIUM text box");
-		Assert.assertTrue(currentLabsPage.viewAddpopupCalciumGoal1(), "Failed to identify the Add Lab Results popup CALCIUM goal 1");
-		Assert.assertTrue(currentLabsPage.viewAddpopupCalciumGoal2(), "Failed to identify the Add Lab Results popup CALCIUM goal 2");
+		Assert.assertTrue(currentLabsPage.viewAddpopupCalciumGoal1(), "Failed to identify the Add Lab Results popup CALCIUM Goal 1");
+		Assert.assertTrue(currentLabsPage.viewAddpopupCalciumGoal2(), "Failed to identify the Add Lab Results popup CALCIUM Goal 2");
 
 		Assert.assertTrue(currentLabsPage.viewAddpopupURRLabel(), "Failed to identify the Add Lab Results popup URR label");
 		Assert.assertTrue(currentLabsPage.viewAddpopupURRTextBox(), "Failed to identify the Add Lab Results popup URR text box");
-		Assert.assertTrue(currentLabsPage.viewAddpopupURRGoal(), "Failed to identify the Add Lab Results popup URR goal");
+		Assert.assertTrue(currentLabsPage.viewAddpopupURRGoal(), "Failed to identify the Add Lab Results popup URR Goal");
 
 		Assert.assertTrue(currentLabsPage.viewAddpopupPTHLabel(), "Failed to identify the Add Lab Results popup PTH label");
 		Assert.assertTrue(currentLabsPage.viewAddpopupPTHTextBox(), "Failed to identify the Add Lab Results popup PTH text box");
-		Assert.assertTrue(currentLabsPage.viewAddpopupPTHGoal1(), "Failed to identify the Add Lab Results popup PTH goal 1");
-		Assert.assertTrue(currentLabsPage.viewAddpopupPTHGoal2(), "Failed to identify the Add Lab Results popup PTH goal 2");
-		Assert.assertTrue(currentLabsPage.viewAddpopupPTHGoal3(), "Failed to identify the Add Lab Results popup PTH goal 3");
-		Assert.assertTrue(currentLabsPage.viewAddpopupPTHGoal4(), "Failed to identify the Add Lab Results popup PTH goal 4");
-		Assert.assertTrue(currentLabsPage.viewAddpopupPTHGoal5(), "Failed to identify the Add Lab Results popup PTH goal 5");
+		Assert.assertTrue(currentLabsPage.viewAddpopupPTHGoal1(), "Failed to identify the Add Lab Results popup PTH Goal 1");
+		Assert.assertTrue(currentLabsPage.viewAddpopupPTHGoal2(), "Failed to identify the Add Lab Results popup PTH Goal 2");
+		Assert.assertTrue(currentLabsPage.viewAddpopupPTHGoal3(), "Failed to identify the Add Lab Results popup PTH Goal 3");
+		Assert.assertTrue(currentLabsPage.viewAddpopupPTHGoal4(), "Failed to identify the Add Lab Results popup PTH Goal 4");
+		Assert.assertTrue(currentLabsPage.viewAddpopupPTHGoal5(), "Failed to identify the Add Lab Results popup PTH Goal 5");
 
 		Assert.assertTrue(currentLabsPage.viewAddpopupFerritinLabel(), "Failed to identify the Add Lab Results popup FERRITIN label");
 		Assert.assertTrue(currentLabsPage.viewAddpopupFerritinTextBox(), "Failed to identify the Add Lab Results popup FERRITIN text box");
-		Assert.assertTrue(currentLabsPage.viewAddpopupFerritinGoal(), "Failed to identify the Add Lab Results popup FERRITIN goal");
+		Assert.assertTrue(currentLabsPage.viewAddpopupFerritinGoal(), "Failed to identify the Add Lab Results popup FERRITIN Goal");
 
 		Assert.assertTrue(currentLabsPage.viewAddpopupBloodPressureSystolicLabel(), "Failed to identify the Add Lab Results popup BLOOD PRESURE SYSTOLIC label");
 		Assert.assertTrue(currentLabsPage.viewAddpopupBloodPressureSystolicTextBox(), "Failed to identify the Add Lab Results popup BLOOD PRESURE SYSTOLIC text box");
-		Assert.assertTrue(currentLabsPage.viewAddpopupBloodPressureSystolicGoal(), "Failed to identify the Add Lab Results popup BLOOD PRESURE SYSTOLIC goal");
+		Assert.assertTrue(currentLabsPage.viewAddpopupBloodPressureSystolicGoal(), "Failed to identify the Add Lab Results popup BLOOD PRESURE SYSTOLIC Goal");
 
 		Assert.assertTrue(currentLabsPage.viewAddpopupWeightLabel(), "Failed to identify the Add Lab Results popup WEIGHT label");
 		Assert.assertTrue(currentLabsPage.viewAddpopupWeightTextBox(), "Failed to identify the Add Lab Results popup WEIGHT text box");
@@ -137,47 +137,47 @@ public class CurrentLabsTest extends TestBase
 
 		Assert.assertTrue(currentLabsPage.viewAddpopupCalciumXPhosphorousLabel(), "Failed to identify the Add Lab Results popup CALCIUM X PHOSPHOROUS label");
 		Assert.assertTrue(currentLabsPage.viewAddpopupCalciumXPhosphorousTextBox(), "Failed to identify the Add Lab Results popup CALCIUM X PHOSPHOROUS text box");
-		Assert.assertTrue(currentLabsPage.viewAddpopupCalciumXPhosphorousGoal(), "Failed to identify the Add Lab Results popup CALCIUM X PHOSPHOROUS goal");
+		Assert.assertTrue(currentLabsPage.viewAddpopupCalciumXPhosphorousGoal(), "Failed to identify the Add Lab Results popup CALCIUM X PHOSPHOROUS Goal");
 
 		Assert.assertTrue(currentLabsPage.viewAddpopupCreatinineLabel(), "Failed to identify the Add Lab Results popup CREATININE label");
 		Assert.assertTrue(currentLabsPage.viewAddpopupCreatinineTextBox(), "Failed to identify the Add Lab Results popup CREATININE text box");
-		Assert.assertTrue(currentLabsPage.viewAddpopupCreatinineGoal(), "Failed to identify the Add Lab Results popup CCREATININE goal");
+		Assert.assertTrue(currentLabsPage.viewAddpopupCreatinineGoal(), "Failed to identify the Add Lab Results popup CCREATININE Goal");
 
 		Assert.assertTrue(currentLabsPage.viewAddpopupHGBA1CLabel(), "Failed to identify the Add Lab Results popup HGB A1C label");
 		Assert.assertTrue(currentLabsPage.viewAddpopupHGBA1CTextBox(), "Failed to identify the Add Lab Results popup HGB A1C text box");
-		Assert.assertTrue(currentLabsPage.viewAddpopupHGBA1CGoal(), "Failed to identify the Add Lab Results popup HGB A1C goal");
+		Assert.assertTrue(currentLabsPage.viewAddpopupHGBA1CGoal(), "Failed to identify the Add Lab Results popup HGB A1C Goal");
 
 		Assert.assertTrue(currentLabsPage.viewAddpopupHGBLabel(), "Failed to identify the Add Lab Results popup HGB label");
 		Assert.assertTrue(currentLabsPage.viewAddpopupHGBTextBox(), "Failed to identify the Add Lab Results popup HGB text box");
-		Assert.assertTrue(currentLabsPage.viewAddpopupHGBGoal(), "Failed to identify the Add Lab Results popup HGB goal");
+		Assert.assertTrue(currentLabsPage.viewAddpopupHGBGoal(), "Failed to identify the Add Lab Results popup HGB Goal");
 
 		Assert.assertTrue(currentLabsPage.viewAddpopupUrineAlbuminCreatinineRatioLabel(), "Failed to identify the Add Lab Results popup URINE ALBUMIN/CREATININE RATIO label");
 		Assert.assertTrue(currentLabsPage.viewAddpopupUrineAlbuminCreatinineRatioTextBox(), "Failed to identify the Add Lab Results popup URINE ALBUMIN/CREATININE RATIO text box");
-		Assert.assertTrue(currentLabsPage.viewAddpopupUrineAlbuminCreatinineRatioGoal(), "Failed to identify the Add Lab Results popup URINE ALBUMIN/CREATININE RATIO goal");
+		Assert.assertTrue(currentLabsPage.viewAddpopupUrineAlbuminCreatinineRatioGoal(), "Failed to identify the Add Lab Results popup URINE ALBUMIN/CREATININE RATIO Goal");
 
 		Assert.assertTrue(currentLabsPage.viewAddpopupCo2LevelLabel(), "Failed to identify the Add Lab Results popup CO2 LEVEL label");
 		Assert.assertTrue(currentLabsPage.viewAddpopupCo2LevelTextBox(), "Failed to identify the Add Lab Results popup CO2 LEVEL text box");
-		Assert.assertTrue(currentLabsPage.viewAddpopupCo2LevelGoal(), "Failed to identify the Add Lab Results popup CO2 LEVEL goal");
+		Assert.assertTrue(currentLabsPage.viewAddpopupCo2LevelGoal(), "Failed to identify the Add Lab Results popup CO2 LEVEL Goal");
 
 		Assert.assertTrue(currentLabsPage.viewAddpopupKTVLabel(), "Failed to identify the Add Lab Results popup KT/V label");
 		Assert.assertTrue(currentLabsPage.viewAddpopupKTVTextBox(), "Failed to identify the Add Lab Results popup KT/V text box");
-		Assert.assertTrue(currentLabsPage.viewAddpopupKTVGoal(), "Failed to identify the Add Lab Results popup KT/V goal");
+		Assert.assertTrue(currentLabsPage.viewAddpopupKTVGoal(), "Failed to identify the Add Lab Results popup KT/V Goal");
 
 		Assert.assertTrue(currentLabsPage.viewAddpopupPotassiumLabel(), "Failed to identify the Add Lab Results popup POTASSIUM label");
 		Assert.assertTrue(currentLabsPage.viewAddpopupPotassiumTextBox(), "Failed to identify the Add Lab Results popup POTASSIUM text box");
-		Assert.assertTrue(currentLabsPage.viewAddpopupPotassiumGoal(), "Failed to identify the Add Lab Results popup POTASSIUM goal");
+		Assert.assertTrue(currentLabsPage.viewAddpopupPotassiumGoal(), "Failed to identify the Add Lab Results popup POTASSIUM Goal");
 		
 		Assert.assertTrue(currentLabsPage.viewAddpopupHepatitisBTiterLabel(), "Failed to identify the Add Lab Results popup HEPATITIS B TITER label");
 		Assert.assertTrue(currentLabsPage.viewAddpopupHepatitisBTiterTextBox(), "Failed to identify the Add Lab Results popup HEPATITIS B TITER text box");
-		Assert.assertTrue(currentLabsPage.viewAddpopupHepatitisBTiterGoal(), "Failed to identify the Add Lab Results popup HEPATITIS B TITER goal");
+		Assert.assertTrue(currentLabsPage.viewAddpopupHepatitisBTiterGoal(), "Failed to identify the Add Lab Results popup HEPATITIS B TITER Goal");
 
 		Assert.assertTrue(currentLabsPage.viewAddpopupTSATLabel(), "Failed to identify the Add Lab Results popup TSAT label");
 		Assert.assertTrue(currentLabsPage.viewAddpopupTSATTextBox(), "Failed to identify the Add Lab Results popup TSAT text box");
-		Assert.assertTrue(currentLabsPage.viewAddpopupTSATGoal(), "Failed to identify the Add Lab Results popup TSAT goal");
+		Assert.assertTrue(currentLabsPage.viewAddpopupTSATGoal(), "Failed to identify the Add Lab Results popup TSAT Goal");
 
 		Assert.assertTrue(currentLabsPage.viewAddpopupBloodPressureDiastolicLabel(), "Failed to identify the Add Lab Results popup BLOOD PRESURE DIASTOLIC label");
 		Assert.assertTrue(currentLabsPage.viewAddpopupBloodPressureDiastolicTextBox(), "Failed to identify the Add Lab Results popup BLOOD PRESURE DIASTOLIC text box");
-		Assert.assertTrue(currentLabsPage.viewAddpopupBloodPressureDiastolicGoal(), "Failed to identify the Add Lab Results popup BLOOD PRESURE DIASTOLIC goal");
+		Assert.assertTrue(currentLabsPage.viewAddpopupBloodPressureDiastolicGoal(), "Failed to identify the Add Lab Results popup BLOOD PRESURE DIASTOLIC Goal");
 
 		currentLabsPage.clickAddPopupCancelButton();
 	}
@@ -213,43 +213,43 @@ public class CurrentLabsTest extends TestBase
 
 		Assert.assertTrue(currentLabsPage.viewAddpopupPhosphorousLabel(), "Failed to identify the Add Lab Results popup PHOSPHOROUS label");
 		Assert.assertTrue(currentLabsPage.viewAddpopupPhosphorousTextBox(), "Failed to identify the Add Lab Results popup PHOSPHOROUS text box");
-		Assert.assertTrue(currentLabsPage.viewAddpopupPhosphorousGoal(), "Failed to identify the Add Lab Results popup PHOSPHOROUS goal");
+		Assert.assertTrue(currentLabsPage.viewAddpopupPhosphorousGoal(), "Failed to identify the Add Lab Results popup PHOSPHOROUS Goal");
 
 		Assert.assertTrue(currentLabsPage.viewAddpopupGFRLabel(), "Failed to identify the Add Lab Results popup GFR label");
 		Assert.assertTrue(currentLabsPage.viewAddpopupGFRTextBox(), "Failed to identify the Add Lab Results popup GFR text box");
-		Assert.assertTrue(currentLabsPage.viewAddpopupGFRGoal(), "Failed to identify the Add Lab Results popup GFR goal");
+		Assert.assertTrue(currentLabsPage.viewAddpopupGFRGoal(), "Failed to identify the Add Lab Results popup GFR Goal");
 
 		Assert.assertTrue(currentLabsPage.viewAddpopupLDLLabel(), "Failed to identify the Add Lab Results popup LDL label");
 		Assert.assertTrue(currentLabsPage.viewAddpopupLDLTextBox(), "Failed to identify the Add Lab Results popup LDL text box");
-		Assert.assertTrue(currentLabsPage.viewAddpopupLDLGoal(), "Failed to identify the Add Lab Results popup LDL goal");
+		Assert.assertTrue(currentLabsPage.viewAddpopupLDLGoal(), "Failed to identify the Add Lab Results popup LDL Goal");
 
 		Assert.assertTrue(currentLabsPage.viewAddpopupAlbuminLabel(), "Failed to identify the Add Lab Results popup Albumin label");
 		Assert.assertTrue(currentLabsPage.viewAddpopupAlbuminTextBox(), "Failed to identify the Add Lab Results popup Albumin text box");
-		Assert.assertTrue(currentLabsPage.viewAddpopupAlbuminGoal(), "Failed to identify the Add Lab Results popup Albumin goal");
+		Assert.assertTrue(currentLabsPage.viewAddpopupAlbuminGoal(), "Failed to identify the Add Lab Results popup Albumin Goal");
 
 		Assert.assertTrue(currentLabsPage.viewAddpopupCo2LevelLabel(), "Failed to identify the Add Lab Results popup CO2 LEVEL label");
 		Assert.assertTrue(currentLabsPage.viewAddpopupCo2LevelTextBox(), "Failed to identify the Add Lab Results popup CO2 LEVEL text box");
-		Assert.assertTrue(currentLabsPage.viewAddpopupCo2LevelGoal(), "Failed to identify the Add Lab Results popup CO2 LEVEL goal");
+		Assert.assertTrue(currentLabsPage.viewAddpopupCo2LevelGoal(), "Failed to identify the Add Lab Results popup CO2 LEVEL Goal");
 
 		Assert.assertTrue(currentLabsPage.viewAddpopupKTVLabel(), "Failed to identify the Add Lab Results popup KT/V label");
 		Assert.assertTrue(currentLabsPage.viewAddpopupKTVTextBox(), "Failed to identify the Add Lab Results popup KT/V text box");
-		Assert.assertTrue(currentLabsPage.viewAddpopupKTVGoal(), "Failed to identify the Add Lab Results popup KT/V goal");
+		Assert.assertTrue(currentLabsPage.viewAddpopupKTVGoal(), "Failed to identify the Add Lab Results popup KT/V Goal");
 
 		Assert.assertTrue(currentLabsPage.viewAddpopupPotassiumLabel(), "Failed to identify the Add Lab Results popup POTASSIUM label");
 		Assert.assertTrue(currentLabsPage.viewAddpopupPotassiumTextBox(), "Failed to identify the Add Lab Results popup POTASSIUM text box");
-		Assert.assertTrue(currentLabsPage.viewAddpopupPotassiumGoal(), "Failed to identify the Add Lab Results popup POTASSIUM goal");
+		Assert.assertTrue(currentLabsPage.viewAddpopupPotassiumGoal(), "Failed to identify the Add Lab Results popup POTASSIUM Goal");
 
 		Assert.assertTrue(currentLabsPage.viewAddpopupHepatitisBTiterLabel(), "Failed to identify the Add Lab Results popup HEPATITIS B TITER label");
 		Assert.assertTrue(currentLabsPage.viewAddpopupHepatitisBTiterTextBox(), "Failed to identify the Add Lab Results popup HEPATITIS B TITER text box");
-		Assert.assertTrue(currentLabsPage.viewAddpopupHepatitisBTiterGoal(), "Failed to identify the Add Lab Results popup HEPATITIS B TITER goal");
+		Assert.assertTrue(currentLabsPage.viewAddpopupHepatitisBTiterGoal(), "Failed to identify the Add Lab Results popup HEPATITIS B TITER Goal");
 
 		Assert.assertTrue(currentLabsPage.viewAddpopupTSATLabel(), "Failed to identify the Add Lab Results popup TSAT label");
 		Assert.assertTrue(currentLabsPage.viewAddpopupTSATTextBox(), "Failed to identify the Add Lab Results popup TSAT text box");
-		Assert.assertTrue(currentLabsPage.viewAddpopupTSATGoal(), "Failed to identify the Add Lab Results popup TSAT goal");
+		Assert.assertTrue(currentLabsPage.viewAddpopupTSATGoal(), "Failed to identify the Add Lab Results popup TSAT Goal");
 
 		Assert.assertTrue(currentLabsPage.viewAddpopupBloodPressureDiastolicLabel(), "Failed to identify the Add Lab Results popup BLOOD PRESURE DIASTOLIC label");
 		Assert.assertTrue(currentLabsPage.viewAddpopupBloodPressureDiastolicTextBox(), "Failed to identify the Add Lab Results popup BLOOD PRESURE DIASTOLIC text box");
-		Assert.assertTrue(currentLabsPage.viewAddpopupBloodPressureDiastolicGoal(), "Failed to identify the Add Lab Results popup BLOOD PRESURE DIASTOLIC goal");
+		Assert.assertTrue(currentLabsPage.viewAddpopupBloodPressureDiastolicGoal(), "Failed to identify the Add Lab Results popup BLOOD PRESURE DIASTOLIC Goal");
 
 		Assert.assertTrue(currentLabsPage.viewAddpopupWeightLabel(), "Failed to identify the Add Lab Results popup WEIGHT label");
 		Assert.assertTrue(currentLabsPage.viewAddpopupWeightTextBox(), "Failed to identify the Add Lab Results popup WEIGHT text box");
@@ -257,48 +257,48 @@ public class CurrentLabsTest extends TestBase
 
 		Assert.assertTrue(currentLabsPage.viewAddpopupCalciumXPhosphorousLabel(), "Failed to identify the Add Lab Results popup CALCIUM X PHOSPHOROUS label");
 		Assert.assertTrue(currentLabsPage.viewAddpopupCalciumXPhosphorousTextBox(), "Failed to identify the Add Lab Results popup CALCIUM X PHOSPHOROUS text box");
-		Assert.assertTrue(currentLabsPage.viewAddpopupCalciumXPhosphorousGoal(), "Failed to identify the Add Lab Results popup CALCIUM X PHOSPHOROUS goal");
+		Assert.assertTrue(currentLabsPage.viewAddpopupCalciumXPhosphorousGoal(), "Failed to identify the Add Lab Results popup CALCIUM X PHOSPHOROUS Goal");
 
 		Assert.assertTrue(currentLabsPage.viewAddpopupCreatinineLabel(), "Failed to identify the Add Lab Results popup CREATININE label");
 		Assert.assertTrue(currentLabsPage.viewAddpopupCreatinineTextBox(), "Failed to identify the Add Lab Results popup CREATININE text box");
-		Assert.assertTrue(currentLabsPage.viewAddpopupCreatinineGoal(), "Failed to identify the Add Lab Results popup CCREATININE goal");
+		Assert.assertTrue(currentLabsPage.viewAddpopupCreatinineGoal(), "Failed to identify the Add Lab Results popup CCREATININE Goal");
 
 		Assert.assertTrue(currentLabsPage.viewAddpopupHGBA1CLabel(), "Failed to identify the Add Lab Results popup HGB A1C label");
 		Assert.assertTrue(currentLabsPage.viewAddpopupHGBA1CTextBox(), "Failed to identify the Add Lab Results popup HGB A1C text box");
-		Assert.assertTrue(currentLabsPage.viewAddpopupHGBA1CGoal(), "Failed to identify the Add Lab Results popup HGB A1C goal");
+		Assert.assertTrue(currentLabsPage.viewAddpopupHGBA1CGoal(), "Failed to identify the Add Lab Results popup HGB A1C Goal");
 
 		Assert.assertTrue(currentLabsPage.viewAddpopupHGBLabel(), "Failed to identify the Add Lab Results popup HGB label");
 		Assert.assertTrue(currentLabsPage.viewAddpopupHGBTextBox(), "Failed to identify the Add Lab Results popup HGB text box");
-		Assert.assertTrue(currentLabsPage.viewAddpopupHGBGoal(), "Failed to identify the Add Lab Results popup HGB goal");
+		Assert.assertTrue(currentLabsPage.viewAddpopupHGBGoal(), "Failed to identify the Add Lab Results popup HGB Goal");
 
 		Assert.assertTrue(currentLabsPage.viewAddpopupUrineAlbuminCreatinineRatioLabel(), "Failed to identify the Add Lab Results popup URINE ALBUMIN/CREATININE RATIO label");
 		Assert.assertTrue(currentLabsPage.viewAddpopupUrineAlbuminCreatinineRatioTextBox(), "Failed to identify the Add Lab Results popup URINE ALBUMIN/CREATININE RATIO text box");
-		Assert.assertTrue(currentLabsPage.viewAddpopupUrineAlbuminCreatinineRatioGoal(), "Failed to identify the Add Lab Results popup URINE ALBUMIN/CREATININE RATIO goal");
+		Assert.assertTrue(currentLabsPage.viewAddpopupUrineAlbuminCreatinineRatioGoal(), "Failed to identify the Add Lab Results popup URINE ALBUMIN/CREATININE RATIO Goal");
 
 		Assert.assertTrue(currentLabsPage.viewAddpopupCalciumLabel(), "Failed to identify the Add Lab Results popup CALCIUM label");
 		Assert.assertTrue(currentLabsPage.viewAddpopupCalciumTextBox(), "Failed to identify the Add Lab Results popup CALCIUM text box");
-		Assert.assertTrue(currentLabsPage.viewAddpopupCalciumGoal1(), "Failed to identify the Add Lab Results popup CALCIUM goal 1");
-		Assert.assertTrue(currentLabsPage.viewAddpopupCalciumGoal2(), "Failed to identify the Add Lab Results popup CALCIUM goal 2");
+		Assert.assertTrue(currentLabsPage.viewAddpopupCalciumGoal1(), "Failed to identify the Add Lab Results popup CALCIUM Goal 1");
+		Assert.assertTrue(currentLabsPage.viewAddpopupCalciumGoal2(), "Failed to identify the Add Lab Results popup CALCIUM Goal 2");
 
 		Assert.assertTrue(currentLabsPage.viewAddpopupURRLabel(), "Failed to identify the Add Lab Results popup URR label");
 		Assert.assertTrue(currentLabsPage.viewAddpopupURRTextBox(), "Failed to identify the Add Lab Results popup URR text box");
-		Assert.assertTrue(currentLabsPage.viewAddpopupURRGoal(), "Failed to identify the Add Lab Results popup URR goal");
+		Assert.assertTrue(currentLabsPage.viewAddpopupURRGoal(), "Failed to identify the Add Lab Results popup URR Goal");
 
 		Assert.assertTrue(currentLabsPage.viewAddpopupPTHLabel(), "Failed to identify the Add Lab Results popup PTH label");
 		Assert.assertTrue(currentLabsPage.viewAddpopupPTHTextBox(), "Failed to identify the Add Lab Results popup PTH text box");
-		Assert.assertTrue(currentLabsPage.viewAddpopupPTHGoal1(), "Failed to identify the Add Lab Results popup PTH goal 1");
-		Assert.assertTrue(currentLabsPage.viewAddpopupPTHGoal2(), "Failed to identify the Add Lab Results popup PTH goal 2");
-		Assert.assertTrue(currentLabsPage.viewAddpopupPTHGoal3(), "Failed to identify the Add Lab Results popup PTH goal 3");
-		Assert.assertTrue(currentLabsPage.viewAddpopupPTHGoal4(), "Failed to identify the Add Lab Results popup PTH goal 4");
-		Assert.assertTrue(currentLabsPage.viewAddpopupPTHGoal5(), "Failed to identify the Add Lab Results popup PTH goal 5");
+		Assert.assertTrue(currentLabsPage.viewAddpopupPTHGoal1(), "Failed to identify the Add Lab Results popup PTH Goal 1");
+		Assert.assertTrue(currentLabsPage.viewAddpopupPTHGoal2(), "Failed to identify the Add Lab Results popup PTH Goal 2");
+		Assert.assertTrue(currentLabsPage.viewAddpopupPTHGoal3(), "Failed to identify the Add Lab Results popup PTH Goal 3");
+		Assert.assertTrue(currentLabsPage.viewAddpopupPTHGoal4(), "Failed to identify the Add Lab Results popup PTH Goal 4");
+		Assert.assertTrue(currentLabsPage.viewAddpopupPTHGoal5(), "Failed to identify the Add Lab Results popup PTH Goal 5");
 
 		Assert.assertTrue(currentLabsPage.viewAddpopupFerritinLabel(), "Failed to identify the Add Lab Results popup FERRITIN label");
 		Assert.assertTrue(currentLabsPage.viewAddpopupFerritinTextBox(), "Failed to identify the Add Lab Results popup FERRITIN text box");
-		Assert.assertTrue(currentLabsPage.viewAddpopupFerritinGoal(), "Failed to identify the Add Lab Results popup FERRITIN goal");
+		Assert.assertTrue(currentLabsPage.viewAddpopupFerritinGoal(), "Failed to identify the Add Lab Results popup FERRITIN Goal");
 
 		Assert.assertTrue(currentLabsPage.viewAddpopupBloodPressureSystolicLabel(), "Failed to identify the Add Lab Results popup BLOOD PRESURE SYSTOLIC label");
 		Assert.assertTrue(currentLabsPage.viewAddpopupBloodPressureSystolicTextBox(), "Failed to identify the Add Lab Results popup BLOOD PRESURE SYSTOLIC text box");
-		Assert.assertTrue(currentLabsPage.viewAddpopupBloodPressureSystolicGoal(), "Failed to identify the Add Lab Results popup BLOOD PRESURE SYSTOLIC goal");
+		Assert.assertTrue(currentLabsPage.viewAddpopupBloodPressureSystolicGoal(), "Failed to identify the Add Lab Results popup BLOOD PRESURE SYSTOLIC Goal");
 
 		currentLabsPage.clickAddPopupCancelButton();
 	}
@@ -362,10 +362,12 @@ public class CurrentLabsTest extends TestBase
 		Assert.assertTrue(currentLabsPage.viewTargetDryWeightSource(), "Failed to identify the TARGET DRY WEIGHT Source");
 
 		Assert.assertTrue(currentLabsPage.viewCalciumXPhosphorousLabelValue(map.get("CALCIUMXPHOSPHOROUS")), "Failed to identify the CALCIUM X PHOSPHOROUS label/value");
+		Assert.assertTrue(currentLabsPage.viewCalciumXPhosphorousGoal(), "Failed to identify the CALCIUM X PHOSPHOROUS Goal");
 		Assert.assertTrue(currentLabsPage.viewCalciumXPhosphorousDrawDate(drawDateGregorian), "Failed to identify the CALCIUM X PHOSPHOROUS draw date");
 		Assert.assertTrue(currentLabsPage.viewCalciumXPhosphorousSource(), "Failed to identify the CALCIUM X PHOSPHOROUS Source");
 
 		Assert.assertTrue(currentLabsPage.viewPhosphorousLabelValue(map.get("PHOSPHOROUS")), "Failed to identify the PHOSPHOROUS label/value");
+		Assert.assertTrue(currentLabsPage.viewPhosphorousGoal(), "Failed to identify the PHOSPHOROUS Goal");
 		Assert.assertTrue(currentLabsPage.viewPhosphorousDrawDate(drawDateGregorian), "Failed to identify the PHOSPHOROUS draw date");
 		Assert.assertTrue(currentLabsPage.viewPhosphorousSource(), "Failed to identify the PHOSPHOROUS Source");
 	}
