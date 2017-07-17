@@ -61,8 +61,11 @@ import static com.vh.ui.web.locators.CurrentLabsLocators.LBL_ADDPOPUPURINEALBUMI
 import static com.vh.ui.web.locators.CurrentLabsLocators.LBL_ADDPOPUPURR;
 import static com.vh.ui.web.locators.CurrentLabsLocators.LBL_ADDPOPUPURRERRORMESSAGE;
 import static com.vh.ui.web.locators.CurrentLabsLocators.LBL_ADDPOPUPWEIGHT;
+import static com.vh.ui.web.locators.CurrentLabsLocators.LBL_CALCIUMXPHOSPHOROUSSOURCE;
 import static com.vh.ui.web.locators.CurrentLabsLocators.LBL_HEIGHTSOURCE;
 import static com.vh.ui.web.locators.CurrentLabsLocators.LBL_PAGEHEADER;
+import static com.vh.ui.web.locators.CurrentLabsLocators.LBL_TARGETDRYWEIGHTSOURCE;
+import static com.vh.ui.web.locators.CurrentLabsLocators.LBL_WEIGHTSOURCE;
 import static com.vh.ui.web.locators.CurrentLabsLocators.PLH_ADDPOPUPDIPSTICKFORPROTEIN;
 import static com.vh.ui.web.locators.CurrentLabsLocators.PLH_ADDPOPUPHEIGHT;
 import static com.vh.ui.web.locators.CurrentLabsLocators.PLH_ADDPOPUPTARGETDRYWEIGHT;
@@ -984,5 +987,71 @@ public class CurrentLabsPage extends WebPage
 	public boolean viewHeightSource() throws TimeoutException, WaitException
 	{
 		return webActions.getVisibiltyOfElementLocatedBy(VISIBILITY, LBL_HEIGHTSOURCE);
+	}
+
+	@Step("Verify the visibility of the WEIGHT label/value")
+	public boolean viewWeightLabelValue(String labValue) throws TimeoutException, WaitException
+	{
+		final By LBL_WEIGHT = By.xpath("//span[text()='Height (" + labValue + ")']");
+
+		return webActions.getVisibiltyOfElementLocatedBy(VISIBILITY, LBL_WEIGHT);
+	}
+
+	@Step("Verify the visibility of the WEIGHT draw date")
+	public boolean viewWeightDrawDate(String drawDate) throws TimeoutException, WaitException
+	{
+		final By LBL_WEIGHTDRAWDATE = By.xpath("//span[contains(., 'Weight (')]/../../..//span[text()='" + drawDate + "']");
+
+		return webActions.getVisibiltyOfElementLocatedBy(VISIBILITY, LBL_WEIGHTDRAWDATE);
+	}
+
+	@Step("Verify the visibility of the WEIGHT Source")
+	public boolean viewWeightSource() throws TimeoutException, WaitException
+	{
+		return webActions.getVisibiltyOfElementLocatedBy(VISIBILITY, LBL_WEIGHTSOURCE);
+	}
+
+	@Step("Verify the visibility of the TARGET DRY WEIGHT label/value")
+	public boolean viewTargetDryWeightLabelValue(String labValue) throws TimeoutException, WaitException
+	{
+		final By LBL_TARGETDRYWEIGHT = By.xpath("//span[text()='Target Dry Height (" + labValue + ")']");
+
+		return webActions.getVisibiltyOfElementLocatedBy(VISIBILITY, LBL_TARGETDRYWEIGHT);
+	}
+
+	@Step("Verify the visibility of the TARGET DRY WEIGHT draw date")
+	public boolean viewTargetDryWeightDrawDate(String drawDate) throws TimeoutException, WaitException
+	{
+		final By LBL_TARGETDRYWEIGHTDRAWDATE = By.xpath("//span[contains(., 'Target Dry Weight (')]/../../..//span[text()='" + drawDate + "']");
+
+		return webActions.getVisibiltyOfElementLocatedBy(VISIBILITY, LBL_TARGETDRYWEIGHTDRAWDATE);
+	}
+
+	@Step("Verify the visibility of the TARGET DRY WEIGHT Source")
+	public boolean viewTargetDryWeightSource() throws TimeoutException, WaitException
+	{
+		return webActions.getVisibiltyOfElementLocatedBy(VISIBILITY, LBL_TARGETDRYWEIGHTSOURCE);
+	}
+
+	@Step("Verify the visibility of the CALCIUM X PHOSPHOROUS label/value")
+	public boolean viewCalciumXPhosphorousLabelValue(String labValue) throws TimeoutException, WaitException
+	{
+		final By LBL_CALCIUMXPHOSPHOROUS = By.xpath("//span[text()='Target Dry Height (" + labValue + ")']");
+
+		return webActions.getVisibiltyOfElementLocatedBy(VISIBILITY, LBL_CALCIUMXPHOSPHOROUS);
+	}
+
+	@Step("Verify the visibility of the CALCIUM X PHOSPHOROUS draw date")
+	public boolean viewCalciumXPhosphorousDrawDate(String drawDate) throws TimeoutException, WaitException
+	{
+		final By LBL_CALCIUMXPHOSPHOROUSDRAWDATE = By.xpath("//span[contains(., 'Target Dry Weight (')]/../../..//span[text()='" + drawDate + "']");
+
+		return webActions.getVisibiltyOfElementLocatedBy(VISIBILITY, LBL_CALCIUMXPHOSPHOROUSDRAWDATE);
+	}
+
+	@Step("Verify the visibility of the CALCIUM X PHOSPHOROUS Source")
+	public boolean viewCalciumXPhosphorousSource() throws TimeoutException, WaitException
+	{
+		return webActions.getVisibiltyOfElementLocatedBy(VISIBILITY, LBL_CALCIUMXPHOSPHOROUSSOURCE);
 	}
 }

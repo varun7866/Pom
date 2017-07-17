@@ -352,6 +352,18 @@ public class CurrentLabsTest extends TestBase
 		Assert.assertTrue(currentLabsPage.viewHeightLabelValue(map.get("HEIGHT")), "Failed to identify the HEIGHT label/value");
 		Assert.assertTrue(currentLabsPage.viewHeightDrawDate(drawDateGregorian), "Failed to identify the HEIGHT draw date");
 		Assert.assertTrue(currentLabsPage.viewHeightSource(), "Failed to identify the HEIGHT Source");
+
+		Assert.assertTrue(currentLabsPage.viewWeightLabelValue(map.get("WEIGHT")), "Failed to identify the WEIGHT label/value");
+		Assert.assertTrue(currentLabsPage.viewWeightDrawDate(drawDateGregorian), "Failed to identify the WEIGHT draw date");
+		Assert.assertTrue(currentLabsPage.viewWeightSource(), "Failed to identify the WEIGHT Source");
+
+		Assert.assertTrue(currentLabsPage.viewTargetDryWeightLabelValue(map.get("TARGETDRYWEIGHT")), "Failed to identify the TARGET DRY WEIGHT label/value");
+		Assert.assertTrue(currentLabsPage.viewTargetDryWeightDrawDate(drawDateGregorian), "Failed to identify the TARGET DRY WEIGHT draw date");
+		Assert.assertTrue(currentLabsPage.viewTargetDryWeightSource(), "Failed to identify the TARGET DRY WEIGHT Source");
+
+		Assert.assertTrue(currentLabsPage.viewCalciumXPhosphorousLabelValue(map.get("CALCIUMXPHOSPHOROUS")), "Failed to identify the CALCIUM X PHOSPHOROUS label/value");
+		Assert.assertTrue(currentLabsPage.viewCalciumXPhosphorousDrawDate(drawDateGregorian), "Failed to identify the CALCIUM X PHOSPHOROUS draw date");
+		Assert.assertTrue(currentLabsPage.viewCalciumXPhosphorousSource(), "Failed to identify the CALCIUM X PHOSPHOROUS Source");
 	}
 
 	@AfterClass
