@@ -61,6 +61,7 @@ import static com.vh.ui.web.locators.CurrentLabsLocators.LBL_ADDPOPUPURINEALBUMI
 import static com.vh.ui.web.locators.CurrentLabsLocators.LBL_ADDPOPUPURR;
 import static com.vh.ui.web.locators.CurrentLabsLocators.LBL_ADDPOPUPURRERRORMESSAGE;
 import static com.vh.ui.web.locators.CurrentLabsLocators.LBL_ADDPOPUPWEIGHT;
+import static com.vh.ui.web.locators.CurrentLabsLocators.LBL_HEIGHTSOURCE;
 import static com.vh.ui.web.locators.CurrentLabsLocators.LBL_PAGEHEADER;
 import static com.vh.ui.web.locators.CurrentLabsLocators.PLH_ADDPOPUPDIPSTICKFORPROTEIN;
 import static com.vh.ui.web.locators.CurrentLabsLocators.PLH_ADDPOPUPHEIGHT;
@@ -90,11 +91,7 @@ import static com.vh.ui.web.locators.CurrentLabsLocators.TXT_ADDPOPUPURINEALBUMI
 import static com.vh.ui.web.locators.CurrentLabsLocators.TXT_ADDPOPUPURR;
 import static com.vh.ui.web.locators.CurrentLabsLocators.TXT_ADDPOPUPWEIGHT;
 
-import java.text.DateFormat;
-import java.text.SimpleDateFormat;
 import java.util.ArrayList;
-import java.util.Calendar;
-import java.util.Date;
 import java.util.List;
 import java.util.Map;
 
@@ -218,12 +215,8 @@ public class CurrentLabsPage extends WebPage
 			webActions.click(VISIBILITY, BTN_ADDPOPUPAPPLYTHISDATETOALLVALUES);
 		}
 
-		Calendar cal = Calendar.getInstance();
-		DateFormat dateFormatDay = new SimpleDateFormat("d");
-		DateFormat dateFormatGregorian = new SimpleDateFormat("MM/dd/yyyy");
-		cal.add(Calendar.DATE, dayChangeBy);
-		currentDayMinusXDay = dateFormatDay.format(new Date(cal.getTimeInMillis()));
-		currentDayMinusXDayGregorian = dateFormatGregorian.format(new Date(cal.getTimeInMillis()));
+		currentDayMinusXDay = appFunctions.adjustCurrentDateBy(Integer.toString(dayChangeBy), "d");
+		currentDayMinusXDayGregorian = appFunctions.adjustCurrentDateBy(Integer.toString(dayChangeBy), "MM/dd/YYYY");
 
 		if (dayChangeBy != 0) // If not checking the current date
 		{
@@ -734,12 +727,9 @@ public class CurrentLabsPage extends WebPage
 	{
 		webActions.click(VISIBILITY, BTN_ADDPOPUPAPPLYTHISDATETOALLVALUES);
 
-		Calendar cal = Calendar.getInstance();
-		DateFormat dateFormatDay = new SimpleDateFormat("d");		
-		cal.add(Calendar.DATE, Integer.parseInt(map.get("APPLYTHISDATETOALLVALUES")));
-		String currentDayMinusXDay = dateFormatDay.format(new Date(cal.getTimeInMillis()));
-		
-		appFunctions.selectDateFromCalendar(CAL_ADDPOPUPAPPLYTHISDATETOALLVALUES, currentDayMinusXDay);
+		String drawDateDay = appFunctions.adjustCurrentDateBy(map.get("APPLYTHISDATETOALLVALUES"), "d");
+
+		appFunctions.selectDateFromCalendar(CAL_ADDPOPUPAPPLYTHISDATETOALLVALUES, drawDateDay);
 
 		enterHeight(map.get("HEIGHT")).enterWeight(map.get("WEIGHT")).enterTargetDryWeight(map.get("TARGETDRYWEIGHT")).enterCalciumXPhosphorous(map.get("CALCIUMXPHOSPHOROUS"))
 		        .enterPhosphorous(map.get("PHOSPHOROUS")).enterCreatinineString(map.get("CREATININE")).enterGFR(map.get("GFR")).enterHGBA1C(map.get("HGBA1C")).enterLDL(map.get("LDL"))
@@ -754,12 +744,9 @@ public class CurrentLabsPage extends WebPage
 	{
 		webActions.click(VISIBILITY, BTN_ADDPOPUPAPPLYTHISDATETOALLVALUES);
 
-		Calendar cal = Calendar.getInstance();
-		DateFormat dateFormatDay = new SimpleDateFormat("d");
-		cal.add(Calendar.DATE, Integer.parseInt(map.get("APPLYTHISDATETOALLVALUES")));
-		String currentDayMinusXDay = dateFormatDay.format(new Date(cal.getTimeInMillis()));
+		String drawDateDay = appFunctions.adjustCurrentDateBy(map.get("APPLYTHISDATETOALLVALUES"), "d");
 
-		appFunctions.selectDateFromCalendar(CAL_ADDPOPUPAPPLYTHISDATETOALLVALUES, currentDayMinusXDay);
+		appFunctions.selectDateFromCalendar(CAL_ADDPOPUPAPPLYTHISDATETOALLVALUES, drawDateDay);
 
 		enterHeight(map.get("HEIGHT")).enterWeight(map.get("WEIGHT")).enterTargetDryWeight(map.get("TARGETDRYWEIGHT")).enterCalciumXPhosphorous(map.get("CALCIUMXPHOSPHOROUS"))
 		        .enterPhosphorous(map.get("PHOSPHOROUS")).enterCreatinineString(map.get("CREATININE")).enterGFR(map.get("GFR")).enterHGBA1C(map.get("HGBA1C")).enterLDL(map.get("LDL"))
@@ -991,5 +978,11 @@ public class CurrentLabsPage extends WebPage
 		final By LBL_HEIGHTDRAWDATE = By.xpath("//span[contains(., 'Height (')]/../../..//span[text()='" + drawDate + "']");
 
 		return webActions.getVisibiltyOfElementLocatedBy(VISIBILITY, LBL_HEIGHTDRAWDATE);
+	}
+
+	@Step("Verify the visibility of the HEIGHT Source")
+	public boolean viewHeightSource() throws TimeoutException, WaitException
+	{
+		return webActions.getVisibiltyOfElementLocatedBy(VISIBILITY, LBL_HEIGHTSOURCE);
 	}
 }
