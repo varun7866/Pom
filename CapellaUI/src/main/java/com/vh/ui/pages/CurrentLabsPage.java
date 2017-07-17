@@ -1,103 +1,6 @@
 package com.vh.ui.pages;
 
-import static com.vh.ui.web.locators.CurrentLabsLocators.BTN_ADDLAB;
-import static com.vh.ui.web.locators.CurrentLabsLocators.BTN_ADDPOPUPAPPLYTHISDATETOALLVALUES;
-import static com.vh.ui.web.locators.CurrentLabsLocators.BTN_ADDPOPUPCANCEL;
-import static com.vh.ui.web.locators.CurrentLabsLocators.BTN_ADDPOPUPSAVE;
-import static com.vh.ui.web.locators.CurrentLabsLocators.CAL_ADDPOPUPAPPLYTHISDATETOALLVALUES;
-import static com.vh.ui.web.locators.CurrentLabsLocators.CBO_ADDPOPUPDIPSTICKFORPROTEIN;
-import static com.vh.ui.web.locators.CurrentLabsLocators.LBL_ADDPOPUPADDLABRESULTS;
-import static com.vh.ui.web.locators.CurrentLabsLocators.LBL_ADDPOPUPALBUMIN;
-import static com.vh.ui.web.locators.CurrentLabsLocators.LBL_ADDPOPUPALBUMINGOAL;
-import static com.vh.ui.web.locators.CurrentLabsLocators.LBL_ADDPOPUPAPPLYTHISDATETOALLVALUES;
-import static com.vh.ui.web.locators.CurrentLabsLocators.LBL_ADDPOPUPBLOODPRESUREDIASTOLIC;
-import static com.vh.ui.web.locators.CurrentLabsLocators.LBL_ADDPOPUPBLOODPRESUREDIASTOLICGOAL;
-import static com.vh.ui.web.locators.CurrentLabsLocators.LBL_ADDPOPUPBLOODPRESURESYSTOLIC;
-import static com.vh.ui.web.locators.CurrentLabsLocators.LBL_ADDPOPUPBLOODPRESURESYSTOLICGOAL;
-import static com.vh.ui.web.locators.CurrentLabsLocators.LBL_ADDPOPUPCALCIUM;
-import static com.vh.ui.web.locators.CurrentLabsLocators.LBL_ADDPOPUPCALCIUM1GOAL;
-import static com.vh.ui.web.locators.CurrentLabsLocators.LBL_ADDPOPUPCALCIUM2GOAL;
-import static com.vh.ui.web.locators.CurrentLabsLocators.LBL_ADDPOPUPCALCIUMXPHOSPHOROUS;
-import static com.vh.ui.web.locators.CurrentLabsLocators.LBL_ADDPOPUPCALCIUMXPHOSPHOROUSGOAL;
-import static com.vh.ui.web.locators.CurrentLabsLocators.LBL_ADDPOPUPCO2LEVEL;
-import static com.vh.ui.web.locators.CurrentLabsLocators.LBL_ADDPOPUPCO2LEVELGOAL;
-import static com.vh.ui.web.locators.CurrentLabsLocators.LBL_ADDPOPUPCREATININE;
-import static com.vh.ui.web.locators.CurrentLabsLocators.LBL_ADDPOPUPCREATININEGOAL;
-import static com.vh.ui.web.locators.CurrentLabsLocators.LBL_ADDPOPUPDIPSTICKFORPROTEIN;
-import static com.vh.ui.web.locators.CurrentLabsLocators.LBL_ADDPOPUPDIPSTICKFORPROTEINGOAL;
-import static com.vh.ui.web.locators.CurrentLabsLocators.LBL_ADDPOPUPFERRITIN;
-import static com.vh.ui.web.locators.CurrentLabsLocators.LBL_ADDPOPUPFERRITINGOAL;
-import static com.vh.ui.web.locators.CurrentLabsLocators.LBL_ADDPOPUPGFR;
-import static com.vh.ui.web.locators.CurrentLabsLocators.LBL_ADDPOPUPGFRGOAL;
-import static com.vh.ui.web.locators.CurrentLabsLocators.LBL_ADDPOPUPHEIGHT;
-import static com.vh.ui.web.locators.CurrentLabsLocators.LBL_ADDPOPUPHEPATITISBTITER;
-import static com.vh.ui.web.locators.CurrentLabsLocators.LBL_ADDPOPUPHEPATITISBTITERGOAL;
-import static com.vh.ui.web.locators.CurrentLabsLocators.LBL_ADDPOPUPHGB;
-import static com.vh.ui.web.locators.CurrentLabsLocators.LBL_ADDPOPUPHGBA1C;
-import static com.vh.ui.web.locators.CurrentLabsLocators.LBL_ADDPOPUPHGBA1CGOAL;
-import static com.vh.ui.web.locators.CurrentLabsLocators.LBL_ADDPOPUPHGBGOAL;
-import static com.vh.ui.web.locators.CurrentLabsLocators.LBL_ADDPOPUPKTV;
-import static com.vh.ui.web.locators.CurrentLabsLocators.LBL_ADDPOPUPKTVERRORMESSAGE;
-import static com.vh.ui.web.locators.CurrentLabsLocators.LBL_ADDPOPUPKTVGOAL;
-import static com.vh.ui.web.locators.CurrentLabsLocators.LBL_ADDPOPUPLDL;
-import static com.vh.ui.web.locators.CurrentLabsLocators.LBL_ADDPOPUPLDLGOAL;
-import static com.vh.ui.web.locators.CurrentLabsLocators.LBL_ADDPOPUPPHOSPHOROUS;
-import static com.vh.ui.web.locators.CurrentLabsLocators.LBL_ADDPOPUPPHOSPHOROUSGOAL;
-import static com.vh.ui.web.locators.CurrentLabsLocators.LBL_ADDPOPUPPOTASSIUM;
-import static com.vh.ui.web.locators.CurrentLabsLocators.LBL_ADDPOPUPPOTASSIUMGOAL;
-import static com.vh.ui.web.locators.CurrentLabsLocators.LBL_ADDPOPUPPTH1GOAL;
-import static com.vh.ui.web.locators.CurrentLabsLocators.LBL_ADDPOPUPPTH2GOAL;
-import static com.vh.ui.web.locators.CurrentLabsLocators.LBL_ADDPOPUPPTH3GOAL;
-import static com.vh.ui.web.locators.CurrentLabsLocators.LBL_ADDPOPUPPTH4GOAL;
-import static com.vh.ui.web.locators.CurrentLabsLocators.LBL_ADDPOPUPPTH5GOAL;
-import static com.vh.ui.web.locators.CurrentLabsLocators.LBL_ADDPOPUPTARGETDRYWEIGHT;
-import static com.vh.ui.web.locators.CurrentLabsLocators.LBL_ADDPOPUPTH;
-import static com.vh.ui.web.locators.CurrentLabsLocators.LBL_ADDPOPUPTSAT;
-import static com.vh.ui.web.locators.CurrentLabsLocators.LBL_ADDPOPUPTSATGOAL;
-import static com.vh.ui.web.locators.CurrentLabsLocators.LBL_ADDPOPUPURINEALBUMINCREATININERATIO;
-import static com.vh.ui.web.locators.CurrentLabsLocators.LBL_ADDPOPUPURINEALBUMINCREATININERATIOERRORMESSAGE;
-import static com.vh.ui.web.locators.CurrentLabsLocators.LBL_ADDPOPUPURINEALBUMINCREATININERATIOGOAL;
-import static com.vh.ui.web.locators.CurrentLabsLocators.LBL_ADDPOPUPURR;
-import static com.vh.ui.web.locators.CurrentLabsLocators.LBL_ADDPOPUPURRERRORMESSAGE;
-import static com.vh.ui.web.locators.CurrentLabsLocators.LBL_ADDPOPUPURRGOAL;
-import static com.vh.ui.web.locators.CurrentLabsLocators.LBL_ADDPOPUPWEIGHT;
-import static com.vh.ui.web.locators.CurrentLabsLocators.LBL_CALCIUMXPHOSPHOROUSGOAL;
-import static com.vh.ui.web.locators.CurrentLabsLocators.LBL_CALCIUMXPHOSPHOROUSSOURCE;
-import static com.vh.ui.web.locators.CurrentLabsLocators.LBL_CREATININEGOAL;
-import static com.vh.ui.web.locators.CurrentLabsLocators.LBL_CREATININESOURCE;
-import static com.vh.ui.web.locators.CurrentLabsLocators.LBL_HEIGHTSOURCE;
-import static com.vh.ui.web.locators.CurrentLabsLocators.LBL_PAGEHEADER;
-import static com.vh.ui.web.locators.CurrentLabsLocators.LBL_PHOSPHOROUSGOAL;
-import static com.vh.ui.web.locators.CurrentLabsLocators.LBL_PHOSPHOROUSSOURCE;
-import static com.vh.ui.web.locators.CurrentLabsLocators.LBL_TARGETDRYWEIGHTSOURCE;
-import static com.vh.ui.web.locators.CurrentLabsLocators.LBL_WEIGHTSOURCE;
-import static com.vh.ui.web.locators.CurrentLabsLocators.PLH_ADDPOPUPDIPSTICKFORPROTEIN;
-import static com.vh.ui.web.locators.CurrentLabsLocators.PLH_ADDPOPUPHEIGHT;
-import static com.vh.ui.web.locators.CurrentLabsLocators.PLH_ADDPOPUPTARGETDRYWEIGHT;
-import static com.vh.ui.web.locators.CurrentLabsLocators.PLH_ADDPOPUPWEIGHT;
-import static com.vh.ui.web.locators.CurrentLabsLocators.TXT_ADDPOPUPALBUMIN;
-import static com.vh.ui.web.locators.CurrentLabsLocators.TXT_ADDPOPUPBLOODPRESUREDIASTOLIC;
-import static com.vh.ui.web.locators.CurrentLabsLocators.TXT_ADDPOPUPBLOODPRESURESYSTOLIC;
-import static com.vh.ui.web.locators.CurrentLabsLocators.TXT_ADDPOPUPCALCIUM;
-import static com.vh.ui.web.locators.CurrentLabsLocators.TXT_ADDPOPUPCALCIUMXPHOSPHOROUS;
-import static com.vh.ui.web.locators.CurrentLabsLocators.TXT_ADDPOPUPCO2LEVEL;
-import static com.vh.ui.web.locators.CurrentLabsLocators.TXT_ADDPOPUPCREATININE;
-import static com.vh.ui.web.locators.CurrentLabsLocators.TXT_ADDPOPUPFERRITIN;
-import static com.vh.ui.web.locators.CurrentLabsLocators.TXT_ADDPOPUPGFR;
-import static com.vh.ui.web.locators.CurrentLabsLocators.TXT_ADDPOPUPHEIGHT;
-import static com.vh.ui.web.locators.CurrentLabsLocators.TXT_ADDPOPUPHEPATITISBTITER;
-import static com.vh.ui.web.locators.CurrentLabsLocators.TXT_ADDPOPUPHGB;
-import static com.vh.ui.web.locators.CurrentLabsLocators.TXT_ADDPOPUPHGBA1C;
-import static com.vh.ui.web.locators.CurrentLabsLocators.TXT_ADDPOPUPKTV;
-import static com.vh.ui.web.locators.CurrentLabsLocators.TXT_ADDPOPUPLDL;
-import static com.vh.ui.web.locators.CurrentLabsLocators.TXT_ADDPOPUPPHOSPHOROUS;
-import static com.vh.ui.web.locators.CurrentLabsLocators.TXT_ADDPOPUPPOTASSIUM;
-import static com.vh.ui.web.locators.CurrentLabsLocators.TXT_ADDPOPUPPTH;
-import static com.vh.ui.web.locators.CurrentLabsLocators.TXT_ADDPOPUPTARGETDRYWEIGHT;
-import static com.vh.ui.web.locators.CurrentLabsLocators.TXT_ADDPOPUPTSAT;
-import static com.vh.ui.web.locators.CurrentLabsLocators.TXT_ADDPOPUPURINEALBUMINCREATININERATIO;
-import static com.vh.ui.web.locators.CurrentLabsLocators.TXT_ADDPOPUPURR;
-import static com.vh.ui.web.locators.CurrentLabsLocators.TXT_ADDPOPUPWEIGHT;
+import static com.vh.ui.web.locators.CurrentLabsLocators.*;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -1120,5 +1023,33 @@ public class CurrentLabsPage extends WebPage
 	public boolean viewCreatinineSource() throws TimeoutException, WaitException
 	{
 		return webActions.getVisibiltyOfElementLocatedBy(VISIBILITY, LBL_CREATININESOURCE);
+	}
+
+	@Step("Verify the visibility of the GFR label/value")
+	public boolean viewGFRLabelValue(String labValue) throws TimeoutException, WaitException
+	{
+		final By LBL_GFR = By.xpath("//span[text()='GFR (" + labValue + ")']");
+
+		return webActions.getVisibiltyOfElementLocatedBy(VISIBILITY, LBL_GFR);
+	}
+
+	@Step("Verify the visibility of the GFR Goal")
+	public boolean viewGFRGoal() throws TimeoutException, WaitException
+	{
+		return webActions.getVisibiltyOfElementLocatedBy(VISIBILITY, LBL_GFRGOAL);
+	}
+
+	@Step("Verify the visibility of the GFR draw date")
+	public boolean viewGFRDrawDate(String drawDate) throws TimeoutException, WaitException
+	{
+		final By LBL_GFRDRAWDATE = By.xpath("//span[contains(., 'GFR (')]/../../..//span[text()='" + drawDate + "']");
+
+		return webActions.getVisibiltyOfElementLocatedBy(VISIBILITY, LBL_GFRDRAWDATE);
+	}
+
+	@Step("Verify the visibility of the GFR Source")
+	public boolean viewGFRSource() throws TimeoutException, WaitException
+	{
+		return webActions.getVisibiltyOfElementLocatedBy(VISIBILITY, LBL_GFRSOURCE);
 	}
 }

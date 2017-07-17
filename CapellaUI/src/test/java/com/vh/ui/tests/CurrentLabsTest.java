@@ -393,6 +393,14 @@ public class CurrentLabsTest extends TestBase
 			Assert.assertTrue(currentLabsPage.viewCreatinineDrawDate(drawDateGregorian), "Failed to identify the CREATININE draw date");
 			Assert.assertTrue(currentLabsPage.viewCreatinineSource(), "Failed to identify the CREATININE Source");
 		}
+
+		if (map.get("GFR") != null)
+		{
+			Assert.assertTrue(currentLabsPage.viewGFRLabelValue(map.get("GFR")), "Failed to identify the GFR label/value");
+			Assert.assertTrue(currentLabsPage.viewGFRGoal(), "Failed to identify the GFR Goal");
+			Assert.assertTrue(currentLabsPage.viewGFRDrawDate(drawDateGregorian), "Failed to identify the GFR draw date");
+			Assert.assertTrue(currentLabsPage.viewGFRSource(), "Failed to identify the GFR Source");
+		}
 	}
 
 	@AfterClass
