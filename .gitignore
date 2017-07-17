@@ -1,4 +1,5 @@
 
+<<<<<<< HEAD
 CapellaUI/test-output/testng-results.xml
 CapellaUI/test-output/testng-reports.js
 CapellaUI/test-output/testng-reports.css
@@ -21,3 +22,13 @@ CapellaUI/test-output/Default suite/Default test.xml
 CapellaUI/test-output/Default suite/Default test.html
 CapellaUI/test-output/testng-results.xml
 CapellaUI/test-output/testng-reports.js
+=======
+CapellaUI/screenshots
+*.png
+CapellaUI/test-output
+.metadata
+CapellaUI/test-output/old
+CapellaUI/test-output/Default suite
+CapellaUI/test-output/emailable-report.html
+*.html
+>>>>>>> 715c31796ce6008ca69014c75762e4be24709752
