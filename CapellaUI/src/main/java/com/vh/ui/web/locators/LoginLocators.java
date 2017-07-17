@@ -22,5 +22,5 @@ public class LoginLocators
 
 	public static final By TXT_USERNAME = By.id("username");
 	public static final By TXT_PASSWORD = By.id("password");
-	public static final By TXT_USERNAME_PATIENTBANNER = By.xpath("//header/h1[contains(., 'Welcome')]");
+	public static final By TXT_USERNAME_PATIENTBANNER = By.xpath("//h4[contains(., 'Welcome')]");
 }

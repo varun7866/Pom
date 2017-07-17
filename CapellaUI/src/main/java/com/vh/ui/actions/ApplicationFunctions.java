@@ -87,7 +87,7 @@ public class ApplicationFunctions extends WebPage
 		if (wait.checkForElementVisibility(driver, BTN_YESALLOW))
 		{
 			loginPage.clickRememberMyDecision();
-			Thread.sleep(1000);
+//			Thread.sleep(1000);
 			loginPage.clickYesAllow();
 		}
 	}

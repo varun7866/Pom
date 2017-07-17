@@ -1,11 +1,6 @@
 package com.vh.ui.pages;
 
-import static com.vh.ui.web.locators.LoginLocators.BTN_LOGIN;
-import static com.vh.ui.web.locators.LoginLocators.BTN_YESALLOW;
-import static com.vh.ui.web.locators.LoginLocators.CHK_REMEMBERMYDECISION;
-import static com.vh.ui.web.locators.LoginLocators.LBL_LOGINERRORMSG;
-import static com.vh.ui.web.locators.LoginLocators.TXT_PASSWORD;
-import static com.vh.ui.web.locators.LoginLocators.TXT_USERNAME;
+import static com.vh.ui.web.locators.LoginLocators.*;
 
 import org.openqa.selenium.TimeoutException;
 import org.openqa.selenium.WebDriver;
@@ -15,6 +10,7 @@ import com.vh.ui.exceptions.WaitException;
 import com.vh.ui.page.base.WebPage;
 
 import ru.yandex.qatools.allure.annotations.Step;
+import static com.vh.ui.web.locators.ApplicationLocators.*;
 
 /*
  * @author Harvy Ackermans
@@ -99,4 +95,14 @@ public class LoginPage extends WebPage
 		}
 		return false;
 	}
+	
+	 @Step("Verify application")		 
+	 public boolean verifyLandingPage() {		 
+		 try {		 
+			 return webActions.getVisibiltyOfElementLocatedBy(VISIBILITY, LNK_MENUBAR_MYPATIENTS);		 
+		 } catch (WaitException e) {		 
+			 e.printStackTrace();		 
+	 	     return false;		 
+		 }		 
+	 }
 }

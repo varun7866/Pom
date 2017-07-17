@@ -20,5 +20,5 @@ public class ApplicationLocators
 	public static final By LNK_MENUBAR_MYSCHEDULE = By.xpath("//ul/li/a[text()='My Schedule']");
 	public static final By LNK_MENUBAR_ADMIN = By.xpath("//ul/li/a[text()='Admin']");
 
-	public static final By TXT_MENUBAR_USERNAME = By.xpath("//header/h1[contains(., 'Welcome')]");
+	public static final By TXT_MENUBAR_USERNAME = By.xpath("//h4[contains(., 'Welcome')]");
 }

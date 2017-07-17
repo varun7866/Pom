@@ -51,6 +51,16 @@ public class WebDriverWaits {
 		}
 	}
 
+	public boolean waitForElementInvisible(WebDriver driver, By locator) {		 
+		boolean isNotPresent = false;		 
+		LOGGER.info(Utilities.getCurrentThreadId() + "Waiting for the visibility of the element using By class:" +locator);		 
+		WebDriverWait wait = new WebDriverWait(driver,		 
+		utilities.convertToInteger(FRAMEWORKPROPERTIES.getProperty(ELEMENTSEARCHTIMEOUT)));		 
+		isNotPresent = wait.until(ExpectedConditions.invisibilityOfElementLocated(locator));		 
+		LOGGER.info(Utilities.getCurrentThreadId() + "WebElement is not present now. Proceeding further...");		 
+		return isNotPresent;		 
+	}
+	
 	private WebElement waitForElementPresence(WebDriver driver, By locator) throws TimeoutException, WaitException {
 		try {
 			WebElement element = null;
@@ -185,13 +195,20 @@ public class WebDriverWaits {
 					+ locator);
 			WebDriverWait wait = new WebDriverWait(driver,
 					utilities.convertToInteger(FRAMEWORKPROPERTIES.getProperty(ELEMENTSEARCHTIMEOUT)));
-			wait.until(new Function<WebDriver, Boolean>() {
-				public Boolean apply(WebDriver driver) {
-					return driver.findElement(locator).isDisplayed();
-				}
-			});
-			LOGGER.info(Utilities.getCurrentThreadId() + "WebElement Visible. Proceeding further...");
-			return true;
+//			wait.until(new Function<WebDriver, Boolean>() {
+//				public Boolean apply(WebDriver driver) {
+//					return driver.findElement(locator).isDisplayed();
+//				}
+//			});
+			WebElement element = wait.until(ExpectedConditions.visibilityOfElementLocated(locator));
+			boolean status = element.isDisplayed();
+			if(status) {
+				LOGGER.info(Utilities.getCurrentThreadId() + "WebElement Visible. Proceeding further...");
+				return true;
+			} else {
+				return false;
+			}
+			
 		} catch (TimeoutException tm) {
 			LOGGER.error(Utilities.getCurrentThreadId()
 					+ "TIME OUT EXCEPTION while waiting for the VISIBILITY of the element using By class:" + locator
