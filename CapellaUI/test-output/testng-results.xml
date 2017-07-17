@@ -1,121 +1,77 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testng-results skipped="0" failed="0" total="5" passed="5">
+<testng-results skipped="0" failed="0" total="3" passed="3">
   <reporter-output>
   </reporter-output>
-  <suite name="Default suite" duration-ms="315131" started-at="2017-07-06T20:11:20Z" finished-at="2017-07-06T20:16:35Z">
+  <suite name="Default suite" duration-ms="143313" started-at="2017-07-14T20:32:21Z" finished-at="2017-07-14T20:34:45Z">
     <groups>
     </groups>
-    <test name="Default test" duration-ms="315131" started-at="2017-07-06T20:11:20Z" finished-at="2017-07-06T20:16:35Z">
-      <class name="com.vh.ui.tests.CurrentLabsTest">
-        <test-method status="PASS" signature="buildUp()[pri:0, instance:com.vh.ui.tests.CurrentLabsTest@1378eea2]" name="buildUp" is-config="true" duration-ms="91266" started-at="2017-07-06T15:11:20Z" finished-at="2017-07-06T15:12:51Z">
+    <test name="Default test" duration-ms="143313" started-at="2017-07-14T20:32:21Z" finished-at="2017-07-14T20:34:45Z">
+      <class name="com.vh.ui.tests.HospitalizationTest">
+        <test-method status="PASS" signature="buildUp()[pri:0, instance:com.vh.ui.tests.HospitalizationTest@77bc2e16]" name="buildUp" is-config="true" duration-ms="131363" started-at="2017-07-14T15:32:21Z" finished-at="2017-07-14T15:34:33Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- buildUp -->
-        <test-method status="PASS" signature="verify_CurrentLabsPage()[pri:1, instance:com.vh.ui.tests.CurrentLabsTest@1378eea2]" name="verify_CurrentLabsPage" duration-ms="2123" started-at="2017-07-06T15:12:51Z" finished-at="2017-07-06T15:12:53Z">
+        <test-method status="PASS" signature="verify_CurrentHospitalizationPage()[pri:1, instance:com.vh.ui.tests.HospitalizationTest@77bc2e16]" name="verify_CurrentHospitalizationPage" duration-ms="1914" started-at="2017-07-14T15:34:33Z" finished-at="2017-07-14T15:34:35Z">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- verify_CurrentLabsPage -->
-        <test-method status="PASS" signature="afterTest(java.lang.reflect.Method, org.testng.ITestResult)[pri:0, instance:com.vh.ui.tests.CurrentLabsTest@1378eea2]" name="afterTest" is-config="true" duration-ms="3" started-at="2017-07-06T15:12:54Z" finished-at="2017-07-06T15:12:54Z">
+        </test-method> <!-- verify_CurrentHospitalizationPage -->
+        <test-method status="PASS" signature="afterTest(java.lang.reflect.Method, org.testng.ITestResult)[pri:0, instance:com.vh.ui.tests.HospitalizationTest@77bc2e16]" name="afterTest" is-config="true" duration-ms="1" started-at="2017-07-14T15:34:35Z" finished-at="2017-07-14T15:34:35Z">
           <params>
             <param index="0">
               <value>
-                <![CDATA[public void com.vh.ui.tests.CurrentLabsTest.verify_CurrentLabsPage() throws com.vh.ui.exceptions.WaitException,com.vh.ui.exceptions.URLNavigationException,java.lang.InterruptedException]]>
+                <![CDATA[public void com.vh.ui.tests.HospitalizationTest.verify_CurrentHospitalizationPage() throws com.vh.ui.exceptions.WaitException,com.vh.ui.exceptions.URLNavigationException,java.lang.InterruptedException]]>
               </value>
             </param>
             <param index="1">
               <value>
-                <![CDATA[[TestResult name=verify_CurrentLabsPage status=SUCCESS method=CurrentLabsTest.verify_CurrentLabsPage()[pri:1, instance:com.vh.ui.tests.CurrentLabsTest@1378eea2] output={null}]]]>
+                <![CDATA[[TestResult name=verify_CurrentHospitalizationPage status=SUCCESS method=HospitalizationTest.verify_CurrentHospitalizationPage()[pri:1, instance:com.vh.ui.tests.HospitalizationTest@77bc2e16] output={null}]]]>
               </value>
             </param>
           </params>
           <reporter-output>
           </reporter-output>
         </test-method> <!-- afterTest -->
-        <test-method status="PASS" signature="verify_AddLabResultsPopupCKD()[pri:2, instance:com.vh.ui.tests.CurrentLabsTest@1378eea2]" name="verify_AddLabResultsPopupCKD" duration-ms="73485" started-at="2017-07-06T15:12:54Z" finished-at="2017-07-06T15:14:07Z">
+        <test-method status="PASS" signature="verify_AddHospitalizationPopup()[pri:2, instance:com.vh.ui.tests.HospitalizationTest@77bc2e16]" name="verify_AddHospitalizationPopup" duration-ms="1012" started-at="2017-07-14T15:34:35Z" finished-at="2017-07-14T15:34:36Z">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- verify_AddLabResultsPopupCKD -->
-        <test-method status="PASS" signature="verify_AddPopupValidationCKD()[pri:3, instance:com.vh.ui.tests.CurrentLabsTest@1378eea2]" name="verify_AddPopupValidationCKD" duration-ms="36057" started-at="2017-07-06T15:14:07Z" finished-at="2017-07-06T15:14:43Z">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- verify_AddPopupValidationCKD -->
-        <test-method status="PASS" signature="afterTest(java.lang.reflect.Method, org.testng.ITestResult)[pri:0, instance:com.vh.ui.tests.CurrentLabsTest@1378eea2]" name="afterTest" is-config="true" duration-ms="0" started-at="2017-07-06T15:14:07Z" finished-at="2017-07-06T15:14:07Z">
+        </test-method> <!-- verify_AddHospitalizationPopup -->
+        <test-method status="PASS" signature="afterTest(java.lang.reflect.Method, org.testng.ITestResult)[pri:0, instance:com.vh.ui.tests.HospitalizationTest@77bc2e16]" name="afterTest" is-config="true" duration-ms="0" started-at="2017-07-14T15:34:36Z" finished-at="2017-07-14T15:34:36Z">
           <params>
             <param index="0">
               <value>
-                <![CDATA[public void com.vh.ui.tests.CurrentLabsTest.verify_AddLabResultsPopupCKD() throws com.vh.ui.exceptions.WaitException,com.vh.ui.exceptions.URLNavigationException,java.lang.InterruptedException]]>
+                <![CDATA[public void com.vh.ui.tests.HospitalizationTest.verify_AddHospitalizationPopup() throws com.vh.ui.exceptions.WaitException,com.vh.ui.exceptions.URLNavigationException,java.lang.InterruptedException]]>
               </value>
             </param>
             <param index="1">
               <value>
-                <![CDATA[[TestResult name=verify_AddLabResultsPopupCKD status=SUCCESS method=CurrentLabsTest.verify_AddLabResultsPopupCKD()[pri:2, instance:com.vh.ui.tests.CurrentLabsTest@1378eea2] output={null}]]]>
+                <![CDATA[[TestResult name=verify_AddHospitalizationPopup status=SUCCESS method=HospitalizationTest.verify_AddHospitalizationPopup()[pri:2, instance:com.vh.ui.tests.HospitalizationTest@77bc2e16] output={null}]]]>
               </value>
             </param>
           </params>
           <reporter-output>
           </reporter-output>
         </test-method> <!-- afterTest -->
-        <test-method status="PASS" signature="afterTest(java.lang.reflect.Method, org.testng.ITestResult)[pri:0, instance:com.vh.ui.tests.CurrentLabsTest@1378eea2]" name="afterTest" is-config="true" duration-ms="0" started-at="2017-07-06T15:14:43Z" finished-at="2017-07-06T15:14:43Z">
+        <test-method status="PASS" signature="verify_AddTransferTab()[pri:3, instance:com.vh.ui.tests.HospitalizationTest@77bc2e16]" name="verify_AddTransferTab" duration-ms="8934" started-at="2017-07-14T15:34:36Z" finished-at="2017-07-14T15:34:45Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- verify_AddTransferTab -->
+        <test-method status="PASS" signature="afterTest(java.lang.reflect.Method, org.testng.ITestResult)[pri:0, instance:com.vh.ui.tests.HospitalizationTest@77bc2e16]" name="afterTest" is-config="true" duration-ms="0" started-at="2017-07-14T15:34:45Z" finished-at="2017-07-14T15:34:45Z">
           <params>
             <param index="0">
               <value>
-                <![CDATA[public void com.vh.ui.tests.CurrentLabsTest.verify_AddPopupValidationCKD() throws com.vh.ui.exceptions.WaitException,com.vh.ui.exceptions.URLNavigationException,java.lang.InterruptedException]]>
+                <![CDATA[public void com.vh.ui.tests.HospitalizationTest.verify_AddTransferTab() throws com.vh.ui.exceptions.WaitException,com.vh.ui.exceptions.URLNavigationException,java.lang.InterruptedException]]>
               </value>
             </param>
             <param index="1">
               <value>
-                <![CDATA[[TestResult name=verify_AddPopupValidationCKD status=SUCCESS method=CurrentLabsTest.verify_AddPopupValidationCKD()[pri:3, instance:com.vh.ui.tests.CurrentLabsTest@1378eea2] output={null}]]]>
+                <![CDATA[[TestResult name=verify_AddTransferTab status=SUCCESS method=HospitalizationTest.verify_AddTransferTab()[pri:3, instance:com.vh.ui.tests.HospitalizationTest@77bc2e16] output={null}]]]>
               </value>
             </param>
           </params>
           <reporter-output>
           </reporter-output>
         </test-method> <!-- afterTest -->
-        <test-method status="PASS" signature="verify_AddAddLabResultsPopupESRD()[pri:4, instance:com.vh.ui.tests.CurrentLabsTest@1378eea2]" name="verify_AddAddLabResultsPopupESRD" duration-ms="78968" started-at="2017-07-06T15:14:43Z" finished-at="2017-07-06T15:16:02Z">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- verify_AddAddLabResultsPopupESRD -->
-        <test-method status="PASS" signature="afterTest(java.lang.reflect.Method, org.testng.ITestResult)[pri:0, instance:com.vh.ui.tests.CurrentLabsTest@1378eea2]" name="afterTest" is-config="true" duration-ms="0" started-at="2017-07-06T15:16:02Z" finished-at="2017-07-06T15:16:02Z">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[public void com.vh.ui.tests.CurrentLabsTest.verify_AddAddLabResultsPopupESRD() throws com.vh.ui.exceptions.WaitException,com.vh.ui.exceptions.URLNavigationException,java.lang.InterruptedException]]>
-              </value>
-            </param>
-            <param index="1">
-              <value>
-                <![CDATA[[TestResult name=verify_AddAddLabResultsPopupESRD status=SUCCESS method=CurrentLabsTest.verify_AddAddLabResultsPopupESRD()[pri:4, instance:com.vh.ui.tests.CurrentLabsTest@1378eea2] output={null}]]]>
-              </value>
-            </param>
-          </params>
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- afterTest -->
-        <test-method status="PASS" signature="verify_AddPopupValidationESRD()[pri:5, instance:com.vh.ui.tests.CurrentLabsTest@1378eea2]" name="verify_AddPopupValidationESRD" duration-ms="33143" started-at="2017-07-06T15:16:02Z" finished-at="2017-07-06T15:16:35Z">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- verify_AddPopupValidationESRD -->
-        <test-method status="PASS" signature="tearDown()[pri:0, instance:com.vh.ui.tests.CurrentLabsTest@1378eea2]" name="tearDown" is-config="true" duration-ms="0" started-at="2017-07-06T15:16:35Z" finished-at="2017-07-06T15:16:35Z">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- tearDown -->
-        <test-method status="PASS" signature="afterTest(java.lang.reflect.Method, org.testng.ITestResult)[pri:0, instance:com.vh.ui.tests.CurrentLabsTest@1378eea2]" name="afterTest" is-config="true" duration-ms="0" started-at="2017-07-06T15:16:35Z" finished-at="2017-07-06T15:16:35Z">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[public void com.vh.ui.tests.CurrentLabsTest.verify_AddPopupValidationESRD() throws com.vh.ui.exceptions.WaitException,com.vh.ui.exceptions.URLNavigationException,java.lang.InterruptedException]]>
-              </value>
-            </param>
-            <param index="1">
-              <value>
-                <![CDATA[[TestResult name=verify_AddPopupValidationESRD status=SUCCESS method=CurrentLabsTest.verify_AddPopupValidationESRD()[pri:5, instance:com.vh.ui.tests.CurrentLabsTest@1378eea2] output={null}]]]>
-              </value>
-            </param>
-          </params>
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- afterTest -->
-      </class> <!-- com.vh.ui.tests.CurrentLabsTest -->
+      </class> <!-- com.vh.ui.tests.HospitalizationTest -->
     </test> <!-- Default test -->
   </suite> <!-- Default suite -->
 </testng-results>
