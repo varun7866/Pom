@@ -63,6 +63,8 @@ import static com.vh.ui.web.locators.CurrentLabsLocators.LBL_ADDPOPUPURRGOAL;
 import static com.vh.ui.web.locators.CurrentLabsLocators.LBL_ADDPOPUPWEIGHT;
 import static com.vh.ui.web.locators.CurrentLabsLocators.LBL_CALCIUMXPHOSPHOROUSGOAL;
 import static com.vh.ui.web.locators.CurrentLabsLocators.LBL_CALCIUMXPHOSPHOROUSSOURCE;
+import static com.vh.ui.web.locators.CurrentLabsLocators.LBL_CREATININEGOAL;
+import static com.vh.ui.web.locators.CurrentLabsLocators.LBL_CREATININESOURCE;
 import static com.vh.ui.web.locators.CurrentLabsLocators.LBL_HEIGHTSOURCE;
 import static com.vh.ui.web.locators.CurrentLabsLocators.LBL_PAGEHEADER;
 import static com.vh.ui.web.locators.CurrentLabsLocators.LBL_PHOSPHOROUSGOAL;
@@ -1090,5 +1092,33 @@ public class CurrentLabsPage extends WebPage
 	public boolean viewPhosphorousSource() throws TimeoutException, WaitException
 	{
 		return webActions.getVisibiltyOfElementLocatedBy(VISIBILITY, LBL_PHOSPHOROUSSOURCE);
+	}
+
+	@Step("Verify the visibility of the CREATININE label/value")
+	public boolean viewCreatinineLabelValue(String labValue) throws TimeoutException, WaitException
+	{
+		final By LBL_CREATININE = By.xpath("//span[text()='Creatinine (" + labValue + ")']");
+
+		return webActions.getVisibiltyOfElementLocatedBy(VISIBILITY, LBL_CREATININE);
+	}
+
+	@Step("Verify the visibility of the CREATININE Goal")
+	public boolean viewCreatinineGoal() throws TimeoutException, WaitException
+	{
+		return webActions.getVisibiltyOfElementLocatedBy(VISIBILITY, LBL_CREATININEGOAL);
+	}
+
+	@Step("Verify the visibility of the CREATININE draw date")
+	public boolean viewCreatinineDrawDate(String drawDate) throws TimeoutException, WaitException
+	{
+		final By LBL_CREATININEDRAWDATE = By.xpath("//span[contains(., 'Creatinine (')]/../../..//span[text()='" + drawDate + "']");
+
+		return webActions.getVisibiltyOfElementLocatedBy(VISIBILITY, LBL_CREATININEDRAWDATE);
+	}
+
+	@Step("Verify the visibility of the CREATININE Source")
+	public boolean viewCreatinineSource() throws TimeoutException, WaitException
+	{
+		return webActions.getVisibiltyOfElementLocatedBy(VISIBILITY, LBL_CREATININESOURCE);
 	}
 }
