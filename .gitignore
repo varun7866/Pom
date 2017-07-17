@@ -1,0 +1,9 @@
+
+CapellaUI/screenshots
+*.png
+CapellaUI/test-output
+.metadata
+CapellaUI/test-output/old
+CapellaUI/test-output/Default suite
+CapellaUI/test-output/emailable-report.html
+*.html
