@@ -1052,4 +1052,32 @@ public class CurrentLabsPage extends WebPage
 	{
 		return webActions.getVisibiltyOfElementLocatedBy(VISIBILITY, LBL_GFRSOURCE);
 	}
+
+	@Step("Verify the visibility of the HGBA1C label/value")
+	public boolean viewHGBA1CLabelValue(String labValue) throws TimeoutException, WaitException
+	{
+		final By LBL_HGBA1C = By.xpath("//span[text()='Hgb A1C (" + labValue + ")']");
+
+		return webActions.getVisibiltyOfElementLocatedBy(VISIBILITY, LBL_HGBA1C);
+	}
+
+	@Step("Verify the visibility of the HGBA1C Goal")
+	public boolean viewHGBA1CGoal() throws TimeoutException, WaitException
+	{
+		return webActions.getVisibiltyOfElementLocatedBy(VISIBILITY, LBL_HGBA1CGOAL);
+	}
+
+	@Step("Verify the visibility of the HGBA1C draw date")
+	public boolean viewHGBA1CDrawDate(String drawDate) throws TimeoutException, WaitException
+	{
+		final By LBL_HGBA1CDRAWDATE = By.xpath("//span[contains(., 'Hgb A1C (')]/../../..//span[text()='" + drawDate + "']");
+
+		return webActions.getVisibiltyOfElementLocatedBy(VISIBILITY, LBL_HGBA1CDRAWDATE);
+	}
+
+	@Step("Verify the visibility of the HGBA1C Source")
+	public boolean viewHGBA1CSource() throws TimeoutException, WaitException
+	{
+		return webActions.getVisibiltyOfElementLocatedBy(VISIBILITY, LBL_HGBA1CSOURCE);
+	}
 }

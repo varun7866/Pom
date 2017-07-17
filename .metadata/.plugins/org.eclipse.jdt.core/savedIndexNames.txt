@@ -4,7 +4,6 @@ INDEX VERSION 1.130+C:\Users\hackermans\Documents\GitHub\Capella-QA-Automation\.
 2826096137.index
 3649770011.index
 200211950.index
-2739338320.index
 148409970.index
 3258998474.index
 3979653384.index
