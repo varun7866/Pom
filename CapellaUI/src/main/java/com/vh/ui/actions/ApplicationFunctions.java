@@ -849,4 +849,26 @@ public class ApplicationFunctions extends WebPage
 			return false;
 		}
 	}
+
+	/**
+	 * Adjusts the current date by the value passed in. Ex. If you pass in -1, one day will be subtracted from the currents date. Ex. If you pass in 1, one day will be added to the current date.
+	 * 
+	 * @param dayChangeBy
+	 *            The value to change the date by
+	 * @param dateFormatMask
+	 *            The format of the date to be returned. Ex. MM/dd/YYYY.
+	 * @throws WaitException
+	 */
+	public String adjustCurrentDateBy(String dayChangeBy, String dateFormatMask) throws WaitException
+	{
+		String adjustedDate;
+		DateFormat dateFormatObject = null;
+
+		Calendar cal = Calendar.getInstance();
+		dateFormatObject = new SimpleDateFormat(dateFormatMask);
+		cal.add(Calendar.DATE, Integer.parseInt(dayChangeBy));
+		adjustedDate = dateFormatObject.format(new Date(cal.getTimeInMillis()));
+
+		return adjustedDate;
+	}
 }
