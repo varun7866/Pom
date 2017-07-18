@@ -434,12 +434,13 @@ public class CurrentLabsTest extends TestBase
 			Assert.assertTrue(currentLabsPage.viewAlbuminSource(), "Failed to identify the ALBUMIN Source");
 		}
 
-		// if (map.get("ALBUMIN") != null)
+		// if (map.get("URINEALBUMINCREATININERATIO") != null)
 		// {
-		// Assert.assertTrue(currentLabsPage.viewAlbuminLabelValue(map.get("ALBUMIN")), "Failed to identify the ALBUMIN label/value");
-		// Assert.assertTrue(currentLabsPage.viewAlbuminGoal(), "Failed to identify the ALBUMIN Goal");
-		// Assert.assertTrue(currentLabsPage.viewAlbuminDrawDate(drawDateGregorian), "Failed to identify the ALBUMIN draw date");
-		// Assert.assertTrue(currentLabsPage.viewAlbuminSource(), "Failed to identify the ALBUMIN Source");
+		// Assert.assertTrue(currentLabsPage.viewUrineAlbuminCreatinineRatioLabelValue(map.get("URINEALBUMINCREATININERATIO")),
+		// "Failed to identify the URINE ALBUMIN CREATININE RATIO label/value");
+		// Assert.assertTrue(currentLabsPage.viewviewUrineAlbuminCreatinineRatioGoal(), "Failed to identify the URINE ALBUMIN CREATININE RATIO Goal");
+		// Assert.assertTrue(currentLabsPage.viewviewUrineAlbuminCreatinineRatioDrawDate(drawDateGregorian), "Failed to identify the URINE ALBUMIN CREATININE RATIO draw date");
+		// Assert.assertTrue(currentLabsPage.viewviewUrineAlbuminCreatinineRatioSource(), "Failed to identify the URINE ALBUMIN CREATININE RATIO Source");
 		// }
 	}
 
