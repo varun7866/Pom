@@ -1192,4 +1192,32 @@ public class CurrentLabsPage extends WebPage
 	{
 		return webActions.getVisibiltyOfElementLocatedBy(VISIBILITY, LBL_URINEALBUMINCREATININERATIOSOURCE);
 	}
+
+	@Step("Verify the visibility of the DIPSTICK FOR PROTEIN label/value")
+	public boolean viewDipstickForProteinLabelValue(String labValue) throws TimeoutException, WaitException
+	{
+		final By LBL_DIPSTICKFORPROTEIN = By.xpath("//span[text()='Dipstick For Protein (" + labValue + ")']");
+
+		return webActions.getVisibiltyOfElementLocatedBy(VISIBILITY, LBL_DIPSTICKFORPROTEIN);
+	}
+
+	@Step("Verify the visibility of the DIPSTICK FOR PROTEIN Goal")
+	public boolean viewDipstickForProteinGoal() throws TimeoutException, WaitException
+	{
+		return webActions.getVisibiltyOfElementLocatedBy(VISIBILITY, LBL_DIPSTICKFORPROTEINGOAL);
+	}
+
+	@Step("Verify the visibility of the DIPSTICK FOR PROTEIN draw date")
+	public boolean viewDipstickForProteinDrawDate(String drawDate) throws TimeoutException, WaitException
+	{
+		final By LBL_DIPSTICKFORPROTEINDRAWDATE = By.xpath("//span[contains(., 'Dipstick For Protein (')]/../../..//span[text()='" + drawDate + "']");
+
+		return webActions.getVisibiltyOfElementLocatedBy(VISIBILITY, LBL_DIPSTICKFORPROTEINDRAWDATE);
+	}
+
+	@Step("Verify the visibility of the DIPSTICK FOR PROTEIN Source")
+	public boolean viewDipstickForProteinSource() throws TimeoutException, WaitException
+	{
+		return webActions.getVisibiltyOfElementLocatedBy(VISIBILITY, LBL_DIPSTICKFORPROTEINSOURCE);
+	}
 }
