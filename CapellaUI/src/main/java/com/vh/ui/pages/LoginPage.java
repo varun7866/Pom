@@ -13,6 +13,7 @@ import org.openqa.selenium.WebDriver;
 import com.vh.ui.exceptions.URLNavigationException;
 import com.vh.ui.exceptions.WaitException;
 import com.vh.ui.page.base.WebPage;
+import com.vh.ui.security.EncryptDecrypt;
 
 import ru.yandex.qatools.allure.annotations.Step;
 
@@ -51,7 +52,9 @@ public class LoginPage extends WebPage
 	
 	@Step("Entered {0} in the Password text field")
 	public LoginPage enterPassword(String pwd) throws TimeoutException, WaitException {
-		webActions.enterText(VISIBILITY, TXT_PASSWORD, pwd);
+		String password = EncryptDecrypt.decrypt(pwd);
+		System.out.println("Password :: " + password);
+		webActions.enterText(VISIBILITY, TXT_PASSWORD, password);
 		return this;
 	}	
 	
