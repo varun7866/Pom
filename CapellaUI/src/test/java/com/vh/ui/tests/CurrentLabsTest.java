@@ -467,6 +467,14 @@ public class CurrentLabsTest extends TestBase
 			Assert.assertTrue(currentLabsPage.viewCalciumDrawDate(drawDateGregorian), "Failed to identify the CALCIUM draw date");
 			Assert.assertTrue(currentLabsPage.viewCalciumSource(), "Failed to identify the CALCIUM Source");
 		}
+
+		if (map.get("KTV") != null)
+		{
+			Assert.assertTrue(currentLabsPage.viewKTVLabelValue(map.get("KTV")), "Failed to identify the KT/V label/value");
+			Assert.assertTrue(currentLabsPage.viewKTVGoal(), "Failed to identify the KT/V Goal");
+			Assert.assertTrue(currentLabsPage.viewKTVDrawDate(drawDateGregorian), "Failed to identify the KT/V draw date");
+			Assert.assertTrue(currentLabsPage.viewKTVSource(), "Failed to identify the KT/V Source");
+		}
 	}
 
 	@AfterClass

@@ -51,6 +51,16 @@ public class WebDriverWaits {
 		}
 	}
 
+	public boolean waitForElementInvisible(WebDriver driver, By locator)
+	{
+		boolean isNotPresent = false;
+		LOGGER.info(Utilities.getCurrentThreadId() + "Waiting for the visibility of the element using By class:" + locator);
+		WebDriverWait wait = new WebDriverWait(driver, utilities.convertToInteger(FRAMEWORKPROPERTIES.getProperty(ELEMENTSEARCHTIMEOUT)));
+		isNotPresent = wait.until(ExpectedConditions.invisibilityOfElementLocated(locator));
+		LOGGER.info(Utilities.getCurrentThreadId() + "WebElement is not present now. Proceeding further...");
+		return isNotPresent;
+	}
+
 	private WebElement waitForElementPresence(WebDriver driver, By locator) throws TimeoutException, WaitException {
 		try {
 			WebElement element = null;

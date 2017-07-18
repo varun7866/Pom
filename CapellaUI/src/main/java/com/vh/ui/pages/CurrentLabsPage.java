@@ -1282,4 +1282,32 @@ public class CurrentLabsPage extends WebPage
 	{
 		return webActions.getVisibiltyOfElementLocatedBy(VISIBILITY, LBL_CALCIUMSOURCE);
 	}
+
+	@Step("Verify the visibility of the KT/V label/value")
+	public boolean viewKTVLabelValue(String labValue) throws TimeoutException, WaitException
+	{
+		final By LBL_KTV = By.xpath("//span[text()='KT/V (" + labValue + ")']");
+
+		return webActions.getVisibiltyOfElementLocatedBy(VISIBILITY, LBL_KTV);
+	}
+
+	@Step("Verify the visibility of the KT/V Goal")
+	public boolean viewKTVGoal() throws TimeoutException, WaitException
+	{
+		return webActions.getVisibiltyOfElementLocatedBy(VISIBILITY, LBL_KTVGOAL);
+	}
+
+	@Step("Verify the visibility of the KT/V draw date")
+	public boolean viewKTVDrawDate(String drawDate) throws TimeoutException, WaitException
+	{
+		final By LBL_KTVDRAWDATE = By.xpath("//span[contains(., 'KT/V (')]/../../..//span[text()='" + drawDate + "']");
+
+		return webActions.getVisibiltyOfElementLocatedBy(VISIBILITY, LBL_KTVDRAWDATE);
+	}
+
+	@Step("Verify the visibility of the KT/V Source")
+	public boolean viewKTVSource() throws TimeoutException, WaitException
+	{
+		return webActions.getVisibiltyOfElementLocatedBy(VISIBILITY, LBL_KTVSOURCE);
+	}
 }
