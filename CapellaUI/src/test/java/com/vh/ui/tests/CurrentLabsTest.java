@@ -475,6 +475,14 @@ public class CurrentLabsTest extends TestBase
 			Assert.assertTrue(currentLabsPage.viewKTVDrawDate(drawDateGregorian), "Failed to identify the KT/V draw date");
 			Assert.assertTrue(currentLabsPage.viewKTVSource(), "Failed to identify the KT/V Source");
 		}
+
+		if (map.get("URR") != null)
+		{
+			Assert.assertTrue(currentLabsPage.viewURRLabelValue(map.get("URR")), "Failed to identify the URR label/value");
+			Assert.assertTrue(currentLabsPage.viewURRGoal(), "Failed to identify the URR Goal");
+			Assert.assertTrue(currentLabsPage.viewURRDrawDate(drawDateGregorian), "Failed to identify the URR draw date");
+			Assert.assertTrue(currentLabsPage.viewURRSource(), "Failed to identify the URR Source");
+		}
 	}
 
 	@AfterClass

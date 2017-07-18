@@ -1310,4 +1310,32 @@ public class CurrentLabsPage extends WebPage
 	{
 		return webActions.getVisibiltyOfElementLocatedBy(VISIBILITY, LBL_KTVSOURCE);
 	}
+
+	@Step("Verify the visibility of the URR label/value")
+	public boolean viewURRLabelValue(String labValue) throws TimeoutException, WaitException
+	{
+		final By LBL_URR = By.xpath("//span[text()='URR (" + labValue + ")']");
+
+		return webActions.getVisibiltyOfElementLocatedBy(VISIBILITY, LBL_URR);
+	}
+
+	@Step("Verify the visibility of the URR Goal")
+	public boolean viewURRGoal() throws TimeoutException, WaitException
+	{
+		return webActions.getVisibiltyOfElementLocatedBy(VISIBILITY, LBL_URRGOAL);
+	}
+
+	@Step("Verify the visibility of the URR draw date")
+	public boolean viewURRDrawDate(String drawDate) throws TimeoutException, WaitException
+	{
+		final By LBL_URRDRAWDATE = By.xpath("//span[contains(., 'URR (')]/../../..//span[text()='" + drawDate + "']");
+
+		return webActions.getVisibiltyOfElementLocatedBy(VISIBILITY, LBL_URRDRAWDATE);
+	}
+
+	@Step("Verify the visibility of the URR Source")
+	public boolean viewURRSource() throws TimeoutException, WaitException
+	{
+		return webActions.getVisibiltyOfElementLocatedBy(VISIBILITY, LBL_URRSOURCE);
+	}
 }
