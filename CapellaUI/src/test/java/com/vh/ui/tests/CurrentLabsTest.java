@@ -343,8 +343,6 @@ public class CurrentLabsTest extends TestBase
 			}
 		}
 
-		Thread.sleep(8000);
-
 		String drawDateGregorian = appFunctions.adjustCurrentDateBy(map.get("APPLYTHISDATETOALLVALUES"), "MM/dd/YYYY");
 
 		if (map.get("HEIGHT") != null)
@@ -508,6 +506,14 @@ public class CurrentLabsTest extends TestBase
 			Assert.assertTrue(currentLabsPage.viewHepatitisBTiterGoal(), "Failed to identify the HEPATITIS B TITER Goal");
 			Assert.assertTrue(currentLabsPage.viewHepatitisBTiterDrawDate(drawDateGregorian), "Failed to identify the HEPATITIS B TITER draw date");
 			Assert.assertTrue(currentLabsPage.viewHepatitisBTiterSource(), "Failed to identify the HEPATITIS B TITER Source");
+		}
+
+		if (map.get("FERRITIN") != null)
+		{
+			Assert.assertTrue(currentLabsPage.viewFerritinLabelValue(map.get("FERRITIN")), "Failed to identify the FERRITIN label/value");
+			Assert.assertTrue(currentLabsPage.viewFerritinGoal(), "Failed to identify the FERRITIN Goal");
+			Assert.assertTrue(currentLabsPage.viewFerritinDrawDate(drawDateGregorian), "Failed to identify the FERRITIN draw date");
+			Assert.assertTrue(currentLabsPage.viewFerritinSource(), "Failed to identify the FERRITIN Source");
 		}
 	}
 

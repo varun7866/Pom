@@ -1433,7 +1433,7 @@ public class CurrentLabsPage extends WebPage
 		return webActions.getVisibiltyOfElementLocatedBy(VISIBILITY, LBL_HEPATITISBTITERGOAL);
 	}
 
-	@Step("Verify the visibility of the PTH draw date")
+	@Step("Verify the visibility of the HEPATITIS B TITER draw date")
 	public boolean viewHepatitisBTiterDrawDate(String drawDate) throws TimeoutException, WaitException
 	{
 		final By LBL_HEPATITISBTITERDRAWDATE = By.xpath("//span[contains(., 'Hepatitis B Titer (')]/../../..//span[text()='" + drawDate + "']");
@@ -1441,9 +1441,37 @@ public class CurrentLabsPage extends WebPage
 		return webActions.getVisibiltyOfElementLocatedBy(VISIBILITY, LBL_HEPATITISBTITERDRAWDATE);
 	}
 
-	@Step("Verify the visibility of the PTH Source")
+	@Step("Verify the visibility of the HEPATITIS B TITER Source")
 	public boolean viewHepatitisBTiterSource() throws TimeoutException, WaitException
 	{
 		return webActions.getVisibiltyOfElementLocatedBy(VISIBILITY, LBL_HEPATITISBTITERSOURCE);
+	}
+
+	@Step("Verify the visibility of the FERRITIN label/value")
+	public boolean viewFerritinLabelValue(String labValue) throws TimeoutException, WaitException
+	{
+		final By LBL_FERRITIN = By.xpath("//span[text()='Ferritin (" + labValue + ")']");
+
+		return webActions.getVisibiltyOfElementLocatedBy(VISIBILITY, LBL_FERRITIN);
+	}
+
+	@Step("Verify the visibility of the FERRITIN Goal")
+	public boolean viewFerritinGoal() throws TimeoutException, WaitException
+	{
+		return webActions.getVisibiltyOfElementLocatedBy(VISIBILITY, LBL_FERRITINGOAL);
+	}
+
+	@Step("Verify the visibility of the FERRITIN draw date")
+	public boolean viewFerritinDrawDate(String drawDate) throws TimeoutException, WaitException
+	{
+		final By LBL_FERRITINDRAWDATE = By.xpath("//span[contains(., 'Ferritin (')]/../../..//span[text()='" + drawDate + "']");
+
+		return webActions.getVisibiltyOfElementLocatedBy(VISIBILITY, LBL_FERRITINDRAWDATE);
+	}
+
+	@Step("Verify the visibility of the FERRITIN Source")
+	public boolean viewFerritinSource() throws TimeoutException, WaitException
+	{
+		return webActions.getVisibiltyOfElementLocatedBy(VISIBILITY, LBL_FERRITINSOURCE);
 	}
 }
