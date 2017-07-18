@@ -1418,4 +1418,32 @@ public class CurrentLabsPage extends WebPage
 	{
 		return webActions.getVisibiltyOfElementLocatedBy(VISIBILITY, LBL_PTHSOURCE);
 	}
+
+	@Step("Verify the visibility of the HEPATITIS B TITER label/value")
+	public boolean viewHepatitisBTiterLabelValue(String labValue) throws TimeoutException, WaitException
+	{
+		final By LBL_HEPATITISBTITER = By.xpath("//span[text()='Hepatitis B Titer (" + labValue + ")']");
+
+		return webActions.getVisibiltyOfElementLocatedBy(VISIBILITY, LBL_HEPATITISBTITER);
+	}
+
+	@Step("Verify the visibility of the HEPATITIS B TITER Goal")
+	public boolean viewHepatitisBTiterGoal() throws TimeoutException, WaitException
+	{
+		return webActions.getVisibiltyOfElementLocatedBy(VISIBILITY, LBL_HEPATITISBTITERGOAL);
+	}
+
+	@Step("Verify the visibility of the PTH draw date")
+	public boolean viewHepatitisBTiterDrawDate(String drawDate) throws TimeoutException, WaitException
+	{
+		final By LBL_HEPATITISBTITERDRAWDATE = By.xpath("//span[contains(., 'Hepatitis B Titer (')]/../../..//span[text()='" + drawDate + "']");
+
+		return webActions.getVisibiltyOfElementLocatedBy(VISIBILITY, LBL_HEPATITISBTITERDRAWDATE);
+	}
+
+	@Step("Verify the visibility of the PTH Source")
+	public boolean viewHepatitisBTiterSource() throws TimeoutException, WaitException
+	{
+		return webActions.getVisibiltyOfElementLocatedBy(VISIBILITY, LBL_HEPATITISBTITERSOURCE);
+	}
 }

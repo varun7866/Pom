@@ -124,6 +124,8 @@ public class CurrentLabsLocators
 	public static final By LBL_PTHGOAL4 = By.xpath("//span[contains(., 'PTH (')]/../..//span[text()=' CKD3: Between 35 and 70']");
 	public static final By LBL_PTHGOAL5 = By.xpath("//span[contains(., 'PTH (')]/../..//span[text()=' CKD4: Between 71 and 110']");
 	public static final By LBL_PTHSOURCE = By.xpath("//span[contains(., 'PTH (')]/../../..//span[text()='Source: VH']");
+	public static final By LBL_HEPATITISBTITERGOAL = By.xpath("//span[contains(., 'Hepatitis B Titer (')]/../..//span[text()='Goal: Between 10 and 100']");
+	public static final By LBL_HEPATITISBTITERSOURCE = By.xpath("//span[contains(., 'Hepatitis B Titer (')]/../../..//span[text()='Source: VH']");
 
 	public static final By PLH_ADDPOPUPHEIGHT = By.xpath("//span[text()='Height']/../../../div[2]/div/input[@placeholder='cm']");
 	public static final By PLH_ADDPOPUPTARGETDRYWEIGHT = By.xpath("//span[text()='Target Dry Weight']/../../../div[2]/div/input[@placeholder='kg']");

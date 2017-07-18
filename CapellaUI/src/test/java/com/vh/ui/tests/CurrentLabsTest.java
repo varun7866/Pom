@@ -26,9 +26,7 @@ import ru.yandex.qatools.allure.annotations.Step;
  * Before running this test suite:
  * 1. Change the "username" and "password" parameters in the "resources\application.properties" file to your own
  * 2. Clear your browser's cache
- * 3. You will need a CKD and an ESRD Patient:
- *    Change the CKD Patient name to a Patient under your ID in the call to the selectPatientFromMyPatients() method in the buildUp() method.
- *    Change the ESRD Patient name to a Patient under your ID in the call to the selectPatientFromMyPatients() method in the verify_AddAddLabResultsPopupESRD() method.
+ * 3. You will need a CKD and an ESRD Patient
  * 4. It's not required, but it would be a good idea to delete all existing Labs from table PTLB_PATIENT_LABS for your Patients
  */
 
@@ -502,6 +500,14 @@ public class CurrentLabsTest extends TestBase
 			Assert.assertTrue(currentLabsPage.viewPTHGoal5(), "Failed to identify the PTH Goal5");
 			Assert.assertTrue(currentLabsPage.viewPTHDrawDate(drawDateGregorian), "Failed to identify the PTH draw date");
 			Assert.assertTrue(currentLabsPage.viewPTHSource(), "Failed to identify the PTH Source");
+		}
+
+		if (map.get("HEPATITISBTITER") != null)
+		{
+			Assert.assertTrue(currentLabsPage.viewHepatitisBTiterLabelValue(map.get("HEPATITISBTITER")), "Failed to identify the HEPATITIS B TITER label/value");
+			Assert.assertTrue(currentLabsPage.viewHepatitisBTiterGoal(), "Failed to identify the HEPATITIS B TITER Goal");
+			Assert.assertTrue(currentLabsPage.viewHepatitisBTiterDrawDate(drawDateGregorian), "Failed to identify the HEPATITIS B TITER draw date");
+			Assert.assertTrue(currentLabsPage.viewHepatitisBTiterSource(), "Failed to identify the HEPATITIS B TITER Source");
 		}
 	}
 
