@@ -118,6 +118,12 @@ public class CurrentLabsLocators
 	public static final By LBL_URRSOURCE = By.xpath("//span[contains(., 'URR (')]/../../..//span[text()='Source: VH']");
 	public static final By LBL_POTASIUMGOAL = By.xpath("//span[contains(., 'Potassium (')]/../..//span[text()='Goal: Between 3.5 and 5.2']");
 	public static final By LBL_POTASIUMSOURCE = By.xpath("//span[contains(., 'Potassium (')]/../../..//span[text()='Source: VH']");
+	public static final By LBL_PTHGOAL1 = By.xpath("//span[contains(., 'PTH (')]/../..//span[text()='Goal: CKD1: Between 0 and 9999']");
+	public static final By LBL_PTHGOAL2 = By.xpath("//span[contains(., 'PTH (')]/../..//span[text()=' CKD2: Between 0 and 9999']");
+	public static final By LBL_PTHGOAL3 = By.xpath("//span[contains(., 'PTH (')]/../..//span[text()=' ESRD: Between 150 and 600']");
+	public static final By LBL_PTHGOAL4 = By.xpath("//span[contains(., 'PTH (')]/../..//span[text()=' CKD3: Between 35 and 70']");
+	public static final By LBL_PTHGOAL5 = By.xpath("//span[contains(., 'PTH (')]/../..//span[text()=' CKD4: Between 71 and 110']");
+	public static final By LBL_PTHSOURCE = By.xpath("//span[contains(., 'PTH (')]/../../..//span[text()='Source: VH']");
 
 	public static final By PLH_ADDPOPUPHEIGHT = By.xpath("//span[text()='Height']/../../../div[2]/div/input[@placeholder='cm']");
 	public static final By PLH_ADDPOPUPTARGETDRYWEIGHT = By.xpath("//span[text()='Target Dry Weight']/../../../div[2]/div/input[@placeholder='kg']");

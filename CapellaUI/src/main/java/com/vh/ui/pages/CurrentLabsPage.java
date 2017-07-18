@@ -1366,4 +1366,56 @@ public class CurrentLabsPage extends WebPage
 	{
 		return webActions.getVisibiltyOfElementLocatedBy(VISIBILITY, LBL_POTASIUMSOURCE);
 	}
+
+	@Step("Verify the visibility of the PTH label/value")
+	public boolean viewPTHLabelValue(String labValue) throws TimeoutException, WaitException
+	{
+		final By LBL_PTH = By.xpath("//span[text()='PTH (" + labValue + ")']");
+
+		return webActions.getVisibiltyOfElementLocatedBy(VISIBILITY, LBL_PTH);
+	}
+
+	@Step("Verify the visibility of the PTH Goal1")
+	public boolean viewPTHGoal1() throws TimeoutException, WaitException
+	{
+		return webActions.getVisibiltyOfElementLocatedBy(VISIBILITY, LBL_PTHGOAL1);
+	}
+
+	@Step("Verify the visibility of the PTH Goal2")
+	public boolean viewPTHGoal2() throws TimeoutException, WaitException
+	{
+		return webActions.getVisibiltyOfElementLocatedBy(VISIBILITY, LBL_PTHGOAL2);
+	}
+
+	@Step("Verify the visibility of the PTH Goal3")
+	public boolean viewPTHGoal3() throws TimeoutException, WaitException
+	{
+		return webActions.getVisibiltyOfElementLocatedBy(VISIBILITY, LBL_PTHGOAL3);
+	}
+
+	@Step("Verify the visibility of the PTH Goal4")
+	public boolean viewPTHGoal4() throws TimeoutException, WaitException
+	{
+		return webActions.getVisibiltyOfElementLocatedBy(VISIBILITY, LBL_PTHGOAL4);
+	}
+
+	@Step("Verify the visibility of the PTH Goal5")
+	public boolean viewPTHGoal5() throws TimeoutException, WaitException
+	{
+		return webActions.getVisibiltyOfElementLocatedBy(VISIBILITY, LBL_PTHGOAL5);
+	}
+
+	@Step("Verify the visibility of the PTH draw date")
+	public boolean viewPTHDrawDate(String drawDate) throws TimeoutException, WaitException
+	{
+		final By LBL_PTHDRAWDATE = By.xpath("//span[contains(., 'PTH (')]/../../..//span[text()='" + drawDate + "']");
+
+		return webActions.getVisibiltyOfElementLocatedBy(VISIBILITY, LBL_PTHDRAWDATE);
+	}
+
+	@Step("Verify the visibility of the PTH Source")
+	public boolean viewPTHSource() throws TimeoutException, WaitException
+	{
+		return webActions.getVisibiltyOfElementLocatedBy(VISIBILITY, LBL_PTHSOURCE);
+	}
 }

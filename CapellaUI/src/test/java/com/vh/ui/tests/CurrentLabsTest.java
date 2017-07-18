@@ -491,6 +491,18 @@ public class CurrentLabsTest extends TestBase
 			Assert.assertTrue(currentLabsPage.viewPotassiumDrawDate(drawDateGregorian), "Failed to identify the POTASIUM draw date");
 			Assert.assertTrue(currentLabsPage.viewPotassiumSource(), "Failed to identify the POTASIUM Source");
 		}
+
+		if (map.get("PTH") != null)
+		{
+			Assert.assertTrue(currentLabsPage.viewPTHLabelValue(map.get("PTH")), "Failed to identify the PTH label/value");
+			Assert.assertTrue(currentLabsPage.viewPTHGoal1(), "Failed to identify the PTH Goal1");
+			Assert.assertTrue(currentLabsPage.viewPTHGoal2(), "Failed to identify the PTH Goal2");
+			Assert.assertTrue(currentLabsPage.viewPTHGoal3(), "Failed to identify the PTH Goal3");
+			Assert.assertTrue(currentLabsPage.viewPTHGoal4(), "Failed to identify the PTH Goal4");
+			Assert.assertTrue(currentLabsPage.viewPTHGoal5(), "Failed to identify the PTH Goal5");
+			Assert.assertTrue(currentLabsPage.viewPTHDrawDate(drawDateGregorian), "Failed to identify the PTH draw date");
+			Assert.assertTrue(currentLabsPage.viewPTHSource(), "Failed to identify the PTH Source");
+		}
 	}
 
 	@AfterClass
