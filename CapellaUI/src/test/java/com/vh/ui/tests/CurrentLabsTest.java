@@ -458,6 +458,15 @@ public class CurrentLabsTest extends TestBase
 			Assert.assertTrue(currentLabsPage.viewCO2LevelDrawDate(drawDateGregorian), "Failed to identify the CO2 LEVEL draw date");
 			Assert.assertTrue(currentLabsPage.viewCO2LevelSource(), "Failed to identify the CO2 LEVEL Source");
 		}
+
+		if (map.get("CALCIUM") != null)
+		{
+			Assert.assertTrue(currentLabsPage.viewCalciumLabelValue(map.get("CALCIUM")), "Failed to identify the CALCIUM label/value");
+			Assert.assertTrue(currentLabsPage.viewCalciumGoal1(), "Failed to identify the CALCIUM Goal1");
+			Assert.assertTrue(currentLabsPage.viewCalciumGoal2(), "Failed to identify the CALCIUM Goal2");
+			Assert.assertTrue(currentLabsPage.viewCalciumDrawDate(drawDateGregorian), "Failed to identify the CALCIUM draw date");
+			Assert.assertTrue(currentLabsPage.viewCalciumSource(), "Failed to identify the CALCIUM Source");
+		}
 	}
 
 	@AfterClass

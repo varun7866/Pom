@@ -1248,4 +1248,38 @@ public class CurrentLabsPage extends WebPage
 	{
 		return webActions.getVisibiltyOfElementLocatedBy(VISIBILITY, LBL_CO2LEVELSOURCE);
 	}
+
+	@Step("Verify the visibility of the CALCIUM label/value")
+	public boolean viewCalciumLabelValue(String labValue) throws TimeoutException, WaitException
+	{
+		final By LBL_CALCIUM = By.xpath("//span[text()='Calcium (" + labValue + ")']");
+
+		return webActions.getVisibiltyOfElementLocatedBy(VISIBILITY, LBL_CALCIUM);
+	}
+
+	@Step("Verify the visibility of the CALCIUM Goal1")
+	public boolean viewCalciumGoal1() throws TimeoutException, WaitException
+	{
+		return webActions.getVisibiltyOfElementLocatedBy(VISIBILITY, LBL_CALCIUMGOAL1);
+	}
+
+	@Step("Verify the visibility of the CALCIUM Goal2")
+	public boolean viewCalciumGoal2() throws TimeoutException, WaitException
+	{
+		return webActions.getVisibiltyOfElementLocatedBy(VISIBILITY, LBL_CALCIUMGOAL2);
+	}
+
+	@Step("Verify the visibility of the CALCIUM draw date")
+	public boolean viewCalciumDrawDate(String drawDate) throws TimeoutException, WaitException
+	{
+		final By LBL_CALCIUMDRAWDATE = By.xpath("//span[contains(., 'Calcium (')]/../../..//span[text()='" + drawDate + "']");
+
+		return webActions.getVisibiltyOfElementLocatedBy(VISIBILITY, LBL_CALCIUMDRAWDATE);
+	}
+
+	@Step("Verify the visibility of the CALCIUM Source")
+	public boolean viewCalciumSource() throws TimeoutException, WaitException
+	{
+		return webActions.getVisibiltyOfElementLocatedBy(VISIBILITY, LBL_CALCIUMSOURCE);
+	}
 }
