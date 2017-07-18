@@ -2,12 +2,13 @@
 <section name="Workbench">
 	<section name="org.eclipse.ui.texteditor.FindReplaceDialog">
 		<item value="false" key="isRegEx"/>
-		<item value="TXT_ADDPOPUPDATE" key="selection"/>
+		<item value="enterP" key="selection"/>
 		<item value="false" key="casesensitive"/>
 		<item value="false" key="incremental"/>
 		<item value="true" key="wrap"/>
 		<item value="false" key="wholeword"/>
 		<list key="findhistory">
+			<item value="enterp"/>
 			<item value="TXT_ADDPOPUPDATE"/>
 			<item value="getattr"/>
 			<item value="MNU_PATIENTEXPERIENCELABSCURRENTLABSCLICK"/>
@@ -22,7 +23,6 @@
 			<item value="webac"/>
 			<item value="button"/>
 			<item value="add"/>
-			<item value="highl"/>
 		</list>
 		<list key="replacehistory">
 		</list>

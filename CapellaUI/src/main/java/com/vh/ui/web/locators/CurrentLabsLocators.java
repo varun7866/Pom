@@ -130,6 +130,10 @@ public class CurrentLabsLocators
 	public static final By LBL_FERRITINSOURCE = By.xpath("//span[contains(., 'Ferritin (')]/../../..//span[text()='Source: VH']");
 	public static final By LBL_TSATGOAL = By.xpath("//span[contains(., 'TSAT (')]/../..//span[text()='Goal: Between 20 and 100']");
 	public static final By LBL_TSATSOURCE = By.xpath("//span[contains(., 'TSAT (')]/../../..//span[text()='Source: VH']");
+	public static final By LBL_BLOODPRESSURESYSTOLICGOAL = By.xpath("//span[contains(., 'Blood Pressure Systolic (')]/../..//span[text()='Goal: Between 60 and 130']");
+	public static final By LBL_BLOODPRESSURESYSTOLICSOURCE = By.xpath("//span[contains(., 'Blood Pressure Systolic (')]/../../..//span[text()='Source: VH']");
+	public static final By LBL_BLOODPRESSUREDIASTOLICGOAL = By.xpath("//span[contains(., 'Blood Pressure Diastolic (')]/../..//span[text()='Goal: Between 0 and 80']");
+	public static final By LBL_BLOODPRESSUREDIASTOLICSOURCE = By.xpath("//span[contains(., 'Blood Pressure Diastolic (')]/../../..//span[text()='Source: VH']");
 
 	public static final By PLH_ADDPOPUPHEIGHT = By.xpath("//span[text()='Height']/../../../div[2]/div/input[@placeholder='cm']");
 	public static final By PLH_ADDPOPUPTARGETDRYWEIGHT = By.xpath("//span[text()='Target Dry Weight']/../../../div[2]/div/input[@placeholder='kg']");

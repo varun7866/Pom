@@ -523,6 +523,22 @@ public class CurrentLabsTest extends TestBase
 			Assert.assertTrue(currentLabsPage.viewTSATDrawDate(drawDateGregorian), "Failed to identify the TSAT draw date");
 			Assert.assertTrue(currentLabsPage.viewTSATSource(), "Failed to identify the TSAT Source");
 		}
+
+		if (map.get("BLOODPRESSURESYSTOLIC") != null)
+		{
+			Assert.assertTrue(currentLabsPage.viewBloodPressureSystolicLabelValue(map.get("BLOODPRESSURESYSTOLIC")), "Failed to identify the BLOOD PRESSURE SYSTOLIC label/value");
+			Assert.assertTrue(currentLabsPage.viewBloodPressureSystolicGoal(), "Failed to identify the BLOOD PRESSURE SYSTOLIC Goal");
+			Assert.assertTrue(currentLabsPage.viewBloodPressureSystolicDrawDate(drawDateGregorian), "Failed to identify the BLOOD PRESSURE SYSTOLIC draw date");
+			Assert.assertTrue(currentLabsPage.viewBloodPressureSystolicSource(), "Failed to identify the BLOOD PRESSURE SYSTOLIC Source");
+		}
+
+		if (map.get("BLOODPRESSUREDIASTOLIC") != null)
+		{
+			Assert.assertTrue(currentLabsPage.viewBloodPressureDiastolicLabelValue(map.get("BLOODPRESSUREDIASTOLIC")), "Failed to identify the BLOOD PRESSURE DIASTOLIC label/value");
+			Assert.assertTrue(currentLabsPage.viewBloodPressureDiastolicGoal(), "Failed to identify the BLOOD PRESSURE DIASTOLIC Goal");
+			Assert.assertTrue(currentLabsPage.viewBloodPressureDiastolicDrawDate(drawDateGregorian), "Failed to identify the BLOOD PRESSURE DIASTOLIC draw date");
+			Assert.assertTrue(currentLabsPage.viewBloodPressureDiastolicSource(), "Failed to identify the BLOOD PRESSURE DIASTOLIC Source");
+		}
 	}
 
 	@AfterClass
