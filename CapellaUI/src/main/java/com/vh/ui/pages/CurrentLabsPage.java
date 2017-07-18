@@ -1474,4 +1474,32 @@ public class CurrentLabsPage extends WebPage
 	{
 		return webActions.getVisibiltyOfElementLocatedBy(VISIBILITY, LBL_FERRITINSOURCE);
 	}
+
+	@Step("Verify the visibility of the TSAT label/value")
+	public boolean viewTSATLabelValue(String labValue) throws TimeoutException, WaitException
+	{
+		final By LBL_TSAT = By.xpath("//span[text()='TSAT (" + labValue + ")']");
+
+		return webActions.getVisibiltyOfElementLocatedBy(VISIBILITY, LBL_TSAT);
+	}
+
+	@Step("Verify the visibility of the TSAT Goal")
+	public boolean viewTSATGoal() throws TimeoutException, WaitException
+	{
+		return webActions.getVisibiltyOfElementLocatedBy(VISIBILITY, LBL_TSATGOAL);
+	}
+
+	@Step("Verify the visibility of the TSAT draw date")
+	public boolean viewTSATDrawDate(String drawDate) throws TimeoutException, WaitException
+	{
+		final By LBL_TSATDRAWDATE = By.xpath("//span[contains(., 'TSAT (')]/../../..//span[text()='" + drawDate + "']");
+
+		return webActions.getVisibiltyOfElementLocatedBy(VISIBILITY, LBL_TSATDRAWDATE);
+	}
+
+	@Step("Verify the visibility of the TSAT Source")
+	public boolean viewTSATSource() throws TimeoutException, WaitException
+	{
+		return webActions.getVisibiltyOfElementLocatedBy(VISIBILITY, LBL_TSATSOURCE);
+	}
 }

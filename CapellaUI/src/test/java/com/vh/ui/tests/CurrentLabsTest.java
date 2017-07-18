@@ -515,6 +515,14 @@ public class CurrentLabsTest extends TestBase
 			Assert.assertTrue(currentLabsPage.viewFerritinDrawDate(drawDateGregorian), "Failed to identify the FERRITIN draw date");
 			Assert.assertTrue(currentLabsPage.viewFerritinSource(), "Failed to identify the FERRITIN Source");
 		}
+
+		if (map.get("TSAT") != null)
+		{
+			Assert.assertTrue(currentLabsPage.viewTSATLabelValue(map.get("TSAT")), "Failed to identify the TSAT label/value");
+			Assert.assertTrue(currentLabsPage.viewTSATGoal(), "Failed to identify the TSAT Goal");
+			Assert.assertTrue(currentLabsPage.viewTSATDrawDate(drawDateGregorian), "Failed to identify the TSAT draw date");
+			Assert.assertTrue(currentLabsPage.viewTSATSource(), "Failed to identify the TSAT Source");
+		}
 	}
 
 	@AfterClass
