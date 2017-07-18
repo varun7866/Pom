@@ -53,7 +53,6 @@ public class LoginPage extends WebPage
 	@Step("Entered {0} in the Password text field")
 	public LoginPage enterPassword(String pwd) throws TimeoutException, WaitException {
 		String password = EncryptDecrypt.decrypt(pwd);
-		System.out.println("Password :: " + password);
 		webActions.enterText(VISIBILITY, TXT_PASSWORD, password);
 		return this;
 	}	
