@@ -25,6 +25,7 @@ import static com.vh.ui.web.locators.PatientNavigationLocators.LBL_PLANOFCAREHIS
 import static com.vh.ui.web.locators.PatientNavigationLocators.LBL_PLANOFCAREMANAGEMENT;
 import static com.vh.ui.web.locators.PatientNavigationLocators.LBL_PLANOFCARENOTES;
 import static com.vh.ui.web.locators.PatientNavigationLocators.LBL_PLANOFCAREOVERVIEW;
+import static com.vh.ui.web.locators.PatientNavigationLocators.MNU_PATEINTCARECOLLAPSE;
 import static com.vh.ui.web.locators.PatientNavigationLocators.MNU_PATIENTADMIN;
 import static com.vh.ui.web.locators.PatientNavigationLocators.MNU_PATIENTADMINFALCON;
 import static com.vh.ui.web.locators.PatientNavigationLocators.MNU_PATIENTADMINMANAGEDOCUMENTS;
@@ -51,6 +52,7 @@ import static com.vh.ui.web.locators.PatientNavigationLocators.MNU_PATIENTEXPERI
 import static com.vh.ui.web.locators.PatientNavigationLocators.MNU_PATIENTEXPERIENCEMEDICATIONS;
 import static com.vh.ui.web.locators.PatientNavigationLocators.MNU_PATIENTEXPERIENCEPATHWAYSSCREENINGS;
 import static com.vh.ui.web.locators.PatientNavigationLocators.MNU_PLANOFCARE;
+import static com.vh.ui.web.locators.PatientNavigationLocators.MNU_PLANOFCARECOLLAPSE;
 import static com.vh.ui.web.locators.PatientNavigationLocators.MNU_PLANOFCARECONSOLIDATEDSTORY;
 import static com.vh.ui.web.locators.PatientNavigationLocators.MNU_PLANOFCAREHISTORY;
 import static com.vh.ui.web.locators.PatientNavigationLocators.MNU_PLANOFCAREMANAGEMENT;
@@ -131,6 +133,14 @@ public class PatientNavigationPage extends WebPage
 		return webActions.getVisibiltyOfElementLocatedBy(VISIBILITY, LBL_PLANOFCARECONSOLIDATEDSTORY);
 	}
 
+	@Step("Verify the collapse of the Plan of Care menu")
+	public boolean verifyPlanOfCareMenuCollapse() throws TimeoutException, WaitException
+	{
+		webActions.click(CLICKABILITY, MNU_PLANOFCARE);
+
+		return webActions.getVisibiltyOfElementLocatedBy(VISIBILITY, MNU_PLANOFCARECOLLAPSE);
+	}
+	
 	@Step("Verify the visibility of the Patient Care menu")
 	public boolean viewPatientCareMenu() throws TimeoutException, WaitException
 	{
@@ -159,6 +169,14 @@ public class PatientNavigationPage extends WebPage
 		webActions.click(CLICKABILITY, MNU_PATIENTCARECARETEAM);
 
 		return webActions.getVisibiltyOfElementLocatedBy(VISIBILITY, LBL_PATIENTCARECARETEAM);
+	}
+	
+	@Step("Verify the collapse of the Patient Care menu")
+	public boolean verifyPatientCareMenuCollapse() throws TimeoutException, WaitException
+	{
+		webActions.click(CLICKABILITY, MNU_PATIENTCARE);
+
+		return webActions.getVisibiltyOfElementLocatedBy(VISIBILITY, MNU_PATEINTCARECOLLAPSE);
 	}
 
 	@Step("Verify the visibility of the Patient Experience menu")

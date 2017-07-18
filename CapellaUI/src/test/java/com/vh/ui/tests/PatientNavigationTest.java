@@ -41,7 +41,7 @@ public class PatientNavigationTest extends TestBase
 		patientNavigationPage = new PatientNavigationPage(driver);
 
 		appFunctions.capellaLogin();
-		appFunctions.selectPatientFromMyPatients("Waliy Al D Holroyd"); // QA
+		appFunctions.selectPatientFromMyPatients("Mikal Gallogly"); // QA
 		// appFunctions.selectPatientFromMyPatients("Aasaf Whoriskey"); // Stage
 	}
 
@@ -57,12 +57,15 @@ public class PatientNavigationTest extends TestBase
 		// Assert.assertTrue(patientNavigationPage.viewPlanOfCareHistoryScreen(), "Failed to display the History screen");
 		// Assert.assertTrue(patientNavigationPage.viewPlanOfCareNotesScreen(), "Failed to display the Notes screen");
 		Assert.assertTrue(patientNavigationPage.viewPlanOfCareConsolidatedStoryScreen(), "Failed to display the ConsolidatedStory screen");
-
+		Assert.assertTrue(patientNavigationPage.verifyPlanOfCareMenuCollapse(), "Failed to collapse the Plan of Care menu");
+		
+		
 		// Patient Care
 		Assert.assertTrue(patientNavigationPage.viewPatientCareMenu(), "Failed to identify the Patient Care menu");
 		Assert.assertTrue(patientNavigationPage.viewPatientCarePatientRecapScreen(), "Failed to display the Patient Recap screen");
 		// Assert.assertTrue(patientNavigationPage.viewPatientCarePatientTasksScreen(), "Failed to display the Patient Tasks screen");
 		Assert.assertTrue(patientNavigationPage.viewPatientCareCareTeamScreen(), "Failed to display the Care Team screen");
+		Assert.assertTrue(patientNavigationPage.verifyPatientCareMenuCollapse(), "Failed to collapse the Patient Care menu");
 
 		// Patient Experience
 		Assert.assertTrue(patientNavigationPage.viewPatientExperienceMenu(), "Failed to identify the Patient Experience menu");

@@ -71,4 +71,6 @@ public class PatientNavigationLocators
 	public static final By MNU_PATIENTADMINFALCON = By.id("Falcon-25");
 	public static final By MNU_PATIENTADMINMATERIALFULFILLMENT = By.id("Material Fulfillment-26");
 	public static final By MNU_PATIENTADMINREFERRALS = By.id("Referrals-27");
+	public static final By MNU_PLANOFCARECOLLAPSE = By.xpath("//a[text()='Plan of Care' and @aria-expanded='false']");
+	public static final By MNU_PATEINTCARECOLLAPSE = By.xpath("//a[text()='Patient Care' and @aria-expanded='false']");
 }
