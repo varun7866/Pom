@@ -85,6 +85,7 @@ public class PatientNavigationTest extends TestBase
 		Assert.assertTrue(patientNavigationPage.verifyPatientExperienceLabsMenuExpanded(), "Failed to expand the Patient Experience Labs menu");
 		Assert.assertTrue(patientNavigationPage.viewPatientExperienceLabsCurrentLabsScreen(), "Failed to display the Current Labs screen");
 		Assert.assertTrue(patientNavigationPage.viewPatientExperienceLabsLabsHistoryScreen(), "Failed to display the Labs History screen");
+		Assert.assertTrue(patientNavigationPage.verifyPatientExperienceMenuCollapse(), "Failed to collapse the Patient Experience menu");
 
 		// Patient Admin
 		Assert.assertTrue(patientNavigationPage.viewPatientAdminMenu(), "Failed to identify the Patient Admin menu");
@@ -95,6 +96,7 @@ public class PatientNavigationTest extends TestBase
 		// Assert.assertTrue(patientNavigationPage.viewPatientAdminFalconScreen(), "Failed to display the Falcon screen");
 		// Assert.assertTrue(patientNavigationPage.viewPatientAdminMaterialFulfillmentScreen(), "Failed to display the Material Fulfillment screen");
 		Assert.assertTrue(patientNavigationPage.viewPatientAdminReferralsScreen(), "Failed to display the Referrals screen");
+		Assert.assertTrue(patientNavigationPage.verifyPatientAdminMenuCollapse(), "Failed to collapse the Patient Experience menu");
 	}
 
 	@AfterClass
