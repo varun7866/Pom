@@ -483,6 +483,14 @@ public class CurrentLabsTest extends TestBase
 			Assert.assertTrue(currentLabsPage.viewURRDrawDate(drawDateGregorian), "Failed to identify the URR draw date");
 			Assert.assertTrue(currentLabsPage.viewURRSource(), "Failed to identify the URR Source");
 		}
+
+		if (map.get("POTASIUM") != null)
+		{
+			Assert.assertTrue(currentLabsPage.viewPotassiumLabelValue(map.get("POTASIUM")), "Failed to identify the POTASIUM label/value");
+			Assert.assertTrue(currentLabsPage.viewPotassiumGoal(), "Failed to identify the POTASIUM Goal");
+			Assert.assertTrue(currentLabsPage.viewPotassiumDrawDate(drawDateGregorian), "Failed to identify the POTASIUM draw date");
+			Assert.assertTrue(currentLabsPage.viewPotassiumSource(), "Failed to identify the POTASIUM Source");
+		}
 	}
 
 	@AfterClass

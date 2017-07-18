@@ -1338,4 +1338,32 @@ public class CurrentLabsPage extends WebPage
 	{
 		return webActions.getVisibiltyOfElementLocatedBy(VISIBILITY, LBL_URRSOURCE);
 	}
+
+	@Step("Verify the visibility of the POTASIUM label/value")
+	public boolean viewPotassiumLabelValue(String labValue) throws TimeoutException, WaitException
+	{
+		final By LBL_POTASIUM = By.xpath("//span[text()='Potassium (" + labValue + ")']");
+
+		return webActions.getVisibiltyOfElementLocatedBy(VISIBILITY, LBL_POTASIUM);
+	}
+
+	@Step("Verify the visibility of the POTASIUM Goal")
+	public boolean viewPotassiumGoal() throws TimeoutException, WaitException
+	{
+		return webActions.getVisibiltyOfElementLocatedBy(VISIBILITY, LBL_POTASIUMGOAL);
+	}
+
+	@Step("Verify the visibility of the POTASIUM draw date")
+	public boolean viewPotassiumDrawDate(String drawDate) throws TimeoutException, WaitException
+	{
+		final By LBL_POTASIUMDRAWDATE = By.xpath("//span[contains(., 'Potassium (')]/../../..//span[text()='" + drawDate + "']");
+
+		return webActions.getVisibiltyOfElementLocatedBy(VISIBILITY, LBL_POTASIUMDRAWDATE);
+	}
+
+	@Step("Verify the visibility of the POTASIUM Source")
+	public boolean viewPotassiumSource() throws TimeoutException, WaitException
+	{
+		return webActions.getVisibiltyOfElementLocatedBy(VISIBILITY, LBL_POTASIUMSOURCE);
+	}
 }
