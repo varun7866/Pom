@@ -450,6 +450,14 @@ public class CurrentLabsTest extends TestBase
 			Assert.assertTrue(currentLabsPage.viewDipstickForProteinDrawDate(drawDateGregorian), "Failed to identify the DIPSTICK FOR PROTEIN draw date");
 			Assert.assertTrue(currentLabsPage.viewDipstickForProteinSource(), "Failed to identify the URINE DIPSTICK FOR PROTEIN Source");
 		}
+
+		if (map.get("CO2LEVEL") != null)
+		{
+			Assert.assertTrue(currentLabsPage.viewCO2LevelLabelValue(map.get("CO2LEVEL")), "Failed to identify the CO2 LEVEL label/value");
+			Assert.assertTrue(currentLabsPage.viewCO2LevelGoal(), "Failed to identify the CO2 LEVEL Goal");
+			Assert.assertTrue(currentLabsPage.viewCO2LevelDrawDate(drawDateGregorian), "Failed to identify the CO2 LEVEL draw date");
+			Assert.assertTrue(currentLabsPage.viewCO2LevelSource(), "Failed to identify the CO2 LEVEL Source");
+		}
 	}
 
 	@AfterClass

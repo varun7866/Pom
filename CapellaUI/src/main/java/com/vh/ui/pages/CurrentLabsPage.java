@@ -1220,4 +1220,32 @@ public class CurrentLabsPage extends WebPage
 	{
 		return webActions.getVisibiltyOfElementLocatedBy(VISIBILITY, LBL_DIPSTICKFORPROTEINSOURCE);
 	}
+
+	@Step("Verify the visibility of the CO2 LEVEL label/value")
+	public boolean viewCO2LevelLabelValue(String labValue) throws TimeoutException, WaitException
+	{
+		final By LBL_CO2LEVEL = By.xpath("//span[text()='Co2 Level (" + labValue + ")']");
+
+		return webActions.getVisibiltyOfElementLocatedBy(VISIBILITY, LBL_CO2LEVEL);
+	}
+
+	@Step("Verify the visibility of the CO2 LEVEL Goal")
+	public boolean viewCO2LevelGoal() throws TimeoutException, WaitException
+	{
+		return webActions.getVisibiltyOfElementLocatedBy(VISIBILITY, LBL_CO2LEVELGOAL);
+	}
+
+	@Step("Verify the visibility of the CO2 LEVEL draw date")
+	public boolean viewCO2LevelDrawDate(String drawDate) throws TimeoutException, WaitException
+	{
+		final By LBL_CO2LEVELDRAWDATE = By.xpath("//span[contains(., 'Co2 Level (')]/../../..//span[text()='" + drawDate + "']");
+
+		return webActions.getVisibiltyOfElementLocatedBy(VISIBILITY, LBL_CO2LEVELDRAWDATE);
+	}
+
+	@Step("Verify the visibility of the CO2 LEVEL Source")
+	public boolean viewCO2LevelSource() throws TimeoutException, WaitException
+	{
+		return webActions.getVisibiltyOfElementLocatedBy(VISIBILITY, LBL_CO2LEVELSOURCE);
+	}
 }
