@@ -434,14 +434,14 @@ public class CurrentLabsTest extends TestBase
 			Assert.assertTrue(currentLabsPage.viewAlbuminSource(), "Failed to identify the ALBUMIN Source");
 		}
 
-		// if (map.get("URINEALBUMINCREATININERATIO") != null)
-		// {
-		// Assert.assertTrue(currentLabsPage.viewUrineAlbuminCreatinineRatioLabelValue(map.get("URINEALBUMINCREATININERATIO")),
-		// "Failed to identify the URINE ALBUMIN CREATININE RATIO label/value");
-		// Assert.assertTrue(currentLabsPage.viewviewUrineAlbuminCreatinineRatioGoal(), "Failed to identify the URINE ALBUMIN CREATININE RATIO Goal");
-		// Assert.assertTrue(currentLabsPage.viewviewUrineAlbuminCreatinineRatioDrawDate(drawDateGregorian), "Failed to identify the URINE ALBUMIN CREATININE RATIO draw date");
-		// Assert.assertTrue(currentLabsPage.viewviewUrineAlbuminCreatinineRatioSource(), "Failed to identify the URINE ALBUMIN CREATININE RATIO Source");
-		// }
+		if (map.get("URINEALBUMINCREATININERATIO") != null)
+		{
+			Assert.assertTrue(currentLabsPage.viewUrineAlbuminCreatinineRatioLabelValue(map.get("URINEALBUMINCREATININERATIO")),
+			        "Failed to identify the URINE ALBUMIN CREATININE RATIO label/value");
+			Assert.assertTrue(currentLabsPage.viewUrineAlbuminCreatinineRatioGoal(), "Failed to identify the URINE ALBUMIN/CREATININE RATIO Goal");
+			Assert.assertTrue(currentLabsPage.viewUrineAlbuminCreatinineRatioDrawDate(drawDateGregorian), "Failed to identify the URINE ALBUMIN/CREATININE RATIO draw date");
+			Assert.assertTrue(currentLabsPage.viewUrineAlbuminCreatinineRatioSource(), "Failed to identify the URINE ALBUMIN/CREATININE RATIO Source");
+		}
 	}
 
 	@AfterClass

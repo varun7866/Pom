@@ -103,6 +103,8 @@ public class CurrentLabsLocators
 	public static final By LBL_HGBSOURCE = By.xpath("//span[contains(., 'Hgb (')]/../../..//span[text()='Source: VH']");
 	public static final By LBL_ALBUMINGOAL = By.xpath("//span[contains(., 'Albumin (')]/../..//span[text()='Goal: Between 4 and 7']");
 	public static final By LBL_ALBUMINSOURCE = By.xpath("//span[contains(., 'Albumin (')]/../../..//span[text()='Source: VH']");
+	public static final By LBL_URINEALBUMINCREATININERATIOGOAL = By.xpath("//span[contains(., 'Urine Albumin/Creatinine Ratio (')]/../..//span[text()='Goal: Between 0 and 30']");
+	public static final By LBL_URINEALBUMINCREATININERATIOSOURCE = By.xpath("//span[contains(., 'Urine Albumin/Creatinine Ratio (')]/../../..//span[text()='Source: VH']");
 
 	public static final By PLH_ADDPOPUPHEIGHT = By.xpath("//span[text()='Height']/../../../div[2]/div/input[@placeholder='cm']");
 	public static final By PLH_ADDPOPUPTARGETDRYWEIGHT = By.xpath("//span[text()='Target Dry Weight']/../../../div[2]/div/input[@placeholder='kg']");

@@ -1164,4 +1164,32 @@ public class CurrentLabsPage extends WebPage
 	{
 		return webActions.getVisibiltyOfElementLocatedBy(VISIBILITY, LBL_ALBUMINSOURCE);
 	}
+
+	@Step("Verify the visibility of the URINE ALBUMIN/CREATININE RATIO label/value")
+	public boolean viewUrineAlbuminCreatinineRatioLabelValue(String labValue) throws TimeoutException, WaitException
+	{
+		final By LBL_URINEALBUMINCREATININERATIO = By.xpath("//span[text()='Urine Albumin/Creatinine Ratio (" + labValue + ")']");
+
+		return webActions.getVisibiltyOfElementLocatedBy(VISIBILITY, LBL_URINEALBUMINCREATININERATIO);
+	}
+
+	@Step("Verify the visibility of the URINE ALBUMIN/CREATININE RATIO Goal")
+	public boolean viewUrineAlbuminCreatinineRatioGoal() throws TimeoutException, WaitException
+	{
+		return webActions.getVisibiltyOfElementLocatedBy(VISIBILITY, LBL_URINEALBUMINCREATININERATIOGOAL);
+	}
+
+	@Step("Verify the visibility of the URINE ALBUMIN/CREATININE RATIO draw date")
+	public boolean viewUrineAlbuminCreatinineRatioDrawDate(String drawDate) throws TimeoutException, WaitException
+	{
+		final By LBL_URINEALBUMINCREATININERATIODRAWDATE = By.xpath("//span[contains(., 'Urine Albumin/Creatinine Ratio (')]/../../..//span[text()='" + drawDate + "']");
+
+		return webActions.getVisibiltyOfElementLocatedBy(VISIBILITY, LBL_URINEALBUMINCREATININERATIODRAWDATE);
+	}
+
+	@Step("Verify the visibility of the URINE ALBUMIN/CREATININE RATIO Source")
+	public boolean viewUrineAlbuminCreatinineRatioSource() throws TimeoutException, WaitException
+	{
+		return webActions.getVisibiltyOfElementLocatedBy(VISIBILITY, LBL_URINEALBUMINCREATININERATIOSOURCE);
+	}
 }
