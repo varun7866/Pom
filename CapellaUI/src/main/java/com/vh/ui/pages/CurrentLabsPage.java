@@ -1112,7 +1112,7 @@ public class CurrentLabsPage extends WebPage
 	@Step("Verify the visibility of the HGB label/value")
 	public boolean viewHGBLabelValue(String labValue) throws TimeoutException, WaitException
 	{
-		final By LBL_HGB = By.xpath("//span[text()='HGB (" + labValue + ")']");
+		final By LBL_HGB = By.xpath("//span[text()='Hgb (" + labValue + ")']");
 
 		return webActions.getVisibiltyOfElementLocatedBy(VISIBILITY, LBL_HGB);
 	}
@@ -1126,7 +1126,7 @@ public class CurrentLabsPage extends WebPage
 	@Step("Verify the visibility of the HGB draw date")
 	public boolean viewHGBDrawDate(String drawDate) throws TimeoutException, WaitException
 	{
-		final By LBL_HGBDRAWDATE = By.xpath("//span[contains(., 'HGB (')]/../../..//span[text()='" + drawDate + "']");
+		final By LBL_HGBDRAWDATE = By.xpath("//span[contains(., 'Hgb (')]/../../..//span[text()='" + drawDate + "']");
 
 		return webActions.getVisibiltyOfElementLocatedBy(VISIBILITY, LBL_HGBDRAWDATE);
 	}
@@ -1135,5 +1135,33 @@ public class CurrentLabsPage extends WebPage
 	public boolean viewHGBSource() throws TimeoutException, WaitException
 	{
 		return webActions.getVisibiltyOfElementLocatedBy(VISIBILITY, LBL_HGBSOURCE);
+	}
+
+	@Step("Verify the visibility of the ALBUMIN label/value")
+	public boolean viewAlbuminLabelValue(String labValue) throws TimeoutException, WaitException
+	{
+		final By LBL_ALBUMIN = By.xpath("//span[text()='Albumin (" + labValue + ")']");
+
+		return webActions.getVisibiltyOfElementLocatedBy(VISIBILITY, LBL_ALBUMIN);
+	}
+
+	@Step("Verify the visibility of the ALBUMIN Goal")
+	public boolean viewAlbuminGoal() throws TimeoutException, WaitException
+	{
+		return webActions.getVisibiltyOfElementLocatedBy(VISIBILITY, LBL_ALBUMINGOAL);
+	}
+
+	@Step("Verify the visibility of the ALBUMIN draw date")
+	public boolean viewAlbuminDrawDate(String drawDate) throws TimeoutException, WaitException
+	{
+		final By LBL_ALBUMINDRAWDATE = By.xpath("//span[contains(., 'Albumin (')]/../../..//span[text()='" + drawDate + "']");
+
+		return webActions.getVisibiltyOfElementLocatedBy(VISIBILITY, LBL_ALBUMINDRAWDATE);
+	}
+
+	@Step("Verify the visibility of the ALBUMIN Source")
+	public boolean viewAlbuminSource() throws TimeoutException, WaitException
+	{
+		return webActions.getVisibiltyOfElementLocatedBy(VISIBILITY, LBL_ALBUMINSOURCE);
 	}
 }

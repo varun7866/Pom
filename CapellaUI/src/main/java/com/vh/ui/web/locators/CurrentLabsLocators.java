@@ -99,8 +99,10 @@ public class CurrentLabsLocators
 	public static final By LBL_HGBA1CSOURCE = By.xpath("//span[contains(., 'Hgb A1C (')]/../../..//span[text()='Source: VH']");
 	public static final By LBL_LDLGOAL = By.xpath("//span[contains(., 'LDL (')]/../..//span[text()='Goal: Between 0 and 100']");
 	public static final By LBL_LDLSOURCE = By.xpath("//span[contains(., 'LDL (')]/../../..//span[text()='Source: VH']");
-	public static final By LBL_HGBGOAL = By.xpath("//span[contains(., 'HGB (')]/../..//span[text()='Goal: Between 0 and 11']");
-	public static final By LBL_HGBSOURCE = By.xpath("//span[contains(., 'HGB (')]/../../..//span[text()='Source: VH']");
+	public static final By LBL_HGBGOAL = By.xpath("//span[contains(., 'Hgb (')]/../..//span[text()='Goal: Between 0 and 11']");
+	public static final By LBL_HGBSOURCE = By.xpath("//span[contains(., 'Hgb (')]/../../..//span[text()='Source: VH']");
+	public static final By LBL_ALBUMINGOAL = By.xpath("//span[contains(., 'Albumin (')]/../..//span[text()='Goal: Between 4 and 7']");
+	public static final By LBL_ALBUMINSOURCE = By.xpath("//span[contains(., 'Albumin (')]/../../..//span[text()='Source: VH']");
 
 	public static final By PLH_ADDPOPUPHEIGHT = By.xpath("//span[text()='Height']/../../../div[2]/div/input[@placeholder='cm']");
 	public static final By PLH_ADDPOPUPTARGETDRYWEIGHT = By.xpath("//span[text()='Target Dry Weight']/../../../div[2]/div/input[@placeholder='kg']");
