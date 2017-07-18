@@ -74,61 +74,77 @@ public class ReadExcel {
 	}
 	
 	/**
-	 * 
-	 * @param testClass is the name of the test class
-	 * @param testFunction is the name of the method using the data provider
-	 * @return a list of map 
+	 * @param testClass
+	 *            is the name of the test class
+	 * @param testFunction
+	 *            is the name of the method using the data provider
+	 * @return a list of maps
 	 * @throws IOException
 	 */	
-	public static List readTestData(String testClass, String testFunction) throws IOException {
+	public static List<Object[]> readTestData(String testClass, String testFunction) throws IOException
+	{
+		int rowCount;
+		int colCount;
 		FileInputStream file = null;
 		List list = null;
-		try {
-			 file = new FileInputStream(new File(EXCELRELATIVEPATH.getProperty("excelPath")));
-			 list = new ArrayList<Map<String,String>>();
-			// Create Workbook instance , could be HSSF OR XSSF depending on the
-			// argument file
-			Workbook workbook = WorkbookFactory.create(file);
-			// Get first sheet from the workbook
-			sheet = workbook.getSheet(testClass);
-			int rowCount = sheet.getPhysicalNumberOfRows();
-			int reqRowCount = getRequiredNumberOfRows(testFunction, rowCount); 
-			int colCount = getColumnCount(sheet);
-//			storage = new String[reqRowCount][colCount];
 
-			int reqRow = 0;
+		try
+		{
+			file = new FileInputStream(new File(EXCELRELATIVEPATH.getProperty("excelPath")));
+			list = new ArrayList<Map<String, String>>();
+
+			Workbook workbook = WorkbookFactory.create(file); // Create a Workbook instance, could be HSSF OR XSSF depending on the argument file
+
+			sheet = workbook.getSheet(testClass); // Get given sheet from the workbook
+
+			rowCount = sheet.getPhysicalNumberOfRows();
+			colCount = getColumnCount(sheet);
+
 			Row headerRow = sheet.getRow(0);
 			Cell headerCell;
-			for (int i = 1; i < rowCount; i++) {
+
+			for (int i = 1; i < rowCount; i++)
+			{
 				Row row = sheet.getRow(i);
 				Cell cell = row.getCell(0);
-				if(cell!=null) {
+
+				if (cell != null)
+				{
 					String value = getCellValue(cell);
+
 					if(value!=null && value.equalsIgnoreCase("Y"))
 					{
 						if(getCellValue(row.getCell(1)).equalsIgnoreCase(testFunction)) {
+
 							Map<String, String> map = new HashMap<String, String>();
-							for (int j = 2; j < colCount; j++) {
+
+							for (int j = 2; j < colCount; j++)
+							{
 								headerCell = headerRow.getCell(j);
 								cell = row.getCell(j);
-								if(cell!=null) {
-									map.put(getCellValue(headerCell), getCellValue(cell));
-//									storage[reqRow][j-2] = getCellValue(cell);
+
+								if (cell != null)
+								{
+									map.put(getCellValue(headerCell), getCellValue(cell));//
 								}
 							}
-							list.add(new Object[]{map});
-							reqRow++;
+
+							list.add(new Object[]
+							{ map });
 						}
 					}
 				}
 			}
 		}
-		catch(Exception e) {
+		catch (Exception e)
+		{
 			e.printStackTrace();
 		}
-		finally {
+		finally
+		{
 			file.close();
 		}
+
 		return list;
 	}
 	
@@ -284,14 +300,21 @@ public class ReadExcel {
 		}
 	}
 	
-	private static String getCellValue(Cell cell) {
+	private static String getCellValue(Cell cell)
+	{
+		int decimalIndex;
 		String value = null;
 		try
 		{
 			if (Cell.CELL_TYPE_NUMERIC == cell.getCellType()) {
 //				LOGGER.info(Utilities.getCurrentThreadId() + "Cell Contains value "
-//				+ cell.getDateCellValue());
-				value = String.valueOf((int)Math.round(cell.getNumericCellValue()));
+				// + cell.getDateCellValue());
+				value = String.valueOf(cell.getNumericCellValue());
+				decimalIndex = value.indexOf(".0");
+				if (decimalIndex != -1)
+				{
+					value = String.valueOf((int) Math.round(cell.getNumericCellValue()));
+				}
 			} else if (Cell.CELL_TYPE_STRING == cell.getCellType()) {
 //				LOGGER.info(Utilities.getCurrentThreadId() + "Cell Contains value "
 //						+ cell.getStringCellValue());

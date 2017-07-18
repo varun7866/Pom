@@ -102,11 +102,13 @@ public class TestBase {
 		return driver;
 	}
 	
-	@DataProvider(name="dp1")
+	@DataProvider(name = "CapellaDataProvider")
 	public Iterator<Object[]> readTestData(Method m) throws IOException
 	{
 		System.out.println("inside test base : Class Name = " + this.getClass().getSimpleName() + " and test method = " + m.getName());
-		List list = ReadExcel.readTestData(this.getClass().getSimpleName(), m.getName());		
+
+		List<Object[]> list = ReadExcel.readTestData(this.getClass().getSimpleName(), m.getName());
+
 		return list.iterator();
 	}
 }
