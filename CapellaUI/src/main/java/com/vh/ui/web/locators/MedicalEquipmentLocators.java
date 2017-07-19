@@ -30,10 +30,10 @@ public class MedicalEquipmentLocators
 
 	public static final By LBL_PAGEHEADER = By.xpath("//h2[text()='MEDICAL EQUIPMENT']");
 	public static final By LBL_EQUIPMENTDESCRIPTIONCOLUMNHEADER = By.xpath("//tr/th/div[contains(., 'EQUIPMENT DESCRIPTION')]");
-	public static final By LBL_SOURCECOLUMNHEADER = By.xpath("//tr/th[contains(., 'SOURCE')]");
-	public static final By LBL_MODIFIEDCOLUMNHEADER = By.xpath("//tr/th[contains(., 'MODIFIED')]");
-	public static final By LBL_STATUSCOLUMNHEADER = By.xpath("//tr/th[contains(., 'STATUS')]");
-	public static final By LBL_INUSECOLUMNHEADER = By.xpath("//tr/th[contains(., 'IN USE')]");
+	public static final By LBL_SOURCECOLUMNHEADER = By.xpath("//tr/th/div[contains(., 'SOURCE')]");
+	public static final By LBL_DATECOLUMNHEADER = By.xpath("//tr/th/div[contains(., 'DATE')]");
+	public static final By LBL_STATUSCOLUMNHEADER = By.xpath("//tr/th/div[contains(., 'STATUS')]");
+	public static final By LBL_INUSECOLUMNHEADER = By.xpath("//tr/th/div[contains(., 'IN USE')]");
 	public static final By LBL_ADDPOPUPADDMEDICALEQUIPMENT = By.xpath("//span[text()='Add Medical Equipment']");
 	public static final By LBL_ADDPOPUPDATE = By.xpath("//div[@class='modal-content']//label[text()='DATE']");
 	public static final By LBL_ADDPOPUPSOURCE = By.xpath("//div[@class='modal-content']//label[text()='SOURCE']");

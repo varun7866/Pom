@@ -17,9 +17,9 @@ import static com.vh.ui.web.locators.MedicalEquipmentLocators.LBL_ADDPOPUPEQUIPM
 import static com.vh.ui.web.locators.MedicalEquipmentLocators.LBL_ADDPOPUPEQUIPMENTTYPE;
 import static com.vh.ui.web.locators.MedicalEquipmentLocators.LBL_ADDPOPUPSOURCE;
 import static com.vh.ui.web.locators.MedicalEquipmentLocators.LBL_ADDPOPUPSTATUS;
+import static com.vh.ui.web.locators.MedicalEquipmentLocators.LBL_DATECOLUMNHEADER;
 import static com.vh.ui.web.locators.MedicalEquipmentLocators.LBL_EQUIPMENTDESCRIPTIONCOLUMNHEADER;
 import static com.vh.ui.web.locators.MedicalEquipmentLocators.LBL_INUSECOLUMNHEADER;
-import static com.vh.ui.web.locators.MedicalEquipmentLocators.LBL_MODIFIEDCOLUMNHEADER;
 import static com.vh.ui.web.locators.MedicalEquipmentLocators.LBL_PAGEHEADER;
 import static com.vh.ui.web.locators.MedicalEquipmentLocators.LBL_SOURCECOLUMNHEADER;
 import static com.vh.ui.web.locators.MedicalEquipmentLocators.LBL_STATUSCOLUMNHEADER;
@@ -33,6 +33,7 @@ import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
+import java.util.Map;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.TimeoutException;
@@ -78,10 +79,10 @@ public class MedicalEquipmentPage extends WebPage
 		return webActions.getVisibiltyOfElementLocatedBy(VISIBILITY, LBL_SOURCECOLUMNHEADER);
 	}
 
-	@Step("Verify the visibility of the Modified column header label")
-	public boolean viewModifiedColumnHeaderLabel() throws TimeoutException, WaitException
+	@Step("Verify the visibility of the Date column header label")
+	public boolean viewDateColumnHeaderLabel() throws TimeoutException, WaitException
 	{
-		return webActions.getVisibiltyOfElementLocatedBy(VISIBILITY, LBL_MODIFIEDCOLUMNHEADER);
+		return webActions.getVisibiltyOfElementLocatedBy(VISIBILITY, LBL_DATECOLUMNHEADER);
 	}
 
 	@Step("Verify the visibility of the Status column header label")
@@ -186,13 +187,37 @@ public class MedicalEquipmentPage extends WebPage
 		String[][] tableData = appFunctions.getTextFromTable(TBL_MEDICALEQUIPMENT, 5);
 
 		DateFormat dateFormat = new SimpleDateFormat("M/d/yyyy");
-		Date dateObject = new Date();		
+		Date dateObject = new Date();
 
 		for (String[] row : tableData)
 		{
 			if (row[0].equals("Bed Trapeze") && // If the data in the EQUIPMENT DESCRIPTION column equals "Bed Trapeze"
 			        row[1].equals("VHProvided") && // If the data in the SOURCE column equals "VH Provided"
-			        row[2].equals(dateFormat.format(dateObject))) // If the date in the MODIFIED column equals the current date
+			        row[2].equals(dateFormat.format(dateObject))) // If the date in the DATE column equals the current date
+			{
+				return true;
+			}
+		}
+
+		return false;
+	}
+
+	@Step("Checks if a specific Medical Equipment is in the table compared to the data from Excel")
+	public boolean isMedicalEquipmentInTable(Map<String, String> map) throws TimeoutException, WaitException, InterruptedException
+	{
+		String equipmentDate;
+
+		Thread.sleep(1000); // Pause to give time for the new Medical Equipment to be added to the table before we read the table
+
+		String[][] tableData = appFunctions.getTextFromTable(TBL_MEDICALEQUIPMENT, 5);
+
+		equipmentDate = appFunctions.adjustCurrentDateBy(map.get("DATE"), "M/d/yyyy");
+
+		for (String[] row : tableData)
+		{
+			if (row[0].equals(map.get("EQUIPMENTTYPE")) && // If the data in the EQUIPMENT DESCRIPTION column equals the data from Excel
+			        row[1].equals(map.get("SOURCE")) && // If the data in the SOURCE column equals the data from Excel
+			        row[2].equals(equipmentDate)) // If the date in the DATE column equals the data from Excel
 			{
 				return true;
 			}
@@ -510,7 +535,7 @@ public class MedicalEquipmentPage extends WebPage
 	@Step("Verify the MODIFIED column sorts ascendingly")
 	public boolean isTableSortableByModifiedAscending() throws TimeoutException, WaitException
 	{
-		webActions.click(VISIBILITY, LBL_MODIFIEDCOLUMNHEADER);
+		webActions.click(VISIBILITY, LBL_DATECOLUMNHEADER);
 
 		return appFunctions.isColumnSorted(TBL_MEDICALEQUIPMENT, 3, "A", "text");
 	}
@@ -518,7 +543,7 @@ public class MedicalEquipmentPage extends WebPage
 	@Step("Verify the MODIFIED column sorts dscendingly")
 	public boolean isTableSortableByModifiedDescending() throws TimeoutException, WaitException
 	{
-		webActions.click(VISIBILITY, LBL_MODIFIEDCOLUMNHEADER);
+		webActions.click(VISIBILITY, LBL_DATECOLUMNHEADER);
 
 		return appFunctions.isColumnSorted(TBL_MEDICALEQUIPMENT, 3, "D", "text");
 	}

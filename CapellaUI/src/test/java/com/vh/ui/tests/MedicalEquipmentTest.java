@@ -4,6 +4,7 @@ import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
+import java.util.Map;
 
 import org.openqa.selenium.TimeoutException;
 import org.openqa.selenium.WebDriver;
@@ -60,13 +61,13 @@ public class MedicalEquipmentTest extends TestBase
 	@Step("Verify the Medical Equipment page")
 	public void verify_MedicalEquipmentPage() throws WaitException, URLNavigationException, InterruptedException
 	{
-		Assert.assertTrue(medicalEquipmentPage.viewPageHeaderLabel(), "Failed to identify the Medical Equipment page header label");
+		Assert.assertTrue(medicalEquipmentPage.viewPageHeaderLabel(), "Failed to identify the MEDICAL EQUIPMENT page header label");
 		Assert.assertTrue(medicalEquipmentPage.viewAddMedicalEquipmentButton(), "Failed to identify the ADD MEDICAL EQUIPMENT button");
-		Assert.assertTrue(medicalEquipmentPage.viewEquipmentDescriptionColumnHeaderLabel(), "Failed to identify the Equipment Description colummn header label");
-		Assert.assertTrue(medicalEquipmentPage.viewSourceColumnHeaderLabel(), "Failed to identify the Source colummn header label");
-		Assert.assertTrue(medicalEquipmentPage.viewModifiedColumnHeaderLabel(), "Failed to identify the Modified colummn header label");
-		Assert.assertTrue(medicalEquipmentPage.viewStatusColumnHeaderLabel(), "Failed to identify the Status colummn header label");
-		Assert.assertTrue(medicalEquipmentPage.viewInUseColumnHeaderLabel(), "Failed to identify the In Use colummn header label");
+		Assert.assertTrue(medicalEquipmentPage.viewEquipmentDescriptionColumnHeaderLabel(), "Failed to identify the EQUIPMENT DESCRIPTION colummn header label");
+		Assert.assertTrue(medicalEquipmentPage.viewSourceColumnHeaderLabel(), "Failed to identify the SOURCE colummn header label");
+		Assert.assertTrue(medicalEquipmentPage.viewDateColumnHeaderLabel(), "Failed to identify the DATE colummn header label");
+		Assert.assertTrue(medicalEquipmentPage.viewStatusColumnHeaderLabel(), "Failed to identify the STATUS colummn header label");
+		Assert.assertTrue(medicalEquipmentPage.viewInUseColumnHeaderLabel(), "Failed to identify the IN USE colummn header label");
 	}
 
 	@Test(priority = 2)
@@ -183,6 +184,29 @@ public class MedicalEquipmentTest extends TestBase
 		// Commented out because we can no longer test the state of a check box until the HTML changes.
 		// Assert.assertTrue(medicalEquipmentPage.isTableSortableByInUseAscending(), "The IN USE column did not sort ascendingly");
 		// Assert.assertTrue(medicalEquipmentPage.isTableSortableByInUseDescending(), "The IN USE column did not sort descendingly");
+	}
+
+	@Test(priority = 6, dataProvider = "CapellaDataProvider")
+	@Step("Verify adding Medical Equipment from Excel data")
+	public void verify_AddingMedicalEquipment(Map<String, String> map) throws WaitException, URLNavigationException, InterruptedException
+	{
+		boolean equipmentInUse = false;
+		String equipmentAddDay;
+
+		appFunctions.selectPatientFromMyPatients(map.get("PatientName"));
+
+		appFunctions.navigateToMenu("Patient Admin->Medical Equipment");
+
+		equipmentAddDay = appFunctions.adjustCurrentDateBy(map.get("DATE"), "d");
+
+		if (map.get("EQUIPMENTINUSE").equals("Y"))
+		{
+			equipmentInUse = true;
+		}
+
+		medicalEquipmentPage.addMedicalEquipment(equipmentAddDay, map.get("SOURCEDROPDOWN"), map.get("EQUIPMENTTYPE"), map.get("STATUS"), equipmentInUse);
+
+		Assert.assertTrue(medicalEquipmentPage.isMedicalEquipmentInTable(map), "The Medical Equipment is not in the table");
 	}
 
 	@AfterClass
