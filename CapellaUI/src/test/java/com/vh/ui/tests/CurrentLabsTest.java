@@ -28,6 +28,8 @@ import ru.yandex.qatools.allure.annotations.Step;
  * 2. Clear your browser's cache
  * 3. You will need a CKD and an ESRD Patient
  * 4. It's not required, but it would be a good idea to delete all existing Labs from table PTLB_PATIENT_LABS for your Patients
+ * Note: KT/V & URR are invalid for a CKD Patient
+ * Note: URINE ALBUMIN/CREATININE RATIO is invalid for an ESRD Patient
  */
 
 public class CurrentLabsTest extends TestBase
@@ -430,7 +432,7 @@ public class CurrentLabsTest extends TestBase
 			Assert.assertTrue(currentLabsPage.viewAlbuminSource(), "Failed to identify the ALBUMIN Source");
 		}
 
-		if (map.get("URINEALBUMINCREATININERATIO") != null)
+		if (map.get("URINEALBUMINCREATININERATIO") != null && map.get("PatientType").equals("CKD"))
 		{
 			Assert.assertTrue(currentLabsPage.viewUrineAlbuminCreatinineRatioLabelValue(map.get("URINEALBUMINCREATININERATIO")),
 			        "Failed to identify the URINE ALBUMIN CREATININE RATIO label/value");
@@ -464,7 +466,7 @@ public class CurrentLabsTest extends TestBase
 			Assert.assertTrue(currentLabsPage.viewCalciumSource(), "Failed to identify the CALCIUM Source");
 		}
 
-		if (map.get("KTV") != null)
+		if (map.get("KTV") != null && map.get("PatientType").equals("ESRD"))
 		{
 			Assert.assertTrue(currentLabsPage.viewKTVLabelValue(map.get("KTV")), "Failed to identify the KT/V label/value");
 			Assert.assertTrue(currentLabsPage.viewKTVGoal(), "Failed to identify the KT/V Goal");
@@ -472,7 +474,7 @@ public class CurrentLabsTest extends TestBase
 			Assert.assertTrue(currentLabsPage.viewKTVSource(), "Failed to identify the KT/V Source");
 		}
 
-		if (map.get("URR") != null)
+		if (map.get("URR") != null && map.get("PatientType").equals("ESRD"))
 		{
 			Assert.assertTrue(currentLabsPage.viewURRLabelValue(map.get("URR")), "Failed to identify the URR label/value");
 			Assert.assertTrue(currentLabsPage.viewURRGoal(), "Failed to identify the URR Goal");
