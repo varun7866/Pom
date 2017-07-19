@@ -969,6 +969,20 @@ public class CurrentLabsPage extends WebPage
 		return webActions.getVisibiltyOfElementLocatedBy(VISIBILITY, LBL_CALCIUMXPHOSPHOROUSSOURCE);
 	}
 
+	@Step("Verify the color of the CALCIUM X PHOSPHOROUS label/value")
+	public boolean viewCalciumXPhosphorousColor(int labValue) throws TimeoutException, WaitException
+	{
+		String classAttributeValue = webActions.getAttributeValue(VISIBILITY, LBL_CALCIUMXPHOSPHOROUSCOLOR, "class");
+
+		if ((labValue < 30 || labValue > 60) && classAttributeValue.contains("redtext"))
+		{
+			return true;
+		} else
+		{
+			return false;
+		}
+	}
+
 	@Step("Verify the visibility of the PHOSPHOROUS label/value")
 	public boolean viewPhosphorousLabelValue(String labValue) throws TimeoutException, WaitException
 	{

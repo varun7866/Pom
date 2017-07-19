@@ -87,6 +87,7 @@ public class CurrentLabsLocators
 	public static final By LBL_HEIGHTSOURCE = By.xpath("//span[contains(., 'Height (')]/../../..//span[text()='Source: VH']");
 	public static final By LBL_WEIGHTSOURCE = By.xpath("//span[contains(., 'Weight (')]/../../..//span[text()='Source: VH']");
 	public static final By LBL_TARGETDRYWEIGHTSOURCE = By.xpath("//span[contains(., 'Target Dry Weight (')]/../../..//span[text()='Source: VH']");
+	public static final By LBL_CALCIUMXPHOSPHOROUSCOLOR = By.xpath("//span[contains(., 'Calcium X Phosphorous (')]");
 	public static final By LBL_CALCIUMXPHOSPHOROUSGOAL = By.xpath("//span[contains(., 'Calcium X Phosphorous (')]/../..//span[text()='Goal: Between 30 and 60']");
 	public static final By LBL_CALCIUMXPHOSPHOROUSSOURCE = By.xpath("//span[contains(., 'Calcium X Phosphorous (')]/../../..//span[text()='Source: VH']");
 	public static final By LBL_PHOSPHOROUSGOAL = By.xpath("//span[contains(., 'Phosphorous (')]/../..//span[text()='Goal: Between 0.5 and 5.5']");
