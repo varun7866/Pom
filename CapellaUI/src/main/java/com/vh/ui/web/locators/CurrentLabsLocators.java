@@ -85,8 +85,11 @@ public class CurrentLabsLocators
 	public static final By LBL_ADDPOPUPURINEALBUMINCREATININERATIOERRORMESSAGE = By
 	        .xpath("//div[@class='modal-dialog modal-lg']//div[@role='alert']//div[contains(., \"Labtype 'UrineAlbuminCreatinineRatio' not valid for this patient\")]");
 	public static final By LBL_HEIGHTSOURCE = By.xpath("//span[contains(., 'Height (')]/../../..//span[text()='Source: VH']");
+	public static final By LBL_HEIGHTCOLOR = By.xpath("//span[contains(., 'Height (')]");
 	public static final By LBL_WEIGHTSOURCE = By.xpath("//span[contains(., 'Weight (')]/../../..//span[text()='Source: VH']");
+	public static final By LBL_WEIGHTCOLOR = By.xpath("//span[contains(., 'Weight (')]");
 	public static final By LBL_TARGETDRYWEIGHTSOURCE = By.xpath("//span[contains(., 'Target Dry Weight (')]/../../..//span[text()='Source: VH']");
+	public static final By LBL_TARGETDRYWEIGHTCOLOR = By.xpath("//span[contains(., 'Target Dry Weight (')]");
 	public static final By LBL_CALCIUMXPHOSPHOROUSCOLOR = By.xpath("//span[contains(., 'Calcium X Phosphorous (')]");
 	public static final By LBL_CALCIUMXPHOSPHOROUSGOAL = By.xpath("//span[contains(., 'Calcium X Phosphorous (')]/../..//span[text()='Goal: Between 30 and 60']");
 	public static final By LBL_CALCIUMXPHOSPHOROUSSOURCE = By.xpath("//span[contains(., 'Calcium X Phosphorous (')]/../../..//span[text()='Source: VH']");

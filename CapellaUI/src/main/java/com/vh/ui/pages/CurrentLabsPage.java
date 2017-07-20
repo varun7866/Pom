@@ -642,12 +642,125 @@ public class CurrentLabsPage extends WebPage
 
 		appFunctions.selectDateFromCalendar(CAL_ADDPOPUPAPPLYTHISDATETOALLVALUES, drawDateDay);
 
-		enterHeight(map.get("HEIGHT")).enterWeight(map.get("WEIGHT")).enterTargetDryWeight(map.get("TARGETDRYWEIGHT")).enterCalciumXPhosphorous(map.get("CALCIUMXPHOSPHOROUS"))
-		        .enterPhosphorous(map.get("PHOSPHOROUS")).enterCreatinineString(map.get("CREATININE")).enterGFR(map.get("GFR")).enterHGBA1C(map.get("HGBA1C")).enterLDL(map.get("LDL"))
-		        .enterHGB(map.get("HGB")).enterAlbumin(map.get("ALBUMIN")).enterUrineAlbuminCreatinineRatio(map.get("URINEALBUMINCREATININERATIO"))
-		        .enterDipstickForProtein(map.get("DIPSTICKFORPROTEIN")).enterCO2Level(map.get("CO2LEVEL")).enterCalcium(map.get("CALCIUM")).enterKTV(map.get("KTV")).enterURR(map.get("URR"))
-		        .enterPotassium(map.get("POTASIUM")).enterPTH(map.get("PTH")).enterHepatitisBTiter(map.get("HEPATITISBTITER")).enterFerritin(map.get("FERRITIN")).enterTSAT(map.get("TSAT"))
-		        .enterBloodPressureSystolic(map.get("BLOODPRESSURESYSTOLIC")).enterBloodPressureDiastolic(map.get("BLOODPRESSUREDIASTOLIC"));
+		if (map.get("HEIGHT") != null)
+		{
+			enterHeight(map.get("HEIGHT"));
+		}
+
+		if (map.get("WEIGHT") != null)
+		{
+			enterWeight(map.get("WEIGHT"));
+		}
+
+		if (map.get("TARGETDRYWEIGHT") != null)
+		{
+			enterTargetDryWeight(map.get("TARGETDRYWEIGHT"));
+		}
+
+		if (map.get("CALCIUMXPHOSPHOROUS") != null)
+		{
+			enterCalciumXPhosphorous(map.get("CALCIUMXPHOSPHOROUS"));
+		}
+
+		if (map.get("PHOSPHOROUS") != null)
+		{
+			enterPhosphorous(map.get("PHOSPHOROUS"));
+		}
+
+		if (map.get("CREATININE") != null)
+		{
+			enterCreatinine(map.get("CREATININE"));
+		}
+
+		if (map.get("GFR") != null)
+		{
+			enterGFR(map.get("GFR"));
+		}
+
+		if (map.get("HGBA1C") != null)
+		{
+			enterHGBA1C(map.get("HGBA1C"));
+		}
+
+		if (map.get("LDL") != null)
+		{
+			enterLDL(map.get("LDL"));
+		}
+
+		if (map.get("HGB") != null)
+		{
+			enterHGB(map.get("HGB"));
+		}
+
+		if (map.get("ALBUMIN") != null)
+		{
+			enterAlbumin(map.get("ALBUMIN"));
+		}
+
+		if (map.get("URINEALBUMINCREATININERATIO") != null)
+		{
+			enterUrineAlbuminCreatinineRatio(map.get("URINEALBUMINCREATININERATIO"));
+		}
+
+		if (map.get("DIPSTICKFORPROTEIN") != null)
+		{
+			enterDipstickForProtein(map.get("DIPSTICKFORPROTEIN"));
+		}
+
+		if (map.get("CO2LEVEL") != null)
+		{
+			enterCO2Level(map.get("CO2LEVEL"));
+		}
+
+		if (map.get("CALCIUM") != null)
+		{
+			enterCalcium(map.get("CALCIUM"));
+		}
+
+		if (map.get("KTV") != null)
+		{
+			enterKTV(map.get("KTV"));
+		}
+
+		if (map.get("URR") != null)
+		{
+			enterURR(map.get("URR"));
+		}
+
+		if (map.get("POTASIUM") != null)
+		{
+			enterPotassium(map.get("POTASIUM"));
+		}
+
+		if (map.get("PTH") != null)
+		{
+			enterPTH(map.get("PTH"));
+		}
+
+		if (map.get("HEPATITISBTITER") != null)
+		{
+			enterHepatitisBTiter(map.get("HEPATITISBTITER"));
+		}
+
+		if (map.get("FERRITIN") != null)
+		{
+			enterFerritin(map.get("FERRITIN"));
+		}
+
+		if (map.get("TSAT") != null)
+		{
+			enterTSAT(map.get("TSAT"));
+		}
+
+		if (map.get("BLOODPRESSURESYSTOLIC") != null)
+		{
+			enterBloodPressureSystolic(map.get("BLOODPRESSURESYSTOLIC"));
+		}
+
+		if (map.get("BLOODPRESSUREDIASTOLIC") != null)
+		{
+			enterBloodPressureDiastolic(map.get("BLOODPRESSUREDIASTOLIC"));
+		}
 	}
 
 	@Step("Populate all fields on the Add Lab Results popup for an ESRD Patient")
@@ -659,12 +772,120 @@ public class CurrentLabsPage extends WebPage
 
 		appFunctions.selectDateFromCalendar(CAL_ADDPOPUPAPPLYTHISDATETOALLVALUES, drawDateDay);
 
-		enterHeight(map.get("HEIGHT")).enterWeight(map.get("WEIGHT")).enterTargetDryWeight(map.get("TARGETDRYWEIGHT")).enterCalciumXPhosphorous(map.get("CALCIUMXPHOSPHOROUS"))
-		        .enterPhosphorous(map.get("PHOSPHOROUS")).enterCreatinineString(map.get("CREATININE")).enterGFR(map.get("GFR")).enterHGBA1C(map.get("HGBA1C")).enterLDL(map.get("LDL"))
-		        .enterHGB(map.get("HGB")).enterAlbumin(map.get("ALBUMIN")).enterUrineAlbuminCreatinineRatio(map.get("URINEALBUMINCREATININERATIO")).enterCO2Level(map.get("CO2LEVEL"))
-		        .enterCalcium(map.get("CALCIUM")).enterKTV(map.get("KTV")).enterURR(map.get("URR")).enterPotassium(map.get("POTASIUM")).enterPTH(map.get("PTH"))
-		        .enterHepatitisBTiter(map.get("HEPATITISBTITER")).enterFerritin(map.get("FERRITIN")).enterTSAT(map.get("TSAT")).enterBloodPressureSystolic(map.get("BLOODPRESSURESYSTOLIC"))
-		        .enterBloodPressureDiastolic(map.get("BLOODPRESSUREDIASTOLIC"));
+		if (map.get("HEIGHT") != null)
+		{
+			enterHeight(map.get("HEIGHT"));
+		}
+
+		if (map.get("WEIGHT") != null)
+		{
+			enterWeight(map.get("WEIGHT"));
+		}
+
+		if (map.get("TARGETDRYWEIGHT") != null)
+		{
+			enterTargetDryWeight(map.get("TARGETDRYWEIGHT"));
+		}
+
+		if (map.get("CALCIUMXPHOSPHOROUS") != null)
+		{
+			enterCalciumXPhosphorous(map.get("CALCIUMXPHOSPHOROUS"));
+		}
+
+		if (map.get("PHOSPHOROUS") != null)
+		{
+			enterPhosphorous(map.get("PHOSPHOROUS"));
+		}
+
+		if (map.get("CREATININE") != null)
+		{
+			enterCreatinine(map.get("CREATININE"));
+		}
+
+		if (map.get("GFR") != null)
+		{
+			enterGFR(map.get("GFR"));
+		}
+
+		if (map.get("HGBA1C") != null)
+		{
+			enterHGBA1C(map.get("HGBA1C"));
+		}
+
+		if (map.get("LDL") != null)
+		{
+			enterLDL(map.get("LDL"));
+		}
+
+		if (map.get("HGB") != null)
+		{
+			enterHGB(map.get("HGB"));
+		}
+
+		if (map.get("ALBUMIN") != null)
+		{
+			enterAlbumin(map.get("ALBUMIN"));
+		}
+
+		if (map.get("URINEALBUMINCREATININERATIO") != null)
+		{
+			enterUrineAlbuminCreatinineRatio(map.get("URINEALBUMINCREATININERATIO"));
+		}
+
+		if (map.get("CO2LEVEL") != null)
+		{
+			enterCO2Level(map.get("CO2LEVEL"));
+		}
+
+		if (map.get("CALCIUM") != null)
+		{
+			enterCalcium(map.get("CALCIUM"));
+		}
+
+		if (map.get("KTV") != null)
+		{
+			enterKTV(map.get("KTV"));
+		}
+
+		if (map.get("URR") != null)
+		{
+			enterURR(map.get("URR"));
+		}
+
+		if (map.get("POTASIUM") != null)
+		{
+			enterPotassium(map.get("POTASIUM"));
+		}
+
+		if (map.get("PTH") != null)
+		{
+			enterPTH(map.get("PTH"));
+		}
+
+		if (map.get("HEPATITISBTITER") != null)
+		{
+			enterHepatitisBTiter(map.get("HEPATITISBTITER"));
+		}
+
+		if (map.get("FERRITIN") != null)
+		{
+			enterFerritin(map.get("FERRITIN"));
+		}
+
+		if (map.get("TSAT") != null)
+		{
+			enterTSAT(map.get("TSAT"));
+		}
+
+		if (map.get("BLOODPRESSURESYSTOLIC") != null)
+		{
+			enterBloodPressureSystolic(map.get("BLOODPRESSURESYSTOLIC"));
+		}
+
+		if (map.get("BLOODPRESSUREDIASTOLIC") != null)
+		{
+			enterBloodPressureDiastolic(map.get("BLOODPRESSUREDIASTOLIC"));
+		}
 	}
 
 	@Step("Entered {0} in the HEIGHT text field")
@@ -766,7 +987,7 @@ public class CurrentLabsPage extends WebPage
 	}
 	
 	@Step("Entered {0} in the CREATININE text field")
-	public CurrentLabsPage enterCreatinineString(String creatinineVal) throws TimeoutException, WaitException
+	public CurrentLabsPage enterCreatinine(String creatinineVal) throws TimeoutException, WaitException
 	{
 		webActions.enterText(VISIBILITY, TXT_ADDPOPUPCREATININE, creatinineVal);
 		return this;
@@ -897,6 +1118,20 @@ public class CurrentLabsPage extends WebPage
 		return webActions.getVisibiltyOfElementLocatedBy(VISIBILITY, LBL_HEIGHTSOURCE);
 	}
 
+	@Step("Verify the color of the HEIGHT label/value")
+	public boolean viewHeightColor() throws TimeoutException, WaitException
+	{
+		String classAttributeValue = webActions.getAttributeValue(VISIBILITY, LBL_HEIGHTCOLOR, "class");
+
+		if (classAttributeValue.contains("greentext"))
+		{
+			return true;
+		} else
+		{
+			return false;
+		}
+	}
+
 	@Step("Verify the visibility of the WEIGHT label/value")
 	public boolean viewWeightLabelValue(String labValue) throws TimeoutException, WaitException
 	{
@@ -919,6 +1154,20 @@ public class CurrentLabsPage extends WebPage
 		return webActions.getVisibiltyOfElementLocatedBy(VISIBILITY, LBL_WEIGHTSOURCE);
 	}
 
+	@Step("Verify the color of the WEIGHT label/value")
+	public boolean viewWeightColor() throws TimeoutException, WaitException
+	{
+		String classAttributeValue = webActions.getAttributeValue(VISIBILITY, LBL_WEIGHTCOLOR, "class");
+
+		if (classAttributeValue.contains("greentext"))
+		{
+			return true;
+		} else
+		{
+			return false;
+		}
+	}
+
 	@Step("Verify the visibility of the TARGET DRY WEIGHT label/value")
 	public boolean viewTargetDryWeightLabelValue(String labValue) throws TimeoutException, WaitException
 	{
@@ -939,6 +1188,20 @@ public class CurrentLabsPage extends WebPage
 	public boolean viewTargetDryWeightSource() throws TimeoutException, WaitException
 	{
 		return webActions.getVisibiltyOfElementLocatedBy(VISIBILITY, LBL_TARGETDRYWEIGHTSOURCE);
+	}
+
+	@Step("Verify the color of the TARGET DRY WEIGHT label/value")
+	public boolean viewTargetDryWeightColor() throws TimeoutException, WaitException
+	{
+		String classAttributeValue = webActions.getAttributeValue(VISIBILITY, LBL_TARGETDRYWEIGHTCOLOR, "class");
+
+		if (classAttributeValue.contains("greentext"))
+		{
+			return true;
+		} else
+		{
+			return false;
+		}
 	}
 
 	@Step("Verify the visibility of the CALCIUM X PHOSPHOROUS label/value")
@@ -974,12 +1237,25 @@ public class CurrentLabsPage extends WebPage
 	{
 		String classAttributeValue = webActions.getAttributeValue(VISIBILITY, LBL_CALCIUMXPHOSPHOROUSCOLOR, "class");
 
-		if ((labValue < 30 || labValue > 60) && classAttributeValue.contains("redtext"))
+		if (labValue < 30 || labValue > 60) // If out of range
 		{
-			return true;
-		} else
+			if (classAttributeValue.contains("redtext"))
+			{
+				return true;
+			} else
+			{
+				return false;
+			}
+		}
+		else // In range
 		{
-			return false;
+			if (classAttributeValue.contains("greentext"))
+			{
+				return true;
+			} else
+			{
+				return false;
+			}
 		}
 	}
 
