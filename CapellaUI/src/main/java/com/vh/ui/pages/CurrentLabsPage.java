@@ -1973,6 +1973,32 @@ public class CurrentLabsPage extends WebPage
 		return webActions.getVisibiltyOfElementLocatedBy(VISIBILITY, LBL_URRSOURCE);
 	}
 
+	@Step("Verify the color of the URR label/value")
+	public boolean viewURRColor(int labValue) throws TimeoutException, WaitException
+	{
+		String classAttributeValue = webActions.getAttributeValue(VISIBILITY, LBL_URRCOLOR, "class");
+
+		if (labValue < 65 || labValue > 99) // If out of range
+		{
+			if (classAttributeValue.contains("redtext"))
+			{
+				return true;
+			} else
+			{
+				return false;
+			}
+		} else // In range
+		{
+			if (classAttributeValue.contains("greentext"))
+			{
+				return true;
+			} else
+			{
+				return false;
+			}
+		}
+	}
+
 	@Step("Verify the visibility of the POTASIUM label/value")
 	public boolean viewPotassiumLabelValue(String labValue) throws TimeoutException, WaitException
 	{
@@ -1999,6 +2025,32 @@ public class CurrentLabsPage extends WebPage
 	public boolean viewPotassiumSource() throws TimeoutException, WaitException
 	{
 		return webActions.getVisibiltyOfElementLocatedBy(VISIBILITY, LBL_POTASIUMSOURCE);
+	}
+
+	@Step("Verify the color of the POTASIUM label/value")
+	public boolean viewPotassiumColor(Double labValue) throws TimeoutException, WaitException
+	{
+		String classAttributeValue = webActions.getAttributeValue(VISIBILITY, LBL_POTASIUMCOLOR, "class");
+
+		if (labValue < 3.5 || labValue > 5.2) // If out of range
+		{
+			if (classAttributeValue.contains("redtext"))
+			{
+				return true;
+			} else
+			{
+				return false;
+			}
+		} else // In range
+		{
+			if (classAttributeValue.contains("greentext"))
+			{
+				return true;
+			} else
+			{
+				return false;
+			}
+		}
 	}
 
 	@Step("Verify the visibility of the PTH label/value")
@@ -2051,6 +2103,114 @@ public class CurrentLabsPage extends WebPage
 	public boolean viewPTHSource() throws TimeoutException, WaitException
 	{
 		return webActions.getVisibiltyOfElementLocatedBy(VISIBILITY, LBL_PTHSOURCE);
+	}
+
+	@Step("Verify the color of the PTH label/value")
+	public boolean viewPTHColor(int labValue, String patientType, String cKDStage) throws TimeoutException, WaitException
+	{
+		String classAttributeValue = webActions.getAttributeValue(VISIBILITY, LBL_PTHCOLOR, "class");
+
+		if (patientType.equals("CKD"))
+		{
+			if (cKDStage.equals("1") || cKDStage.equals("2"))
+			{
+				if (labValue < 0 || labValue > 9999) // If out of range
+				{
+					if (classAttributeValue.contains("redtext"))
+					{
+						return true;
+					} else
+					{
+						return false;
+					}
+				} else // In range
+				{
+					if (classAttributeValue.contains("greentext"))
+					{
+						return true;
+					} else
+					{
+						return false;
+					}
+				}
+			} else
+			{
+				if (cKDStage.equals("3"))
+				{
+					if (labValue < 35 || labValue > 70) // If out of range
+					{
+						if (classAttributeValue.contains("redtext"))
+						{
+							return true;
+						} else
+						{
+							return false;
+						}
+					} else // In range
+					{
+						if (classAttributeValue.contains("greentext"))
+						{
+							return true;
+						} else
+						{
+							return false;
+						}
+					}
+				}
+				else
+				{
+					if (cKDStage.equals("4"))
+					{
+						if (labValue < 71 || labValue > 110) // If out of range
+						{
+							if (classAttributeValue.contains("redtext"))
+							{
+								return true;
+							} else
+							{
+								return false;
+							}
+						} else // In range
+						{
+							if (classAttributeValue.contains("greentext"))
+							{
+								return true;
+							} else
+							{
+								return false;
+							}
+						}
+					}
+				}
+			}
+		}
+		else
+		{
+			if (patientType.equals("ESRD"))
+			{
+				if (labValue < 150 || labValue > 600) // If out of range
+				{
+					if (classAttributeValue.contains("redtext"))
+					{
+						return true;
+					} else
+					{
+						return false;
+					}
+				} else // In range
+				{
+					if (classAttributeValue.contains("greentext"))
+					{
+						return true;
+					} else
+					{
+						return false;
+					}
+				}
+			}
+		}
+
+		return false;
 	}
 
 	@Step("Verify the visibility of the HEPATITIS B TITER label/value")

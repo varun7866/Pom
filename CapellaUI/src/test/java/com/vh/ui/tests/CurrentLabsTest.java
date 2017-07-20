@@ -498,6 +498,7 @@ public class CurrentLabsTest extends TestBase
 			Assert.assertTrue(currentLabsPage.viewURRGoal(), "Failed to identify the URR Goal");
 			Assert.assertTrue(currentLabsPage.viewURRDrawDate(drawDateGregorian), "Failed to identify the URR draw date");
 			Assert.assertTrue(currentLabsPage.viewURRSource(), "Failed to identify the URR Source");
+			Assert.assertTrue(currentLabsPage.viewURRColor(Integer.parseInt(map.get("URR"))), "Failed to identify URR as the correct color");
 		}
 
 		if (map.get("POTASIUM") != null)
@@ -506,6 +507,7 @@ public class CurrentLabsTest extends TestBase
 			Assert.assertTrue(currentLabsPage.viewPotassiumGoal(), "Failed to identify the POTASIUM Goal");
 			Assert.assertTrue(currentLabsPage.viewPotassiumDrawDate(drawDateGregorian), "Failed to identify the POTASIUM draw date");
 			Assert.assertTrue(currentLabsPage.viewPotassiumSource(), "Failed to identify the POTASIUM Source");
+			Assert.assertTrue(currentLabsPage.viewPotassiumColor(Double.parseDouble(map.get("POTASIUM"))), "Failed to identify POTASIUM as the correct color");
 		}
 
 		if (map.get("PTH") != null)
@@ -518,6 +520,7 @@ public class CurrentLabsTest extends TestBase
 			Assert.assertTrue(currentLabsPage.viewPTHGoal5(), "Failed to identify the PTH Goal5");
 			Assert.assertTrue(currentLabsPage.viewPTHDrawDate(drawDateGregorian), "Failed to identify the PTH draw date");
 			Assert.assertTrue(currentLabsPage.viewPTHSource(), "Failed to identify the PTH Source");
+			Assert.assertTrue(currentLabsPage.viewPTHColor(Integer.parseInt(map.get("PTH")), map.get("PatientType"), map.get("CKDStage")), "Failed to identify PTH as the correct color");
 		}
 
 		if (map.get("HEPATITISBTITER") != null)

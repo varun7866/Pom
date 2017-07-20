@@ -132,14 +132,17 @@ public class CurrentLabsLocators
 	public static final By LBL_KTVCOLOR = By.xpath("//span[contains(., 'KT/V (')]");
 	public static final By LBL_URRGOAL = By.xpath("//span[contains(., 'URR (')]/../..//span[text()='Goal: Between 65 and 99']");
 	public static final By LBL_URRSOURCE = By.xpath("//span[contains(., 'URR (')]/../../..//span[text()='Source: VH']");
+	public static final By LBL_URRCOLOR = By.xpath("//span[contains(., 'URR (')]");
 	public static final By LBL_POTASIUMGOAL = By.xpath("//span[contains(., 'Potassium (')]/../..//span[text()='Goal: Between 3.5 and 5.2']");
 	public static final By LBL_POTASIUMSOURCE = By.xpath("//span[contains(., 'Potassium (')]/../../..//span[text()='Source: VH']");
+	public static final By LBL_POTASIUMCOLOR = By.xpath("//span[contains(., 'Potassium (')]");
 	public static final By LBL_PTHGOAL1 = By.xpath("//span[contains(., 'PTH (')]/../..//span[text()='Goal: CKD1: Between 0 and 9999']");
 	public static final By LBL_PTHGOAL2 = By.xpath("//span[contains(., 'PTH (')]/../..//span[text()=' CKD2: Between 0 and 9999']");
 	public static final By LBL_PTHGOAL3 = By.xpath("//span[contains(., 'PTH (')]/../..//span[text()=' ESRD: Between 150 and 600']");
 	public static final By LBL_PTHGOAL4 = By.xpath("//span[contains(., 'PTH (')]/../..//span[text()=' CKD3: Between 35 and 70']");
 	public static final By LBL_PTHGOAL5 = By.xpath("//span[contains(., 'PTH (')]/../..//span[text()=' CKD4: Between 71 and 110']");
 	public static final By LBL_PTHSOURCE = By.xpath("//span[contains(., 'PTH (')]/../../..//span[text()='Source: VH']");
+	public static final By LBL_PTHCOLOR = By.xpath("//span[contains(., 'PTH (')]");
 	public static final By LBL_HEPATITISBTITERGOAL = By.xpath("//span[contains(., 'Hepatitis B Titer (')]/../..//span[text()='Goal: Between 10 and 100']");
 	public static final By LBL_HEPATITISBTITERSOURCE = By.xpath("//span[contains(., 'Hepatitis B Titer (')]/../../..//span[text()='Source: VH']");
 	public static final By LBL_FERRITINGOAL = By.xpath("//span[contains(., 'Ferritin (')]/../..//span[text()='Goal: Between 100 and 500']");
