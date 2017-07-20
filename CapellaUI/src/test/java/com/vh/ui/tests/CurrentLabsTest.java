@@ -441,6 +441,7 @@ public class CurrentLabsTest extends TestBase
 			Assert.assertTrue(currentLabsPage.viewAlbuminGoal(), "Failed to identify the ALBUMIN Goal");
 			Assert.assertTrue(currentLabsPage.viewAlbuminDrawDate(drawDateGregorian), "Failed to identify the ALBUMIN draw date");
 			Assert.assertTrue(currentLabsPage.viewAlbuminSource(), "Failed to identify the ALBUMIN Source");
+			Assert.assertTrue(currentLabsPage.viewAlbuminColor(Integer.parseInt(map.get("ALBUMIN"))), "Failed to identify ALBUMIN as the correct color");
 		}
 
 		if (map.get("URINEALBUMINCREATININERATIO") != null && map.get("PatientType").equals("CKD"))
@@ -450,6 +451,8 @@ public class CurrentLabsTest extends TestBase
 			Assert.assertTrue(currentLabsPage.viewUrineAlbuminCreatinineRatioGoal(), "Failed to identify the URINE ALBUMIN/CREATININE RATIO Goal");
 			Assert.assertTrue(currentLabsPage.viewUrineAlbuminCreatinineRatioDrawDate(drawDateGregorian), "Failed to identify the URINE ALBUMIN/CREATININE RATIO draw date");
 			Assert.assertTrue(currentLabsPage.viewUrineAlbuminCreatinineRatioSource(), "Failed to identify the URINE ALBUMIN/CREATININE RATIO Source");
+			Assert.assertTrue(currentLabsPage.viewUrineAlbuminCreatinineRatioColor(Integer.parseInt(map.get("URINEALBUMINCREATININERATIO"))),
+			        "Failed to identify URINE ALBUMIN/CREATININE RATIO as the correct color");
 		}
 
 		if (map.get("DIPSTICKFORPROTEIN") != null)
@@ -458,6 +461,7 @@ public class CurrentLabsTest extends TestBase
 			Assert.assertTrue(currentLabsPage.viewDipstickForProteinGoal(), "Failed to identify the DIPSTICK FOR PROTEIN Goal");
 			Assert.assertTrue(currentLabsPage.viewDipstickForProteinDrawDate(drawDateGregorian), "Failed to identify the DIPSTICK FOR PROTEIN draw date");
 			Assert.assertTrue(currentLabsPage.viewDipstickForProteinSource(), "Failed to identify the URINE DIPSTICK FOR PROTEIN Source");
+			Assert.assertTrue(currentLabsPage.viewDipstickForProteinColor(map.get("DIPSTICKFORPROTEIN")), "Failed to identify DIPSTICK FOR PROTEIN as the correct color");
 		}
 
 		if (map.get("CO2LEVEL") != null)

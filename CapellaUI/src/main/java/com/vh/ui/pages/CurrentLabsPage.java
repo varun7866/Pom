@@ -1611,6 +1611,32 @@ public class CurrentLabsPage extends WebPage
 		return webActions.getVisibiltyOfElementLocatedBy(VISIBILITY, LBL_ALBUMINSOURCE);
 	}
 
+	@Step("Verify the color of the ALBUMIN label/value")
+	public boolean viewAlbuminColor(int labValue) throws TimeoutException, WaitException
+	{
+		String classAttributeValue = webActions.getAttributeValue(VISIBILITY, LBL_ALBUMINCOLOR, "class");
+
+		if (labValue < 4 || labValue > 7) // If out of range
+		{
+			if (classAttributeValue.contains("redtext"))
+			{
+				return true;
+			} else
+			{
+				return false;
+			}
+		} else // In range
+		{
+			if (classAttributeValue.contains("greentext"))
+			{
+				return true;
+			} else
+			{
+				return false;
+			}
+		}
+	}
+
 	@Step("Verify the visibility of the URINE ALBUMIN/CREATININE RATIO label/value")
 	public boolean viewUrineAlbuminCreatinineRatioLabelValue(String labValue) throws TimeoutException, WaitException
 	{
@@ -1639,6 +1665,32 @@ public class CurrentLabsPage extends WebPage
 		return webActions.getVisibiltyOfElementLocatedBy(VISIBILITY, LBL_URINEALBUMINCREATININERATIOSOURCE);
 	}
 
+	@Step("Verify the color of the ALBUMIN label/value")
+	public boolean viewUrineAlbuminCreatinineRatioColor(int labValue) throws TimeoutException, WaitException
+	{
+		String classAttributeValue = webActions.getAttributeValue(VISIBILITY, LBL_URINEALBUMINCREATININERATIOCOLOR, "class");
+
+		if (labValue < 0 || labValue > 30) // If out of range
+		{
+			if (classAttributeValue.contains("redtext"))
+			{
+				return true;
+			} else
+			{
+				return false;
+			}
+		} else // In range
+		{
+			if (classAttributeValue.contains("greentext"))
+			{
+				return true;
+			} else
+			{
+				return false;
+			}
+		}
+	}
+
 	@Step("Verify the visibility of the DIPSTICK FOR PROTEIN label/value")
 	public boolean viewDipstickForProteinLabelValue(String labValue) throws TimeoutException, WaitException
 	{
@@ -1665,6 +1717,32 @@ public class CurrentLabsPage extends WebPage
 	public boolean viewDipstickForProteinSource() throws TimeoutException, WaitException
 	{
 		return webActions.getVisibiltyOfElementLocatedBy(VISIBILITY, LBL_DIPSTICKFORPROTEINSOURCE);
+	}
+
+	@Step("Verify the color of the DIPSTICK FOR PROTEIN label/value")
+	public boolean viewDipstickForProteinColor(String labValue) throws TimeoutException, WaitException
+	{
+		String classAttributeValue = webActions.getAttributeValue(VISIBILITY, LBL_DIPSTICKFORPROTEINCOLOR, "class");
+
+		if (labValue.equals("Positive")) // If out of range
+		{
+			if (classAttributeValue.contains("redtext"))
+			{
+				return true;
+			} else
+			{
+				return false;
+			}
+		} else // In range
+		{
+			if (classAttributeValue.contains("greentext"))
+			{
+				return true;
+			} else
+			{
+				return false;
+			}
+		}
 	}
 
 	@Step("Verify the visibility of the CO2 LEVEL label/value")

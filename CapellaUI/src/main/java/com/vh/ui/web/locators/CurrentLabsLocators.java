@@ -113,10 +113,13 @@ public class CurrentLabsLocators
 	public static final By LBL_HGBCOLOR = By.xpath("//span[contains(., 'Hgb (')]");
 	public static final By LBL_ALBUMINGOAL = By.xpath("//span[contains(., 'Albumin (')]/../..//span[text()='Goal: Between 4 and 7']");
 	public static final By LBL_ALBUMINSOURCE = By.xpath("//span[contains(., 'Albumin (')]/../../..//span[text()='Source: VH']");
+	public static final By LBL_ALBUMINCOLOR = By.xpath("//span[contains(., 'Albumin (')]");
 	public static final By LBL_URINEALBUMINCREATININERATIOGOAL = By.xpath("//span[contains(., 'Urine Albumin/Creatinine Ratio (')]/../..//span[text()='Goal: Between 0 and 30']");
 	public static final By LBL_URINEALBUMINCREATININERATIOSOURCE = By.xpath("//span[contains(., 'Urine Albumin/Creatinine Ratio (')]/../../..//span[text()='Source: VH']");
+	public static final By LBL_URINEALBUMINCREATININERATIOCOLOR = By.xpath("//span[contains(., 'Urine Albumin/Creatinine Ratio (')]");
 	public static final By LBL_DIPSTICKFORPROTEINGOAL = By.xpath("//span[contains(., 'Dipstick For Protein (')]/../..//span[text()='Goal: Negative']");
 	public static final By LBL_DIPSTICKFORPROTEINSOURCE = By.xpath("//span[contains(., 'Dipstick For Protein (')]/../../..//span[text()='Source: VH']");
+	public static final By LBL_DIPSTICKFORPROTEINCOLOR = By.xpath("//span[contains(., 'Dipstick For Protein (')]");
 	public static final By LBL_CO2LEVELGOAL = By.xpath("//span[contains(., 'Co2 Level (')]/../..//span[text()='Goal: Between 22 and 31']");
 	public static final By LBL_CO2LEVELSOURCE = By.xpath("//span[contains(., 'Co2 Level (')]/../../..//span[text()='Source: VH']");
 	public static final By LBL_CALCIUMGOAL1 = By.xpath("//span[contains(., 'Calcium (')]/../..//span[text()='Goal: ESRD: Between 8.4 and 9.5']");
