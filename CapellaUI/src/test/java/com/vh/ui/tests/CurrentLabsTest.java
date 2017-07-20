@@ -529,6 +529,7 @@ public class CurrentLabsTest extends TestBase
 			Assert.assertTrue(currentLabsPage.viewHepatitisBTiterGoal(), "Failed to identify the HEPATITIS B TITER Goal");
 			Assert.assertTrue(currentLabsPage.viewHepatitisBTiterDrawDate(drawDateGregorian), "Failed to identify the HEPATITIS B TITER draw date");
 			Assert.assertTrue(currentLabsPage.viewHepatitisBTiterSource(), "Failed to identify the HEPATITIS B TITER Source");
+			Assert.assertTrue(currentLabsPage.viewHepatitisBTiterColor(Integer.parseInt(map.get("HEPATITISBTITER"))), "Failed to identify HEPATITIS B TITER as the correct color");
 		}
 
 		if (map.get("FERRITIN") != null)
@@ -537,6 +538,7 @@ public class CurrentLabsTest extends TestBase
 			Assert.assertTrue(currentLabsPage.viewFerritinGoal(), "Failed to identify the FERRITIN Goal");
 			Assert.assertTrue(currentLabsPage.viewFerritinDrawDate(drawDateGregorian), "Failed to identify the FERRITIN draw date");
 			Assert.assertTrue(currentLabsPage.viewFerritinSource(), "Failed to identify the FERRITIN Source");
+			Assert.assertTrue(currentLabsPage.viewFerritinColor(Integer.parseInt(map.get("FERRITIN"))), "Failed to identify FERRITIN as the correct color");
 		}
 
 		if (map.get("TSAT") != null)
@@ -545,6 +547,7 @@ public class CurrentLabsTest extends TestBase
 			Assert.assertTrue(currentLabsPage.viewTSATGoal(), "Failed to identify the TSAT Goal");
 			Assert.assertTrue(currentLabsPage.viewTSATDrawDate(drawDateGregorian), "Failed to identify the TSAT draw date");
 			Assert.assertTrue(currentLabsPage.viewTSATSource(), "Failed to identify the TSAT Source");
+			Assert.assertTrue(currentLabsPage.viewTSATColor(Integer.parseInt(map.get("TSAT"))), "Failed to identify TSAT as the correct color");
 		}
 
 		if (map.get("BLOODPRESSURESYSTOLIC") != null)
@@ -553,6 +556,8 @@ public class CurrentLabsTest extends TestBase
 			Assert.assertTrue(currentLabsPage.viewBloodPressureSystolicGoal(), "Failed to identify the BLOOD PRESSURE SYSTOLIC Goal");
 			Assert.assertTrue(currentLabsPage.viewBloodPressureSystolicDrawDate(drawDateGregorian), "Failed to identify the BLOOD PRESSURE SYSTOLIC draw date");
 			Assert.assertTrue(currentLabsPage.viewBloodPressureSystolicSource(), "Failed to identify the BLOOD PRESSURE SYSTOLIC Source");
+			Assert.assertTrue(currentLabsPage.viewBloodPressureSystolicColor(Integer.parseInt(map.get("BLOODPRESSURESYSTOLIC"))),
+			        "Failed to identify BLOODPRESSURESYSTOLIC as the correct color");
 		}
 
 		if (map.get("BLOODPRESSUREDIASTOLIC") != null)
@@ -561,6 +566,8 @@ public class CurrentLabsTest extends TestBase
 			Assert.assertTrue(currentLabsPage.viewBloodPressureDiastolicGoal(), "Failed to identify the BLOOD PRESSURE DIASTOLIC Goal");
 			Assert.assertTrue(currentLabsPage.viewBloodPressureDiastolicDrawDate(drawDateGregorian), "Failed to identify the BLOOD PRESSURE DIASTOLIC draw date");
 			Assert.assertTrue(currentLabsPage.viewBloodPressureDiastolicSource(), "Failed to identify the BLOOD PRESSURE DIASTOLIC Source");
+			Assert.assertTrue(currentLabsPage.viewBloodPressureDiastolicColor(Integer.parseInt(map.get("BLOODPRESSUREDIASTOLIC"))),
+			        "Failed to identify BLOODPRESSUREDIASTOLIC as the correct color");
 		}
 	}
 

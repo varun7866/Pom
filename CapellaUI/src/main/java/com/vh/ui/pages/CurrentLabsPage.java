@@ -2241,6 +2241,32 @@ public class CurrentLabsPage extends WebPage
 		return webActions.getVisibiltyOfElementLocatedBy(VISIBILITY, LBL_HEPATITISBTITERSOURCE);
 	}
 
+	@Step("Verify the color of the HEPATITIS B TITER label/value")
+	public boolean viewHepatitisBTiterColor(int labValue) throws TimeoutException, WaitException
+	{
+		String classAttributeValue = webActions.getAttributeValue(VISIBILITY, LBL_HEPATITISBTITERCOLOR, "class");
+
+		if (labValue < 10 || labValue > 100) // If out of range
+		{
+			if (classAttributeValue.contains("redtext"))
+			{
+				return true;
+			} else
+			{
+				return false;
+			}
+		} else // In range
+		{
+			if (classAttributeValue.contains("greentext"))
+			{
+				return true;
+			} else
+			{
+				return false;
+			}
+		}
+	}
+
 	@Step("Verify the visibility of the FERRITIN label/value")
 	public boolean viewFerritinLabelValue(String labValue) throws TimeoutException, WaitException
 	{
@@ -2267,6 +2293,32 @@ public class CurrentLabsPage extends WebPage
 	public boolean viewFerritinSource() throws TimeoutException, WaitException
 	{
 		return webActions.getVisibiltyOfElementLocatedBy(VISIBILITY, LBL_FERRITINSOURCE);
+	}
+
+	@Step("Verify the color of the FERRITIN label/value")
+	public boolean viewFerritinColor(int labValue) throws TimeoutException, WaitException
+	{
+		String classAttributeValue = webActions.getAttributeValue(VISIBILITY, LBL_FERRITINCOLOR, "class");
+
+		if (labValue < 100 || labValue > 500) // If out of range
+		{
+			if (classAttributeValue.contains("redtext"))
+			{
+				return true;
+			} else
+			{
+				return false;
+			}
+		} else // In range
+		{
+			if (classAttributeValue.contains("greentext"))
+			{
+				return true;
+			} else
+			{
+				return false;
+			}
+		}
 	}
 
 	@Step("Verify the visibility of the TSAT label/value")
@@ -2297,6 +2349,32 @@ public class CurrentLabsPage extends WebPage
 		return webActions.getVisibiltyOfElementLocatedBy(VISIBILITY, LBL_TSATSOURCE);
 	}
 
+	@Step("Verify the color of the TSAT label/value")
+	public boolean viewTSATColor(int labValue) throws TimeoutException, WaitException
+	{
+		String classAttributeValue = webActions.getAttributeValue(VISIBILITY, LBL_TSATCOLOR, "class");
+
+		if (labValue < 20 || labValue > 100) // If out of range
+		{
+			if (classAttributeValue.contains("redtext"))
+			{
+				return true;
+			} else
+			{
+				return false;
+			}
+		} else // In range
+		{
+			if (classAttributeValue.contains("greentext"))
+			{
+				return true;
+			} else
+			{
+				return false;
+			}
+		}
+	}
+
 	@Step("Verify the visibility of the BLOOD PRESSURE SYSTOLIC label/value")
 	public boolean viewBloodPressureSystolicLabelValue(String labValue) throws TimeoutException, WaitException
 	{
@@ -2325,7 +2403,33 @@ public class CurrentLabsPage extends WebPage
 		return webActions.getVisibiltyOfElementLocatedBy(VISIBILITY, LBL_BLOODPRESSURESYSTOLICSOURCE);
 	}
 
-	@Step("Verify the visibility of the BLOOD PRESSURE SYSTOLIC label/value")
+	@Step("Verify the color of the BLOOD PRESSURE SYSTOLIC label/value")
+	public boolean viewBloodPressureSystolicColor(int labValue) throws TimeoutException, WaitException
+	{
+		String classAttributeValue = webActions.getAttributeValue(VISIBILITY, LBL_BLOODPRESSURESYSTOLICCOLOR, "class");
+
+		if (labValue < 60 || labValue > 130) // If out of range
+		{
+			if (classAttributeValue.contains("redtext"))
+			{
+				return true;
+			} else
+			{
+				return false;
+			}
+		} else // In range
+		{
+			if (classAttributeValue.contains("greentext"))
+			{
+				return true;
+			} else
+			{
+				return false;
+			}
+		}
+	}
+
+	@Step("Verify the visibility of the BLOOD PRESSURE DIASTOLIC label/value")
 	public boolean viewBloodPressureDiastolicLabelValue(String labValue) throws TimeoutException, WaitException
 	{
 		final By LBL_BLOODPRESSUREDIASTOLIC = By.xpath("//span[text()='Blood Pressure Diastolic (" + labValue + ")']");
@@ -2333,13 +2437,13 @@ public class CurrentLabsPage extends WebPage
 		return webActions.getVisibiltyOfElementLocatedBy(VISIBILITY, LBL_BLOODPRESSUREDIASTOLIC);
 	}
 
-	@Step("Verify the visibility of the BLOOD PRESSURE SYSTOLIC Goal")
+	@Step("Verify the visibility of the BLOOD PRESSURE DIASTOLIC Goal")
 	public boolean viewBloodPressureDiastolicGoal() throws TimeoutException, WaitException
 	{
 		return webActions.getVisibiltyOfElementLocatedBy(VISIBILITY, LBL_BLOODPRESSUREDIASTOLICGOAL);
 	}
 
-	@Step("Verify the visibility of the BLOOD PRESSURE SYSTOLIC draw date")
+	@Step("Verify the visibility of the BLOOD PRESSURE DIASTOLIC draw date")
 	public boolean viewBloodPressureDiastolicDrawDate(String drawDate) throws TimeoutException, WaitException
 	{
 		final By LBL_BLOODPRESSUREDIASTOLICDRAWDATE = By.xpath("//span[contains(., 'Blood Pressure Diastolic (')]/../../..//span[text()='" + drawDate + "']");
@@ -2347,9 +2451,35 @@ public class CurrentLabsPage extends WebPage
 		return webActions.getVisibiltyOfElementLocatedBy(VISIBILITY, LBL_BLOODPRESSUREDIASTOLICDRAWDATE);
 	}
 
-	@Step("Verify the visibility of the BLOOD PRESSURE SYSTOLIC Source")
+	@Step("Verify the visibility of the BLOOD PRESSURE DIASTOLIC Source")
 	public boolean viewBloodPressureDiastolicSource() throws TimeoutException, WaitException
 	{
 		return webActions.getVisibiltyOfElementLocatedBy(VISIBILITY, LBL_BLOODPRESSUREDIASTOLICSOURCE);
+	}
+
+	@Step("Verify the color of the BLOOD PRESSURE DIASTOLIC label/value")
+	public boolean viewBloodPressureDiastolicColor(int labValue) throws TimeoutException, WaitException
+	{
+		String classAttributeValue = webActions.getAttributeValue(VISIBILITY, LBL_BLOODPRESSUREDIASTOLICCOLOR, "class");
+
+		if (labValue < 0 || labValue > 80) // If out of range
+		{
+			if (classAttributeValue.contains("redtext"))
+			{
+				return true;
+			} else
+			{
+				return false;
+			}
+		} else // In range
+		{
+			if (classAttributeValue.contains("greentext"))
+			{
+				return true;
+			} else
+			{
+				return false;
+			}
+		}
 	}
 }
