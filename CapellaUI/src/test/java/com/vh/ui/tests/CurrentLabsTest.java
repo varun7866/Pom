@@ -387,6 +387,7 @@ public class CurrentLabsTest extends TestBase
 			Assert.assertTrue(currentLabsPage.viewPhosphorousGoal(), "Failed to identify the PHOSPHOROUS Goal");
 			Assert.assertTrue(currentLabsPage.viewPhosphorousDrawDate(drawDateGregorian), "Failed to identify the PHOSPHOROUS draw date");
 			Assert.assertTrue(currentLabsPage.viewPhosphorousSource(), "Failed to identify the PHOSPHOROUS Source");
+			Assert.assertTrue(currentLabsPage.viewPhosphorousColor(Integer.parseInt(map.get("PHOSPHOROUS"))), "Failed to identify PHOSPHOROUS as the correct color");
 		}
 
 		if (map.get("CREATININE") != null)
@@ -395,6 +396,7 @@ public class CurrentLabsTest extends TestBase
 			Assert.assertTrue(currentLabsPage.viewCreatinineGoal(), "Failed to identify the CREATININE Goal");
 			Assert.assertTrue(currentLabsPage.viewCreatinineDrawDate(drawDateGregorian), "Failed to identify the CREATININE draw date");
 			Assert.assertTrue(currentLabsPage.viewCreatinineSource(), "Failed to identify the CREATININE Source");
+			Assert.assertTrue(currentLabsPage.viewCreatinineColor(Integer.parseInt(map.get("CREATININE"))), "Failed to identify CREATININE as the correct color");
 		}
 
 		if (map.get("GFR") != null)
@@ -403,6 +405,7 @@ public class CurrentLabsTest extends TestBase
 			Assert.assertTrue(currentLabsPage.viewGFRGoal(), "Failed to identify the GFR Goal");
 			Assert.assertTrue(currentLabsPage.viewGFRDrawDate(drawDateGregorian), "Failed to identify the GFR draw date");
 			Assert.assertTrue(currentLabsPage.viewGFRSource(), "Failed to identify the GFR Source");
+			Assert.assertTrue(currentLabsPage.viewGFRColor(Integer.parseInt(map.get("GFR"))), "Failed to identify GFR as the correct color");
 		}
 
 		if (map.get("HGBA1C") != null)
@@ -411,6 +414,7 @@ public class CurrentLabsTest extends TestBase
 			Assert.assertTrue(currentLabsPage.viewHGBA1CGoal(), "Failed to identify the HGBA1C Goal");
 			Assert.assertTrue(currentLabsPage.viewHGBA1CDrawDate(drawDateGregorian), "Failed to identify the HGBA1C draw date");
 			Assert.assertTrue(currentLabsPage.viewHGBA1CSource(), "Failed to identify the HGBA1C Source");
+			Assert.assertTrue(currentLabsPage.viewHGBA1CColor(Integer.parseInt(map.get("HGBA1C"))), "Failed to identify HGBA1C as the correct color");
 		}
 
 		if (map.get("LDL") != null)
@@ -419,6 +423,7 @@ public class CurrentLabsTest extends TestBase
 			Assert.assertTrue(currentLabsPage.viewLDLGoal(), "Failed to identify the LDL Goal");
 			Assert.assertTrue(currentLabsPage.viewLDLDrawDate(drawDateGregorian), "Failed to identify the LDL draw date");
 			Assert.assertTrue(currentLabsPage.viewLDLSource(), "Failed to identify the LDL Source");
+			Assert.assertTrue(currentLabsPage.viewLDLColor(Integer.parseInt(map.get("LDL"))), "Failed to identify LDL as the correct color");
 		}
 
 		if (map.get("HGB") != null)
@@ -427,6 +432,7 @@ public class CurrentLabsTest extends TestBase
 			Assert.assertTrue(currentLabsPage.viewHGBGoal(), "Failed to identify the HGB Goal");
 			Assert.assertTrue(currentLabsPage.viewHGBDrawDate(drawDateGregorian), "Failed to identify the HGB draw date");
 			Assert.assertTrue(currentLabsPage.viewHGBSource(), "Failed to identify the HGB Source");
+			Assert.assertTrue(currentLabsPage.viewHGBColor(Integer.parseInt(map.get("HGB"))), "Failed to identify HGB as the correct color");
 		}
 
 		if (map.get("ALBUMIN") != null)

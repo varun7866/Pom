@@ -1287,6 +1287,32 @@ public class CurrentLabsPage extends WebPage
 		return webActions.getVisibiltyOfElementLocatedBy(VISIBILITY, LBL_PHOSPHOROUSSOURCE);
 	}
 
+	@Step("Verify the color of the PHOSPHOROUS label/value")
+	public boolean viewPhosphorousColor(int labValue) throws TimeoutException, WaitException
+	{
+		String classAttributeValue = webActions.getAttributeValue(VISIBILITY, LBL_PHOSPHOROUSCOLOR, "class");
+
+		if (labValue < .5 || labValue > 5.5) // If out of range
+		{
+			if (classAttributeValue.contains("redtext"))
+			{
+				return true;
+			} else
+			{
+				return false;
+			}
+		} else // In range
+		{
+			if (classAttributeValue.contains("greentext"))
+			{
+				return true;
+			} else
+			{
+				return false;
+			}
+		}
+	}
+
 	@Step("Verify the visibility of the CREATININE label/value")
 	public boolean viewCreatinineLabelValue(String labValue) throws TimeoutException, WaitException
 	{
@@ -1313,6 +1339,32 @@ public class CurrentLabsPage extends WebPage
 	public boolean viewCreatinineSource() throws TimeoutException, WaitException
 	{
 		return webActions.getVisibiltyOfElementLocatedBy(VISIBILITY, LBL_CREATININESOURCE);
+	}
+
+	@Step("Verify the color of the CREATININE label/value")
+	public boolean viewCreatinineColor(int labValue) throws TimeoutException, WaitException
+	{
+		String classAttributeValue = webActions.getAttributeValue(VISIBILITY, LBL_CREATININECOLOR, "class");
+
+		if (labValue < .5 || labValue > 1.5) // If out of range
+		{
+			if (classAttributeValue.contains("redtext"))
+			{
+				return true;
+			} else
+			{
+				return false;
+			}
+		} else // In range
+		{
+			if (classAttributeValue.contains("greentext"))
+			{
+				return true;
+			} else
+			{
+				return false;
+			}
+		}
 	}
 
 	@Step("Verify the visibility of the GFR label/value")
@@ -1343,6 +1395,32 @@ public class CurrentLabsPage extends WebPage
 		return webActions.getVisibiltyOfElementLocatedBy(VISIBILITY, LBL_GFRSOURCE);
 	}
 
+	@Step("Verify the color of the GFR label/value")
+	public boolean viewGFRColor(int labValue) throws TimeoutException, WaitException
+	{
+		String classAttributeValue = webActions.getAttributeValue(VISIBILITY, LBL_GFRCOLOR, "class");
+
+		if (labValue < 30 || labValue > 125) // If out of range
+		{
+			if (classAttributeValue.contains("redtext"))
+			{
+				return true;
+			} else
+			{
+				return false;
+			}
+		} else // In range
+		{
+			if (classAttributeValue.contains("greentext"))
+			{
+				return true;
+			} else
+			{
+				return false;
+			}
+		}
+	}
+
 	@Step("Verify the visibility of the HGBA1C label/value")
 	public boolean viewHGBA1CLabelValue(String labValue) throws TimeoutException, WaitException
 	{
@@ -1369,6 +1447,32 @@ public class CurrentLabsPage extends WebPage
 	public boolean viewHGBA1CSource() throws TimeoutException, WaitException
 	{
 		return webActions.getVisibiltyOfElementLocatedBy(VISIBILITY, LBL_HGBA1CSOURCE);
+	}
+
+	@Step("Verify the color of the HGBA1C label/value")
+	public boolean viewHGBA1CColor(int labValue) throws TimeoutException, WaitException
+	{
+		String classAttributeValue = webActions.getAttributeValue(VISIBILITY, LBL_HGBA1CCOLOR, "class");
+
+		if (labValue < 3 || labValue > 8) // If out of range
+		{
+			if (classAttributeValue.contains("redtext"))
+			{
+				return true;
+			} else
+			{
+				return false;
+			}
+		} else // In range
+		{
+			if (classAttributeValue.contains("greentext"))
+			{
+				return true;
+			} else
+			{
+				return false;
+			}
+		}
 	}
 
 	@Step("Verify the visibility of the LDL label/value")
@@ -1399,6 +1503,32 @@ public class CurrentLabsPage extends WebPage
 		return webActions.getVisibiltyOfElementLocatedBy(VISIBILITY, LBL_LDLSOURCE);
 	}
 
+	@Step("Verify the color of the LDL label/value")
+	public boolean viewLDLColor(int labValue) throws TimeoutException, WaitException
+	{
+		String classAttributeValue = webActions.getAttributeValue(VISIBILITY, LBL_LDLCOLOR, "class");
+
+		if (labValue < 0 || labValue > 100) // If out of range
+		{
+			if (classAttributeValue.contains("redtext"))
+			{
+				return true;
+			} else
+			{
+				return false;
+			}
+		} else // In range
+		{
+			if (classAttributeValue.contains("greentext"))
+			{
+				return true;
+			} else
+			{
+				return false;
+			}
+		}
+	}
+
 	@Step("Verify the visibility of the HGB label/value")
 	public boolean viewHGBLabelValue(String labValue) throws TimeoutException, WaitException
 	{
@@ -1425,6 +1555,32 @@ public class CurrentLabsPage extends WebPage
 	public boolean viewHGBSource() throws TimeoutException, WaitException
 	{
 		return webActions.getVisibiltyOfElementLocatedBy(VISIBILITY, LBL_HGBSOURCE);
+	}
+
+	@Step("Verify the color of the HGB label/value")
+	public boolean viewHGBColor(int labValue) throws TimeoutException, WaitException
+	{
+		String classAttributeValue = webActions.getAttributeValue(VISIBILITY, LBL_HGBCOLOR, "class");
+
+		if (labValue < 0 || labValue > 11) // If out of range
+		{
+			if (classAttributeValue.contains("redtext"))
+			{
+				return true;
+			} else
+			{
+				return false;
+			}
+		} else // In range
+		{
+			if (classAttributeValue.contains("greentext"))
+			{
+				return true;
+			} else
+			{
+				return false;
+			}
+		}
 	}
 
 	@Step("Verify the visibility of the ALBUMIN label/value")
