@@ -387,7 +387,7 @@ public class CurrentLabsTest extends TestBase
 			Assert.assertTrue(currentLabsPage.viewPhosphorousGoal(), "Failed to identify the PHOSPHOROUS Goal");
 			Assert.assertTrue(currentLabsPage.viewPhosphorousDrawDate(drawDateGregorian), "Failed to identify the PHOSPHOROUS draw date");
 			Assert.assertTrue(currentLabsPage.viewPhosphorousSource(), "Failed to identify the PHOSPHOROUS Source");
-			Assert.assertTrue(currentLabsPage.viewPhosphorousColor(Integer.parseInt(map.get("PHOSPHOROUS"))), "Failed to identify PHOSPHOROUS as the correct color");
+			Assert.assertTrue(currentLabsPage.viewPhosphorousColor(Double.parseDouble(map.get("PHOSPHOROUS"))), "Failed to identify PHOSPHOROUS as the correct color");
 		}
 
 		if (map.get("CREATININE") != null)
@@ -396,7 +396,7 @@ public class CurrentLabsTest extends TestBase
 			Assert.assertTrue(currentLabsPage.viewCreatinineGoal(), "Failed to identify the CREATININE Goal");
 			Assert.assertTrue(currentLabsPage.viewCreatinineDrawDate(drawDateGregorian), "Failed to identify the CREATININE draw date");
 			Assert.assertTrue(currentLabsPage.viewCreatinineSource(), "Failed to identify the CREATININE Source");
-			Assert.assertTrue(currentLabsPage.viewCreatinineColor(Integer.parseInt(map.get("CREATININE"))), "Failed to identify CREATININE as the correct color");
+			Assert.assertTrue(currentLabsPage.viewCreatinineColor(Double.parseDouble(map.get("CREATININE"))), "Failed to identify CREATININE as the correct color");
 		}
 
 		if (map.get("GFR") != null)
@@ -470,6 +470,7 @@ public class CurrentLabsTest extends TestBase
 			Assert.assertTrue(currentLabsPage.viewCO2LevelGoal(), "Failed to identify the CO2 LEVEL Goal");
 			Assert.assertTrue(currentLabsPage.viewCO2LevelDrawDate(drawDateGregorian), "Failed to identify the CO2 LEVEL draw date");
 			Assert.assertTrue(currentLabsPage.viewCO2LevelSource(), "Failed to identify the CO2 LEVEL Source");
+			Assert.assertTrue(currentLabsPage.viewCO2LevelColor(Integer.parseInt(map.get("CO2LEVEL"))), "Failed to identify CO2LEVEL as the correct color");
 		}
 
 		if (map.get("CALCIUM") != null)
@@ -479,6 +480,7 @@ public class CurrentLabsTest extends TestBase
 			Assert.assertTrue(currentLabsPage.viewCalciumGoal2(), "Failed to identify the CALCIUM Goal2");
 			Assert.assertTrue(currentLabsPage.viewCalciumDrawDate(drawDateGregorian), "Failed to identify the CALCIUM draw date");
 			Assert.assertTrue(currentLabsPage.viewCalciumSource(), "Failed to identify the CALCIUM Source");
+			Assert.assertTrue(currentLabsPage.viewCalciumColor(Double.parseDouble(map.get("CALCIUM")), map.get("PatientType")), "Failed to identify CALCIUM as the correct color");
 		}
 
 		if (map.get("KTV") != null && map.get("PatientType").equals("ESRD"))
@@ -487,6 +489,7 @@ public class CurrentLabsTest extends TestBase
 			Assert.assertTrue(currentLabsPage.viewKTVGoal(), "Failed to identify the KT/V Goal");
 			Assert.assertTrue(currentLabsPage.viewKTVDrawDate(drawDateGregorian), "Failed to identify the KT/V draw date");
 			Assert.assertTrue(currentLabsPage.viewKTVSource(), "Failed to identify the KT/V Source");
+			Assert.assertTrue(currentLabsPage.viewKTVColor(Double.parseDouble(map.get("KTV"))), "Failed to identify KTV as the correct color");
 		}
 
 		if (map.get("URR") != null && map.get("PatientType").equals("ESRD"))

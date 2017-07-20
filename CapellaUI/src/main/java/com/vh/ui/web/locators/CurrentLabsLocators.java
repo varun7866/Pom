@@ -122,11 +122,14 @@ public class CurrentLabsLocators
 	public static final By LBL_DIPSTICKFORPROTEINCOLOR = By.xpath("//span[contains(., 'Dipstick For Protein (')]");
 	public static final By LBL_CO2LEVELGOAL = By.xpath("//span[contains(., 'Co2 Level (')]/../..//span[text()='Goal: Between 22 and 31']");
 	public static final By LBL_CO2LEVELSOURCE = By.xpath("//span[contains(., 'Co2 Level (')]/../../..//span[text()='Source: VH']");
+	public static final By LBL_CO2LEVELCOLOR = By.xpath("//span[contains(., 'Co2 Level (')]");
 	public static final By LBL_CALCIUMGOAL1 = By.xpath("//span[contains(., 'Calcium (')]/../..//span[text()='Goal: ESRD: Between 8.4 and 9.5']");
 	public static final By LBL_CALCIUMGOAL2 = By.xpath("//span[contains(., 'Calcium (')]/../..//span[text()=' CKD: Between 8.6 and 10.3']");
 	public static final By LBL_CALCIUMSOURCE = By.xpath("//span[contains(., 'Calcium (')]/../../..//span[text()='Source: VH']");
+	public static final By LBL_CALCIUMCOLOR = By.xpath("//span[contains(., 'Calcium (')]");
 	public static final By LBL_KTVGOAL = By.xpath("//span[contains(., 'KT/V (')]/../..//span[text()='Goal: Between 1.2 and 3']");
 	public static final By LBL_KTVSOURCE = By.xpath("//span[contains(., 'KT/V (')]/../../..//span[text()='Source: VH']");
+	public static final By LBL_KTVCOLOR = By.xpath("//span[contains(., 'KT/V (')]");
 	public static final By LBL_URRGOAL = By.xpath("//span[contains(., 'URR (')]/../..//span[text()='Goal: Between 65 and 99']");
 	public static final By LBL_URRSOURCE = By.xpath("//span[contains(., 'URR (')]/../../..//span[text()='Source: VH']");
 	public static final By LBL_POTASIUMGOAL = By.xpath("//span[contains(., 'Potassium (')]/../..//span[text()='Goal: Between 3.5 and 5.2']");

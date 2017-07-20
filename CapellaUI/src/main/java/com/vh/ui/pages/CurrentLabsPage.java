@@ -1288,7 +1288,7 @@ public class CurrentLabsPage extends WebPage
 	}
 
 	@Step("Verify the color of the PHOSPHOROUS label/value")
-	public boolean viewPhosphorousColor(int labValue) throws TimeoutException, WaitException
+	public boolean viewPhosphorousColor(Double labValue) throws TimeoutException, WaitException
 	{
 		String classAttributeValue = webActions.getAttributeValue(VISIBILITY, LBL_PHOSPHOROUSCOLOR, "class");
 
@@ -1342,7 +1342,7 @@ public class CurrentLabsPage extends WebPage
 	}
 
 	@Step("Verify the color of the CREATININE label/value")
-	public boolean viewCreatinineColor(int labValue) throws TimeoutException, WaitException
+	public boolean viewCreatinineColor(Double labValue) throws TimeoutException, WaitException
 	{
 		String classAttributeValue = webActions.getAttributeValue(VISIBILITY, LBL_CREATININECOLOR, "class");
 
@@ -1773,6 +1773,32 @@ public class CurrentLabsPage extends WebPage
 		return webActions.getVisibiltyOfElementLocatedBy(VISIBILITY, LBL_CO2LEVELSOURCE);
 	}
 
+	@Step("Verify the color of the CO2 LEVEL label/value")
+	public boolean viewCO2LevelColor(int labValue) throws TimeoutException, WaitException
+	{
+		String classAttributeValue = webActions.getAttributeValue(VISIBILITY, LBL_CO2LEVELCOLOR, "class");
+
+		if (labValue < 22 || labValue > 31) // If out of range
+		{
+			if (classAttributeValue.contains("redtext"))
+			{
+				return true;
+			} else
+			{
+				return false;
+			}
+		} else // In range
+		{
+			if (classAttributeValue.contains("greentext"))
+			{
+				return true;
+			} else
+			{
+				return false;
+			}
+		}
+	}
+
 	@Step("Verify the visibility of the CALCIUM label/value")
 	public boolean viewCalciumLabelValue(String labValue) throws TimeoutException, WaitException
 	{
@@ -1807,6 +1833,64 @@ public class CurrentLabsPage extends WebPage
 		return webActions.getVisibiltyOfElementLocatedBy(VISIBILITY, LBL_CALCIUMSOURCE);
 	}
 
+	@Step("Verify the color of the CALCIUM label/value")
+	public boolean viewCalciumColor(Double labValue, String patientType) throws TimeoutException, WaitException
+	{
+		String classAttributeValue = webActions.getAttributeValue(VISIBILITY, LBL_CALCIUMCOLOR, "class");
+
+		if (patientType.equals("CKD"))
+		{
+			if (labValue < 8.6 || labValue > 10.3) // If out of range
+			{
+				if (classAttributeValue.contains("redtext"))
+				{
+					return true;
+				} else
+				{
+					return false;
+				}
+			} else // In range
+			{
+				if (classAttributeValue.contains("greentext"))
+				{
+					return true;
+				} else
+				{
+					return false;
+				}
+			}
+		}
+		else
+		{
+			if (patientType.equals("ESRD"))
+			{
+				if (labValue < 8.4 || labValue > 9.5) // If out of range
+				{
+					if (classAttributeValue.contains("redtext"))
+					{
+						return true;
+					} else
+					{
+						return false;
+					}
+				}
+				else // In range
+				{
+					if (classAttributeValue.contains("greentext"))
+					{
+						return true;
+					} else
+					{
+						return false;
+					}
+				}
+			}
+		}
+
+		return false;
+	
+	}
+
 	@Step("Verify the visibility of the KT/V label/value")
 	public boolean viewKTVLabelValue(String labValue) throws TimeoutException, WaitException
 	{
@@ -1833,6 +1917,32 @@ public class CurrentLabsPage extends WebPage
 	public boolean viewKTVSource() throws TimeoutException, WaitException
 	{
 		return webActions.getVisibiltyOfElementLocatedBy(VISIBILITY, LBL_KTVSOURCE);
+	}
+
+	@Step("Verify the color of the KTV label/value")
+	public boolean viewKTVColor(Double labValue) throws TimeoutException, WaitException
+	{
+		String classAttributeValue = webActions.getAttributeValue(VISIBILITY, LBL_KTVCOLOR, "class");
+
+		if (labValue < 1.2 || labValue > 3) // If out of range
+		{
+			if (classAttributeValue.contains("redtext"))
+			{
+				return true;
+			} else
+			{
+				return false;
+			}
+		} else // In range
+		{
+			if (classAttributeValue.contains("greentext"))
+			{
+				return true;
+			} else
+			{
+				return false;
+			}
+		}
 	}
 
 	@Step("Verify the visibility of the URR label/value")
