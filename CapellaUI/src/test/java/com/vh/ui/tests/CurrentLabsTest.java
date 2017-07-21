@@ -353,6 +353,9 @@ public class CurrentLabsTest extends TestBase
 			Assert.assertTrue(currentLabsPage.viewHeightDrawDate(drawDateGregorian), "Failed to identify the HEIGHT draw date");
 			Assert.assertTrue(currentLabsPage.viewHeightSource(), "Failed to identify the HEIGHT Source");
 			Assert.assertTrue(currentLabsPage.viewHeightColor(), "Failed to identify HEIGHT as the correct color");
+			Assert.assertTrue(currentLabsPage.viewHeightGraphPopup(map.get("HEIGHT")), "Failed to identify the HEIGHT graph popup");
+
+			currentLabsPage.clickAddLabButton();
 		}
 
 		if (map.get("WEIGHT") != null)
@@ -361,6 +364,9 @@ public class CurrentLabsTest extends TestBase
 			Assert.assertTrue(currentLabsPage.viewWeightDrawDate(drawDateGregorian), "Failed to identify the WEIGHT draw date");
 			Assert.assertTrue(currentLabsPage.viewWeightSource(), "Failed to identify the WEIGHT Source");
 			Assert.assertTrue(currentLabsPage.viewWeightColor(), "Failed to identify WEIGHT as the correct color");
+			Assert.assertTrue(currentLabsPage.viewWeightGraphPopup(map.get("WEIGHT")), "Failed to identify the WEIGHT graph popup");
+
+			currentLabsPage.clickAddLabButton();
 		}
 
 		if (map.get("TARGETDRYWEIGHT") != null)
@@ -569,13 +575,6 @@ public class CurrentLabsTest extends TestBase
 			Assert.assertTrue(currentLabsPage.viewBloodPressureDiastolicColor(Integer.parseInt(map.get("BLOODPRESSUREDIASTOLIC"))),
 			        "Failed to identify BLOODPRESSUREDIASTOLIC as the correct color");
 		}
-	}
-
-	@Test(priority = 5, dataProvider = "CapellaDataProvider")
-	@Step("Verify graphs")
-	public void verify_GraphPopups(Map<String, String> map) throws WaitException, URLNavigationException, InterruptedException
-	{
-
 	}
 
 	@AfterClass

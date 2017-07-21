@@ -1132,6 +1132,16 @@ public class CurrentLabsPage extends WebPage
 		}
 	}
 
+	@Step("Verify the visibility of the HEIGHT graph popup")
+	public boolean viewHeightGraphPopup(String labValue) throws TimeoutException, WaitException
+	{
+		webActions.click(VISIBILITY, LBL_HEIGHTSOURCE);
+
+		final By LBL_GRAPHPOPUPHEIGHT = By.xpath("//div[@class='lab-history-modal-header-div']//span[text()='Height (" + labValue + ")']");
+
+		return webActions.getVisibiltyOfElementLocatedBy(VISIBILITY, LBL_GRAPHPOPUPHEIGHT);
+	}
+
 	@Step("Verify the visibility of the WEIGHT label/value")
 	public boolean viewWeightLabelValue(String labValue) throws TimeoutException, WaitException
 	{
@@ -1166,6 +1176,16 @@ public class CurrentLabsPage extends WebPage
 		{
 			return false;
 		}
+	}
+
+	@Step("Verify the visibility of the WEIGHT graph popup")
+	public boolean viewWeightGraphPopup(String labValue) throws TimeoutException, WaitException
+	{
+		webActions.click(VISIBILITY, LBL_WEIGHTSOURCE);
+
+		final By LBL_GRAPHPOPUPWEIGHT = By.xpath("//div[@class='lab-history-modal-header-div']//span[text()='Weight (" + labValue + ")']");
+
+		return webActions.getVisibiltyOfElementLocatedBy(VISIBILITY, LBL_GRAPHPOPUPWEIGHT);
 	}
 
 	@Step("Verify the visibility of the TARGET DRY WEIGHT label/value")
