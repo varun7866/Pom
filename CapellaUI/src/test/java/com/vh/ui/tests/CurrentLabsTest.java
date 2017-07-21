@@ -304,7 +304,7 @@ public class CurrentLabsTest extends TestBase
 	}
 
 	@Test(priority = 4, dataProvider = "CapellaDataProvider")
-	@Step("Verify Adding Labs with different scenarios")
+	@Step("Verify Aading Labs with different scenarios")
 	public void verify_AddingLabs(Map<String, String> map) throws WaitException, URLNavigationException, InterruptedException
 	{
 		appFunctions.selectPatientFromMyPatients(map.get("PatientName"));
@@ -569,6 +569,13 @@ public class CurrentLabsTest extends TestBase
 			Assert.assertTrue(currentLabsPage.viewBloodPressureDiastolicColor(Integer.parseInt(map.get("BLOODPRESSUREDIASTOLIC"))),
 			        "Failed to identify BLOODPRESSUREDIASTOLIC as the correct color");
 		}
+	}
+
+	@Test(priority = 5, dataProvider = "CapellaDataProvider")
+	@Step("Verify graphs")
+	public void verify_Graphs(Map<String, String> map) throws WaitException, URLNavigationException, InterruptedException
+	{
+
 	}
 
 	@AfterClass
