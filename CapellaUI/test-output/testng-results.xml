@@ -2,76 +2,80 @@
 <testng-results skipped="0" failed="0" total="3" passed="3">
   <reporter-output>
   </reporter-output>
-  <suite name="Default suite" duration-ms="143313" started-at="2017-07-14T20:32:21Z" finished-at="2017-07-14T20:34:45Z">
+  <suite name="Default suite" duration-ms="365883" started-at="2017-07-21T03:05:27Z" finished-at="2017-07-21T03:11:33Z">
     <groups>
     </groups>
-    <test name="Default test" duration-ms="143313" started-at="2017-07-14T20:32:21Z" finished-at="2017-07-14T20:34:45Z">
-      <class name="com.vh.ui.tests.HospitalizationTest">
-        <test-method status="PASS" signature="buildUp()[pri:0, instance:com.vh.ui.tests.HospitalizationTest@77bc2e16]" name="buildUp" is-config="true" duration-ms="131363" started-at="2017-07-14T15:32:21Z" finished-at="2017-07-14T15:34:33Z">
+    <test name="Default test" duration-ms="365883" started-at="2017-07-21T03:05:27Z" finished-at="2017-07-21T03:11:33Z">
+      <class name="com.vh.ui.tests.MyTasksTest">
+        <test-method status="PASS" signature="buildUp()[pri:0, instance:com.vh.ui.tests.MyTasksTest@594d9f07]" name="buildUp" is-config="true" duration-ms="173084" started-at="2017-07-20T22:05:27Z" finished-at="2017-07-20T22:08:21Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- buildUp -->
-        <test-method status="PASS" signature="verify_CurrentHospitalizationPage()[pri:1, instance:com.vh.ui.tests.HospitalizationTest@77bc2e16]" name="verify_CurrentHospitalizationPage" duration-ms="1914" started-at="2017-07-14T15:34:33Z" finished-at="2017-07-14T15:34:35Z">
+        <test-method status="PASS" signature="verify_MyTasksPage()[pri:1, instance:com.vh.ui.tests.MyTasksTest@594d9f07]" name="verify_MyTasksPage" duration-ms="8215" started-at="2017-07-20T22:08:21Z" finished-at="2017-07-20T22:08:29Z">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- verify_CurrentHospitalizationPage -->
-        <test-method status="PASS" signature="afterTest(java.lang.reflect.Method, org.testng.ITestResult)[pri:0, instance:com.vh.ui.tests.HospitalizationTest@77bc2e16]" name="afterTest" is-config="true" duration-ms="1" started-at="2017-07-14T15:34:35Z" finished-at="2017-07-14T15:34:35Z">
+        </test-method> <!-- verify_MyTasksPage -->
+        <test-method status="PASS" signature="afterTest(java.lang.reflect.Method, org.testng.ITestResult)[pri:0, instance:com.vh.ui.tests.MyTasksTest@594d9f07]" name="afterTest" is-config="true" duration-ms="2" started-at="2017-07-20T22:08:29Z" finished-at="2017-07-20T22:08:29Z">
           <params>
             <param index="0">
               <value>
-                <![CDATA[public void com.vh.ui.tests.HospitalizationTest.verify_CurrentHospitalizationPage() throws com.vh.ui.exceptions.WaitException,com.vh.ui.exceptions.URLNavigationException,java.lang.InterruptedException]]>
+                <![CDATA[public void com.vh.ui.tests.MyTasksTest.verify_MyTasksPage() throws com.vh.ui.exceptions.WaitException,com.vh.ui.exceptions.URLNavigationException,java.lang.InterruptedException]]>
               </value>
             </param>
             <param index="1">
               <value>
-                <![CDATA[[TestResult name=verify_CurrentHospitalizationPage status=SUCCESS method=HospitalizationTest.verify_CurrentHospitalizationPage()[pri:1, instance:com.vh.ui.tests.HospitalizationTest@77bc2e16] output={null}]]]>
+                <![CDATA[[TestResult name=verify_MyTasksPage status=SUCCESS method=MyTasksTest.verify_MyTasksPage()[pri:1, instance:com.vh.ui.tests.MyTasksTest@594d9f07] output={null}]]]>
               </value>
             </param>
           </params>
           <reporter-output>
           </reporter-output>
         </test-method> <!-- afterTest -->
-        <test-method status="PASS" signature="verify_AddHospitalizationPopup()[pri:2, instance:com.vh.ui.tests.HospitalizationTest@77bc2e16]" name="verify_AddHospitalizationPopup" duration-ms="1012" started-at="2017-07-14T15:34:35Z" finished-at="2017-07-14T15:34:36Z">
+        <test-method status="PASS" signature="verify_NewTaskPopUp()[pri:2, instance:com.vh.ui.tests.MyTasksTest@594d9f07]" name="verify_NewTaskPopUp" duration-ms="121334" started-at="2017-07-20T22:08:29Z" finished-at="2017-07-20T22:10:30Z">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- verify_AddHospitalizationPopup -->
-        <test-method status="PASS" signature="afterTest(java.lang.reflect.Method, org.testng.ITestResult)[pri:0, instance:com.vh.ui.tests.HospitalizationTest@77bc2e16]" name="afterTest" is-config="true" duration-ms="0" started-at="2017-07-14T15:34:36Z" finished-at="2017-07-14T15:34:36Z">
+        </test-method> <!-- verify_NewTaskPopUp -->
+        <test-method status="PASS" signature="addNewTask()[pri:3, instance:com.vh.ui.tests.MyTasksTest@594d9f07]" name="addNewTask" duration-ms="60872" started-at="2017-07-20T22:10:30Z" finished-at="2017-07-20T22:11:31Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- addNewTask -->
+        <test-method status="PASS" signature="afterTest(java.lang.reflect.Method, org.testng.ITestResult)[pri:0, instance:com.vh.ui.tests.MyTasksTest@594d9f07]" name="afterTest" is-config="true" duration-ms="0" started-at="2017-07-20T22:10:30Z" finished-at="2017-07-20T22:10:30Z">
           <params>
             <param index="0">
               <value>
-                <![CDATA[public void com.vh.ui.tests.HospitalizationTest.verify_AddHospitalizationPopup() throws com.vh.ui.exceptions.WaitException,com.vh.ui.exceptions.URLNavigationException,java.lang.InterruptedException]]>
+                <![CDATA[public void com.vh.ui.tests.MyTasksTest.verify_NewTaskPopUp() throws org.openqa.selenium.TimeoutException,com.vh.ui.exceptions.WaitException]]>
               </value>
             </param>
             <param index="1">
               <value>
-                <![CDATA[[TestResult name=verify_AddHospitalizationPopup status=SUCCESS method=HospitalizationTest.verify_AddHospitalizationPopup()[pri:2, instance:com.vh.ui.tests.HospitalizationTest@77bc2e16] output={null}]]]>
+                <![CDATA[[TestResult name=verify_NewTaskPopUp status=SUCCESS method=MyTasksTest.verify_NewTaskPopUp()[pri:2, instance:com.vh.ui.tests.MyTasksTest@594d9f07] output={null}]]]>
               </value>
             </param>
           </params>
           <reporter-output>
           </reporter-output>
         </test-method> <!-- afterTest -->
-        <test-method status="PASS" signature="verify_AddTransferTab()[pri:3, instance:com.vh.ui.tests.HospitalizationTest@77bc2e16]" name="verify_AddTransferTab" duration-ms="8934" started-at="2017-07-14T15:34:36Z" finished-at="2017-07-14T15:34:45Z">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- verify_AddTransferTab -->
-        <test-method status="PASS" signature="afterTest(java.lang.reflect.Method, org.testng.ITestResult)[pri:0, instance:com.vh.ui.tests.HospitalizationTest@77bc2e16]" name="afterTest" is-config="true" duration-ms="0" started-at="2017-07-14T15:34:45Z" finished-at="2017-07-14T15:34:45Z">
+        <test-method status="PASS" signature="afterTest(java.lang.reflect.Method, org.testng.ITestResult)[pri:0, instance:com.vh.ui.tests.MyTasksTest@594d9f07]" name="afterTest" is-config="true" duration-ms="1" started-at="2017-07-20T22:11:31Z" finished-at="2017-07-20T22:11:31Z">
           <params>
             <param index="0">
               <value>
-                <![CDATA[public void com.vh.ui.tests.HospitalizationTest.verify_AddTransferTab() throws com.vh.ui.exceptions.WaitException,com.vh.ui.exceptions.URLNavigationException,java.lang.InterruptedException]]>
+                <![CDATA[public void com.vh.ui.tests.MyTasksTest.addNewTask() throws org.openqa.selenium.TimeoutException,com.vh.ui.exceptions.WaitException]]>
               </value>
             </param>
             <param index="1">
               <value>
-                <![CDATA[[TestResult name=verify_AddTransferTab status=SUCCESS method=HospitalizationTest.verify_AddTransferTab()[pri:3, instance:com.vh.ui.tests.HospitalizationTest@77bc2e16] output={null}]]]>
+                <![CDATA[[TestResult name=addNewTask status=SUCCESS method=MyTasksTest.addNewTask()[pri:3, instance:com.vh.ui.tests.MyTasksTest@594d9f07] output={null}]]]>
               </value>
             </param>
           </params>
           <reporter-output>
           </reporter-output>
         </test-method> <!-- afterTest -->
-      </class> <!-- com.vh.ui.tests.HospitalizationTest -->
+        <test-method status="PASS" signature="tearDown()[pri:0, instance:com.vh.ui.tests.MyTasksTest@594d9f07]" name="tearDown" is-config="true" duration-ms="2316" started-at="2017-07-20T22:11:31Z" finished-at="2017-07-20T22:11:33Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- tearDown -->
+      </class> <!-- com.vh.ui.tests.MyTasksTest -->
     </test> <!-- Default test -->
   </suite> <!-- Default suite -->
 </testng-results>
