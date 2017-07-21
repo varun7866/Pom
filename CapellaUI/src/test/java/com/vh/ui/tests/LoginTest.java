@@ -48,7 +48,7 @@ public class LoginTest extends TestBase
 	public void verify_InvalidUserName() throws WaitException, URLNavigationException, InterruptedException
 	{
 		loginPage = (LoginPage) pageBase.navigateTo(applicationProperty.getProperty("webURL"));
-		Thread.sleep(5000);
+//		Thread.sleep(5000);
 		
 		Assert.assertTrue(loginPage.viewUserNameTextField(), "Failed to identify UserName text field");
 		Assert.assertTrue(loginPage.viewPasswordTextField(), "Failed to identify Password text field");
@@ -65,7 +65,7 @@ public class LoginTest extends TestBase
 	public void verify_InvalidPassword() throws WaitException, URLNavigationException, InterruptedException
 	{
 		loginPage = (LoginPage) pageBase.navigateTo(applicationProperty.getProperty("webURL"));
-		Thread.sleep(5000);
+//		Thread.sleep(5000);
 	
 		Assert.assertTrue(loginPage.viewUserNameTextField(), "Failed to identify UserName text field");
 		Assert.assertTrue(loginPage.viewPasswordTextField(), "Failed to identify Password text field");
@@ -83,20 +83,20 @@ public class LoginTest extends TestBase
 			throws WaitException, URLNavigationException, InterruptedException
 	{
 		loginPage = (LoginPage) pageBase.navigateTo(applicationProperty.getProperty("webURL"));
-		Thread.sleep(5000);
+//		Thread.sleep(5000);
 
 		Assert.assertTrue(loginPage.viewUserNameTextField(), "Failed to identify UserName text field");
 		Assert.assertTrue(loginPage.viewPasswordTextField(), "Failed to identify Password text field");
 		loginPage.enterUserName(applicationProperty.getProperty("username"));
 		loginPage.enterPassword(applicationProperty.getProperty("password"));
 		loginPage.clickLogin();
-		Thread.sleep(3000);
+//		Thread.sleep(3000);
 
 		Assert.assertTrue(loginPage.viewYesAllowButton(), "Failed to identify Yes, Allow button");
 		loginPage.clickRememberMyDecision();
-		Thread.sleep(1000);
+//		Thread.sleep(1000);
 		loginPage.clickYesAllow();
-		Thread.sleep(5000);
+//		Thread.sleep(5000);
 
 		// Assert.assertTrue(myPatients.viewMyPatientsPage(), "Failed to identify My Patients page");
 		

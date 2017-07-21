@@ -1,21 +1,13 @@
 package com.vh.ui.tests;
 
-import org.openqa.selenium.TimeoutException;
-import org.openqa.selenium.WebDriver;
-import org.testng.Assert;
-import org.testng.annotations.AfterClass;
-import org.testng.annotations.BeforeClass;
+import java.io.IOException;
+import java.util.Iterator;
+import java.util.Map;
+import java.util.Set;
+
 import org.testng.annotations.Test;
 
 import com.vh.test.base.TestBase;
-import com.vh.ui.actions.ApplicationFunctions;
-import com.vh.ui.exceptions.URLNavigationException;
-import com.vh.ui.exceptions.WaitException;
-import com.vh.ui.page.base.WebPage;
-import com.vh.ui.pages.LoginPage;
-import com.vh.ui.pages.MyPatientsPage;
-
-import ru.yandex.qatools.allure.annotations.Step;
 
 /*
  * @author Harvy Ackermans
@@ -28,55 +20,38 @@ import ru.yandex.qatools.allure.annotations.Step;
 
 public class UnitTest extends TestBase
 {	
-	WebPage pageBase;
-	LoginPage loginPage;
-	ApplicationFunctions appFunctions;
-	MyPatientsPage myPatients;
-	WebDriver driver;
-
-	@BeforeClass
-	public void buildUp() throws TimeoutException, WaitException {
-		driver = getWebDriver();
-		pageBase = new WebPage(driver);
-		appFunctions = new ApplicationFunctions(driver);
-		myPatients = new MyPatientsPage(driver);
-	}
-	
-	@Test(priority = 1)
-	@Step("Verify Menu Bar options")
-	public void verify_MenuBar_Options() throws WaitException, URLNavigationException, InterruptedException
+    @Test(dataProvider="dp1", priority=1)
+    public void function1(Map<String, String> map) throws IOException
+    {        
+//        map.get("FirstName");
+        Set set = map.entrySet();
+        Iterator iterator = set.iterator();
+        while(iterator.hasNext()) {
+            Map.Entry mentry = (Map.Entry)iterator.next();
+            System.out.println("function1:: key is: "+ mentry.getKey() + " & Value is: "+mentry.getValue());
+        }
+    }
+    
+    @Test(dataProvider="dp1", priority=2)
+	public void function2(Map<String, String> map) throws IOException
 	{
-		loginPage = (LoginPage) pageBase.navigateTo(applicationProperty.getProperty("webURL"));
-		Thread.sleep(5000);
+    	Set set = map.entrySet();
+		Iterator iterator = set.iterator();
+		while(iterator.hasNext()) {
+			Map.Entry mentry = (Map.Entry)iterator.next();
+		    System.out.println("function2:: key is: "+ mentry.getKey() + " & Value is: "+mentry.getValue());
+		}
+	}    
+		  
+    @Test(dataProvider="dp1", priority=3)
+	public void function3(Map<String, String> map) throws IOException {
+		      Set set = map.entrySet();
+		      Iterator iterator = set.iterator();
+		      while(iterator.hasNext()) {
+		          Map.Entry mentry = (Map.Entry)iterator.next();
+		          System.out.println("function3:: key is: "+ mentry.getKey() + " & Value is: "+mentry.getValue());
+		      }
+		  }
 
-		Assert.assertTrue(loginPage.viewUserNameTextField(), "Failed to identify UserName text field");
-		Assert.assertTrue(loginPage.viewPasswordTextField(), "Failed to identify Password text field");
-		loginPage.enterUserName(applicationProperty.getProperty("username"));
-		loginPage.enterPassword(applicationProperty.getProperty("password"));
-		loginPage.clickLogin();
-		Thread.sleep(5000);
 
-		Assert.assertTrue(loginPage.viewYesAllowButton(), "Failed to identify Yes, Allow button");
-		loginPage.clickRememberMyDecision();
-		Thread.sleep(1000);
-		loginPage.clickYesAllow();
-		Thread.sleep(5000);
-
-		// Assert.assertTrue(myPatients.viewMyPatientsPage(), "Failed to identify My Patients page");
-		
-		appFunctions.clickMyTasksMenuBar();
-		Thread.sleep(3000);
-		appFunctions.clickMyScheduleMenuBar();
-		Thread.sleep(3000);
-		appFunctions.clickAdminMenuBar();
-		Thread.sleep(3000);
-		appFunctions.clickMyPatientsMenuBar();
-	}
-	
-	@AfterClass
-	public void tearDown() throws TimeoutException, WaitException
-	{
-		appFunctions.capellaLogout();
-		pageBase.quit();
-	}
 }

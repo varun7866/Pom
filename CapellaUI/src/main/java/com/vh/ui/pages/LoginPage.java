@@ -6,14 +6,15 @@ import static com.vh.ui.web.locators.LoginLocators.CHK_REMEMBERMYDECISION;
 import static com.vh.ui.web.locators.LoginLocators.LBL_LOGINERRORMSG;
 import static com.vh.ui.web.locators.LoginLocators.TXT_PASSWORD;
 import static com.vh.ui.web.locators.LoginLocators.TXT_USERNAME;
+import static com.vh.ui.web.locators.ApplicationLocators.LBL_PATIENTCONTACTS;
 
 import org.openqa.selenium.TimeoutException;
 import org.openqa.selenium.WebDriver;
 
+import com.vh.security.EncryptDecrypt;
 import com.vh.ui.exceptions.URLNavigationException;
 import com.vh.ui.exceptions.WaitException;
 import com.vh.ui.page.base.WebPage;
-import com.vh.ui.security.EncryptDecrypt;
 
 import ru.yandex.qatools.allure.annotations.Step;
 
@@ -80,7 +81,6 @@ public class LoginPage extends WebPage
 	{
 		String Invalid_Errormessage = webActions.getText(VISIBILITY, LBL_LOGINERRORMSG);
 		System.out.println(Invalid_Errormessage);
-
 		return Invalid_Errormessage;		
 	}
 
@@ -101,4 +101,16 @@ public class LoginPage extends WebPage
 		}
 		return false;
 	}
+	
+    
+    @Step("Verify application")         
+    public boolean verifyLandingPage() {         
+        try {         
+            return webActions.getVisibiltyOfElementLocatedBy(VISIBILITY, LBL_PATIENTCONTACTS);         
+        } catch (WaitException e) {         
+            e.printStackTrace();         
+             return false;         
+        }         
+    }
+
 }

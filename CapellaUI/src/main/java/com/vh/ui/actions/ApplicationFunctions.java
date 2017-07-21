@@ -1,6 +1,7 @@
 package com.vh.ui.actions;
 
 import static com.vh.ui.web.locators.ApplicationLocators.BTN_LOGOUT;
+import static com.vh.ui.web.locators.LoginLocators.TXT_USERNAME;
 import static com.vh.ui.web.locators.ApplicationLocators.LNK_MENUBAR_ADMIN;
 import static com.vh.ui.web.locators.ApplicationLocators.LNK_MENUBAR_MYPATIENTS;
 import static com.vh.ui.web.locators.ApplicationLocators.LNK_MENUBAR_MYSCHEDULE;
@@ -79,7 +80,9 @@ public class ApplicationFunctions extends WebPage
 		LOGGER.debug("In ApplicationFunctions - capellaLogin");
 
 		loginPage = (LoginPage) pageBase.navigateTo(applicationProperty.getProperty("webURL"));
-
+		
+		waitForLoginScreen();
+		
 		loginPage.enterUserName(applicationProperty.getProperty("username"));
 		loginPage.enterPassword(applicationProperty.getProperty("password"));
 		loginPage.clickLogin();
@@ -87,9 +90,10 @@ public class ApplicationFunctions extends WebPage
 		if (wait.checkForElementVisibility(driver, BTN_YESALLOW))
 		{
 			loginPage.clickRememberMyDecision();
-			Thread.sleep(1000);
+//			Thread.sleep(1000);
 			loginPage.clickYesAllow();
 		}
+		loginPage.verifyLandingPage();
 	}
 
 	/**
@@ -870,5 +874,35 @@ public class ApplicationFunctions extends WebPage
 		adjustedDate = dateFormatObject.format(new Date(cal.getTimeInMillis()));
 
 		return adjustedDate;
+	}
+	
+	public void waitForLoginScreen() {
+		try {
+			wait.checkForElementVisibility(driver, TXT_USERNAME, 100);
+		} catch (WaitException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
+	
+	public boolean verifySuccessMessage(String popUpText) {
+		String xpathExpression = "//snack-bar-container/simple-snack-bar[text()=contains(.,'" + popUpText + "')]";
+		By locator = By.xpath(xpathExpression);
+		try {
+			WebElement element = wait.waitForElementVisible(driver, locator);
+			if(element!=null) {
+				boolean isSuccess = wait.waitForElementInvisible(driver, locator);
+				if(isSuccess) {
+					return true;
+				}
+			}
+		} catch (TimeoutException e) {
+			e.printStackTrace();
+			return false;
+		} catch (WaitException e) {
+			e.printStackTrace();
+			return false;
+		}
+		return false;
 	}
 }

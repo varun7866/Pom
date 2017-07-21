@@ -123,6 +123,12 @@ public class WebActions {
 				+ " in text box with locator:" + locator);
 	}
 	
+	public void selectValueFromAutoCompleteText(By locator, String value) throws TimeoutException, WaitException {
+		enterText("visibility", locator, value);
+		String xpathExpression = ".//md-option/span[text()=contains(., '" + value + "')]";
+		click("visibility", By.xpath(xpathExpression));
+	}
+	
 	/**
 	 * Enter text in input field identified by the locator after waiting till the expected condition is true.
 	 * Verifies the entered text is required text, else clears the text and re-enters the text till the 
