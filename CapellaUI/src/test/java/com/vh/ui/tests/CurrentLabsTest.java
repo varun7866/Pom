@@ -573,7 +573,7 @@ public class CurrentLabsTest extends TestBase
 
 	@Test(priority = 5, dataProvider = "CapellaDataProvider")
 	@Step("Verify graphs")
-	public void verify_Graphs(Map<String, String> map) throws WaitException, URLNavigationException, InterruptedException
+	public void verify_GraphPopups(Map<String, String> map) throws WaitException, URLNavigationException, InterruptedException
 	{
 
 	}
