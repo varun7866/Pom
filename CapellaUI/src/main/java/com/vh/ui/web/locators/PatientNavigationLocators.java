@@ -18,9 +18,9 @@ public class PatientNavigationLocators
 	public static final By LBL_PLANOFCAREHISTORY = By.xpath("//h2[text()='History']");
 	public static final By LBL_PLANOFCARENOTES = By.xpath("//h2[text()='Notes']");
 	public static final By LBL_PLANOFCARECONSOLIDATEDSTORY = By.xpath("//h2[text()='Consolidated Story']");
-	public static final By LBL_PATIENTCAREPATIENTRECAP = By.xpath("//h2[text()='Recap']");
+	public static final By LBL_PATIENTCAREPATIENTRECAP = By.xpath("//h2[contains(., 'Patient Contacts')]");
 	public static final By LBL_PATIENTCAREPATIENTTASKS = By.xpath("//h2[text()='Tasks']");
-	public static final By LBL_PATIENTCARECARETEAM = By.xpath("//div[contains(., 'PROVIDERS AND TEAM') and @class='col-sm-6 providers-team-screennameheader']");
+	public static final By LBL_PATIENTCARECARETEAM = By.xpath("//h2[contains(., 'Providers and Team')]");
 	public static final By LBL_PATIENTEXPERIENCEHOSPITALIZATIONS = By.xpath("//h2[contains(., 'HOSPITALIZATIONS')]");
 	public static final By LBL_PATIENTEXPERIENCEFLUID = By.xpath("//h2[text()='Fluid']");
 	public static final By LBL_PATIENTEXPERIENCEACCESS = By.xpath("//h2[text()='Access']");
@@ -75,4 +75,6 @@ public class PatientNavigationLocators
 	public static final By MNU_PATEINTCARECOLLAPSE = By.xpath("//a[text()='Patient Care' and @aria-expanded='false']");
 	public static final By MNU_PATIENTEXPERIENCECOLLAPSE = By.xpath("//a[text()='Patient Experience' and @aria-expanded='false']");
 	public static final By MNU_PATIENTADMINCOLLAPSE = By.xpath("//a[text()='Patient Admin' and @aria-expanded='false']");
+
+	public static final By ICO_HOSPITALIZATIONS = By.xpath("//a[@id='Hospitalizations-9']//button");
 }
