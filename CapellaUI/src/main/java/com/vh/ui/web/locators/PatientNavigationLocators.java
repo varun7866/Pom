@@ -75,6 +75,7 @@ public class PatientNavigationLocators
 	public static final By MNU_PATEINTCARECOLLAPSE = By.xpath("//a[text()='Patient Care' and @aria-expanded='false']");
 	public static final By MNU_PATIENTEXPERIENCECOLLAPSE = By.xpath("//a[text()='Patient Experience' and @aria-expanded='false']");
 	public static final By MNU_PATIENTADMINCOLLAPSE = By.xpath("//a[text()='Patient Admin' and @aria-expanded='false']");
+	public static final By LBL_HOSPITALIZATIONSTOOLTIP = By.xpath("//popover-container");
 
 	public static final By ICO_HOSPITALIZATIONS = By.xpath("//a[@id='Hospitalizations-9']//button");
 }

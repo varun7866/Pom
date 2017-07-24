@@ -1,6 +1,7 @@
 package com.vh.ui.pages;
 
 import static com.vh.ui.web.locators.PatientNavigationLocators.ICO_HOSPITALIZATIONS;
+import static com.vh.ui.web.locators.PatientNavigationLocators.LBL_HOSPITALIZATIONSTOOLTIP;
 import static com.vh.ui.web.locators.PatientNavigationLocators.LBL_PATIENTADMINFALCON;
 import static com.vh.ui.web.locators.PatientNavigationLocators.LBL_PATIENTADMINMANAGEDOCUMENTS;
 import static com.vh.ui.web.locators.PatientNavigationLocators.LBL_PATIENTADMINMATERIALFULFILLMENT;
@@ -376,11 +377,12 @@ public class PatientNavigationPage extends WebPage
 		return webActions.getVisibiltyOfElementLocatedBy(VISIBILITY, MNU_PATIENTADMINCOLLAPSE);
 	}
 
-	@Step("Verify the hover over functionality in left pane menus")
-	public boolean verifyhoverHospitalization() throws TimeoutException, WaitException
+	@Step("Verify the hover over functionality for the Hostitilizations Info Icon")
+	public boolean verifyHoverHospitalizations() throws TimeoutException, WaitException
 	{
 		webActions.moveMouseToElement(VISIBILITY, ICO_HOSPITALIZATIONS);
-		return true;
+
+		return webActions.getVisibiltyOfElementLocatedBy(VISIBILITY, LBL_HOSPITALIZATIONSTOOLTIP);
 	}
 
 }
