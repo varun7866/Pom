@@ -353,7 +353,7 @@ public class CurrentLabsTest extends TestBase
 			Assert.assertTrue(currentLabsPage.viewHeightDrawDate(drawDateGregorian), "Failed to identify the HEIGHT draw date");
 			Assert.assertTrue(currentLabsPage.viewHeightSource(), "Failed to identify the HEIGHT Source");
 			Assert.assertTrue(currentLabsPage.viewHeightColor(), "Failed to identify HEIGHT as the correct color");
-			Assert.assertTrue(currentLabsPage.viewHeightGraphPopup(map.get("HEIGHT")), "Failed to identify the HEIGHT graph popup");
+			Assert.assertTrue(currentLabsPage.viewHeightGraphPopupLabelValue(map.get("HEIGHT")), "Failed to identify the graph popup HEIGHT label/value");
 
 			currentLabsPage.clickAddLabButton();
 		}
@@ -364,7 +364,7 @@ public class CurrentLabsTest extends TestBase
 			Assert.assertTrue(currentLabsPage.viewWeightDrawDate(drawDateGregorian), "Failed to identify the WEIGHT draw date");
 			Assert.assertTrue(currentLabsPage.viewWeightSource(), "Failed to identify the WEIGHT Source");
 			Assert.assertTrue(currentLabsPage.viewWeightColor(), "Failed to identify WEIGHT as the correct color");
-			Assert.assertTrue(currentLabsPage.viewWeightGraphPopup(map.get("WEIGHT")), "Failed to identify the WEIGHT graph popup");
+			Assert.assertTrue(currentLabsPage.viewWeightGraphPopupLabelValue(map.get("WEIGHT")), "Failed to identify the graph popup WEIGHT label/value");
 
 			currentLabsPage.clickAddLabButton();
 		}
@@ -375,6 +375,9 @@ public class CurrentLabsTest extends TestBase
 			Assert.assertTrue(currentLabsPage.viewTargetDryWeightDrawDate(drawDateGregorian), "Failed to identify the TARGET DRY WEIGHT draw date");
 			Assert.assertTrue(currentLabsPage.viewTargetDryWeightSource(), "Failed to identify the TARGET DRY WEIGHT Source");
 			Assert.assertTrue(currentLabsPage.viewTargetDryWeightColor(), "Failed to identify TARGET DRY WEIGHT as the correct color");
+			Assert.assertTrue(currentLabsPage.viewTargetDryWeightGraphPopupLabelValue(map.get("TARGETDRYWEIGHT")), "Failed to identify the graph popup TARGETDRYWEIGHT label/value");
+
+			currentLabsPage.clickAddLabButton();
 		}
 
 		if (map.get("CALCIUMXPHOSPHOROUS") != null)
@@ -385,6 +388,11 @@ public class CurrentLabsTest extends TestBase
 			Assert.assertTrue(currentLabsPage.viewCalciumXPhosphorousSource(), "Failed to identify the CALCIUM X PHOSPHOROUS Source");
 			Assert.assertTrue(currentLabsPage.viewCalciumXPhosphorousColor(Integer.parseInt(map.get("CALCIUMXPHOSPHOROUS"))),
 			        "Failed to identify CALCIUM X PHOSPHOROUS as the correct color");
+			Assert.assertTrue(currentLabsPage.viewCalciumXPhosphorousGraphPopupLabelValue(map.get("CALCIUMXPHOSPHOROUS")),
+			        "Failed to identify the graph popup CALCIUM X PHOSPHOROUS label/value");
+			Assert.assertTrue(currentLabsPage.viewGraphPopupCalciumXPhosphorousGoal(), "Failed to identify the graph popup CALCIUM X PHOSPHOROUS Goal");
+
+			currentLabsPage.clickAddLabButton();
 		}
 
 		if (map.get("PHOSPHOROUS") != null)

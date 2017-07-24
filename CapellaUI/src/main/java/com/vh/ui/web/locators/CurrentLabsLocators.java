@@ -13,9 +13,9 @@ import org.openqa.selenium.By;
 
 public class CurrentLabsLocators
 {
-	public static final By BTN_ADDLAB = By.xpath("//button[text()='Add Lab']");
-	public static final By BTN_ADDPOPUPCANCEL = By.xpath("//button[text()='Cancel']");
-	public static final By BTN_ADDPOPUPSAVE = By.xpath("//button[text()='Save']");
+	public static final By BTN_ADDLAB = By.xpath("//button//span[text()='Add Lab']");
+	public static final By BTN_ADDPOPUPCANCEL = By.xpath("//button//span[text()='Cancel']");
+	public static final By BTN_ADDPOPUPSAVE = By.xpath("//button//span[text()='Save']");
 	public static final By BTN_ADDPOPUPAPPLYTHISDATETOALLVALUES = By
 	        .xpath("//div[@class='modal-dialog modal-lg']//span[text()='APPLY THIS DATE TO ALL VALUES']/../../..//input/..//button[@class='btnpicker btnpickerenabled']");
 
@@ -93,6 +93,7 @@ public class CurrentLabsLocators
 	public static final By LBL_CALCIUMXPHOSPHOROUSGOAL = By.xpath("//span[contains(., 'Calcium X Phosphorous (')]/../..//span[text()='Goal: Between 30 and 60']");
 	public static final By LBL_CALCIUMXPHOSPHOROUSSOURCE = By.xpath("//span[contains(., 'Calcium X Phosphorous (')]/../../..//span[text()='Source: VH']");
 	public static final By LBL_CALCIUMXPHOSPHOROUSCOLOR = By.xpath("//span[contains(., 'Calcium X Phosphorous (')]");
+	public static final By LBL_GRAPHPOPUPCALCIUMXPHOSPHOROUSGOAL = By.xpath("//div[@class='lab-history-modal-header-div']//span[text()='Goal: Between 30 and 60']");
 	public static final By LBL_PHOSPHOROUSGOAL = By.xpath("//span[contains(., 'Phosphorous (')]/../..//span[text()='Goal: Between 0.5 and 5.5']");
 	public static final By LBL_PHOSPHOROUSSOURCE = By.xpath("//span[contains(., 'Phosphorous (')]/../../..//span[text()='Source: VH']");
 	public static final By LBL_PHOSPHOROUSCOLOR = By.xpath("//span[contains(., 'Phosphorous (')]");

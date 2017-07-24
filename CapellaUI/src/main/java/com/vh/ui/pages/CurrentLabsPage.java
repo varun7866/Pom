@@ -1132,8 +1132,8 @@ public class CurrentLabsPage extends WebPage
 		}
 	}
 
-	@Step("Verify the visibility of the HEIGHT graph popup")
-	public boolean viewHeightGraphPopup(String labValue) throws TimeoutException, WaitException
+	@Step("Verify the visibility of the graph popup HEIGHT Label/Value")
+	public boolean viewHeightGraphPopupLabelValue(String labValue) throws TimeoutException, WaitException
 	{
 		webActions.click(VISIBILITY, LBL_HEIGHTSOURCE);
 
@@ -1178,8 +1178,8 @@ public class CurrentLabsPage extends WebPage
 		}
 	}
 
-	@Step("Verify the visibility of the WEIGHT graph popup")
-	public boolean viewWeightGraphPopup(String labValue) throws TimeoutException, WaitException
+	@Step("Verify the visibility of the graph popup WEIGHT Label/Value")
+	public boolean viewWeightGraphPopupLabelValue(String labValue) throws TimeoutException, WaitException
 	{
 		webActions.click(VISIBILITY, LBL_WEIGHTSOURCE);
 
@@ -1222,6 +1222,16 @@ public class CurrentLabsPage extends WebPage
 		{
 			return false;
 		}
+	}
+
+	@Step("Verify the visibility of the graph popup TARGET DRY WEIGHT Label/Value")
+	public boolean viewTargetDryWeightGraphPopupLabelValue(String labValue) throws TimeoutException, WaitException
+	{
+		webActions.click(VISIBILITY, LBL_TARGETDRYWEIGHTSOURCE);
+
+		final By LBL_GRAPHPOPUPTARGETDRYWEIGHT = By.xpath("//div[@class='lab-history-modal-header-div']//span[text()='Target Dry Weight (" + labValue + ")']");
+
+		return webActions.getVisibiltyOfElementLocatedBy(VISIBILITY, LBL_GRAPHPOPUPTARGETDRYWEIGHT);
 	}
 
 	@Step("Verify the visibility of the CALCIUM X PHOSPHOROUS label/value")
@@ -1277,6 +1287,22 @@ public class CurrentLabsPage extends WebPage
 				return false;
 			}
 		}
+	}
+
+	@Step("Verify the visibility of the graph popup CALCIUM X PHOSPHOROUS Label/Value")
+	public boolean viewCalciumXPhosphorousGraphPopupLabelValue(String labValue) throws TimeoutException, WaitException
+	{
+		webActions.click(VISIBILITY, LBL_CALCIUMXPHOSPHOROUSSOURCE);
+
+		final By LBL_GRAPHPOPUPCALCIUMXPHOSPHOROUS = By.xpath("//div[@class='lab-history-modal-header-div']//span[text()='Calcium X Phosphorous (" + labValue + ")']");
+
+		return webActions.getVisibiltyOfElementLocatedBy(VISIBILITY, LBL_GRAPHPOPUPCALCIUMXPHOSPHOROUS);
+	}
+
+	@Step("Verify the visibility of the graph popup CALCIUM X PHOSPHOROUS Goal")
+	public boolean viewGraphPopupCalciumXPhosphorousGoal() throws TimeoutException, WaitException
+	{
+		return webActions.getVisibiltyOfElementLocatedBy(VISIBILITY, LBL_GRAPHPOPUPCALCIUMXPHOSPHOROUSGOAL);
 	}
 
 	@Step("Verify the visibility of the PHOSPHOROUS label/value")
