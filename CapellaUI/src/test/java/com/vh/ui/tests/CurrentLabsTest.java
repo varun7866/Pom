@@ -402,6 +402,9 @@ public class CurrentLabsTest extends TestBase
 			Assert.assertTrue(currentLabsPage.viewPhosphorousDrawDate(drawDateGregorian), "Failed to identify the PHOSPHOROUS draw date");
 			Assert.assertTrue(currentLabsPage.viewPhosphorousSource(), "Failed to identify the PHOSPHOROUS Source");
 			Assert.assertTrue(currentLabsPage.viewPhosphorousColor(Double.parseDouble(map.get("PHOSPHOROUS"))), "Failed to identify PHOSPHOROUS as the correct color");
+			Assert.assertTrue(currentLabsPage.viewPhosphorousGraphPopupLabelValue(map.get("PHOSPHOROUS")), "Failed to identify the graph popup PHOSPHOROUS label/value");
+
+			currentLabsPage.clickAddLabButton();
 		}
 
 		if (map.get("CREATININE") != null)
@@ -411,6 +414,9 @@ public class CurrentLabsTest extends TestBase
 			Assert.assertTrue(currentLabsPage.viewCreatinineDrawDate(drawDateGregorian), "Failed to identify the CREATININE draw date");
 			Assert.assertTrue(currentLabsPage.viewCreatinineSource(), "Failed to identify the CREATININE Source");
 			Assert.assertTrue(currentLabsPage.viewCreatinineColor(Double.parseDouble(map.get("CREATININE"))), "Failed to identify CREATININE as the correct color");
+			Assert.assertTrue(currentLabsPage.viewCreatinineGraphPopupLabelValue(map.get("CREATININE")), "Failed to identify the graph popup CREATININE label/value");
+
+			currentLabsPage.clickAddLabButton();
 		}
 
 		if (map.get("GFR") != null)
@@ -420,6 +426,9 @@ public class CurrentLabsTest extends TestBase
 			Assert.assertTrue(currentLabsPage.viewGFRDrawDate(drawDateGregorian), "Failed to identify the GFR draw date");
 			Assert.assertTrue(currentLabsPage.viewGFRSource(), "Failed to identify the GFR Source");
 			Assert.assertTrue(currentLabsPage.viewGFRColor(Integer.parseInt(map.get("GFR"))), "Failed to identify GFR as the correct color");
+			Assert.assertTrue(currentLabsPage.viewGFRGraphPopupLabelValue(map.get("GFR")), "Failed to identify the graph popup GFR label/value");
+
+			currentLabsPage.clickAddLabButton();
 		}
 
 		if (map.get("HGBA1C") != null)
@@ -429,6 +438,9 @@ public class CurrentLabsTest extends TestBase
 			Assert.assertTrue(currentLabsPage.viewHGBA1CDrawDate(drawDateGregorian), "Failed to identify the HGBA1C draw date");
 			Assert.assertTrue(currentLabsPage.viewHGBA1CSource(), "Failed to identify the HGBA1C Source");
 			Assert.assertTrue(currentLabsPage.viewHGBA1CColor(Integer.parseInt(map.get("HGBA1C"))), "Failed to identify HGBA1C as the correct color");
+			Assert.assertTrue(currentLabsPage.viewHGBA1CGraphPopupLabelValue(map.get("HGBA1C")), "Failed to identify the graph popup HGBA1C label/value");
+
+			currentLabsPage.clickAddLabButton();
 		}
 
 		if (map.get("LDL") != null)

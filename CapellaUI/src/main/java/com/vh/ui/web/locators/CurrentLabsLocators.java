@@ -95,7 +95,7 @@ public class CurrentLabsLocators
 	public static final By LBL_CALCIUMXPHOSPHOROUSCOLOR = By.xpath("//span[contains(., 'Calcium X Phosphorous (')]");
 	public static final By LBL_GRAPHPOPUPCALCIUMXPHOSPHOROUSGOAL = By.xpath("//div[@class='lab-history-modal-header-div']//span[text()='Goal: Between 30 and 60']");
 	public static final By LBL_PHOSPHOROUSGOAL = By.xpath("//span[contains(., 'Phosphorous (')]/../..//span[text()='Goal: Between 0.5 and 5.5']");
-	public static final By LBL_PHOSPHOROUSSOURCE = By.xpath("//span[contains(., 'Phosphorous (')]/../../..//span[text()='Source: VH']");
+	public static final By LBL_PHOSPHOROUSSOURCE = By.xpath("//span[text()='Goal: Between 0.5 and 5.5']/../../..//span[text()='Source: VH']");
 	public static final By LBL_PHOSPHOROUSCOLOR = By.xpath("//span[contains(., 'Phosphorous (')]");
 	public static final By LBL_CREATININEGOAL = By.xpath("//span[contains(., 'Creatinine (')]/../..//span[text()='Goal: Between 0.5 and 1.5']");
 	public static final By LBL_CREATININESOURCE = By.xpath("//span[contains(., 'Creatinine (')]/../../..//span[text()='Source: VH']");
