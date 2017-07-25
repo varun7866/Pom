@@ -13,6 +13,15 @@ import org.openqa.selenium.By;
 
 public class PatientNavigationLocators
 {
+	public static final By ICO_HOSPITALIZATIONS = By.xpath("//a[@id='Hospitalizations-9']//button");
+	public static final By ICO_FLUID = By.xpath("//a[@id='Fluid-10']//button");
+	public static final By ICO_ACCESS = By.xpath("//a[@id='Access-11']//button");
+	public static final By ICO_MEDICATIONS = By.xpath("//a[@id='Medications-12']//button");
+	public static final By ICO_DIABETES = By.xpath("//a[@id='Diabetes-13']//button");
+	public static final By ICO_DEPRESSION = By.xpath("//a[@id='Depression-14']//button");
+	public static final By ICO_IMMUNIZATIONS = By.xpath("//a[@id='Immunizations-15']//button");
+	public static final By ICO_COMORBIDSCOMPLAINTS = By.xpath("//a[@id='Comorbids-17']//button");
+
 	public static final By LBL_PLANOFCAREOVERVIEW = By.xpath("//h2[text()='Overview')]");
 	public static final By LBL_PLANOFCAREMANAGEMENT = By.xpath("//h2[text()='Management']");
 	public static final By LBL_PLANOFCAREHISTORY = By.xpath("//h2[text()='History']");
@@ -38,6 +47,14 @@ public class PatientNavigationLocators
 	public static final By LBL_PATIENTADMINFALCON = By.xpath("//h2[text()='FALCON']");
 	public static final By LBL_PATIENTADMINMATERIALFULFILLMENT = By.xpath("//h2[text()='MATERIAL FULFILLMENT']");
 	public static final By LBL_PATIENTADMINREFERRALS = By.xpath("//h2[contains(., 'Referrals')]");
+	public static final By LBL_HOSPITALIZATIONSTOOLTIP = By.xpath("//popover-container");
+	public static final By LBL_FLUIDTOOLTIP = By.xpath("//popover-container");
+	public static final By LBL_ACCESSTOOLTIP = By.xpath("//popover-container");
+	public static final By LBL_MEDICATIONSTOOLTIP = By.xpath("//popover-container");
+	public static final By LBL_DIABETESTOOLTIP = By.xpath("//popover-container");
+	public static final By LBL_DEPRESSIONTOOLTIP = By.xpath("//popover-container");
+	public static final By LBL_IMMUNIZATIONSTOOLTIP = By.xpath("//popover-container");
+	public static final By LBL_COMORBIDSCOMPLAINTSTOOLTIP = By.xpath("//popover-container");
 
 	public static final By MNU_PLANOFCARE = By.xpath("//a[text()='Plan of Care']");
 	public static final By MNU_PLANOFCAREOVERVIEW = By.id("Overview-1");
@@ -75,7 +92,4 @@ public class PatientNavigationLocators
 	public static final By MNU_PATEINTCARECOLLAPSE = By.xpath("//a[text()='Patient Care' and @aria-expanded='false']");
 	public static final By MNU_PATIENTEXPERIENCECOLLAPSE = By.xpath("//a[text()='Patient Experience' and @aria-expanded='false']");
 	public static final By MNU_PATIENTADMINCOLLAPSE = By.xpath("//a[text()='Patient Admin' and @aria-expanded='false']");
-	public static final By LBL_HOSPITALIZATIONSTOOLTIP = By.xpath("//popover-container");
-
-	public static final By ICO_HOSPITALIZATIONS = By.xpath("//a[@id='Hospitalizations-9']//button");
 }
