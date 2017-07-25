@@ -1113,9 +1113,20 @@ public class CurrentLabsPage extends WebPage
 	}
 
 	@Step("Verify the color of the HEIGHT label/value")
-	public boolean viewHeightColor() throws TimeoutException, WaitException
+	public boolean viewHeightColor(String location) throws TimeoutException, WaitException
 	{
-		String classAttributeValue = webActions.getAttributeValue(VISIBILITY, LBL_HEIGHTCOLOR, "class");
+		String classAttributeValue = "";
+
+		if (location.equals("T"))
+		{
+			classAttributeValue = webActions.getAttributeValue(VISIBILITY, LBL_HEIGHTCOLOR, "class");
+		} else
+		{
+			if (location.equals("P"))
+			{
+				classAttributeValue = webActions.getAttributeValue(VISIBILITY, LBL_GRAPHPOPUPHEIGHTCOLOR, "class");
+			}
+		}
 
 		if (classAttributeValue.contains("greentext"))
 		{
@@ -1127,7 +1138,7 @@ public class CurrentLabsPage extends WebPage
 	}
 
 	@Step("Verify the visibility of the graph popup HEIGHT Label/Value")
-	public boolean viewHeightGraphPopupLabelValue(String labValue) throws TimeoutException, WaitException
+	public boolean viewGraphPopupHeightLabelValue(String labValue) throws TimeoutException, WaitException
 	{
 		webActions.click(VISIBILITY, LBL_HEIGHTSOURCE);
 
@@ -1159,9 +1170,20 @@ public class CurrentLabsPage extends WebPage
 	}
 
 	@Step("Verify the color of the WEIGHT label/value")
-	public boolean viewWeightColor() throws TimeoutException, WaitException
+	public boolean viewWeightColor(String location) throws TimeoutException, WaitException
 	{
-		String classAttributeValue = webActions.getAttributeValue(VISIBILITY, LBL_WEIGHTCOLOR, "class");
+		String classAttributeValue = "";
+
+		if (location.equals("T"))
+		{
+			classAttributeValue = webActions.getAttributeValue(VISIBILITY, LBL_WEIGHTCOLOR, "class");
+		} else
+		{
+			if (location.equals("P"))
+			{
+				classAttributeValue = webActions.getAttributeValue(VISIBILITY, LBL_GRAPHPOPUPWEIGHTCOLOR, "class");
+			}
+		}
 
 		if (classAttributeValue.contains("greentext"))
 		{
@@ -1173,7 +1195,7 @@ public class CurrentLabsPage extends WebPage
 	}
 
 	@Step("Verify the visibility of the graph popup WEIGHT Label/Value")
-	public boolean viewWeightGraphPopupLabelValue(String labValue) throws TimeoutException, WaitException
+	public boolean viewGraphPopupWeightLabelValue(String labValue) throws TimeoutException, WaitException
 	{
 		webActions.click(VISIBILITY, LBL_WEIGHTSOURCE);
 
@@ -1205,9 +1227,20 @@ public class CurrentLabsPage extends WebPage
 	}
 
 	@Step("Verify the color of the TARGET DRY WEIGHT label/value")
-	public boolean viewTargetDryWeightColor() throws TimeoutException, WaitException
+	public boolean viewTargetDryWeightColor(String location) throws TimeoutException, WaitException
 	{
-		String classAttributeValue = webActions.getAttributeValue(VISIBILITY, LBL_TARGETDRYWEIGHTCOLOR, "class");
+		String classAttributeValue = "";
+
+		if (location.equals("T"))
+		{
+			classAttributeValue = webActions.getAttributeValue(VISIBILITY, LBL_TARGETDRYWEIGHTCOLOR, "class");
+		} else
+		{
+			if (location.equals("P"))
+			{
+				classAttributeValue = webActions.getAttributeValue(VISIBILITY, LBL_GRAPHPOPUPTARGETDRYWEIGHTCOLOR, "class");
+			}
+		}
 
 		if (classAttributeValue.contains("greentext"))
 		{
@@ -1219,7 +1252,7 @@ public class CurrentLabsPage extends WebPage
 	}
 
 	@Step("Verify the visibility of the graph popup TARGET DRY WEIGHT Label/Value")
-	public boolean viewTargetDryWeightGraphPopupLabelValue(String labValue) throws TimeoutException, WaitException
+	public boolean viewGraphPopupTargetDryWeightLabelValue(String labValue) throws TimeoutException, WaitException
 	{
 		webActions.click(VISIBILITY, LBL_TARGETDRYWEIGHTSOURCE);
 
@@ -1257,9 +1290,20 @@ public class CurrentLabsPage extends WebPage
 	}
 
 	@Step("Verify the color of the CALCIUM X PHOSPHOROUS label/value")
-	public boolean viewCalciumXPhosphorousColor(int labValue) throws TimeoutException, WaitException
+	public boolean viewCalciumXPhosphorousColor(int labValue, String location) throws TimeoutException, WaitException
 	{
-		String classAttributeValue = webActions.getAttributeValue(VISIBILITY, LBL_CALCIUMXPHOSPHOROUSCOLOR, "class");
+		String classAttributeValue = "";
+
+		if (location.equals("T")) // Table
+		{
+			classAttributeValue = webActions.getAttributeValue(VISIBILITY, LBL_CALCIUMXPHOSPHOROUSCOLOR, "class");
+		} else
+		{
+			if (location.equals("P")) // Graph popup
+			{
+				classAttributeValue = webActions.getAttributeValue(VISIBILITY, LBL_GRAPHPOPUPCALCIUMXPHOSPHOROUSCOLOR, "class");
+			}
+		}
 
 		if (labValue < 30 || labValue > 60) // If out of range
 		{
@@ -1284,7 +1328,7 @@ public class CurrentLabsPage extends WebPage
 	}
 
 	@Step("Verify the visibility of the graph popup CALCIUM X PHOSPHOROUS Label/Value")
-	public boolean viewCalciumXPhosphorousGraphPopupLabelValue(String labValue) throws TimeoutException, WaitException
+	public boolean viewGraphPopupCalciumXPhosphorousLabelValue(String labValue) throws TimeoutException, WaitException
 	{
 		webActions.click(VISIBILITY, LBL_CALCIUMXPHOSPHOROUSSOURCE);
 
@@ -1354,7 +1398,7 @@ public class CurrentLabsPage extends WebPage
 	}
 
 	@Step("Verify the visibility of the graph popup PHOSPHOROUS Label/Value")
-	public boolean viewPhosphorousGraphPopupLabelValue(String labValue) throws TimeoutException, WaitException
+	public boolean viewGraphPopupPhosphorousLabelValue(String labValue) throws TimeoutException, WaitException
 	{
 		webActions.click(VISIBILITY, LBL_PHOSPHOROUSGOAL);
 
@@ -1424,7 +1468,7 @@ public class CurrentLabsPage extends WebPage
 	}
 
 	@Step("Verify the visibility of the graph popup CREATININE Label/Value")
-	public boolean viewCreatinineGraphPopupLabelValue(String labValue) throws TimeoutException, WaitException
+	public boolean viewGraphPopupCreatinineLabelValue(String labValue) throws TimeoutException, WaitException
 	{
 		webActions.click(VISIBILITY, LBL_CREATININESOURCE);
 
@@ -1494,7 +1538,7 @@ public class CurrentLabsPage extends WebPage
 	}
 
 	@Step("Verify the visibility of the graph popup GFR Label/Value")
-	public boolean viewGFRGraphPopupLabelValue(String labValue) throws TimeoutException, WaitException
+	public boolean viewGraphPopupGFRLabelValue(String labValue) throws TimeoutException, WaitException
 	{
 		webActions.click(VISIBILITY, LBL_GFRSOURCE);
 
@@ -1564,7 +1608,7 @@ public class CurrentLabsPage extends WebPage
 	}
 
 	@Step("Verify the visibility of the graph popup HGBA1C Label/Value")
-	public boolean viewHGBA1CGraphPopupLabelValue(String labValue) throws TimeoutException, WaitException
+	public boolean viewGraphPopupHGBA1CLabelValue(String labValue) throws TimeoutException, WaitException
 	{
 		webActions.click(VISIBILITY, LBL_HGBA1CSOURCE);
 
@@ -1634,7 +1678,7 @@ public class CurrentLabsPage extends WebPage
 	}
 
 	@Step("Verify the visibility of the graph popup LDL Label/Value")
-	public boolean viewLDLGraphPopupLabelValue(String labValue) throws TimeoutException, WaitException
+	public boolean viewGraphPopupLDLLabelValue(String labValue) throws TimeoutException, WaitException
 	{
 		webActions.click(VISIBILITY, LBL_LDLSOURCE);
 
@@ -1704,7 +1748,7 @@ public class CurrentLabsPage extends WebPage
 	}
 
 	@Step("Verify the visibility of the graph popup HGB Label/Value")
-	public boolean viewHGBGraphPopupLabelValue(String labValue) throws TimeoutException, WaitException
+	public boolean viewGraphPopupHGBLabelValue(String labValue) throws TimeoutException, WaitException
 	{
 		webActions.click(VISIBILITY, LBL_HGBSOURCE);
 
@@ -1774,7 +1818,7 @@ public class CurrentLabsPage extends WebPage
 	}
 
 	@Step("Verify the visibility of the graph popup ALBUMIN Label/Value")
-	public boolean viewAlbuminGraphPopupLabelValue(String labValue) throws TimeoutException, WaitException
+	public boolean viewGraphPopupAlbuminLabelValue(String labValue) throws TimeoutException, WaitException
 	{
 		webActions.click(VISIBILITY, LBL_ALBUMINSOURCE);
 
@@ -1844,7 +1888,7 @@ public class CurrentLabsPage extends WebPage
 	}
 
 	@Step("Verify the visibility of the graph popup URINE ALBUMIN/CREATININE RATIO Label/Value")
-	public boolean viewUrineAlbuminCreatinineRatioGraphPopupLabelValue(String labValue) throws TimeoutException, WaitException
+	public boolean viewGraphPopupUrineAlbuminCreatinineRatioLabelValue(String labValue) throws TimeoutException, WaitException
 	{
 		webActions.click(VISIBILITY, LBL_URINEALBUMINCREATININERATIOSOURCE);
 
@@ -1968,7 +2012,7 @@ public class CurrentLabsPage extends WebPage
 	}
 
 	@Step("Verify the visibility of the graph popup CO2 LEVEL Label/Value")
-	public boolean viewCO2LevelGraphPopupLabelValue(String labValue) throws TimeoutException, WaitException
+	public boolean viewGraphPopupCO2LevelLabelValue(String labValue) throws TimeoutException, WaitException
 	{
 		webActions.click(VISIBILITY, LBL_CO2LEVELSOURCE);
 
@@ -2076,7 +2120,7 @@ public class CurrentLabsPage extends WebPage
 	}
 
 	@Step("Verify the visibility of the graph popup CALCIUM Label/Value")
-	public boolean viewCalciumGraphPopupLabelValue(String labValue) throws TimeoutException, WaitException
+	public boolean viewGraphPopupCalciumLabelValue(String labValue) throws TimeoutException, WaitException
 	{
 		webActions.click(VISIBILITY, LBL_CALCIUMSOURCE);
 
@@ -2146,7 +2190,7 @@ public class CurrentLabsPage extends WebPage
 	}
 
 	@Step("Verify the visibility of the graph popup KT/V Label/Value")
-	public boolean viewKTVGraphPopupLabelValue(String labValue) throws TimeoutException, WaitException
+	public boolean viewGraphPopupKTVLabelValue(String labValue) throws TimeoutException, WaitException
 	{
 		webActions.click(VISIBILITY, LBL_KTVSOURCE);
 
@@ -2216,7 +2260,7 @@ public class CurrentLabsPage extends WebPage
 	}
 
 	@Step("Verify the visibility of the graph popup URR Label/Value")
-	public boolean viewURRGraphPopupLabelValue(String labValue) throws TimeoutException, WaitException
+	public boolean viewGraphPopupURRLabelValue(String labValue) throws TimeoutException, WaitException
 	{
 		webActions.click(VISIBILITY, LBL_URRSOURCE);
 
@@ -2286,7 +2330,7 @@ public class CurrentLabsPage extends WebPage
 	}
 
 	@Step("Verify the visibility of the graph popup POTASSIUM Label/Value")
-	public boolean viewPotassiumGraphPopupLabelValue(String labValue) throws TimeoutException, WaitException
+	public boolean viewGraphPopupPotassiumLabelValue(String labValue) throws TimeoutException, WaitException
 	{
 		webActions.click(VISIBILITY, LBL_POTASSIUMSOURCE);
 
@@ -2462,7 +2506,7 @@ public class CurrentLabsPage extends WebPage
 	}
 
 	@Step("Verify the visibility of the graph popup PTH Label/Value")
-	public boolean viewPTHGraphPopupLabelValue(String labValue) throws TimeoutException, WaitException
+	public boolean viewGraphPopupPTHLabelValue(String labValue) throws TimeoutException, WaitException
 	{
 		webActions.click(VISIBILITY, LBL_PTHSOURCE);
 
@@ -2532,7 +2576,7 @@ public class CurrentLabsPage extends WebPage
 	}
 
 	@Step("Verify the visibility of the graph popup HEPATITIS B TITER Label/Value")
-	public boolean viewHepatitisBTiterGraphPopupLabelValue(String labValue) throws TimeoutException, WaitException
+	public boolean viewGraphPopupHepatitisBTiterLabelValue(String labValue) throws TimeoutException, WaitException
 	{
 		webActions.click(VISIBILITY, LBL_HEPATITISBTITERSOURCE);
 
@@ -2602,7 +2646,7 @@ public class CurrentLabsPage extends WebPage
 	}
 
 	@Step("Verify the visibility of the graph popup FERRITIN Label/Value")
-	public boolean viewFerritinGraphPopupLabelValue(String labValue) throws TimeoutException, WaitException
+	public boolean viewGraphPopupFerritinLabelValue(String labValue) throws TimeoutException, WaitException
 	{
 		webActions.click(VISIBILITY, LBL_FERRITINSOURCE);
 
@@ -2672,7 +2716,7 @@ public class CurrentLabsPage extends WebPage
 	}
 
 	@Step("Verify the visibility of the graph popup TSAT Label/Value")
-	public boolean viewTSATGraphPopupLabelValue(String labValue) throws TimeoutException, WaitException
+	public boolean viewGraphPopupTSATLabelValue(String labValue) throws TimeoutException, WaitException
 	{
 		webActions.click(VISIBILITY, LBL_TSATSOURCE);
 
@@ -2742,7 +2786,7 @@ public class CurrentLabsPage extends WebPage
 	}
 
 	@Step("Verify the visibility of the graph popup BLOOD PRESSURE Label/Value")
-	public boolean viewBloodPressureGraphPopupLabelValue(String valueSystolic, String valueDiastolic) throws TimeoutException, WaitException
+	public boolean viewGraphPopupBloodPressureLabelValue(String valueSystolic, String valueDiastolic) throws TimeoutException, WaitException
 	{
 		webActions.click(VISIBILITY, LBL_BLOODPRESSURESOURCE);
 
