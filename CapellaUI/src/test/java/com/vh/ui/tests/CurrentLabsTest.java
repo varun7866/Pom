@@ -505,8 +505,6 @@ public class CurrentLabsTest extends TestBase
 			Assert.assertTrue(currentLabsPage.viewDipstickForProteinDrawDate(drawDateGregorian), "Failed to identify the DIPSTICK FOR PROTEIN draw date");
 			Assert.assertTrue(currentLabsPage.viewDipstickForProteinSource(), "Failed to identify the URINE DIPSTICK FOR PROTEIN Source");
 			Assert.assertTrue(currentLabsPage.viewDipstickForProteinColor(map.get("DIPSTICKFORPROTEIN")), "Failed to identify DIPSTICK FOR PROTEIN as the correct color");
-
-			currentLabsPage.clickAddLabButton();
 		}
 
 		if (map.get("CO2LEVEL") != null)
@@ -644,7 +642,7 @@ public class CurrentLabsTest extends TestBase
 			// "Failed to identify the graph popup BLOOD PRESSURE label/value");
 			// Assert.assertTrue(currentLabsPage.viewGraphPopupBloodPressureGoal(), "Failed to identify the graph popup BLOOD PRESSURE Goal");
 
-			currentLabsPage.clickAddLabButton();
+			// currentLabsPage.clickAddLabButton();
 
 		}
 	}
