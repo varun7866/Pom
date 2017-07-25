@@ -144,7 +144,7 @@ public class CurrentLabsLocators
 	public static final By LBL_URRGOAL = By.xpath("//span[contains(., 'URR (')]/../..//span[text()='Goal: Between 65 and 99']");
 	public static final By LBL_URRSOURCE = By.xpath("//span[contains(., 'URR (')]/../../..//span[text()='Source: VH']");
 	public static final By LBL_URRCOLOR = By.xpath("//span[contains(., 'URR (')]");
-	public static final By LBL_GRAPHPOPUPURRGOAL = By.xpath("//div[@class='lab-history-modal-header-div']//span[text()='Goal: ESRD between 65 and 99']");
+	public static final By LBL_GRAPHPOPUPURRGOAL = By.xpath("//div[@class='lab-history-modal-header-div']//span[text()='Goal: Between 65 and 99']");
 	public static final By LBL_POTASSIUMGOAL = By.xpath("//span[contains(., 'Potassium (')]/../..//span[text()='Goal: Between 3.5 and 5.2']");
 	public static final By LBL_POTASSIUMSOURCE = By.xpath("//span[contains(., 'Potassium (')]/../../..//span[text()='Source: VH']");
 	public static final By LBL_POTASSIUMCOLOR = By.xpath("//span[contains(., 'Potassium (')]");

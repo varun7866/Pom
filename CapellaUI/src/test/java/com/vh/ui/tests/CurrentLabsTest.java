@@ -505,8 +505,6 @@ public class CurrentLabsTest extends TestBase
 			Assert.assertTrue(currentLabsPage.viewDipstickForProteinDrawDate(drawDateGregorian), "Failed to identify the DIPSTICK FOR PROTEIN draw date");
 			Assert.assertTrue(currentLabsPage.viewDipstickForProteinSource(), "Failed to identify the URINE DIPSTICK FOR PROTEIN Source");
 			Assert.assertTrue(currentLabsPage.viewDipstickForProteinColor(map.get("DIPSTICKFORPROTEIN")), "Failed to identify DIPSTICK FOR PROTEIN as the correct color");
-			Assert.assertTrue(currentLabsPage.viewDipstickForProteinGraphPopupLabelValue(map.get("DIPSTICKFORPROTEIN")),
-			        "Failed to identify the graph popup DIPSTICK FOR PROTEIN label/value");
 
 			currentLabsPage.clickAddLabButton();
 		}

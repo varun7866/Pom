@@ -1913,16 +1913,6 @@ public class CurrentLabsPage extends WebPage
 		}
 	}
 
-	@Step("Verify the visibility of the graph popup DIPSTICK FOR PROTEIN Label/Value")
-	public boolean viewDipstickForProteinGraphPopupLabelValue(String labValue) throws TimeoutException, WaitException
-	{
-		webActions.click(VISIBILITY, LBL_DIPSTICKFORPROTEINSOURCE);
-
-		final By LBL_GRAPHPOPUPDIPSTICKFORPROTEIN = By.xpath("//div[@class='lab-history-modal-header-div']//span[text()='Dipstick For Protein (" + labValue + ")']");
-
-		return webActions.getVisibiltyOfElementLocatedBy(VISIBILITY, LBL_GRAPHPOPUPDIPSTICKFORPROTEIN);
-	}
-
 	@Step("Verify the visibility of the CO2 LEVEL label/value")
 	public boolean viewCO2LevelLabelValue(String labValue) throws TimeoutException, WaitException
 	{
