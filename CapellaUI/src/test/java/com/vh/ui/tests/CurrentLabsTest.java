@@ -399,6 +399,7 @@ public class CurrentLabsTest extends TestBase
 			Assert.assertTrue(currentLabsPage.viewPhosphorousSource(), "Failed to identify the PHOSPHOROUS Source");
 			Assert.assertTrue(currentLabsPage.viewPhosphorousColor(Double.parseDouble(map.get("PHOSPHOROUS"))), "Failed to identify PHOSPHOROUS as the correct color");
 			Assert.assertTrue(currentLabsPage.viewPhosphorousGraphPopupLabelValue(map.get("PHOSPHOROUS")), "Failed to identify the graph popup PHOSPHOROUS label/value");
+			Assert.assertTrue(currentLabsPage.viewGraphPopupPhosphorousGoal(), "Failed to identify the graph popup PHOSPHOROUS Goal");
 
 			currentLabsPage.clickAddLabButton();
 		}
@@ -411,6 +412,7 @@ public class CurrentLabsTest extends TestBase
 			Assert.assertTrue(currentLabsPage.viewCreatinineSource(), "Failed to identify the CREATININE Source");
 			Assert.assertTrue(currentLabsPage.viewCreatinineColor(Double.parseDouble(map.get("CREATININE"))), "Failed to identify CREATININE as the correct color");
 			Assert.assertTrue(currentLabsPage.viewCreatinineGraphPopupLabelValue(map.get("CREATININE")), "Failed to identify the graph popup CREATININE label/value");
+			Assert.assertTrue(currentLabsPage.viewGraphPopupCreatinineGoal(), "Failed to identify the graph popup CREATININE Goal");
 
 			currentLabsPage.clickAddLabButton();
 		}
@@ -423,6 +425,7 @@ public class CurrentLabsTest extends TestBase
 			Assert.assertTrue(currentLabsPage.viewGFRSource(), "Failed to identify the GFR Source");
 			Assert.assertTrue(currentLabsPage.viewGFRColor(Integer.parseInt(map.get("GFR"))), "Failed to identify GFR as the correct color");
 			Assert.assertTrue(currentLabsPage.viewGFRGraphPopupLabelValue(map.get("GFR")), "Failed to identify the graph popup GFR label/value");
+			Assert.assertTrue(currentLabsPage.viewGraphPopupGFRGoal(), "Failed to identify the graph popup GFR Goal");
 
 			currentLabsPage.clickAddLabButton();
 		}
@@ -435,6 +438,7 @@ public class CurrentLabsTest extends TestBase
 			Assert.assertTrue(currentLabsPage.viewHGBA1CSource(), "Failed to identify the HGBA1C Source");
 			Assert.assertTrue(currentLabsPage.viewHGBA1CColor(Integer.parseInt(map.get("HGBA1C"))), "Failed to identify HGBA1C as the correct color");
 			Assert.assertTrue(currentLabsPage.viewHGBA1CGraphPopupLabelValue(map.get("HGBA1C")), "Failed to identify the graph popup HGBA1C label/value");
+			Assert.assertTrue(currentLabsPage.viewGraphPopupHGBA1CGoal(), "Failed to identify the graph popup HGBA1C Goal");
 
 			currentLabsPage.clickAddLabButton();
 		}
@@ -447,6 +451,7 @@ public class CurrentLabsTest extends TestBase
 			Assert.assertTrue(currentLabsPage.viewLDLSource(), "Failed to identify the LDL Source");
 			Assert.assertTrue(currentLabsPage.viewLDLColor(Integer.parseInt(map.get("LDL"))), "Failed to identify LDL as the correct color");
 			Assert.assertTrue(currentLabsPage.viewLDLGraphPopupLabelValue(map.get("LDL")), "Failed to identify the graph popup LDL label/value");
+			Assert.assertTrue(currentLabsPage.viewGraphPopupLDLGoal(), "Failed to identify the graph popup LDL Goal");
 
 			currentLabsPage.clickAddLabButton();
 		}
@@ -459,6 +464,7 @@ public class CurrentLabsTest extends TestBase
 			Assert.assertTrue(currentLabsPage.viewHGBSource(), "Failed to identify the HGB Source");
 			Assert.assertTrue(currentLabsPage.viewHGBColor(Integer.parseInt(map.get("HGB"))), "Failed to identify HGB as the correct color");
 			Assert.assertTrue(currentLabsPage.viewHGBGraphPopupLabelValue(map.get("HGB")), "Failed to identify the graph popup HGB label/value");
+			Assert.assertTrue(currentLabsPage.viewGraphPopupHGBGoal(), "Failed to identify the graph popup HGB Goal");
 
 			currentLabsPage.clickAddLabButton();
 		}
@@ -471,6 +477,7 @@ public class CurrentLabsTest extends TestBase
 			Assert.assertTrue(currentLabsPage.viewAlbuminSource(), "Failed to identify the ALBUMIN Source");
 			Assert.assertTrue(currentLabsPage.viewAlbuminColor(Integer.parseInt(map.get("ALBUMIN"))), "Failed to identify ALBUMIN as the correct color");
 			Assert.assertTrue(currentLabsPage.viewAlbuminGraphPopupLabelValue(map.get("ALBUMIN")), "Failed to identify the graph popup ALBUMIN label/value");
+			Assert.assertTrue(currentLabsPage.viewGraphPopupAlbuminGoal(), "Failed to identify the graph popup ALBUMIN Goal");
 
 			currentLabsPage.clickAddLabButton();
 		}
@@ -486,6 +493,7 @@ public class CurrentLabsTest extends TestBase
 			        "Failed to identify URINE ALBUMIN/CREATININE RATIO as the correct color");
 			Assert.assertTrue(currentLabsPage.viewUrineAlbuminCreatinineRatioGraphPopupLabelValue(map.get("URINEALBUMINCREATININERATIO")),
 			        "Failed to identify the graph popup URINE ALBUMIN/CREATININE RATIO label/value");
+			Assert.assertTrue(currentLabsPage.viewGraphPopupUrineAlbuminCreatinineRatioGoal(), "Failed to identify the graph popup URINE ALBUMIN/CREATININE RATIO Goal");
 
 			currentLabsPage.clickAddLabButton();
 		}
@@ -511,6 +519,7 @@ public class CurrentLabsTest extends TestBase
 			Assert.assertTrue(currentLabsPage.viewCO2LevelSource(), "Failed to identify the CO2 LEVEL Source");
 			Assert.assertTrue(currentLabsPage.viewCO2LevelColor(Integer.parseInt(map.get("CO2LEVEL"))), "Failed to identify CO2LEVEL as the correct color");
 			Assert.assertTrue(currentLabsPage.viewCO2LevelGraphPopupLabelValue(map.get("CO2LEVEL")), "Failed to identify the graph popup CO2 LEVEL label/value");
+			Assert.assertTrue(currentLabsPage.viewGraphPopupCO2LevelGoal(), "Failed to identify the graph popup CO2 LEVEL Goal");
 
 			currentLabsPage.clickAddLabButton();
 		}
@@ -524,6 +533,7 @@ public class CurrentLabsTest extends TestBase
 			Assert.assertTrue(currentLabsPage.viewCalciumSource(), "Failed to identify the CALCIUM Source");
 			Assert.assertTrue(currentLabsPage.viewCalciumColor(Double.parseDouble(map.get("CALCIUM")), map.get("PatientType")), "Failed to identify CALCIUM as the correct color");
 			Assert.assertTrue(currentLabsPage.viewCalciumGraphPopupLabelValue(map.get("CALCIUM")), "Failed to identify the graph popup CALCIUM label/value");
+			Assert.assertTrue(currentLabsPage.viewGraphPopupCalciumGoal(), "Failed to identify the graph popup CALCIUM Goal");
 
 			currentLabsPage.clickAddLabButton();
 		}
