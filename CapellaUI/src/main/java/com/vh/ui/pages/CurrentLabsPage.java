@@ -1117,12 +1117,12 @@ public class CurrentLabsPage extends WebPage
 	{
 		String classAttributeValue = "";
 
-		if (location.equals("T"))
+		if (location.equals("T")) // Labs table
 		{
 			classAttributeValue = webActions.getAttributeValue(VISIBILITY, LBL_HEIGHTCOLOR, "class");
 		} else
 		{
-			if (location.equals("P"))
+			if (location.equals("P")) // Graph popup
 			{
 				classAttributeValue = webActions.getAttributeValue(VISIBILITY, LBL_GRAPHPOPUPHEIGHTCOLOR, "class");
 			}
@@ -1174,12 +1174,12 @@ public class CurrentLabsPage extends WebPage
 	{
 		String classAttributeValue = "";
 
-		if (location.equals("T"))
+		if (location.equals("T")) // Labs table
 		{
 			classAttributeValue = webActions.getAttributeValue(VISIBILITY, LBL_WEIGHTCOLOR, "class");
 		} else
 		{
-			if (location.equals("P"))
+			if (location.equals("P")) // Graph popup
 			{
 				classAttributeValue = webActions.getAttributeValue(VISIBILITY, LBL_GRAPHPOPUPWEIGHTCOLOR, "class");
 			}
@@ -1231,12 +1231,12 @@ public class CurrentLabsPage extends WebPage
 	{
 		String classAttributeValue = "";
 
-		if (location.equals("T"))
+		if (location.equals("T")) // Labs table
 		{
 			classAttributeValue = webActions.getAttributeValue(VISIBILITY, LBL_TARGETDRYWEIGHTCOLOR, "class");
 		} else
 		{
-			if (location.equals("P"))
+			if (location.equals("P")) // Graph popup
 			{
 				classAttributeValue = webActions.getAttributeValue(VISIBILITY, LBL_GRAPHPOPUPTARGETDRYWEIGHTCOLOR, "class");
 			}
@@ -1294,7 +1294,7 @@ public class CurrentLabsPage extends WebPage
 	{
 		String classAttributeValue = "";
 
-		if (location.equals("T")) // Table
+		if (location.equals("T")) // Labs table
 		{
 			classAttributeValue = webActions.getAttributeValue(VISIBILITY, LBL_CALCIUMXPHOSPHOROUSCOLOR, "class");
 		} else
@@ -1372,9 +1372,21 @@ public class CurrentLabsPage extends WebPage
 	}
 
 	@Step("Verify the color of the PHOSPHOROUS label/value")
-	public boolean viewPhosphorousColor(Double labValue) throws TimeoutException, WaitException
+	public boolean viewPhosphorousColor(Double labValue, String location) throws TimeoutException, WaitException
 	{
-		String classAttributeValue = webActions.getAttributeValue(VISIBILITY, LBL_PHOSPHOROUSCOLOR, "class");
+		String classAttributeValue = "";
+		
+		if (location.equals("T")) // Labs table
+		{
+			classAttributeValue = webActions.getAttributeValue(VISIBILITY, LBL_PHOSPHOROUSCOLOR, "class");
+		}
+		else
+		{
+			if (location.equals("P")) // Grapg popup
+			{
+				classAttributeValue = webActions.getAttributeValue(VISIBILITY, LBL_GRAPHPOPUPPHOSPHOROUSCOLOR, "class");
+			}
+		}
 
 		if (labValue < .5 || labValue > 5.5) // If out of range
 		{
@@ -1442,9 +1454,20 @@ public class CurrentLabsPage extends WebPage
 	}
 
 	@Step("Verify the color of the CREATININE label/value")
-	public boolean viewCreatinineColor(Double labValue) throws TimeoutException, WaitException
+	public boolean viewCreatinineColor(Double labValue, String location) throws TimeoutException, WaitException
 	{
-		String classAttributeValue = webActions.getAttributeValue(VISIBILITY, LBL_CREATININECOLOR, "class");
+		String classAttributeValue = "";
+
+		if (location.equals("T")) // Labs table
+		{
+			classAttributeValue = webActions.getAttributeValue(VISIBILITY, LBL_CREATININECOLOR, "class");
+		} else
+		{
+			if (location.equals("P")) // Graph popup
+			{
+				classAttributeValue = webActions.getAttributeValue(VISIBILITY, LBL_GRAPHPOPUPCREATININECOLOR, "class");
+			}
+		}
 
 		if (labValue < .5 || labValue > 1.5) // If out of range
 		{
@@ -1512,9 +1535,20 @@ public class CurrentLabsPage extends WebPage
 	}
 
 	@Step("Verify the color of the GFR label/value")
-	public boolean viewGFRColor(int labValue) throws TimeoutException, WaitException
+	public boolean viewGFRColor(int labValue, String location) throws TimeoutException, WaitException
 	{
-		String classAttributeValue = webActions.getAttributeValue(VISIBILITY, LBL_GFRCOLOR, "class");
+		String classAttributeValue = "";
+
+		if (location.equals("T")) // Labs table
+		{
+			classAttributeValue = webActions.getAttributeValue(VISIBILITY, LBL_GFRCOLOR, "class");
+		} else
+		{
+			if (location.equals("P")) // Graph popup
+			{
+				classAttributeValue = webActions.getAttributeValue(VISIBILITY, LBL_GRAPHPOPUPGFRCOLOR, "class");
+			}
+		}
 
 		if (labValue < 30 || labValue > 125) // If out of range
 		{
@@ -1582,9 +1616,20 @@ public class CurrentLabsPage extends WebPage
 	}
 
 	@Step("Verify the color of the HGBA1C label/value")
-	public boolean viewHGBA1CColor(int labValue) throws TimeoutException, WaitException
+	public boolean viewHGBA1CColor(int labValue, String location) throws TimeoutException, WaitException
 	{
-		String classAttributeValue = webActions.getAttributeValue(VISIBILITY, LBL_HGBA1CCOLOR, "class");
+		String classAttributeValue = "";
+
+		if (location.equals("T")) // Labs table
+		{
+			classAttributeValue = webActions.getAttributeValue(VISIBILITY, LBL_HGBA1CCOLOR, "class");
+		} else
+		{
+			if (location.equals("P")) // Graph popup
+			{
+				classAttributeValue = webActions.getAttributeValue(VISIBILITY, LBL_GRAPHPOPUPHGBA1CCOLOR, "class");
+			}
+		}
 
 		if (labValue < 3 || labValue > 8) // If out of range
 		{
@@ -1652,9 +1697,20 @@ public class CurrentLabsPage extends WebPage
 	}
 
 	@Step("Verify the color of the LDL label/value")
-	public boolean viewLDLColor(int labValue) throws TimeoutException, WaitException
+	public boolean viewLDLColor(int labValue, String location) throws TimeoutException, WaitException
 	{
-		String classAttributeValue = webActions.getAttributeValue(VISIBILITY, LBL_LDLCOLOR, "class");
+		String classAttributeValue = "";
+
+		if (location.equals("T")) // Labs table
+		{
+			classAttributeValue = webActions.getAttributeValue(VISIBILITY, LBL_LDLCOLOR, "class");
+		} else
+		{
+			if (location.equals("P")) // Graph popup
+			{
+				classAttributeValue = webActions.getAttributeValue(VISIBILITY, LBL_GRAPHPOPUPLDLCOLOR, "class");
+			}
+		}
 
 		if (labValue < 0 || labValue > 100) // If out of range
 		{
@@ -2762,7 +2818,7 @@ public class CurrentLabsPage extends WebPage
 	@Step("Verify the color of the BLOOD PRESSURE label/value")
 	public boolean viewBloodPressureColor(int labValue) throws TimeoutException, WaitException
 	{
-		String classAttributeValue = webActions.getAttributeValue(VISIBILITY, LBL_BLOODPRESSURECCOLOR, "class");
+		String classAttributeValue = webActions.getAttributeValue(VISIBILITY, LBL_BLOODPRESSURECOLOR, "class");
 
 		if (labValue < 60 || labValue > 130) // If out of range
 		{

@@ -104,41 +104,49 @@ public class CurrentLabsLocators
 	public static final By LBL_PHOSPHOROUSGOAL = By.xpath("//span[contains(., 'Phosphorous (')]/../..//span[text()='Goal: Between 0.5 and 5.5']");
 	public static final By LBL_PHOSPHOROUSSOURCE = By.xpath("//span[text()='Goal: Between 0.5 and 5.5']/../../..//span[text()='Source: VH']");
 	public static final By LBL_PHOSPHOROUSCOLOR = By.xpath("//span[contains(., 'Phosphorous (')]");
+	public static final By LBL_GRAPHPOPUPPHOSPHOROUSCOLOR = By.xpath("//div[@class='lab-history-modal-header-div']//span[contains(., 'Phosphorous (')]");
 	public static final By LBL_GRAPHPOPUPPHOSPHOROUSGOAL = By.xpath("//div[@class='lab-history-modal-header-div']//span[text()='Goal: Between 0.5 and 5.5']");
 
 	public static final By LBL_CREATININEGOAL = By.xpath("//span[contains(., 'Creatinine (')]/../..//span[text()='Goal: Between 0.5 and 1.5']");
 	public static final By LBL_CREATININESOURCE = By.xpath("//span[contains(., 'Creatinine (')]/../../..//span[text()='Source: VH']");
 	public static final By LBL_CREATININECOLOR = By.xpath("//span[contains(., 'Creatinine (')]");
+	public static final By LBL_GRAPHPOPUPCREATININECOLOR = By.xpath("//div[@class='lab-history-modal-header-div']//span[contains(., 'Creatinine (')]");
 	public static final By LBL_GRAPHPOPUPCREATININEGOAL = By.xpath("//div[@class='lab-history-modal-header-div']//span[text()='Goal: Between 0.5 and 1.5']");
 
 	public static final By LBL_GFRGOAL = By.xpath("//span[contains(., 'GFR (')]/../..//span[text()='Goal: Between 30 and 125']");
 	public static final By LBL_GFRSOURCE = By.xpath("//span[contains(., 'GFR (')]/../../..//span[text()='Source: VH']");
 	public static final By LBL_GFRCOLOR = By.xpath("//span[contains(., 'GFR (')]");
+	public static final By LBL_GRAPHPOPUPGFRCOLOR = By.xpath("//div[@class='lab-history-modal-header-div']//span[contains(., 'GFR (')]");
 	public static final By LBL_GRAPHPOPUPGFRGOAL = By.xpath("//div[@class='lab-history-modal-header-div']//span[text()='Goal: Between 30 and 125']");
 
 	public static final By LBL_HGBA1CGOAL = By.xpath("//span[contains(., 'Hgb A1C (')]/../..//span[text()='Goal: Between 3 and 8']");
 	public static final By LBL_HGBA1CSOURCE = By.xpath("//span[contains(., 'Hgb A1C (')]/../../..//span[text()='Source: VH']");
 	public static final By LBL_HGBA1CCOLOR = By.xpath("//span[contains(., 'Hgb A1C (')]");
+	public static final By LBL_GRAPHPOPUPHGBA1CCOLOR = By.xpath("//div[@class='lab-history-modal-header-div']//span[contains(., 'Hgb A1C (')]");
 	public static final By LBL_GRAPHPOPUPHGBA1CGOAL = By.xpath("//div[@class='lab-history-modal-header-div']//span[text()='Goal: Between 3 and 8']");
 
 	public static final By LBL_LDLGOAL = By.xpath("//span[contains(., 'LDL (')]/../..//span[text()='Goal: Between 0 and 100']");
 	public static final By LBL_LDLSOURCE = By.xpath("//span[contains(., 'LDL (')]/../../..//span[text()='Source: VH']");
 	public static final By LBL_LDLCOLOR = By.xpath("//span[contains(., 'LDL (')]");
+	public static final By LBL_GRAPHPOPUPLDLCOLOR = By.xpath("//div[@class='lab-history-modal-header-div']//span[contains(., 'LDL (')]");
 	public static final By LBL_GRAPHPOPUPLDLGOAL = By.xpath("//div[@class='lab-history-modal-header-div']//span[text()='Goal: Between 0 and 100']");
 
 	public static final By LBL_HGBGOAL = By.xpath("//span[contains(., 'Hgb (')]/../..//span[text()='Goal: Between 0 and 11']");
 	public static final By LBL_HGBSOURCE = By.xpath("//span[contains(., 'Hgb (')]/../../..//span[text()='Source: VH']");
 	public static final By LBL_HGBCOLOR = By.xpath("//span[contains(., 'Hgb (')]");
+	public static final By LBL_GRAPHPOPUPHGBCOLOR = By.xpath("//div[@class='lab-history-modal-header-div']//span[contains(., 'Hgb (')]");
 	public static final By LBL_GRAPHPOPUPHGBGOAL = By.xpath("//div[@class='lab-history-modal-header-div']//span[text()='Goal: Between 0 and 11']");
 
 	public static final By LBL_ALBUMINGOAL = By.xpath("//span[contains(., 'Albumin (')]/../..//span[text()='Goal: Between 4 and 7']");
 	public static final By LBL_ALBUMINSOURCE = By.xpath("//span[contains(., 'Albumin (')]/../../..//span[text()='Source: VH']");
 	public static final By LBL_ALBUMINCOLOR = By.xpath("//span[contains(., 'Albumin (')]");
+	public static final By LBL_GRAPHPOPUPALBUMINCOLOR = By.xpath("//div[@class='lab-history-modal-header-div']//span[contains(., 'Albumin (')]");
 	public static final By LBL_GRAPHPOPUPALBUMINGOAL = By.xpath("//div[@class='lab-history-modal-header-div']//span[text()='Goal: Between 4 and 7']");
 
 	public static final By LBL_URINEALBUMINCREATININERATIOGOAL = By.xpath("//span[contains(., 'Urine Albumin/Creatinine Ratio (')]/../..//span[text()='Goal: Between 0 and 30']");
 	public static final By LBL_URINEALBUMINCREATININERATIOSOURCE = By.xpath("//span[contains(., 'Urine Albumin/Creatinine Ratio (')]/../../..//span[text()='Source: VH']");
 	public static final By LBL_URINEALBUMINCREATININERATIOCOLOR = By.xpath("//span[contains(., 'Urine Albumin/Creatinine Ratio (')]");
+	public static final By LBL_GRAPHPOPUPURINEALBUMINCREATININERATIOCOLOR = By.xpath("//div[@class='lab-history-modal-header-div']//span[contains(., 'Urine Albumin/Creatinine Ratio (')]");
 	public static final By LBL_GRAPHPOPUPURINEALBUMINCREATININERATIOGOAL = By.xpath("//div[@class='lab-history-modal-header-div']//span[text()='Goal: Between 0 and 30']");
 
 	public static final By LBL_DIPSTICKFORPROTEINGOAL = By.xpath("//span[contains(., 'Dipstick For Protein (')]/../..//span[text()='Goal: Negative']");
@@ -148,27 +156,32 @@ public class CurrentLabsLocators
 	public static final By LBL_CO2LEVELGOAL = By.xpath("//span[contains(., 'Co2 Level (')]/../..//span[text()='Goal: Between 22 and 31']");
 	public static final By LBL_CO2LEVELSOURCE = By.xpath("//span[contains(., 'Co2 Level (')]/../../..//span[text()='Source: VH']");
 	public static final By LBL_CO2LEVELCOLOR = By.xpath("//span[contains(., 'Co2 Level (')]");
+	public static final By LBL_GRAPHPOPUPCO2LEVELCOLOR = By.xpath("//div[@class='lab-history-modal-header-div']//span[contains(., 'Co2 Level (')]");
 	public static final By LBL_GRAPHPOPUPCO2LEVELGOAL = By.xpath("//div[@class='lab-history-modal-header-div']//span[text()='Goal: Between 22 and 31']");
 
 	public static final By LBL_CALCIUMGOAL1 = By.xpath("//span[contains(., 'Calcium (')]/../..//span[text()='Goal: ESRD: Between 8.4 and 9.5']");
 	public static final By LBL_CALCIUMGOAL2 = By.xpath("//span[contains(., 'Calcium (')]/../..//span[text()=' CKD: Between 8.6 and 10.3']");
 	public static final By LBL_CALCIUMSOURCE = By.xpath("//span[contains(., 'Calcium (')]/../../..//span[text()='Source: VH']");
 	public static final By LBL_CALCIUMCOLOR = By.xpath("//span[contains(., 'Calcium (')]");
+	public static final By LBL_GRAPHPOPUPCALCIUMCOLOR = By.xpath("//div[@class='lab-history-modal-header-div']//span[contains(., 'Calcium (')]");
 	public static final By LBL_GRAPHPOPUPCALCIUMGOAL = By.xpath("//div[@class='lab-history-modal-header-div']//span[text()='Goal: ESRD: Between 8.4 and 9.5 CKD: Between 8.6 and 10.3']");
 
 	public static final By LBL_KTVGOAL = By.xpath("//span[contains(., 'KT/V (')]/../..//span[text()='Goal: Between 1.2 and 3']");
 	public static final By LBL_KTVSOURCE = By.xpath("//span[contains(., 'KT/V (')]/../../..//span[text()='Source: VH']");
 	public static final By LBL_KTVCOLOR = By.xpath("//span[contains(., 'KT/V (')]");
+	public static final By LBL_GRAPHPOPUPKTVCOLOR = By.xpath("//div[@class='lab-history-modal-header-div']//span[contains(., 'KT/V (')]");
 	public static final By LBL_GRAPHPOPUPKTVGOAL = By.xpath("//div[@class='lab-history-modal-header-div']//span[text()='Goal: Between 1.2 and 3']");
 
 	public static final By LBL_URRGOAL = By.xpath("//span[contains(., 'URR (')]/../..//span[text()='Goal: Between 65 and 99']");
 	public static final By LBL_URRSOURCE = By.xpath("//span[contains(., 'URR (')]/../../..//span[text()='Source: VH']");
 	public static final By LBL_URRCOLOR = By.xpath("//span[contains(., 'URR (')]");
+	public static final By LBL_GRAPHPOPUPURRCOLOR = By.xpath("//div[@class='lab-history-modal-header-div']//span[contains(., 'URR (')]");
 	public static final By LBL_GRAPHPOPUPURRGOAL = By.xpath("//div[@class='lab-history-modal-header-div']//span[text()='Goal: Between 65 and 99']");
 
 	public static final By LBL_POTASSIUMGOAL = By.xpath("//span[contains(., 'Potassium (')]/../..//span[text()='Goal: Between 3.5 and 5.2']");
 	public static final By LBL_POTASSIUMSOURCE = By.xpath("//span[contains(., 'Potassium (')]/../../..//span[text()='Source: VH']");
 	public static final By LBL_POTASSIUMCOLOR = By.xpath("//span[contains(., 'Potassium (')]");
+	public static final By LBL_GRAPHPOPUPPOTASSIUMCOLOR = By.xpath("//div[@class='lab-history-modal-header-div']//span[contains(., 'Potassium (')]");
 	public static final By LBL_GRAPHPOPUPPOTASSIUMGOAL = By.xpath("//div[@class='lab-history-modal-header-div']//span[text()='Goal: Between 3.5 and 5.2']");
 
 	public static final By LBL_PTHGOAL1 = By.xpath("//span[contains(., 'PTH (')]/../..//span[text()='Goal: CKD1: Between 0 and 9999']");
@@ -178,27 +191,32 @@ public class CurrentLabsLocators
 	public static final By LBL_PTHGOAL5 = By.xpath("//span[contains(., 'PTH (')]/../..//span[text()=' CKD4: Between 71 and 110']");
 	public static final By LBL_PTHSOURCE = By.xpath("//span[contains(., 'PTH (')]/../../..//span[text()='Source: VH']");
 	public static final By LBL_PTHCOLOR = By.xpath("//span[contains(., 'PTH (')]");
+	public static final By LBL_GRAPHPOPUPPTHCOLOR = By.xpath("//div[@class='lab-history-modal-header-div']//span[contains(., 'PTH (')]");
 	public static final By LBL_GRAPHPOPUPPTHGOAL = By.xpath(
 	        "//div[@class='lab-history-modal-header-div']//span[text()='Goal: CKD1: Between 0 and 9999 CKD2: Between 0 and 9999 ESRD: Between 150 and 600 CKD3: Between 35 and 70 CKD4: Between 71 and 110']");
 
 	public static final By LBL_HEPATITISBTITERGOAL = By.xpath("//span[contains(., 'Hepatitis B Titer (')]/../..//span[text()='Goal: Between 10 and 100']");
 	public static final By LBL_HEPATITISBTITERSOURCE = By.xpath("//span[contains(., 'Hepatitis B Titer (')]/../../..//span[text()='Source: VH']");
 	public static final By LBL_HEPATITISBTITERCOLOR = By.xpath("//span[contains(., 'Hepatitis B Titer (')]");
+	public static final By LBL_GRAPHPOPUPHEPATITISBTITERCOLOR = By.xpath("//div[@class='lab-history-modal-header-div']//span[contains(., 'Hepatitis B Titer (')]");
 	public static final By LBL_GRAPHPOPUPHEPATITISBTITERGOAL = By.xpath("//div[@class='lab-history-modal-header-div']//span[text()='Goal: Between 10 and 100']");
 
 	public static final By LBL_FERRITINGOAL = By.xpath("//span[contains(., 'Ferritin (')]/../..//span[text()='Goal: Between 100 and 500']");
 	public static final By LBL_FERRITINSOURCE = By.xpath("//span[contains(., 'Ferritin (')]/../../..//span[text()='Source: VH']");
 	public static final By LBL_FERRITINCOLOR = By.xpath("//span[contains(., 'Ferritin (')]");
+	public static final By LBL_GRAPHPOPUPFERRITINCOLOR = By.xpath("//div[@class='lab-history-modal-header-div']//span[contains(., 'Ferritin (')]");
 	public static final By LBL_GRAPHPOPUPFERRITINGOAL = By.xpath("//div[@class='lab-history-modal-header-div']//span[text()='Goal: Between 100 and 500']");
 
 	public static final By LBL_TSATGOAL = By.xpath("//span[contains(., 'TSAT (')]/../..//span[text()='Goal: Between 20 and 100']");
 	public static final By LBL_TSATSOURCE = By.xpath("//span[contains(., 'TSAT (')]/../../..//span[text()='Source: VH']");
 	public static final By LBL_TSATCOLOR = By.xpath("//span[contains(., 'TSAT (')]");
+	public static final By LBL_GRAPHPOPUPTSATCOLOR = By.xpath("//div[@class='lab-history-modal-header-div']//span[contains(., 'TSAT (')]");
 	public static final By LBL_GRAPHPOPUPTSATGOAL = By.xpath("//div[@class='lab-history-modal-header-div']//span[text()='Goal: Between 20 and 100']");
 
 	public static final By LBL_BLOODPRESSURESYSTOLICGOAL = By.xpath("//span[contains(., 'Blood Pressure (')]/../..//span[text()='Goals: BPSys between 60 and 130']");
 	public static final By LBL_BLOODPRESSURESOURCE = By.xpath("//span[contains(., 'Blood Pressure (')]/../../..//span[text()='Source: VH']");
-	public static final By LBL_BLOODPRESSURECCOLOR = By.xpath("//span[contains(., 'Blood Pressure (')]");
+	public static final By LBL_BLOODPRESSURECOLOR = By.xpath("//span[contains(., 'Blood Pressure (')]");
+	public static final By LBL_GRAPHPOPUPBLOODPRESSURECOLOR = By.xpath("//div[@class='lab-history-modal-header-div']//span[contains(., 'Blood Pressure (')]");
 	public static final By LBL_BLOODPRESSUREDIASTOLICGOAL = By.xpath("//span[contains(., 'Blood Pressure Diastolic (')]/../..//span[text()=' BPDia between 0 and 80']");
 	public static final By LBL_GRAPHPOPUPBLOODPRESSUREGOAL = By.xpath("//div[@class='lab-history-modal-header-div']//span[text()='Goal: Between 60 and 130']");
 
