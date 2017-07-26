@@ -42,7 +42,7 @@ public class MyTasksTest extends TestBase
 	}
 
 	@Test(priority = 1)
-	@Step("Temporary POC test")
+	@Step("Open My Tasks Page")
     public void verify_MyTasksPage() throws WaitException, URLNavigationException, InterruptedException
     {
         appFunctions.clickMyTasksMenuBar();
@@ -71,7 +71,7 @@ public class MyTasksTest extends TestBase
     @Test(priority=3)
     @Step("Add New Task")
     public void addNewTask() throws TimeoutException, WaitException {
-    	myTasks.addNewTaskPatientName("Cesario Nevins");
+    	myTasks.addNewTaskPatientName("Trish Crohan");
     	myTasks.addNewTaskTaskTitle("Feet check");
     	myTasks.addNewTaskTaskDescription("Feet check description");
     	myTasks.clickNewTaskAddButton();

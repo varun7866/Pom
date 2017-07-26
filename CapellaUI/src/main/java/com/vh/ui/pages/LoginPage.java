@@ -1,12 +1,12 @@
 package com.vh.ui.pages;
 
+import static com.vh.ui.web.locators.ApplicationLocators.LBL_PATIENTCONTACTS;
 import static com.vh.ui.web.locators.LoginLocators.BTN_LOGIN;
 import static com.vh.ui.web.locators.LoginLocators.BTN_YESALLOW;
 import static com.vh.ui.web.locators.LoginLocators.CHK_REMEMBERMYDECISION;
 import static com.vh.ui.web.locators.LoginLocators.LBL_LOGINERRORMSG;
 import static com.vh.ui.web.locators.LoginLocators.TXT_PASSWORD;
 import static com.vh.ui.web.locators.LoginLocators.TXT_USERNAME;
-import static com.vh.ui.web.locators.ApplicationLocators.LBL_PATIENTCONTACTS;
 
 import org.openqa.selenium.TimeoutException;
 import org.openqa.selenium.WebDriver;

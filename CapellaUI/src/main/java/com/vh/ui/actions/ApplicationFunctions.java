@@ -877,6 +877,10 @@ public class ApplicationFunctions extends WebPage
 		return adjustedDate;
 	}
 	
+	
+	/**
+	 *  Waits 100 seconds for username field to be visible on login screen
+	 */
 	public void waitForLoginScreen() {
 		try {
 			wait.checkForElementVisibility(driver, TXT_USERNAME, 100);
@@ -886,6 +890,12 @@ public class ApplicationFunctions extends WebPage
 		}
 	}
 	
+	
+	/**
+	 * Verify the text on the success message
+	 * @param popUpText the text on the success message to valid
+	 * @return true if the valid success message exists, else false
+	 */
 	public boolean verifySuccessMessage(String popUpText) {
 		String xpathExpression = "//snack-bar-container/simple-snack-bar[text()=contains(.,'" + popUpText + "')]";
 		By locator = By.xpath(xpathExpression);

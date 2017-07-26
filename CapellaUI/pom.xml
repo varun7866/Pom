@@ -23,6 +23,13 @@
 		    <artifactId>ojdbc</artifactId>
 		    <version>14-10gR3</version>
 		</dependency> -->
+		<dependency>
+			<groupId>EncryptDecrypt</groupId>
+			<artifactId>com.vh</artifactId>
+			<version>1.0</version>
+			<scope>system</scope>
+			<systemPath>///${project.basedir}/libs/PasswordEncoder.jar</systemPath>
+		</dependency>
     	<dependency>
 			<groupId>org.testng</groupId>
 			<artifactId>testng</artifactId>
