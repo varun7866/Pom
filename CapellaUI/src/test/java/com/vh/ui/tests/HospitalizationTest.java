@@ -43,8 +43,8 @@ public class HospitalizationTest extends TestBase {
 	@Step("Verify the Hospitalization page")
 	public void verify_CurrentHospitalizationPage() throws WaitException, URLNavigationException, InterruptedException
 	{
-		Assert.assertTrue(hospitalizationPage.viewHospitalizationPageHeaderLabel(), "Failed to identify the Current Labs page header label");
-		Assert.assertTrue(hospitalizationPage.viewAddHospitalizationButton(), "Failed to identify the ADD LAB button");
+		Assert.assertTrue(hospitalizationPage.viewHospitalizationPageHeaderLabel(), "Failed to identify the Current Hospitalization page header label");
+		Assert.assertTrue(hospitalizationPage.viewAddHospitalizationButton(), "Failed to identify the ADD Hospitalization button");
 	}
 	
 	@Test(priority = 2)
@@ -61,14 +61,14 @@ public class HospitalizationTest extends TestBase {
 		hospitalizationPage.clickAddTransferTabButton();
 		Assert.assertTrue(hospitalizationPage.viewTransferTabHeader(), "Failed to identify the transfer tab header label");
 		Assert.assertTrue(hospitalizationPage.viewFacilityNameLabel(), "Failed to identify the facility name label");
-		Assert.assertTrue(hospitalizationPage.viewFacilityNameTextBox(), "Failed to identify the transfer tab header label");
-		Assert.assertTrue(hospitalizationPage.viewTransferDateLabel(), "Failed to identify the facility name label");
-		Assert.assertTrue(hospitalizationPage.viewTransferDatePicker(), "Failed to identify the transfer tab header label");
-		Assert.assertTrue(hospitalizationPage.viewTransferDatePickerButton(), "Failed to identify the facility name label");
-		Assert.assertTrue(hospitalizationPage.viewTransferPhoneLabel(), "Failed to identify the transfer tab header label");
-		Assert.assertTrue(hospitalizationPage.viewTransferPhoneTextBox(), "Failed to identify the facility name label");
-		Assert.assertTrue(hospitalizationPage.viewTransferFaxLabel(), "Failed to identify the transfer tab header label");
-		Assert.assertTrue(hospitalizationPage.viewTransferFaxTextBox(), "Failed to identify the facility name label");
+		Assert.assertTrue(hospitalizationPage.viewFacilityNameTextBox(), "Failed to identify the facility name text box");
+		Assert.assertTrue(hospitalizationPage.viewTransferDateLabel(), "Failed to identify the transfer date label");
+		Assert.assertTrue(hospitalizationPage.viewTransferDatePicker(), "Failed to identify the transfer date picker");
+		Assert.assertTrue(hospitalizationPage.viewTransferDatePickerButton(), "Failed to identify the transfer date picker button");
+		Assert.assertTrue(hospitalizationPage.viewTransferPhoneLabel(), "Failed to identify the transfer phone label");
+		Assert.assertTrue(hospitalizationPage.viewTransferPhoneTextBox(), "Failed to identify the transfer phone text box");
+		Assert.assertTrue(hospitalizationPage.viewTransferFaxLabel(), "Failed to identify the transfer fax label");
+		Assert.assertTrue(hospitalizationPage.viewTransferFaxTextBox(), "Failed to identify the transfer fax text box");
 	}
 	
 	@Test(priority = 4)
@@ -103,7 +103,7 @@ public class HospitalizationTest extends TestBase {
 		Assert.assertTrue(hospitalizationPage.viewHomeHealthReasonLabel(), "Failed to identify the Home Health Reason Label");
 		Assert.assertTrue(hospitalizationPage.viewHomeHealthReasonComboBox(), "Failed to identify the Home Health Reason drop down");
 	}	
-	
+
 
 }
 

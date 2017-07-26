@@ -266,7 +266,7 @@ public class HospitalizationPage extends WebPage
 	@Step("Verify the visibility of the Home Health Reason label")
 	public boolean viewHomeHealthReasonLabel() throws TimeoutException, WaitException
 	{
-		return webActions.getVisibiltyOfElementLocatedBy(VISIBILITY, LBL_NEWPOPUPHOMEHEALTHNAME);
+		return webActions.getVisibiltyOfElementLocatedBy(VISIBILITY, LBL_NEWPOPUPHOMEHEALTHREASON);
 	}
 	
 	@Step("Verify the visibility of the Home Health Reason combo box")
