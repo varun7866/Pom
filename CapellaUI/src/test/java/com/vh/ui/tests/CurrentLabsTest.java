@@ -639,21 +639,32 @@ public class CurrentLabsTest extends TestBase
 			currentLabsPage.clickAddLabButton();
 		}
 
-		if (map.get("BLOODPRESSURESYSTOLIC") != null && map.get("BLOODPRESSUREDIASTOLIC") != null)
+		if (map.get("BLOODPRESSURESYSTOLIC") != null)
 		{
-			//Assert.assertTrue(currentLabsPage.viewBloodPressureLabelValue(map.get("BLOODPRESSURESYSTOLIC"), map.get("BLOODPRESSUREDIASTOLIC")),
-			// "Failed to identify the BLOOD PRESSURE label/value");
-			//Assert.assertTrue(currentLabsPage.viewBloodPressureSystolicGoal(), "Failed to identify the BLOOD PRESSURE SYSTOLIC Goal");
-			//Assert.assertTrue(currentLabsPage.viewBloodPressureDiastolicGoal(), "Failed to identify the BLOOD PRESSURE DIASTOLIC Goal");
-			Assert.assertTrue(currentLabsPage.viewBloodPressureDrawDate(drawDateGregorian), "Failed to identify the BLOOD PRESSURE draw date");
-			Assert.assertTrue(currentLabsPage.viewBloodPressureSource(), "Failed to identify the BLOOD PRESSURE Source");
-			//Assert.assertTrue(currentLabsPage.viewBloodPressureColor(Integer.parseInt(map.get("BLOODPRESSURE"))), "Failed to identify BLOOD PRESSURE as the correct color");
-			// Assert.assertTrue(currentLabsPage.viewBloodPressureGraphPopupLabelValue(map.get("BLOODPRESSURESYSTOLIC"), map.get("BLOODPRESSUREDIASTOLIC")),
-			// "Failed to identify the graph popup BLOOD PRESSURE label/value");
-			// Assert.assertTrue(currentLabsPage.viewGraphPopupBloodPressureGoal(), "Failed to identify the graph popup BLOOD PRESSURE Goal");
+			Assert.assertTrue(currentLabsPage.viewBloodPressureSystolicLabelValue(map.get("BLOODPRESSURESYSTOLIC")), "Failed to identify the BLOOD PRESSURE SYSTOLIC label/value");
+			Assert.assertTrue(currentLabsPage.viewBloodPressureSystolicGoal(), "Failed to identify the BLOOD PRESSURE SYSTOLIC Goal");
+			Assert.assertTrue(currentLabsPage.viewBloodPressureSystolicDrawDate(drawDateGregorian), "Failed to identify the BLOOD PRESSURE SYSTOLIC draw date");
+			Assert.assertTrue(currentLabsPage.viewBloodPressureSystolicSource(), "Failed to identify the BLOOD PRESSURE SYSTOLIC Source");
+			Assert.assertTrue(currentLabsPage.viewBloodPressureSystolicColor(Integer.parseInt(map.get("BLOODPRESSURESYSTOLIC"))),
+			        "Failed to identify BLOOD PRESSURE SYSTOLIC as the correct color");
+			Assert.assertTrue(currentLabsPage.viewGraphPopupBloodPressureSystolicLabelValue(map.get("BLOODPRESSURESYSTOLIC")),
+			        "Failed to identify the graph popup BLOOD PRESSURE SYSTOLIC label/value");
+			Assert.assertTrue(currentLabsPage.viewGraphPopupBloodPressureSystolicGoal(), "Failed to identify the graph popup BLOOD PRESSURE SYSTOLIC Goal");
 
-			// currentLabsPage.clickAddLabButton();
+			currentLabsPage.clickAddLabButton();
+		}
 
+		if (map.get("BLOODPRESSUREDIASTOLIC") != null)
+		{
+			Assert.assertTrue(currentLabsPage.viewBloodPressureDiastolicLabelValue(map.get("BLOODPRESSUREDIASTOLIC")), "Failed to identify the BLOOD PRESSURE DIASTOLIC label/value");
+			Assert.assertTrue(currentLabsPage.viewBloodPressureDiastolicGoal(), "Failed to identify the BLOOD PRESSURE DIASTOLIC Goal");
+			Assert.assertTrue(currentLabsPage.viewBloodPressureDiastolicDrawDate(drawDateGregorian), "Failed to identify the BLOOD PRESSURE DIASTOLIC draw date");
+			Assert.assertTrue(currentLabsPage.viewBloodPressureDiastolicSource(), "Failed to identify the BLOOD PRESSURE DIASTOLIC Source");
+			Assert.assertTrue(currentLabsPage.viewBloodPressureDiastolicColor(Integer.parseInt(map.get("BLOODPRESSUREDIASTOLIC"))),
+			        "Failed to identify BLOOD PRESSURE DIASTOLIC as the correct color");
+			Assert.assertTrue(currentLabsPage.viewGraphPopupBloodPressureDiastolicLabelValue(map.get("BLOODPRESSUREDIASTOLIC")),
+			        "Failed to identify the graph popup BLOOD PRESSURE DIASTOLIC label/value");
+			Assert.assertTrue(currentLabsPage.viewGraphPopupBloodPressureDiastolicGoal(), "Failed to identify the graph popup BLOOD PRESSURE DIASTOLIC Goal");
 		}
 	}
 

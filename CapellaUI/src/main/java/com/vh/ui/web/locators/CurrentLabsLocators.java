@@ -213,12 +213,17 @@ public class CurrentLabsLocators
 	public static final By LBL_GRAPHPOPUPTSATCOLOR = By.xpath("//div[@class='lab-history-modal-header-div']//span[contains(., 'TSAT (')]");
 	public static final By LBL_GRAPHPOPUPTSATGOAL = By.xpath("//div[@class='lab-history-modal-header-div']//span[text()='Goal: Between 20 and 100']");
 
-	public static final By LBL_BLOODPRESSURESYSTOLICGOAL = By.xpath("//span[contains(., 'Blood Pressure (')]/../..//span[text()='Goals: BPSys between 60 and 130']");
-	public static final By LBL_BLOODPRESSURESOURCE = By.xpath("//span[contains(., 'Blood Pressure (')]/../../..//span[text()='Source: VH']");
-	public static final By LBL_BLOODPRESSURECOLOR = By.xpath("//span[contains(., 'Blood Pressure (')]");
-	public static final By LBL_GRAPHPOPUPBLOODPRESSURECOLOR = By.xpath("//div[@class='lab-history-modal-header-div']//span[contains(., 'Blood Pressure (')]");
-	public static final By LBL_BLOODPRESSUREDIASTOLICGOAL = By.xpath("//span[contains(., 'Blood Pressure Diastolic (')]/../..//span[text()=' BPDia between 0 and 80']");
-	public static final By LBL_GRAPHPOPUPBLOODPRESSUREGOAL = By.xpath("//div[@class='lab-history-modal-header-div']//span[text()='Goal: Between 60 and 130']");
+	public static final By LBL_BLOODPRESSURESYSTOLICGOAL = By.xpath("//span[contains(., 'Blood Pressure Systolic (')]/../..//span[text()='Goal: Between 60 and 130']");
+	public static final By LBL_BLOODPRESSURESYSTOLICSOURCE = By.xpath("//span[contains(., 'Blood Pressure Systolic (')]/../../..//span[text()='Source: VH']");
+	public static final By LBL_BLOODPRESSURESYSTOLICCOLOR = By.xpath("//span[contains(., 'Blood Pressure Systolic (')]");
+	public static final By LBL_GRAPHPOPUPBLOODPRESSURESYSTOLICCOLOR = By.xpath("//div[@class='lab-history-modal-header-div']//span[contains(., 'Blood Pressure Systolic (')]");
+	public static final By LBL_GRAPHPOPUPBLOODPRESSURESYSTOLICGOAL = By.xpath("//div[@class='lab-history-modal-header-div']//span[text()='Goal: Between 60 and 130']");
+
+	public static final By LBL_BLOODPRESSUREDIASTOLICGOAL = By.xpath("//span[contains(., 'Blood Pressure Diastolic (')]/../..//span[text()='Goal: Between 0 and 80']");
+	public static final By LBL_BLOODPRESSUREDIASTOLICSOURCE = By.xpath("//span[contains(., 'Blood Pressure Diastolic (')]/../../..//span[text()='Source: VH']");
+	public static final By LBL_BLOODPRESSUREDIASTOLICCOLOR = By.xpath("//span[contains(., 'Blood Pressure Diastolic (')]");
+	public static final By LBL_GRAPHPOPUPBLOODPRESSUREDIASTOLICCOLOR = By.xpath("//div[@class='lab-history-modal-header-div']//span[contains(., 'Blood Pressure Diastolic (')]");
+	public static final By LBL_GRAPHPOPUPBLOODPRESSUREDIASTOLICGOAL = By.xpath("//div[@class='lab-history-modal-header-div']//span[text()='Goal: Between 0 and 80']");
 
 	public static final By PLH_ADDPOPUPHEIGHT = By.xpath("//span[text()='Height']/../../../div[2]/div/input[@placeholder='cm']");
 	public static final By PLH_ADDPOPUPTARGETDRYWEIGHT = By.xpath("//span[text()='Target Dry Weight']/../../../div[2]/div/input[@placeholder='kg']");

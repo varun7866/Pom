@@ -2787,12 +2787,12 @@ public class CurrentLabsPage extends WebPage
 		return webActions.getVisibiltyOfElementLocatedBy(VISIBILITY, LBL_GRAPHPOPUPTSATGOAL);
 	}
 
-	@Step("Verify the visibility of the BLOOD PRESSURE label/value")
-	public boolean viewBloodPressureLabelValue(String valueSystolic, String valueDiastolic) throws TimeoutException, WaitException
+	@Step("Verify the visibility of the BLOOD PRESSURE SYSTOLIC label/value")
+	public boolean viewBloodPressureSystolicLabelValue(String valueSystolic) throws TimeoutException, WaitException
 	{
-		final By LBL_BLOODPRESSURE = By.xpath("//span[text()='Blood Pressure (" + valueSystolic + ")(" + valueDiastolic + ")']");
+		final By LBL_BLOODPRESSURESYSTOLIC = By.xpath("//span[text()='Blood Pressure Systolic (" + valueSystolic + ")']");
 
-		return webActions.getVisibiltyOfElementLocatedBy(VISIBILITY, LBL_BLOODPRESSURE);
+		return webActions.getVisibiltyOfElementLocatedBy(VISIBILITY, LBL_BLOODPRESSURESYSTOLIC);
 	}
 
 	@Step("Verify the visibility of the BLOOD PRESSURE SYSTOLIC Goal")
@@ -2801,24 +2801,24 @@ public class CurrentLabsPage extends WebPage
 		return webActions.getVisibiltyOfElementLocatedBy(VISIBILITY, LBL_BLOODPRESSURESYSTOLICGOAL);
 	}
 
-	@Step("Verify the visibility of the BLOOD PRESSURE draw date")
-	public boolean viewBloodPressureDrawDate(String drawDate) throws TimeoutException, WaitException
+	@Step("Verify the visibility of the BLOOD PRESSURE SYSTOLIC draw date")
+	public boolean viewBloodPressureSystolicDrawDate(String drawDate) throws TimeoutException, WaitException
 	{
-		final By LBL_BLOODPRESSUREDRAWDATE = By.xpath("//span[contains(., 'Blood Pressure (')]/../../..//span[text()='" + drawDate + "']");
+		final By LBL_BLOODPRESSURESYSTOLICDRAWDATE = By.xpath("//span[contains(., 'Blood Pressure Systolic (')]/../../..//span[text()='" + drawDate + "']");
 
-		return webActions.getVisibiltyOfElementLocatedBy(VISIBILITY, LBL_BLOODPRESSUREDRAWDATE);
+		return webActions.getVisibiltyOfElementLocatedBy(VISIBILITY, LBL_BLOODPRESSURESYSTOLICDRAWDATE);
 	}
 
-	@Step("Verify the visibility of the BLOOD PRESSURE Source")
-	public boolean viewBloodPressureSource() throws TimeoutException, WaitException
+	@Step("Verify the visibility of the BLOOD PRESSURE SYSTOLIC Source")
+	public boolean viewBloodPressureSystolicSource() throws TimeoutException, WaitException
 	{
-		return webActions.getVisibiltyOfElementLocatedBy(VISIBILITY, LBL_BLOODPRESSURESOURCE);
+		return webActions.getVisibiltyOfElementLocatedBy(VISIBILITY, LBL_BLOODPRESSURESYSTOLICSOURCE);
 	}
 
-	@Step("Verify the color of the BLOOD PRESSURE label/value")
-	public boolean viewBloodPressureColor(int labValue) throws TimeoutException, WaitException
+	@Step("Verify the color of the BLOOD PRESSURE SYSTOLIC label/value")
+	public boolean viewBloodPressureSystolicColor(int labValue) throws TimeoutException, WaitException
 	{
-		String classAttributeValue = webActions.getAttributeValue(VISIBILITY, LBL_BLOODPRESSURECOLOR, "class");
+		String classAttributeValue = webActions.getAttributeValue(VISIBILITY, LBL_BLOODPRESSURESYSTOLICCOLOR, "class");
 
 		if (labValue < 60 || labValue > 130) // If out of range
 		{
@@ -2841,25 +2841,89 @@ public class CurrentLabsPage extends WebPage
 		}
 	}
 
-	@Step("Verify the visibility of the graph popup BLOOD PRESSURE Label/Value")
-	public boolean viewGraphPopupBloodPressureLabelValue(String valueSystolic, String valueDiastolic) throws TimeoutException, WaitException
+	@Step("Verify the visibility of the graph popup BLOOD PRESSURE SYSTOLIC Label/Value")
+	public boolean viewGraphPopupBloodPressureSystolicLabelValue(String valueSystolic) throws TimeoutException, WaitException
 	{
-		webActions.click(VISIBILITY, LBL_BLOODPRESSURESOURCE);
+		webActions.click(VISIBILITY, LBL_BLOODPRESSURESYSTOLICSOURCE);
 
-		final By LBL_GRAPHPOPUPBLOODPRESSURE = By.xpath("//div[@class='lab-history-modal-header-div']//span[text()='Blood Pressure (" + valueSystolic + ")(" + valueDiastolic + ")']");
+		final By LBL_GRAPHPOPUPBLOODPRESSURESYSTOLIC = By.xpath("//div[@class='lab-history-modal-header-div']//span[text()='Blood Pressure Systolic (" + valueSystolic + ")']");
 
-		return webActions.getVisibiltyOfElementLocatedBy(VISIBILITY, LBL_GRAPHPOPUPBLOODPRESSURE);
+		return webActions.getVisibiltyOfElementLocatedBy(VISIBILITY, LBL_GRAPHPOPUPBLOODPRESSURESYSTOLIC);
 	}
 
-	@Step("Verify the visibility of the graph popup BLOOD PRESSURE Goal")
-	public boolean viewGraphPopupBloodPressureGoal() throws TimeoutException, WaitException
+	@Step("Verify the visibility of the graph popup BLOOD PRESSURE SYSTOLIC Goal")
+	public boolean viewGraphPopupBloodPressureSystolicGoal() throws TimeoutException, WaitException
 	{
-		return webActions.getVisibiltyOfElementLocatedBy(VISIBILITY, LBL_GRAPHPOPUPBLOODPRESSUREGOAL);
+		return webActions.getVisibiltyOfElementLocatedBy(VISIBILITY, LBL_GRAPHPOPUPBLOODPRESSURESYSTOLICGOAL);
+	}
+
+	@Step("Verify the visibility of the BLOOD PRESSURE DIASTOLIC label/value")
+	public boolean viewBloodPressureDiastolicLabelValue(String valueDiastolic) throws TimeoutException, WaitException
+	{
+		final By LBL_BLOODPRESSUREDIASTOLIC = By.xpath("//span[text()='Blood Pressure Diastolic (" + valueDiastolic + ")']");
+
+		return webActions.getVisibiltyOfElementLocatedBy(VISIBILITY, LBL_BLOODPRESSUREDIASTOLIC);
 	}
 
 	@Step("Verify the visibility of the BLOOD PRESSURE DIASTOLIC Goal")
 	public boolean viewBloodPressureDiastolicGoal() throws TimeoutException, WaitException
 	{
 		return webActions.getVisibiltyOfElementLocatedBy(VISIBILITY, LBL_BLOODPRESSUREDIASTOLICGOAL);
+	}
+
+	@Step("Verify the visibility of the BLOOD PRESSURE DIASTOLIC draw date")
+	public boolean viewBloodPressureDiastolicDrawDate(String drawDate) throws TimeoutException, WaitException
+	{
+		final By LBL_BLOODPRESSUREDIASTOLICDRAWDATE = By.xpath("//span[contains(., 'Blood Pressure Diastolic (')]/../../..//span[text()='" + drawDate + "']");
+
+		return webActions.getVisibiltyOfElementLocatedBy(VISIBILITY, LBL_BLOODPRESSUREDIASTOLICDRAWDATE);
+	}
+
+	@Step("Verify the visibility of the BLOOD PRESSURE DIASTOLIC Source")
+	public boolean viewBloodPressureDiastolicSource() throws TimeoutException, WaitException
+	{
+		return webActions.getVisibiltyOfElementLocatedBy(VISIBILITY, LBL_BLOODPRESSUREDIASTOLICSOURCE);
+	}
+
+	@Step("Verify the color of the BLOOD PRESSURE DIASTOLIC label/value")
+	public boolean viewBloodPressureDiastolicColor(int labValue) throws TimeoutException, WaitException
+	{
+		String classAttributeValue = webActions.getAttributeValue(VISIBILITY, LBL_BLOODPRESSUREDIASTOLICCOLOR, "class");
+
+		if (labValue < 0 || labValue > 80) // If out of range
+		{
+			if (classAttributeValue.contains("redtext"))
+			{
+				return true;
+			} else
+			{
+				return false;
+			}
+		} else // In range
+		{
+			if (classAttributeValue.contains("greentext"))
+			{
+				return true;
+			} else
+			{
+				return false;
+			}
+		}
+	}
+
+	@Step("Verify the visibility of the graph popup BLOOD PRESSURE DIASTOLIC Label/Value")
+	public boolean viewGraphPopupBloodPressureDiastolicLabelValue(String valueDiastolic) throws TimeoutException, WaitException
+	{
+		webActions.click(VISIBILITY, LBL_BLOODPRESSUREDIASTOLICSOURCE);
+
+		final By LBL_GRAPHPOPUPBLOODPRESSUREDIASTOLIC = By.xpath("//div[@class='lab-history-modal-header-div']//span[text()='Blood Pressure Diastolic (" + valueDiastolic + ")']");
+
+		return webActions.getVisibiltyOfElementLocatedBy(VISIBILITY, LBL_GRAPHPOPUPBLOODPRESSUREDIASTOLIC);
+	}
+
+	@Step("Verify the visibility of the graph popup BLOOD PRESSURE DIASTOLIC Goal")
+	public boolean viewGraphPopupBloodPressureDiastolicGoal() throws TimeoutException, WaitException
+	{
+		return webActions.getVisibiltyOfElementLocatedBy(VISIBILITY, LBL_GRAPHPOPUPBLOODPRESSUREDIASTOLICGOAL);
 	}
 }
