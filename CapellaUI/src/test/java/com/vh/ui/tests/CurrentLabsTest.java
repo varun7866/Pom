@@ -472,9 +472,10 @@ public class CurrentLabsTest extends TestBase
 			Assert.assertTrue(currentLabsPage.viewHGBGoal(), "Failed to identify the HGB Goal");
 			Assert.assertTrue(currentLabsPage.viewHGBDrawDate(drawDateGregorian), "Failed to identify the HGB draw date");
 			Assert.assertTrue(currentLabsPage.viewHGBSource(), "Failed to identify the HGB Source");
-			Assert.assertTrue(currentLabsPage.viewHGBColor(Integer.parseInt(map.get("HGB"))), "Failed to identify HGB as the correct color");
+			Assert.assertTrue(currentLabsPage.viewHGBColor(Integer.parseInt(map.get("HGB")), "T"), "Failed to identify HGB as the correct color");
 			Assert.assertTrue(currentLabsPage.viewGraphPopupHGBLabelValue(map.get("HGB")), "Failed to identify the graph popup HGB label/value");
 			Assert.assertTrue(currentLabsPage.viewGraphPopupHGBGoal(), "Failed to identify the graph popup HGB Goal");
+			Assert.assertTrue(currentLabsPage.viewHGBColor(Integer.parseInt(map.get("HGB")), "P"), "Failed to identify the graph popup HGB as the correct color");
 
 			currentLabsPage.clickAddLabButton();
 		}

@@ -1778,9 +1778,20 @@ public class CurrentLabsPage extends WebPage
 	}
 
 	@Step("Verify the color of the HGB label/value")
-	public boolean viewHGBColor(int labValue) throws TimeoutException, WaitException
+	public boolean viewHGBColor(int labValue, String location) throws TimeoutException, WaitException
 	{
-		String classAttributeValue = webActions.getAttributeValue(VISIBILITY, LBL_HGBCOLOR, "class");
+		String classAttributeValue = "";
+
+		if (location.equals("T")) // Labs table
+		{
+			classAttributeValue = webActions.getAttributeValue(VISIBILITY, LBL_HGBCOLOR, "class");
+		} else
+		{
+			if (location.equals("P")) // Graph popup
+			{
+				classAttributeValue = webActions.getAttributeValue(VISIBILITY, LBL_GRAPHPOPUPHGBCOLOR, "class");
+			}
+		}
 
 		if (labValue < 0 || labValue > 11) // If out of range
 		{
