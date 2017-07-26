@@ -119,6 +119,12 @@ public class MedicalEquipmentPage extends WebPage
 		}		
 	}
 
+	@Step("Verify the success message is displayed")
+	public boolean viewSuccessMessage() throws TimeoutException, WaitException
+	{
+		return appFunctions.verifySuccessMessage("Medical equipment have been saved successfully");
+	}
+
 	@Step("Verify the options of the STATUS combo box")
 	public boolean verifyStatusComboBoxOptions() throws TimeoutException, WaitException
 	{

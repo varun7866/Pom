@@ -143,9 +143,11 @@ public class MedicalEquipmentTest extends TestBase
 	public void verify_EditableFields() throws WaitException, URLNavigationException, InterruptedException
 	{
 		Assert.assertTrue(medicalEquipmentPage.isStatusDropdownEditable(), "The STATUS drop down is not editable");
+		Assert.assertTrue(medicalEquipmentPage.viewSuccessMessage(), "The STATUS drop down success message did not display");
 
 		// Commented out because we can no longer test the state of a check box until the HTML changes.
 		// Assert.assertTrue(medicalEquipmentPage.isInUseCheckboxEditable(), "The IN USE check box is not editable");
+		// Assert.assertTrue(medicalEquipmentPage.viewSuccessMessage(), "The IN USE check box success message did not display");
 
 		Assert.assertTrue(medicalEquipmentPage.verifyStatusComboBoxOptions(), "The STATUS drop down options are incorrect");
 	}

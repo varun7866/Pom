@@ -13,14 +13,29 @@ import org.openqa.selenium.By;
 
 public class PatientNavigationLocators
 {
+	public static final By ICO_HOSPITALIZATIONSINFO = By.xpath("//a[@id='Hospitalizations-9']//button");
+	public static final By ICO_FLUIDINFO = By.xpath("//a[@id='Fluid-10']//button");
+	public static final By ICO_ACCESSINFO = By.xpath("//a[@id='Access-11']//button");
+	public static final By ICO_MEDICATIONSINFO = By.xpath("//a[@id='Medications-12']//button");
+	public static final By ICO_DIABETESINFO = By.xpath("//a[@id='Diabetes-13']//button");
+	public static final By ICO_DEPRESSIONINFO = By.xpath("//a[@id='Depression-14']//button");
+	public static final By ICO_IMMUNIZATIONSINFO = By.xpath("//a[@id='Immunizations-15']//button");
+	public static final By ICO_COMORBIDSCOMPLAINTSINFO = By.xpath("//a[@id='Comorbids-17']//button");
+	public static final By ICO_HOSPITALIZATIONSTATUS = By.xpath("//a[@id='Hospitalizations-9']/span[contains(@class, 'circle')]");
+	public static final By ICO_FLUIDSTATUS = By.xpath("//a[@id='Fluid-10']/span[contains(@class, 'circle')]");
+	public static final By ICO_ACCESSSTATUS = By.xpath("//a[@id='Access-11']/span[contains(@class, 'circle')]");
+	public static final By ICO_MEDICATIONSSTATUS = By.xpath("//a[@id='Medications-12']/span[contains(@class, 'circle')]");
+	public static final By ICO_DIABETESSTATUS = By.xpath("//a[@id='Diabetes-13']/span[contains(@class, 'circle')]");
+	public static final By ICO_IMMUNIZATIONSSTATUS = By.xpath("//a[@id='Immunizations-15']/span[contains(@class, 'circle')]");
+
 	public static final By LBL_PLANOFCAREOVERVIEW = By.xpath("//h2[text()='Overview')]");
 	public static final By LBL_PLANOFCAREMANAGEMENT = By.xpath("//h2[text()='Management']");
 	public static final By LBL_PLANOFCAREHISTORY = By.xpath("//h2[text()='History']");
 	public static final By LBL_PLANOFCARENOTES = By.xpath("//h2[text()='Notes']");
 	public static final By LBL_PLANOFCARECONSOLIDATEDSTORY = By.xpath("//h2[text()='Consolidated Story']");
-	public static final By LBL_PATIENTCAREPATIENTRECAP = By.xpath("//h2[text()='Recap']");
+	public static final By LBL_PATIENTCAREPATIENTRECAP = By.xpath("//h2[contains(., 'Patient Contacts')]");
 	public static final By LBL_PATIENTCAREPATIENTTASKS = By.xpath("//h2[text()='Tasks']");
-	public static final By LBL_PATIENTCARECARETEAM = By.xpath("//div[contains(., 'PROVIDERS AND TEAM') and @class='col-sm-6 providers-team-screennameheader']");
+	public static final By LBL_PATIENTCARECARETEAM = By.xpath("//h2[contains(., 'Providers and Team')]");
 	public static final By LBL_PATIENTEXPERIENCEHOSPITALIZATIONS = By.xpath("//h2[contains(., 'HOSPITALIZATIONS')]");
 	public static final By LBL_PATIENTEXPERIENCEFLUID = By.xpath("//h2[text()='Fluid']");
 	public static final By LBL_PATIENTEXPERIENCEACCESS = By.xpath("//h2[text()='Access']");
@@ -38,6 +53,14 @@ public class PatientNavigationLocators
 	public static final By LBL_PATIENTADMINFALCON = By.xpath("//h2[text()='FALCON']");
 	public static final By LBL_PATIENTADMINMATERIALFULFILLMENT = By.xpath("//h2[text()='MATERIAL FULFILLMENT']");
 	public static final By LBL_PATIENTADMINREFERRALS = By.xpath("//h2[contains(., 'Referrals')]");
+	public static final By LBL_HOSPITALIZATIONSTOOLTIP = By.xpath("//popover-container");
+	public static final By LBL_FLUIDTOOLTIP = By.xpath("//popover-container");
+	public static final By LBL_ACCESSTOOLTIP = By.xpath("//popover-container");
+	public static final By LBL_MEDICATIONSTOOLTIP = By.xpath("//popover-container");
+	public static final By LBL_DIABETESTOOLTIP = By.xpath("//popover-container");
+	public static final By LBL_DEPRESSIONTOOLTIP = By.xpath("//popover-container");
+	public static final By LBL_IMMUNIZATIONSTOOLTIP = By.xpath("//popover-container");
+	public static final By LBL_COMORBIDSCOMPLAINTSTOOLTIP = By.xpath("//popover-container");
 
 	public static final By MNU_PLANOFCARE = By.xpath("//a[text()='Plan of Care']");
 	public static final By MNU_PLANOFCAREOVERVIEW = By.id("Overview-1");
