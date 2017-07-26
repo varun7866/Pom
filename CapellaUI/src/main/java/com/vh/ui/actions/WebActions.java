@@ -1,5 +1,7 @@
 package com.vh.ui.actions;
 
+import java.awt.AWTException;
+import java.awt.Robot;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Set;
@@ -33,7 +35,7 @@ import com.vh.ui.waits.WebDriverWaits;
  * @Company:CitiusTech
  */
 public class WebActions {
-
+	
 	protected WebDriver driver;
 	protected final Comparator compare = new Comparator();
 	protected static final Logger LOGGER = Logg.createLogger();
@@ -681,6 +683,10 @@ public class WebActions {
 		builder.perform();
 	}
 
+	/**
+	 * Waits until the progress bar is invisible 
+	 * @return
+	 */
 	public boolean waitUntilLoaded()
 	{
 		wait.waitForElementInvisible(driver, By.xpath("//md-progress-bar"));

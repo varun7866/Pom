@@ -129,8 +129,7 @@ public class ReadExcel {
 								}
 							}
 
-							list.add(new Object[]
-							{ map });
+							list.add(map);
 						}
 					}
 				}
@@ -277,6 +276,7 @@ public class ReadExcel {
 		return storage;
 	}
 
+	@SuppressWarnings({ "deprecation" })
 	private static void storeValuesIn2DArray(Cell cell, int i, int j) {
 		try
 		{

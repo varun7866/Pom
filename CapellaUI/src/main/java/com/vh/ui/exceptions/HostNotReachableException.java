@@ -9,6 +9,11 @@ package com.vh.ui.exceptions;
  */
 public class HostNotReachableException extends Exception {
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+
 	public HostNotReachableException(String message) {
 		super(message);
 	}

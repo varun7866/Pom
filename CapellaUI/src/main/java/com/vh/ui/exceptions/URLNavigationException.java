@@ -9,6 +9,11 @@ package com.vh.ui.exceptions;
  */
 public class URLNavigationException extends Exception {
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+
 	public URLNavigationException(String message, Throwable cause) {
 		super(message, cause);
 	}

@@ -162,6 +162,7 @@ public class MyTasksPage extends WebPage
         }
     }
     
+    @Step("Close the New task window")
     public void clickCancelOnNewTaskWindow() {
     	try {
 			webActions.click(CLICKABILITY, BTN_CANCEL);
@@ -172,27 +173,33 @@ public class MyTasksPage extends WebPage
 		}
     }
     
+    @Step("Enter patient name {0}")
     public void addNewTaskPatientName(String patientName) throws TimeoutException, WaitException {
 //    	webActions.enterText(NOTREQUIRED, TXT_PATIENTNAME, patientName);
     	webActions.selectValueFromAutoCompleteText(TXT_PATIENTNAME, patientName);
     }
     
+    @Step("Set task priority as {0}")
     public void setNewTaskPriority(String priority) throws TimeoutException, WaitException {
     	webActions.enterText(NOTREQUIRED, CMB_PRIORITY, priority);
     }
     
+    @Step("Enter {0} in task title field")
     public void addNewTaskTaskTitle(String taskTitle) throws TimeoutException, WaitException {
     	webActions.enterText(NOTREQUIRED, TXT_TASKTITLE, taskTitle);
     }
     
+    @Step("Enter {0} in task description field")
     public void addNewTaskTaskDescription(String taskDescription) throws TimeoutException, WaitException {
     	webActions.enterText(NOTREQUIRED, TXT_TASKDESCRIPTION, taskDescription);
     }
     
+    @Step("Click on Add New Task button")
     public void clickNewTaskAddButton() throws TimeoutException, WaitException {
     	webActions.click(CLICKABILITY, BTN_ADD);
     }
     
+    @Step("Validate success message - {0}")
     public boolean validateSuccessMessage(String text) {
     	return appFunctions.verifySuccessMessage(text);
     }
