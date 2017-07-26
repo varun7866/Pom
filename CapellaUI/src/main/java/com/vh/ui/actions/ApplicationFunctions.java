@@ -1,13 +1,13 @@
 package com.vh.ui.actions;
 
 import static com.vh.ui.web.locators.ApplicationLocators.BTN_LOGOUT;
-import static com.vh.ui.web.locators.LoginLocators.TXT_USERNAME;
 import static com.vh.ui.web.locators.ApplicationLocators.LNK_MENUBAR_ADMIN;
 import static com.vh.ui.web.locators.ApplicationLocators.LNK_MENUBAR_MYPATIENTS;
 import static com.vh.ui.web.locators.ApplicationLocators.LNK_MENUBAR_MYSCHEDULE;
 import static com.vh.ui.web.locators.ApplicationLocators.LNK_MENUBAR_MYTASKS;
 import static com.vh.ui.web.locators.ApplicationLocators.TXT_MENUBAR_USERNAME;
 import static com.vh.ui.web.locators.LoginLocators.BTN_YESALLOW;
+import static com.vh.ui.web.locators.LoginLocators.TXT_USERNAME;
 
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
@@ -90,9 +90,10 @@ public class ApplicationFunctions extends WebPage
 		if (wait.checkForElementVisibility(driver, BTN_YESALLOW))
 		{
 			loginPage.clickRememberMyDecision();
-//			Thread.sleep(1000);
+
 			loginPage.clickYesAllow();
 		}
+
 		loginPage.verifyLandingPage();
 	}
 
