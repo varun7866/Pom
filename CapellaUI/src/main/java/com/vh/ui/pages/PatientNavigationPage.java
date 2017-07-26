@@ -1,13 +1,19 @@
 package com.vh.ui.pages;
 
-import static com.vh.ui.web.locators.PatientNavigationLocators.ICO_ACCESS;
-import static com.vh.ui.web.locators.PatientNavigationLocators.ICO_COMORBIDSCOMPLAINTS;
-import static com.vh.ui.web.locators.PatientNavigationLocators.ICO_DEPRESSION;
-import static com.vh.ui.web.locators.PatientNavigationLocators.ICO_DIABETES;
-import static com.vh.ui.web.locators.PatientNavigationLocators.ICO_FLUID;
-import static com.vh.ui.web.locators.PatientNavigationLocators.ICO_HOSPITALIZATIONS;
-import static com.vh.ui.web.locators.PatientNavigationLocators.ICO_IMMUNIZATIONS;
-import static com.vh.ui.web.locators.PatientNavigationLocators.ICO_MEDICATIONS;
+import static com.vh.ui.web.locators.PatientNavigationLocators.ICO_ACCESSINFO;
+import static com.vh.ui.web.locators.PatientNavigationLocators.ICO_ACCESSSTATUS;
+import static com.vh.ui.web.locators.PatientNavigationLocators.ICO_COMORBIDSCOMPLAINTSINFO;
+import static com.vh.ui.web.locators.PatientNavigationLocators.ICO_DEPRESSIONINFO;
+import static com.vh.ui.web.locators.PatientNavigationLocators.ICO_DIABETESINFO;
+import static com.vh.ui.web.locators.PatientNavigationLocators.ICO_DIABETESSTATUS;
+import static com.vh.ui.web.locators.PatientNavigationLocators.ICO_FLUIDINFO;
+import static com.vh.ui.web.locators.PatientNavigationLocators.ICO_FLUIDSTATUS;
+import static com.vh.ui.web.locators.PatientNavigationLocators.ICO_HOSPITALIZATIONSINFO;
+import static com.vh.ui.web.locators.PatientNavigationLocators.ICO_HOSPITALIZATIONSTATUS;
+import static com.vh.ui.web.locators.PatientNavigationLocators.ICO_IMMUNIZATIONSINFO;
+import static com.vh.ui.web.locators.PatientNavigationLocators.ICO_IMMUNIZATIONSSTATUS;
+import static com.vh.ui.web.locators.PatientNavigationLocators.ICO_MEDICATIONSINFO;
+import static com.vh.ui.web.locators.PatientNavigationLocators.ICO_MEDICATIONSSTATUS;
 import static com.vh.ui.web.locators.PatientNavigationLocators.LBL_ACCESSTOOLTIP;
 import static com.vh.ui.web.locators.PatientNavigationLocators.LBL_COMORBIDSCOMPLAINTSTOOLTIP;
 import static com.vh.ui.web.locators.PatientNavigationLocators.LBL_DEPRESSIONTOOLTIP;
@@ -394,7 +400,7 @@ public class PatientNavigationPage extends WebPage
 	@Step("Verify the hover over functionality for the Hospitalizations Tooltip")
 	public boolean verifyHoverHospitalizations() throws TimeoutException, WaitException
 	{
-		webActions.moveMouseToElement(VISIBILITY, ICO_HOSPITALIZATIONS);
+		webActions.moveMouseToElement(VISIBILITY, ICO_HOSPITALIZATIONSINFO);
 
 		return webActions.getVisibiltyOfElementLocatedBy(VISIBILITY, LBL_HOSPITALIZATIONSTOOLTIP);
 	}
@@ -402,7 +408,7 @@ public class PatientNavigationPage extends WebPage
 	@Step("Verify the hover over functionality for the Fluid Tooltip")
 	public boolean verifyHoverFluid() throws TimeoutException, WaitException
 	{
-		webActions.moveMouseToElement(VISIBILITY, ICO_FLUID);
+		webActions.moveMouseToElement(VISIBILITY, ICO_FLUIDINFO);
 
 		return webActions.getVisibiltyOfElementLocatedBy(VISIBILITY, LBL_FLUIDTOOLTIP);
 	}
@@ -410,7 +416,7 @@ public class PatientNavigationPage extends WebPage
 	@Step("Verify the hover over functionality for the Access Tooltip")
 	public boolean verifyHoverAccess() throws TimeoutException, WaitException
 	{
-		webActions.moveMouseToElement(VISIBILITY, ICO_ACCESS);
+		webActions.moveMouseToElement(VISIBILITY, ICO_ACCESSINFO);
 
 		return webActions.getVisibiltyOfElementLocatedBy(VISIBILITY, LBL_ACCESSTOOLTIP);
 	}
@@ -418,7 +424,7 @@ public class PatientNavigationPage extends WebPage
 	@Step("Verify the hover over functionality for the Medications Tooltip")
 	public boolean verifyHoverMedications() throws TimeoutException, WaitException
 	{
-		webActions.moveMouseToElement(VISIBILITY, ICO_MEDICATIONS);
+		webActions.moveMouseToElement(VISIBILITY, ICO_MEDICATIONSINFO);
 
 		return webActions.getVisibiltyOfElementLocatedBy(VISIBILITY, LBL_MEDICATIONSTOOLTIP);
 	}
@@ -426,7 +432,7 @@ public class PatientNavigationPage extends WebPage
 	@Step("Verify the hover over functionality for the Diabetes Tooltip")
 	public boolean verifyHoverDiabetes() throws TimeoutException, WaitException
 	{
-		webActions.moveMouseToElement(VISIBILITY, ICO_DIABETES);
+		webActions.moveMouseToElement(VISIBILITY, ICO_DIABETESINFO);
 
 		return webActions.getVisibiltyOfElementLocatedBy(VISIBILITY, LBL_DIABETESTOOLTIP);
 	}
@@ -434,7 +440,7 @@ public class PatientNavigationPage extends WebPage
 	@Step("Verify the hover over functionality for the Depression Tooltip")
 	public boolean verifyHoverDepression() throws TimeoutException, WaitException
 	{
-		webActions.moveMouseToElement(VISIBILITY, ICO_DEPRESSION);
+		webActions.moveMouseToElement(VISIBILITY, ICO_DEPRESSIONINFO);
 
 		return webActions.getVisibiltyOfElementLocatedBy(VISIBILITY, LBL_DEPRESSIONTOOLTIP);
 	}
@@ -442,7 +448,7 @@ public class PatientNavigationPage extends WebPage
 	@Step("Verify the hover over functionality for the Immunizations Tooltip")
 	public boolean verifyHoverImmunizations() throws TimeoutException, WaitException
 	{
-		webActions.moveMouseToElement(VISIBILITY, ICO_IMMUNIZATIONS);
+		webActions.moveMouseToElement(VISIBILITY, ICO_IMMUNIZATIONSINFO);
 
 		return webActions.getVisibiltyOfElementLocatedBy(VISIBILITY, LBL_IMMUNIZATIONSTOOLTIP);
 	}
@@ -450,9 +456,51 @@ public class PatientNavigationPage extends WebPage
 	@Step("Verify the hover over functionality for the Comorbids/Complaints Tooltip")
 	public boolean verifyHoverComorbidsComplaints() throws TimeoutException, WaitException
 	{
-		webActions.moveMouseToElement(VISIBILITY, ICO_COMORBIDSCOMPLAINTS);
+		webActions.moveMouseToElement(VISIBILITY, ICO_COMORBIDSCOMPLAINTSINFO);
 
 		return webActions.getVisibiltyOfElementLocatedBy(VISIBILITY, LBL_COMORBIDSCOMPLAINTSTOOLTIP);
+	}
+
+	@Step("Verify the Hospitalizations Status Icon")
+	public boolean verifyHospitalizationsStatusIcon() throws TimeoutException, WaitException
+	{
+		return webActions.getVisibiltyOfElementLocatedBy(VISIBILITY, ICO_HOSPITALIZATIONSTATUS);
+
+	}
+
+	@Step("Verify the Hospitalizations Status Icon")
+	public boolean verifyFluidStatusIcon() throws TimeoutException, WaitException
+	{
+		return webActions.getVisibiltyOfElementLocatedBy(VISIBILITY, ICO_FLUIDSTATUS);
+
+	}
+
+	@Step("Verify the Hospitalizations Status Icon")
+	public boolean verifyAccessStatusIcon() throws TimeoutException, WaitException
+	{
+		return webActions.getVisibiltyOfElementLocatedBy(VISIBILITY, ICO_ACCESSSTATUS);
+
+	}
+
+	@Step("Verify the Hospitalizations Status Icon")
+	public boolean verifyMedicationsStatusIcon() throws TimeoutException, WaitException
+	{
+		return webActions.getVisibiltyOfElementLocatedBy(VISIBILITY, ICO_MEDICATIONSSTATUS);
+
+	}
+
+	@Step("Verify the Hospitalizations Status Icon")
+	public boolean verifyDiabetesStatusIcon() throws TimeoutException, WaitException
+	{
+		return webActions.getVisibiltyOfElementLocatedBy(VISIBILITY, ICO_DIABETESSTATUS);
+
+	}
+
+	@Step("Verify the Hospitalizations Status Icon")
+	public boolean verifyImmunizationsStatusIcon() throws TimeoutException, WaitException
+	{
+		return webActions.getVisibiltyOfElementLocatedBy(VISIBILITY, ICO_IMMUNIZATIONSSTATUS);
+
 	}
 
 }

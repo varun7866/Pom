@@ -71,19 +71,32 @@ public class PatientNavigationTest extends TestBase
 		Assert.assertTrue(patientNavigationPage.viewPatientExperienceMenu(), "Failed to identify the Patient Experience menu");
 		Assert.assertTrue(patientNavigationPage.verifyPatientExperienceMenuExpanded(), "Failed to expand the Patient Experience menu");
 		Assert.assertTrue(patientNavigationPage.viewPatientExperienceHospitalizationsScreen(), "Failed to display the Hospitalizations screen");
+		Assert.assertTrue(patientNavigationPage.verifyHospitalizationsStatusIcon(), "Failed to identify Hospitalizations status icon");
 		Assert.assertTrue(patientNavigationPage.verifyHoverHospitalizations(), "Failed to hover over HospitalizationsTooltip");
+
 		// Assert.assertTrue(patientNavigationPage.viewPatientExperienceFluidScreen(), "Failed to display the Fluid screen");
+		Assert.assertTrue(patientNavigationPage.verifyFluidStatusIcon(), "Failed to identify Fluid status icon");
 		Assert.assertTrue(patientNavigationPage.verifyHoverFluid(), "Failed to hover over FluidTooltip");
+
 		// Assert.assertTrue(patientNavigationPage.viewPatientExperienceAccessScreen(), "Failed to display the Access screen");
+		Assert.assertTrue(patientNavigationPage.verifyAccessStatusIcon(), "Failed to identify Access status icon");
 		Assert.assertTrue(patientNavigationPage.verifyHoverAccess(), "Failed to hover over AccessTooltip");
+
 		// Assert.assertTrue(patientNavigationPage.viewPatientExperienceMedicationsScreen(), "Failed to display the Medications screen");
+		Assert.assertTrue(patientNavigationPage.verifyMedicationsStatusIcon(), "Failed to identify Medications status icon");
 		Assert.assertTrue(patientNavigationPage.verifyHoverMedications(), "Failed to hover over MedicationsTooltip");
+
 		// Assert.assertTrue(patientNavigationPage.viewPatientExperienceDiabetesScreen(), "Failed to display the Diabetes screen");
+		// Assert.assertTrue(patientNavigationPage.verifyDiabetesStatusIcon(), "Failed to identify Diabetes status icon");
 		Assert.assertTrue(patientNavigationPage.verifyHoverDiabetes(), "Failed to hover over DiabetesTooltip");
+
 		// Assert.assertTrue(patientNavigationPage.viewPatientExperienceDepressionScreen(), "Failed to display the Depression screen");
 		Assert.assertTrue(patientNavigationPage.verifyHoverDepression(), "Failed to hover over DepressionTooltip");
+
 		// Assert.assertTrue(patientNavigationPage.viewPatientExperienceImmunizationsScreen(), "Failed to display the Immunizations screen");
+		Assert.assertTrue(patientNavigationPage.verifyImmunizationsStatusIcon(), "Failed to identify Immunizations status icon");
 		Assert.assertTrue(patientNavigationPage.verifyHoverImmunizations(), "Failed to hover over ImmunizationsTooltip");
+
 		// Assert.assertTrue(patientNavigationPage.viewPatientExperienceIPathwaysScreeningsScreen(), "Failed to display the Pathways/Screenings screen");
 		// Assert.assertTrue(patientNavigationPage.viewPatientExperienceIComorbidsComplaintsScreen(), "Failed to display the Comorbids/Complaints screen");
 		Assert.assertTrue(patientNavigationPage.verifyHoverComorbidsComplaints(), "Failed to hover over ComorbidsComplaintsTooltip");
