@@ -37,18 +37,13 @@ import static com.vh.ui.web.locators.ManageDocumentsLocators.TXT_ADDDOCUMENTDESC
 import static com.vh.ui.web.locators.ManageDocumentsLocators.TXT_ADDDOCUMENTFILE;
 import static com.vh.ui.web.locators.MedicalEquipmentLocators.CAL_ADDPOPUPDATE;
 
-import java.awt.AWTException;
-import java.awt.Robot;
-import java.awt.event.KeyEvent;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
-import org.openqa.selenium.Alert;
 import org.openqa.selenium.By;
-import org.openqa.selenium.Keys;
 import org.openqa.selenium.TimeoutException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
@@ -235,7 +230,7 @@ public class ManageDocumentsPage extends WebPage
 			Thread.sleep(3000);
 		} catch (InterruptedException e) {
 			e.printStackTrace();
-		}
+		} 
 	}
 	
 	@Step("Verify the visibility of the Description label in the Add Document popup")
