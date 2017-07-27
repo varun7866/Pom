@@ -1,7 +1,6 @@
 package com.vh.ui.actions;
 
-import java.awt.AWTException;
-import java.awt.Robot;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Set;
@@ -692,5 +691,22 @@ public class WebActions {
 		wait.waitForElementInvisible(driver, By.xpath("//md-progress-bar"));
 		return false;
 
+	}
+	
+	/**
+	 * 
+	 * @param autoItExeFileName
+	 * @param fileToUploadPath
+	 */
+	public void fileUploadByAutoIt(String autoItExeFileName, String fileToUploadPath) {
+			
+		String autoItExeFilePath = System.getProperty("user.dir") + "\\AutoIt\\" + autoItExeFileName;
+		System.out.println("AutoIt :: " + autoItExeFileName);
+		try {
+			Runtime.getRuntime().exec(autoItExeFilePath + " " + fileToUploadPath);
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+		
 	}
 }

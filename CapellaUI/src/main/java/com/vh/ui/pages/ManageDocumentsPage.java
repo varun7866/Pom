@@ -108,7 +108,6 @@ public class ManageDocumentsPage extends WebPage
 		dropDownOptions.add("Patient Acknowledgement");
 		dropDownOptions.add("Permission to Discuss");
 		dropDownOptions.add("Pneumococcal Verification");
-		dropDownOptions.add("Influenza Verification");
 		dropDownOptions.add("Provider Care Report");
 		dropDownOptions.add("QA Compliance Report");
 		dropDownOptions.add("RCM-Record");
@@ -218,37 +217,26 @@ public class ManageDocumentsPage extends WebPage
 	public void clickSelectaFileButtonAddDocument()
 	{
 		try {
-			webActions.click(CLICKABILITY, BTN_ADDDOCUMENTSELECTAFILE);
-			WebDriverWait wait = new WebDriverWait(driver,10);
-			wait.until(ExpectedConditions.alertIsPresent());
-			
-			String path = "C:\\Users\\subalivada\\Desktop\\manageddocuments\\images.jpg";
-			Runtime.getRuntime().exec("c:\\auto_github\\Capella-QA-Automation\\CapellaUI\\AutoIt\\FileUpload.exe" + " " + path);
-			
-			Thread.sleep(3000);
-//			Alert alert = driver.switchTo().alert();
-//			
-//			alert.sendKeys("C:\\Users\\subalivada\\Desktop\\manageddocuments\\images.jpg");
-//			
-//			Robot r;
-//			try {
-//				alert.sendKeys(Keys.ENTER);
-//				r = new Robot();
-//				r.keyPress(KeyEvent.VK_TAB);
-//				r.keyPress(KeyEvent.VK_TAB);
-//
-//				r.keyPress(java.awt.event.KeyEvent.VK_ENTER);
-//				r.keyPress(java.awt.event.KeyEvent.VK_ENTER);
-//				r.keyRelease(java.awt.event.KeyEvent.VK_ENTER);
-//			} catch (AWTException  e) {
-//				e.printStackTrace();
-//			}
-			
-			driver.switchTo().activeElement();
+			webActions.click(CLICKABILITY, BTN_ADDDOCUMENTSELECTAFILE);	
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
 
+	}
+	
+	@Step("Upload file {1}")
+	public void uploadFile(String exeFileName, String fileToUploadPath) {
+			
+		WebDriverWait wait = new WebDriverWait(driver,10);
+		wait.until(ExpectedConditions.alertIsPresent());
+		
+		webActions.fileUploadByAutoIt(exeFileName, fileToUploadPath);
+		
+		try {
+			Thread.sleep(3000);
+		} catch (InterruptedException e) {
+			e.printStackTrace();
+		}
 	}
 	
 	@Step("Verify the visibility of the Description label in the Add Document popup")
@@ -307,7 +295,6 @@ public class ManageDocumentsPage extends WebPage
 		dropDownOptions.add("Patient Acknowledgement");
 		dropDownOptions.add("Permission to Discuss");
 		dropDownOptions.add("Pneumococcal Verification");
-		dropDownOptions.add("Influenza Verification");
 		dropDownOptions.add("Provider Care Report");
 		dropDownOptions.add("QA Compliance Report");
 		dropDownOptions.add("RCM-Record");
