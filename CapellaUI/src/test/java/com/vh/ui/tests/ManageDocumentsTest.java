@@ -35,7 +35,7 @@ public class ManageDocumentsTest extends TestBase {
 		manageDocumentsPage = new ManageDocumentsPage(driver);
 
 		appFunctions.capellaLogin();
-		appFunctions.selectPatientFromMyPatients("Emelita Coulahan");
+		appFunctions.selectPatientFromMyPatients("Masun Ruddock");
 		appFunctions.navigateToMenu("Patient Admin->Manage Documents");
 	}
 	
@@ -85,8 +85,8 @@ public class ManageDocumentsTest extends TestBase {
 		manageDocumentsPage.selectDocumentTypeOptionAddDocument("Diabetic Retinal Eye Exam Verification");
 		Assert.assertTrue(manageDocumentsPage.isAddDocumentopupAddButtonEnabled(), "The Add Medical Equipment popup ADD button should not be disabled at this point");
 		manageDocumentsPage.clickDateofSignaturePickerButton();
-		Assert.assertTrue(manageDocumentsPage.isDateofSignatureDateRangeValid(), "The Add Medical Equipment popup enabled DATE range is invalid");
-		manageDocumentsPage.selectDateofSignatureCurrentDateFromCalendar();
+//		Assert.assertTrue(manageDocumentsPage.isDateofSignatureDateRangeValid(), "The Add Medical Equipment popup enabled DATE range is invalid");
+//		manageDocumentsPage.selectDateofSignatureCurrentDateFromCalendar();
 		manageDocumentsPage.clickAddButtonAddDocument();
 	}
 	

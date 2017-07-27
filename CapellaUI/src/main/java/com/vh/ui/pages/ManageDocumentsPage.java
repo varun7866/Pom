@@ -39,6 +39,7 @@ import static com.vh.ui.web.locators.MedicalEquipmentLocators.CAL_ADDPOPUPDATE;
 
 import java.awt.AWTException;
 import java.awt.Robot;
+import java.awt.event.KeyEvent;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -47,6 +48,7 @@ import java.util.List;
 
 import org.openqa.selenium.Alert;
 import org.openqa.selenium.By;
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.TimeoutException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
@@ -213,26 +215,39 @@ public class ManageDocumentsPage extends WebPage
 	}
 
 	@Step("Click the Select A File button in the ADD DOCUMENT popup")
-	public void clickSelectaFileButtonAddDocument() throws TimeoutException, WaitException
+	public void clickSelectaFileButtonAddDocument()
 	{
-		webActions.click(CLICKABILITY, BTN_ADDDOCUMENTSELECTAFILE);
-		WebDriverWait wait = new WebDriverWait(driver,10);
-		wait.until(ExpectedConditions.alertIsPresent());
-		
-		Alert alert = driver.switchTo().alert();
-		
-		alert.sendKeys("C:\\Temp\\AccessScreen.jpg");
-		
-		Robot r;
 		try {
-			r = new Robot();
-			r.keyPress(java.awt.event.KeyEvent.VK_ENTER);
-			r.keyRelease(java.awt.event.KeyEvent.VK_ENTER);
-		} catch (AWTException  e) {
+			webActions.click(CLICKABILITY, BTN_ADDDOCUMENTSELECTAFILE);
+			WebDriverWait wait = new WebDriverWait(driver,10);
+			wait.until(ExpectedConditions.alertIsPresent());
+			
+			String path = "C:\\Users\\subalivada\\Desktop\\manageddocuments\\images.jpg";
+			Runtime.getRuntime().exec("c:\\auto_github\\Capella-QA-Automation\\CapellaUI\\AutoIt\\FileUpload.exe" + " " + path);
+			
+			Thread.sleep(3000);
+//			Alert alert = driver.switchTo().alert();
+//			
+//			alert.sendKeys("C:\\Users\\subalivada\\Desktop\\manageddocuments\\images.jpg");
+//			
+//			Robot r;
+//			try {
+//				alert.sendKeys(Keys.ENTER);
+//				r = new Robot();
+//				r.keyPress(KeyEvent.VK_TAB);
+//				r.keyPress(KeyEvent.VK_TAB);
+//
+//				r.keyPress(java.awt.event.KeyEvent.VK_ENTER);
+//				r.keyPress(java.awt.event.KeyEvent.VK_ENTER);
+//				r.keyRelease(java.awt.event.KeyEvent.VK_ENTER);
+//			} catch (AWTException  e) {
+//				e.printStackTrace();
+//			}
+			
+			driver.switchTo().activeElement();
+		} catch (Exception e) {
 			e.printStackTrace();
 		}
-		
-		driver.switchTo().activeElement();
 
 	}
 	
@@ -270,7 +285,7 @@ public class ManageDocumentsPage extends WebPage
 	public boolean verifyDocumentTypeOptionsAddDocument() throws TimeoutException, WaitException
 	{
 		List<String> dropDownOptions = new ArrayList<String>();
-		dropDownOptions.add("All Document Types");
+//		dropDownOptions.add("All Document Types");
 		dropDownOptions.add("2728");
 		dropDownOptions.add("ACP");
 		dropDownOptions.add("Care Plan");
@@ -300,13 +315,13 @@ public class ManageDocumentsPage extends WebPage
 		dropDownOptions.add("Unknown");
 		dropDownOptions.add("Wellness Visit");
 		
-		return appFunctions.verifyDropDownOptions(CBO_DOCUMENTTYPESDROPDOWN, dropDownOptions);
+		return appFunctions.verifyDropDownOptions(CBO_ADDDOCUMENTDOCUMENTTYPE, dropDownOptions);
 	}
 
 	@Step("Select an option form the document type combo box")
 	public void selectDocumentTypeOptionAddDocument(String optionToSelect) throws TimeoutException, WaitException
 	{
-		webActions.selectFromDropDown(VISIBILITY, CBO_DOCUMENTTYPESDROPDOWN, optionToSelect);
+		webActions.selectFromDropDown(VISIBILITY, CBO_ADDDOCUMENTDOCUMENTTYPE, optionToSelect);
 	}
 	
 	@Step("Verify the visibility of the Date of signature label in the Add Document popup")
