@@ -129,7 +129,9 @@ public class ReadExcel {
 								}
 							}
 
-							list.add(map);
+							// list.add(map);
+							list.add(new Object[]
+							{ map });
 						}
 					}
 				}
