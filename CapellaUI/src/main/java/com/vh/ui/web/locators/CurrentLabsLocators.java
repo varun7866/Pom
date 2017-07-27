@@ -82,6 +82,8 @@ public class CurrentLabsLocators
 	        .xpath("//div[@class='modal-dialog modal-lg']//div[@role='alert']//div[contains(., \"Labtype 'URR' not valid for this patient\")]");
 	public static final By LBL_ADDPOPUPURINEALBUMINCREATININERATIOERRORMESSAGE = By
 	        .xpath("//div[@class='modal-dialog modal-lg']//div[@role='alert']//div[contains(., \"Labtype 'UrineAlbuminCreatinineRatio' not valid for this patient\")]");
+	public static final By LBL_ADDPOPUPBLOODPRESSUREERRORMESSAGE = By
+	        .xpath("//div[@class='modal-dialog modal-lg']//div[@role='alert']//div[contains(., 'LabType.BPSys value must be greater than LabType.BPDia value')]");
 
 	public static final By LBL_HEIGHTSOURCE = By.xpath("//span[contains(., 'Height (')]/../../..//span[text()='Source: VH']");
 	public static final By LBL_HEIGHTCOLOR = By.xpath("//span[contains(., 'Height (')]");

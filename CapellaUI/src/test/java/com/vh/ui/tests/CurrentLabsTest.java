@@ -326,8 +326,13 @@ public class CurrentLabsTest extends TestBase
 		{
 			Assert.assertTrue(currentLabsPage.viewAddpopupKTVErrorMessage(), "Failed to identify the Add Lab Results popup KT/V error message");
 			Assert.assertTrue(currentLabsPage.viewAddpopupURRErrorMessage(), "Failed to identify the Add Lab Results popup URR error message");
+			Assert.assertTrue(currentLabsPage.viewAddpopupBloodPressureErrorMessage(), "Failed to identify the Add Lab Results popup BLOOD PRESSURE error message");
+
 			currentLabsPage.clearKTVTextBox();
 			currentLabsPage.clearURRTextBox();
+			currentLabsPage.clearBloodPressureSystolicTextBox();
+			currentLabsPage.clearBloodPressureDiastolicTextBox();
+
 			currentLabsPage.clickAddPopupSaveButton();
 		}
 		else
@@ -336,7 +341,12 @@ public class CurrentLabsTest extends TestBase
 			{
 				Assert.assertTrue(currentLabsPage.viewAddpopupUrineAlbuminCreatinineRatioErrorMessage(),
 				        "Failed to identify the Add Lab Results popup Urine Albumin Creatinine Ratio error message");
+				Assert.assertTrue(currentLabsPage.viewAddpopupBloodPressureErrorMessage(), "Failed to identify the Add Lab Results popup BLOOD PRESSURE error message");
+
 				currentLabsPage.clearUrineAlbuminCreatinineRatioTextBox();
+				currentLabsPage.clearBloodPressureSystolicTextBox();
+				currentLabsPage.clearBloodPressureDiastolicTextBox();
+
 				currentLabsPage.clickAddPopupSaveButton();
 			}
 		}
