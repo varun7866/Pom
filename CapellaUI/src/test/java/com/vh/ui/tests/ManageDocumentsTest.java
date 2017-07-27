@@ -35,7 +35,7 @@ public class ManageDocumentsTest extends TestBase {
 		manageDocumentsPage = new ManageDocumentsPage(driver);
 
 		appFunctions.capellaLogin();
-		appFunctions.selectPatientFromMyPatients("Masun Ruddock");
+		appFunctions.selectPatientFromMyPatients("Emelita Coulahan");
 		appFunctions.navigateToMenu("Patient Admin->Manage Documents");
 	}
 	
@@ -80,10 +80,10 @@ public class ManageDocumentsTest extends TestBase {
 	public void verify_AddingaDocument() throws WaitException, URLNavigationException, InterruptedException
 	{
 		manageDocumentsPage.clickSelectaFileButtonAddDocument();
-		
+		manageDocumentsPage.uploadFile("FileUpload.exe", "C:\\Users\\subalivada\\Desktop\\manageddocuments\\images.jpg");
 		manageDocumentsPage.addDescriptionAddDocument("Verify add document automation");
 		manageDocumentsPage.selectDocumentTypeOptionAddDocument("Diabetic Retinal Eye Exam Verification");
-		Assert.assertTrue(manageDocumentsPage.isAddDocumentopupAddButtonEnabled(), "The Add Medical Equipment popup ADD button should not be disabled at this point");
+		Assert.assertTrue(manageDocumentsPage.isAddDocumentopupAddButtonEnabled(), "The Add Medical Equipment popup ADD button should not be enabled at this point");
 		manageDocumentsPage.clickDateofSignaturePickerButton();
 //		Assert.assertTrue(manageDocumentsPage.isDateofSignatureDateRangeValid(), "The Add Medical Equipment popup enabled DATE range is invalid");
 //		manageDocumentsPage.selectDateofSignatureCurrentDateFromCalendar();

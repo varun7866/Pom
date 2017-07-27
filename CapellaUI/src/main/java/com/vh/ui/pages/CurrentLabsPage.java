@@ -1068,6 +1068,12 @@ public class CurrentLabsPage extends WebPage
 		return webActions.getVisibiltyOfElementLocatedBy(VISIBILITY, LBL_ADDPOPUPURINEALBUMINCREATININERATIOERRORMESSAGE);
 	}
 
+	@Step("Verify the visibility of the Add Lab Results popup BLOOD PRESSURE error message")
+	public boolean viewAddpopupBloodPressureErrorMessage() throws TimeoutException, WaitException
+	{
+		return webActions.getVisibiltyOfElementLocatedBy(VISIBILITY, LBL_ADDPOPUPBLOODPRESSUREERRORMESSAGE);
+	}
+
 	@Step("clear the KTV text box")
 	public void clearKTVTextBox() throws TimeoutException, WaitException
 	{
@@ -1088,6 +1094,22 @@ public class CurrentLabsPage extends WebPage
 	{
 		webActions.pressKey(VISIBILITY, TXT_ADDPOPUPURINEALBUMINCREATININERATIO, Keys.BACK_SPACE);
 		webActions.pressKey(VISIBILITY, TXT_ADDPOPUPURINEALBUMINCREATININERATIO, Keys.BACK_SPACE);
+	}
+
+	@Step("clear the BLOOD PRESSURE SYSTOLIC text box")
+	public void clearBloodPressureSystolicTextBox() throws TimeoutException, WaitException
+	{
+		webActions.pressKey(VISIBILITY, TXT_ADDPOPUPBLOODPRESURESYSTOLIC, Keys.BACK_SPACE);
+		webActions.pressKey(VISIBILITY, TXT_ADDPOPUPBLOODPRESURESYSTOLIC, Keys.BACK_SPACE);
+		webActions.pressKey(VISIBILITY, TXT_ADDPOPUPBLOODPRESURESYSTOLIC, Keys.BACK_SPACE);
+	}
+
+	@Step("clear the BLOOD PRESSURE DIASTOLIC text box")
+	public void clearBloodPressureDiastolicTextBox() throws TimeoutException, WaitException
+	{
+		webActions.pressKey(VISIBILITY, TXT_ADDPOPUPBLOODPRESUREDIASTOLIC, Keys.BACK_SPACE);
+		webActions.pressKey(VISIBILITY, TXT_ADDPOPUPBLOODPRESUREDIASTOLIC, Keys.BACK_SPACE);
+		webActions.pressKey(VISIBILITY, TXT_ADDPOPUPBLOODPRESUREDIASTOLIC, Keys.BACK_SPACE);
 	}
 
 	@Step("Verify the visibility of the HEIGHT label/value")

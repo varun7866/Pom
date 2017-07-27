@@ -50,13 +50,11 @@ public class UnitTest extends TestBase
     @Test(dataProvider="dp1", priority=3)
     @SuppressWarnings("rawtypes")
 	public void function3(Map<String, String> map) throws IOException {
-		      Set set = map.entrySet();
-		      Iterator iterator = set.iterator();
-		      while(iterator.hasNext()) {
-		          Map.Entry mentry = (Map.Entry)iterator.next();
-		          System.out.println("function3:: key is: "+ mentry.getKey() + " & Value is: "+mentry.getValue());
-		      }
-		  }
-
-
+    	Set set = map.entrySet();
+    	Iterator iterator = set.iterator();
+    	while(iterator.hasNext()) {
+    		Map.Entry mentry = (Map.Entry)iterator.next();
+    		System.out.println("function3:: key is: "+ mentry.getKey() + " & Value is: "+mentry.getValue());
+    	}
+    }
 }

@@ -843,6 +843,7 @@ public class ApplicationFunctions extends WebPage
 
 		for (WebElement webElement : dropDownOptionsFromUI)
 		{
+			System.out.println(webElement.getText());
 			dropDownOptionsTextFromUI.add(webElement.getText());
 		}
 	
