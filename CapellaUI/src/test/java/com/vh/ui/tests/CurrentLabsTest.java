@@ -666,7 +666,7 @@ public class CurrentLabsTest extends TestBase
 			currentLabsPage.clickAddLabButton();
 		}
 
-		if (map.get("BLOODPRESSURESYSTOLIC") != null)
+		if (map.get("BLOODPRESSURESYSTOLIC") != null && map.get("CheckValidation").equals("N"))
 		{
 			Assert.assertTrue(currentLabsPage.viewBloodPressureSystolicLabelValue(map.get("BLOODPRESSURESYSTOLIC")), "Failed to identify the BLOOD PRESSURE SYSTOLIC label/value");
 			Assert.assertTrue(currentLabsPage.viewBloodPressureSystolicGoal(), "Failed to identify the BLOOD PRESSURE SYSTOLIC Goal");
@@ -683,7 +683,7 @@ public class CurrentLabsTest extends TestBase
 			currentLabsPage.clickAddLabButton();
 		}
 
-		if (map.get("BLOODPRESSUREDIASTOLIC") != null)
+		if (map.get("BLOODPRESSUREDIASTOLIC") != null && map.get("CheckValidation").equals("N"))
 		{
 			Assert.assertTrue(currentLabsPage.viewBloodPressureDiastolicLabelValue(map.get("BLOODPRESSUREDIASTOLIC")), "Failed to identify the BLOOD PRESSURE DIASTOLIC label/value");
 			Assert.assertTrue(currentLabsPage.viewBloodPressureDiastolicGoal(), "Failed to identify the BLOOD PRESSURE DIASTOLIC Goal");
