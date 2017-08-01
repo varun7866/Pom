@@ -587,7 +587,8 @@ public class ApplicationFunctions extends WebPage
 		String currentDayMinusX;
 		String datePickerLocatorXpathString;
 		By DayLocator;
-		By calendarPrevMMonthButton;
+		By calendarPrevMonthButton;
+		By calendarNextMonthButton;
 
 		Calendar cal = Calendar.getInstance();
 
@@ -615,8 +616,8 @@ public class ApplicationFunctions extends WebPage
 				{
 					if (!alreadyClicked)
 					{
-						calendarPrevMMonthButton = By.xpath(datePickerLocatorXpathString + "/../..//button[@class='headerbtn mydpicon icon-mydpleft headerbtnenabled']");
-						webActions.click(VISIBILITY, calendarPrevMMonthButton);
+						calendarPrevMonthButton = By.xpath(datePickerLocatorXpathString + "/../..//button[@class='headerbtn mydpicon icon-mydpleft headerbtnenabled']");
+						webActions.click(VISIBILITY, calendarPrevMonthButton);
 						alreadyClicked = true;
 					}
 
@@ -655,6 +656,12 @@ public class ApplicationFunctions extends WebPage
 
 			cal.add(Calendar.DATE, -1);
 			currentDayMinusX = dateFormat.format(new Date(cal.getTimeInMillis()));
+		}
+
+		if (alreadyClicked)
+		{
+			calendarNextMonthButton = By.xpath(datePickerLocatorXpathString + "/../..//button[@class='headerbtn mydpicon icon-mydpright headerbtnenabled']");
+			webActions.click(VISIBILITY, calendarNextMonthButton);
 		}
 
 		return true;

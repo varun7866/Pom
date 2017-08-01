@@ -1,9 +1,5 @@
 package com.vh.ui.tests;
 
-import java.text.DateFormat;
-import java.text.SimpleDateFormat;
-import java.util.Calendar;
-import java.util.Date;
 import java.util.Map;
 
 import org.openqa.selenium.TimeoutException;
@@ -155,17 +151,12 @@ public class MedicalEquipmentTest extends TestBase
 	{
 		String currentDayMinusX;
 
-		Calendar cal = Calendar.getInstance();
-		DateFormat dateFormat = new SimpleDateFormat("d");
-
-		cal.add(Calendar.DATE, -1);
-		currentDayMinusX = dateFormat.format(new Date(cal.getTimeInMillis()));
+		currentDayMinusX = appFunctions.adjustCurrentDateBy("-1", "d");
 		medicalEquipmentPage.addMedicalEquipment(currentDayMinusX, "Other", "Glucometer", "Ordered", false);
 
 		Thread.sleep(4000);
 
-		cal.add(Calendar.DATE, -1);
-		currentDayMinusX = dateFormat.format(new Date(cal.getTimeInMillis()));
+		currentDayMinusX = appFunctions.adjustCurrentDateBy("-2", "d");
 		medicalEquipmentPage.addMedicalEquipment(currentDayMinusX, "VH Provided", "Scale", "Replaced", true);
 
 		Assert.assertTrue(medicalEquipmentPage.isTableSortableByEquipmentDescriptionAscending(), "The EQUIPMENT DESCRIPTION column did not sort ascendingly");
