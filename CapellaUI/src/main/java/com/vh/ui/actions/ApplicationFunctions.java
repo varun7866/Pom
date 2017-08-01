@@ -843,7 +843,6 @@ public class ApplicationFunctions extends WebPage
 
 		for (WebElement webElement : dropDownOptionsFromUI)
 		{
-			System.out.println(webElement.getText());
 			dropDownOptionsTextFromUI.add(webElement.getText());
 		}
 	
@@ -897,9 +896,12 @@ public class ApplicationFunctions extends WebPage
 	 * @param popUpText the text on the success message to valid
 	 * @return true if the valid success message exists, else false
 	 */
-	public boolean verifySuccessMessage(String popUpText) {
+	public boolean verifySuccessMessage(String popUpText)
+	{
 		String xpathExpression = "//snack-bar-container/simple-snack-bar[text()=contains(.,'" + popUpText + "')]";
+
 		By locator = By.xpath(xpathExpression);
+
 		try {
 			WebElement element = wait.waitForElementVisible(driver, locator);
 			if(element!=null) {
@@ -915,6 +917,7 @@ public class ApplicationFunctions extends WebPage
 			e.printStackTrace();
 			return false;
 		}
+
 		return false;
 	}
 }
