@@ -130,10 +130,7 @@ public class MedicalEquipmentTest extends TestBase
 
 		medicalEquipmentPage.clickAddPopupAddButton();
 
-		Thread.sleep(2000);
-
-		// Commented out for now because the wait is too long.
-		// Assert.assertFalse(medicalEquipmentPage.viewAddMedicalEquipmentPopup(), "The Add Medical Equipment popup did not close");
+		Assert.assertTrue(medicalEquipmentPage.viewAddMedicalEquipmentPopupClosed(), "The Add Medical Equipment popup did not close");
 
 		Assert.assertTrue(medicalEquipmentPage.isMedicalEquipmentInTable(), "The Medical Equipment is not in the table");
 	}

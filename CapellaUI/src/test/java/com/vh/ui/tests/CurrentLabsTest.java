@@ -362,6 +362,7 @@ public class CurrentLabsTest extends TestBase
 			Assert.assertTrue(currentLabsPage.viewGraphPopupHeightLabelValue(map.get("HEIGHT")), "Failed to identify the graph popup HEIGHT label/value");
 			Assert.assertTrue(currentLabsPage.viewHeightColor("P"), "Failed to identify graph popup HEIGHT as the correct color");
 			Assert.assertTrue(currentLabsPage.viewGraphPopupHeightPoint(map.get("HEIGHT")), "Failed to identify the graph popup HEIGHT point");
+			Assert.assertTrue(currentLabsPage.viewGraphPopupHeightDrawDate(drawDateGregorian), "Failed to identify the graph popup HEIGHT draw adate");
 
 			currentLabsPage.clickAddLabButton();
 		}

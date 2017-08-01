@@ -13,7 +13,6 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
-import com.google.common.base.Function;
 import com.vh.ui.exceptions.WaitException;
 import com.vh.ui.utilities.Logg;
 import com.vh.ui.utilities.PropertyManager;
@@ -55,13 +54,17 @@ public class WebDriverWaits {
 		return waitForElementVisibility(driver, locator);
 	}
 
-    public boolean waitForElementInvisible(WebDriver driver, By locator) {         
+	public boolean waitForElementInvisible(WebDriver driver, By locator)
+	{
         boolean isNotPresent = false;         
+
         LOGGER.info(Utilities.getCurrentThreadId() + "Waiting for the visibility of the element using By class:" +locator);         
-        WebDriverWait wait = new WebDriverWait(driver,         
-        utilities.convertToInteger(FRAMEWORKPROPERTIES.getProperty(ELEMENTSEARCHTIMEOUT)));         
-        isNotPresent = wait.until(ExpectedConditions.invisibilityOfElementLocated(locator));         
+
+		WebDriverWait wait = new WebDriverWait(driver, utilities.convertToInteger(FRAMEWORKPROPERTIES.getProperty(ELEMENTSEARCHTIMEOUT)));
+		isNotPresent = wait.until(ExpectedConditions.invisibilityOfElementLocated(locator));
+
         LOGGER.info(Utilities.getCurrentThreadId() + "WebElement is not present now. Proceeding further...");         
+
         return isNotPresent;         
     }
 

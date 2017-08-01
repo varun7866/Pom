@@ -1177,6 +1177,14 @@ public class CurrentLabsPage extends WebPage
 		return webActions.getVisibiltyOfElementLocatedBy(VISIBILITY, LBL_GRAPHPOPUPHEIGHTPOINT);
 	}
 
+	@Step("Verify the visibility of the HEIGHT draw date")
+	public boolean viewGraphPopupHeightDrawDate(String drawDate) throws TimeoutException, WaitException
+	{
+		final By LBL_GRAPHPOPUPHEIGHTDRAWDATE = By.xpath("//div[@class='modal-body']//text[text()='" + drawDate + "']");
+
+		return webActions.getVisibiltyOfElementLocatedBy(VISIBILITY, LBL_GRAPHPOPUPHEIGHTDRAWDATE);
+	}
+
 	@Step("Verify the visibility of the WEIGHT label/value")
 	public boolean viewWeightLabelValue(String labValue) throws TimeoutException, WaitException
 	{

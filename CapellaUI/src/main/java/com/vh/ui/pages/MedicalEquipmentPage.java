@@ -238,6 +238,12 @@ public class MedicalEquipmentPage extends WebPage
 		return webActions.getVisibiltyOfElementLocatedBy(VISIBILITY, LBL_ADDPOPUPADDMEDICALEQUIPMENT);
 	}
 
+	@Step("Verify the Add Medical Equipment popup has closed")
+	public boolean viewAddMedicalEquipmentPopupClosed() throws TimeoutException, WaitException
+	{
+		return wait.waitForElementInvisible(driver, LBL_ADDPOPUPADDMEDICALEQUIPMENT);
+	}
+
 	@Step("Verify the visibility of the Add Medical Equipment popup CANCEL button")
 	public boolean viewAddPopupCancelButton() throws TimeoutException, WaitException
 	{
