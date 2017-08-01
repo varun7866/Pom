@@ -361,6 +361,7 @@ public class CurrentLabsTest extends TestBase
 			Assert.assertTrue(currentLabsPage.viewHeightColor("T"), "Failed to identify HEIGHT as the correct color");
 			Assert.assertTrue(currentLabsPage.viewGraphPopupHeightLabelValue(map.get("HEIGHT")), "Failed to identify the graph popup HEIGHT label/value");
 			Assert.assertTrue(currentLabsPage.viewHeightColor("P"), "Failed to identify graph popup HEIGHT as the correct color");
+			Assert.assertTrue(currentLabsPage.viewGraphPopupHeightPoint(map.get("HEIGHT")), "Failed to identify the graph popup HEIGHT point");
 
 			currentLabsPage.clickAddLabButton();
 		}
@@ -373,6 +374,7 @@ public class CurrentLabsTest extends TestBase
 			Assert.assertTrue(currentLabsPage.viewWeightColor("T"), "Failed to identify WEIGHT as the correct color");
 			Assert.assertTrue(currentLabsPage.viewGraphPopupWeightLabelValue(map.get("WEIGHT")), "Failed to identify the graph popup WEIGHT label/value");
 			Assert.assertTrue(currentLabsPage.viewWeightColor("P"), "Failed to identify graph popup WEIGHT as the correct color");
+			Assert.assertTrue(currentLabsPage.viewGraphPopupWeightPoint(map.get("WEIGHT")), "Failed to identify the graph popup WEIGHT point");
 
 			currentLabsPage.clickAddLabButton();
 		}
@@ -385,6 +387,7 @@ public class CurrentLabsTest extends TestBase
 			Assert.assertTrue(currentLabsPage.viewTargetDryWeightColor("T"), "Failed to identify TARGET DRY WEIGHT as the correct color");
 			Assert.assertTrue(currentLabsPage.viewGraphPopupTargetDryWeightLabelValue(map.get("TARGETDRYWEIGHT")), "Failed to identify the graph popup TARGETDRYWEIGHT label/value");
 			Assert.assertTrue(currentLabsPage.viewTargetDryWeightColor("P"), "Failed to identify graph popup TARGET DRY WEIGHT as the correct color");
+			Assert.assertTrue(currentLabsPage.viewGraphPopupTargetDryWeightPoint(map.get("TARGETDRYWEIGHT")), "Failed to identify the graph popup TARGET DRY WEIGHT point");
 
 			currentLabsPage.clickAddLabButton();
 		}
@@ -402,6 +405,7 @@ public class CurrentLabsTest extends TestBase
 			Assert.assertTrue(currentLabsPage.viewGraphPopupCalciumXPhosphorousGoal(), "Failed to identify the graph popup CALCIUM X PHOSPHOROUS Goal");
 			Assert.assertTrue(currentLabsPage.viewCalciumXPhosphorousColor(Integer.parseInt(map.get("CALCIUMXPHOSPHOROUS")), "P"),
 			        "Failed to identify graph popup CALCIUM X PHOSPHOROUS as the correct color");
+			Assert.assertTrue(currentLabsPage.viewGraphPopupCalciumXPhosphorousPoint(map.get("CALCIUMXPHOSPHOROUS")), "Failed to identify the graph popup CALCIUM X PHOSPHOROUS point");
 
 			currentLabsPage.clickAddLabButton();
 		}
@@ -416,6 +420,7 @@ public class CurrentLabsTest extends TestBase
 			Assert.assertTrue(currentLabsPage.viewGraphPopupPhosphorousLabelValue(map.get("PHOSPHOROUS")), "Failed to identify the graph popup PHOSPHOROUS label/value");
 			Assert.assertTrue(currentLabsPage.viewGraphPopupPhosphorousGoal(), "Failed to identify the graph popup PHOSPHOROUS Goal");
 			Assert.assertTrue(currentLabsPage.viewPhosphorousColor(Double.parseDouble(map.get("PHOSPHOROUS")), "P"), "Failed to identify graph popup PHOSPHOROUS as the correct color");
+			Assert.assertTrue(currentLabsPage.viewGraphPopupPhosphorousPoint(map.get("PHOSPHOROUS")), "Failed to identify the graph popup PHOSPHOROUS point");
 
 			currentLabsPage.clickAddLabButton();
 		}
@@ -430,6 +435,7 @@ public class CurrentLabsTest extends TestBase
 			Assert.assertTrue(currentLabsPage.viewGraphPopupCreatinineLabelValue(map.get("CREATININE")), "Failed to identify the graph popup CREATININE label/value");
 			Assert.assertTrue(currentLabsPage.viewGraphPopupCreatinineGoal(), "Failed to identify the graph popup CREATININE Goal");
 			Assert.assertTrue(currentLabsPage.viewCreatinineColor(Double.parseDouble(map.get("CREATININE")), "P"), "Failed to identify graph popup CREATININE as the correct color");
+			Assert.assertTrue(currentLabsPage.viewGraphPopupCreatininePoint(map.get("CREATININE")), "Failed to identify the graph popup CREATININE point");
 
 			currentLabsPage.clickAddLabButton();
 		}
@@ -444,6 +450,7 @@ public class CurrentLabsTest extends TestBase
 			Assert.assertTrue(currentLabsPage.viewGraphPopupGFRLabelValue(map.get("GFR")), "Failed to identify the graph popup GFR label/value");
 			Assert.assertTrue(currentLabsPage.viewGraphPopupGFRGoal(), "Failed to identify the graph popup GFR Goal");
 			Assert.assertTrue(currentLabsPage.viewGFRColor(Integer.parseInt(map.get("GFR")), "P"), "Failed to identify graph popup GFR as the correct color");
+			Assert.assertTrue(currentLabsPage.viewGraphPopupGFRPoint(map.get("GFR")), "Failed to identify the graph popup GFR point");
 
 			currentLabsPage.clickAddLabButton();
 		}
@@ -458,6 +465,7 @@ public class CurrentLabsTest extends TestBase
 			Assert.assertTrue(currentLabsPage.viewGraphPopupHGBA1CLabelValue(map.get("HGBA1C")), "Failed to identify the graph popup HGBA1C label/value");
 			Assert.assertTrue(currentLabsPage.viewGraphPopupHGBA1CGoal(), "Failed to identify the graph popup HGBA1C Goal");
 			Assert.assertTrue(currentLabsPage.viewHGBA1CColor(Integer.parseInt(map.get("HGBA1C")), "P"), "Failed to identify graph popup HGBA1C as the correct color");
+			Assert.assertTrue(currentLabsPage.viewGraphPopupHGBA1CPoint(map.get("HGBA1C")), "Failed to identify the graph popup HGBA1C point");
 
 			currentLabsPage.clickAddLabButton();
 		}
@@ -472,6 +480,7 @@ public class CurrentLabsTest extends TestBase
 			Assert.assertTrue(currentLabsPage.viewGraphPopupLDLLabelValue(map.get("LDL")), "Failed to identify the graph popup LDL label/value");
 			Assert.assertTrue(currentLabsPage.viewGraphPopupLDLGoal(), "Failed to identify the graph popup LDL Goal");
 			Assert.assertTrue(currentLabsPage.viewLDLColor(Integer.parseInt(map.get("LDL")), "P"), "Failed to identify graph popup LDL as the correct color");
+			Assert.assertTrue(currentLabsPage.viewGraphPopupLDLPoint(map.get("LDL")), "Failed to identify the graph popup LDL point");
 
 			currentLabsPage.clickAddLabButton();
 		}
@@ -486,6 +495,7 @@ public class CurrentLabsTest extends TestBase
 			Assert.assertTrue(currentLabsPage.viewGraphPopupHGBLabelValue(map.get("HGB")), "Failed to identify the graph popup HGB label/value");
 			Assert.assertTrue(currentLabsPage.viewGraphPopupHGBGoal(), "Failed to identify the graph popup HGB Goal");
 			Assert.assertTrue(currentLabsPage.viewHGBColor(Integer.parseInt(map.get("HGB")), "P"), "Failed to identify graph popup HGB as the correct color");
+			Assert.assertTrue(currentLabsPage.viewGraphPopupHGBPoint(map.get("HGB")), "Failed to identify the graph popup HGB point");
 
 			currentLabsPage.clickAddLabButton();
 		}
@@ -500,6 +510,7 @@ public class CurrentLabsTest extends TestBase
 			Assert.assertTrue(currentLabsPage.viewGraphPopupAlbuminLabelValue(map.get("ALBUMIN")), "Failed to identify the graph popup ALBUMIN label/value");
 			Assert.assertTrue(currentLabsPage.viewGraphPopupAlbuminGoal(), "Failed to identify the graph popup ALBUMIN Goal");
 			Assert.assertTrue(currentLabsPage.viewAlbuminColor(Integer.parseInt(map.get("ALBUMIN")), "P"), "Failed to identify graph popup ALBUMIN as the correct color");
+			Assert.assertTrue(currentLabsPage.viewGraphPopupAlbuminPoint(map.get("ALBUMIN")), "Failed to identify the graph popup ALBUMIN point");
 
 			currentLabsPage.clickAddLabButton();
 		}
@@ -518,6 +529,8 @@ public class CurrentLabsTest extends TestBase
 			Assert.assertTrue(currentLabsPage.viewGraphPopupUrineAlbuminCreatinineRatioGoal(), "Failed to identify the graph popup URINE ALBUMIN/CREATININE RATIO Goal");
 			Assert.assertTrue(currentLabsPage.viewUrineAlbuminCreatinineRatioColor(Integer.parseInt(map.get("URINEALBUMINCREATININERATIO")), "P"),
 			        "Failed to identify graph popup URINE ALBUMIN/CREATININE RATIO as the correct color");
+			Assert.assertTrue(currentLabsPage.viewGraphPopupUrineAlbuminCreatinineRatioPoint(map.get("URINEALBUMINCREATININERATIO")),
+			        "Failed to identify the graph popup URINE ALBUMIN/CREATININE RATIO point");
 
 			currentLabsPage.clickAddLabButton();
 		}
@@ -541,6 +554,7 @@ public class CurrentLabsTest extends TestBase
 			Assert.assertTrue(currentLabsPage.viewGraphPopupCO2LevelLabelValue(map.get("CO2LEVEL")), "Failed to identify the graph popup CO2 LEVEL label/value");
 			Assert.assertTrue(currentLabsPage.viewGraphPopupCO2LevelGoal(), "Failed to identify the graph popup CO2 LEVEL Goal");
 			Assert.assertTrue(currentLabsPage.viewCO2LevelColor(Integer.parseInt(map.get("CO2LEVEL")), "P"), "Failed to identify graph popup CO2LEVEL as the correct color");
+			Assert.assertTrue(currentLabsPage.viewGraphPopupCO2LevelPoint(map.get("CO2LEVEL")), "Failed to identify the graph popup CO2 LEVEL point");
 
 			currentLabsPage.clickAddLabButton();
 		}
@@ -557,6 +571,7 @@ public class CurrentLabsTest extends TestBase
 			Assert.assertTrue(currentLabsPage.viewGraphPopupCalciumGoal(), "Failed to identify the graph popup CALCIUM Goal");
 			Assert.assertTrue(currentLabsPage.viewCalciumColor(Double.parseDouble(map.get("CALCIUM")), map.get("PatientType"), "P"),
 			        "Failed to identify graph popup CALCIUM as the correct color");
+			Assert.assertTrue(currentLabsPage.viewGraphPopupCalciumPoint(map.get("CALCIUM")), "Failed to identify the graph popup CALCIUM point");
 
 			currentLabsPage.clickAddLabButton();
 		}
@@ -564,13 +579,14 @@ public class CurrentLabsTest extends TestBase
 		if (map.get("KTV") != null && map.get("PatientType").equals("ESRD"))
 		{
 			Assert.assertTrue(currentLabsPage.viewKTVLabelValue(map.get("KTV")), "Failed to identify the KT/V label/value");
-			Assert.assertTrue(currentLabsPage.viewKTVGoal(), "Failed to identify the KT/V Goal");
+			// Assert.assertTrue(currentLabsPage.viewKTVGoal(), "Failed to identify the KT/V Goal");
 			Assert.assertTrue(currentLabsPage.viewKTVDrawDate(drawDateGregorian), "Failed to identify the KT/V draw date");
 			Assert.assertTrue(currentLabsPage.viewKTVSource(), "Failed to identify the KT/V Source");
 			Assert.assertTrue(currentLabsPage.viewKTVColor(Double.parseDouble(map.get("KTV")), "T"), "Failed to identify KTV as the correct color");
 			Assert.assertTrue(currentLabsPage.viewGraphPopupKTVLabelValue(map.get("KTV")), "Failed to identify the graph popup KTV label/value");
-			Assert.assertTrue(currentLabsPage.viewGraphPopupKTVGoal(), "Failed to identify the graph popup KTV Goal");
+			// Assert.assertTrue(currentLabsPage.viewGraphPopupKTVGoal(), "Failed to identify the graph popup KTV Goal");
 			Assert.assertTrue(currentLabsPage.viewKTVColor(Double.parseDouble(map.get("KTV")), "P"), "Failed to identify graph popup KTV as the correct color");
+			Assert.assertTrue(currentLabsPage.viewGraphPopupKTVPoint(map.get("KTV")), "Failed to identify the graph popup KTV point");
 
 			currentLabsPage.clickAddLabButton();
 		}
@@ -585,6 +601,7 @@ public class CurrentLabsTest extends TestBase
 			Assert.assertTrue(currentLabsPage.viewGraphPopupURRLabelValue(map.get("URR")), "Failed to identify the graph popup URR label/value");
 			Assert.assertTrue(currentLabsPage.viewGraphPopupURRGoal(), "Failed to identify the graph popup URR Goal");
 			Assert.assertTrue(currentLabsPage.viewURRColor(Integer.parseInt(map.get("URR")), "P"), "Failed to identify graph popup URR as the correct color");
+			Assert.assertTrue(currentLabsPage.viewGraphPopupURRPoint(map.get("URR")), "Failed to identify the graph popup URR point");
 
 			currentLabsPage.clickAddLabButton();
 		}
@@ -599,6 +616,7 @@ public class CurrentLabsTest extends TestBase
 			Assert.assertTrue(currentLabsPage.viewGraphPopupPotassiumLabelValue(map.get("POTASIUM")), "Failed to identify the graph popup POTASIUM label/value");
 			Assert.assertTrue(currentLabsPage.viewGraphPopupPotassiumGoal(), "Failed to identify the graph popup POTASIUM Goal");
 			Assert.assertTrue(currentLabsPage.viewPotassiumColor(Double.parseDouble(map.get("POTASIUM")), "P"), "Failed to identify graph popup POTASIUM as the correct color");
+			Assert.assertTrue(currentLabsPage.viewGraphPopupPotassiumPoint(map.get("POTASIUM")), "Failed to identify the graph popup POTASIUM point");
 
 			currentLabsPage.clickAddLabButton();
 		}
@@ -619,6 +637,7 @@ public class CurrentLabsTest extends TestBase
 			Assert.assertTrue(currentLabsPage.viewGraphPopupPTHGoal(), "Failed to identify the graph popup PTH Goal");
 			Assert.assertTrue(currentLabsPage.viewPTHColor(Integer.parseInt(map.get("PTH")), map.get("PatientType"), map.get("CKDStage"), "P"),
 			        "Failed to identify graph popup PTH as the correct color");
+			Assert.assertTrue(currentLabsPage.viewGraphPopupPTHPoint(map.get("PTH")), "Failed to identify the graph popup PTH point");
 
 			currentLabsPage.clickAddLabButton();
 		}
@@ -634,6 +653,7 @@ public class CurrentLabsTest extends TestBase
 			Assert.assertTrue(currentLabsPage.viewGraphPopupHepatitisBTiterGoal(), "Failed to identify the graph popup HEPATITIS B TITER Goal");
 			Assert.assertTrue(currentLabsPage.viewHepatitisBTiterColor(Integer.parseInt(map.get("HEPATITISBTITER")), "P"),
 			        "Failed to identify graph popup HEPATITIS B TITER as the correct color");
+			Assert.assertTrue(currentLabsPage.viewGraphPopupHepatitisBTiterPoint(map.get("HEPATITISBTITER")), "Failed to identify the graph popup HEPATITIS B TITER point");
 
 			currentLabsPage.clickAddLabButton();
 		}
@@ -648,6 +668,7 @@ public class CurrentLabsTest extends TestBase
 			Assert.assertTrue(currentLabsPage.viewGraphPopupFerritinLabelValue(map.get("FERRITIN")), "Failed to identify the graph popup FERRITIN label/value");
 			Assert.assertTrue(currentLabsPage.viewGraphPopupFerritinGoal(), "Failed to identify the graph popup FERRITIN Goal");
 			Assert.assertTrue(currentLabsPage.viewFerritinColor(Integer.parseInt(map.get("FERRITIN")), "P"), "Failed to identify graph popup FERRITIN as the correct color");
+			Assert.assertTrue(currentLabsPage.viewGraphPopupFerritinPoint(map.get("FERRITIN")), "Failed to identify the graph popup FERRITIN point");
 
 			currentLabsPage.clickAddLabButton();
 		}
@@ -662,6 +683,7 @@ public class CurrentLabsTest extends TestBase
 			Assert.assertTrue(currentLabsPage.viewGraphPopupTSATLabelValue(map.get("TSAT")), "Failed to identify the graph popup TSAT label/value");
 			Assert.assertTrue(currentLabsPage.viewGraphPopupTSATGoal(), "Failed to identify the graph popup TSAT Goal");
 			Assert.assertTrue(currentLabsPage.viewTSATColor(Integer.parseInt(map.get("TSAT")), "P"), "Failed to identify graph popup TSAT as the correct color");
+			Assert.assertTrue(currentLabsPage.viewGraphPopupTSATPoint(map.get("TSAT")), "Failed to identify the graph popup TSAT point");
 
 			currentLabsPage.clickAddLabButton();
 		}
@@ -679,6 +701,7 @@ public class CurrentLabsTest extends TestBase
 			Assert.assertTrue(currentLabsPage.viewGraphPopupBloodPressureSystolicGoal(), "Failed to identify the graph popup BLOOD PRESSURE SYSTOLIC Goal");
 			Assert.assertTrue(currentLabsPage.viewBloodPressureSystolicColor(Integer.parseInt(map.get("BLOODPRESSURESYSTOLIC")), "P"),
 			        "Failed to identify graph popup BLOOD PRESSURE SYSTOLIC as the correct color");
+			Assert.assertTrue(currentLabsPage.viewGraphPopupBloodPressureSystolicPoint(map.get("BLOODPRESSURESYSTOLIC")), "Failed to identify the graph popup BLOOD PRESSURE SYSTOLIC point");
 
 			currentLabsPage.clickAddLabButton();
 		}
@@ -696,6 +719,8 @@ public class CurrentLabsTest extends TestBase
 			Assert.assertTrue(currentLabsPage.viewGraphPopupBloodPressureDiastolicGoal(), "Failed to identify the graph popup BLOOD PRESSURE DIASTOLIC Goal");
 			Assert.assertTrue(currentLabsPage.viewBloodPressureDiastolicColor(Integer.parseInt(map.get("BLOODPRESSUREDIASTOLIC")), "P"),
 			        "Failed to identify graph popup BLOOD PRESSURE DIASTOLIC as the correct color");
+			Assert.assertTrue(currentLabsPage.viewGraphPopupBloodPressureDiastolicPoint(map.get("BLOODPRESSUREDIASTOLIC")),
+			        "Failed to identify the graph popup BLOOD PRESSURE DIASTOLIC point");
 		}
 	}
 

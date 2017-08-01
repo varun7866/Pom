@@ -1169,6 +1169,14 @@ public class CurrentLabsPage extends WebPage
 		return webActions.getVisibiltyOfElementLocatedBy(VISIBILITY, LBL_GRAPHPOPUPHEIGHT);
 	}
 
+	@Step("Verify the visibility of the graph popup HEIGHT point")
+	public boolean viewGraphPopupHeightPoint(String labValue) throws TimeoutException, WaitException
+	{
+		final By LBL_GRAPHPOPUPHEIGHTPOINT = By.xpath("//div[@class='modal-body']//text[text()='" + labValue + "']/../..//circle");
+
+		return webActions.getVisibiltyOfElementLocatedBy(VISIBILITY, LBL_GRAPHPOPUPHEIGHTPOINT);
+	}
+
 	@Step("Verify the visibility of the WEIGHT label/value")
 	public boolean viewWeightLabelValue(String labValue) throws TimeoutException, WaitException
 	{
@@ -1226,6 +1234,14 @@ public class CurrentLabsPage extends WebPage
 		return webActions.getVisibiltyOfElementLocatedBy(VISIBILITY, LBL_GRAPHPOPUPWEIGHT);
 	}
 
+	@Step("Verify the visibility of the graph popup WEIGHT point")
+	public boolean viewGraphPopupWeightPoint(String labValue) throws TimeoutException, WaitException
+	{
+		final By LBL_GRAPHPOPUPWEIGHTPOINT = By.xpath("//div[@class='modal-body']//text[text()='" + labValue + "']/../..//circle");
+
+		return webActions.getVisibiltyOfElementLocatedBy(VISIBILITY, LBL_GRAPHPOPUPWEIGHTPOINT);
+	}
+
 	@Step("Verify the visibility of the TARGET DRY WEIGHT label/value")
 	public boolean viewTargetDryWeightLabelValue(String labValue) throws TimeoutException, WaitException
 	{
@@ -1281,6 +1297,14 @@ public class CurrentLabsPage extends WebPage
 		final By LBL_GRAPHPOPUPTARGETDRYWEIGHT = By.xpath("//div[@class='lab-history-modal-header-div']//span[text()='Target Dry Weight (" + labValue + ")']");
 
 		return webActions.getVisibiltyOfElementLocatedBy(VISIBILITY, LBL_GRAPHPOPUPTARGETDRYWEIGHT);
+	}
+
+	@Step("Verify the visibility of the graph popup TARGET DRY WEIGHT point")
+	public boolean viewGraphPopupTargetDryWeightPoint(String labValue) throws TimeoutException, WaitException
+	{
+		final By LBL_GRAPHPOPUPTARGETDTYWEIGHTPOINT = By.xpath("//div[@class='modal-body']//text[text()='" + labValue + "']/../..//circle");
+
+		return webActions.getVisibiltyOfElementLocatedBy(VISIBILITY, LBL_GRAPHPOPUPTARGETDTYWEIGHTPOINT);
 	}
 
 	@Step("Verify the visibility of the CALCIUM X PHOSPHOROUS label/value")
@@ -1365,6 +1389,14 @@ public class CurrentLabsPage extends WebPage
 		return webActions.getVisibiltyOfElementLocatedBy(VISIBILITY, LBL_GRAPHPOPUPCALCIUMXPHOSPHOROUSGOAL);
 	}
 
+	@Step("Verify the visibility of the graph popup CALCIUM X PHOSPHOROUS point")
+	public boolean viewGraphPopupCalciumXPhosphorousPoint(String labValue) throws TimeoutException, WaitException
+	{
+		final By LBL_GRAPHPOPUPCALCIUMXPHOSPHOROUSPOINT = By.xpath("//div[@class='modal-body']//text[text()='" + labValue + "']/../..//circle");
+
+		return webActions.getVisibiltyOfElementLocatedBy(VISIBILITY, LBL_GRAPHPOPUPCALCIUMXPHOSPHOROUSPOINT);
+	}
+
 	@Step("Verify the visibility of the PHOSPHOROUS label/value")
 	public boolean viewPhosphorousLabelValue(String labValue) throws TimeoutException, WaitException
 	{
@@ -1445,6 +1477,14 @@ public class CurrentLabsPage extends WebPage
 	public boolean viewGraphPopupPhosphorousGoal() throws TimeoutException, WaitException
 	{
 		return webActions.getVisibiltyOfElementLocatedBy(VISIBILITY, LBL_GRAPHPOPUPPHOSPHOROUSGOAL);
+	}
+
+	@Step("Verify the visibility of the graph popup PHOSPHOROUS point")
+	public boolean viewGraphPopupPhosphorousPoint(String labValue) throws TimeoutException, WaitException
+	{
+		final By LBL_GRAPHPOPUPPHOSPHOROUSPOINT = By.xpath("//div[@class='modal-body']//text[text()='" + labValue + "']/../..//circle");
+
+		return webActions.getVisibiltyOfElementLocatedBy(VISIBILITY, LBL_GRAPHPOPUPPHOSPHOROUSPOINT);
 	}
 
 	@Step("Verify the visibility of the CREATININE label/value")
@@ -1528,6 +1568,14 @@ public class CurrentLabsPage extends WebPage
 		return webActions.getVisibiltyOfElementLocatedBy(VISIBILITY, LBL_GRAPHPOPUPCREATININEGOAL);
 	}
 
+	@Step("Verify the visibility of the graph popup CREATININE point")
+	public boolean viewGraphPopupCreatininePoint(String labValue) throws TimeoutException, WaitException
+	{
+		final By LBL_GRAPHPOPUPCREATININEPOINT = By.xpath("//div[@class='modal-body']//text[text()='" + labValue + "']/../..//circle");
+
+		return webActions.getVisibiltyOfElementLocatedBy(VISIBILITY, LBL_GRAPHPOPUPCREATININEPOINT);
+	}
+
 	@Step("Verify the visibility of the GFR label/value")
 	public boolean viewGFRLabelValue(String labValue) throws TimeoutException, WaitException
 	{
@@ -1607,6 +1655,14 @@ public class CurrentLabsPage extends WebPage
 	public boolean viewGraphPopupGFRGoal() throws TimeoutException, WaitException
 	{
 		return webActions.getVisibiltyOfElementLocatedBy(VISIBILITY, LBL_GRAPHPOPUPGFRGOAL);
+	}
+
+	@Step("Verify the visibility of the graph popup GFR point")
+	public boolean viewGraphPopupGFRPoint(String labValue) throws TimeoutException, WaitException
+	{
+		final By LBL_GRAPHPOPUPGFRPOINT = By.xpath("//div[@class='modal-body']//text[text()='" + labValue + "']/../..//circle");
+
+		return webActions.getVisibiltyOfElementLocatedBy(VISIBILITY, LBL_GRAPHPOPUPGFRPOINT);
 	}
 
 	@Step("Verify the visibility of the HGBA1C label/value")
@@ -1690,6 +1746,14 @@ public class CurrentLabsPage extends WebPage
 		return webActions.getVisibiltyOfElementLocatedBy(VISIBILITY, LBL_GRAPHPOPUPHGBA1CGOAL);
 	}
 
+	@Step("Verify the visibility of the graph popup HGBA1C point")
+	public boolean viewGraphPopupHGBA1CPoint(String labValue) throws TimeoutException, WaitException
+	{
+		final By LBL_GRAPHPOPUPHGBA1CPOINT = By.xpath("//div[@class='modal-body']//text[text()='" + labValue + "']/../..//circle");
+
+		return webActions.getVisibiltyOfElementLocatedBy(VISIBILITY, LBL_GRAPHPOPUPHGBA1CPOINT);
+	}
+
 	@Step("Verify the visibility of the LDL label/value")
 	public boolean viewLDLLabelValue(String labValue) throws TimeoutException, WaitException
 	{
@@ -1769,6 +1833,14 @@ public class CurrentLabsPage extends WebPage
 	public boolean viewGraphPopupLDLGoal() throws TimeoutException, WaitException
 	{
 		return webActions.getVisibiltyOfElementLocatedBy(VISIBILITY, LBL_GRAPHPOPUPLDLGOAL);
+	}
+
+	@Step("Verify the visibility of the graph popup LDL point")
+	public boolean viewGraphPopupLDLPoint(String labValue) throws TimeoutException, WaitException
+	{
+		final By LBL_GRAPHPOPUPLDLPOINT = By.xpath("//div[@class='modal-body']//text[text()='" + labValue + "']/../..//circle");
+
+		return webActions.getVisibiltyOfElementLocatedBy(VISIBILITY, LBL_GRAPHPOPUPLDLPOINT);
 	}
 
 	@Step("Verify the visibility of the HGB label/value")
@@ -1852,6 +1924,14 @@ public class CurrentLabsPage extends WebPage
 		return webActions.getVisibiltyOfElementLocatedBy(VISIBILITY, LBL_GRAPHPOPUPHGBGOAL);
 	}
 
+	@Step("Verify the visibility of the graph popup HGB point")
+	public boolean viewGraphPopupHGBPoint(String labValue) throws TimeoutException, WaitException
+	{
+		final By LBL_GRAPHPOPUPHGBPOINT = By.xpath("//div[@class='modal-body']//text[text()='" + labValue + "']/../..//circle");
+
+		return webActions.getVisibiltyOfElementLocatedBy(VISIBILITY, LBL_GRAPHPOPUPHGBPOINT);
+	}
+
 	@Step("Verify the visibility of the ALBUMIN label/value")
 	public boolean viewAlbuminLabelValue(String labValue) throws TimeoutException, WaitException
 	{
@@ -1933,6 +2013,14 @@ public class CurrentLabsPage extends WebPage
 		return webActions.getVisibiltyOfElementLocatedBy(VISIBILITY, LBL_GRAPHPOPUPALBUMINGOAL);
 	}
 
+	@Step("Verify the visibility of the graph popup ALBUMIN point")
+	public boolean viewGraphPopupAlbuminPoint(String labValue) throws TimeoutException, WaitException
+	{
+		final By LBL_GRAPHPOPUPALBUMINPOINT = By.xpath("//div[@class='modal-body']//text[text()='" + labValue + "']/../..//circle");
+
+		return webActions.getVisibiltyOfElementLocatedBy(VISIBILITY, LBL_GRAPHPOPUPALBUMINPOINT);
+	}
+
 	@Step("Verify the visibility of the URINE ALBUMIN/CREATININE RATIO label/value")
 	public boolean viewUrineAlbuminCreatinineRatioLabelValue(String labValue) throws TimeoutException, WaitException
 	{
@@ -2012,6 +2100,14 @@ public class CurrentLabsPage extends WebPage
 	public boolean viewGraphPopupUrineAlbuminCreatinineRatioGoal() throws TimeoutException, WaitException
 	{
 		return webActions.getVisibiltyOfElementLocatedBy(VISIBILITY, LBL_GRAPHPOPUPURINEALBUMINCREATININERATIOGOAL);
+	}
+
+	@Step("Verify the visibility of the graph popup URINE ALBUMIN/CREATININE RATIO point")
+	public boolean viewGraphPopupUrineAlbuminCreatinineRatioPoint(String labValue) throws TimeoutException, WaitException
+	{
+		final By LBL_GRAPHPOPUPURINEALBUMINCREATININERATIOPOINT = By.xpath("//div[@class='modal-body']//text[text()='" + labValue + "']/../..//circle");
+
+		return webActions.getVisibiltyOfElementLocatedBy(VISIBILITY, LBL_GRAPHPOPUPURINEALBUMINCREATININERATIOPOINT);
 	}
 
 	@Step("Verify the visibility of the DIPSTICK FOR PROTEIN label/value")
@@ -2149,6 +2245,14 @@ public class CurrentLabsPage extends WebPage
 		return webActions.getVisibiltyOfElementLocatedBy(VISIBILITY, LBL_GRAPHPOPUPCO2LEVELGOAL);
 	}
 
+	@Step("Verify the visibility of the graph popup CO2 LEVEL point")
+	public boolean viewGraphPopupCO2LevelPoint(String labValue) throws TimeoutException, WaitException
+	{
+		final By LBL_GRAPHPOPUPCO2LEVELPOINT = By.xpath("//div[@class='modal-body']//text[text()='" + labValue + "']/../..//circle");
+
+		return webActions.getVisibiltyOfElementLocatedBy(VISIBILITY, LBL_GRAPHPOPUPCO2LEVELPOINT);
+	}
+
 	@Step("Verify the visibility of the CALCIUM label/value")
 	public boolean viewCalciumLabelValue(String labValue) throws TimeoutException, WaitException
 	{
@@ -2268,6 +2372,14 @@ public class CurrentLabsPage extends WebPage
 		return webActions.getVisibiltyOfElementLocatedBy(VISIBILITY, LBL_GRAPHPOPUPCALCIUMGOAL);
 	}
 
+	@Step("Verify the visibility of the graph popup CALCIUM point")
+	public boolean viewGraphPopupCalciumPoint(String labValue) throws TimeoutException, WaitException
+	{
+		final By LBL_GRAPHPOPUPCALCIUMPOINT = By.xpath("//div[@class='modal-body']//text[text()='" + labValue + "']/../..//circle");
+
+		return webActions.getVisibiltyOfElementLocatedBy(VISIBILITY, LBL_GRAPHPOPUPCALCIUMPOINT);
+	}
+
 	@Step("Verify the visibility of the KT/V label/value")
 	public boolean viewKTVLabelValue(String labValue) throws TimeoutException, WaitException
 	{
@@ -2296,7 +2408,7 @@ public class CurrentLabsPage extends WebPage
 		return webActions.getVisibiltyOfElementLocatedBy(VISIBILITY, LBL_KTVSOURCE);
 	}
 
-	@Step("Verify the color of the KTV label/value")
+	@Step("Verify the color of the KT/V label/value")
 	public boolean viewKTVColor(Double labValue, String location) throws TimeoutException, WaitException
 	{
 		String classAttributeValue = "";
@@ -2347,6 +2459,14 @@ public class CurrentLabsPage extends WebPage
 	public boolean viewGraphPopupKTVGoal() throws TimeoutException, WaitException
 	{
 		return webActions.getVisibiltyOfElementLocatedBy(VISIBILITY, LBL_GRAPHPOPUPKTVGOAL);
+	}
+
+	@Step("Verify the visibility of the graph popup KT/V point")
+	public boolean viewGraphPopupKTVPoint(String labValue) throws TimeoutException, WaitException
+	{
+		final By LBL_GRAPHPOPUPKTVPOINT = By.xpath("//div[@class='modal-body']//text[text()='" + labValue + "']/../..//circle");
+
+		return webActions.getVisibiltyOfElementLocatedBy(VISIBILITY, LBL_GRAPHPOPUPKTVPOINT);
 	}
 
 	@Step("Verify the visibility of the URR label/value")
@@ -2430,6 +2550,14 @@ public class CurrentLabsPage extends WebPage
 		return webActions.getVisibiltyOfElementLocatedBy(VISIBILITY, LBL_GRAPHPOPUPURRGOAL);
 	}
 
+	@Step("Verify the visibility of the graph popup URR point")
+	public boolean viewGraphPopupURRPoint(String labValue) throws TimeoutException, WaitException
+	{
+		final By LBL_GRAPHPOPUPURRPOINT = By.xpath("//div[@class='modal-body']//text[text()='" + labValue + "']/../..//circle");
+
+		return webActions.getVisibiltyOfElementLocatedBy(VISIBILITY, LBL_GRAPHPOPUPURRPOINT);
+	}
+
 	@Step("Verify the visibility of the POTASSIUM label/value")
 	public boolean viewPotassiumLabelValue(String labValue) throws TimeoutException, WaitException
 	{
@@ -2509,6 +2637,14 @@ public class CurrentLabsPage extends WebPage
 	public boolean viewGraphPopupPotassiumGoal() throws TimeoutException, WaitException
 	{
 		return webActions.getVisibiltyOfElementLocatedBy(VISIBILITY, LBL_GRAPHPOPUPPOTASSIUMGOAL);
+	}
+
+	@Step("Verify the visibility of the graph popup POTASSIUM point")
+	public boolean viewGraphPopupPotassiumPoint(String labValue) throws TimeoutException, WaitException
+	{
+		final By LBL_GRAPHPOPUPPOTASSIUMPOINT = By.xpath("//div[@class='modal-body']//text[text()='" + labValue + "']/../..//circle");
+
+		return webActions.getVisibiltyOfElementLocatedBy(VISIBILITY, LBL_GRAPHPOPUPPOTASSIUMPOINT);
 	}
 
 	@Step("Verify the visibility of the PTH label/value")
@@ -2699,6 +2835,14 @@ public class CurrentLabsPage extends WebPage
 		return webActions.getVisibiltyOfElementLocatedBy(VISIBILITY, LBL_GRAPHPOPUPPTHGOAL);
 	}
 
+	@Step("Verify the visibility of the graph popup PTH point")
+	public boolean viewGraphPopupPTHPoint(String labValue) throws TimeoutException, WaitException
+	{
+		final By LBL_GRAPHPOPUPPTHPOINT = By.xpath("//div[@class='modal-body']//text[text()='" + labValue + "']/../..//circle");
+
+		return webActions.getVisibiltyOfElementLocatedBy(VISIBILITY, LBL_GRAPHPOPUPPTHPOINT);
+	}
+
 	@Step("Verify the visibility of the HEPATITIS B TITER label/value")
 	public boolean viewHepatitisBTiterLabelValue(String labValue) throws TimeoutException, WaitException
 	{
@@ -2778,6 +2922,14 @@ public class CurrentLabsPage extends WebPage
 	public boolean viewGraphPopupHepatitisBTiterGoal() throws TimeoutException, WaitException
 	{
 		return webActions.getVisibiltyOfElementLocatedBy(VISIBILITY, LBL_GRAPHPOPUPHEPATITISBTITERGOAL);
+	}
+
+	@Step("Verify the visibility of the graph popup HEPATITIS B TITER point")
+	public boolean viewGraphPopupHepatitisBTiterPoint(String labValue) throws TimeoutException, WaitException
+	{
+		final By LBL_GRAPHPOPUPHEPATITISBTITERPOINT = By.xpath("//div[@class='modal-body']//text[text()='" + labValue + "']/../..//circle");
+
+		return webActions.getVisibiltyOfElementLocatedBy(VISIBILITY, LBL_GRAPHPOPUPHEPATITISBTITERPOINT);
 	}
 
 	@Step("Verify the visibility of the FERRITIN label/value")
@@ -2861,6 +3013,14 @@ public class CurrentLabsPage extends WebPage
 		return webActions.getVisibiltyOfElementLocatedBy(VISIBILITY, LBL_GRAPHPOPUPFERRITINGOAL);
 	}
 
+	@Step("Verify the visibility of the graph popup FERRITIN point")
+	public boolean viewGraphPopupFerritinPoint(String labValue) throws TimeoutException, WaitException
+	{
+		final By LBL_GRAPHPOPUPFERRITINPOINT = By.xpath("//div[@class='modal-body']//text[text()='" + labValue + "']/../..//circle");
+
+		return webActions.getVisibiltyOfElementLocatedBy(VISIBILITY, LBL_GRAPHPOPUPFERRITINPOINT);
+	}
+
 	@Step("Verify the visibility of the TSAT label/value")
 	public boolean viewTSATLabelValue(String labValue) throws TimeoutException, WaitException
 	{
@@ -2940,6 +3100,14 @@ public class CurrentLabsPage extends WebPage
 	public boolean viewGraphPopupTSATGoal() throws TimeoutException, WaitException
 	{
 		return webActions.getVisibiltyOfElementLocatedBy(VISIBILITY, LBL_GRAPHPOPUPTSATGOAL);
+	}
+
+	@Step("Verify the visibility of the graph popup TSAT point")
+	public boolean viewGraphPopupTSATPoint(String labValue) throws TimeoutException, WaitException
+	{
+		final By LBL_GRAPHPOPUPTSATPOINT = By.xpath("//div[@class='modal-body']//text[text()='" + labValue + "']/../..//circle");
+
+		return webActions.getVisibiltyOfElementLocatedBy(VISIBILITY, LBL_GRAPHPOPUPTSATPOINT);
 	}
 
 	@Step("Verify the visibility of the BLOOD PRESSURE SYSTOLIC label/value")
@@ -3023,6 +3191,14 @@ public class CurrentLabsPage extends WebPage
 		return webActions.getVisibiltyOfElementLocatedBy(VISIBILITY, LBL_GRAPHPOPUPBLOODPRESSURESYSTOLICGOAL);
 	}
 
+	@Step("Verify the visibility of the graph popup BLOOD PRESSURE SYSTOLIC point")
+	public boolean viewGraphPopupBloodPressureSystolicPoint(String labValue) throws TimeoutException, WaitException
+	{
+		final By LBL_GRAPHPOPUPBLOODPRESSURESYSTOLICPOINT = By.xpath("//div[@class='modal-body']//text[text()='" + labValue + "']/../..//circle");
+
+		return webActions.getVisibiltyOfElementLocatedBy(VISIBILITY, LBL_GRAPHPOPUPBLOODPRESSURESYSTOLICPOINT);
+	}
+
 	@Step("Verify the visibility of the BLOOD PRESSURE DIASTOLIC label/value")
 	public boolean viewBloodPressureDiastolicLabelValue(String valueDiastolic) throws TimeoutException, WaitException
 	{
@@ -3102,5 +3278,13 @@ public class CurrentLabsPage extends WebPage
 	public boolean viewGraphPopupBloodPressureDiastolicGoal() throws TimeoutException, WaitException
 	{
 		return webActions.getVisibiltyOfElementLocatedBy(VISIBILITY, LBL_GRAPHPOPUPBLOODPRESSUREDIASTOLICGOAL);
+	}
+
+	@Step("Verify the visibility of the graph popup BLOOD PRESSURE DIASTOLIC point")
+	public boolean viewGraphPopupBloodPressureDiastolicPoint(String labValue) throws TimeoutException, WaitException
+	{
+		final By LBL_GRAPHPOPUPBLOODPRESSUREDIASTOLICPOINT = By.xpath("//div[@class='modal-body']//text[text()='" + labValue + "']/../..//circle");
+
+		return webActions.getVisibiltyOfElementLocatedBy(VISIBILITY, LBL_GRAPHPOPUPBLOODPRESSUREDIASTOLICPOINT);
 	}
 }
