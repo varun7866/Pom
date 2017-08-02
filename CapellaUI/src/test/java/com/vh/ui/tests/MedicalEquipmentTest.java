@@ -138,9 +138,8 @@ public class MedicalEquipmentTest extends TestBase
 		Assert.assertTrue(medicalEquipmentPage.isStatusDropdownEditable(), "The STATUS drop down is not editable");
 		Assert.assertTrue(medicalEquipmentPage.viewSuccessMessage(), "The STATUS drop down success message did not display");
 
-		// Commented out because we can no longer test the state of a check box until the HTML changes.
-		// Assert.assertTrue(medicalEquipmentPage.isInUseCheckboxEditable(), "The IN USE check box is not editable");
-		// Assert.assertTrue(medicalEquipmentPage.viewSuccessMessage(), "The IN USE check box success message did not display");
+		Assert.assertTrue(medicalEquipmentPage.isInUseCheckboxEditable(), "The IN USE check box is not editable");
+		Assert.assertTrue(medicalEquipmentPage.viewSuccessMessage(), "The IN USE check box success message did not display");
 
 		Assert.assertTrue(medicalEquipmentPage.verifyStatusComboBoxOptions(), "The STATUS drop down options are incorrect");
 	}
@@ -171,9 +170,8 @@ public class MedicalEquipmentTest extends TestBase
 		Assert.assertTrue(medicalEquipmentPage.isTableSortableByStatusAscending(), "The STATUS column did not sort ascendingly");
 		Assert.assertTrue(medicalEquipmentPage.isTableSortableByStatusDescending(), "The STATUS column did not sort descendingly");
 
-		// Commented out because we can no longer test the state of a check box until the HTML changes.
-		// Assert.assertTrue(medicalEquipmentPage.isTableSortableByInUseAscending(), "The IN USE column did not sort ascendingly");
-		// Assert.assertTrue(medicalEquipmentPage.isTableSortableByInUseDescending(), "The IN USE column did not sort descendingly");
+		Assert.assertTrue(medicalEquipmentPage.isTableSortableByInUseAscending(), "The IN USE column did not sort ascendingly");
+		Assert.assertTrue(medicalEquipmentPage.isTableSortableByInUseDescending(), "The IN USE column did not sort descendingly");
 	}
 
 	@Test(priority = 6, dataProvider = "CapellaDataProvider")

@@ -772,10 +772,6 @@ public class ApplicationFunctions extends WebPage
 			{
 				if (controlType.equals("dropdown"))
 				{
-					// Commented out because the select tag no longer has a "ng-reflect-selected" attribute.
-					// columnTextOriginal.add(columnElement.findElement(By.xpath("./select//option[@ng-reflect-selected='true']")).getText());
-					// columnTextSorted.add(columnElement.findElement(By.xpath("./select//option[@ng-reflect-selected='true']")).getText());
-
 					attributeValue = columnElement.findElement(By.xpath("./select")).getAttribute("ng-reflect-model");
 					innerText = columnElement.findElement(By.xpath("./select//option[@ng-reflect-value='" + attributeValue + "']")).getText();
 					columnTextOriginal.add(innerText);
@@ -785,19 +781,7 @@ public class ApplicationFunctions extends WebPage
 				{
 					if (controlType.equals("checkbox"))
 					{
-						attributeValue = columnElement.findElement(By.xpath("./div/input")).getAttribute("ng-reflect-checked");
-
-						try
-						{
-							if (attributeValue.equals(null))
-							{
-								
-							}							
-						}
-						catch (Exception ex)
-						{
-							attributeValue = "zalse";
-						}
+						attributeValue = columnElement.findElement(By.xpath("./div/input")).getAttribute("class");
 
 						columnTextOriginal.add(attributeValue);
 						columnTextSorted.add(attributeValue);
