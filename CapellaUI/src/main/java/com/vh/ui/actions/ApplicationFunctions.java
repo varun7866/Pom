@@ -518,22 +518,12 @@ public class ApplicationFunctions extends WebPage
 
 		if (dateToSelectInt > currentDayInt)
 		{
-			try
-			{
-				DayLocator = By.xpath(datePickerLocatorXpathString + "/../..//td[@class='daycell']/div[contains(@class,'datevalue prevmonth')]/span[text()='" + dateToSelectInt + "']");
+			calendarPrevMMonthButton = By.xpath(datePickerLocatorXpathString + "/../..//button[@class='headerbtn mydpicon icon-mydpleft headerbtnenabled']");
+			webActions.click(VISIBILITY, calendarPrevMMonthButton);
 
-				// If not found, that means the date to choose is not displayed. Flow will jump to the Catch where it will click the previous month button, then select the date.
-				driver.findElement(DayLocator).isDisplayed();
-				webActions.click(VISIBILITY, DayLocator);
-			} catch (Exception ex)
-			{
-				calendarPrevMMonthButton = By.xpath(datePickerLocatorXpathString + "/../..//button[@class='headerbtn mydpicon icon-mydpleft headerbtnenabled']");
-				webActions.click(VISIBILITY, calendarPrevMMonthButton);
-
-				DayLocator = By.xpath(
-				        datePickerLocatorXpathString + "/../..//td[@class='daycell currmonth tablesingleday']/div[contains(@class,'datevalue currmonth')]/span[text()='" + dateToSelectInt + "']");
-				webActions.click(VISIBILITY, DayLocator);
-			}
+			DayLocator = By.xpath(datePickerLocatorXpathString + "/../..//td[@class='daycell currmonth tablesingleday']/div[contains(@class,'datevalue currmonth')]/span[text()='"
+			        + dateToSelectInt + "']");
+			webActions.click(VISIBILITY, DayLocator);
 		} else
 		{
 			if (dateToSelectInt == currentDayInt)
