@@ -150,21 +150,11 @@ public class MedicalEquipmentPage extends WebPage
 		String attributeValueBefore;
 		String attributeValueAfter;
 
-		attributeValueBefore = webActions.getAttributeValue(VISIBILITY, CHK_FIRSTROWEQUIPMENTISINUSE, "ng-reflect-checked");
+		attributeValueBefore = webActions.getAttributeValue(VISIBILITY, CHK_FIRSTROWEQUIPMENTISINUSE, "class");
 
 		webActions.click(VISIBILITY, CHK_FIRSTROWEQUIPMENTISINUSE);
 
-		attributeValueAfter = webActions.getAttributeValue(VISIBILITY, CHK_FIRSTROWEQUIPMENTISINUSE, "ng-reflect-checked");
-
-		if (attributeValueBefore == null)
-		{
-			attributeValueBefore = "false";
-		}
-
-		if (attributeValueAfter == null)
-		{
-			attributeValueAfter = "false";
-		}
+		attributeValueAfter = webActions.getAttributeValue(VISIBILITY, CHK_FIRSTROWEQUIPMENTISINUSE, "class");
 
 		if (attributeValueBefore.equals(attributeValueAfter))
 		{
@@ -236,6 +226,12 @@ public class MedicalEquipmentPage extends WebPage
 	public boolean viewAddMedicalEquipmentPopup() throws TimeoutException, WaitException
 	{
 		return webActions.getVisibiltyOfElementLocatedBy(VISIBILITY, LBL_ADDPOPUPADDMEDICALEQUIPMENT);
+	}
+
+	@Step("Verify the Add Medical Equipment popup has closed")
+	public boolean viewAddMedicalEquipmentPopupClosed() throws TimeoutException, WaitException
+	{
+		return wait.waitForElementInvisible(driver, LBL_ADDPOPUPADDMEDICALEQUIPMENT);
 	}
 
 	@Step("Verify the visibility of the Add Medical Equipment popup CANCEL button")

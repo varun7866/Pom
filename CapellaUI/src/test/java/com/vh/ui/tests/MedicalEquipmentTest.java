@@ -1,9 +1,5 @@
 package com.vh.ui.tests;
 
-import java.text.DateFormat;
-import java.text.SimpleDateFormat;
-import java.util.Calendar;
-import java.util.Date;
 import java.util.Map;
 
 import org.openqa.selenium.TimeoutException;
@@ -130,10 +126,7 @@ public class MedicalEquipmentTest extends TestBase
 
 		medicalEquipmentPage.clickAddPopupAddButton();
 
-		Thread.sleep(2000);
-
-		// Commented out for now because the wait is too long.
-		// Assert.assertFalse(medicalEquipmentPage.viewAddMedicalEquipmentPopup(), "The Add Medical Equipment popup did not close");
+		Assert.assertTrue(medicalEquipmentPage.viewAddMedicalEquipmentPopupClosed(), "The Add Medical Equipment popup did not close");
 
 		Assert.assertTrue(medicalEquipmentPage.isMedicalEquipmentInTable(), "The Medical Equipment is not in the table");
 	}
@@ -145,9 +138,8 @@ public class MedicalEquipmentTest extends TestBase
 		Assert.assertTrue(medicalEquipmentPage.isStatusDropdownEditable(), "The STATUS drop down is not editable");
 		Assert.assertTrue(medicalEquipmentPage.viewSuccessMessage(), "The STATUS drop down success message did not display");
 
-		// Commented out because we can no longer test the state of a check box until the HTML changes.
-		// Assert.assertTrue(medicalEquipmentPage.isInUseCheckboxEditable(), "The IN USE check box is not editable");
-		// Assert.assertTrue(medicalEquipmentPage.viewSuccessMessage(), "The IN USE check box success message did not display");
+		Assert.assertTrue(medicalEquipmentPage.isInUseCheckboxEditable(), "The IN USE check box is not editable");
+		Assert.assertTrue(medicalEquipmentPage.viewSuccessMessage(), "The IN USE check box success message did not display");
 
 		Assert.assertTrue(medicalEquipmentPage.verifyStatusComboBoxOptions(), "The STATUS drop down options are incorrect");
 	}
@@ -158,17 +150,12 @@ public class MedicalEquipmentTest extends TestBase
 	{
 		String currentDayMinusX;
 
-		Calendar cal = Calendar.getInstance();
-		DateFormat dateFormat = new SimpleDateFormat("d");
-
-		cal.add(Calendar.DATE, -1);
-		currentDayMinusX = dateFormat.format(new Date(cal.getTimeInMillis()));
+		currentDayMinusX = appFunctions.adjustCurrentDateBy("-1", "d");
 		medicalEquipmentPage.addMedicalEquipment(currentDayMinusX, "Other", "Glucometer", "Ordered", false);
 
 		Thread.sleep(4000);
 
-		cal.add(Calendar.DATE, -1);
-		currentDayMinusX = dateFormat.format(new Date(cal.getTimeInMillis()));
+		currentDayMinusX = appFunctions.adjustCurrentDateBy("-2", "d");
 		medicalEquipmentPage.addMedicalEquipment(currentDayMinusX, "VH Provided", "Scale", "Replaced", true);
 
 		Assert.assertTrue(medicalEquipmentPage.isTableSortableByEquipmentDescriptionAscending(), "The EQUIPMENT DESCRIPTION column did not sort ascendingly");
@@ -183,9 +170,8 @@ public class MedicalEquipmentTest extends TestBase
 		Assert.assertTrue(medicalEquipmentPage.isTableSortableByStatusAscending(), "The STATUS column did not sort ascendingly");
 		Assert.assertTrue(medicalEquipmentPage.isTableSortableByStatusDescending(), "The STATUS column did not sort descendingly");
 
-		// Commented out because we can no longer test the state of a check box until the HTML changes.
-		// Assert.assertTrue(medicalEquipmentPage.isTableSortableByInUseAscending(), "The IN USE column did not sort ascendingly");
-		// Assert.assertTrue(medicalEquipmentPage.isTableSortableByInUseDescending(), "The IN USE column did not sort descendingly");
+		Assert.assertTrue(medicalEquipmentPage.isTableSortableByInUseAscending(), "The IN USE column did not sort ascendingly");
+		Assert.assertTrue(medicalEquipmentPage.isTableSortableByInUseDescending(), "The IN USE column did not sort descendingly");
 	}
 
 	@Test(priority = 6, dataProvider = "CapellaDataProvider")

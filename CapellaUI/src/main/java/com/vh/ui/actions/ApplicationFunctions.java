@@ -518,22 +518,12 @@ public class ApplicationFunctions extends WebPage
 
 		if (dateToSelectInt > currentDayInt)
 		{
-			try
-			{
-				DayLocator = By.xpath(datePickerLocatorXpathString + "/../..//td[@class='daycell']/div[contains(@class,'datevalue prevmonth')]/span[text()='" + dateToSelectInt + "']");
+			calendarPrevMMonthButton = By.xpath(datePickerLocatorXpathString + "/../..//button[@class='headerbtn mydpicon icon-mydpleft headerbtnenabled']");
+			webActions.click(VISIBILITY, calendarPrevMMonthButton);
 
-				// If not found, that means the date to choose is not displayed. Flow will jump to the Catch where it will click the previous month button, then select the date.
-				driver.findElement(DayLocator).isDisplayed();
-				webActions.click(VISIBILITY, DayLocator);
-			} catch (Exception ex)
-			{
-				calendarPrevMMonthButton = By.xpath(datePickerLocatorXpathString + "/../..//button[@class='headerbtn mydpicon icon-mydpleft headerbtnenabled']");
-				webActions.click(VISIBILITY, calendarPrevMMonthButton);
-
-				DayLocator = By.xpath(
-				        datePickerLocatorXpathString + "/../..//td[@class='daycell currmonth tablesingleday']/div[contains(@class,'datevalue currmonth')]/span[text()='" + dateToSelectInt + "']");
-				webActions.click(VISIBILITY, DayLocator);
-			}
+			DayLocator = By.xpath(datePickerLocatorXpathString + "/../..//td[@class='daycell currmonth tablesingleday']/div[contains(@class,'datevalue currmonth')]/span[text()='"
+			        + dateToSelectInt + "']");
+			webActions.click(VISIBILITY, DayLocator);
 		} else
 		{
 			if (dateToSelectInt == currentDayInt)
@@ -587,7 +577,8 @@ public class ApplicationFunctions extends WebPage
 		String currentDayMinusX;
 		String datePickerLocatorXpathString;
 		By DayLocator;
-		By calendarPrevMMonthButton;
+		By calendarPrevMonthButton;
+		By calendarNextMonthButton;
 
 		Calendar cal = Calendar.getInstance();
 
@@ -615,8 +606,8 @@ public class ApplicationFunctions extends WebPage
 				{
 					if (!alreadyClicked)
 					{
-						calendarPrevMMonthButton = By.xpath(datePickerLocatorXpathString + "/../..//button[@class='headerbtn mydpicon icon-mydpleft headerbtnenabled']");
-						webActions.click(VISIBILITY, calendarPrevMMonthButton);
+						calendarPrevMonthButton = By.xpath(datePickerLocatorXpathString + "/../..//button[@class='headerbtn mydpicon icon-mydpleft headerbtnenabled']");
+						webActions.click(VISIBILITY, calendarPrevMonthButton);
 						alreadyClicked = true;
 					}
 
@@ -655,6 +646,12 @@ public class ApplicationFunctions extends WebPage
 
 			cal.add(Calendar.DATE, -1);
 			currentDayMinusX = dateFormat.format(new Date(cal.getTimeInMillis()));
+		}
+
+		if (alreadyClicked)
+		{
+			calendarNextMonthButton = By.xpath(datePickerLocatorXpathString + "/../..//button[@class='headerbtn mydpicon icon-mydpright headerbtnenabled']");
+			webActions.click(VISIBILITY, calendarNextMonthButton);
 		}
 
 		return true;
@@ -775,10 +772,6 @@ public class ApplicationFunctions extends WebPage
 			{
 				if (controlType.equals("dropdown"))
 				{
-					// Commented out because the select tag no longer has a "ng-reflect-selected" attribute.
-					// columnTextOriginal.add(columnElement.findElement(By.xpath("./select//option[@ng-reflect-selected='true']")).getText());
-					// columnTextSorted.add(columnElement.findElement(By.xpath("./select//option[@ng-reflect-selected='true']")).getText());
-
 					attributeValue = columnElement.findElement(By.xpath("./select")).getAttribute("ng-reflect-model");
 					innerText = columnElement.findElement(By.xpath("./select//option[@ng-reflect-value='" + attributeValue + "']")).getText();
 					columnTextOriginal.add(innerText);
@@ -788,22 +781,17 @@ public class ApplicationFunctions extends WebPage
 				{
 					if (controlType.equals("checkbox"))
 					{
-						attributeValue = columnElement.findElement(By.xpath("./div/input")).getAttribute("ng-reflect-checked");
+						attributeValue = columnElement.findElement(By.xpath("./input")).getAttribute("class");
 
-						try
+						if (attributeValue.contains("checked"))
 						{
-							if (attributeValue.equals(null))
-							{
-								
-							}							
-						}
-						catch (Exception ex)
+							columnTextOriginal.add("true");
+							columnTextSorted.add("true");
+						} else
 						{
-							attributeValue = "zalse";
+							columnTextOriginal.add("zalse");
+							columnTextSorted.add("zalse");
 						}
-
-						columnTextOriginal.add(attributeValue);
-						columnTextSorted.add(attributeValue);
 					}
 				}
 			}
@@ -843,7 +831,6 @@ public class ApplicationFunctions extends WebPage
 
 		for (WebElement webElement : dropDownOptionsFromUI)
 		{
-			System.out.println(webElement.getText());
 			dropDownOptionsTextFromUI.add(webElement.getText());
 		}
 	
@@ -897,9 +884,12 @@ public class ApplicationFunctions extends WebPage
 	 * @param popUpText the text on the success message to valid
 	 * @return true if the valid success message exists, else false
 	 */
-	public boolean verifySuccessMessage(String popUpText) {
+	public boolean verifySuccessMessage(String popUpText)
+	{
 		String xpathExpression = "//snack-bar-container/simple-snack-bar[text()=contains(.,'" + popUpText + "')]";
+
 		By locator = By.xpath(xpathExpression);
+
 		try {
 			WebElement element = wait.waitForElementVisible(driver, locator);
 			if(element!=null) {
@@ -915,6 +905,7 @@ public class ApplicationFunctions extends WebPage
 			e.printStackTrace();
 			return false;
 		}
+
 		return false;
 	}
 }

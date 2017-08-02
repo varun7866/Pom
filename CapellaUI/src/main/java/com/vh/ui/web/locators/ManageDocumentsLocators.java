@@ -7,9 +7,9 @@ public class ManageDocumentsLocators {
 	//----------Manage Documents Screen-------------
 	
 	public static final By LBL_PATIENTADMINMANAGEDOCUMENTS = By.xpath("//manage-documents//h2[@class='page-title']");
-	public static final By LBL_MANAGEDOCUMENTSTYPEHEADER = By.xpath("//tr/th/div[contains(., 'SOURCE')]");
-	public static final By LBL_MANAGEDOCUMENTSDESCRIPTIONHEADER = By.xpath("//tr/th/div[contains(., 'DATE')]");
-	public static final By LBL_MANAGEDOCUMENTSENDDATEHEADER  = By.xpath("//tr/th/div[contains(., 'STATUS')]");
+	public static final By LBL_MANAGEDOCUMENTSTYPEHEADER = By.xpath("//manage-documents//div[@class='divTableCell divTableHeadCell documents-title-column']");
+	public static final By LBL_MANAGEDOCUMENTSDESCRIPTIONHEADER = By.xpath("//manage-documents//div[@class='divTableCell divTableHeadCell documents-description-column']");
+	public static final By LBL_MANAGEDOCUMENTSENDDATEHEADER  = By.xpath("//manage-documents//div[@class='divTableCell divTableHeadCell documents-end-date-column']");
 	
 	public static final By BTN_ADDDOCUMENT = By.id("addDocumentButton");
 	

@@ -212,7 +212,7 @@ public class ManageDocumentsPage extends WebPage
 	public void clickSelectaFileButtonAddDocument()
 	{
 		try {
-			webActions.click(CLICKABILITY, BTN_ADDDOCUMENTSELECTAFILE);	
+			webActions.click(CLICKABILITY, BTN_ADDDOCUMENTSELECTAFILE);				
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
@@ -230,7 +230,7 @@ public class ManageDocumentsPage extends WebPage
 			Thread.sleep(3000);
 		} catch (InterruptedException e) {
 			e.printStackTrace();
-		}
+		} 
 	}
 	
 	@Step("Verify the visibility of the Description label in the Add Document popup")

@@ -698,15 +698,16 @@ public class WebActions {
 	 * @param autoItExeFileName
 	 * @param fileToUploadPath
 	 */
-	public void fileUploadByAutoIt(String autoItExeFileName, String fileToUploadPath) {
-			
+	public void fileUploadByAutoIt(String autoItExeFileName, String fileToUploadPath)
+	{
 		String autoItExeFilePath = System.getProperty("user.dir") + "\\AutoIt\\" + autoItExeFileName;
+
 		System.out.println("AutoIt :: " + autoItExeFileName);
+
 		try {
 			Runtime.getRuntime().exec(autoItExeFilePath + " " + fileToUploadPath);
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
-		
 	}
 }
