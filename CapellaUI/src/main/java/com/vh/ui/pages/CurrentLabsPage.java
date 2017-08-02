@@ -1177,7 +1177,7 @@ public class CurrentLabsPage extends WebPage
 		return webActions.getVisibiltyOfElementLocatedBy(VISIBILITY, LBL_GRAPHPOPUPHEIGHTPOINT);
 	}
 
-	@Step("Verify the visibility of the HEIGHT draw date")
+	@Step("Verify the visibility of the graph popup HEIGHT draw date")
 	public boolean viewGraphPopupHeightDrawDate(String drawDate) throws TimeoutException, WaitException
 	{
 		final By LBL_GRAPHPOPUPHEIGHTDRAWDATE = By.xpath("//div[@class='modal-body']//text[text()='" + drawDate + "']");
@@ -1250,6 +1250,14 @@ public class CurrentLabsPage extends WebPage
 		return webActions.getVisibiltyOfElementLocatedBy(VISIBILITY, LBL_GRAPHPOPUPWEIGHTPOINT);
 	}
 
+	@Step("Verify the visibility of the graph popup WEIGHT draw date")
+	public boolean viewGraphPopupWeightDrawDate(String drawDate) throws TimeoutException, WaitException
+	{
+		final By LBL_GRAPHPOPUPWEIGHTDRAWDATE = By.xpath("//div[@class='modal-body']//text[text()='" + drawDate + "']");
+
+		return webActions.getVisibiltyOfElementLocatedBy(VISIBILITY, LBL_GRAPHPOPUPWEIGHTDRAWDATE);
+	}
+
 	@Step("Verify the visibility of the TARGET DRY WEIGHT label/value")
 	public boolean viewTargetDryWeightLabelValue(String labValue) throws TimeoutException, WaitException
 	{
@@ -1313,6 +1321,14 @@ public class CurrentLabsPage extends WebPage
 		final By LBL_GRAPHPOPUPTARGETDTYWEIGHTPOINT = By.xpath("//div[@class='modal-body']//text[text()='" + labValue + "']/../..//circle");
 
 		return webActions.getVisibiltyOfElementLocatedBy(VISIBILITY, LBL_GRAPHPOPUPTARGETDTYWEIGHTPOINT);
+	}
+
+	@Step("Verify the visibility of the graph popup TARGET DRY WEIGHT draw date")
+	public boolean viewGraphPopupTargetDryWeightDrawDate(String drawDate) throws TimeoutException, WaitException
+	{
+		final By LBL_GRAPHPOPUPTARGETDTYWEIGHTDRAWDATE = By.xpath("//div[@class='modal-body']//text[text()='" + drawDate + "']");
+
+		return webActions.getVisibiltyOfElementLocatedBy(VISIBILITY, LBL_GRAPHPOPUPTARGETDTYWEIGHTDRAWDATE);
 	}
 
 	@Step("Verify the visibility of the CALCIUM X PHOSPHOROUS label/value")
@@ -1405,6 +1421,14 @@ public class CurrentLabsPage extends WebPage
 		return webActions.getVisibiltyOfElementLocatedBy(VISIBILITY, LBL_GRAPHPOPUPCALCIUMXPHOSPHOROUSPOINT);
 	}
 
+	@Step("Verify the visibility of the graph popup CALCIUM X PHOSPHOROUS draw date")
+	public boolean viewGraphPopupCalciumXPhosphorousDrawDate(String drawDate) throws TimeoutException, WaitException
+	{
+		final By LBL_GRAPHPOPUPCALCIUMXPHOSPHOROUSDRAWDATE = By.xpath("//div[@class='modal-body']//text[text()='" + drawDate + "']");
+
+		return webActions.getVisibiltyOfElementLocatedBy(VISIBILITY, LBL_GRAPHPOPUPCALCIUMXPHOSPHOROUSDRAWDATE);
+	}
+
 	@Step("Verify the visibility of the PHOSPHOROUS label/value")
 	public boolean viewPhosphorousLabelValue(String labValue) throws TimeoutException, WaitException
 	{
@@ -1493,6 +1517,14 @@ public class CurrentLabsPage extends WebPage
 		final By LBL_GRAPHPOPUPPHOSPHOROUSPOINT = By.xpath("//div[@class='modal-body']//text[text()='" + labValue + "']/../..//circle");
 
 		return webActions.getVisibiltyOfElementLocatedBy(VISIBILITY, LBL_GRAPHPOPUPPHOSPHOROUSPOINT);
+	}
+
+	@Step("Verify the visibility of the graph popup PHOSPHOROUS draw date")
+	public boolean viewGraphPopupPhosphorousDrawDate(String drawDate) throws TimeoutException, WaitException
+	{
+		final By LBL_GRAPHPOPUPPHOSPHOROUSDRAWDATE = By.xpath("//div[@class='modal-body']//text[text()='" + drawDate + "']");
+
+		return webActions.getVisibiltyOfElementLocatedBy(VISIBILITY, LBL_GRAPHPOPUPPHOSPHOROUSDRAWDATE);
 	}
 
 	@Step("Verify the visibility of the CREATININE label/value")
@@ -1584,6 +1616,14 @@ public class CurrentLabsPage extends WebPage
 		return webActions.getVisibiltyOfElementLocatedBy(VISIBILITY, LBL_GRAPHPOPUPCREATININEPOINT);
 	}
 
+	@Step("Verify the visibility of the graph popup CREATININE draw date")
+	public boolean viewGraphPopupCreatinineDrawDate(String drawDate) throws TimeoutException, WaitException
+	{
+		final By LBL_GRAPHPOPUPCREATININEDRAWDATE = By.xpath("//div[@class='modal-body']//text[text()='" + drawDate + "']");
+
+		return webActions.getVisibiltyOfElementLocatedBy(VISIBILITY, LBL_GRAPHPOPUPCREATININEDRAWDATE);
+	}
+
 	@Step("Verify the visibility of the GFR label/value")
 	public boolean viewGFRLabelValue(String labValue) throws TimeoutException, WaitException
 	{
@@ -1671,6 +1711,14 @@ public class CurrentLabsPage extends WebPage
 		final By LBL_GRAPHPOPUPGFRPOINT = By.xpath("//div[@class='modal-body']//text[text()='" + labValue + "']/../..//circle");
 
 		return webActions.getVisibiltyOfElementLocatedBy(VISIBILITY, LBL_GRAPHPOPUPGFRPOINT);
+	}
+
+	@Step("Verify the visibility of the graph popup GFR draw date")
+	public boolean viewGraphPopupGFRDrawDate(String drawDate) throws TimeoutException, WaitException
+	{
+		final By LBL_GRAPHPOPUPGFRDRAWDATE = By.xpath("//div[@class='modal-body']//text[text()='" + drawDate + "']");
+
+		return webActions.getVisibiltyOfElementLocatedBy(VISIBILITY, LBL_GRAPHPOPUPGFRDRAWDATE);
 	}
 
 	@Step("Verify the visibility of the HGBA1C label/value")
@@ -1762,6 +1810,14 @@ public class CurrentLabsPage extends WebPage
 		return webActions.getVisibiltyOfElementLocatedBy(VISIBILITY, LBL_GRAPHPOPUPHGBA1CPOINT);
 	}
 
+	@Step("Verify the visibility of the graph popup HGBA1C draw date")
+	public boolean viewGraphPopupHGBA1CDrawDate(String drawDate) throws TimeoutException, WaitException
+	{
+		final By LBL_GRAPHPOPUPHGBA1CDRAWDATE = By.xpath("//div[@class='modal-body']//text[text()='" + drawDate + "']");
+
+		return webActions.getVisibiltyOfElementLocatedBy(VISIBILITY, LBL_GRAPHPOPUPHGBA1CDRAWDATE);
+	}
+
 	@Step("Verify the visibility of the LDL label/value")
 	public boolean viewLDLLabelValue(String labValue) throws TimeoutException, WaitException
 	{
@@ -1849,6 +1905,14 @@ public class CurrentLabsPage extends WebPage
 		final By LBL_GRAPHPOPUPLDLPOINT = By.xpath("//div[@class='modal-body']//text[text()='" + labValue + "']/../..//circle");
 
 		return webActions.getVisibiltyOfElementLocatedBy(VISIBILITY, LBL_GRAPHPOPUPLDLPOINT);
+	}
+
+	@Step("Verify the visibility of the graph popup LDL draw date")
+	public boolean viewGraphPopupLDLDrawDate(String drawDate) throws TimeoutException, WaitException
+	{
+		final By LBL_GRAPHPOPUPLDLDRAWDATE = By.xpath("//div[@class='modal-body']//text[text()='" + drawDate + "']");
+
+		return webActions.getVisibiltyOfElementLocatedBy(VISIBILITY, LBL_GRAPHPOPUPLDLDRAWDATE);
 	}
 
 	@Step("Verify the visibility of the HGB label/value")
@@ -1940,6 +2004,14 @@ public class CurrentLabsPage extends WebPage
 		return webActions.getVisibiltyOfElementLocatedBy(VISIBILITY, LBL_GRAPHPOPUPHGBPOINT);
 	}
 
+	@Step("Verify the visibility of the graph popup HGB draw date")
+	public boolean viewGraphPopupHGBDrawDate(String drawDate) throws TimeoutException, WaitException
+	{
+		final By LBL_GRAPHPOPUPHGBDRAWDATE = By.xpath("//div[@class='modal-body']//text[text()='" + drawDate + "']");
+
+		return webActions.getVisibiltyOfElementLocatedBy(VISIBILITY, LBL_GRAPHPOPUPHGBDRAWDATE);
+	}
+
 	@Step("Verify the visibility of the ALBUMIN label/value")
 	public boolean viewAlbuminLabelValue(String labValue) throws TimeoutException, WaitException
 	{
@@ -2029,6 +2101,14 @@ public class CurrentLabsPage extends WebPage
 		return webActions.getVisibiltyOfElementLocatedBy(VISIBILITY, LBL_GRAPHPOPUPALBUMINPOINT);
 	}
 
+	@Step("Verify the visibility of the graph popup ALBUMIN draw date")
+	public boolean viewGraphPopupAlbuminDrawDate(String drawDate) throws TimeoutException, WaitException
+	{
+		final By LBL_GRAPHPOPUPALBUMINDRAWDATE = By.xpath("//div[@class='modal-body']//text[text()='" + drawDate + "']");
+
+		return webActions.getVisibiltyOfElementLocatedBy(VISIBILITY, LBL_GRAPHPOPUPALBUMINDRAWDATE);
+	}
+
 	@Step("Verify the visibility of the URINE ALBUMIN/CREATININE RATIO label/value")
 	public boolean viewUrineAlbuminCreatinineRatioLabelValue(String labValue) throws TimeoutException, WaitException
 	{
@@ -2116,6 +2196,14 @@ public class CurrentLabsPage extends WebPage
 		final By LBL_GRAPHPOPUPURINEALBUMINCREATININERATIOPOINT = By.xpath("//div[@class='modal-body']//text[text()='" + labValue + "']/../..//circle");
 
 		return webActions.getVisibiltyOfElementLocatedBy(VISIBILITY, LBL_GRAPHPOPUPURINEALBUMINCREATININERATIOPOINT);
+	}
+
+	@Step("Verify the visibility of the graph popup URINE ALBUMIN/CREATININE RATIO draw date")
+	public boolean viewGraphPopupUrineAlbuminCreatinineRatioDrawDate(String drawDate) throws TimeoutException, WaitException
+	{
+		final By LBL_GRAPHPOPUPURINEALBUMINCREATININERATIODRAWDATE = By.xpath("//div[@class='modal-body']//text[text()='" + drawDate + "']");
+
+		return webActions.getVisibiltyOfElementLocatedBy(VISIBILITY, LBL_GRAPHPOPUPURINEALBUMINCREATININERATIODRAWDATE);
 	}
 
 	@Step("Verify the visibility of the DIPSTICK FOR PROTEIN label/value")
@@ -2261,6 +2349,14 @@ public class CurrentLabsPage extends WebPage
 		return webActions.getVisibiltyOfElementLocatedBy(VISIBILITY, LBL_GRAPHPOPUPCO2LEVELPOINT);
 	}
 
+	@Step("Verify the visibility of the graph popup CO2 LEVEL draw date")
+	public boolean viewGraphPopupCO2LevelDrawDate(String drawDate) throws TimeoutException, WaitException
+	{
+		final By LBL_GRAPHPOPUPCO2LEVELDRAWDATE = By.xpath("//div[@class='modal-body']//text[text()='" + drawDate + "']");
+
+		return webActions.getVisibiltyOfElementLocatedBy(VISIBILITY, LBL_GRAPHPOPUPCO2LEVELDRAWDATE);
+	}
+
 	@Step("Verify the visibility of the CALCIUM label/value")
 	public boolean viewCalciumLabelValue(String labValue) throws TimeoutException, WaitException
 	{
@@ -2388,6 +2484,14 @@ public class CurrentLabsPage extends WebPage
 		return webActions.getVisibiltyOfElementLocatedBy(VISIBILITY, LBL_GRAPHPOPUPCALCIUMPOINT);
 	}
 
+	@Step("Verify the visibility of the graph popup CALCIUM draw date")
+	public boolean viewGraphPopupCalciumDrawDate(String drawDate) throws TimeoutException, WaitException
+	{
+		final By LBL_GRAPHPOPUPCALCIUMDRAWDATE = By.xpath("//div[@class='modal-body']//text[text()='" + drawDate + "']");
+
+		return webActions.getVisibiltyOfElementLocatedBy(VISIBILITY, LBL_GRAPHPOPUPCALCIUMDRAWDATE);
+	}
+
 	@Step("Verify the visibility of the KT/V label/value")
 	public boolean viewKTVLabelValue(String labValue) throws TimeoutException, WaitException
 	{
@@ -2475,6 +2579,14 @@ public class CurrentLabsPage extends WebPage
 		final By LBL_GRAPHPOPUPKTVPOINT = By.xpath("//div[@class='modal-body']//text[text()='" + labValue + "']/../..//circle");
 
 		return webActions.getVisibiltyOfElementLocatedBy(VISIBILITY, LBL_GRAPHPOPUPKTVPOINT);
+	}
+
+	@Step("Verify the visibility of the graph popup KT/V draw date")
+	public boolean viewGraphPopupKTVDrawDate(String drawDate) throws TimeoutException, WaitException
+	{
+		final By LBL_GRAPHPOPUPKTVDRAWDATE = By.xpath("//div[@class='modal-body']//text[text()='" + drawDate + "']");
+
+		return webActions.getVisibiltyOfElementLocatedBy(VISIBILITY, LBL_GRAPHPOPUPKTVDRAWDATE);
 	}
 
 	@Step("Verify the visibility of the URR label/value")
@@ -2566,6 +2678,14 @@ public class CurrentLabsPage extends WebPage
 		return webActions.getVisibiltyOfElementLocatedBy(VISIBILITY, LBL_GRAPHPOPUPURRPOINT);
 	}
 
+	@Step("Verify the visibility of the graph popup URR draw date")
+	public boolean viewGraphPopupURRDrawDate(String drawDate) throws TimeoutException, WaitException
+	{
+		final By LBL_GRAPHPOPUPURRDRAWDATE = By.xpath("//div[@class='modal-body']//text[text()='" + drawDate + "']");
+
+		return webActions.getVisibiltyOfElementLocatedBy(VISIBILITY, LBL_GRAPHPOPUPURRDRAWDATE);
+	}
+
 	@Step("Verify the visibility of the POTASSIUM label/value")
 	public boolean viewPotassiumLabelValue(String labValue) throws TimeoutException, WaitException
 	{
@@ -2653,6 +2773,14 @@ public class CurrentLabsPage extends WebPage
 		final By LBL_GRAPHPOPUPPOTASSIUMPOINT = By.xpath("//div[@class='modal-body']//text[text()='" + labValue + "']/../..//circle");
 
 		return webActions.getVisibiltyOfElementLocatedBy(VISIBILITY, LBL_GRAPHPOPUPPOTASSIUMPOINT);
+	}
+
+	@Step("Verify the visibility of the graph popup POTASSIUM draw date")
+	public boolean viewGraphPopupPotassiumDrawDate(String drawDate) throws TimeoutException, WaitException
+	{
+		final By LBL_GRAPHPOPUPPOTASSIUMDRAWDATE = By.xpath("//div[@class='modal-body']//text[text()='" + drawDate + "']");
+
+		return webActions.getVisibiltyOfElementLocatedBy(VISIBILITY, LBL_GRAPHPOPUPPOTASSIUMDRAWDATE);
 	}
 
 	@Step("Verify the visibility of the PTH label/value")
@@ -2851,6 +2979,14 @@ public class CurrentLabsPage extends WebPage
 		return webActions.getVisibiltyOfElementLocatedBy(VISIBILITY, LBL_GRAPHPOPUPPTHPOINT);
 	}
 
+	@Step("Verify the visibility of the graph popup PTH draw date")
+	public boolean viewGraphPopupPTHDrawDate(String drawDate) throws TimeoutException, WaitException
+	{
+		final By LBL_GRAPHPOPUPPTHDRAWDATE = By.xpath("//div[@class='modal-body']//text[text()='" + drawDate + "']");
+
+		return webActions.getVisibiltyOfElementLocatedBy(VISIBILITY, LBL_GRAPHPOPUPPTHDRAWDATE);
+	}
+
 	@Step("Verify the visibility of the HEPATITIS B TITER label/value")
 	public boolean viewHepatitisBTiterLabelValue(String labValue) throws TimeoutException, WaitException
 	{
@@ -2938,6 +3074,14 @@ public class CurrentLabsPage extends WebPage
 		final By LBL_GRAPHPOPUPHEPATITISBTITERPOINT = By.xpath("//div[@class='modal-body']//text[text()='" + labValue + "']/../..//circle");
 
 		return webActions.getVisibiltyOfElementLocatedBy(VISIBILITY, LBL_GRAPHPOPUPHEPATITISBTITERPOINT);
+	}
+
+	@Step("Verify the visibility of the graph popup HEPATITIS B TITER draw date")
+	public boolean viewGraphPopupHepatitisBTiterDrawDate(String drawDate) throws TimeoutException, WaitException
+	{
+		final By LBL_GRAPHPOPUPHEPATITISBTITERDRAWDATE = By.xpath("//div[@class='modal-body']//text[text()='" + drawDate + "']");
+
+		return webActions.getVisibiltyOfElementLocatedBy(VISIBILITY, LBL_GRAPHPOPUPHEPATITISBTITERDRAWDATE);
 	}
 
 	@Step("Verify the visibility of the FERRITIN label/value")
@@ -3029,6 +3173,14 @@ public class CurrentLabsPage extends WebPage
 		return webActions.getVisibiltyOfElementLocatedBy(VISIBILITY, LBL_GRAPHPOPUPFERRITINPOINT);
 	}
 
+	@Step("Verify the visibility of the graph popup FERRITIN draw date")
+	public boolean viewGraphPopupFerritinDrawDate(String drawDate) throws TimeoutException, WaitException
+	{
+		final By LBL_GRAPHPOPUPFERRITINDRAWDATE = By.xpath("//div[@class='modal-body']//text[text()='" + drawDate + "']");
+
+		return webActions.getVisibiltyOfElementLocatedBy(VISIBILITY, LBL_GRAPHPOPUPFERRITINDRAWDATE);
+	}
+
 	@Step("Verify the visibility of the TSAT label/value")
 	public boolean viewTSATLabelValue(String labValue) throws TimeoutException, WaitException
 	{
@@ -3116,6 +3268,14 @@ public class CurrentLabsPage extends WebPage
 		final By LBL_GRAPHPOPUPTSATPOINT = By.xpath("//div[@class='modal-body']//text[text()='" + labValue + "']/../..//circle");
 
 		return webActions.getVisibiltyOfElementLocatedBy(VISIBILITY, LBL_GRAPHPOPUPTSATPOINT);
+	}
+
+	@Step("Verify the visibility of the graph popup TSAT draw date")
+	public boolean viewGraphPopupTSATDrawDate(String drawDate) throws TimeoutException, WaitException
+	{
+		final By LBL_GRAPHPOPUPTSATDRAWDATE = By.xpath("//div[@class='modal-body']//text[text()='" + drawDate + "']");
+
+		return webActions.getVisibiltyOfElementLocatedBy(VISIBILITY, LBL_GRAPHPOPUPTSATDRAWDATE);
 	}
 
 	@Step("Verify the visibility of the BLOOD PRESSURE SYSTOLIC label/value")
@@ -3207,6 +3367,14 @@ public class CurrentLabsPage extends WebPage
 		return webActions.getVisibiltyOfElementLocatedBy(VISIBILITY, LBL_GRAPHPOPUPBLOODPRESSURESYSTOLICPOINT);
 	}
 
+	@Step("Verify the visibility of the graph popup BLOOD PRESSURE SYSTOLIC draw date")
+	public boolean viewGraphPopupBloodPressureSystolicDrawDate(String drawDate) throws TimeoutException, WaitException
+	{
+		final By LBL_GRAPHPOPUPBLOODPRESSURESYSTOLICDRAWDATE = By.xpath("//div[@class='modal-body']//text[text()='" + drawDate + "']");
+
+		return webActions.getVisibiltyOfElementLocatedBy(VISIBILITY, LBL_GRAPHPOPUPBLOODPRESSURESYSTOLICDRAWDATE);
+	}
+
 	@Step("Verify the visibility of the BLOOD PRESSURE DIASTOLIC label/value")
 	public boolean viewBloodPressureDiastolicLabelValue(String valueDiastolic) throws TimeoutException, WaitException
 	{
@@ -3294,5 +3462,13 @@ public class CurrentLabsPage extends WebPage
 		final By LBL_GRAPHPOPUPBLOODPRESSUREDIASTOLICPOINT = By.xpath("//div[@class='modal-body']//text[text()='" + labValue + "']/../..//circle");
 
 		return webActions.getVisibiltyOfElementLocatedBy(VISIBILITY, LBL_GRAPHPOPUPBLOODPRESSUREDIASTOLICPOINT);
+	}
+
+	@Step("Verify the visibility of the graph popup BLOOD PRESSURE DIASTOLIC draw date")
+	public boolean viewGraphPopupBloodPressureDiastolicDrawDate(String drawDate) throws TimeoutException, WaitException
+	{
+		final By LBL_GRAPHPOPUPBLOODPRESSUREDIASTOLICDRAWDATE = By.xpath("//div[@class='modal-body']//text[text()='" + drawDate + "']");
+
+		return webActions.getVisibiltyOfElementLocatedBy(VISIBILITY, LBL_GRAPHPOPUPBLOODPRESSUREDIASTOLICDRAWDATE);
 	}
 }
