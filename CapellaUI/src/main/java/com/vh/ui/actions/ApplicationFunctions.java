@@ -781,10 +781,17 @@ public class ApplicationFunctions extends WebPage
 				{
 					if (controlType.equals("checkbox"))
 					{
-						attributeValue = columnElement.findElement(By.xpath("./div/input")).getAttribute("class");
+						attributeValue = columnElement.findElement(By.xpath("./input")).getAttribute("class");
 
-						columnTextOriginal.add(attributeValue);
-						columnTextSorted.add(attributeValue);
+						if (attributeValue.contains("checked"))
+						{
+							columnTextOriginal.add("true");
+							columnTextSorted.add("true");
+						} else
+						{
+							columnTextOriginal.add("zalse");
+							columnTextSorted.add("zalse");
+						}
 					}
 				}
 			}
