@@ -32,7 +32,7 @@ public class PatientNavigationLocators
 	public static final By LBL_PLANOFCAREMANAGEMENT = By.xpath("//h2[text()='Management']");
 	public static final By LBL_PLANOFCAREHISTORY = By.xpath("//h2[text()='History']");
 	public static final By LBL_PLANOFCARENOTES = By.xpath("//h2[text()='Notes']");
-	public static final By LBL_PLANOFCARECONSOLIDATEDSTORY = By.xpath("//h2[text()='Consolidated Story']");
+	public static final By LBL_PLANOFCARECONSOLIDATEDSTORY = By.xpath("//h3[text()='Consolidated Story']");
 	public static final By LBL_PATIENTCAREPATIENTRECAP = By.xpath("//h2[contains(., 'Patient Contacts')]");
 	public static final By LBL_PATIENTCAREPATIENTTASKS = By.xpath("//h2[text()='Tasks']");
 	public static final By LBL_PATIENTCARECARETEAM = By.xpath("//h2[contains(., 'Providers and Team')]");
