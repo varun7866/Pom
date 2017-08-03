@@ -4,11 +4,16 @@ import static com.vh.ui.web.locators.ProvidersTeamLocators.BTN_ADDATEAMMEMBER;
 import static com.vh.ui.web.locators.ProvidersTeamLocators.BTN_NEWTEAMPOPUPSUBMIT;
 import static com.vh.ui.web.locators.ProvidersTeamLocators.CBO_NEWTEAMPOPUPSTATE;
 import static com.vh.ui.web.locators.ProvidersTeamLocators.CBO_NEWTEAMPOPUPTEAMTYPE;
+import static com.vh.ui.web.locators.ProvidersTeamLocators.CHK_NEWTEAMPOPUPALLOWCOMMUNICATION;
+import static com.vh.ui.web.locators.ProvidersTeamLocators.CHK_NEWTEAMPOPUPFAXNUMBERVERIFIED;
 import static com.vh.ui.web.locators.ProvidersTeamLocators.TXT_NEWTEAMPOPUPADDRESS;
 import static com.vh.ui.web.locators.ProvidersTeamLocators.TXT_NEWTEAMPOPUPAPTSUITE;
 import static com.vh.ui.web.locators.ProvidersTeamLocators.TXT_NEWTEAMPOPUPCITY;
 import static com.vh.ui.web.locators.ProvidersTeamLocators.TXT_NEWTEAMPOPUPEMAIL;
+import static com.vh.ui.web.locators.ProvidersTeamLocators.TXT_NEWTEAMPOPUPFAX;
 import static com.vh.ui.web.locators.ProvidersTeamLocators.TXT_NEWTEAMPOPUPNAME;
+import static com.vh.ui.web.locators.ProvidersTeamLocators.TXT_NEWTEAMPOPUPOTHERPHONE;
+import static com.vh.ui.web.locators.ProvidersTeamLocators.TXT_NEWTEAMPOPUPPHONE;
 import static com.vh.ui.web.locators.ProvidersTeamLocators.TXT_NEWTEAMPOPUPZIP;
 
 import java.util.Map;
@@ -52,6 +57,11 @@ public class ProvidersTeamPage extends WebPage
 		enterNewTeamPopupCity(map.get("CITY"));
 		// selectNewTeamPopupStateComboBox(map.get("STATE"));
 		enterNewTeamPopupZip(map.get("ZIP"));
+		enterNewTeamPopupPhone(map.get("PHONE"));
+		enterNewTeamPopupFax(map.get("FAX"));
+		enterNewTeamPopupOtherPhone(map.get("OTHERPHONE"));
+		checkNewTeamPopupAllowCommunicationCheckBox(map.get("ALLOWCOMMUNICATION"));
+		checkNewTeamPopupFaxNumberVerifiedCheckBox(map.get("FAXNUMBERVERIFIED"));
 
 		clickNewTeamPopupSubmitButton();
 	}
@@ -108,6 +118,42 @@ public class ProvidersTeamPage extends WebPage
 	public void enterNewTeamPopupZip(String value) throws TimeoutException, WaitException
 	{
 		webActions.enterText(VISIBILITY, TXT_NEWTEAMPOPUPZIP, value);
+	}
+
+	@Step("Enter {0} in the New Team popup PHONE text field")
+	public void enterNewTeamPopupPhone(String value) throws TimeoutException, WaitException
+	{
+		webActions.enterText(VISIBILITY, TXT_NEWTEAMPOPUPPHONE, value);
+	}
+
+	@Step("Enter {0} in the New Team popup FAX text field")
+	public void enterNewTeamPopupFax(String value) throws TimeoutException, WaitException
+	{
+		webActions.enterText(VISIBILITY, TXT_NEWTEAMPOPUPFAX, value);
+	}
+
+	@Step("Enter {0} in the New Team popup OTHER PHONE text field")
+	public void enterNewTeamPopupOtherPhone(String value) throws TimeoutException, WaitException
+	{
+		webActions.enterText(VISIBILITY, TXT_NEWTEAMPOPUPOTHERPHONE, value);
+	}
+
+	@Step("Enter {0} in the New Team popup Allow Communication check box")
+	public void checkNewTeamPopupAllowCommunicationCheckBox(String value) throws TimeoutException, WaitException
+	{
+		if (value.equals("Y"))
+		{
+			webActions.click(VISIBILITY, CHK_NEWTEAMPOPUPALLOWCOMMUNICATION);
+		}
+	}
+
+	@Step("Enter {0} in the New Team popup Fax Number Verified check box")
+	public void checkNewTeamPopupFaxNumberVerifiedCheckBox(String value) throws TimeoutException, WaitException
+	{
+		if (value.equals("Y"))
+		{
+			webActions.click(VISIBILITY, CHK_NEWTEAMPOPUPFAXNUMBERVERIFIED);
+		}
 	}
 
 	@Step("Click the New Team popup SUBMIT button")
