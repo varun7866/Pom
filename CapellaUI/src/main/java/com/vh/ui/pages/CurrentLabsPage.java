@@ -882,168 +882,168 @@ public class CurrentLabsPage extends WebPage
 		}
 	}
 
-	@Step("Entered {0} in the HEIGHT text field")
+	@Step("Enter {0} in the HEIGHT text field")
 	public CurrentLabsPage enterHeight(String heightVal) throws TimeoutException, WaitException
 	{
 		webActions.enterText(VISIBILITY, TXT_ADDPOPUPHEIGHT, heightVal);
 		return this;
 	}
 
-	@Step("Entered {0} in the TARGET DRY WEIGHT text field")
+	@Step("Enter {0} in the TARGET DRY WEIGHT text field")
 	public CurrentLabsPage enterTargetDryWeight(String targetDryWeightVal) throws TimeoutException, WaitException
 	{
 		webActions.enterText(VISIBILITY, TXT_ADDPOPUPTARGETDRYWEIGHT, targetDryWeightVal);
 		return this;
 	}
 
-	@Step("Entered {0} in the PHOSPHOROUS text field")
+	@Step("Enter {0} in the PHOSPHOROUS text field")
 	public CurrentLabsPage enterPhosphorous(String phosphorousVal) throws TimeoutException, WaitException
 	{
 		webActions.enterText(VISIBILITY, TXT_ADDPOPUPPHOSPHOROUS, phosphorousVal);
 		return this;
 	}
 
-	@Step("Entered {0} in the GFR text field")
+	@Step("Enter {0} in the GFR text field")
 	public CurrentLabsPage enterGFR(String gfrVal) throws TimeoutException, WaitException
 	{
 		webActions.enterText(VISIBILITY, TXT_ADDPOPUPGFR, gfrVal);
 		return this;
 	}
 
-	@Step("Entered {0} in the LDL text field")
+	@Step("Enter {0} in the LDL text field")
 	public CurrentLabsPage enterLDL(String ldlVal) throws TimeoutException, WaitException
 	{
 		webActions.enterText(VISIBILITY, TXT_ADDPOPUPLDL, ldlVal);
 		return this;
 	}
 
-	@Step("Entered {0} in the ALBUMIN text field")
+	@Step("Enter {0} in the ALBUMIN text field")
 	public CurrentLabsPage enterAlbumin(String albuminVal) throws TimeoutException, WaitException
 	{
 		webActions.enterText(VISIBILITY, TXT_ADDPOPUPALBUMIN, albuminVal);
 		return this;
 	}
 
-	@Step("Entered {0} in the CO2 LEVEL text field")
+	@Step("Enter {0} in the CO2 LEVEL text field")
 	public CurrentLabsPage enterCO2Level(String co2LevelVal) throws TimeoutException, WaitException
 	{
 		webActions.enterText(VISIBILITY, TXT_ADDPOPUPCO2LEVEL, co2LevelVal);
 		return this;
 	}
 
-	@Step("Entered {0} in the KTV text field")
+	@Step("Enter {0} in the KTV text field")
 	public CurrentLabsPage enterKTV(String ktvVal) throws TimeoutException, WaitException
 	{
 		webActions.enterText(VISIBILITY, TXT_ADDPOPUPKTV, ktvVal);
 		return this;
 	}
 
-	@Step("Entered {0} in the POTASSIUM text field")
+	@Step("Enter {0} in the POTASSIUM text field")
 	public CurrentLabsPage enterPotassium(String potassiumVal) throws TimeoutException, WaitException
 	{
 		webActions.enterText(VISIBILITY, TXT_ADDPOPUPPOTASSIUM, potassiumVal);
 		return this;
 	}
 
-	@Step("Entered {0} in the HEPATITIS B TITER text field")
+	@Step("Enter {0} in the HEPATITIS B TITER text field")
 	public CurrentLabsPage enterHepatitisBTiter(String hepatitisBTiterVal) throws TimeoutException, WaitException
 	{
 		webActions.enterText(VISIBILITY, TXT_ADDPOPUPHEPATITISBTITER, hepatitisBTiterVal);
 		return this;
 	}
 
-	@Step("Entered {0} in the TSAT text field")
+	@Step("Enter {0} in the TSAT text field")
 	public CurrentLabsPage enterTSAT(String tsatVal) throws TimeoutException, WaitException
 	{
 		webActions.enterText(VISIBILITY, TXT_ADDPOPUPTSAT, tsatVal);
 		return this;
 	}
 
-	@Step("Entered {0} in the BLOOD PRESSURE DIASTOLIC text field")
+	@Step("Enter {0} in the BLOOD PRESSURE DIASTOLIC text field")
 	public CurrentLabsPage enterBloodPressureDiastolic(String bloodPressureDiastolicVal) throws TimeoutException, WaitException
 	{
 		webActions.enterText(VISIBILITY, TXT_ADDPOPUPBLOODPRESUREDIASTOLIC, bloodPressureDiastolicVal);
 		return this;
 	}
 
-	@Step("Entered {0} in the WEIGHT text field")
+	@Step("Enter {0} in the WEIGHT text field")
 	public CurrentLabsPage enterWeight(String weightVal) throws TimeoutException, WaitException
 	{
 		webActions.enterText(VISIBILITY, TXT_ADDPOPUPWEIGHT, weightVal);
 		return this;
 	}
 
-	@Step("Entered {0} in the CALCIUM X PHOSPHOROUS text field")
+	@Step("Enter {0} in the CALCIUM X PHOSPHOROUS text field")
 	public CurrentLabsPage enterCalciumXPhosphorous(String calciumXPhosphorousVal) throws TimeoutException, WaitException
 	{
 		webActions.enterText(VISIBILITY, TXT_ADDPOPUPCALCIUMXPHOSPHOROUS, calciumXPhosphorousVal);
 		return this;
 	}
 	
-	@Step("Entered {0} in the CREATININE text field")
+	@Step("Enter {0} in the CREATININE text field")
 	public CurrentLabsPage enterCreatinine(String creatinineVal) throws TimeoutException, WaitException
 	{
 		webActions.enterText(VISIBILITY, TXT_ADDPOPUPCREATININE, creatinineVal);
 		return this;
 	}
 
-	@Step("Entered {0} in the HGB A1C text field")
+	@Step("Enter {0} in the HGB A1C text field")
 	public CurrentLabsPage enterHGBA1C(String hgba1cVal) throws TimeoutException, WaitException
 	{
 		webActions.enterText(VISIBILITY, TXT_ADDPOPUPHGBA1C, hgba1cVal);
 		return this;
 	}
 
-	@Step("Entered {0} in the HGB text field")
+	@Step("Enter {0} in the HGB text field")
 	public CurrentLabsPage enterHGB(String hgbVal) throws TimeoutException, WaitException
 	{
 		webActions.enterText(VISIBILITY, TXT_ADDPOPUPHGB, hgbVal);
 		return this;
 	}
 
-	@Step("Entered {0} in the URINE ALBUMIN/CREATININE RATIO text field")
+	@Step("Enter {0} in the URINE ALBUMIN/CREATININE RATIO text field")
 	public CurrentLabsPage enterUrineAlbuminCreatinineRatio(String urineAlbuminCreatinineRatioVal) throws TimeoutException, WaitException
 	{
 		webActions.enterText(VISIBILITY, TXT_ADDPOPUPURINEALBUMINCREATININERATIO, urineAlbuminCreatinineRatioVal);
 		return this;
 	}
 
-	@Step("Entered {0} in the CALCIUM text field")
+	@Step("Enter {0} in the CALCIUM text field")
 	public CurrentLabsPage enterCalcium(String calciumVal) throws TimeoutException, WaitException
 	{
 		webActions.enterText(VISIBILITY, TXT_ADDPOPUPCALCIUM, calciumVal);
 		return this;
 	}
 
-	@Step("Entered {0} in the URR text field")
+	@Step("Enter {0} in the URR text field")
 	public CurrentLabsPage enterURR(String urrVal) throws TimeoutException, WaitException
 	{
 		webActions.enterText(VISIBILITY, TXT_ADDPOPUPURR, urrVal);
 		return this;
 	}
 
-	@Step("Entered {0} in the PTH text field")
+	@Step("Enter {0} in the PTH text field")
 	public CurrentLabsPage enterPTH(String pthVal) throws TimeoutException, WaitException
 	{
 		webActions.enterText(VISIBILITY, TXT_ADDPOPUPPTH, pthVal);
 		return this;
 	}
 
-	@Step("Entered {0} in the FERRITIN text field")
+	@Step("Enter {0} in the FERRITIN text field")
 	public CurrentLabsPage enterFerritin(String ferritinVal) throws TimeoutException, WaitException
 	{
 		webActions.enterText(VISIBILITY, TXT_ADDPOPUPFERRITIN, ferritinVal);
 		return this;
 	}
 
-	@Step("Entered {0} in the BLOOD PRESSURE SYSTOLIC text field")
+	@Step("Enter {0} in the BLOOD PRESSURE SYSTOLIC text field")
 	public CurrentLabsPage enterBloodPressureSystolic(String bloodPressureSystolicVal) throws TimeoutException, WaitException
 	{
 		webActions.enterText(VISIBILITY, TXT_ADDPOPUPBLOODPRESURESYSTOLIC, bloodPressureSystolicVal);
 		return this;
 	}
 
-	@Step("Entered {0} in the DIPSTICK FOR PROTEIN combo box")
+	@Step("Enter {0} in the DIPSTICK FOR PROTEIN combo box")
 	public CurrentLabsPage enterDipstickForProtein(String dipstickForProteinVal) throws TimeoutException, WaitException
 	{
 		webActions.selectFromDropDownOld(CLICKABILITY, CBO_ADDPOPUPDIPSTICKFORPROTEIN, dipstickForProteinVal);
