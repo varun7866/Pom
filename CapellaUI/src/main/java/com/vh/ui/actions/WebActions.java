@@ -329,7 +329,8 @@ public class WebActions {
 	 * @throws TimeoutException
 	 * @throws WaitException
 	 */
-	public void selectFromDropDown(String expectedCondition, By locator, String itemToSelect) throws TimeoutException, WaitException {
+	public void selectFromDropDownOld(String expectedCondition, By locator, String itemToSelect) throws TimeoutException, WaitException
+	{
 		LOGGER.info(Utilities.getCurrentThreadId() + "Selecting " + itemToSelect + " from drop-down with locator:" + locator);
 
 		WebElement element;

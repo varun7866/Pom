@@ -48,6 +48,6 @@ public class ProvidersTeamPage extends WebPage
 	@Step("Select an option form the New Team popup TEAM TYPE combo box")
 	public void selectNewTeamPopupTeamTypeComboBox(String optionToSelect) throws TimeoutException, WaitException
 	{
-		webActions.selectFromDropDown(VISIBILITY, CBO_NEWTEAMPOPUPTEAMTYPE, optionToSelect);
+		webActions.selectFromDropDownOld(VISIBILITY, CBO_NEWTEAMPOPUPTEAMTYPE, optionToSelect);
 	}
 }
