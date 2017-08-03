@@ -49,6 +49,8 @@ public class ManageDocumentsLocators {
 	public static final By LBL_CONNECTAREFERRALREASON = By.xpath("//div[@class='divTableCell divTableHeadCell referral-reason-column']");
 	public static final By LBL_CONNECTAREFERRALAPPTDATE = By.xpath("//div[@class='divTableCell divTableHeadCell referral-apptDate-column']");
 	
+	public static final By ROW_CONNECTAREFERRALFIRSTROW = By.xpath("//referral-connect-dialog//modal-content/div/div[2]/div[1]/div");
+	
 	public static final By BTN_CONNECTAREFERRALCANCEL = By.xpath("//referral-connect-dialog//button[contains(., 'Cancel')]");
 	public static final By BTN_CONNECTAREFERRALCONNECT = By.xpath("//referral-connect-dialog//button[contains(., 'Connect')]");		
 	
