@@ -11,7 +11,7 @@ import org.openqa.selenium.By;
 public class ProvidersTeamLocators
 {
 	public static final By BTN_ADDATEAMMEMBER = By.xpath("//button//span[text()='ADD A TEAM MEMBER']");
-	public static final By BTN_NEWTEAMPOPUPSUBMIT = By.xpath("//button//span[text()='SUBMIT']");
+	public static final By BTN_NEWTEAMPOPUPSUBMIT = By.xpath("//button//span[text()='Submit']");
 
 	public static final By CBO_NEWTEAMPOPUPTEAMTYPE = By.xpath("//button//span[text()='ADD A TEAM MEMBER']");
 	public static final By CBO_NEWTEAMPOPUPSTATE = By.xpath("//button//span[text()='STATE']");
