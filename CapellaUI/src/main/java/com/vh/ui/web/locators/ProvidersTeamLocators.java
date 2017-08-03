@@ -15,8 +15,8 @@ public class ProvidersTeamLocators
 	public static final By BTN_NEWTEAMPOPUPPATIENTSEEINGSINCE = By.xpath("//label[text()='PATIENT SEEING SINCE ']/../../..//button[@class='mat-datepicker-toggle']");
 	public static final By BTN_ADDAPROVIDER = By.xpath("//button//span[text()='ADD A PROVIDER']");
 
-	public static final By CBO_NEWTEAMPOPUPTEAMTYPE = By.xpath("//button//span[text()='ADD A TEAM MEMBER']");
-	public static final By CBO_NEWTEAMPOPUPSTATE = By.xpath("//button//span[text()='STATE']");
+	public static final By CBO_NEWTEAMPOPUPTEAMTYPE = By.xpath("//providers-team-add-team//md-select/div/span[contains(., 'TEAM TYPE')]");
+	public static final By CBO_NEWTEAMPOPUPSTATE = By.xpath("//providers-team-add-team//md-select/div/span[contains(., 'STATE')]");
 
 	public static final By CHK_NEWTEAMPOPUPALLOWCOMMUNICATION = By.xpath("//span[contains(., 'Allow Communication')]/..//input");
 	public static final By CHK_NEWTEAMPOPUPFAXNUMBERVERIFIED = By.xpath("//span[contains(., 'Fax Number Verified')]/..//input");
