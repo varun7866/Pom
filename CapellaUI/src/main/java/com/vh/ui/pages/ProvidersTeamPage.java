@@ -1,5 +1,6 @@
 package com.vh.ui.pages;
 
+import static com.vh.ui.web.locators.ProvidersTeamLocators.BTN_ADDAPROVIDER;
 import static com.vh.ui.web.locators.ProvidersTeamLocators.BTN_ADDATEAMMEMBER;
 import static com.vh.ui.web.locators.ProvidersTeamLocators.BTN_NEWTEAMPOPUPPATIENTSEEINGSINCE;
 import static com.vh.ui.web.locators.ProvidersTeamLocators.BTN_NEWTEAMPOPUPSUBMIT;
@@ -182,16 +183,12 @@ public class ProvidersTeamPage extends WebPage
 	{
 		Thread.sleep(2000); // Give time for the Providers and Team screen to display
 
-		clickAddATeamMemberButton();
-		// selectNewTeamPopupTeamTypeComboBox(map.get("TEAMTYPE"));
-		enterNewTeamPopupName(map.get("NAME"));
-		enterNewTeamPopupEmail(map.get("EMAIL"));
-		enterNewTeamPopupAddress(map.get("ADDRESS"));
-		enterNewTeamPopupAptSuite(map.get("APTSUITE"));
-		enterNewTeamPopupCity(map.get("CITY"));
-		// selectNewTeamPopupStateComboBox(map.get("STATE"));
-		enterNewTeamPopupZip(map.get("ZIP"));
+		clickAddAProviderButton();
+	}
 
-		clickNewTeamPopupSubmitButton();
+	@Step("Click the ADD A PROVIDER button")
+	public void clickAddAProviderButton() throws TimeoutException, WaitException
+	{
+		webActions.click(VISIBILITY, BTN_ADDAPROVIDER);
 	}
 }

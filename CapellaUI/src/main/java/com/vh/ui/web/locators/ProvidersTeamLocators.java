@@ -13,6 +13,7 @@ public class ProvidersTeamLocators
 	public static final By BTN_ADDATEAMMEMBER = By.xpath("//button//span[text()='ADD A TEAM MEMBER']");
 	public static final By BTN_NEWTEAMPOPUPSUBMIT = By.xpath("//button//span[text()='Submit']");
 	public static final By BTN_NEWTEAMPOPUPPATIENTSEEINGSINCE = By.xpath("//label[text()='PATIENT SEEING SINCE ']/../../..//button[@class='mat-datepicker-toggle']");
+	public static final By BTN_ADDAPROVIDER = By.xpath("//button//span[text()='ADD A PROVIDER']");
 
 	public static final By CBO_NEWTEAMPOPUPTEAMTYPE = By.xpath("//button//span[text()='ADD A TEAM MEMBER']");
 	public static final By CBO_NEWTEAMPOPUPSTATE = By.xpath("//button//span[text()='STATE']");
