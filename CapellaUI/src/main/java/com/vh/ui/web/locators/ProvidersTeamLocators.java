@@ -12,6 +12,7 @@ public class ProvidersTeamLocators
 {
 	public static final By BTN_ADDATEAMMEMBER = By.xpath("//button//span[text()='ADD A TEAM MEMBER']");
 	public static final By BTN_NEWTEAMPOPUPSUBMIT = By.xpath("//button//span[text()='Submit']");
+	public static final By BTN_NEWTEAMPOPUPPATIENTSEEINGSINCE = By.xpath("//label[text()='PATIENT SEEING SINCE ']/../../..//button[@class='mat-datepicker-toggle']");
 
 	public static final By CBO_NEWTEAMPOPUPTEAMTYPE = By.xpath("//button//span[text()='ADD A TEAM MEMBER']");
 	public static final By CBO_NEWTEAMPOPUPSTATE = By.xpath("//button//span[text()='STATE']");
@@ -28,4 +29,5 @@ public class ProvidersTeamLocators
 	public static final By TXT_NEWTEAMPOPUPPHONE = By.xpath("//input[@ng-reflect-placeholder='PHONE']");
 	public static final By TXT_NEWTEAMPOPUPFAX = By.xpath("//input[@ng-reflect-placeholder='FAX']");
 	public static final By TXT_NEWTEAMPOPUPOTHERPHONE = By.xpath("//input[@ng-reflect-placeholder='OTHER PHONE']");
+	public static final By TXT_NEWTEAMPOPUPPATIENTSEEINGSINCE = By.xpath("//input[@ng-reflect-placeholder='PATIENT SEEING SINCE']");
 }

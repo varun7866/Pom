@@ -1,6 +1,7 @@
 package com.vh.ui.pages;
 
 import static com.vh.ui.web.locators.ProvidersTeamLocators.BTN_ADDATEAMMEMBER;
+import static com.vh.ui.web.locators.ProvidersTeamLocators.BTN_NEWTEAMPOPUPPATIENTSEEINGSINCE;
 import static com.vh.ui.web.locators.ProvidersTeamLocators.BTN_NEWTEAMPOPUPSUBMIT;
 import static com.vh.ui.web.locators.ProvidersTeamLocators.CBO_NEWTEAMPOPUPSTATE;
 import static com.vh.ui.web.locators.ProvidersTeamLocators.CBO_NEWTEAMPOPUPTEAMTYPE;
@@ -13,6 +14,7 @@ import static com.vh.ui.web.locators.ProvidersTeamLocators.TXT_NEWTEAMPOPUPEMAIL
 import static com.vh.ui.web.locators.ProvidersTeamLocators.TXT_NEWTEAMPOPUPFAX;
 import static com.vh.ui.web.locators.ProvidersTeamLocators.TXT_NEWTEAMPOPUPNAME;
 import static com.vh.ui.web.locators.ProvidersTeamLocators.TXT_NEWTEAMPOPUPOTHERPHONE;
+import static com.vh.ui.web.locators.ProvidersTeamLocators.TXT_NEWTEAMPOPUPPATIENTSEEINGSINCE;
 import static com.vh.ui.web.locators.ProvidersTeamLocators.TXT_NEWTEAMPOPUPPHONE;
 import static com.vh.ui.web.locators.ProvidersTeamLocators.TXT_NEWTEAMPOPUPZIP;
 
@@ -62,7 +64,8 @@ public class ProvidersTeamPage extends WebPage
 		enterNewTeamPopupOtherPhone(map.get("OTHERPHONE"));
 		checkNewTeamPopupAllowCommunicationCheckBox(map.get("ALLOWCOMMUNICATION"));
 		checkNewTeamPopupFaxNumberVerifiedCheckBox(map.get("FAXNUMBERVERIFIED"));
-
+		clickNewTeamPopupPatientSeeingSinceDatePickerButton();
+		enterNewTeamPopupPatientSeeingSince(map.get("PATIENTSEEINGSINCE"));
 		clickNewTeamPopupSubmitButton();
 	}
 
@@ -154,6 +157,18 @@ public class ProvidersTeamPage extends WebPage
 		{
 			webActions.click(VISIBILITY, CHK_NEWTEAMPOPUPFAXNUMBERVERIFIED);
 		}
+	}
+
+	@Step("Click the New Team popup PATIENT SEEING SINCE date picker button")
+	public void clickNewTeamPopupPatientSeeingSinceDatePickerButton() throws TimeoutException, WaitException
+	{
+		webActions.click(VISIBILITY, BTN_NEWTEAMPOPUPPATIENTSEEINGSINCE);
+	}
+
+	@Step("Enter {0} in the New Team popup PATIENT SEEING SINCE text box")
+	public void enterNewTeamPopupPatientSeeingSince(String value) throws TimeoutException, WaitException
+	{
+		webActions.enterText(VISIBILITY, TXT_NEWTEAMPOPUPPATIENTSEEINGSINCE, value);
 	}
 
 	@Step("Click the New Team popup SUBMIT button")
