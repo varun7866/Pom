@@ -318,6 +318,45 @@ public class WebActions {
 		((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", element);
 	}
 
+	public void selectFromDropDown(String expectedCondition, By locator, String itemToSelect) throws TimeoutException, WaitException
+	{
+		LOGGER.info(Utilities.getCurrentThreadId() + "Selecting " + itemToSelect + " from drop-down with locator:" + locator);
+
+		WebElement element;
+
+		if ("notrequired".equals(expectedCondition))
+		{
+			element = driver.findElement(locator);
+		} else
+		{
+			element = wait.syncLocatorUsing(expectedCondition, driver, locator);
+		}
+
+		javascriptClick(locator);
+
+		String optionXPath = ".//md-option[contains(., '" + itemToSelect + "')]";
+
+		try
+		{
+			Thread.sleep(2000);
+		} catch (InterruptedException e)
+		{
+			e.printStackTrace();
+		}
+
+		javascriptClick(By.xpath(optionXPath));
+
+		try
+		{
+			Thread.sleep(2000);
+		} catch (InterruptedException e)
+		{
+			e.printStackTrace();
+		}
+
+		LOGGER.info(Utilities.getCurrentThreadId() + "Selected:" + itemToSelect + " from drop-down with locator:" + element);
+	}
+
 	/**
 	 * Select an item from the passed in drop down
 	 * 
@@ -329,7 +368,8 @@ public class WebActions {
 	 * @throws TimeoutException
 	 * @throws WaitException
 	 */
-	public void selectFromDropDown(String expectedCondition, By locator, String itemToSelect) throws TimeoutException, WaitException {
+	public void selectFromDropDownOld(String expectedCondition, By locator, String itemToSelect) throws TimeoutException, WaitException
+	{
 		LOGGER.info(Utilities.getCurrentThreadId() + "Selecting " + itemToSelect + " from drop-down with locator:" + locator);
 
 		WebElement element;

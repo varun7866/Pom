@@ -303,7 +303,7 @@ public class ManageDocumentsPage extends WebPage
 	@Step("Select an option form the document type combo box")
 	public void selectDocumentTypeOptionAddDocument(String optionToSelect) throws TimeoutException, WaitException
 	{
-		webActions.selectFromDropDown(VISIBILITY, CBO_ADDDOCUMENTDOCUMENTTYPE, optionToSelect);
+		webActions.selectFromDropDownOld(VISIBILITY, CBO_ADDDOCUMENTDOCUMENTTYPE, optionToSelect);
 	}
 	
 	@Step("Verify the visibility of the Date of signature label in the Add Document popup")

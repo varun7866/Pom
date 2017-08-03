@@ -20,7 +20,6 @@ import java.util.Properties;
 
 import org.apache.log4j.Logger;
 import org.openqa.selenium.By;
-import org.openqa.selenium.Cookie;
 import org.openqa.selenium.TimeoutException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -50,7 +49,6 @@ public class ApplicationFunctions extends WebPage
 {
 	protected static final Logger LOGGER = Logg.createLogger();
 	protected final WebDriverWaits wait = new WebDriverWaits();
-	private static Cookie cookie;
 	private WebActions webActions = null;
 	private WebPage pageBase;
 	private LoginPage loginPage;
