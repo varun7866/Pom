@@ -49,8 +49,6 @@ public class ProvidersTeamPage extends WebPage
 	@Step("Adds a Team Member to the table")
 	public void addATeamMember(Map<String, String> map) throws TimeoutException, WaitException, InterruptedException
 	{
-		// Thread.sleep(2000); // Give time for the Providers and Team screen to display
-
 		clickAddATeamMemberButton();
 		selectNewTeamPopupTeamTypeComboBox(map.get("TEAMTYPE"));
 		enterNewTeamPopupName(map.get("NAME"));
