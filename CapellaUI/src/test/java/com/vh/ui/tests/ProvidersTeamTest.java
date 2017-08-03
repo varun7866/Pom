@@ -58,9 +58,7 @@ public class ProvidersTeamTest extends TestBase
 
 		appFunctions.navigateToMenu("Patient Care->Care Team");
 
-		Thread.sleep(2000); // Give time for the Providers and Team screen to display
-
-		providersTeamPage.clickAddATeamMemberButton();
+		providersTeamPage.addATeamMember(map);
 	}
 
 	@AfterClass
