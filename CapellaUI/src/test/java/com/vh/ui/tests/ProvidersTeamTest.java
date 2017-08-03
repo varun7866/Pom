@@ -46,7 +46,7 @@ public class ProvidersTeamTest extends TestBase
 		providersTeamPage = new ProvidersTeamPage(driver);
 
 		appFunctions.capellaLogin();
-		// appFunctions.selectPatientFromMyPatients("Glayds Whoriskey"); // CKD Patient
+		// appFunctions.selectPatientFromMyPatients("Glayds Whoriskey");
 		// appFunctions.navigateToMenu("Patient Care->Care Team");
 	}
 

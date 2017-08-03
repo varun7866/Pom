@@ -52,20 +52,19 @@ public class ProvidersTeamPage extends WebPage
 		Thread.sleep(2000); // Give time for the Providers and Team screen to display
 
 		clickAddATeamMemberButton();
-		// selectNewTeamPopupTeamTypeComboBox(map.get("TEAMTYPE"));
+		selectNewTeamPopupTeamTypeComboBox(map.get("TEAMTYPE"));
 		enterNewTeamPopupName(map.get("NAME"));
 		enterNewTeamPopupEmail(map.get("EMAIL"));
 		enterNewTeamPopupAddress(map.get("ADDRESS"));
 		enterNewTeamPopupAptSuite(map.get("APTSUITE"));
 		enterNewTeamPopupCity(map.get("CITY"));
-		// selectNewTeamPopupStateComboBox(map.get("STATE"));
+		selectNewTeamPopupStateComboBox(map.get("STATE"));
 		enterNewTeamPopupZip(map.get("ZIP"));
 		enterNewTeamPopupPhone(map.get("PHONE"));
 		enterNewTeamPopupFax(map.get("FAX"));
 		enterNewTeamPopupOtherPhone(map.get("OTHERPHONE"));
 		checkNewTeamPopupAllowCommunicationCheckBox(map.get("ALLOWCOMMUNICATION"));
 		checkNewTeamPopupFaxNumberVerifiedCheckBox(map.get("FAXNUMBERVERIFIED"));
-		clickNewTeamPopupPatientSeeingSinceDatePickerButton();
 		enterNewTeamPopupPatientSeeingSince(map.get("PATIENTSEEINGSINCE"));
 		clickNewTeamPopupSubmitButton();
 	}

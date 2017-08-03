@@ -318,8 +318,47 @@ public class WebActions {
 		((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", element);
 	}
 
+	public void selectFromDropDown(String expectedCondition, By locator, String itemToSelect) throws TimeoutException, WaitException
+	{
+		LOGGER.info(Utilities.getCurrentThreadId() + "Selecting " + itemToSelect + " from drop-down with locator:" + locator);
+
+		WebElement element;
+
+		if ("notrequired".equals(expectedCondition))
+		{
+			element = driver.findElement(locator);
+		} else
+		{
+			element = wait.syncLocatorUsing(expectedCondition, driver, locator);
+		}
+
+		javascriptClick(locator);
+
+		String optionXPath = ".//md-option[contains(., '" + itemToSelect + "')]";
+
+		try
+		{
+			Thread.sleep(2000);
+		} catch (InterruptedException e)
+		{
+			e.printStackTrace();
+		}
+
+		javascriptClick(By.xpath(optionXPath));
+
+		try
+		{
+			Thread.sleep(2000);
+		} catch (InterruptedException e)
+		{
+			e.printStackTrace();
+		}
+
+		LOGGER.info(Utilities.getCurrentThreadId() + "Selected:" + itemToSelect + " from drop-down with locator:" + element);
+	}
+
 	/**
-	 * Select an item from the passed in drop down. This is used for Angular 2 only.
+	 * Select an item from the passed in drop down
 	 * 
 	 * @param expectedCondition
 	 *            The condition to wait for (notrequired, visibility, clickability, presence)
@@ -338,37 +377,6 @@ public class WebActions {
 		if ("notrequired".equals(expectedCondition)) {
 			element = driver.findElement(locator);
 		} else {
-			element = wait.syncLocatorUsing(expectedCondition, driver, locator);
-		}
-
-		Select select = new Select(element);
-		select.selectByVisibleText(itemToSelect);
-
-		LOGGER.info(Utilities.getCurrentThreadId() + "Selected:" + itemToSelect + " from drop-down with locator:" + element);
-	}
-
-	/**
-	 * Select an item from the passed in drop down. This is used for Angular 4 only.
-	 * 
-	 * @param expectedCondition
-	 *            The condition to wait for (notrequired, visibility, clickability, presence)
-	 * @param locator
-	 *            The <select> tag of the drop down
-	 * @param itemToSelect
-	 * @throws TimeoutException
-	 * @throws WaitException
-	 */
-	public void selectFromDropDown(String expectedCondition, By locator, String itemToSelect) throws TimeoutException, WaitException
-	{
-		LOGGER.info(Utilities.getCurrentThreadId() + "Selecting " + itemToSelect + " from drop-down with locator:" + locator);
-
-		WebElement element;
-
-		if ("notrequired".equals(expectedCondition))
-		{
-			element = driver.findElement(locator);
-		} else
-		{
 			element = wait.syncLocatorUsing(expectedCondition, driver, locator);
 		}
 
