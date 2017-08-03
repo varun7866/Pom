@@ -38,7 +38,7 @@ public class ProvidersTeamPage extends WebPage
 		appFunctions = new ApplicationFunctions(driver);
 	}
 
-	@Step("Adds a team member to the table")
+	@Step("Adds a Team Member to the table")
 	public void addATeamMember(Map<String, String> map) throws TimeoutException, WaitException, InterruptedException
 	{
 		Thread.sleep(2000); // Give time for the Providers and Team screen to display
@@ -114,5 +114,23 @@ public class ProvidersTeamPage extends WebPage
 	public void clickNewTeamPopupSubmitButton() throws TimeoutException, WaitException
 	{
 		webActions.click(VISIBILITY, BTN_NEWTEAMPOPUPSUBMIT);
+	}
+
+	@Step("Adds a Provider to the table")
+	public void addAProvider(Map<String, String> map) throws TimeoutException, WaitException, InterruptedException
+	{
+		Thread.sleep(2000); // Give time for the Providers and Team screen to display
+
+		clickAddATeamMemberButton();
+		// selectNewTeamPopupTeamTypeComboBox(map.get("TEAMTYPE"));
+		enterNewTeamPopupName(map.get("NAME"));
+		enterNewTeamPopupEmail(map.get("EMAIL"));
+		enterNewTeamPopupAddress(map.get("ADDRESS"));
+		enterNewTeamPopupAptSuite(map.get("APTSUITE"));
+		enterNewTeamPopupCity(map.get("CITY"));
+		// selectNewTeamPopupStateComboBox(map.get("STATE"));
+		enterNewTeamPopupZip(map.get("ZIP"));
+
+		clickNewTeamPopupSubmitButton();
 	}
 }

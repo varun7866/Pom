@@ -61,6 +61,17 @@ public class ProvidersTeamTest extends TestBase
 		providersTeamPage.addATeamMember(map);
 	}
 
+	@Test(priority = 3, dataProvider = "CapellaDataProvider")
+	@Step("Verify Adding a Provider with different scenarios")
+	public void verify_AddingProvider(Map<String, String> map) throws WaitException, URLNavigationException, InterruptedException
+	{
+		appFunctions.selectPatientFromMyPatients(map.get("PatientName"));
+
+		appFunctions.navigateToMenu("Patient Care->Care Team");
+
+		providersTeamPage.addAProvider(map);
+	}
+
 	@AfterClass
 	public void tearDown() throws TimeoutException, WaitException
 	{
