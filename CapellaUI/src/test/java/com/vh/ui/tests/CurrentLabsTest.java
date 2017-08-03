@@ -24,10 +24,9 @@ import ru.yandex.qatools.allure.annotations.Step;
  * @class  CurrentLabsTest.java
  * 
  * Before running this test suite:
- * 1. Change the "username" and "password" parameters in the "resources\application.properties" file to your own
- * 2. Clear your browser's cache
- * 3. You will need a CKD and an ESRD Patient
- * 4. It's not required, but it would be a good idea to delete all existing Labs from table PTLB_PATIENT_LABS for your Patients
+ * 1. Clear your browser's cache
+ * 2. You will need a CKD and an ESRD Patient
+ * 3. Delete all existing Labs from table PTLB_PATIENT_LABS for Patients used
  * Note: KT/V & URR are invalid for a CKD Patient
  * Note: URINE ALBUMIN/CREATININE RATIO is invalid for an ESRD Patient
  */
@@ -47,20 +46,20 @@ public class CurrentLabsTest extends TestBase
 		currentLabsPage = new CurrentLabsPage(driver);
 
 		appFunctions.capellaLogin();
-		// appFunctions.selectPatientFromMyPatients("Glayds Whoriskey"); // CKD Patient
-		// appFunctions.navigateToMenu("Patient Experience->Labs->Current Labs");
+		appFunctions.selectPatientFromMyPatients("Glayds Whoriskey"); // CKD Patient
+		appFunctions.navigateToMenu("Patient Experience->Labs->Current Labs");
 	}
 
-	// @Test(priority = 1)
-	// @Step("Verify the Current Labs page")
+	@Test(priority = 1)
+	@Step("Verify the Current Labs page")
 	public void verify_CurrentLabsPage() throws WaitException, URLNavigationException, InterruptedException
 	{
 		Assert.assertTrue(currentLabsPage.viewPageHeaderLabel(), "Failed to identify the Current Labs page header label");
 		Assert.assertTrue(currentLabsPage.viewAddLabButton(), "Failed to identify the ADD LAB button");
 	}
 
-	// @Test(priority = 2)
-	// @Step("Verify the Add Lab Results popup for CKD Patients")
+	@Test(priority = 2)
+	@Step("Verify the Add Lab Results popup for CKD Patients")
 	public void verify_AddLabResultsPopupCKD() throws WaitException, URLNavigationException, InterruptedException
 	{
 		currentLabsPage.clickAddLabButton();
@@ -180,8 +179,8 @@ public class CurrentLabsTest extends TestBase
 		currentLabsPage.clickAddPopupCancelButton();
 	}
 
-	// @Test(priority = 3)
-	// @Step("Verify the Add Lab Results popup for ESRD Patients")
+	@Test(priority = 3)
+	@Step("Verify the Add Lab Results popup for ESRD Patients")
 	public void verify_AddLabResultsPopupESRD() throws WaitException, URLNavigationException, InterruptedException
 	{
 		appFunctions.selectPatientFromMyPatients("Waliy Al D Holroyd"); // ESRD Patient
