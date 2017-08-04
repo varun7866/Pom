@@ -50,20 +50,76 @@ public class ProvidersTeamPage extends WebPage
 	public void addATeamMember(Map<String, String> map) throws TimeoutException, WaitException, InterruptedException
 	{
 		clickAddATeamMemberButton();
-		selectNewTeamPopupTeamTypeComboBox(map.get("TEAMTYPE"));
-		enterNewTeamPopupName(map.get("NAME"));
-		enterNewTeamPopupEmail(map.get("EMAIL"));
-		enterNewTeamPopupAddress(map.get("ADDRESS"));
-		enterNewTeamPopupAptSuite(map.get("APTSUITE"));
-		enterNewTeamPopupCity(map.get("CITY"));
-		selectNewTeamPopupStateComboBox(map.get("STATE"));
-		enterNewTeamPopupZip(map.get("ZIP"));
-		enterNewTeamPopupPhone(map.get("PHONE"));
-		enterNewTeamPopupFax(map.get("FAX"));
-		enterNewTeamPopupOtherPhone(map.get("OTHERPHONE"));
-		checkNewTeamPopupAllowCommunicationCheckBox(map.get("ALLOWCOMMUNICATION"));
-		checkNewTeamPopupFaxNumberVerifiedCheckBox(map.get("FAXNUMBERVERIFIED"));
-		enterNewTeamPopupPatientSeeingSince(map.get("PATIENTSEEINGSINCE"));
+		if (map.get("TEAMTYPE") != null)
+		{
+			selectNewTeamPopupTeamTypeComboBox(map.get("TEAMTYPE"));
+		}
+
+		if (map.get("NAME") != null)
+		{
+			enterNewTeamPopupName(map.get("NAME"));
+		}
+
+		if (map.get("EMAIL") != null)
+		{
+			enterNewTeamPopupEmail(map.get("EMAIL"));
+		}
+
+		if (map.get("ADDRESS") != null)
+		{
+			enterNewTeamPopupAddress(map.get("ADDRESS"));
+		}
+
+		if (map.get("APTSUITE") != null)
+		{
+			enterNewTeamPopupAptSuite(map.get("APTSUITE"));
+		}
+
+		if (map.get("CITY") != null)
+		{
+			enterNewTeamPopupCity(map.get("CITY"));
+		}
+
+		if (map.get("STATE") != null)
+		{
+			selectNewTeamPopupStateComboBox(map.get("STATE"));
+		}
+
+		if (map.get("ZIP") != null)
+		{
+			enterNewTeamPopupZip(map.get("ZIP"));
+		}
+
+		if (map.get("PHONE") != null)
+		{
+			enterNewTeamPopupPhone(map.get("PHONE"));
+		}
+
+		if (map.get("FAX") != null)
+		{
+			enterNewTeamPopupFax(map.get("FAX"));
+		}
+
+		if (map.get("OTHERPHONE") != null)
+		{
+			enterNewTeamPopupOtherPhone(map.get("OTHERPHONE"));
+		}
+
+		if (map.get("ALLOWCOMMUNICATION") != null)
+		{
+			checkNewTeamPopupAllowCommunicationCheckBox(map.get("ALLOWCOMMUNICATION"));
+		}
+
+		if (map.get("FAXNUMBERVERIFIED") != null)
+		{
+			checkNewTeamPopupFaxNumberVerifiedCheckBox(map.get("FAXNUMBERVERIFIED"));
+		}
+
+		if (map.get("PATIENTSEEINGSINCE") != null)
+		{
+			enterNewTeamPopupPatientSeeingSince(map.get("PATIENTSEEINGSINCE"));
+		}
+
 		clickNewTeamPopupSubmitButton();
 	}
 
