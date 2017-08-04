@@ -2,8 +2,11 @@ package com.vh.ui.pages;
 
 import static com.vh.ui.web.locators.ProvidersTeamLocators.BTN_ADDAPROVIDER;
 import static com.vh.ui.web.locators.ProvidersTeamLocators.BTN_ADDATEAMMEMBER;
+import static com.vh.ui.web.locators.ProvidersTeamLocators.BTN_NEWPROVIDERPOPUPADDPROVIDER;
+import static com.vh.ui.web.locators.ProvidersTeamLocators.BTN_NEWPROVIDERPOPUPSEARCH;
 import static com.vh.ui.web.locators.ProvidersTeamLocators.BTN_NEWTEAMPOPUPPATIENTSEEINGSINCE;
 import static com.vh.ui.web.locators.ProvidersTeamLocators.BTN_NEWTEAMPOPUPSUBMIT;
+import static com.vh.ui.web.locators.ProvidersTeamLocators.CBO_NEWPROVIDERPOPUPASSOCIATEAS;
 import static com.vh.ui.web.locators.ProvidersTeamLocators.CBO_NEWTEAMPOPUPSTATE;
 import static com.vh.ui.web.locators.ProvidersTeamLocators.CBO_NEWTEAMPOPUPTEAMTYPE;
 import static com.vh.ui.web.locators.ProvidersTeamLocators.CHK_NEWTEAMPOPUPALLOWCOMMUNICATION;
@@ -21,6 +24,7 @@ import static com.vh.ui.web.locators.ProvidersTeamLocators.TXT_NEWTEAMPOPUPZIP;
 
 import java.util.Map;
 
+import org.openqa.selenium.By;
 import org.openqa.selenium.TimeoutException;
 import org.openqa.selenium.WebDriver;
 
@@ -131,9 +135,9 @@ public class ProvidersTeamPage extends WebPage
 	}
 
 	@Step("Select an option form the New Team popup TEAM TYPE combo box")
-	public void selectNewTeamPopupTeamTypeComboBox(String optionToSelect) throws TimeoutException, WaitException
+	public void selectNewTeamPopupTeamTypeComboBox(String value) throws TimeoutException, WaitException
 	{
-		webActions.selectFromDropDown(VISIBILITY, CBO_NEWTEAMPOPUPTEAMTYPE, optionToSelect);
+		webActions.selectFromDropDown(VISIBILITY, CBO_NEWTEAMPOPUPTEAMTYPE, value);
 	}
 
 	@Step("Enter {0} in the New Team popup NAME text field")
@@ -236,11 +240,41 @@ public class ProvidersTeamPage extends WebPage
 	public void addAProvider(Map<String, String> map) throws TimeoutException, WaitException, InterruptedException
 	{
 		clickAddAProviderButton();
+		clickNewProviderPopupSearchButton();
+		// clickNewProviderPopupAccordion(map.get("PROVIDERNAME"));
+		selectNewProviderPopupAssociateAsComboBox(map.get("ASSOCIATEAS"));
+		clickNewProviderPopupAddProviderButton();
 	}
 
 	@Step("Click the ADD A PROVIDER button")
 	public void clickAddAProviderButton() throws TimeoutException, WaitException
 	{
 		webActions.javascriptClick(BTN_ADDAPROVIDER);
+	}
+
+	@Step("Click the Add Provider popup SEARCH button")
+	public void clickNewProviderPopupSearchButton() throws TimeoutException, WaitException
+	{
+		webActions.javascriptClick(BTN_NEWPROVIDERPOPUPSEARCH);
+	}
+
+	@Step("Expand {0} Add Provider popup Provider accordion")
+	public void clickNewProviderPopupAccordion(String value) throws TimeoutException, WaitException
+	{
+		final By BTN_NEWPROVIDERPOPUPCHEVRON = By.xpath("//span[contains(., '" + value + "')]/../..//i");
+
+		webActions.javascriptClick(BTN_NEWPROVIDERPOPUPCHEVRON);
+	}
+
+	@Step("Select an option form the New Provider popup ASSOCIATE AS combo box")
+	public void selectNewProviderPopupAssociateAsComboBox(String value) throws TimeoutException, WaitException
+	{
+		webActions.selectFromDropDown(VISIBILITY, CBO_NEWPROVIDERPOPUPASSOCIATEAS, value);
+	}
+
+	@Step("Click the Add Provider popup ADD PROVIDER button")
+	public void clickNewProviderPopupAddProviderButton() throws TimeoutException, WaitException
+	{
+		webActions.javascriptClick(BTN_NEWPROVIDERPOPUPADDPROVIDER);
 	}
 }

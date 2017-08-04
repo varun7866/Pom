@@ -14,9 +14,12 @@ public class ProvidersTeamLocators
 	public static final By BTN_NEWTEAMPOPUPSUBMIT = By.xpath("//button//span[text()='Submit']");
 	public static final By BTN_NEWTEAMPOPUPPATIENTSEEINGSINCE = By.xpath("//label[text()='PATIENT SEEING SINCE ']/../../..//button[@class='mat-datepicker-toggle']");
 	public static final By BTN_ADDAPROVIDER = By.xpath("//button//span[text()='ADD A PROVIDER']");
+	public static final By BTN_NEWPROVIDERPOPUPSEARCH = By.xpath("//button//span[text()='Search']");
+	public static final By BTN_NEWPROVIDERPOPUPADDPROVIDER = By.xpath("//button//span[contains(., 'ADD PROVIDER')]");
 
 	public static final By CBO_NEWTEAMPOPUPTEAMTYPE = By.xpath("//providers-team-add-team//md-select/div/span[contains(., 'TEAM TYPE')]");
 	public static final By CBO_NEWTEAMPOPUPSTATE = By.xpath("//providers-team-add-team//md-select/div/span[contains(., 'STATE')]");
+	public static final By CBO_NEWPROVIDERPOPUPASSOCIATEAS = By.xpath("//providers-team-add-provider//md-select/div/span[contains(., 'ASSOCIATE AS')]");
 
 	public static final By CHK_NEWTEAMPOPUPALLOWCOMMUNICATION = By.xpath("//span[contains(., 'Allow Communication')]/..//input");
 	public static final By CHK_NEWTEAMPOPUPFAXNUMBERVERIFIED = By.xpath("//span[contains(., 'Fax Number Verified')]/..//input");
