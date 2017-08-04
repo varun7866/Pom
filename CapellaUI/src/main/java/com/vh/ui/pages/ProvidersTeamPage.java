@@ -50,6 +50,7 @@ public class ProvidersTeamPage extends WebPage
 	public void addATeamMember(Map<String, String> map) throws TimeoutException, WaitException, InterruptedException
 	{
 		clickAddATeamMemberButton();
+
 		if (map.get("TEAMTYPE") != null)
 		{
 			selectNewTeamPopupTeamTypeComboBox(map.get("TEAMTYPE"));
@@ -234,14 +235,12 @@ public class ProvidersTeamPage extends WebPage
 	@Step("Adds a Provider to the table")
 	public void addAProvider(Map<String, String> map) throws TimeoutException, WaitException, InterruptedException
 	{
-		Thread.sleep(2000); // Give time for the Providers and Team screen to display
-
 		clickAddAProviderButton();
 	}
 
 	@Step("Click the ADD A PROVIDER button")
 	public void clickAddAProviderButton() throws TimeoutException, WaitException
 	{
-		webActions.click(VISIBILITY, BTN_ADDAPROVIDER);
+		webActions.javascriptClick(BTN_ADDAPROVIDER);
 	}
 }
