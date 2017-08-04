@@ -261,7 +261,7 @@ public class ProvidersTeamPage extends WebPage
 	@Step("Expand {0} Add Provider popup Provider accordion")
 	public void clickNewProviderPopupAccordion(String value) throws TimeoutException, WaitException
 	{
-		final By BTN_NEWPROVIDERPOPUPCHEVRON = By.xpath("//span[contains(., '" + value + "')]/../..//i");
+		final By BTN_NEWPROVIDERPOPUPCHEVRON = By.xpath("//span[contains(., '" + value + "')]");
 
 		webActions.javascriptClick(BTN_NEWPROVIDERPOPUPCHEVRON);
 	}
