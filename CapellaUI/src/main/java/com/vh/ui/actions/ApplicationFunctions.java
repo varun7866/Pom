@@ -493,6 +493,7 @@ public class ApplicationFunctions extends WebPage
 	 * 
 	 * @param datePickerLocator
 	 *            The <input> tag locator of the date picker
+	 * @parm dateToSelect The day value to select
 	 * @throws WaitException
 	 * @throws InterruptedException
 	 */
