@@ -241,6 +241,7 @@ public class ProvidersTeamPage extends WebPage
 	{
 		clickAddAProviderButton();
 		clickNewProviderPopupSearchButton();
+		Thread.sleep(11000);
 		clickNewProviderPopupAccordion(map.get("PROVIDERNAME"));
 		selectNewProviderPopupAssociateAsComboBox(map.get("ASSOCIATEAS"));
 		clickNewProviderPopupAddProviderButton();
