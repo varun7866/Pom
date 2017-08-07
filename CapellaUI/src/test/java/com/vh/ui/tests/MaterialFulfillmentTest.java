@@ -13,64 +13,53 @@ import com.vh.ui.actions.ApplicationFunctions;
 import com.vh.ui.exceptions.URLNavigationException;
 import com.vh.ui.exceptions.WaitException;
 import com.vh.ui.page.base.WebPage;
-import com.vh.ui.pages.ProvidersTeamPage;
+import com.vh.ui.pages.MaterialFulfillmentPage;
 
 import ru.yandex.qatools.allure.annotations.Step;
 
 /*
  * @author Harvy Ackermans
- * @date   August 2, 2017
- * @class  ProvidersTeamTest.java
+ * @date   August 7, 2017
+ * @class  MaterialFulfillmentTest.java
  * 
  * Before running this test suite:
- 
+ *
  */
 
-public class ProvidersTeamTest extends TestBase
+public class MaterialFulfillmentTest extends TestBase
 {	
 	// Class objects
 	WebPage pageBase;
 	ApplicationFunctions appFunctions;
-	ProvidersTeamPage providersTeamPage;
+	MaterialFulfillmentPage materialFulfillmentPage;
 	
 	@BeforeClass
 	public void buildUp() throws TimeoutException, WaitException, URLNavigationException, InterruptedException {
 		WebDriver driver = getWebDriver();
 		pageBase = new WebPage(driver);
 		appFunctions = new ApplicationFunctions(driver);
-		providersTeamPage = new ProvidersTeamPage(driver);
+		materialFulfillmentPage = new MaterialFulfillmentPage(driver);
 
 		appFunctions.capellaLogin();
 		// appFunctions.selectPatientFromMyPatients("Glayds Whoriskey");
-		// appFunctions.navigateToMenu("Patient Care->Care Team");
+		// appFunctions.navigateToMenu("Patient Admin->Material Fulfillment");
 	}
 
 	@Test(priority = 2, dataProvider = "CapellaDataProvider")
-	@Step("Verify Adding a Team Member with different scenarios")
-	public void verify_AddingTeamMember(Map<String, String> map) throws WaitException, URLNavigationException, InterruptedException
+	@Step("Verify Ordering a Material with different scenarios")
+	public void verify_OrderingMaterial(Map<String, String> map) throws WaitException, URLNavigationException, InterruptedException
 	{
 		appFunctions.selectPatientFromMyPatients(map.get("PatientName"));
 
-		appFunctions.navigateToMenu("Patient Care->Care Team");
+		appFunctions.navigateToMenu("Patient Admin->Material Fulfillment");
 
-		providersTeamPage.addATeamMember(map);
-	}
-
-	@Test(priority = 3, dataProvider = "CapellaDataProvider")
-	@Step("Verify Adding a Provider with different scenarios")
-	public void verify_AddingProvider(Map<String, String> map) throws WaitException, URLNavigationException, InterruptedException
-	{
-		appFunctions.selectPatientFromMyPatients(map.get("PatientName"));
-
-		appFunctions.navigateToMenu("Patient Care->Care Team");
-
-		providersTeamPage.addAProvider(map);
+		materialFulfillmentPage.orderMaterial(map);
 	}
 
 	@AfterClass
 	public void tearDown() throws TimeoutException, WaitException
 	{
-		appFunctions.capellaLogout();
-		pageBase.quit();
+		// appFunctions.capellaLogout();
+		// pageBase.quit();
 	}
 }
