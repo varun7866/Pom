@@ -5,7 +5,47 @@ import org.openqa.selenium.By;
 public class HospitalizationLocators {
 	
 	public static final By LBL_PATIENTEXPERIENCEHOSPITALIZATIONS = By.xpath("//hospitalization//h2[@class='page-title']");
-	public static final By BTN_ADDHOSPITALIZATION = By.xpath("//button[contains(., 'ADD HOSPITALIZATION')]");	
+	public static final By BTN_ADDHOSPITALIZATION = By.xpath("//button[contains(., 'ADD HOSPITALIZATION')]");
+	
+	//---------Appointment tab locators-----------
+	public static final By BTN_ADDPOPUPADMCANCEL = By.xpath("//button[text()='Cancel']");
+	public static final By BTN_ADDPOPUPADMNEXT = By.xpath("//button[text()='Next']");
+	public static final By LBL_ADDPOPUPADMADMITTANCE = By.xpath("//span[text()='Admittance']");
+	public static final By LBL_ADDPOPUPADMFACILITYNAME = By.id("//div[@class='admittance-form']//label[text()='FACILITY NAME']");
+	public static final By TXT_ADDPOPUPADMFACILITYNAME = By.xpath("//*[@id='facilityname']");
+	public static final By LBL_ADDPOPUPADMADMITDATE = By.id("admitdate");
+	public static final By TXT_ADDPOPUPADMADMITDATE = By.xpath("//*[@id='admitdate']/div/div/input");
+	public static final By LBL_ADDPOPUPADMNOTIFICATIONDATE = By.id("notificationdate");
+	public static final By TXT_ADDPOPUPADMNOTIFICATIONDATE = By.xpath("//*[@id='notificationdate']/div/div/input");
+	public static final By LBL_ADDPOPUPADMNOTIFIEDBy = By.id("//div[@class='admittance-form']//label[text()='notifiedBy']");
+	public static final By CMB_ADDPOPUPADMNOTIFIEDBy = By.xpath("//*[@id='notifiedBy']");
+	public static final By LBL_ADDPOPUPADMREASON = By.id("//div[@class='admittance-form']//label[text()='reason']");
+	public static final By TXT_ADDPOPUPADMREASON = By.xpath("//*[@id='reason']");
+	public static final By LBL_ADDPOPUPADMPHONE = By.id("//div[@class='admittance-form']//label[text()='phone']");
+	public static final By TXT_ADDPOPUPADMPHONE = By.xpath("//*[@id='phone']");
+	public static final By LBL_ADDPOPUPADMFAX = By.id("//div[@class='admittance-form']//label[text()='fax']");
+	public static final By TXT_ADDPOPUPADMFAX = By.xpath("//*[@id='fax']");
+	public static final By LBL_ADDPOPUPADMADMITTYPE = By.id("//div[@class='admittance-form']//label[text()='admittype']");
+	public static final By TXT_ADDPOPUPADMADMITTYPE = By.xpath("//*[@id='admittype']");
+	public static final By LBL_ADDPOPUPADSOURCEOFADMIT = By.id("//div[@class='admittance-form']//label[text()='sourceofadmit']");
+	public static final By TXT_ADDPOPUPSOURCEOFADMIT = By.xpath("//*[@id='sourceofadmit']");
+	public static final By LBL_ADDPOPUPADMPRIORLOCATION = By.id("//div[@class='admittance-form']//label[text()='priorlocation']");
+	public static final By TXT_ADDPOPUPADMPRIORLOCATION = By.xpath("//*[@id='priorlocation']");
+	public static final By LBL_ADDPOPUPADMADMITTINGDIAGNOSIS = By.id("//div[@class='admittance-form']//label[text()='admittindiagnosis']");
+	public static final By TXT_ADDPOPUPADMDMITTINGDIAGNOSIS = By.xpath("//*[@id='admittindiagnosis']");
+	public static final By LBL_ADDPOPUPADMRELATEDSUBCATEGORY = By.id("//div[@class='admittance-form']//label[text()='relatedsubcategory']");
+	public static final By TXT_ADDPOPUPADMRELATEDSUBCATEGORY = By.xpath("//*[@id='relatedsubcategory']");
+	public static final By LBL_ADDPOPUPADMWORKINGDIAGNOSIS = By.id("//div[@class='admittance-form']//label[text()='workingdiagnosis']");
+	public static final By TXT_ADDPOPUPADMWORKINGDIAGNOSIS = By.xpath("//*[@id='workingdiagnosis']");
+	public static final By CHK_ADDPOPUPADMPLANNEDADMISSION = By.xpath("//*[@id='plannedAdmissionCheckbox']");
+	public static final By LBL_ADDPOPUPADMPLANNEDADMISSION = By.xpath("//span[text()='Planned Admission']");
+	public static final By CHK_ADDPOPUPADMAVOIDABLEADM = By.xpath("//*[@id='avoidableAdmissionCheckbox']");
+	public static final By LBL_ADDPOPUPADMAVOIDABLEADM = By.xpath("//span[text()='AVOIDABLE ADMISSION']");
+	public static final By CHK_ADDPOPUPADMVCWHOSPCMGR = By.xpath("//*[@id='verbalContactCheckbox']");
+	public static final By LBL_ADDPOPUPADMVCWHOSPCMGR = By.xpath("//span[text()='Verbal contact with Hospital Case Manager']");
+	public static final By LBL_ADDPOPUPADMCOMMENT = By.id("//div[@class='admittance-form']//label[text()='comment']");
+	public static final By TXT_ADDPOPUPADMCOMMENT = By.xpath("//*[@id='comment']");
+
 	
 	//----------Transfer tab locators-------------
 	
@@ -22,7 +62,7 @@ public class HospitalizationLocators {
 	
 	public static final By TXT_NEWPOPUPTRANSFERFACILITYNAME = By.xpath("//div[@class='transfer-form']//*[@id='transferFacilityName2']");
 	public static final By TXT_NEWPOPUPTRANSFERPHONE = By.xpath("//div[@class='transfer-form']//*[@id='phone']");
-	public static final By TXT_NEWPOPUPTRANSFERFAX = By.xpath("//div[@class='transfer-form']//*[@id='fax']");
+	public static final By TXT_NEWPOPUPTRANSFERFAX = By.xpath("//div[@class='transfer-form']//input[@ng-reflect-name='facilityFax2']");
 	
 	public static final By CAL_TRANSFERDATE = By.xpath("//div[@class='transfer-form']//input[@aria-label='Date input field']");
 	
@@ -35,7 +75,7 @@ public class HospitalizationLocators {
 
 	
 	public static final By LBL_NEWPOPUPDISCHARGEHEADER = By.xpath("//span[@class='discharge-form-header']");
-	public static final By LBL_NEWPOPUPDISCHARGEDATE = By.xpath("//*label[text()='DISCHARGE DATE']");
+	public static final By LBL_NEWPOPUPDISCHARGEDATE = By.xpath("//label[text()='DISCHARGE DATE']");
 	public static final By LBL_NEWPOPUPDISCHARGENOTIFICATIONDATE = By.xpath("//label[text()='NOTIFICATION DATE']");	
 	public static final By LBL_NEWPOPUPDISCHARGEPLANDATE = By.xpath("//label[text()='PLAN DATE']");
 	public static final By LBL_NEWPOPUPDISCHARGEPATIENTREFUSEDPLAN = By.xpath("//label[text()='PATIENT REFUSED PLAN']");
@@ -69,7 +109,7 @@ public class HospitalizationLocators {
 	public static final By BTN_NEWHOSPITALIZATIONSUBMIT = By.xpath("//button[contains(., 'Submit')]");	
 	
     //------------------------- Cancel button-----------------------
-	public static final By BTN_NEWHOSPITALIZATIONCANCEL = By.xpath("//button[contains(., 'Cancel')]");	
+	public static final By BTN_NEWHOSPITALIZATIONCANCEL = By.xpath("//button[contains(., 'Cancel')]");
 	
 	
 }

@@ -297,4 +297,9 @@ public class WebDriverWaits {
 			return null;
 		}
 	}
+	
+	public void asynchronousWait(WebDriver driver) {
+		WebDriverWait wait = new WebDriverWait(driver, 15, 100);
+		wait.until(AdditionalConditions.angularHasFinishedProcessing());
+	}
 }

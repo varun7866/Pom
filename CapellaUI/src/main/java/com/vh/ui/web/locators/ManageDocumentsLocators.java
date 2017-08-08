@@ -22,7 +22,7 @@ public class ManageDocumentsLocators {
 	
 	public static final By BTN_ADDDOCUMENTCANCEL = By.xpath("//button[contains(., 'Cancel')]");
 	public static final By BTN_ADDDOCUMENTADD = By.xpath("//button[contains(., 'Add')]");
-	public static final By BTN_ADDDOCUMENTSELECTAFILE = By.xpath("//div/label[contains(., 'SELECT A FILE')]");
+	public static final By BTN_ADDDOCUMENTSELECTAFILE = By.xpath("//div/label[contains(., 'SELECT A FILE')]");	//By.xpath("//div/input[@id='fileName']");
 	public static final By BTN_ADDDOCUMENTLINKREFERRAL = By.id("link-referral-button");
 	public static final By BTN_ADDDOCUMENTLINKTOHOSPITALIZATION = By.id("link-hospitalization-button");
 	public static final By BTN_ADDDOCUMENTDATEOFSIGNATURECAL = By.xpath("//my-date-picker//div/button");
@@ -48,6 +48,8 @@ public class ManageDocumentsLocators {
 	public static final By LBL_CONNECTAREFERRALPROVIDERNAME = By.xpath("//div[@class='divTableCell divTableHeadCell referral-provider-column']");
 	public static final By LBL_CONNECTAREFERRALREASON = By.xpath("//div[@class='divTableCell divTableHeadCell referral-reason-column']");
 	public static final By LBL_CONNECTAREFERRALAPPTDATE = By.xpath("//div[@class='divTableCell divTableHeadCell referral-apptDate-column']");
+	
+	public static final By ROW_CONNECTAREFERRALFIRSTROW = By.xpath("//referral-connect-dialog//modal-content/div/div[2]/div[1]/div");
 	
 	public static final By BTN_CONNECTAREFERRALCANCEL = By.xpath("//referral-connect-dialog//button[contains(., 'Cancel')]");
 	public static final By BTN_CONNECTAREFERRALCONNECT = By.xpath("//referral-connect-dialog//button[contains(., 'Connect')]");		

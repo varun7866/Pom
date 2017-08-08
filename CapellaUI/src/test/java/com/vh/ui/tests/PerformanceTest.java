@@ -8,6 +8,7 @@ import java.util.Map;
 import org.openqa.selenium.TimeoutException;
 import org.openqa.selenium.WebDriver;
 import org.testng.Assert;
+import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
@@ -18,7 +19,9 @@ import com.vh.ui.exceptions.WaitException;
 import com.vh.ui.page.base.WebPage;
 import com.vh.ui.pages.CurrentLabsPage;
 import com.vh.ui.pages.ManageDocumentsPage;
+import com.vh.ui.pages.MaterialFulfillmentPage;
 import com.vh.ui.pages.MedicalEquipmentPage;
+import com.vh.ui.pages.ProvidersTeamPage;
 
 /*
  * @author Sudheer Kumar Balivada
@@ -34,6 +37,8 @@ public class PerformanceTest extends TestBase {
 	MedicalEquipmentPage medicalEquipmentPage;
 	CurrentLabsPage currentLabsPage;
 	ManageDocumentsPage  manageDocumentsPage;
+	MaterialFulfillmentPage materialFulfillmentPage;
+	ProvidersTeamPage providersTeamPage;
 	
 	
 	@BeforeClass
@@ -110,6 +115,7 @@ public class PerformanceTest extends TestBase {
 		manageDocumentsPage = new ManageDocumentsPage(driver);
 		manageDocumentsPage.clickAddDocumentButton();
 		manageDocumentsPage.clickSelectaFileButtonAddDocument();
+		Thread.sleep(3000);
 		manageDocumentsPage.uploadFile("FileUpload.exe", "C:\\Users\\subalivada\\Desktop\\manageddocuments\\images.jpg");
 		manageDocumentsPage.addDescriptionAddDocument("Verify add document automation");
 		manageDocumentsPage.selectDocumentTypeOptionAddDocument("Diabetic Retinal Eye Exam Verification");
@@ -120,12 +126,18 @@ public class PerformanceTest extends TestBase {
 		manageDocumentsPage.clickAddButtonAddDocument();
 		
 		Thread.sleep(5000);
+		
+		//Material Fulfillment
+		appFunctions.navigateToMenu("Patient Admin->Material Fulfillment");
+
+		materialFulfillmentPage = new MaterialFulfillmentPage(driver);
+		materialFulfillmentPage.orderMaterial(map);
 	}
 	
-//	@AfterClass
-//	public void tearDown() throws TimeoutException, WaitException
-//	{
-//		appFunctions.capellaLogout();
-//		pageBase.quit();
-//	}
+	@AfterClass
+	public void tearDown() throws TimeoutException, WaitException
+	{
+		appFunctions.capellaLogout();
+		pageBase.quit();
+	}
 }

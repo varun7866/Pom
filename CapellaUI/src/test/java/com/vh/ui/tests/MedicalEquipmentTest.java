@@ -28,7 +28,7 @@ import ru.yandex.qatools.allure.annotations.Step;
  * 1. Change the "username" and "password" parameters in the "resources\application.properties" file to your own
  * 2. Clear your browser's cache
  * 3. Change the Patient name to a Patient under your ID in the call to the selectPatientFromMyPatients() method in the buildUp() method
- * 4. It's not required, but it would be a good idea to delete all existing medical equipment from table PTME_PATIENT_MEDICAL_EQUIP
+ * 4. Delete all existing medical equipment from table PTME_PATIENT_MEDICAL_EQUIP
  */
 
 public class MedicalEquipmentTest extends TestBase
@@ -49,7 +49,6 @@ public class MedicalEquipmentTest extends TestBase
 
 		appFunctions.capellaLogin();
 		appFunctions.selectPatientFromMyPatients("Waliy Al D Holroyd"); // QA
-		// appFunctions.selectPatientFromMyPatients("Alim Clear"); // Stage
 		appFunctions.navigateToMenu("Patient Admin->Medical Equipment");
 	}
 

@@ -47,20 +47,20 @@ public class CurrentLabsTest extends TestBase
 		currentLabsPage = new CurrentLabsPage(driver);
 
 		appFunctions.capellaLogin();
-		// appFunctions.selectPatientFromMyPatients("Glayds Whoriskey"); // CKD Patient
-		// appFunctions.navigateToMenu("Patient Experience->Labs->Current Labs");
+		appFunctions.selectPatientFromMyPatients("Glayds Whoriskey"); // CKD Patient
+		appFunctions.navigateToMenu("Patient Experience->Labs->Current Labs");
 	}
 
-	// @Test(priority = 1)
-	// @Step("Verify the Current Labs page")
+	@Test(priority = 1)
+	@Step("Verify the Current Labs page")
 	public void verify_CurrentLabsPage() throws WaitException, URLNavigationException, InterruptedException
 	{
 		Assert.assertTrue(currentLabsPage.viewPageHeaderLabel(), "Failed to identify the Current Labs page header label");
 		Assert.assertTrue(currentLabsPage.viewAddLabButton(), "Failed to identify the ADD LAB button");
 	}
 
-	// @Test(priority = 2)
-	// @Step("Verify the Add Lab Results popup for CKD Patients")
+	@Test(priority = 2)
+	@Step("Verify the Add Lab Results popup for CKD Patients")
 	public void verify_AddLabResultsPopupCKD() throws WaitException, URLNavigationException, InterruptedException
 	{
 		currentLabsPage.clickAddLabButton();
@@ -180,8 +180,8 @@ public class CurrentLabsTest extends TestBase
 		currentLabsPage.clickAddPopupCancelButton();
 	}
 
-	// @Test(priority = 3)
-	// @Step("Verify the Add Lab Results popup for ESRD Patients")
+	@Test(priority = 3)
+	@Step("Verify the Add Lab Results popup for ESRD Patients")
 	public void verify_AddLabResultsPopupESRD() throws WaitException, URLNavigationException, InterruptedException
 	{
 		appFunctions.selectPatientFromMyPatients("Waliy Al D Holroyd"); // ESRD Patient
