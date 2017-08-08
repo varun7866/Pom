@@ -2,11 +2,14 @@ package com.vh.ui.pages;
 
 import static com.vh.ui.web.locators.ReferralsLocators.BTN_ADDAREFERRAL;
 import static com.vh.ui.web.locators.ReferralsLocators.BTN_NEWREFERRALPOPUPAPPOINTMENTREFERRALDATE;
+import static com.vh.ui.web.locators.ReferralsLocators.BTN_NEWREFERRALSAVE;
 import static com.vh.ui.web.locators.ReferralsLocators.CAL_NEWREFERRALPOPUPAPPOINTMENTTABREFERRALDATE;
 import static com.vh.ui.web.locators.ReferralsLocators.CBO_NEWREFERRALPOPUPPROVIDERSTEAMTABPROVIDERSTEAM;
+import static com.vh.ui.web.locators.ReferralsLocators.CHK_NEWREFERRALPOPUPREASONS;
 import static com.vh.ui.web.locators.ReferralsLocators.LBL_REFERRALS;
 import static com.vh.ui.web.locators.ReferralsLocators.MNU_REFERRALSMENU;
 import static com.vh.ui.web.locators.ReferralsLocators.TAB_NEWREFERRALPOPUPAPPOINTMENT;
+import static com.vh.ui.web.locators.ReferralsLocators.TAB_NEWREFERRALPOPUPREASONS;
 
 import java.util.Map;
 
@@ -58,6 +61,9 @@ public class ReferralsPage extends WebPage
 		clickNewReferralPopupAppointmentTabDatePickerButton();
 		currentDayMinusX = appFunctions.adjustCurrentDateBy(map.get("REFERRALDATE"), "d");
 		appFunctions.selectDateFromCalendar(CAL_NEWREFERRALPOPUPAPPOINTMENTTABREFERRALDATE, currentDayMinusX);
+		clickNewReferralPopupReasonsTab();
+		clickNewReferralPopupReasonsTabReasons();
+		clickNewReferralSave();
 
 	}
 
@@ -85,6 +91,24 @@ public class ReferralsPage extends WebPage
 		webActions.click(VISIBILITY, BTN_NEWREFERRALPOPUPAPPOINTMENTREFERRALDATE);
 	}
 
+	//
 
+	@Step("Click on New Referral Popup 3.REASONS Tab")
+	public void clickNewReferralPopupReasonsTab() throws TimeoutException, WaitException
+	{
+		webActions.click(VISIBILITY, TAB_NEWREFERRALPOPUPREASONS);
+	}
+
+	@Step("Click on New Referral Popup 3.REASONS Tab Reasons")
+	public void clickNewReferralPopupReasonsTabReasons() throws TimeoutException, WaitException
+	{
+		webActions.click(VISIBILITY, CHK_NEWREFERRALPOPUPREASONS);
+	}
+
+	@Step("Click on New Referral SAVE button")
+	public void clickNewReferralSave() throws TimeoutException, WaitException
+	{
+		webActions.click(VISIBILITY, BTN_NEWREFERRALSAVE);
+	}
 
 }

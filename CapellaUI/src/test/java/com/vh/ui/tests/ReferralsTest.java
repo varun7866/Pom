@@ -18,9 +18,9 @@ import com.vh.ui.pages.ReferralsPage;
 import ru.yandex.qatools.allure.annotations.Step;
 
 /*
- * @author Harvy Ackermans
- * @date   June 22, 2017
- * @class  PatientNavigationTest.java
+ * @author Harshida Patel
+ * @date   August 1, 2017
+ * @class  ReferralsPage.java
  * 
  * Before running this test suite:
  * 1. Change the "username" and "password" parameters in the "resources\application.properties" file to your own
