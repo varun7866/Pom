@@ -92,11 +92,7 @@ public class ApplicationFunctions extends WebPage
 			loginPage.clickYesAllow();
 		}
 
-<<<<<<< HEAD
 //		 loginPage.verifyLandingPage();
-=======
-		// loginPage.verifyLandingPage();
->>>>>>> 543f8b3fe6bf9d04a133062519f4ef4366c09352
 	}
 
 	/**

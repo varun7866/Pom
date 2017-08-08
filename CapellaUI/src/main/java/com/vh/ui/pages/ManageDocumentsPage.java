@@ -214,10 +214,8 @@ public class ManageDocumentsPage extends WebPage
 		try {
 //			webActions.click(CLICKABILITY, BTN_ADDDOCUMENTSELECTAFILE);
 			webActions.javascriptClick(BTN_ADDDOCUMENTSELECTAFILE);
-<<<<<<< HEAD
 //			webActions.sampleClick(BTN_ADDDOCUMENTSELECTAFILE);
-=======
->>>>>>> 543f8b3fe6bf9d04a133062519f4ef4366c09352
+
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
@@ -228,11 +226,6 @@ public class ManageDocumentsPage extends WebPage
 			
 //		WebDriverWait wait = new WebDriverWait(driver,10);
 //		wait.until(ExpectedConditions.alertIsPresent());
-<<<<<<< HEAD
-		System.out.println("In upload file: ");
-=======
-		
->>>>>>> 543f8b3fe6bf9d04a133062519f4ef4366c09352
 		webActions.fileUploadByAutoIt(exeFileName, fileToUploadPath);
 		
 		try {
