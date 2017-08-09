@@ -184,7 +184,7 @@ public class MedicalEquipmentTest extends TestBase
 
 		appFunctions.navigateToMenu("Patient Admin->Medical Equipment");
 
-		equipmentAddDay = appFunctions.adjustCurrentDateBy(map.get("DATE"), "d");
+		equipmentAddDay = appFunctions.adjustCurrentDateBy(map.get("EQUIPMENTDATE"), "d");
 
 		if (map.get("EQUIPMENTINUSE").equals("Y"))
 		{

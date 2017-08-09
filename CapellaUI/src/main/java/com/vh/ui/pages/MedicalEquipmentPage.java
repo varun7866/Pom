@@ -207,7 +207,7 @@ public class MedicalEquipmentPage extends WebPage
 
 		String[][] tableData = appFunctions.getTextFromTable(TBL_MEDICALEQUIPMENT, 5);
 
-		equipmentDate = appFunctions.adjustCurrentDateBy(map.get("DATE"), "M/d/yyyy");
+		equipmentDate = appFunctions.adjustCurrentDateBy(map.get("EQUIPMENTDATE"), "M/d/yyyy");
 
 		for (String[] row : tableData)
 		{
