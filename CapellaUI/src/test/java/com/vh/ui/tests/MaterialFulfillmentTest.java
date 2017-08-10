@@ -26,6 +26,7 @@ import ru.yandex.qatools.allure.annotations.Step;
  *
  */
 
+
 public class MaterialFulfillmentTest extends TestBase
 {	
 	// Class objects

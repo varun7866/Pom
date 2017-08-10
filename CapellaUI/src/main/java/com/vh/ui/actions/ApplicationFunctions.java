@@ -9,6 +9,8 @@ import static com.vh.ui.web.locators.ApplicationLocators.TXT_MENUBAR_USERNAME;
 import static com.vh.ui.web.locators.LoginLocators.BTN_YESALLOW;
 import static com.vh.ui.web.locators.LoginLocators.TXT_USERNAME;
 
+import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -25,6 +27,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.testng.Assert;
 
+import com.vh.db.jdbc.DatabaseFunctions;
 import com.vh.ui.exceptions.URLNavigationException;
 import com.vh.ui.exceptions.WaitException;
 import com.vh.ui.page.base.WebPage;
@@ -50,6 +53,7 @@ public class ApplicationFunctions extends WebPage
 	protected static final Logger LOGGER = Logg.createLogger();
 	protected final WebDriverWaits wait = new WebDriverWaits();
 	private WebActions webActions = null;
+	private DatabaseFunctions databaseFunctions;
 	private WebPage pageBase;
 	private LoginPage loginPage;
 	
@@ -61,6 +65,7 @@ public class ApplicationFunctions extends WebPage
 		super(driver);
 		webActions = new WebActions(driver);
 		pageBase = new WebPage(driver);
+		databaseFunctions = new DatabaseFunctions();
 	}
 	
 	/**
@@ -906,5 +911,20 @@ public class ApplicationFunctions extends WebPage
 		}
 
 		return false;
+	}
+
+	/**
+	 * Executes the passed in SQL query.
+	 * 
+	 * @param sqlStatement
+	 *            The SQL statement used to query the database.
+	 * @throws WaitException
+	 * @throws SQLException
+	 */
+	public ResultSet queryDatabase(String sqlquery) throws WaitException, SQLException
+	{
+		databaseFunctions.connectToDatabase();
+
+		return databaseFunctions.runQuery(sqlquery);
 	}
 }

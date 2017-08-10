@@ -1,5 +1,6 @@
 package com.vh.ui.tests;
 
+import java.sql.SQLException;
 import java.util.Map;
 
 import org.openqa.selenium.TimeoutException;
@@ -48,12 +49,12 @@ public class MedicalEquipmentTest extends TestBase
 		medicalEquipmentPage = new MedicalEquipmentPage(driver);
 
 		appFunctions.capellaLogin();
-		appFunctions.selectPatientFromMyPatients("Waliy Al D Holroyd"); // QA
-		appFunctions.navigateToMenu("Patient Admin->Medical Equipment");
+		// appFunctions.selectPatientFromMyPatients("Waliy Al D Holroyd"); // QA
+		// appFunctions.navigateToMenu("Patient Admin->Medical Equipment");
 	}
 
-	@Test(priority = 1)
-	@Step("Verify the Medical Equipment page")
+	// @Test(priority = 1)
+	// @Step("Verify the Medical Equipment page")
 	public void verify_MedicalEquipmentPage() throws WaitException, URLNavigationException, InterruptedException
 	{
 		Assert.assertTrue(medicalEquipmentPage.viewPageHeaderLabel(), "Failed to identify the MEDICAL EQUIPMENT page header label");
@@ -65,8 +66,8 @@ public class MedicalEquipmentTest extends TestBase
 		Assert.assertTrue(medicalEquipmentPage.viewInUseColumnHeaderLabel(), "Failed to identify the IN USE colummn header label");
 	}
 
-	@Test(priority = 2)
-	@Step("Verify the Add Medical Equipment popup")
+	// @Test(priority = 2)
+	// @Step("Verify the Add Medical Equipment popup")
 	public void verify_AddMedicalEquipmentPopup() throws WaitException, URLNavigationException, InterruptedException
 	{
 		medicalEquipmentPage.clickAddMedicalEquipmentButton();
@@ -117,8 +118,8 @@ public class MedicalEquipmentTest extends TestBase
 		medicalEquipmentPage.selectAddPopupCurrentDateFromCalendar();
 	}
 
-	@Test(priority = 3)
-	@Step("Verify adding Medical Equipment")
+	// @Test(priority = 3)
+	// @Step("Verify adding Medical Equipment")
 	public void verify_AddMedicalEquipment() throws WaitException, URLNavigationException, InterruptedException
 	{
 		medicalEquipmentPage.checkAddPopupEquipmentIsInUseCheckBox();
@@ -127,11 +128,11 @@ public class MedicalEquipmentTest extends TestBase
 
 		Assert.assertTrue(medicalEquipmentPage.viewAddMedicalEquipmentPopupClosed(), "The Add Medical Equipment popup did not close");
 
-		Assert.assertTrue(medicalEquipmentPage.isMedicalEquipmentInTable(), "The Medical Equipment is not in the table");
+		Assert.assertTrue(medicalEquipmentPage.isMedicalEquipmentInTable(), "The Medical Equipment was not added to the table");
 	}
 
-	@Test(priority = 4)
-	@Step("Verify editable fields in the Medical Equipment table")
+	// @Test(priority = 4)
+	// @Step("Verify editable fields in the Medical Equipment table")
 	public void verify_EditableFields() throws WaitException, URLNavigationException, InterruptedException
 	{
 		Assert.assertTrue(medicalEquipmentPage.isStatusDropdownEditable(), "The STATUS drop down is not editable");
@@ -143,8 +144,8 @@ public class MedicalEquipmentTest extends TestBase
 		Assert.assertTrue(medicalEquipmentPage.verifyStatusComboBoxOptions(), "The STATUS drop down options are incorrect");
 	}
 
-	@Test(priority = 5)
-	@Step("Verify all columns can be sorted in the Medical Equipment table")
+	// @Test(priority = 5)
+	// @Step("Verify all columns can be sorted in the Medical Equipment table")
 	public void verify_ColumnSorting() throws WaitException, URLNavigationException, InterruptedException
 	{
 		String currentDayMinusX;
@@ -175,7 +176,7 @@ public class MedicalEquipmentTest extends TestBase
 
 	@Test(priority = 6, dataProvider = "CapellaDataProvider")
 	@Step("Verify adding Medical Equipment from Excel data")
-	public void verify_AddingMedicalEquipment(Map<String, String> map) throws WaitException, URLNavigationException, InterruptedException
+	public void addMedicalEquipment(Map<String, String> map) throws WaitException, URLNavigationException, InterruptedException, TimeoutException, SQLException
 	{
 		boolean equipmentInUse = false;
 		String equipmentAddDay;
@@ -184,7 +185,7 @@ public class MedicalEquipmentTest extends TestBase
 
 		appFunctions.navigateToMenu("Patient Admin->Medical Equipment");
 
-		equipmentAddDay = appFunctions.adjustCurrentDateBy(map.get("DATE"), "d");
+		equipmentAddDay = appFunctions.adjustCurrentDateBy(map.get("EQUIPMENTDATE"), "d");
 
 		if (map.get("EQUIPMENTINUSE").equals("Y"))
 		{
@@ -194,6 +195,8 @@ public class MedicalEquipmentTest extends TestBase
 		medicalEquipmentPage.addMedicalEquipment(equipmentAddDay, map.get("SOURCEDROPDOWN"), map.get("EQUIPMENTTYPE"), map.get("STATUS"), equipmentInUse);
 
 		Assert.assertTrue(medicalEquipmentPage.isMedicalEquipmentInTable(map), "The Medical Equipment is not in the table");
+
+		Assert.assertTrue(medicalEquipmentPage.verifyMedicalEquipmentDatabase(map), "The Medical Equipment was not added to the database correctly");
 	}
 
 	@AfterClass
