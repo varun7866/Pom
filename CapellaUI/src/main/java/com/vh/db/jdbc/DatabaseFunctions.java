@@ -57,10 +57,6 @@ public class DatabaseFunctions
 		{
 			System.out.println("Error querying database: " + e.getMessage());
 		}
-		finally
-		{
-			close();
-		}
 
 		return queryResultSet;
 	}

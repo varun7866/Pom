@@ -196,7 +196,7 @@ public class MedicalEquipmentTest extends TestBase
 
 		Assert.assertTrue(medicalEquipmentPage.isMedicalEquipmentInTable(map), "The Medical Equipment is not in the table");
 
-		Assert.assertTrue(medicalEquipmentPage.verifyMedicalEquipmentDatabase(), "The Medical Equipment was not added to the database correctly");
+		Assert.assertTrue(medicalEquipmentPage.verifyMedicalEquipmentDatabase(map), "The Medical Equipment was not added to the database correctly");
 	}
 
 	@AfterClass

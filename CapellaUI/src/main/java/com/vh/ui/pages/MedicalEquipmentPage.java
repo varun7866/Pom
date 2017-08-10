@@ -226,11 +226,20 @@ public class MedicalEquipmentPage extends WebPage
 	}
 
 	@Step("Verify the Medical Equipment was added to the database correctly")
-	public boolean verifyMedicalEquipmentDatabase() throws TimeoutException, WaitException, InterruptedException, SQLException
+	public boolean verifyMedicalEquipmentDatabase(Map<String, String> map) throws TimeoutException, WaitException, InterruptedException, SQLException
 	{
 		ResultSet queryResultSet = appFunctions.queryDatabase(SQL_SELECT_PTME_PATIENT_MEDICAL_EQUIP);
 
-		return true;
+		queryResultSet.next();
+
+		if (queryResultSet.getString("PTME_NOT_INUSE_YN").equals(map.get("EQUIPMENTINUSE")))
+		{
+			return true;
+		}
+		else
+		{
+			return false;
+		}
 	}
 
 	@Step("Verify the visibility of the Add Medical Equipment popup")
