@@ -930,10 +930,20 @@ public class ApplicationFunctions extends WebPage
 
 		ResultSet queryResultSet = databaseFunctions.runQuery(sqlquery);
 
-		while (queryResultSet.next())
-		{
-			System.out.println(queryResultSet.getString(1) + "  " + queryResultSet.getString(2) + "  " + queryResultSet.getString(3));
-		}
+		return compareData(map, queryResultSet);
+	}
+
+	/**
+	 * Compares the data from Excel with the data from the database.
+	 * 
+	 * @param queryResultSet
+	 *            The result set from the SQL query.
+	 * @throws WaitException
+	 * @throws SQLException
+	 */
+	public boolean compareData(Map<String, String> map, ResultSet queryResultSet) throws WaitException, SQLException
+	{
+		System.out.println(queryResultSet.getString(1) + "  " + queryResultSet.getString(2) + "  " + queryResultSet.getString(3));
 
 		return true;
 	}
