@@ -3,6 +3,7 @@ package com.vh.db.jdbc;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.Properties;
 
@@ -43,7 +44,7 @@ public class DatabaseFunctions
 	}
 
 	@Step("Executes the passed in SQL query and returns the results")
-	public ResultSet runQuery(String sqlquery)
+	public ResultSet runQuery(String sqlquery) throws SQLException
 	{
 		ResultSet queryResultSet = null;
 
@@ -56,7 +57,17 @@ public class DatabaseFunctions
 		{
 			System.out.println("Error querying database: " + e.getMessage());
 		}
+		finally
+		{
+			close();
+		}
 
 		return queryResultSet;
+	}
+
+	@Step("Closes the database connection")
+	public void close() throws SQLException
+	{
+		dbConnection.close();
 	}
 }

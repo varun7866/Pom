@@ -29,6 +29,7 @@ import static com.vh.ui.web.locators.MedicalEquipmentLocators.PLH_ADDPOPUPSOURCE
 import static com.vh.ui.web.locators.MedicalEquipmentLocators.PLH_ADDPOPUPSTATUS;
 import static com.vh.ui.web.locators.MedicalEquipmentLocators.TBL_MEDICALEQUIPMENT;
 
+import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
@@ -225,9 +226,11 @@ public class MedicalEquipmentPage extends WebPage
 	}
 
 	@Step("Verify the Medical Equipment was added to the database correctly")
-	public boolean verifyMedicalEquipmentDatabase(Map<String, String> map) throws TimeoutException, WaitException, InterruptedException, SQLException
+	public boolean verifyMedicalEquipmentDatabase() throws TimeoutException, WaitException, InterruptedException, SQLException
 	{
-		return appFunctions.verifyDatabase(map, SQL_SELECT_PTME_PATIENT_MEDICAL_EQUIP);
+		ResultSet queryResultSet = appFunctions.queryDatabase(SQL_SELECT_PTME_PATIENT_MEDICAL_EQUIP);
+
+		return true;
 	}
 
 	@Step("Verify the visibility of the Add Medical Equipment popup")

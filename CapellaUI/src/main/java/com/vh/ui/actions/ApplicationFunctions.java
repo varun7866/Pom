@@ -18,7 +18,6 @@ import java.util.Calendar;
 import java.util.Collections;
 import java.util.Date;
 import java.util.List;
-import java.util.Map;
 import java.util.Properties;
 
 import org.apache.log4j.Logger;
@@ -915,36 +914,17 @@ public class ApplicationFunctions extends WebPage
 	}
 
 	/**
-	 * Verifies the data on the database with the date from Excel.
+	 * Executes the passed in SQL query.
 	 * 
-	 * @param map
-	 *            A single row of data from Excel.
 	 * @param sqlStatement
-	 *            The SQL statement used to query the database. This query must only return one row.
+	 *            The SQL statement used to query the database.
 	 * @throws WaitException
 	 * @throws SQLException
 	 */
-	public boolean verifyDatabase(Map<String, String> map, String sqlquery) throws WaitException, SQLException
+	public ResultSet queryDatabase(String sqlquery) throws WaitException, SQLException
 	{
 		databaseFunctions.connectToDatabase();
 
-		ResultSet queryResultSet = databaseFunctions.runQuery(sqlquery);
-
-		return compareData(map, queryResultSet);
-	}
-
-	/**
-	 * Compares the data from Excel with the data from the database.
-	 * 
-	 * @param queryResultSet
-	 *            The result set from the SQL query.
-	 * @throws WaitException
-	 * @throws SQLException
-	 */
-	public boolean compareData(Map<String, String> map, ResultSet queryResultSet) throws WaitException, SQLException
-	{
-		System.out.println(queryResultSet.getString(1) + "  " + queryResultSet.getString(2) + "  " + queryResultSet.getString(3));
-
-		return true;
+		return databaseFunctions.runQuery(sqlquery);
 	}
 }
