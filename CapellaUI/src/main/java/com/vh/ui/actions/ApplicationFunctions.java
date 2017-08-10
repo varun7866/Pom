@@ -9,6 +9,8 @@ import static com.vh.ui.web.locators.ApplicationLocators.TXT_MENUBAR_USERNAME;
 import static com.vh.ui.web.locators.LoginLocators.BTN_YESALLOW;
 import static com.vh.ui.web.locators.LoginLocators.TXT_USERNAME;
 
+import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -16,6 +18,7 @@ import java.util.Calendar;
 import java.util.Collections;
 import java.util.Date;
 import java.util.List;
+import java.util.Map;
 import java.util.Properties;
 
 import org.apache.log4j.Logger;
@@ -25,6 +28,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.testng.Assert;
 
+import com.vh.db.jdbc.DatabaseFunctions;
 import com.vh.ui.exceptions.URLNavigationException;
 import com.vh.ui.exceptions.WaitException;
 import com.vh.ui.page.base.WebPage;
@@ -50,6 +54,7 @@ public class ApplicationFunctions extends WebPage
 	protected static final Logger LOGGER = Logg.createLogger();
 	protected final WebDriverWaits wait = new WebDriverWaits();
 	private WebActions webActions = null;
+	private DatabaseFunctions databaseFunctions;
 	private WebPage pageBase;
 	private LoginPage loginPage;
 	
@@ -61,6 +66,7 @@ public class ApplicationFunctions extends WebPage
 		super(driver);
 		webActions = new WebActions(driver);
 		pageBase = new WebPage(driver);
+		databaseFunctions = new DatabaseFunctions();
 	}
 	
 	/**
@@ -906,5 +912,29 @@ public class ApplicationFunctions extends WebPage
 		}
 
 		return false;
+	}
+
+	/**
+	 * Verifies the data on the database with the date from Excel.
+	 * 
+	 * @param map
+	 *            A single row of data from Excel.
+	 * @param sqlStatement
+	 *            The SQL statement used to query the database. This query must only return one row.
+	 * @throws WaitException
+	 * @throws SQLException
+	 */
+	public boolean verifyDatabase(Map<String, String> map, String sqlquery) throws WaitException, SQLException
+	{
+		databaseFunctions.connectToDatabase();
+
+		ResultSet queryResultSet = databaseFunctions.runQuery(sqlquery);
+
+		while (queryResultSet.next())
+		{
+			System.out.println(queryResultSet.getString(1) + "  " + queryResultSet.getString(2) + "  " + queryResultSet.getString(3));
+		}
+
+		return true;
 	}
 }

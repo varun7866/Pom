@@ -1,5 +1,6 @@
 package com.vh.ui.pages;
 
+import static com.vh.sql.queries.SqlQueries.SQL_SELECT_PTME_PATIENT_MEDICAL_EQUIP;
 import static com.vh.ui.web.locators.MedicalEquipmentLocators.BTN_ADDMEDICALEQUIPMENT;
 import static com.vh.ui.web.locators.MedicalEquipmentLocators.BTN_ADDPOPUPADD;
 import static com.vh.ui.web.locators.MedicalEquipmentLocators.BTN_ADDPOPUPCANCEL;
@@ -28,6 +29,7 @@ import static com.vh.ui.web.locators.MedicalEquipmentLocators.PLH_ADDPOPUPSOURCE
 import static com.vh.ui.web.locators.MedicalEquipmentLocators.PLH_ADDPOPUPSTATUS;
 import static com.vh.ui.web.locators.MedicalEquipmentLocators.TBL_MEDICALEQUIPMENT;
 
+import java.sql.SQLException;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -220,6 +222,12 @@ public class MedicalEquipmentPage extends WebPage
 		}
 
 		return false;
+	}
+
+	@Step("Verify the Medical Equipment was added to the database correctly")
+	public boolean verifyMedicalEquipmentDatabase(Map<String, String> map) throws TimeoutException, WaitException, InterruptedException, SQLException
+	{
+		return appFunctions.verifyDatabase(map, SQL_SELECT_PTME_PATIENT_MEDICAL_EQUIP);
 	}
 
 	@Step("Verify the visibility of the Add Medical Equipment popup")
