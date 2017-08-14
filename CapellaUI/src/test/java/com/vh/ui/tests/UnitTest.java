@@ -1,14 +1,22 @@
 package com.vh.ui.tests;
 
-import java.io.IOException;
-import java.util.Iterator;
-import java.util.Map;
-import java.util.Map.Entry;
-import java.util.Set;
+import static com.vh.ui.web.locators.HospitalizationLocators.CAL_NEWHOSPPOPUPADMITTANCETABADMITDATECAL;
 
+import java.io.IOException;
+
+import org.openqa.selenium.TimeoutException;
+import org.openqa.selenium.WebDriver;
+import org.testng.annotations.AfterClass;
+import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
 import com.vh.test.base.TestBase;
+import com.vh.ui.actions.ApplicationFunctions;
+import com.vh.ui.actions.WebActions;
+import com.vh.ui.exceptions.URLNavigationException;
+import com.vh.ui.exceptions.WaitException;
+import com.vh.ui.page.base.WebPage;
+import com.vh.ui.pages.HospitalizationPage;
 
 /*
  * @author Harvy Ackermans
@@ -21,40 +29,37 @@ import com.vh.test.base.TestBase;
 
 public class UnitTest extends TestBase
 {	
-    @Test(dataProvider="dp1", priority=1)
-    @SuppressWarnings("rawtypes")
-    public void function1(Map<String, String> map) throws IOException
-    {        
-//        map.get("FirstName");
-        Set<Entry<String, String>> set = map.entrySet();
-        Iterator<?> iterator = set.iterator();
-        while(iterator.hasNext()) {
-            
-			Map.Entry mentry = (Map.Entry)iterator.next();
-            System.out.println("function1:: key is: "+ mentry.getKey() + " & Value is: "+mentry.getValue());
-        }
-    }
-    
-    @Test(dataProvider="dp1", priority=2)
-    @SuppressWarnings("rawtypes")
-	public void function2(Map<String, String> map) throws IOException
-	{
-    	Set set = map.entrySet();
-		Iterator iterator = set.iterator();
-		while(iterator.hasNext()) {
-			Map.Entry mentry = (Map.Entry)iterator.next();
-		    System.out.println("function2:: key is: "+ mentry.getKey() + " & Value is: "+mentry.getValue());
-		}
+	WebPage pageBase;
+	WebActions webActions;
+	ApplicationFunctions appFunctions;
+	HospitalizationPage hospitalizationsPage;
+
+	@BeforeClass
+	public void buildUp() throws TimeoutException, WaitException, URLNavigationException, InterruptedException {
+		WebDriver driver = getWebDriver();
+		pageBase = new WebPage(driver);
+		webActions = new WebActions(driver);
+		appFunctions = new ApplicationFunctions(driver);
+		hospitalizationsPage = new HospitalizationPage(driver);
+
+		appFunctions.capellaLogin();
+		appFunctions.selectPatientFromMyPatients("Waliy Al D Holroyd"); // QA
+		appFunctions.navigateToMenu("Patient Experience->Hospitalizations");
 	}    
-		  
-    @Test(dataProvider="dp1", priority=3)
-    @SuppressWarnings("rawtypes")
-	public void function3(Map<String, String> map) throws IOException {
-    	Set set = map.entrySet();
-    	Iterator iterator = set.iterator();
-    	while(iterator.hasNext()) {
-    		Map.Entry mentry = (Map.Entry)iterator.next();
-    		System.out.println("function3:: key is: "+ mentry.getKey() + " & Value is: "+mentry.getValue());
-    	}
+	
+	@Test
+	public void function4() throws IOException, TimeoutException, WaitException, InterruptedException
+	{
+		hospitalizationsPage.clickAddHospitalizationButton();
+		hospitalizationsPage.clickNewHospPopupAdmittanceTabAdmitDatePickerButton();
+
+		appFunctions.selectDateFromCalendarAsMdYYYY(CAL_NEWHOSPPOPUPADMITTANCETABADMITDATECAL, "11/17/2016");
     }
+
+	@AfterClass
+	public void tearDown() throws TimeoutException, WaitException
+	{
+		// appFunctions.capellaLogout();
+		// pageBase.quit();
+	}
 }

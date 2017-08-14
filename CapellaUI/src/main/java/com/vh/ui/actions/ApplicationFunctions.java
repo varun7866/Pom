@@ -555,16 +555,13 @@ public class ApplicationFunctions extends WebPage
 	public void selectDateFromCalendarAsMdYYYY(By datePickerLocator, String dateToSelect) throws WaitException, InterruptedException
 	{
 		int currentMonthInt;
-		int currentDayInt;
 		int currentYearInt;
 		int dateToSelectMonthInt;
-		int dateToSelectDayInt;
 		int dateToSelectYearInt;
 		int yearDifference;
 		int monthDifference;
 
 		String currentMonth;
-		String currentDay;
 		String currentYear;
 		String dateToSelectMonth;
 		String dateToSelectDay;
@@ -573,21 +570,20 @@ public class ApplicationFunctions extends WebPage
 
 		By calendarPrevYearButton;
 		By calendarNextYearButton;
-		// By DayLocator;
+		By calendarPrevMonthButton;
+		By calendarNextMonthButton;
+		By calendarDayButton;
 
 		// Get and format current date
 		DateFormat dateFormatM = new SimpleDateFormat("M");
-		DateFormat dateFormatd = new SimpleDateFormat("d");
 		DateFormat dateFormatYYYY = new SimpleDateFormat("YYYY");
 
 		Date dateObject = new Date();
 
 		currentMonth = dateFormatM.format(dateObject);
-		currentDay = dateFormatd.format(dateObject);
 		currentYear = dateFormatYYYY.format(dateObject);
 
 		currentMonthInt = Integer.parseInt(currentMonth);
-		currentDayInt = Integer.parseInt(currentDay);
 		currentYearInt = Integer.parseInt(currentYear);
 
 		// Parse passed in date to select
@@ -596,11 +592,11 @@ public class ApplicationFunctions extends WebPage
 		dateToSelectYear = dateToSelect.substring(dateToSelect.lastIndexOf("/") + 1);
 
 		dateToSelectMonthInt = Integer.parseInt(dateToSelectMonth);
-		dateToSelectDayInt = Integer.parseInt(dateToSelectDay);
 		dateToSelectYearInt = Integer.parseInt(dateToSelectYear);
 
 		datePickerLocatorXpathString = datePickerLocator.toString().substring(10);
 
+		// Change Year backwards
 		if (dateToSelectYearInt < currentYearInt)
 		{
 			yearDifference = currentYearInt - dateToSelectYearInt;
@@ -610,7 +606,7 @@ public class ApplicationFunctions extends WebPage
 			{
 				webActions.click(VISIBILITY, calendarPrevYearButton);
 			}
-		} else
+		} else // Change Year forwards
 		{
 			if (dateToSelectYearInt > currentYearInt)
 			{
@@ -624,24 +620,33 @@ public class ApplicationFunctions extends WebPage
 			}
 		}
 
+		// Change Month backwards
+		if (dateToSelectMonthInt < currentMonthInt)
+		{
+			monthDifference = currentMonthInt - dateToSelectMonthInt;
+			calendarPrevMonthButton = By.xpath(datePickerLocatorXpathString + "/../..//button[@aria-label='Previous Month']");
 
+			for (int x = 1; x <= monthDifference; x++)
+			{
+				webActions.click(VISIBILITY, calendarPrevMonthButton);
+			}
+		} else // Change Month forwards
+		{
+			if (dateToSelectMonthInt > currentMonthInt)
+			{
+				monthDifference = dateToSelectMonthInt - currentMonthInt;
+				calendarNextMonthButton = By.xpath(datePickerLocatorXpathString + "/../..//button[@aria-label='Next Month']");
 
-		// DayLocator = By.xpath(datePickerLocatorXpathString + "/../..//td[@class='daycell currmonth tablesingleday']/div[contains(@class,'datevalue currmonth')]/span[text()='"
-		// + dateToSelectInt + "']");
-		// webActions.click(VISIBILITY, DayLocator);
-		// } else
-		// {
-		// if (dateToSelectInt == currentDayInt)
-		// {
-		// DayLocator = By.xpath(datePickerLocatorXpathString + "/../..//span[@class='markcurrday']");
-		// webActions.click(VISIBILITY, DayLocator);
-		// } else
-		// {
-		// DayLocator = By.xpath(
-		// datePickerLocatorXpathString + "/../..//td[@class='daycell currmonth tablesingleday']/div[contains(@class,'datevalue currmonth')]/span[text()='" + dateToSelectInt + "']");
-		// webActions.click(VISIBILITY, DayLocator);
-		// }
-		// }
+				for (int x = 1; x <= monthDifference; x++)
+				{
+					webActions.click(VISIBILITY, calendarNextMonthButton);
+				}
+			}
+		}
+
+		// Select Day
+		calendarDayButton = By.xpath(datePickerLocatorXpathString + "/../..//div[@class='datevalue currmonth']/span[text()='" + dateToSelectDay + "']");
+		webActions.click(VISIBILITY, calendarDayButton);
 	}
 
 	/**
