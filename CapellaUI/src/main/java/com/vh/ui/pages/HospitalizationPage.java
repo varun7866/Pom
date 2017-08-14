@@ -1,7 +1,87 @@
 package com.vh.ui.pages;
 
 
-import static com.vh.ui.web.locators.HospitalizationLocators.*;
+import static com.vh.ui.web.locators.HospitalizationLocators.BTN_ADDHOSPITALIZATION;
+import static com.vh.ui.web.locators.HospitalizationLocators.BTN_NEWHOSPITALIZATIONCANCEL;
+import static com.vh.ui.web.locators.HospitalizationLocators.BTN_NEWHOSPITALIZATIONSUBMIT;
+import static com.vh.ui.web.locators.HospitalizationLocators.BTN_NEWHOSPNEWHOSPADDPOPUPADMITTANCETABNEXT;
+import static com.vh.ui.web.locators.HospitalizationLocators.BTN_NEWHOSPPOPUPADMITTANCETABADMITDATECAL;
+import static com.vh.ui.web.locators.HospitalizationLocators.BTN_NEWHOSPPOPUPADMITTANCETABNOTIFICATIONDATECAL;
+import static com.vh.ui.web.locators.HospitalizationLocators.BTN_NEWHOSPPOPUPDISCHARGETABDISCHARGEDATECAL;
+import static com.vh.ui.web.locators.HospitalizationLocators.BTN_NEWHOSPPOPUPDISCHARGETABDISCHARGETAB;
+import static com.vh.ui.web.locators.HospitalizationLocators.BTN_NEWHOSPPOPUPDISCHARGETABNOTIFICATIONDATECAL;
+import static com.vh.ui.web.locators.HospitalizationLocators.BTN_NEWHOSPPOPUPDISCHARGETABPLANDATECAL;
+import static com.vh.ui.web.locators.HospitalizationLocators.BTN_NEWHOSPPOPUPTRANSFERTABTRANSFERBUTTON;
+import static com.vh.ui.web.locators.HospitalizationLocators.BTN_NEWHOSPPOPUPTRANSFERTABTRANSFERDATECAL;
+import static com.vh.ui.web.locators.HospitalizationLocators.BTN_NEWHOSPTRANSFERTABNEXT;
+import static com.vh.ui.web.locators.HospitalizationLocators.CAL_NEWHOSPPOPUPADMITTANCETABADMITDATECAL;
+import static com.vh.ui.web.locators.HospitalizationLocators.CAL_NEWHOSPPOPUPADMITTANCETABNOTIFICATIONDATECAL;
+import static com.vh.ui.web.locators.HospitalizationLocators.CAL_NEWHOSPPOPUPADMITTANCETABTRANSFERDATE;
+import static com.vh.ui.web.locators.HospitalizationLocators.CAL_NEWHOSPPOPUPDISCHARGETABADDDISCHARGEDATE;
+import static com.vh.ui.web.locators.HospitalizationLocators.CAL_NEWHOSPPOPUPDISCHARGETABADDPLANDATE;
+import static com.vh.ui.web.locators.HospitalizationLocators.CAL_NEWHOSPPOPUPDISCHARGETABNOTIFICATIONDATE;
+import static com.vh.ui.web.locators.HospitalizationLocators.CBO_NEWHOSPPOPUPADMITTANCETABADMITTINGDIAGNOSIS;
+import static com.vh.ui.web.locators.HospitalizationLocators.CBO_NEWHOSPPOPUPADMITTANCETABADMITTYPE;
+import static com.vh.ui.web.locators.HospitalizationLocators.CBO_NEWHOSPPOPUPADMITTANCETABNOTIFIEDBy;
+import static com.vh.ui.web.locators.HospitalizationLocators.CBO_NEWHOSPPOPUPADMITTANCETABPRIORLOCATION;
+import static com.vh.ui.web.locators.HospitalizationLocators.CBO_NEWHOSPPOPUPADMITTANCETABREASON;
+import static com.vh.ui.web.locators.HospitalizationLocators.CBO_NEWHOSPPOPUPADMITTANCETABRELATEDSUBCATEGORY;
+import static com.vh.ui.web.locators.HospitalizationLocators.CBO_NEWHOSPPOPUPADMITTANCETABSOURCEOFADMIT;
+import static com.vh.ui.web.locators.HospitalizationLocators.CBO_NEWHOSPPOPUPDISCHARGETABDISCHARGEDIAGNOSIS;
+import static com.vh.ui.web.locators.HospitalizationLocators.CBO_NEWHOSPPOPUPDISCHARGETABDISCHARGERELATEDSUBCATEGORY;
+import static com.vh.ui.web.locators.HospitalizationLocators.CBO_NEWHOSPPOPUPDISCHARGETABDISPOSITION;
+import static com.vh.ui.web.locators.HospitalizationLocators.CBO_NEWHOSPPOPUPDISCHARGETABHOMEHEALTHREASON;
+import static com.vh.ui.web.locators.HospitalizationLocators.CHK_NEWHOSPPOPUPADMITTANCETABAVOIDABLEADM;
+import static com.vh.ui.web.locators.HospitalizationLocators.CHK_NEWHOSPPOPUPADMITTANCETABPLANNEDADMISSION;
+import static com.vh.ui.web.locators.HospitalizationLocators.CHK_NEWHOSPPOPUPADMITTANCETABVCWHOSPCMGR;
+import static com.vh.ui.web.locators.HospitalizationLocators.LBL_ADDTRANSFER;
+import static com.vh.ui.web.locators.HospitalizationLocators.LBL_NEWHOSPADDPOPUPADMITTANCETABADMITTINGDIAGNOSIS;
+import static com.vh.ui.web.locators.HospitalizationLocators.LBL_NEWHOSPADDPOPUPADMITTANCETABADMITTYPE;
+import static com.vh.ui.web.locators.HospitalizationLocators.LBL_NEWHOSPADDPOPUPADMITTANCETABAVOIDABLEADM;
+import static com.vh.ui.web.locators.HospitalizationLocators.LBL_NEWHOSPADDPOPUPADMITTANCETABCOMMENT;
+import static com.vh.ui.web.locators.HospitalizationLocators.LBL_NEWHOSPADDPOPUPADMITTANCETABFAX;
+import static com.vh.ui.web.locators.HospitalizationLocators.LBL_NEWHOSPADDPOPUPADMITTANCETABPHONE;
+import static com.vh.ui.web.locators.HospitalizationLocators.LBL_NEWHOSPADDPOPUPADMITTANCETABPLANNEDADMISSION;
+import static com.vh.ui.web.locators.HospitalizationLocators.LBL_NEWHOSPADDPOPUPADMITTANCETABPRIORLOCATION;
+import static com.vh.ui.web.locators.HospitalizationLocators.LBL_NEWHOSPADDPOPUPADMITTANCETABREADMIT;
+import static com.vh.ui.web.locators.HospitalizationLocators.LBL_NEWHOSPADDPOPUPADMITTANCETABRELATEDSUBCATEGORY;
+import static com.vh.ui.web.locators.HospitalizationLocators.LBL_NEWHOSPADDPOPUPADMITTANCETABSOURCEOFADMIT;
+import static com.vh.ui.web.locators.HospitalizationLocators.LBL_NEWHOSPADDPOPUPADMITTANCETABVCWHOSPCMGR;
+import static com.vh.ui.web.locators.HospitalizationLocators.LBL_NEWHOSPADDPOPUPADMITTANCETABWORKINGDIAGNOSIS;
+import static com.vh.ui.web.locators.HospitalizationLocators.LBL_NEWHOSPNEWHOSPADDPOPUPADMITTANCETABADMITDATE;
+import static com.vh.ui.web.locators.HospitalizationLocators.LBL_NEWHOSPNEWHOSPADDPOPUPADMITTANCETABADMITTANCEHEADER;
+import static com.vh.ui.web.locators.HospitalizationLocators.LBL_NEWHOSPNEWHOSPADDPOPUPADMITTANCETABFACILITYNAME;
+import static com.vh.ui.web.locators.HospitalizationLocators.LBL_NEWHOSPNEWHOSPADDPOPUPADMITTANCETABNOTIFICATIONDATE;
+import static com.vh.ui.web.locators.HospitalizationLocators.LBL_NEWHOSPNEWHOSPADDPOPUPADMITTANCETABNOTIFIEDBy;
+import static com.vh.ui.web.locators.HospitalizationLocators.LBL_NEWHOSPNEWHOSPADDPOPUPADMITTANCETABREASON;
+import static com.vh.ui.web.locators.HospitalizationLocators.LBL_NEWHOSPPOPUPDISCHARGETABDISCHARGEDATE;
+import static com.vh.ui.web.locators.HospitalizationLocators.LBL_NEWHOSPPOPUPDISCHARGETABDISCHARGEDIAGNOSIS;
+import static com.vh.ui.web.locators.HospitalizationLocators.LBL_NEWHOSPPOPUPDISCHARGETABDISCHARGEHEADER;
+import static com.vh.ui.web.locators.HospitalizationLocators.LBL_NEWHOSPPOPUPDISCHARGETABDISCHARGENOTIFICATIONDATE;
+import static com.vh.ui.web.locators.HospitalizationLocators.LBL_NEWHOSPPOPUPDISCHARGETABDISCHARGEPATIENTREFUSEDPLAN;
+import static com.vh.ui.web.locators.HospitalizationLocators.LBL_NEWHOSPPOPUPDISCHARGETABDISCHARGEPLANDATE;
+import static com.vh.ui.web.locators.HospitalizationLocators.LBL_NEWHOSPPOPUPDISCHARGETABDISCHARGERELATEDSUBCATEGORY;
+import static com.vh.ui.web.locators.HospitalizationLocators.LBL_NEWHOSPPOPUPDISCHARGETABDISPOSITION;
+import static com.vh.ui.web.locators.HospitalizationLocators.LBL_NEWHOSPPOPUPDISCHARGETABHOMEHEALTHNAME;
+import static com.vh.ui.web.locators.HospitalizationLocators.LBL_NEWHOSPPOPUPDISCHARGETABHOMEHEALTHREASON;
+import static com.vh.ui.web.locators.HospitalizationLocators.LBL_NEWHOSPPOPUPTRANSFERTABTRANSFERDATE;
+import static com.vh.ui.web.locators.HospitalizationLocators.LBL_NEWHOSPPOPUPTRANSFERTABTRANSFERFACILITYNAME;
+import static com.vh.ui.web.locators.HospitalizationLocators.LBL_NEWHOSPPOPUPTRANSFERTABTRANSFERFAX;
+import static com.vh.ui.web.locators.HospitalizationLocators.LBL_NEWHOSPPOPUPTRANSFERTABTRANSFERHEADER;
+import static com.vh.ui.web.locators.HospitalizationLocators.LBL_NEWHOSPPOPUPTRANSFERTABTRANSFERPHONE;
+import static com.vh.ui.web.locators.HospitalizationLocators.LBL_PATIENTEXPERIENCEHOSPITALIZATIONS;
+import static com.vh.ui.web.locators.HospitalizationLocators.RDO_NEWHOSPPOPUPDISCHARGETABADDPATIENTREFUSEDPLANNO;
+import static com.vh.ui.web.locators.HospitalizationLocators.RDO_NEWHOSPPOPUPDISCHARGETABADDPATIENTREFUSEDPLANYES;
+import static com.vh.ui.web.locators.HospitalizationLocators.RDO_NEWHOSPPOPUPDISCHARGETABMEDICALEQUIPMENTYES;
+import static com.vh.ui.web.locators.HospitalizationLocators.TXT_NEWHOSPADDPOPUPADMITTANCETABCOMMENT;
+import static com.vh.ui.web.locators.HospitalizationLocators.TXT_NEWHOSPADDPOPUPADMITTANCETABFACILITYNAME;
+import static com.vh.ui.web.locators.HospitalizationLocators.TXT_NEWHOSPADDPOPUPADMITTANCETABFAX;
+import static com.vh.ui.web.locators.HospitalizationLocators.TXT_NEWHOSPADDPOPUPADMITTANCETABPHONE;
+import static com.vh.ui.web.locators.HospitalizationLocators.TXT_NEWHOSPADDPOPUPADMITTANCETABWORKINGDIAGNOSIS;
+import static com.vh.ui.web.locators.HospitalizationLocators.TXT_NEWHOSPPOPUPDISCHARGETABHOMEHEALTHNAME;
+import static com.vh.ui.web.locators.HospitalizationLocators.TXT_NEWHOSPPOPUPTRANSFERTABTRANSFERFACILITYNAME;
+import static com.vh.ui.web.locators.HospitalizationLocators.TXT_NEWHOSPPOPUPTRANSFERTABTRANSFERFAX;
+import static com.vh.ui.web.locators.HospitalizationLocators.TXT_NEWHOSPPOPUPTRANSFERTABTRANSFERPHONE;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -210,7 +290,7 @@ public class HospitalizationPage extends WebPage
 		clickNewHospPopupAdmittanceTabAdmitDatePickerButton();
 		String currentDayMinusX = appFunctions.adjustCurrentDateBy(dateChange, "d");
 		System.out.println(currentDayMinusX);
-		appFunctions.selectDateFromCalendar(CAL_NEWHOSPPOPUPADMITTANCETABADMITDATECAL, currentDayMinusX);
+		appFunctions.selectDateFromCalendarAsd(CAL_NEWHOSPPOPUPADMITTANCETABADMITDATECAL, currentDayMinusX);
 	}
     @Step("Click the Admit date calendar button")
     public void clickNewHospPopupAdmittanceTabAdmitDatePickerButton() throws TimeoutException, WaitException
@@ -222,7 +302,7 @@ public class HospitalizationPage extends WebPage
 	{
 		clickNewHospPopupAdmittanceTabNotifcationDatePickerButton();
 		String currentDayMinusX = appFunctions.adjustCurrentDateBy(dateChange, "d");
-		appFunctions.selectDateFromCalendar(CAL_NEWHOSPPOPUPADMITTANCETABNOTIFICATIONDATECAL, currentDayMinusX);
+		appFunctions.selectDateFromCalendarAsd(CAL_NEWHOSPPOPUPADMITTANCETABNOTIFICATIONDATECAL, currentDayMinusX);
 	}
     @Step("Click the Notification date calendar button")
     public void clickNewHospPopupAdmittanceTabNotifcationDatePickerButton() throws TimeoutException, WaitException
@@ -528,7 +608,7 @@ public class HospitalizationPage extends WebPage
 	{
 		clickNewHospPopupTransferTabTransferDatePickerButton();
 		String currentDayMinusX = appFunctions.adjustCurrentDateBy(dateChange, "d");
-		appFunctions.selectDateFromCalendar(CAL_NEWHOSPPOPUPADMITTANCETABTRANSFERDATE, currentDayMinusX);
+		appFunctions.selectDateFromCalendarAsd(CAL_NEWHOSPPOPUPADMITTANCETABTRANSFERDATE, currentDayMinusX);
 	}
 	
     @Step("Click the Transfer date calendar button")
@@ -712,7 +792,7 @@ public class HospitalizationPage extends WebPage
 	{
 		clickNewHospPopupDischargeTabDischargeDatePickerButton();
 		String currentDayMinusX = appFunctions.adjustCurrentDateBy(dateChange, "d");
-		appFunctions.selectDateFromCalendar(CAL_NEWHOSPPOPUPDISCHARGETABADDDISCHARGEDATE, currentDayMinusX);
+		appFunctions.selectDateFromCalendarAsd(CAL_NEWHOSPPOPUPDISCHARGETABADDDISCHARGEDATE, currentDayMinusX);
 	}
     @Step("Click the Discharge date calendar button")
     public void clickNewHospPopupDischargeTabDischargeDatePickerButton() throws TimeoutException, WaitException
@@ -725,7 +805,7 @@ public class HospitalizationPage extends WebPage
 	{
 		clickNewHospPopupDischargeTabNotifcationDatePickerButton();
 		String currentDayMinusX = appFunctions.adjustCurrentDateBy(dateChange, "d");
-		appFunctions.selectDateFromCalendar(CAL_NEWHOSPPOPUPDISCHARGETABNOTIFICATIONDATE, currentDayMinusX);
+		appFunctions.selectDateFromCalendarAsd(CAL_NEWHOSPPOPUPDISCHARGETABNOTIFICATIONDATE, currentDayMinusX);
 	}
 	
     @Step("Click the Notification date calendar button")
@@ -739,7 +819,7 @@ public class HospitalizationPage extends WebPage
 	{
 		clickNewHospPopupDischargeTabPlanDatePickerButton();
 		String currentDayMinusX = appFunctions.adjustCurrentDateBy(dateChange, "d");
-		appFunctions.selectDateFromCalendar(CAL_NEWHOSPPOPUPDISCHARGETABADDPLANDATE, currentDayMinusX);
+		appFunctions.selectDateFromCalendarAsd(CAL_NEWHOSPPOPUPDISCHARGETABADDPLANDATE, currentDayMinusX);
 	}
 	
     @Step("Click the Plan date calendar button")

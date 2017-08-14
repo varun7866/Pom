@@ -54,7 +54,7 @@ public class MaterialFulfillmentPage extends WebPage
 
 		clickMaterialsPopup2DateRequestedDatePickerButton();
 		currentDayMinusX = appFunctions.adjustCurrentDateBy(map.get("DATEREQUESTED"), "d");
-		appFunctions.selectDateFromCalendar(CAL_MATERIALSPOPUP2DATEREQUESTED, currentDayMinusX);
+		appFunctions.selectDateFromCalendarAsd(CAL_MATERIALSPOPUP2DATEREQUESTED, currentDayMinusX);
 		selectMaterialsPopup2RequestedByComboBox(map.get("REQUESTEDBY"));
 
 		if (map.get("FOLLOWUP") != null)
@@ -72,7 +72,7 @@ public class MaterialFulfillmentPage extends WebPage
 			selectMaterialsPopup2FulfilledByComboBox(map.get("FULFILLEDBY"));
 			clickMaterialsPopup2FulfilledOnDatePickerButton();
 			currentDayMinusX = appFunctions.adjustCurrentDateBy(map.get("FULFILLEDON"), "d");
-			appFunctions.selectDateFromCalendar(CAL_MATERIALSPOPUP2FULFILLEDON, currentDayMinusX);
+			appFunctions.selectDateFromCalendarAsd(CAL_MATERIALSPOPUP2FULFILLEDON, currentDayMinusX);
 		}
 
 		clickMaterialsPopup2NextStepButton();

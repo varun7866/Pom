@@ -33,9 +33,9 @@ import static com.vh.ui.web.locators.ManageDocumentsLocators.LBL_MANAGEDOCUMENTS
 import static com.vh.ui.web.locators.ManageDocumentsLocators.LBL_MANAGEDOCUMENTSENDDATEHEADER;
 import static com.vh.ui.web.locators.ManageDocumentsLocators.LBL_MANAGEDOCUMENTSTYPEHEADER;
 import static com.vh.ui.web.locators.ManageDocumentsLocators.LBL_PATIENTADMINMANAGEDOCUMENTS;
+import static com.vh.ui.web.locators.ManageDocumentsLocators.ROW_CONNECTAREFERRALFIRSTROW;
 import static com.vh.ui.web.locators.ManageDocumentsLocators.TXT_ADDDOCUMENTDESCRIPTION;
 import static com.vh.ui.web.locators.ManageDocumentsLocators.TXT_ADDDOCUMENTFILE;
-import static com.vh.ui.web.locators.ManageDocumentsLocators.ROW_CONNECTAREFERRALFIRSTROW;
 
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
@@ -46,8 +46,6 @@ import java.util.List;
 import org.openqa.selenium.By;
 import org.openqa.selenium.TimeoutException;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.WebDriverWait;
 
 import com.vh.ui.actions.ApplicationFunctions;
 import com.vh.ui.exceptions.WaitException;
@@ -367,7 +365,7 @@ public class ManageDocumentsPage extends WebPage
 			
 		}
 		
-		appFunctions.selectDateFromCalendar(CAL_ADDDOCUMENTDATEOFSIGNATURE, currentDay);		
+		appFunctions.selectDateFromCalendarAsd(CAL_ADDDOCUMENTDATEOFSIGNATURE, currentDay);
 	}
 
 

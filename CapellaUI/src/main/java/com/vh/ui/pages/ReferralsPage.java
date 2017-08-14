@@ -60,7 +60,7 @@ public class ReferralsPage extends WebPage
 		clickNewReferralPopupAppointmentTab();
 		clickNewReferralPopupAppointmentTabDatePickerButton();
 		currentDayMinusX = appFunctions.adjustCurrentDateBy(map.get("REFERRALDATE"), "d");
-		appFunctions.selectDateFromCalendar(CAL_NEWREFERRALPOPUPAPPOINTMENTTABREFERRALDATE, currentDayMinusX);
+		appFunctions.selectDateFromCalendarAsd(CAL_NEWREFERRALPOPUPAPPOINTMENTTABREFERRALDATE, currentDayMinusX);
 		clickNewReferralPopupReasonsTab();
 		clickNewReferralPopupReasonsTabReasons();
 		clickNewReferralSave();
