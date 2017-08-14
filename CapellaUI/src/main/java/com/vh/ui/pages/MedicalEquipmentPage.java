@@ -234,10 +234,14 @@ public class MedicalEquipmentPage extends WebPage
 
 		if (queryResultSet.getString("PTME_NOT_INUSE_YN").equals(map.get("EQUIPMENTINUSE")))
 		{
+			appFunctions.closeDatabaseConnection();
+
 			return true;
 		}
 		else
 		{
+			appFunctions.closeDatabaseConnection();
+
 			return false;
 		}
 	}

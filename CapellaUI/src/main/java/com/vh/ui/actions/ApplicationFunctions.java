@@ -548,23 +548,45 @@ public class ApplicationFunctions extends WebPage
 	 * 
 	 * @param datePickerLocator
 	 *            The <input> tag locator of the date picker
-	 * @parm dateToSelect The date to select as M/d/YYY
+	 * @parm dateToSelect The date to select as M/d/YYY, zero suppressed for month and day
 	 * @throws WaitException
 	 * @throws InterruptedException
 	 */
-	public void selectDateFromCalendarAsMMddYYYY(By datePickerLocator, String dateToSelect) throws WaitException, InterruptedException
+	public void selectDateFromCalendarAsMdYYYY(By datePickerLocator, String dateToSelect) throws WaitException, InterruptedException
 	{
+		int currentMonthInt;
 		int currentDayInt;
+		int currentYearInt;
 		int dateToSelectInt;
+
+		String currentMonth;
 		String currentDay;
+		String currentYear;
+		String dateToSelectMonth;
+		String dateToSelectDay;
+		String dateToSelectYear;
 		String datePickerLocatorXpathString;
+
 		By DayLocator;
 		By calendarPrevMMonthButton;
 
-		DateFormat dateFormat = new SimpleDateFormat("d");
+		// Get and format current date
+		DateFormat dateFormatM = new SimpleDateFormat("M");
+		DateFormat dateFormatd = new SimpleDateFormat("d");
+		DateFormat dateFormatYYYY = new SimpleDateFormat("YYYY");
+
 		Date dateObject = new Date();
-		currentDay = dateFormat.format(dateObject);
+
+		currentMonth = dateFormatM.format(dateObject);
+		currentDay = dateFormatd.format(dateObject);
+		currentYear = dateFormatYYYY.format(dateObject);
+
+		currentMonthInt = Integer.parseInt(currentMonth);
 		currentDayInt = Integer.parseInt(currentDay);
+		currentYearInt = Integer.parseInt(currentYear);
+
+		// Format date to select
+		dateToSelectMonth = dateToSelect.substring(0, dateToSelect.indexOf("/") - 1);
 
 		dateToSelectInt = Integer.parseInt(dateToSelect);
 
@@ -976,5 +998,18 @@ public class ApplicationFunctions extends WebPage
 		databaseFunctions.connectToDatabase();
 
 		return databaseFunctions.runQuery(sqlquery);
+	}
+
+	/**
+	 * Executes the passed in SQL query.
+	 * 
+	 * @param sqlStatement
+	 *            The SQL statement used to query the database.
+	 * @throws WaitException
+	 * @throws SQLException
+	 */
+	public void closeDatabaseConnection() throws WaitException, SQLException
+	{
+		databaseFunctions.close();
 	}
 }
