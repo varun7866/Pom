@@ -53,9 +53,9 @@ public class ApplicationFunctions extends WebPage
 	protected static final Logger LOGGER = Logg.createLogger();
 	protected final WebDriverWaits wait = new WebDriverWaits();
 	private WebActions webActions = null;
-	private DatabaseFunctions databaseFunctions;
 	private WebPage pageBase;
 	private LoginPage loginPage;
+	private DatabaseFunctions databaseFunctions;
 	
 	private final static Properties applicationProperty = PropertyManager
 			.loadApplicationPropertyFile("resources/application.properties");
@@ -494,7 +494,7 @@ public class ApplicationFunctions extends WebPage
     }
 
 	/**
-	 * Selects the passed date from the date picker
+	 * Selects the passed in date from the date picker
 	 * 
 	 * @param datePickerLocator
 	 *            The <input> tag locator of the date picker

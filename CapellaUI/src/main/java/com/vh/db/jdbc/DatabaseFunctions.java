@@ -21,6 +21,7 @@ import ru.yandex.qatools.allure.annotations.Step;
 public class DatabaseFunctions
 {
 	private Connection dbConnection = null;
+	ResultSet queryResultSet = null;
 
 	protected final static Properties applicationProperty = PropertyManager.loadApplicationPropertyFile("resources/application.properties");
 
@@ -46,7 +47,7 @@ public class DatabaseFunctions
 	@Step("Executes the passed in SQL query and returns the results")
 	public ResultSet runQuery(String sqlquery) throws SQLException
 	{
-		ResultSet queryResultSet = null;
+		queryResultSet = null;
 
 		try
 		{
@@ -64,6 +65,14 @@ public class DatabaseFunctions
 	@Step("Closes the database connection")
 	public void close() throws SQLException
 	{
-		dbConnection.close();
+		if (queryResultSet != null)
+		{
+			queryResultSet.close();
+		}
+
+		if (dbConnection != null)
+		{
+			dbConnection.close();
+		}
 	}
 }
