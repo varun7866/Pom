@@ -131,7 +131,7 @@ public class CurrentLabsPage extends WebPage
 
 		if (dayChangeBy != 0) // If not checking the current date
 		{
-			appFunctions.selectDateFromCalendar(CAL_ADDPOPUPAPPLYTHISDATETOALLVALUES, currentDayMinusXDay);
+			appFunctions.selectDateFromCalendarAsd(CAL_ADDPOPUPAPPLYTHISDATETOALLVALUES, currentDayMinusXDay);
 		}
 
 		List<WebElement> labsDates = driver.findElements(By.xpath("//div[@class='modal-dialog modal-lg']//input[@class='selection inputnoteditable ng-untouched ng-pristine ng-valid']"));
@@ -634,7 +634,7 @@ public class CurrentLabsPage extends WebPage
 
 		String drawDateDay = appFunctions.adjustCurrentDateBy(map.get("APPLYTHISDATETOALLVALUES"), "d");
 
-		appFunctions.selectDateFromCalendar(CAL_ADDPOPUPAPPLYTHISDATETOALLVALUES, drawDateDay);
+		appFunctions.selectDateFromCalendarAsd(CAL_ADDPOPUPAPPLYTHISDATETOALLVALUES, drawDateDay);
 
 		if (map.get("HEIGHT") != null)
 		{
@@ -764,7 +764,7 @@ public class CurrentLabsPage extends WebPage
 
 		String drawDateDay = appFunctions.adjustCurrentDateBy(map.get("APPLYTHISDATETOALLVALUES"), "d");
 
-		appFunctions.selectDateFromCalendar(CAL_ADDPOPUPAPPLYTHISDATETOALLVALUES, drawDateDay);
+		appFunctions.selectDateFromCalendarAsd(CAL_ADDPOPUPAPPLYTHISDATETOALLVALUES, drawDateDay);
 
 		if (map.get("HEIGHT") != null)
 		{

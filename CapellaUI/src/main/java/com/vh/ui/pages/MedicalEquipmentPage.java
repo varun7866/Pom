@@ -338,7 +338,7 @@ public class MedicalEquipmentPage extends WebPage
 			
 		}
 		
-		appFunctions.selectDateFromCalendar(CAL_ADDPOPUPDATE, currentDay);		
+		appFunctions.selectDateFromCalendarAsd(CAL_ADDPOPUPDATE, currentDay);
 	}
 
 	@Step("Verify the visibility of the Add Medical Equipment popup SOURCE label")
@@ -509,7 +509,7 @@ public class MedicalEquipmentPage extends WebPage
 		clickAddMedicalEquipmentButton();
 		
 		clickAddPopupDatePickerButton();
-		appFunctions.selectDateFromCalendar(CAL_ADDPOPUPDATE, dateToSelect);
+		appFunctions.selectDateFromCalendarAsd(CAL_ADDPOPUPDATE, dateToSelect);
 		selectAddPopupSourceComboBox(source);
 		selectAddPopupEquipmentTypeComboBox(equipmentType);
 		selectAddPopupStatusComboBox(status);

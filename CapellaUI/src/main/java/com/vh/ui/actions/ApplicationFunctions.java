@@ -498,11 +498,61 @@ public class ApplicationFunctions extends WebPage
 	 * 
 	 * @param datePickerLocator
 	 *            The <input> tag locator of the date picker
-	 * @parm dateToSelect The day value to select
+	 * @parm dateToSelect The date to select as d
 	 * @throws WaitException
 	 * @throws InterruptedException
 	 */
-	public void selectDateFromCalendar(By datePickerLocator, String dateToSelect) throws WaitException, InterruptedException
+	public void selectDateFromCalendarAsd(By datePickerLocator, String dateToSelect) throws WaitException, InterruptedException
+	{
+		int currentDayInt;
+		int dateToSelectInt;
+		String currentDay;
+		String datePickerLocatorXpathString;
+		By DayLocator;
+		By calendarPrevMMonthButton;
+
+		DateFormat dateFormat = new SimpleDateFormat("d");
+		Date dateObject = new Date();
+		currentDay = dateFormat.format(dateObject);
+		currentDayInt = Integer.parseInt(currentDay);
+
+		dateToSelectInt = Integer.parseInt(dateToSelect);
+
+		datePickerLocatorXpathString = datePickerLocator.toString().substring(10);
+
+		if (dateToSelectInt > currentDayInt)
+		{
+			calendarPrevMMonthButton = By.xpath(datePickerLocatorXpathString + "/../..//button[@class='headerbtn mydpicon icon-mydpleft headerbtnenabled']");
+			webActions.click(VISIBILITY, calendarPrevMMonthButton);
+
+			DayLocator = By.xpath(datePickerLocatorXpathString + "/../..//td[@class='daycell currmonth tablesingleday']/div[contains(@class,'datevalue currmonth')]/span[text()='"
+			        + dateToSelectInt + "']");
+			webActions.click(VISIBILITY, DayLocator);
+		} else
+		{
+			if (dateToSelectInt == currentDayInt)
+			{
+				DayLocator = By.xpath(datePickerLocatorXpathString + "/../..//span[@class='markcurrday']");
+				webActions.click(VISIBILITY, DayLocator);
+			} else
+			{
+				DayLocator = By.xpath(datePickerLocatorXpathString + "/../..//td[@class='daycell currmonth tablesingleday']/div[contains(@class,'datevalue currmonth')]/span[text()='"
+				        + dateToSelectInt + "']");
+				webActions.click(VISIBILITY, DayLocator);
+			}
+		}
+	}
+
+	/**
+	 * Selects the passed in date from the date picker
+	 * 
+	 * @param datePickerLocator
+	 *            The <input> tag locator of the date picker
+	 * @parm dateToSelect The date to select as M/d/YYY
+	 * @throws WaitException
+	 * @throws InterruptedException
+	 */
+	public void selectDateFromCalendarAsMMddYYYY(By datePickerLocator, String dateToSelect) throws WaitException, InterruptedException
 	{
 		int currentDayInt;
 		int dateToSelectInt;
