@@ -557,7 +557,11 @@ public class ApplicationFunctions extends WebPage
 		int currentMonthInt;
 		int currentDayInt;
 		int currentYearInt;
-		int dateToSelectInt;
+		int dateToSelectMonthInt;
+		int dateToSelectDayInt;
+		int dateToSelectYearInt;
+		int yearDifference;
+		int monthDifference;
 
 		String currentMonth;
 		String currentDay;
@@ -567,8 +571,9 @@ public class ApplicationFunctions extends WebPage
 		String dateToSelectYear;
 		String datePickerLocatorXpathString;
 
-		By DayLocator;
-		By calendarPrevMMonthButton;
+		By calendarPrevYearButton;
+		By calendarNextYearButton;
+		// By DayLocator;
 
 		// Get and format current date
 		DateFormat dateFormatM = new SimpleDateFormat("M");
@@ -585,34 +590,58 @@ public class ApplicationFunctions extends WebPage
 		currentDayInt = Integer.parseInt(currentDay);
 		currentYearInt = Integer.parseInt(currentYear);
 
-		// Format date to select
-		dateToSelectMonth = dateToSelect.substring(0, dateToSelect.indexOf("/") - 1);
+		// Parse passed in date to select
+		dateToSelectMonth = dateToSelect.substring(0, dateToSelect.indexOf("/"));
+		dateToSelectDay = dateToSelect.substring(dateToSelect.indexOf("/") + 1, dateToSelect.lastIndexOf("/"));
+		dateToSelectYear = dateToSelect.substring(dateToSelect.lastIndexOf("/") + 1);
 
-		dateToSelectInt = Integer.parseInt(dateToSelect);
+		dateToSelectMonthInt = Integer.parseInt(dateToSelectMonth);
+		dateToSelectDayInt = Integer.parseInt(dateToSelectDay);
+		dateToSelectYearInt = Integer.parseInt(dateToSelectYear);
 
 		datePickerLocatorXpathString = datePickerLocator.toString().substring(10);
 
-		if (dateToSelectInt > currentDayInt)
+		if (dateToSelectYearInt < currentYearInt)
 		{
-			calendarPrevMMonthButton = By.xpath(datePickerLocatorXpathString + "/../..//button[@class='headerbtn mydpicon icon-mydpleft headerbtnenabled']");
-			webActions.click(VISIBILITY, calendarPrevMMonthButton);
+			yearDifference = currentYearInt - dateToSelectYearInt;
+			calendarPrevYearButton = By.xpath(datePickerLocatorXpathString + "/../..//button[@aria-label='Previous Year']");
 
-			DayLocator = By.xpath(datePickerLocatorXpathString + "/../..//td[@class='daycell currmonth tablesingleday']/div[contains(@class,'datevalue currmonth')]/span[text()='"
-			        + dateToSelectInt + "']");
-			webActions.click(VISIBILITY, DayLocator);
+			for (int x = 1; x <= yearDifference; x++)
+			{
+				webActions.click(VISIBILITY, calendarPrevYearButton);
+			}
 		} else
 		{
-			if (dateToSelectInt == currentDayInt)
+			if (dateToSelectYearInt > currentYearInt)
 			{
-				DayLocator = By.xpath(datePickerLocatorXpathString + "/../..//span[@class='markcurrday']");
-				webActions.click(VISIBILITY, DayLocator);
-			} else
-			{
-				DayLocator = By.xpath(
-				        datePickerLocatorXpathString + "/../..//td[@class='daycell currmonth tablesingleday']/div[contains(@class,'datevalue currmonth')]/span[text()='" + dateToSelectInt + "']");
-				webActions.click(VISIBILITY, DayLocator);
+				yearDifference = dateToSelectYearInt - currentYearInt;
+				calendarNextYearButton = By.xpath(datePickerLocatorXpathString + "/../..//button[@aria-label='Next Year']");
+
+				for (int x = 1; x <= yearDifference; x++)
+				{
+					webActions.click(VISIBILITY, calendarNextYearButton);
+				}
 			}
 		}
+
+
+
+		// DayLocator = By.xpath(datePickerLocatorXpathString + "/../..//td[@class='daycell currmonth tablesingleday']/div[contains(@class,'datevalue currmonth')]/span[text()='"
+		// + dateToSelectInt + "']");
+		// webActions.click(VISIBILITY, DayLocator);
+		// } else
+		// {
+		// if (dateToSelectInt == currentDayInt)
+		// {
+		// DayLocator = By.xpath(datePickerLocatorXpathString + "/../..//span[@class='markcurrday']");
+		// webActions.click(VISIBILITY, DayLocator);
+		// } else
+		// {
+		// DayLocator = By.xpath(
+		// datePickerLocatorXpathString + "/../..//td[@class='daycell currmonth tablesingleday']/div[contains(@class,'datevalue currmonth')]/span[text()='" + dateToSelectInt + "']");
+		// webActions.click(VISIBILITY, DayLocator);
+		// }
+		// }
 	}
 
 	/**

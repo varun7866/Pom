@@ -177,7 +177,7 @@ public class MedicalEquipmentPage extends WebPage
 	@Step("Click the ADD MEDICAL EQUIPMENT button")
 	public void clickAddMedicalEquipmentButton() throws TimeoutException, WaitException
 	{
-		webActions.click(CLICKABILITY, BTN_ADDMEDICALEQUIPMENT);
+		webActions.javascriptClick(BTN_ADDMEDICALEQUIPMENT);
 	}
 
 	@Step("Checks if a specific Medical Equipment is in the table")
