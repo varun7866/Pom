@@ -1001,10 +1001,8 @@ public class ApplicationFunctions extends WebPage
 	}
 
 	/**
-	 * Executes the passed in SQL query.
+	 * Calls the DatabaseFunctions close() Method to close the database connection.
 	 * 
-	 * @param sqlStatement
-	 *            The SQL statement used to query the database.
 	 * @throws WaitException
 	 * @throws SQLException
 	 */
