@@ -6,11 +6,18 @@ import static com.vh.ui.web.locators.ProvidersTeamLocators.BTN_NEWPROVIDERPOPUPA
 import static com.vh.ui.web.locators.ProvidersTeamLocators.BTN_NEWPROVIDERPOPUPSEARCH;
 import static com.vh.ui.web.locators.ProvidersTeamLocators.BTN_NEWTEAMPOPUPPATIENTSEEINGSINCE;
 import static com.vh.ui.web.locators.ProvidersTeamLocators.BTN_NEWTEAMPOPUPSUBMIT;
+import static com.vh.ui.web.locators.ProvidersTeamLocators.CBO_ACTIVEINACTIVE;
 import static com.vh.ui.web.locators.ProvidersTeamLocators.CBO_NEWPROVIDERPOPUPASSOCIATEAS;
 import static com.vh.ui.web.locators.ProvidersTeamLocators.CBO_NEWTEAMPOPUPSTATE;
 import static com.vh.ui.web.locators.ProvidersTeamLocators.CBO_NEWTEAMPOPUPTEAMTYPE;
 import static com.vh.ui.web.locators.ProvidersTeamLocators.CHK_NEWTEAMPOPUPALLOWCOMMUNICATION;
 import static com.vh.ui.web.locators.ProvidersTeamLocators.CHK_NEWTEAMPOPUPFAXNUMBERVERIFIED;
+import static com.vh.ui.web.locators.ProvidersTeamLocators.LBL_ADDRESSCOLUMNHEADER;
+import static com.vh.ui.web.locators.ProvidersTeamLocators.LBL_ALLOWCONTACTCOLUMNHEADER;
+import static com.vh.ui.web.locators.ProvidersTeamLocators.LBL_DATESCOLUMNHEADER;
+import static com.vh.ui.web.locators.ProvidersTeamLocators.LBL_NAMETYPECOLUMNHEADER;
+import static com.vh.ui.web.locators.ProvidersTeamLocators.LBL_PAGEHEADER;
+import static com.vh.ui.web.locators.ProvidersTeamLocators.PLH_ACTIVEINACTIVE;
 import static com.vh.ui.web.locators.ProvidersTeamLocators.TXT_NEWTEAMPOPUPADDRESS;
 import static com.vh.ui.web.locators.ProvidersTeamLocators.TXT_NEWTEAMPOPUPAPTSUITE;
 import static com.vh.ui.web.locators.ProvidersTeamLocators.TXT_NEWTEAMPOPUPCITY;
@@ -22,6 +29,8 @@ import static com.vh.ui.web.locators.ProvidersTeamLocators.TXT_NEWTEAMPOPUPPATIE
 import static com.vh.ui.web.locators.ProvidersTeamLocators.TXT_NEWTEAMPOPUPPHONE;
 import static com.vh.ui.web.locators.ProvidersTeamLocators.TXT_NEWTEAMPOPUPZIP;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Map;
 
 import org.openqa.selenium.By;
@@ -50,6 +59,72 @@ public class ProvidersTeamPage extends WebPage
 		appFunctions = new ApplicationFunctions(driver);
 	}
 
+	@Step("Verify the visibility of the Providers and Team page header label")
+	public boolean viewPageHeaderLabel() throws TimeoutException, WaitException
+	{
+		return webActions.getVisibiltyOfElementLocatedBy(VISIBILITY, LBL_PAGEHEADER);
+	}
+
+	@Step("Verify the visibility of the ADD A TEAM MEMBER button")
+	public boolean viewAddATeamMemberButton() throws TimeoutException, WaitException
+	{
+		return webActions.getVisibiltyOfElementLocatedBy(VISIBILITY, BTN_ADDATEAMMEMBER);
+	}
+
+	@Step("Verify the visibility of the ADD A PROVIDER button")
+	public boolean viewAddAProviderButton() throws TimeoutException, WaitException
+	{
+		return webActions.getVisibiltyOfElementLocatedBy(VISIBILITY, BTN_ADDAPROVIDER);
+	}
+
+	@Step("Verify the visibility of the Active/Inactive combo box")
+	public boolean viewActiveInactiveComboBox() throws TimeoutException, WaitException
+	{
+		return webActions.getVisibiltyOfElementLocatedBy(VISIBILITY, CBO_ACTIVEINACTIVE);
+	}
+
+	@Step("Verify the visibility of the Active/Inactive placeholder")
+	public boolean viewActiveInactivePlaceholder() throws TimeoutException, WaitException
+	{
+		return webActions.getVisibiltyOfElementLocatedBy(VISIBILITY, PLH_ACTIVEINACTIVE);
+	}
+
+	@Step("Verify the options of the Active/Inactive combo box")
+	public boolean verifyActiveInactiveComboBoxOptions() throws TimeoutException, WaitException
+	{
+		List<String> dropDownOptions = new ArrayList<String>();
+		dropDownOptions.add("Active");
+		dropDownOptions.add("Inactive");
+		dropDownOptions.add("All");
+
+		return appFunctions.verifyDropDownOptions(CBO_ACTIVEINACTIVE, dropDownOptions);
+	}
+
+	@Step("Verify the visibility of the NAME/TYPE column header label")
+	public boolean viewNameTypeColumnHeaderLabel() throws TimeoutException, WaitException
+	{
+		return webActions.getVisibiltyOfElementLocatedBy(VISIBILITY, LBL_NAMETYPECOLUMNHEADER);
+	}
+
+	@Step("Verify the visibility of the ADDRESS column header label")
+	public boolean viewAddressColumnHeaderLabel() throws TimeoutException, WaitException
+	{
+		return webActions.getVisibiltyOfElementLocatedBy(VISIBILITY, LBL_ADDRESSCOLUMNHEADER);
+	}
+
+	@Step("Verify the visibility of the DATES column header label")
+	public boolean viewDatesColumnHeaderLabel() throws TimeoutException, WaitException
+	{
+		return webActions.getVisibiltyOfElementLocatedBy(VISIBILITY, LBL_DATESCOLUMNHEADER);
+	}
+
+	@Step("Verify the visibility of the ALLOW CONTACT column header label")
+	public boolean viewAllowContactColumnHeaderLabel() throws TimeoutException, WaitException
+	{
+		return webActions.getVisibiltyOfElementLocatedBy(VISIBILITY, LBL_ALLOWCONTACTCOLUMNHEADER);
+	}
+
+	// *********************************************************************************************************************
 	@Step("Adds a Team Member to the table")
 	public void addATeamMember(Map<String, String> map) throws TimeoutException, WaitException, InterruptedException
 	{

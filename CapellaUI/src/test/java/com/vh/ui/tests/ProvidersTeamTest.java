@@ -4,6 +4,7 @@ import java.util.Map;
 
 import org.openqa.selenium.TimeoutException;
 import org.openqa.selenium.WebDriver;
+import org.testng.Assert;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
@@ -51,27 +52,33 @@ public class ProvidersTeamTest extends TestBase
 
 		appFunctions.navigateToMenu("Patient Care->Care Team");
 
+		Assert.assertTrue(providersTeamPage.viewPageHeaderLabel(), "Failed to identify the Providers and Team page header label");
+		Assert.assertTrue(providersTeamPage.viewAddATeamMemberButton(), "Failed to identify the ADD A TEAM MEMBER button");
+		Assert.assertTrue(providersTeamPage.viewAddAProviderButton(), "Failed to identify the ADD A PROVIDER button");
 
+		Assert.assertTrue(providersTeamPage.viewActiveInactiveComboBox(), "Failed to identify the Active/Inactive combo box");
+		Assert.assertTrue(providersTeamPage.viewActiveInactivePlaceholder(), "Failed to identify the Active/Inactive placeholder");
+		Assert.assertTrue(providersTeamPage.verifyActiveInactiveComboBoxOptions(), "The Active/Inactive drop down options are incorrect");
+
+		Assert.assertTrue(providersTeamPage.viewNameTypeColumnHeaderLabel(), "Failed to identify the NAME/TYPE colummn header label");
+		Assert.assertTrue(providersTeamPage.viewAddressColumnHeaderLabel(), "Failed to identify the ADDRESS colummn header label");
+		Assert.assertTrue(providersTeamPage.viewDatesColumnHeaderLabel(), "Failed to identify the DATES colummn header label");
+		Assert.assertTrue(providersTeamPage.viewAllowContactColumnHeaderLabel(), "Failed to identify the ALLOW CONTACT colummn header label");
 	}
 
-	@Test(priority = 2, dataProvider = "CapellaDataProvider")
+	@Test(priority = 2)
 	@Step("Verify the New Team popup")
-	public void verify_NewTeamPopup(Map<String, String> map) throws WaitException, URLNavigationException, InterruptedException
+	public void verify_NewTeamPopup() throws WaitException, URLNavigationException, InterruptedException
 	{
-		appFunctions.selectPatientFromMyPatients(map.get("PatientName"));
-
-		appFunctions.navigateToMenu("Patient Care->Care Team");
+		providersTeamPage.clickAddATeamMemberButton();
 
 	}
 
-	@Test(priority = 3, dataProvider = "CapellaDataProvider")
+	@Test(priority = 3)
 	@Step("Verify the New Provider popup")
 	public void verify_NewProviderPopup(Map<String, String> map) throws WaitException, URLNavigationException, InterruptedException
 	{
-		appFunctions.selectPatientFromMyPatients(map.get("PatientName"));
-
-		appFunctions.navigateToMenu("Patient Care->Care Team");
-
+		providersTeamPage.clickAddAProviderButton();
 	}
 
 	@Test(priority = 4, dataProvider = "CapellaDataProvider")
