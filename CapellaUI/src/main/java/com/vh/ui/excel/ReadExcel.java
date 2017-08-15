@@ -52,27 +52,7 @@ public class ReadExcel {
 		LOGGER.info("column count for a Row " + colCount);
 		return colCount;
 	}
-	
-	private static int getRequiredNumberOfRows(String scriptName, int rowCount) {
-		int reqRowCount = 0;
-		
-		for (int i = 0; i < rowCount; i++) {
-			Row row = sheet.getRow(i);
-			Cell cell = row.getCell(0);
-			if(cell!=null) {
-				String value = getCellValue(cell);
-				if(value!=null && value.equalsIgnoreCase("Y"))
-				{
-					if(getCellValue(row.getCell(1)).equalsIgnoreCase(scriptName)) {
-						reqRowCount++;
-					}
-				}
-			}
-		}
-		
-		return reqRowCount;
-	}
-	
+
 	/**
 	 * @param testClass
 	 *            is the name of the test class
@@ -149,92 +129,6 @@ public class ReadExcel {
 		return list;
 	}
 	
-	/*public static String[][] readTestData(String sheetName, String scriptName) throws IOException
-	{
-		FileInputStream file = null;
-		try {
-			 file = new FileInputStream(new File(EXCELRELATIVEPATH.getProperty("excelPath")));
-
-			// Create Workbook instance , could be HSSF OR XSSF depending on the
-			// argument file
-			Workbook workbook = WorkbookFactory.create(file);
-			// Get first sheet from the workbook
-			sheet = workbook.getSheet(sheetName);
-			int rowCount = sheet.getPhysicalNumberOfRows();
-			int reqRowCount = getRequiredNumberOfRows(scriptName, rowCount); 
-			int colCount = getColumnCount(sheet);
-			storage = new String[reqRowCount][colCount];
-
-			int reqRow = 0;
-			for (int i = 0; i < rowCount; i++) {
-				Row row = sheet.getRow(i);
-				Cell cell = row.getCell(0);
-				if(cell!=null) {
-					String value = getCellValue(cell);
-					if(value!=null && value.equalsIgnoreCase("Y"))
-					{
-						if(getCellValue(row.getCell(1)).equalsIgnoreCase(scriptName)) {
-							for (int j = 2; j < colCount; j++) {
-								cell = row.getCell(j);
-								if(cell!=null) {
-									storage[reqRow][j-2] = getCellValue(cell);
-								}
-							}
-							reqRow++;
-						}
-					}
-				}
-			}
-		}
-		catch(Exception e) {
-			e.printStackTrace();
-		}
-		finally {
-			file.close();
-		}
-		return storage;
-	}*/
-	
-//	public static String[][] readTestData(String sheetName, String scriptName) {
-//		Connection conn = null;
-//		Statement stmnt = null;
-//		try
-//		{
-//			Class.forName("sun.jdbc.odbc.JdbcOdbcDriver");
-//			conn = java.sql.DriverManager.getConnection("jdbc:odbc:Driver={Driver do Microsoft Excel(*.xls)};DBQ=" + EXCELRELATIVEPATH.getProperty("excelPath") +";ReadOnly=0");
-//			stmnt = conn.createStatement();
-//			String query = "select * from [" + sheetName + "$] where ScriptName = '" + scriptName + "'";
-//			ResultSet rs = stmnt.executeQuery(query);
-//			ResultSetMetaData rsmd = rs.getMetaData();
-//
-//			int colCount = rsmd.getColumnCount();
-//			while(rs.next())
-//			{
-//				for(int i=1; i<=colCount; i++)
-//				{
-//					System.out.println(rs.getString(i));
-//				}
-//			}
-//		}
-//		catch( Exception e )
-//		{
-//			e.printStackTrace();
-//		}
-//		finally
-//		{
-//			try
-//			{
-//				stmnt.close();
-//				conn.close();
-//			}
-//			catch( Exception e )
-//			{
-//				System.err.println( e );
-//			}
-//		}
-//		return storage;
-//	}
-
 	public static String[][] readTestData(String sheetName) throws IOException,
 			InvalidFormatException {
 		try {

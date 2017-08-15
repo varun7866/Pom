@@ -53,7 +53,7 @@ public class UnitTest extends TestBase
 		hospitalizationsPage.clickAddHospitalizationButton();
 		hospitalizationsPage.clickNewHospPopupAdmittanceTabAdmitDatePickerButton();
 
-		appFunctions.selectDateFromCalendarAsMdYYYY(CAL_NEWHOSPPOPUPADMITTANCETABADMITDATECAL, "11/17/2016");
+		appFunctions.selectDateFromCalendarAsMdYYYY(CAL_NEWHOSPPOPUPADMITTANCETABADMITDATECAL, "8/15/2017");
     }
 
 	@AfterClass
