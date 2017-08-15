@@ -49,12 +49,12 @@ public class MedicalEquipmentTest extends TestBase
 		medicalEquipmentPage = new MedicalEquipmentPage(driver);
 
 		appFunctions.capellaLogin();
-		// appFunctions.selectPatientFromMyPatients("Waliy Al D Holroyd"); // QA
-		// appFunctions.navigateToMenu("Patient Admin->Medical Equipment");
+		appFunctions.selectPatientFromMyPatients("Waliy Al D Holroyd"); // QA
+		appFunctions.navigateToMenu("Patient Admin->Medical Equipment");
 	}
 
-	// @Test(priority = 1)
-	// @Step("Verify the Medical Equipment page")
+	@Test(priority = 1)
+	@Step("Verify the Medical Equipment page")
 	public void verify_MedicalEquipmentPage() throws WaitException, URLNavigationException, InterruptedException
 	{
 		Assert.assertTrue(medicalEquipmentPage.viewPageHeaderLabel(), "Failed to identify the MEDICAL EQUIPMENT page header label");
@@ -66,8 +66,8 @@ public class MedicalEquipmentTest extends TestBase
 		Assert.assertTrue(medicalEquipmentPage.viewInUseColumnHeaderLabel(), "Failed to identify the IN USE colummn header label");
 	}
 
-	// @Test(priority = 2)
-	// @Step("Verify the Add Medical Equipment popup")
+	@Test(priority = 2)
+	@Step("Verify the Add Medical Equipment popup")
 	public void verify_AddMedicalEquipmentPopup() throws WaitException, URLNavigationException, InterruptedException
 	{
 		medicalEquipmentPage.clickAddMedicalEquipmentButton();

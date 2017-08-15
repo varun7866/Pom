@@ -45,7 +45,38 @@ public class ProvidersTeamTest extends TestBase
 		// appFunctions.navigateToMenu("Patient Care->Care Team");
 	}
 
+	@Test(priority = 1, dataProvider = "CapellaDataProvider")
+	@Step("Verify the Providers and Team page")
+	public void verify_ProvidersAndTeamPage(Map<String, String> map) throws WaitException, URLNavigationException, InterruptedException
+	{
+		appFunctions.selectPatientFromMyPatients(map.get("PatientName"));
+
+		appFunctions.navigateToMenu("Patient Care->Care Team");
+
+
+	}
+
 	@Test(priority = 2, dataProvider = "CapellaDataProvider")
+	@Step("Verify the New Team popup")
+	public void verify_NewTeamPopup(Map<String, String> map) throws WaitException, URLNavigationException, InterruptedException
+	{
+		appFunctions.selectPatientFromMyPatients(map.get("PatientName"));
+
+		appFunctions.navigateToMenu("Patient Care->Care Team");
+
+	}
+
+	@Test(priority = 3, dataProvider = "CapellaDataProvider")
+	@Step("Verify the New Provider popup")
+	public void verify_NewProviderPopup(Map<String, String> map) throws WaitException, URLNavigationException, InterruptedException
+	{
+		appFunctions.selectPatientFromMyPatients(map.get("PatientName"));
+
+		appFunctions.navigateToMenu("Patient Care->Care Team");
+
+	}
+
+	@Test(priority = 4, dataProvider = "CapellaDataProvider")
 	@Step("Verify Adding a Team Member with different scenarios")
 	public void verify_AddingTeamMember(Map<String, String> map) throws WaitException, URLNavigationException, InterruptedException
 	{
@@ -56,7 +87,7 @@ public class ProvidersTeamTest extends TestBase
 		providersTeamPage.addATeamMember(map);
 	}
 
-	@Test(priority = 3, dataProvider = "CapellaDataProvider")
+	@Test(priority = 5, dataProvider = "CapellaDataProvider")
 	@Step("Verify Adding a Provider with different scenarios")
 	public void verify_AddingProvider(Map<String, String> map) throws WaitException, URLNavigationException, InterruptedException
 	{
