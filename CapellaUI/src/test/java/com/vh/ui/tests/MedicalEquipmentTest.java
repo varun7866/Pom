@@ -49,14 +49,15 @@ public class MedicalEquipmentTest extends TestBase
 		medicalEquipmentPage = new MedicalEquipmentPage(driver);
 
 		appFunctions.capellaLogin();
-		appFunctions.selectPatientFromMyPatients("Waliy Al D Holroyd"); // QA
-		appFunctions.navigateToMenu("Patient Admin->Medical Equipment");
 	}
 
-	@Test(priority = 1)
+	@Test(priority = 1, dataProvider = "CapellaDataProvider")
 	@Step("Verify the Medical Equipment page")
-	public void verify_MedicalEquipmentPage() throws WaitException, URLNavigationException, InterruptedException
+	public void verify_MedicalEquipmentPage(Map<String, String> map) throws WaitException, URLNavigationException, InterruptedException
 	{
+		appFunctions.selectPatientFromMyPatients(map.get("PatientName"));
+		appFunctions.navigateToMenu("Patient Admin->Medical Equipment");
+
 		Assert.assertTrue(medicalEquipmentPage.viewPageHeaderLabel(), "Failed to identify the MEDICAL EQUIPMENT page header label");
 		Assert.assertTrue(medicalEquipmentPage.viewAddMedicalEquipmentButton(), "Failed to identify the ADD MEDICAL EQUIPMENT button");
 		Assert.assertTrue(medicalEquipmentPage.viewEquipmentDescriptionColumnHeaderLabel(), "Failed to identify the EQUIPMENT DESCRIPTION colummn header label");
@@ -118,8 +119,8 @@ public class MedicalEquipmentTest extends TestBase
 		medicalEquipmentPage.selectAddPopupCurrentDateFromCalendar();
 	}
 
-	// @Test(priority = 3)
-	// @Step("Verify adding Medical Equipment")
+	@Test(priority = 3)
+	@Step("Verify adding Medical Equipment")
 	public void verify_AddMedicalEquipment() throws WaitException, URLNavigationException, InterruptedException
 	{
 		medicalEquipmentPage.checkAddPopupEquipmentIsInUseCheckBox();
@@ -131,8 +132,8 @@ public class MedicalEquipmentTest extends TestBase
 		Assert.assertTrue(medicalEquipmentPage.isMedicalEquipmentInTable(), "The Medical Equipment was not added to the table");
 	}
 
-	// @Test(priority = 4)
-	// @Step("Verify editable fields in the Medical Equipment table")
+	@Test(priority = 4)
+	@Step("Verify editable fields in the Medical Equipment table")
 	public void verify_EditableFields() throws WaitException, URLNavigationException, InterruptedException
 	{
 		Assert.assertTrue(medicalEquipmentPage.isStatusDropdownEditable(), "The STATUS drop down is not editable");
@@ -144,8 +145,8 @@ public class MedicalEquipmentTest extends TestBase
 		Assert.assertTrue(medicalEquipmentPage.verifyStatusComboBoxOptions(), "The STATUS drop down options are incorrect");
 	}
 
-	// @Test(priority = 5)
-	// @Step("Verify all columns can be sorted in the Medical Equipment table")
+	@Test(priority = 5)
+	@Step("Verify all columns can be sorted in the Medical Equipment table")
 	public void verify_ColumnSorting() throws WaitException, URLNavigationException, InterruptedException
 	{
 		String currentDayMinusX;
