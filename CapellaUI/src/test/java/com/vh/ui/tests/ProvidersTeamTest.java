@@ -41,8 +41,6 @@ public class ProvidersTeamTest extends TestBase
 		providersTeamPage = new ProvidersTeamPage(driver);
 
 		appFunctions.capellaLogin();
-		// appFunctions.selectPatientFromMyPatients("Glayds Whoriskey");
-		// appFunctions.navigateToMenu("Patient Care->Care Team");
 	}
 
 	@Test(priority = 1, dataProvider = "CapellaDataProvider")
@@ -101,7 +99,7 @@ public class ProvidersTeamTest extends TestBase
 	@AfterClass
 	public void tearDown() throws TimeoutException, WaitException
 	{
-		appFunctions.capellaLogout();
-		pageBase.quit();
+		// appFunctions.capellaLogout();
+		// pageBase.quit();
 	}
 }
