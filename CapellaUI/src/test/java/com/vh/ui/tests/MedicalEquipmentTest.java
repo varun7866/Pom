@@ -56,6 +56,7 @@ public class MedicalEquipmentTest extends TestBase
 	public void verify_MedicalEquipmentPage(Map<String, String> map) throws WaitException, URLNavigationException, InterruptedException
 	{
 		appFunctions.selectPatientFromMyPatients(map.get("PatientName"));
+
 		appFunctions.navigateToMenu("Patient Admin->Medical Equipment");
 
 		Assert.assertTrue(medicalEquipmentPage.viewPageHeaderLabel(), "Failed to identify the MEDICAL EQUIPMENT page header label");

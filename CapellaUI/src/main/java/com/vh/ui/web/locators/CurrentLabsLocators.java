@@ -24,7 +24,7 @@ public class CurrentLabsLocators
 	public static final By CBO_ADDPOPUPDIPSTICKFORPROTEIN = By.xpath("//select[@id='labToAddDipstickForProteinDropdown']");
 
 	public static final By LBL_ADDPOPUPPHOSPHOROUSGOAL = By.xpath("//span[text()='Phosphorous']/../../../div[3]/div/div/span[text()='Goal: Between 0.5 and 5.5']");
-	public static final By LBL_ADDPOPUPGFRGOAL = By.xpath("//span[text()='GFR']/../../../div[3]/div/div/span[text()='Goal: Between 30 and 125']");
+	public static final By LBL_ADDPOPUPGFRGOAL = By.xpath("//span[text()='GFR']/../../../div[3]/div/div/span[text()='Goal: CKD between 30 and 125']");
 	public static final By LBL_ADDPOPUPLDLGOAL = By.xpath("//span[text()='LDL']/../../../div[3]/div/div/span[text()='Goal: Between 0 and 100']");
 	public static final By LBL_ADDPOPUPALBUMINGOAL = By.xpath("//span[text()='Albumin']/../../../div[3]/div/div/span[text()='Goal: Between 4 and 7']");
 	public static final By LBL_ADDPOPUPCO2LEVELGOAL = By.xpath("//span[text()='Co2 Level']/../../../div[3]/div/div/span[text()='Goal: Between 22 and 31']");
