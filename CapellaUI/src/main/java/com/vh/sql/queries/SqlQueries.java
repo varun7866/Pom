@@ -8,5 +8,5 @@ package com.vh.sql.queries;
 
 public class SqlQueries
 {
-	public static final String SQL_SELECT_PTME_PATIENT_MEDICAL_EQUIP = "SELECT * FROM PTME_PATIENT_MEDICAL_EQUIP WHERE PTME_MEM_UID = '47044'";
+
 }

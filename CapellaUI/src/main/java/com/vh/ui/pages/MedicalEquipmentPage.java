@@ -1,6 +1,5 @@
 package com.vh.ui.pages;
 
-import static com.vh.sql.queries.SqlQueries.SQL_SELECT_PTME_PATIENT_MEDICAL_EQUIP;
 import static com.vh.ui.web.locators.MedicalEquipmentLocators.BTN_ADDMEDICALEQUIPMENT;
 import static com.vh.ui.web.locators.MedicalEquipmentLocators.BTN_ADDPOPUPADD;
 import static com.vh.ui.web.locators.MedicalEquipmentLocators.BTN_ADDPOPUPCANCEL;
@@ -56,12 +55,25 @@ import ru.yandex.qatools.allure.annotations.Step;
 
 public class MedicalEquipmentPage extends WebPage
 {
+	String memberUID;
+
 	ApplicationFunctions appFunctions;
 
 	public MedicalEquipmentPage(WebDriver driver) throws WaitException {
 		super(driver);
 
 		appFunctions = new ApplicationFunctions(driver);
+	}
+
+	@Step("Delete all Medical Equipment for the given Patient")
+	public void deleteMedicalEquipmentDatabase(String memberID) throws TimeoutException, WaitException, SQLException
+	{
+		memberUID = appFunctions.getMemberUIDFromMemberID(memberID);
+
+		final String SQL_DELETE_PTME_PTME_PATIENT_MEDICAL_EQUIP = "DELETE PTME_PATIENT_MEDICAL_EQUIP WHERE PTME_MEM_UID = '" + memberUID + "'";
+		appFunctions.queryDatabase(SQL_DELETE_PTME_PTME_PATIENT_MEDICAL_EQUIP);
+
+		appFunctions.closeDatabaseConnection();
 	}
 
 	@Step("Verify the visibility of the Medical Equipment page header label")
@@ -228,6 +240,8 @@ public class MedicalEquipmentPage extends WebPage
 	@Step("Verify the Medical Equipment was added to the database correctly")
 	public boolean verifyMedicalEquipmentDatabase(Map<String, String> map) throws TimeoutException, WaitException, InterruptedException, SQLException
 	{
+		final String SQL_SELECT_PTME_PATIENT_MEDICAL_EQUIP = "SELECT PTME_NOT_INUSE_YN FROM PTME_PATIENT_MEDICAL_EQUIP WHERE PTME_MEM_UID = '" + memberUID + "'";
+
 		ResultSet queryResultSet = appFunctions.queryDatabase(SQL_SELECT_PTME_PATIENT_MEDICAL_EQUIP);
 
 		queryResultSet.next();

@@ -1044,4 +1044,23 @@ public class ApplicationFunctions extends WebPage
 	{
 		databaseFunctions.close();
 	}
+
+	/**
+	 * Gets the Member UID from the passed in Member ID.
+	 * 
+	 * @param memberID
+	 *            The Member ID
+	 * @throws WaitException
+	 * @throws SQLException
+	 */
+	public String getMemberUIDFromMemberID(String memberID) throws WaitException, SQLException
+	{
+		final String SQL_SELECT_MEM_MEMBER = "SELECT MEM_UID FROM MEM_MEMBER WHERE MEM_ID = '" + memberID + "'";
+
+		ResultSet queryResultSet = queryDatabase(SQL_SELECT_MEM_MEMBER);
+
+		queryResultSet.next();
+
+		return queryResultSet.getString("MEM_UID");
+	}
 }
