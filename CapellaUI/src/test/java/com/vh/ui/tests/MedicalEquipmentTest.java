@@ -28,8 +28,7 @@ import ru.yandex.qatools.allure.annotations.Step;
  * Before running this test suite:
  * 1. Change the "username" and "password" parameters in the "resources\application.properties" file to your own
  * 2. Clear your browser's cache
- * 3. Delete all existing medical equipment from table PTME_PATIENT_MEDICAL_EQUIP
- */
+  */
 
 public class MedicalEquipmentTest extends TestBase
 {	
