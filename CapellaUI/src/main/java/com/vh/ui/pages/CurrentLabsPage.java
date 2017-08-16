@@ -2,6 +2,7 @@ package com.vh.ui.pages;
 
 import static com.vh.ui.web.locators.CurrentLabsLocators.*;
 
+import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
@@ -34,6 +35,17 @@ public class CurrentLabsPage extends WebPage
 		appFunctions = new ApplicationFunctions(driver);
 	}
 
+	@Step("Delete all Current Labs for the given Patient")
+	public void deleteCurrentLabsDatabase(String memberID) throws TimeoutException, WaitException, SQLException
+	{
+		String memberUID = appFunctions.getMemberUIDFromMemberID(memberID);
+
+		final String SQL_DELETE_PTLB_PATIENT_LABS = "DELETE PTLB_PATIENT_LABS WHERE PTLB_MEM_UID = '" + memberUID + "'";
+		appFunctions.queryDatabase(SQL_DELETE_PTLB_PATIENT_LABS);
+
+		appFunctions.closeDatabaseConnection();
+	}
+
 	@Step("Verify the visibility of the Current Labs page header label")
 	public boolean viewPageHeaderLabel() throws TimeoutException, WaitException
 	{
@@ -49,7 +61,7 @@ public class CurrentLabsPage extends WebPage
 	@Step("Click the ADD LAB button")
 	public void clickAddLabButton() throws TimeoutException, WaitException
 	{
-		webActions.click(VISIBILITY, BTN_ADDLAB);
+		webActions.javascriptClick(BTN_ADDLAB);
 	}
 
 	@Step("Click the Cancel button")

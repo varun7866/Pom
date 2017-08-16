@@ -1,5 +1,6 @@
 package com.vh.ui.tests;
 
+import java.sql.SQLException;
 import java.util.Map;
 
 import org.openqa.selenium.TimeoutException;
@@ -51,8 +52,10 @@ public class CurrentLabsTest extends TestBase
 
 	@Test(priority = 1, dataProvider = "CapellaDataProvider")
 	@Step("Verify the Current Labs page")
-	public void verify_CurrentLabsPage(Map<String, String> map) throws WaitException, URLNavigationException, InterruptedException
+	public void verify_CurrentLabsPage(Map<String, String> map) throws WaitException, URLNavigationException, InterruptedException, TimeoutException, SQLException
 	{
+		currentLabsPage.deleteCurrentLabsDatabase(map.get("MemberID"));
+
 		appFunctions.selectPatientFromMyPatients(map.get("PatientName")); // CKD Patient
 
 		appFunctions.navigateToMenu("Patient Experience->Labs->Current Labs");
@@ -61,10 +64,14 @@ public class CurrentLabsTest extends TestBase
 		Assert.assertTrue(currentLabsPage.viewAddLabButton(), "Failed to identify the ADD LAB button");
 	}
 
-	@Test(priority = 2)
+	@Test(priority = 2, dataProvider = "CapellaDataProvider")
 	@Step("Verify the Add Lab Results popup for CKD Patients")
-	public void verify_AddLabResultsPopupCKD() throws WaitException, URLNavigationException, InterruptedException
+	public void verify_AddLabResultsPopupCKD(Map<String, String> map) throws WaitException, URLNavigationException, InterruptedException
 	{
+		appFunctions.selectPatientFromMyPatients(map.get("PatientName")); // CKD Patient
+
+		appFunctions.navigateToMenu("Patient Experience->Labs->Current Labs");
+
 		currentLabsPage.clickAddLabButton();
 
 		Assert.assertTrue(currentLabsPage.viewAddLabResultsPopup(), "Failed to identify the Add Labs Results popup header label");
