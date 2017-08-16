@@ -899,8 +899,8 @@ public class ApplicationFunctions extends WebPage
 							columnTextSorted.add("true");
 						} else
 						{
-							columnTextOriginal.add("zalse");
-							columnTextSorted.add("zalse");
+							columnTextOriginal.add("false");
+							columnTextSorted.add("false");
 						}
 					}
 				}
