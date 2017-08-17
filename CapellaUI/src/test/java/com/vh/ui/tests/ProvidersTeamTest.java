@@ -1,5 +1,6 @@
 package com.vh.ui.tests;
 
+import java.sql.SQLException;
 import java.util.Map;
 
 import org.openqa.selenium.TimeoutException;
@@ -46,8 +47,10 @@ public class ProvidersTeamTest extends TestBase
 
 	@Test(priority = 1, dataProvider = "CapellaDataProvider")
 	@Step("Verify the Providers and Team page")
-	public void verify_ProvidersAndTeamPage(Map<String, String> map) throws WaitException, URLNavigationException, InterruptedException
+	public void verify_ProvidersAndTeamPage(Map<String, String> map) throws WaitException, URLNavigationException, InterruptedException, TimeoutException, SQLException
 	{
+		// providersTeamPage.deleteProvidersAndTeamDatabase(map.get("MemberID"));
+
 		appFunctions.selectPatientFromMyPatients(map.get("PatientName"));
 
 		appFunctions.navigateToMenu("Patient Care->Care Team");

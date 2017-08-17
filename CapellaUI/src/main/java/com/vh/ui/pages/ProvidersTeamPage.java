@@ -29,6 +29,7 @@ import static com.vh.ui.web.locators.ProvidersTeamLocators.TXT_NEWTEAMPOPUPPATIE
 import static com.vh.ui.web.locators.ProvidersTeamLocators.TXT_NEWTEAMPOPUPPHONE;
 import static com.vh.ui.web.locators.ProvidersTeamLocators.TXT_NEWTEAMPOPUPZIP;
 
+import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
@@ -57,6 +58,17 @@ public class ProvidersTeamPage extends WebPage
 		super(driver);
 
 		appFunctions = new ApplicationFunctions(driver);
+	}
+
+	@Step("Delete all Providers and Team Members for the given Patient")
+	public void deleteProvidersAndTeamDatabase(String memberID) throws TimeoutException, WaitException, SQLException
+	{
+		String memberUID = appFunctions.getMemberUIDFromMemberID(memberID);
+
+		final String SQL_DELETE_PTLB_PATIENT_LABS = "DELETE PTLB_PATIENT_LABS WHERE PTLB_MEM_UID = '" + memberUID + "'";
+		appFunctions.queryDatabase(SQL_DELETE_PTLB_PATIENT_LABS);
+
+		appFunctions.closeDatabaseConnection();
 	}
 
 	@Step("Verify the visibility of the Providers and Team page header label")
