@@ -16,6 +16,7 @@ public class ProvidersTeamLocators
 	public static final By BTN_NEWTEAMPOPUPPATIENTSEEINGSINCE = By.xpath("//label[text()='PATIENT SEEING SINCE ']/../../..//button[@class='mat-datepicker-toggle']");
 	public static final By BTN_NEWPROVIDERPOPUPSEARCH = By.xpath("//button//span[text()='Search']");
 	public static final By BTN_NEWPROVIDERPOPUPADDPROVIDER = By.xpath("//button//span[contains(., 'ADD PROVIDER')]");
+	public static final By BTN_NEWTEAMPOPUPX = By.xpath("//button[@class='dialog-close mat-icon-button']");
 
 	public static final By CBO_ACTIVEINACTIVE = By.xpath("//select");
 	public static final By CBO_NEWTEAMPOPUPTEAMTYPE = By.xpath("//providers-team-add-team//md-select/div/span[contains(., 'TEAM TYPE')]");
@@ -30,8 +31,9 @@ public class ProvidersTeamLocators
 	public static final By LBL_ADDRESSCOLUMNHEADER = By.xpath("//span[text()='ADDRESS']");
 	public static final By LBL_DATESCOLUMNHEADER = By.xpath("//span[text()='DATES']");
 	public static final By LBL_ALLOWCONTACTCOLUMNHEADER = By.xpath("//span[text()='ALLOW CONTACT']");
+	public static final By LBL_NEWTEAMPOPUPHEADER = By.id("md-dialog-title-0");
 
-	public static final By PLH_ACTIVEINACTIVE = By.xpath("//select[@ng-reflect-model='Active']");
+	public static final By PLH_ACTIVEINACTIVE = By.xpath("//select//option[@value='0: Active']");
 
 	public static final By TXT_NEWTEAMPOPUPNAME = By.xpath("//input[@ng-reflect-placeholder='NAME']");
 	public static final By TXT_NEWTEAMPOPUPEMAIL = By.xpath("//input[@ng-reflect-placeholder='EMAIL']");

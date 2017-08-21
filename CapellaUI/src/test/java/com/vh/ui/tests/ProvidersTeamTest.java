@@ -49,7 +49,7 @@ public class ProvidersTeamTest extends TestBase
 	@Step("Verify the Providers and Team page")
 	public void verify_ProvidersAndTeamPage(Map<String, String> map) throws WaitException, URLNavigationException, InterruptedException, TimeoutException, SQLException
 	{
-		// providersTeamPage.deleteProvidersAndTeamDatabase(map.get("MemberID"));
+		providersTeamPage.deleteProvidersAndTeamDatabase(map.get("MemberID"));
 
 		appFunctions.selectPatientFromMyPatients(map.get("PatientName"));
 
@@ -75,10 +75,12 @@ public class ProvidersTeamTest extends TestBase
 	{
 		providersTeamPage.clickAddATeamMemberButton();
 
+		Assert.assertTrue(providersTeamPage.viewNewTeamPopupHeaderLabel(), "Failed to identify the New Team popup header label");
+		Assert.assertTrue(providersTeamPage.viewNewTeamPopupXButton(), "Failed to identify the New Team popup X Button");
 	}
 
-	@Test(priority = 3)
-	@Step("Verify the New Provider popup")
+	// @Test(priority = 3)
+	// @Step("Verify the New Provider popup")
 	public void verify_NewProviderPopup(Map<String, String> map) throws WaitException, URLNavigationException, InterruptedException
 	{
 		providersTeamPage.clickAddAProviderButton();

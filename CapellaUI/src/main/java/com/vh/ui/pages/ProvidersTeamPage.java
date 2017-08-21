@@ -6,6 +6,7 @@ import static com.vh.ui.web.locators.ProvidersTeamLocators.BTN_NEWPROVIDERPOPUPA
 import static com.vh.ui.web.locators.ProvidersTeamLocators.BTN_NEWPROVIDERPOPUPSEARCH;
 import static com.vh.ui.web.locators.ProvidersTeamLocators.BTN_NEWTEAMPOPUPPATIENTSEEINGSINCE;
 import static com.vh.ui.web.locators.ProvidersTeamLocators.BTN_NEWTEAMPOPUPSUBMIT;
+import static com.vh.ui.web.locators.ProvidersTeamLocators.BTN_NEWTEAMPOPUPX;
 import static com.vh.ui.web.locators.ProvidersTeamLocators.CBO_ACTIVEINACTIVE;
 import static com.vh.ui.web.locators.ProvidersTeamLocators.CBO_NEWPROVIDERPOPUPASSOCIATEAS;
 import static com.vh.ui.web.locators.ProvidersTeamLocators.CBO_NEWTEAMPOPUPSTATE;
@@ -16,6 +17,7 @@ import static com.vh.ui.web.locators.ProvidersTeamLocators.LBL_ADDRESSCOLUMNHEAD
 import static com.vh.ui.web.locators.ProvidersTeamLocators.LBL_ALLOWCONTACTCOLUMNHEADER;
 import static com.vh.ui.web.locators.ProvidersTeamLocators.LBL_DATESCOLUMNHEADER;
 import static com.vh.ui.web.locators.ProvidersTeamLocators.LBL_NAMETYPECOLUMNHEADER;
+import static com.vh.ui.web.locators.ProvidersTeamLocators.LBL_NEWTEAMPOPUPHEADER;
 import static com.vh.ui.web.locators.ProvidersTeamLocators.LBL_PAGEHEADER;
 import static com.vh.ui.web.locators.ProvidersTeamLocators.PLH_ACTIVEINACTIVE;
 import static com.vh.ui.web.locators.ProvidersTeamLocators.TXT_NEWTEAMPOPUPADDRESS;
@@ -65,8 +67,11 @@ public class ProvidersTeamPage extends WebPage
 	{
 		String memberUID = appFunctions.getMemberUIDFromMemberID(memberID);
 
-		final String SQL_DELETE_PTLB_PATIENT_LABS = "DELETE PTLB_PATIENT_LABS WHERE PTLB_MEM_UID = '" + memberUID + "'";
-		appFunctions.queryDatabase(SQL_DELETE_PTLB_PATIENT_LABS);
+		final String SQL_DELETE_AUD_MPA_MEM_PTA_ASSOCIATE = "DELETE AUD_MPA_MEM_PTA_ASSOCIATE WHERE MPA_MEM_UID = '" + memberUID + "'";
+		appFunctions.queryDatabase(SQL_DELETE_AUD_MPA_MEM_PTA_ASSOCIATE);
+
+		final String SQL_DELETE_MPA_MEM_PTA_ASSOCIATE = "DELETE MPA_MEM_PTA_ASSOCIATE WHERE MPA_MEM_UID = '" + memberUID + "' AND MPA_ASSOCIATION != 'VHN'";
+		appFunctions.queryDatabase(SQL_DELETE_MPA_MEM_PTA_ASSOCIATE);
 
 		appFunctions.closeDatabaseConnection();
 	}
@@ -134,6 +139,18 @@ public class ProvidersTeamPage extends WebPage
 	public boolean viewAllowContactColumnHeaderLabel() throws TimeoutException, WaitException
 	{
 		return webActions.getVisibiltyOfElementLocatedBy(VISIBILITY, LBL_ALLOWCONTACTCOLUMNHEADER);
+	}
+
+	@Step("Verify the visibility of the New Team popup header label")
+	public boolean viewNewTeamPopupHeaderLabel() throws TimeoutException, WaitException
+	{
+		return webActions.getVisibiltyOfElementLocatedBy(VISIBILITY, LBL_NEWTEAMPOPUPHEADER);
+	}
+
+	@Step("Verify the visibility of the New Team popup X button")
+	public boolean viewNewTeamPopupXButton() throws TimeoutException, WaitException
+	{
+		return webActions.getVisibiltyOfElementLocatedBy(VISIBILITY, BTN_NEWTEAMPOPUPX);
 	}
 
 	// *********************************************************************************************************************
