@@ -18,6 +18,7 @@ import static com.vh.ui.web.locators.ProvidersTeamLocators.LBL_ALLOWCONTACTCOLUM
 import static com.vh.ui.web.locators.ProvidersTeamLocators.LBL_DATESCOLUMNHEADER;
 import static com.vh.ui.web.locators.ProvidersTeamLocators.LBL_NAMETYPECOLUMNHEADER;
 import static com.vh.ui.web.locators.ProvidersTeamLocators.LBL_NEWTEAMPOPUPHEADER;
+import static com.vh.ui.web.locators.ProvidersTeamLocators.LBL_NEWTEAMPOPUPTEAMTYPE;
 import static com.vh.ui.web.locators.ProvidersTeamLocators.LBL_PAGEHEADER;
 import static com.vh.ui.web.locators.ProvidersTeamLocators.PLH_ACTIVEINACTIVE;
 import static com.vh.ui.web.locators.ProvidersTeamLocators.TXT_NEWTEAMPOPUPADDRESS;
@@ -151,6 +152,12 @@ public class ProvidersTeamPage extends WebPage
 	public boolean viewNewTeamPopupXButton() throws TimeoutException, WaitException
 	{
 		return webActions.getVisibiltyOfElementLocatedBy(VISIBILITY, BTN_NEWTEAMPOPUPX);
+	}
+
+	@Step("Verify the visibility of the New Team popup TEAM TYPE label")
+	public boolean viewNewTeamPopupTeamTypeLabel() throws TimeoutException, WaitException
+	{
+		return webActions.getVisibiltyOfElementLocatedBy(VISIBILITY, LBL_NEWTEAMPOPUPTEAMTYPE);
 	}
 
 	// *********************************************************************************************************************

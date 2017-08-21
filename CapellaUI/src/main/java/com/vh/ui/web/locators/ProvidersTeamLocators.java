@@ -32,6 +32,7 @@ public class ProvidersTeamLocators
 	public static final By LBL_DATESCOLUMNHEADER = By.xpath("//span[text()='DATES']");
 	public static final By LBL_ALLOWCONTACTCOLUMNHEADER = By.xpath("//span[text()='ALLOW CONTACT']");
 	public static final By LBL_NEWTEAMPOPUPHEADER = By.id("md-dialog-title-0");
+	public static final By LBL_NEWTEAMPOPUPTEAMTYPE = By.xpath("//span[contains(., 'TEAM TYPE')]");
 
 	public static final By PLH_ACTIVEINACTIVE = By.xpath("//select//option[@value='0: Active']");
 
