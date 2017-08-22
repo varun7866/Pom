@@ -160,6 +160,12 @@ public class ProvidersTeamPage extends WebPage
 		return webActions.getVisibiltyOfElementLocatedBy(VISIBILITY, LBL_NEWTEAMPOPUPTEAMTYPE);
 	}
 
+	@Step("Verify the visibility of the New Team popup TEAM TYPE combo box")
+	public boolean viewNewTeamPopupTeamTypeComboBox() throws TimeoutException, WaitException
+	{
+		return webActions.getVisibiltyOfElementLocatedBy(VISIBILITY, CBO_NEWTEAMPOPUPTEAMTYPE);
+	}
+
 	// *********************************************************************************************************************
 	@Step("Adds a Team Member to the table")
 	public void addATeamMember(Map<String, String> map) throws TimeoutException, WaitException, InterruptedException

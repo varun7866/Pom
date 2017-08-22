@@ -36,8 +36,8 @@ public class ProvidersTeamLocators
 
 	public static final By PLH_ACTIVEINACTIVE = By.xpath("//select//option[@value='0: Active']");
 
-	public static final By TXT_NEWTEAMPOPUPNAME = By.xpath("//input[@ng-reflect-placeholder='NAME']");
-	public static final By TXT_NEWTEAMPOPUPEMAIL = By.xpath("//input[@ng-reflect-placeholder='EMAIL']");
+	public static final By TXT_NEWTEAMPOPUPNAME = By.id("md-input-27");
+	public static final By TXT_NEWTEAMPOPUPEMAIL = By.id("md-input-29");
 	public static final By TXT_NEWTEAMPOPUPADDRESS = By.xpath("//input[@ng-reflect-placeholder='ADDRESS']");
 	public static final By TXT_NEWTEAMPOPUPAPTSUITE = By.xpath("//input[@ng-reflect-placeholder='APT/SUITE']");
 	public static final By TXT_NEWTEAMPOPUPCITY = By.xpath("//input[@ng-reflect-placeholder='CITY']");

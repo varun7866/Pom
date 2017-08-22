@@ -76,7 +76,10 @@ public class ProvidersTeamTest extends TestBase
 		providersTeamPage.clickAddATeamMemberButton();
 
 		Assert.assertTrue(providersTeamPage.viewNewTeamPopupHeaderLabel(), "Failed to identify the New Team popup header label");
-		Assert.assertTrue(providersTeamPage.viewNewTeamPopupXButton(), "Failed to identify the New Team popup X Button");
+		// Assert.assertTrue(providersTeamPage.viewNewTeamPopupXButton(), "Failed to identify the New Team popup X Button");
+
+		Assert.assertTrue(providersTeamPage.viewNewTeamPopupTeamTypeLabel(), "Failed to identify the New Team popup TEAM TYPE label");
+		Assert.assertTrue(providersTeamPage.viewNewTeamPopupTeamTypeComboBox(), "Failed to identify the New Team popup TEAM TYPE combo box");
 	}
 
 	// @Test(priority = 3)
