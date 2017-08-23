@@ -85,7 +85,7 @@ public class MedicalEquipmentTest extends TestBase
 
 		Assert.assertTrue(medicalEquipmentPage.viewAddPopupSourceLabel(), "Failed to identify the Add Medical Equipment popup SOURCE label");
 		Assert.assertTrue(medicalEquipmentPage.viewAddPopupSourceComboBox(), "Failed to identify the Add Medical Equipment popup SOURCE combo box");
-		Assert.assertTrue(medicalEquipmentPage.viewAddpopupSourcePlaceholder(), "Failed to identify the Add Medical Equipment popup SOURCE placeholder");
+		Assert.assertTrue(medicalEquipmentPage.viewAddPopupSourcePlaceholder(), "Failed to identify the Add Medical Equipment popup SOURCE placeholder");
 		Assert.assertTrue(medicalEquipmentPage.verifyAddPopupSourceComboBoxOptions(), "The Add Medical Equipment popup SOURCE drop down options are incorrect");
 
 		Assert.assertTrue(medicalEquipmentPage.viewAddPopupEquipmentIsInUseLabel(), "Failed to identify the Add Medical Equipment popup Equipment is in Use label");
@@ -204,7 +204,7 @@ public class MedicalEquipmentTest extends TestBase
 	@AfterClass
 	public void tearDown() throws TimeoutException, WaitException
 	{
-		appFunctions.capellaLogout();
-		pageBase.quit();
+		// appFunctions.capellaLogout();
+		// pageBase.quit();
 	}
 }

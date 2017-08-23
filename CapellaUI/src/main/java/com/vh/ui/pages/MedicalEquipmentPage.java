@@ -372,7 +372,7 @@ public class MedicalEquipmentPage extends WebPage
 	}
 
 	@Step("Verify the visibility of the Add Medical Equipment popup SOURCE placeholder")
-	public boolean viewAddpopupSourcePlaceholder() throws TimeoutException, WaitException
+	public boolean viewAddPopupSourcePlaceholder() throws TimeoutException, WaitException
 	{
 		return webActions.getVisibiltyOfElementLocatedBy(VISIBILITY, PLH_ADDPOPUPSOURCE);
 	}

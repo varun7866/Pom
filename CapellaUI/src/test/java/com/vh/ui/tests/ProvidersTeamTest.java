@@ -80,6 +80,8 @@ public class ProvidersTeamTest extends TestBase
 
 		Assert.assertTrue(providersTeamPage.viewNewTeamPopupTeamTypeLabel(), "Failed to identify the New Team popup TEAM TYPE label");
 		Assert.assertTrue(providersTeamPage.viewNewTeamPopupTeamTypeComboBox(), "Failed to identify the New Team popup TEAM TYPE combo box");
+		Assert.assertTrue(providersTeamPage.viewNewTeamPopupTeamTypePlaceholder(), "Failed to identify the New Team popup TEAM TYPE placeholder");
+		// Assert.assertTrue(providersTeamPage.verifyNewTeamPopupTeamTypeComboBoxOptions(), "The New Team popup TEAM TYPE drop down options are incorrect");
 	}
 
 	// @Test(priority = 3)
@@ -114,7 +116,7 @@ public class ProvidersTeamTest extends TestBase
 	@AfterClass
 	public void tearDown() throws TimeoutException, WaitException
 	{
-		// appFunctions.capellaLogout();
-		// pageBase.quit();
+		appFunctions.capellaLogout();
+		pageBase.quit();
 	}
 }

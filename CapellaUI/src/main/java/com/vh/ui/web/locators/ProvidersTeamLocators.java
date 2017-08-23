@@ -32,18 +32,19 @@ public class ProvidersTeamLocators
 	public static final By LBL_DATESCOLUMNHEADER = By.xpath("//span[text()='DATES']");
 	public static final By LBL_ALLOWCONTACTCOLUMNHEADER = By.xpath("//span[text()='ALLOW CONTACT']");
 	public static final By LBL_NEWTEAMPOPUPHEADER = By.id("md-dialog-title-0");
-	public static final By LBL_NEWTEAMPOPUPTEAMTYPE = By.xpath("//span[contains(., 'TEAM TYPE')]");
+	public static final By LBL_NEWTEAMPOPUPTEAMTYPE = By.xpath("//providers-team-add-team//span[contains(., 'TEAM TYPE')]");
 
 	public static final By PLH_ACTIVEINACTIVE = By.xpath("//select//option[@value='0: Active']");
+	public static final By PLH_NEWTEAMPOPUPTEAMTYPE = By.xpath("//providers-team-add-team//md-select//span[text()='Select a value']");
 
-	public static final By TXT_NEWTEAMPOPUPNAME = By.id("md-input-27");
-	public static final By TXT_NEWTEAMPOPUPEMAIL = By.id("md-input-29");
-	public static final By TXT_NEWTEAMPOPUPADDRESS = By.xpath("//input[@ng-reflect-placeholder='ADDRESS']");
-	public static final By TXT_NEWTEAMPOPUPAPTSUITE = By.xpath("//input[@ng-reflect-placeholder='APT/SUITE']");
-	public static final By TXT_NEWTEAMPOPUPCITY = By.xpath("//input[@ng-reflect-placeholder='CITY']");
-	public static final By TXT_NEWTEAMPOPUPZIP = By.xpath("//input[@ng-reflect-placeholder='ZIP']");
-	public static final By TXT_NEWTEAMPOPUPPHONE = By.xpath("//input[@ng-reflect-placeholder='PHONE']");
-	public static final By TXT_NEWTEAMPOPUPFAX = By.xpath("//input[@ng-reflect-placeholder='FAX']");
-	public static final By TXT_NEWTEAMPOPUPOTHERPHONE = By.xpath("//input[@ng-reflect-placeholder='OTHER PHONE']");
-	public static final By TXT_NEWTEAMPOPUPPATIENTSEEINGSINCE = By.xpath("//input[@ng-reflect-placeholder='PATIENT SEEING SINCE']");
+	public static final By TXT_NEWTEAMPOPUPNAME = By.xpath("//input[@placeholder='NAME']");
+	public static final By TXT_NEWTEAMPOPUPEMAIL = By.xpath("//input[@placeholder='EMAIL']");
+	public static final By TXT_NEWTEAMPOPUPADDRESS = By.xpath("//input[@placeholder='ADDRESS']");
+	public static final By TXT_NEWTEAMPOPUPAPTSUITE = By.xpath("//input[@placeholder='APT/SUITE']");
+	public static final By TXT_NEWTEAMPOPUPCITY = By.xpath("//input[@placeholder='CITY']");
+	public static final By TXT_NEWTEAMPOPUPZIP = By.xpath("//input[@placeholder='ZIP']");
+	public static final By TXT_NEWTEAMPOPUPPHONE = By.xpath("//input[@placeholder='PHONE']");
+	public static final By TXT_NEWTEAMPOPUPFAX = By.xpath("//input[@placeholder='FAX']");
+	public static final By TXT_NEWTEAMPOPUPOTHERPHONE = By.xpath("//input[@placeholder='OTHER PHONE']");
+	public static final By TXT_NEWTEAMPOPUPPATIENTSEEINGSINCE = By.xpath("//input[@placeholder='PATIENT SEEING SINCE']");
 }
