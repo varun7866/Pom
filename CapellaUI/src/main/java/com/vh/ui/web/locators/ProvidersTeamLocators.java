@@ -37,14 +37,14 @@ public class ProvidersTeamLocators
 	public static final By PLH_ACTIVEINACTIVE = By.xpath("//select//option[@value='0: Active']");
 	public static final By PLH_NEWTEAMPOPUPTEAMTYPE = By.xpath("//providers-team-add-team//md-select//span[text()='Select a value']");
 
-	public static final By TXT_NEWTEAMPOPUPNAME = By.xpath("//input[@placeholder='NAME']");
-	public static final By TXT_NEWTEAMPOPUPEMAIL = By.xpath("//input[@placeholder='EMAIL']");
-	public static final By TXT_NEWTEAMPOPUPADDRESS = By.xpath("//input[@placeholder='ADDRESS']");
-	public static final By TXT_NEWTEAMPOPUPAPTSUITE = By.xpath("//input[@placeholder='APT/SUITE']");
-	public static final By TXT_NEWTEAMPOPUPCITY = By.xpath("//input[@placeholder='CITY']");
-	public static final By TXT_NEWTEAMPOPUPZIP = By.xpath("//input[@placeholder='ZIP']");
-	public static final By TXT_NEWTEAMPOPUPPHONE = By.xpath("//input[@placeholder='PHONE']");
-	public static final By TXT_NEWTEAMPOPUPFAX = By.xpath("//input[@placeholder='FAX']");
-	public static final By TXT_NEWTEAMPOPUPOTHERPHONE = By.xpath("//input[@placeholder='OTHER PHONE']");
-	public static final By TXT_NEWTEAMPOPUPPATIENTSEEINGSINCE = By.xpath("//input[@placeholder='PATIENT SEEING SINCE']");
+	public static final By TXT_NEWTEAMPOPUPNAME = By.xpath("//providers-team-add-team//label[contains(., 'NAME')]/../../input");
+	public static final By TXT_NEWTEAMPOPUPEMAIL = By.xpath("//providers-team-add-team//label[contains(., 'EMAIL')]/../../input");
+	public static final By TXT_NEWTEAMPOPUPADDRESS = By.xpath("//providers-team-add-team//label[contains(., 'ADDRESS')]/../../input");
+	public static final By TXT_NEWTEAMPOPUPAPTSUITE = By.xpath("//providers-team-add-team//label[contains(., 'APT/SUITE')]/../../input");
+	public static final By TXT_NEWTEAMPOPUPCITY = By.xpath("//providers-team-add-team//label[contains(., 'CITY')]/../../input");
+	public static final By TXT_NEWTEAMPOPUPZIP = By.xpath("//providers-team-add-team//label[contains(., 'ZIP')]/../../input");
+	public static final By TXT_NEWTEAMPOPUPPHONE = By.xpath("//providers-team-add-team//label[contains(., 'PHONE')]/../../input");
+	public static final By TXT_NEWTEAMPOPUPFAX = By.xpath("//providers-team-add-team//label[contains(., 'FAX')]/../../input");
+	public static final By TXT_NEWTEAMPOPUPOTHERPHONE = By.xpath("//providers-team-add-team//label[contains(., 'OTHER PHONE')]/../../input");
+	public static final By TXT_NEWTEAMPOPUPPATIENTSEEINGSINCE = By.xpath("//providers-team-add-team//label[contains(., 'PATIENT SEEING SINCE')]/../../input");
 }
