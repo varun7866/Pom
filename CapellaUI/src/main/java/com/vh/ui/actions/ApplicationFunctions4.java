@@ -31,7 +31,7 @@ public class ApplicationFunctions4 extends WebPage
 	}
 
 	/**
-	 * Verifies if the options in the passed in drop down match the option in the passed in list
+	 * DO NOT USE. NOT FINISHED YET. Verifies if the options in the passed in drop down match the option in the passed in list
 	 * 
 	 * @param dropDownLocator
 	 *            The <select> tag locator of the drop down
