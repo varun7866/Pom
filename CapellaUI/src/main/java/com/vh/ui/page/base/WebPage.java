@@ -4,6 +4,7 @@ import org.apache.log4j.Logger;
 import org.openqa.selenium.WebDriver;
 
 import com.vh.ui.actions.WebActions;
+import com.vh.ui.actions.WebActions4;
 import com.vh.ui.exceptions.URLNavigationException;
 import com.vh.ui.exceptions.WaitException;
 import com.vh.ui.pages.LoginPage;
@@ -23,6 +24,7 @@ public class WebPage extends Page {
 
 	protected WebDriver driver;
 	protected WebActions webActions;
+	protected WebActions4 webActions4;
 	protected String webStrTempVar;
 	protected WebDriverWaits wait;
 	protected static final Logger log = Logg.createLogger();
@@ -31,6 +33,7 @@ public class WebPage extends Page {
 		super(driver);
 		this.setDriver(driver);
 		this.webActions = new WebActions(driver);
+		this.webActions4 = new WebActions4(driver);
 		this.wait = new WebDriverWaits();
 	}
 

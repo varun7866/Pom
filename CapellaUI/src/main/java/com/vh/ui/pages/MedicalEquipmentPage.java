@@ -116,10 +116,10 @@ public class MedicalEquipmentPage extends WebPage
 
 		if (attributeValueBefore.equals("E"))
 		{
-			webActions.selectFromDropDownOld(VISIBILITY, CBO_FIRSTROWSTATUS, "Returned");
+			webActions.selectFromDropDown(VISIBILITY, CBO_FIRSTROWSTATUS, "Returned");
 		} else
 		{
-			webActions.selectFromDropDownOld(VISIBILITY, CBO_FIRSTROWSTATUS, "Error");
+			webActions.selectFromDropDown(VISIBILITY, CBO_FIRSTROWSTATUS, "Error");
 		}
 
 		attributeValueAfter = webActions.getAttributeValue(VISIBILITY, CBO_FIRSTROWSTATUS, "ng-reflect-model");
@@ -391,7 +391,7 @@ public class MedicalEquipmentPage extends WebPage
 	@Step("Select an option form the Add Medical Equipment popup SOURCE combo box")
 	public void selectAddPopupSourceComboBox(String optionToSelect) throws TimeoutException, WaitException
 	{
-		webActions.selectFromDropDownOld(VISIBILITY, CBO_ADDPOPUPSOURCE, optionToSelect);
+		webActions.selectFromDropDown(VISIBILITY, CBO_ADDPOPUPSOURCE, optionToSelect);
 	}
 
 	@Step("Verify the visibility of the Add Medical Equipment popup Equipment is in Use label")
@@ -463,7 +463,7 @@ public class MedicalEquipmentPage extends WebPage
 	@Step("Select an option form the Add Medical Equipment popup EQUIPMENT TYPE combo box")
 	public void selectAddPopupEquipmentTypeComboBox(String optionToSelect) throws TimeoutException, WaitException
 	{
-		webActions.selectFromDropDownOld(VISIBILITY, CBO_ADDPOPUPEQUIPMENTTYPE, optionToSelect);
+		webActions.selectFromDropDown(VISIBILITY, CBO_ADDPOPUPEQUIPMENTTYPE, optionToSelect);
 	}
 
 	@Step("Verify the visibility of the Add Medical Equipment popup STATUS label")
@@ -501,7 +501,7 @@ public class MedicalEquipmentPage extends WebPage
 	@Step("Select an option from the Add Medical Equipment popup STATUS combo box")
 	public void selectAddPopupStatusComboBox(String optionToSelect) throws TimeoutException, WaitException
 	{
-		webActions.selectFromDropDownOld(VISIBILITY, CBO_ADDPOPUPSTATUS, optionToSelect);
+		webActions.selectFromDropDown(VISIBILITY, CBO_ADDPOPUPSTATUS, optionToSelect);
 	}
 
 	/**

@@ -173,6 +173,17 @@ public class ProvidersTeamPage extends WebPage
 		return webActions.getVisibiltyOfElementLocatedBy(VISIBILITY, PLH_NEWTEAMPOPUPTEAMTYPE);
 	}
 
+	@Step("Verify the options of the New Team popup TEAM TYPE combo box")
+	public boolean verifyNewTeamPopupTeamTypeComboBoxOptions() throws TimeoutException, WaitException
+	{
+		List<String> dropDownOptions = new ArrayList<String>();
+		dropDownOptions.add("Select a value");
+		dropDownOptions.add("Administrative Assistant");
+		dropDownOptions.add("Behavioral Health Specialist");
+
+		return appFunctions.verifyDropDownOptions(CBO_NEWTEAMPOPUPTEAMTYPE, dropDownOptions);
+	}
+
 	// *********************************************************************************************************************
 	@Step("Adds a Team Member to the table")
 	public void addATeamMember(Map<String, String> map) throws TimeoutException, WaitException, InterruptedException
@@ -261,7 +272,7 @@ public class ProvidersTeamPage extends WebPage
 	@Step("Select an option form the New Team popup TEAM TYPE combo box")
 	public void selectNewTeamPopupTeamTypeComboBox(String value) throws TimeoutException, WaitException
 	{
-		webActions.selectFromDropDown(VISIBILITY, CBO_NEWTEAMPOPUPTEAMTYPE, value);
+		webActions4.selectFromDropDown(VISIBILITY, CBO_NEWTEAMPOPUPTEAMTYPE, value);
 	}
 
 	@Step("Enter {0} in the New Team popup NAME text field")
@@ -297,7 +308,7 @@ public class ProvidersTeamPage extends WebPage
 	@Step("Select an option form the New Team popup STATE combo box")
 	public void selectNewTeamPopupStateComboBox(String optionToSelect) throws TimeoutException, WaitException
 	{
-		webActions.selectFromDropDown(VISIBILITY, CBO_NEWTEAMPOPUPSTATE, optionToSelect);
+		webActions4.selectFromDropDown(VISIBILITY, CBO_NEWTEAMPOPUPSTATE, optionToSelect);
 	}
 
 	@Step("Enter {0} in the New Team popup ZIP text field")
@@ -394,7 +405,7 @@ public class ProvidersTeamPage extends WebPage
 	@Step("Select an option form the New Provider popup ASSOCIATE AS combo box")
 	public void selectNewProviderPopupAssociateAsComboBox(String value) throws TimeoutException, WaitException
 	{
-		webActions.selectFromDropDown(VISIBILITY, CBO_NEWPROVIDERPOPUPASSOCIATEAS, value);
+		webActions4.selectFromDropDown(VISIBILITY, CBO_NEWPROVIDERPOPUPASSOCIATEAS, value);
 	}
 
 	@Step("Click the Add Provider popup ADD PROVIDER button")

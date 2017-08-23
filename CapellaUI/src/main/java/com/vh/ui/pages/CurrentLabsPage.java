@@ -1058,7 +1058,7 @@ public class CurrentLabsPage extends WebPage
 	@Step("Enter {0} in the DIPSTICK FOR PROTEIN combo box")
 	public CurrentLabsPage enterDipstickForProtein(String dipstickForProteinVal) throws TimeoutException, WaitException
 	{
-		webActions.selectFromDropDownOld(CLICKABILITY, CBO_ADDPOPUPDIPSTICKFORPROTEIN, dipstickForProteinVal);
+		webActions.selectFromDropDown(CLICKABILITY, CBO_ADDPOPUPDIPSTICKFORPROTEIN, dipstickForProteinVal);
 		return this;
 	}
 
