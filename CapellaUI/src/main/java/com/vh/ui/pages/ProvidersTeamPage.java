@@ -43,6 +43,7 @@ import org.openqa.selenium.TimeoutException;
 import org.openqa.selenium.WebDriver;
 
 import com.vh.ui.actions.ApplicationFunctions;
+import com.vh.ui.actions.ApplicationFunctions4;
 import com.vh.ui.exceptions.WaitException;
 import com.vh.ui.page.base.WebPage;
 
@@ -57,11 +58,13 @@ import ru.yandex.qatools.allure.annotations.Step;
 public class ProvidersTeamPage extends WebPage
 {
 	ApplicationFunctions appFunctions;
+	ApplicationFunctions4 appFunctions4;
 
 	public ProvidersTeamPage(WebDriver driver) throws WaitException {
 		super(driver);
 
 		appFunctions = new ApplicationFunctions(driver);
+		appFunctions4 = new ApplicationFunctions4(driver);
 	}
 
 	@Step("Delete all Providers and Team Members for the given Patient")
@@ -181,7 +184,7 @@ public class ProvidersTeamPage extends WebPage
 		dropDownOptions.add("Administrative Assistant");
 		dropDownOptions.add("Behavioral Health Specialist");
 
-		return appFunctions.verifyDropDownOptions(CBO_NEWTEAMPOPUPTEAMTYPE, dropDownOptions);
+		return appFunctions4.verifyDropDownOptions(CBO_NEWTEAMPOPUPTEAMTYPE, dropDownOptions);
 	}
 
 	// *********************************************************************************************************************
