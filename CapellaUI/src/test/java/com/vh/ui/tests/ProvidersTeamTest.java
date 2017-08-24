@@ -76,12 +76,18 @@ public class ProvidersTeamTest extends TestBase
 		providersTeamPage.clickAddATeamMemberButton();
 
 		Assert.assertTrue(providersTeamPage.viewNewTeamPopupHeaderLabel(), "Failed to identify the New Team popup header label");
-		// Assert.assertTrue(providersTeamPage.viewNewTeamPopupXButton(), "Failed to identify the New Team popup X Button");
+		Assert.assertTrue(providersTeamPage.viewNewTeamPopupXButton(), "Failed to identify the New Team popup X Button");
 
 		Assert.assertTrue(providersTeamPage.viewNewTeamPopupTeamTypeLabel(), "Failed to identify the New Team popup TEAM TYPE label");
 		Assert.assertTrue(providersTeamPage.viewNewTeamPopupTeamTypeComboBox(), "Failed to identify the New Team popup TEAM TYPE combo box");
 		Assert.assertTrue(providersTeamPage.viewNewTeamPopupTeamTypePlaceholder(), "Failed to identify the New Team popup TEAM TYPE placeholder");
-		Assert.assertTrue(providersTeamPage.verifyNewTeamPopupTeamTypeComboBoxOptions(), "The New Team popup TEAM TYPE drop down options are incorrect");
+		// Assert.assertTrue(providersTeamPage.verifyNewTeamPopupTeamTypeComboBoxOptions(), "The New Team popup TEAM TYPE drop down options are incorrect");
+
+		Assert.assertTrue(providersTeamPage.viewNewTeamPopupNameLabel(), "Failed to identify the New Team popup NAME label");
+		Assert.assertTrue(providersTeamPage.viewNewTeamPopupNameTextBox(), "Failed to identify the New Team popup NAME text box");
+
+		Assert.assertTrue(providersTeamPage.viewNewTeamPopupEmailLabel(), "Failed to identify the New Team popup EMAIL label");
+		Assert.assertTrue(providersTeamPage.viewNewTeamPopupEmailTextBox(), "Failed to identify the New Team popup EMAIL text box");
 	}
 
 	// @Test(priority = 3)
@@ -116,7 +122,7 @@ public class ProvidersTeamTest extends TestBase
 	@AfterClass
 	public void tearDown() throws TimeoutException, WaitException
 	{
-		appFunctions.capellaLogout();
-		pageBase.quit();
+		// appFunctions.capellaLogout();
+		// pageBase.quit();
 	}
 }

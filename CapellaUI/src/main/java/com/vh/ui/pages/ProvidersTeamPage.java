@@ -17,7 +17,9 @@ import static com.vh.ui.web.locators.ProvidersTeamLocators.LBL_ADDRESSCOLUMNHEAD
 import static com.vh.ui.web.locators.ProvidersTeamLocators.LBL_ALLOWCONTACTCOLUMNHEADER;
 import static com.vh.ui.web.locators.ProvidersTeamLocators.LBL_DATESCOLUMNHEADER;
 import static com.vh.ui.web.locators.ProvidersTeamLocators.LBL_NAMETYPECOLUMNHEADER;
+import static com.vh.ui.web.locators.ProvidersTeamLocators.LBL_NEWTEAMPOPUPEMAIL;
 import static com.vh.ui.web.locators.ProvidersTeamLocators.LBL_NEWTEAMPOPUPHEADER;
+import static com.vh.ui.web.locators.ProvidersTeamLocators.LBL_NEWTEAMPOPUPNAME;
 import static com.vh.ui.web.locators.ProvidersTeamLocators.LBL_NEWTEAMPOPUPTEAMTYPE;
 import static com.vh.ui.web.locators.ProvidersTeamLocators.LBL_PAGEHEADER;
 import static com.vh.ui.web.locators.ProvidersTeamLocators.PLH_ACTIVEINACTIVE;
@@ -187,7 +189,32 @@ public class ProvidersTeamPage extends WebPage
 		return appFunctions4.verifyDropDownOptions(CBO_NEWTEAMPOPUPTEAMTYPE, dropDownOptions);
 	}
 
+	@Step("Verify the visibility of the New Team popup NAME label")
+	public boolean viewNewTeamPopupNameLabel() throws TimeoutException, WaitException
+	{
+		return webActions.getVisibiltyOfElementLocatedBy(VISIBILITY, LBL_NEWTEAMPOPUPNAME);
+	}
+
+	@Step("Verify the visibility of the New Team popup NAME text box")
+	public boolean viewNewTeamPopupNameTextBox() throws TimeoutException, WaitException
+	{
+		return webActions.getVisibiltyOfElementLocatedBy(VISIBILITY, TXT_NEWTEAMPOPUPNAME);
+	}
+
+	@Step("Verify the visibility of the New Team popup EMAIL label")
+	public boolean viewNewTeamPopupEmailLabel() throws TimeoutException, WaitException
+	{
+		return webActions.getVisibiltyOfElementLocatedBy(VISIBILITY, LBL_NEWTEAMPOPUPEMAIL);
+	}
+
+	@Step("Verify the visibility of the New Team popup EMAIL text box")
+	public boolean viewNewTeamPopupEmailTextBox() throws TimeoutException, WaitException
+	{
+		return webActions.getVisibiltyOfElementLocatedBy(VISIBILITY, TXT_NEWTEAMPOPUPEMAIL);
+	}
+
 	// *********************************************************************************************************************
+
 	@Step("Adds a Team Member to the table")
 	public void addATeamMember(Map<String, String> map) throws TimeoutException, WaitException, InterruptedException
 	{

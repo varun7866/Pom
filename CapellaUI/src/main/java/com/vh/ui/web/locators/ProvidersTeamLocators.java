@@ -33,6 +33,8 @@ public class ProvidersTeamLocators
 	public static final By LBL_ALLOWCONTACTCOLUMNHEADER = By.xpath("//span[text()='ALLOW CONTACT']");
 	public static final By LBL_NEWTEAMPOPUPHEADER = By.id("md-dialog-title-0");
 	public static final By LBL_NEWTEAMPOPUPTEAMTYPE = By.xpath("//providers-team-add-team//span[contains(., 'TEAM TYPE')]");
+	public static final By LBL_NEWTEAMPOPUPNAME = By.xpath("//providers-team-add-team//label[contains(., 'NAME')]/span[text()='*']");
+	public static final By LBL_NEWTEAMPOPUPEMAIL = By.xpath("//providers-team-add-team//label[contains(., 'EMAIL')]");
 
 	public static final By PLH_ACTIVEINACTIVE = By.xpath("//select//option[@value='0: Active']");
 	public static final By PLH_NEWTEAMPOPUPTEAMTYPE = By.xpath("//providers-team-add-team//md-select//span[text()='Select a value']");
