@@ -10,6 +10,7 @@ import java.util.Map;
 import org.openqa.selenium.TimeoutException;
 import org.openqa.selenium.WebDriver;
 import org.testng.Assert;
+import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
@@ -37,7 +38,7 @@ public class HospitalizationTest extends TestBase {
 		hospitalizationPage = new HospitalizationPage(driver);
 
 		appFunctions.capellaLogin();
-		appFunctions.selectPatientFromMyPatients("Gareth Coulahan");
+//		appFunctions.selectPatientFromMyPatients("Gareth Coulahan");
 		appFunctions.navigateToMenu("Patient Experience->Hospitalization");
 
 	}
@@ -47,7 +48,7 @@ public class HospitalizationTest extends TestBase {
 	public void verify_CurrentHospitalizationPage() throws WaitException, URLNavigationException, InterruptedException
 	{
 		Assert.assertTrue(hospitalizationPage.viewHospitalizationPageHeaderLabel(), "Failed to identify the Current Hospitalization page header label");
-//		Assert.assertTrue(hospitalizationPage.viewAddHospitalizationButton(), "Failed to identify the ADD Hospitalization button");
+		Assert.assertTrue(hospitalizationPage.viewAddHospitalizationButton(), "Failed to identify the ADD Hospitalization button");
 	}
 	
 	@Test(priority = 2)
@@ -66,22 +67,22 @@ public class HospitalizationTest extends TestBase {
 		Assert.assertTrue(hospitalizationPage.viewNewHospPopupAdmittanceTabNotificationDatePicker(), "Failed to identify the Notification Date Picker");
 		Assert.assertTrue(hospitalizationPage.viewNewHospPopupAdmittanceTabNotificationDate(), "Failed to identify the Notification Date Picker button");
 		Assert.assertTrue(hospitalizationPage.viewNewHospPopupAdmittanceTabNotifiedByLabel(), "Failed to identify the Notified By label");
-		Assert.assertTrue(hospitalizationPage.verifyNewHospPopupAdmittanceTabNotifiedBydropdownOptions(), "Failed to identify the Notified By drop down options");
+//		Assert.assertTrue(hospitalizationPage.verifyNewHospPopupAdmittanceTabNotifiedBydropdownOptions(), "Failed to identify the Notified By drop down options");
 		Assert.assertTrue(hospitalizationPage.viewNewHospPopupAdmittanceTabReasonLabel(), "Failed to identify the Reason label ");	
-		Assert.assertTrue(hospitalizationPage.verifyNewHospPopupAdmittanceTabReasondropdownOptions(), "Failed to identify Reason dropdown options");
+//		Assert.assertTrue(hospitalizationPage.verifyNewHospPopupAdmittanceTabReasondropdownOptions(), "Failed to identify Reason dropdown options");
 		Assert.assertTrue(hospitalizationPage.viewNewHospPopupAdmittanceTabReadmitLabel(), "Failed to identify the Readmit label");
 		Assert.assertTrue(hospitalizationPage.viewNewHospPopupAdmittanceTabPhoneLabel(), "Failed to identify the Admittance tab phone label");
 		Assert.assertTrue(hospitalizationPage.viewNewHospPopupAdmittanceTabPhoneTextBox(), "Failed to identify the Admittance tab phone text box");
 		Assert.assertTrue(hospitalizationPage.viewNewHospPopupAdmittanceTabFaxLabel(), "Failed to identify the Admittance tab Fax label");
 		Assert.assertTrue(hospitalizationPage.viewNewHospPopupAdmittanceTabFaxTextBox(), "Failed to identify the Admittance tab Fax text box");
 		Assert.assertTrue(hospitalizationPage.viewNewHospPopupAdmittanceTabAdmittypeLabel(), "Failed to identify the Admit Type label in Add Hospitalization popup");
-		Assert.assertTrue(hospitalizationPage.verifyNewHospPopupAdmittanceTabAdmittypedropdownOptions(), "Failed to identify the Admit type drop down options");
+//		Assert.assertTrue(hospitalizationPage.verifyNewHospPopupAdmittanceTabAdmittypedropdownOptions(), "Failed to identify the Admit type drop down options");
 		Assert.assertTrue(hospitalizationPage.viewNewHospPopupAdmittanceTabSourceofAdmitLabel(), "Failed to identify the Source of Admit label in Add Hospitalization popup");
-		Assert.assertTrue(hospitalizationPage.verifyNewHospPopupAdmittanceTabSourceofadmitdropdownOptions(), "Failed to identify the Source of Admit label in Add Hospitalization popup");
+//		Assert.assertTrue(hospitalizationPage.verifyNewHospPopupAdmittanceTabSourceofadmitdropdownOptions(), "Failed to identify the Source of Admit label in Add Hospitalization popup");
 		Assert.assertTrue(hospitalizationPage.viewNewHospPopupAdmittanceTabPriorLocationLabel(), "Failed to identify the Prior Location label in admittance tab");
-		Assert.assertTrue(hospitalizationPage.verifyNewHospPopupAdmittanceTabPriorLocationdropdownOptions(), "Failed to Prior Location dropdown options in admittance tab");
+//		Assert.assertTrue(hospitalizationPage.verifyNewHospPopupAdmittanceTabPriorLocationdropdownOptions(), "Failed to Prior Location dropdown options in admittance tab");
 		Assert.assertTrue(hospitalizationPage.viewNewHospPopupAdmittanceTabAdmittingDiagnosisLabel(), "Failed to identify the Admitting Diagnosis label");
-		Assert.assertTrue(hospitalizationPage.verifyNewHospPopupAdmittanceTabAdmittingDiagnosisdropdownOptions(), "Failed to identify the Admitting Diagnosis dropdown options");
+//		Assert.assertTrue(hospitalizationPage.verifyNewHospPopupAdmittanceTabAdmittingDiagnosisdropdownOptions(), "Failed to identify the Admitting Diagnosis dropdown options");
 		Assert.assertTrue(hospitalizationPage.viewNewHospPopupAdmittanceTabRelatedSubCategoryLabel(), "Failed to identify the Notification Date label in Add Hospitalization popup");
 		Assert.assertTrue(hospitalizationPage.viewNewHospPopupAdmittanceTabWorkingDiagnosisLabel(), "Failed to identify the Notification Date Picker");
 		Assert.assertTrue(hospitalizationPage.viewNewHospPopupAdmittanceTabWorkingDiagnosisTextBox(), "Failed to identify the Notification Date Picker");
@@ -90,6 +91,16 @@ public class HospitalizationTest extends TestBase {
 		Assert.assertTrue(hospitalizationPage.viewNewHospPopupAdmittanceTabHOSPCMGRLabel(), "Failed to identify the Notified By drop down options");
 		Assert.assertTrue(hospitalizationPage.viewNewHospPopupAdmittanceTabCommentLabel(), "Failed to identify the Reason label ");	
 		Assert.assertTrue(hospitalizationPage.viewNewHospPopupAdmittanceTabCommentTextBox(), "Failed to identify the Reason label ");	
+		hospitalizationPage.clickNextButtonNewHospPopupAdmittanceTab();	
+		//Verify all the error messages when all the mandatory fields are not populated.
+		Assert.assertTrue(hospitalizationPage.verifyNewHospPopupFacilityNameAdmittanceTabErrorMesssage(), "Failed to identify the Reason label ");	
+		Assert.assertTrue(hospitalizationPage.verifyNewHospPopupAdmittanceTabNotifiedByErrorMesssage(), "Failed to identify the Reason label ");	
+		Assert.assertTrue(hospitalizationPage.viewNewHospPopupAdmittanceTabCommentTextBox(), "Failed to identify the Reason label ");	
+		Assert.assertTrue(hospitalizationPage.verifyNewHospPopupAdmittanceTabAdmitTypeErrorMesssage(), "Failed to identify the Reason label ");	
+		Assert.assertTrue(hospitalizationPage.verifyNewHospPopupAdmittanceTabSourceofAdmitErrorMesssage(), "Failed to identify the Reason label ");	
+		Assert.assertTrue(hospitalizationPage.verifyNewHospPopupAdmittanceTabAdmittingDiagnosisErrorMesssage(), "Failed to identify the Reason label ");
+		Assert.assertTrue(hospitalizationPage.verifyNewHospPopupAdmittanceTabRelatedSubcategoryErrorMesssage(), "Failed to identify the Reason label ");	
+		Assert.assertTrue(hospitalizationPage.verifyNewHospPopupAdmittanceTabWorkingDiagnosisErrorMesssage(), "Failed to identify the Reason label ");	
 	}
 	
 	@Test(priority = 3)
@@ -147,11 +158,34 @@ public class HospitalizationTest extends TestBase {
 		
 		appFunctions.selectPatientFromMyPatients(map.get("PatientName"));
 		appFunctions.navigateToMenu("Patient Experience->Hospitalization");
-		Thread.sleep(7000);
-		hospitalizationPage.addHospitalizationRecord(map);
-		
-		Assert.assertTrue(hospitalizationPage.viewHospitalizationFacilityName(map.get("ADMITTANCEFACILITYNAME")), "Failed to identify the added hospitalization facility name ");
-	}
+		Thread.sleep(10000);
+		Assert.assertTrue(hospitalizationPage.viewHospitalizationPageHeaderLabel(), "Failed to identify the Current Hospitalization page header label");
 
+//		hospitalizationPage.addHospitalizationRecord(map);
+		Thread.sleep(7000);
+		hospitalizationPage.viewAddedHospitalizationRecordExists(map);
+	}
+	
+	@Test(priority = 6, dataProvider = "CapellaDataProvider")
+	@Step("Verify the Add New Hospitalization button will be disabled when a current hospitalzation record exists with no discharge date")
+	public void AddaAdmitHospitalizationRecord(Map<String, String> map) throws WaitException, URLNavigationException, InterruptedException
+	{
+		
+		appFunctions.selectPatientFromMyPatients(map.get("PatientName"));
+		appFunctions.navigateToMenu("Patient Experience->Hospitalization");
+		Thread.sleep(10000);
+		Assert.assertTrue(hospitalizationPage.viewHospitalizationPageHeaderLabel(), "Failed to identify the Current Hospitalization page header label");
+
+//		hospitalizationPage.addHospitalizationRecord(map);
+		Thread.sleep(7000);
+		hospitalizationPage.viewAddedHospitalizationRecordExists(map);
+	}
+	
+	@AfterClass
+	public void tearDown() throws TimeoutException, WaitException
+	{
+	appFunctions.capellaLogout();
+	pageBase.quit();
+	}
 }
 

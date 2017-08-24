@@ -1,87 +1,7 @@
 package com.vh.ui.pages;
 
 
-import static com.vh.ui.web.locators.HospitalizationLocators.BTN_ADDHOSPITALIZATION;
-import static com.vh.ui.web.locators.HospitalizationLocators.BTN_NEWHOSPITALIZATIONCANCEL;
-import static com.vh.ui.web.locators.HospitalizationLocators.BTN_NEWHOSPITALIZATIONSUBMIT;
-import static com.vh.ui.web.locators.HospitalizationLocators.BTN_NEWHOSPNEWHOSPADDPOPUPADMITTANCETABNEXT;
-import static com.vh.ui.web.locators.HospitalizationLocators.BTN_NEWHOSPPOPUPADMITTANCETABADMITDATECAL;
-import static com.vh.ui.web.locators.HospitalizationLocators.BTN_NEWHOSPPOPUPADMITTANCETABNOTIFICATIONDATECAL;
-import static com.vh.ui.web.locators.HospitalizationLocators.BTN_NEWHOSPPOPUPDISCHARGETABDISCHARGEDATECAL;
-import static com.vh.ui.web.locators.HospitalizationLocators.BTN_NEWHOSPPOPUPDISCHARGETABDISCHARGETAB;
-import static com.vh.ui.web.locators.HospitalizationLocators.BTN_NEWHOSPPOPUPDISCHARGETABNOTIFICATIONDATECAL;
-import static com.vh.ui.web.locators.HospitalizationLocators.BTN_NEWHOSPPOPUPDISCHARGETABPLANDATECAL;
-import static com.vh.ui.web.locators.HospitalizationLocators.BTN_NEWHOSPPOPUPTRANSFERTABTRANSFERBUTTON;
-import static com.vh.ui.web.locators.HospitalizationLocators.BTN_NEWHOSPPOPUPTRANSFERTABTRANSFERDATECAL;
-import static com.vh.ui.web.locators.HospitalizationLocators.BTN_NEWHOSPTRANSFERTABNEXT;
-import static com.vh.ui.web.locators.HospitalizationLocators.CAL_NEWHOSPPOPUPADMITTANCETABADMITDATECAL;
-import static com.vh.ui.web.locators.HospitalizationLocators.CAL_NEWHOSPPOPUPADMITTANCETABNOTIFICATIONDATECAL;
-import static com.vh.ui.web.locators.HospitalizationLocators.CAL_NEWHOSPPOPUPADMITTANCETABTRANSFERDATE;
-import static com.vh.ui.web.locators.HospitalizationLocators.CAL_NEWHOSPPOPUPDISCHARGETABADDDISCHARGEDATE;
-import static com.vh.ui.web.locators.HospitalizationLocators.CAL_NEWHOSPPOPUPDISCHARGETABADDPLANDATE;
-import static com.vh.ui.web.locators.HospitalizationLocators.CAL_NEWHOSPPOPUPDISCHARGETABNOTIFICATIONDATE;
-import static com.vh.ui.web.locators.HospitalizationLocators.CBO_NEWHOSPPOPUPADMITTANCETABADMITTINGDIAGNOSIS;
-import static com.vh.ui.web.locators.HospitalizationLocators.CBO_NEWHOSPPOPUPADMITTANCETABADMITTYPE;
-import static com.vh.ui.web.locators.HospitalizationLocators.CBO_NEWHOSPPOPUPADMITTANCETABNOTIFIEDBy;
-import static com.vh.ui.web.locators.HospitalizationLocators.CBO_NEWHOSPPOPUPADMITTANCETABPRIORLOCATION;
-import static com.vh.ui.web.locators.HospitalizationLocators.CBO_NEWHOSPPOPUPADMITTANCETABREASON;
-import static com.vh.ui.web.locators.HospitalizationLocators.CBO_NEWHOSPPOPUPADMITTANCETABRELATEDSUBCATEGORY;
-import static com.vh.ui.web.locators.HospitalizationLocators.CBO_NEWHOSPPOPUPADMITTANCETABSOURCEOFADMIT;
-import static com.vh.ui.web.locators.HospitalizationLocators.CBO_NEWHOSPPOPUPDISCHARGETABDISCHARGEDIAGNOSIS;
-import static com.vh.ui.web.locators.HospitalizationLocators.CBO_NEWHOSPPOPUPDISCHARGETABDISCHARGERELATEDSUBCATEGORY;
-import static com.vh.ui.web.locators.HospitalizationLocators.CBO_NEWHOSPPOPUPDISCHARGETABDISPOSITION;
-import static com.vh.ui.web.locators.HospitalizationLocators.CBO_NEWHOSPPOPUPDISCHARGETABHOMEHEALTHREASON;
-import static com.vh.ui.web.locators.HospitalizationLocators.CHK_NEWHOSPPOPUPADMITTANCETABAVOIDABLEADM;
-import static com.vh.ui.web.locators.HospitalizationLocators.CHK_NEWHOSPPOPUPADMITTANCETABPLANNEDADMISSION;
-import static com.vh.ui.web.locators.HospitalizationLocators.CHK_NEWHOSPPOPUPADMITTANCETABVCWHOSPCMGR;
-import static com.vh.ui.web.locators.HospitalizationLocators.LBL_ADDTRANSFER;
-import static com.vh.ui.web.locators.HospitalizationLocators.LBL_NEWHOSPADDPOPUPADMITTANCETABADMITTINGDIAGNOSIS;
-import static com.vh.ui.web.locators.HospitalizationLocators.LBL_NEWHOSPADDPOPUPADMITTANCETABADMITTYPE;
-import static com.vh.ui.web.locators.HospitalizationLocators.LBL_NEWHOSPADDPOPUPADMITTANCETABAVOIDABLEADM;
-import static com.vh.ui.web.locators.HospitalizationLocators.LBL_NEWHOSPADDPOPUPADMITTANCETABCOMMENT;
-import static com.vh.ui.web.locators.HospitalizationLocators.LBL_NEWHOSPADDPOPUPADMITTANCETABFAX;
-import static com.vh.ui.web.locators.HospitalizationLocators.LBL_NEWHOSPADDPOPUPADMITTANCETABPHONE;
-import static com.vh.ui.web.locators.HospitalizationLocators.LBL_NEWHOSPADDPOPUPADMITTANCETABPLANNEDADMISSION;
-import static com.vh.ui.web.locators.HospitalizationLocators.LBL_NEWHOSPADDPOPUPADMITTANCETABPRIORLOCATION;
-import static com.vh.ui.web.locators.HospitalizationLocators.LBL_NEWHOSPADDPOPUPADMITTANCETABREADMIT;
-import static com.vh.ui.web.locators.HospitalizationLocators.LBL_NEWHOSPADDPOPUPADMITTANCETABRELATEDSUBCATEGORY;
-import static com.vh.ui.web.locators.HospitalizationLocators.LBL_NEWHOSPADDPOPUPADMITTANCETABSOURCEOFADMIT;
-import static com.vh.ui.web.locators.HospitalizationLocators.LBL_NEWHOSPADDPOPUPADMITTANCETABVCWHOSPCMGR;
-import static com.vh.ui.web.locators.HospitalizationLocators.LBL_NEWHOSPADDPOPUPADMITTANCETABWORKINGDIAGNOSIS;
-import static com.vh.ui.web.locators.HospitalizationLocators.LBL_NEWHOSPNEWHOSPADDPOPUPADMITTANCETABADMITDATE;
-import static com.vh.ui.web.locators.HospitalizationLocators.LBL_NEWHOSPNEWHOSPADDPOPUPADMITTANCETABADMITTANCEHEADER;
-import static com.vh.ui.web.locators.HospitalizationLocators.LBL_NEWHOSPNEWHOSPADDPOPUPADMITTANCETABFACILITYNAME;
-import static com.vh.ui.web.locators.HospitalizationLocators.LBL_NEWHOSPNEWHOSPADDPOPUPADMITTANCETABNOTIFICATIONDATE;
-import static com.vh.ui.web.locators.HospitalizationLocators.LBL_NEWHOSPNEWHOSPADDPOPUPADMITTANCETABNOTIFIEDBy;
-import static com.vh.ui.web.locators.HospitalizationLocators.LBL_NEWHOSPNEWHOSPADDPOPUPADMITTANCETABREASON;
-import static com.vh.ui.web.locators.HospitalizationLocators.LBL_NEWHOSPPOPUPDISCHARGETABDISCHARGEDATE;
-import static com.vh.ui.web.locators.HospitalizationLocators.LBL_NEWHOSPPOPUPDISCHARGETABDISCHARGEDIAGNOSIS;
-import static com.vh.ui.web.locators.HospitalizationLocators.LBL_NEWHOSPPOPUPDISCHARGETABDISCHARGEHEADER;
-import static com.vh.ui.web.locators.HospitalizationLocators.LBL_NEWHOSPPOPUPDISCHARGETABDISCHARGENOTIFICATIONDATE;
-import static com.vh.ui.web.locators.HospitalizationLocators.LBL_NEWHOSPPOPUPDISCHARGETABDISCHARGEPATIENTREFUSEDPLAN;
-import static com.vh.ui.web.locators.HospitalizationLocators.LBL_NEWHOSPPOPUPDISCHARGETABDISCHARGEPLANDATE;
-import static com.vh.ui.web.locators.HospitalizationLocators.LBL_NEWHOSPPOPUPDISCHARGETABDISCHARGERELATEDSUBCATEGORY;
-import static com.vh.ui.web.locators.HospitalizationLocators.LBL_NEWHOSPPOPUPDISCHARGETABDISPOSITION;
-import static com.vh.ui.web.locators.HospitalizationLocators.LBL_NEWHOSPPOPUPDISCHARGETABHOMEHEALTHNAME;
-import static com.vh.ui.web.locators.HospitalizationLocators.LBL_NEWHOSPPOPUPDISCHARGETABHOMEHEALTHREASON;
-import static com.vh.ui.web.locators.HospitalizationLocators.LBL_NEWHOSPPOPUPTRANSFERTABTRANSFERDATE;
-import static com.vh.ui.web.locators.HospitalizationLocators.LBL_NEWHOSPPOPUPTRANSFERTABTRANSFERFACILITYNAME;
-import static com.vh.ui.web.locators.HospitalizationLocators.LBL_NEWHOSPPOPUPTRANSFERTABTRANSFERFAX;
-import static com.vh.ui.web.locators.HospitalizationLocators.LBL_NEWHOSPPOPUPTRANSFERTABTRANSFERHEADER;
-import static com.vh.ui.web.locators.HospitalizationLocators.LBL_NEWHOSPPOPUPTRANSFERTABTRANSFERPHONE;
-import static com.vh.ui.web.locators.HospitalizationLocators.LBL_PATIENTEXPERIENCEHOSPITALIZATIONS;
-import static com.vh.ui.web.locators.HospitalizationLocators.RDO_NEWHOSPPOPUPDISCHARGETABADDPATIENTREFUSEDPLANNO;
-import static com.vh.ui.web.locators.HospitalizationLocators.RDO_NEWHOSPPOPUPDISCHARGETABADDPATIENTREFUSEDPLANYES;
-import static com.vh.ui.web.locators.HospitalizationLocators.RDO_NEWHOSPPOPUPDISCHARGETABMEDICALEQUIPMENTYES;
-import static com.vh.ui.web.locators.HospitalizationLocators.TXT_NEWHOSPADDPOPUPADMITTANCETABCOMMENT;
-import static com.vh.ui.web.locators.HospitalizationLocators.TXT_NEWHOSPADDPOPUPADMITTANCETABFACILITYNAME;
-import static com.vh.ui.web.locators.HospitalizationLocators.TXT_NEWHOSPADDPOPUPADMITTANCETABFAX;
-import static com.vh.ui.web.locators.HospitalizationLocators.TXT_NEWHOSPADDPOPUPADMITTANCETABPHONE;
-import static com.vh.ui.web.locators.HospitalizationLocators.TXT_NEWHOSPADDPOPUPADMITTANCETABWORKINGDIAGNOSIS;
-import static com.vh.ui.web.locators.HospitalizationLocators.TXT_NEWHOSPPOPUPDISCHARGETABHOMEHEALTHNAME;
-import static com.vh.ui.web.locators.HospitalizationLocators.TXT_NEWHOSPPOPUPTRANSFERTABTRANSFERFACILITYNAME;
-import static com.vh.ui.web.locators.HospitalizationLocators.TXT_NEWHOSPPOPUPTRANSFERTABTRANSFERFAX;
-import static com.vh.ui.web.locators.HospitalizationLocators.TXT_NEWHOSPPOPUPTRANSFERTABTRANSFERPHONE;
+import static com.vh.ui.web.locators.HospitalizationLocators.*;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -90,6 +10,8 @@ import java.util.Map;
 import org.openqa.selenium.By;
 import org.openqa.selenium.TimeoutException;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.testng.Assert;
 
 import com.vh.ui.actions.ApplicationFunctions;
 import com.vh.ui.exceptions.WaitException;
@@ -312,12 +234,12 @@ public class HospitalizationPage extends WebPage
     @Step("Select an option to Enter NotifiedBy")
     public void selectNewHospPopupAdmittanceTabNotifiedBy(String value) throws TimeoutException, WaitException
     {
-        webActions.selectFromDropDownOld(VISIBILITY,CBO_NEWHOSPPOPUPADMITTANCETABNOTIFIEDBy, value);
+        webActions.selectFromDropDown(VISIBILITY,CBO_NEWHOSPPOPUPADMITTANCETABNOTIFIEDBy, value);
     }
     @Step("Select an option to Enter Reason")
     public void selectNewHospPopupAdmittanceTabReason(String value) throws TimeoutException, WaitException
     {
-        webActions.selectFromDropDownOld(VISIBILITY,CBO_NEWHOSPPOPUPADMITTANCETABREASON, value);
+        webActions.selectFromDropDown(VISIBILITY,CBO_NEWHOSPPOPUPADMITTANCETABREASON, value);
     }	
     @Step("Enter Phone Number in Admittance Tab")
     public void enterNewHospPopupAdmittanceTabPhone(String value) throws TimeoutException, WaitException
@@ -332,27 +254,27 @@ public class HospitalizationPage extends WebPage
     @Step("Select an option to Enter Admit Type in Admittance Tab")
     public void selectNewHospPopupAdmittanceTabAdmitType(String value) throws TimeoutException, WaitException
     {
-        webActions.selectFromDropDownOld(VISIBILITY,CBO_NEWHOSPPOPUPADMITTANCETABADMITTYPE, value);
+        webActions.selectFromDropDown(VISIBILITY,CBO_NEWHOSPPOPUPADMITTANCETABADMITTYPE, value);
     }
     @Step("Select an option to Enter SourceOfAdmit in Admittance Tab")
     public void selectNewHospPopupAdmittanceTabSourceOfAdmit(String value) throws TimeoutException, WaitException
     {
-        webActions.selectFromDropDownOld(VISIBILITY,CBO_NEWHOSPPOPUPADMITTANCETABSOURCEOFADMIT, value);
+        webActions.selectFromDropDown(VISIBILITY,CBO_NEWHOSPPOPUPADMITTANCETABSOURCEOFADMIT, value);
     }
     @Step("Select an option to Enter PriorLocation in Admittance Tab")
     public void selectNewHospPopupAdmittanceTabPriorLocation(String value) throws TimeoutException, WaitException
     {
-        webActions.selectFromDropDownOld(VISIBILITY,CBO_NEWHOSPPOPUPADMITTANCETABPRIORLOCATION, value);
+        webActions.selectFromDropDown(VISIBILITY,CBO_NEWHOSPPOPUPADMITTANCETABPRIORLOCATION, value);
     }
     @Step("Select an option to Enter Admittingdiagnosis in Admittance Tab")
     public void selectNewHospPopupAdmittanceTabAdmittingdiagnosis(String value) throws TimeoutException, WaitException
     {
-        webActions.selectFromDropDownOld(VISIBILITY,CBO_NEWHOSPPOPUPADMITTANCETABADMITTINGDIAGNOSIS, value);
+        webActions.selectFromDropDown(VISIBILITY,CBO_NEWHOSPPOPUPADMITTANCETABADMITTINGDIAGNOSIS, value);
     }
     @Step("Select an option to Enter Related SubCategory in Admittance Tab")
     public void selectNewHospPopupAdmittanceTabRelatedSubCategory(String value) throws TimeoutException, WaitException
     {
-        webActions.selectFromDropDownOld(VISIBILITY,CBO_NEWHOSPPOPUPADMITTANCETABRELATEDSUBCATEGORY, value);
+        webActions.selectFromDropDown(VISIBILITY,CBO_NEWHOSPPOPUPADMITTANCETABRELATEDSUBCATEGORY, value);
     }
     @Step("Select an option to Enter Workingdiagnosis in Admittance Tab")
     public void enterNewHospPopupAdmittanceTabWorkingdiagnosis(String value) throws TimeoutException, WaitException
@@ -837,19 +759,19 @@ public class HospitalizationPage extends WebPage
     @Step("Select an option to Enter Discharge Diagnosis")
     public void selectNewHospPopupDischargeTabDischargeDiagnosis(String value) throws TimeoutException, WaitException
     {
-        webActions.selectFromDropDownOld(VISIBILITY,CBO_NEWHOSPPOPUPDISCHARGETABDISCHARGEDIAGNOSIS, value);
+        webActions.selectFromDropDown(VISIBILITY,CBO_NEWHOSPPOPUPDISCHARGETABDISCHARGEDIAGNOSIS, value);
     }
     
     @Step("Select an option to Enter Related SubCategory in Admittance Tab")
     public void selectNewHospPopupDischargeTabRelatedSubCategory(String value) throws TimeoutException, WaitException
     {
-        webActions.selectFromDropDownOld(VISIBILITY,CBO_NEWHOSPPOPUPDISCHARGETABDISCHARGERELATEDSUBCATEGORY, value);
+        webActions.selectFromDropDown(VISIBILITY,CBO_NEWHOSPPOPUPDISCHARGETABDISCHARGERELATEDSUBCATEGORY, value);
     }
     
     @Step("Select an option to Enter Disposition")
     public void selectNewHospPopupDischargeTabDisposition(String value) throws TimeoutException, WaitException
     {
-        webActions.selectFromDropDownOld(VISIBILITY,CBO_NEWHOSPPOPUPDISCHARGETABDISPOSITION, value);
+        webActions.selectFromDropDown(VISIBILITY,CBO_NEWHOSPPOPUPDISCHARGETABDISPOSITION, value);
     }	
     
     @Step("Click the Patient Plan Refused Yes radio button")
@@ -867,7 +789,7 @@ public class HospitalizationPage extends WebPage
     @Step("Select an option to Enter Home Health Reason")
     public void selectNewHospPopupDischargeTabHomeHealthReason(String value) throws TimeoutException, WaitException
     {
-        webActions.selectFromDropDownOld(VISIBILITY,CBO_NEWHOSPPOPUPDISCHARGETABHOMEHEALTHREASON, value);
+        webActions.selectFromDropDown(VISIBILITY,CBO_NEWHOSPPOPUPDISCHARGETABHOMEHEALTHREASON, value);
     }
     
     @Step("Click the Submit button on the hospitalization popup")
@@ -881,6 +803,60 @@ public class HospitalizationPage extends WebPage
     {
         webActions.click(VISIBILITY, BTN_NEWHOSPITALIZATIONCANCEL);
     }
+    
+	@Step("Verify the visibility of facillity name is required error message in Admittance tab")
+	public boolean verifyNewHospPopupFacilityNameAdmittanceTabErrorMesssage() throws TimeoutException, WaitException, InterruptedException
+	{
+		return webActions.getVisibiltyOfElementLocatedBy(VISIBILITY, LBL_NEWHOSPPOPUPADMITTANCETABFACILITYNAMEERRORMESSAGE);
+	}
+	
+	@Step("Verify the visibility of Notification Date is required error message in Admittance tab")
+	public boolean verifyNewHospPopupAdmittanceTabNotificationDateErrorMesssage() throws TimeoutException, WaitException, InterruptedException
+	{
+		return webActions.getVisibiltyOfElementLocatedBy(VISIBILITY, LBL_NEWHOSPPOPUPADMITTANCETABNOTIFICATIONDATEERRORMESSAGE);
+	}
+	
+	@Step("Verify the visibility of Notified By is required error message in Admittance tab")
+	public boolean verifyNewHospPopupAdmittanceTabNotifiedByErrorMesssage() throws TimeoutException, WaitException, InterruptedException
+	{
+		return webActions.getVisibiltyOfElementLocatedBy(VISIBILITY, LBL_NEWHOSPPOPUPADMITTANCETABNOTIFIEDBYERRORMESSAGE);
+	}
+	
+	@Step("Verify the visibility of Admit type is required error message in Admittance tab")
+	public boolean verifyNewHospPopupAdmittanceTabAdmitTypeErrorMesssage() throws TimeoutException, WaitException, InterruptedException
+	{
+		return webActions.getVisibiltyOfElementLocatedBy(VISIBILITY, LBL_NEWHOSPPOPUPADMITTANCETABADMITTYPEERRORMESSAGE);
+	}
+	
+	@Step("Verify the visibility of Source of Admit is required error message in Admittance tab")
+	public boolean verifyNewHospPopupAdmittanceTabSourceofAdmitErrorMesssage() throws TimeoutException, WaitException, InterruptedException
+	{
+		return webActions.getVisibiltyOfElementLocatedBy(VISIBILITY, LBL_NEWHOSPPOPUPADMITTANCETABSOURCEOFADMITERRORMESSAGE);
+	}
+	
+	@Step("Verify the visibility of Admitting Diagnosis is required error message in Admittance tab")
+	public boolean verifyNewHospPopupAdmittanceTabAdmittingDiagnosisErrorMesssage() throws TimeoutException, WaitException, InterruptedException
+	{
+		return webActions.getVisibiltyOfElementLocatedBy(VISIBILITY, LBL_NEWHOSPPOPUPADMITTANCETABADMITTINGDIAGNOSISERRORMESSAGE);
+	}
+	
+	@Step("Verify the visibility of Related Subcategory is required error message in Admittance tab")
+	public boolean verifyNewHospPopupAdmittanceTabRelatedSubcategoryErrorMesssage() throws TimeoutException, WaitException, InterruptedException
+	{
+		return webActions.getVisibiltyOfElementLocatedBy(VISIBILITY, LBL_NEWHOSPPOPUPADMITTANCETABSUBCATEGORYERRORMESSAGE);
+	}
+	
+	@Step("Verify the visibility of Working Diagnosis is required error message in Admittance tab")
+	public boolean verifyNewHospPopupAdmittanceTabWorkingDiagnosisErrorMesssage() throws TimeoutException, WaitException, InterruptedException
+	{
+		return webActions.getVisibiltyOfElementLocatedBy(VISIBILITY, LBL_NEWHOSPPOPUPADMITTANCETABWORKINGDIAGNOSISERRORMESSAGE);
+	}
+	
+	@Step("Verify the visibility of Discharge Disposition is required error message in Admittance tab")
+	public boolean verifyNewHospPopupAdmittanceTabDischargeDispositionErrorMesssage() throws TimeoutException, WaitException, InterruptedException
+	{
+		return webActions.getVisibiltyOfElementLocatedBy(VISIBILITY, LBL_NEWHOSPPOPUPDISCHARGETABWDISPOSITIONERRORMESSAGE);
+	}
     //-------------------------Add New Hospitalization Record---------------------------------------
     
     @Step("Add a new hospitalization record for the patient")
@@ -939,19 +915,75 @@ public class HospitalizationPage extends WebPage
 		clickNewHospPopupSubmitButton();		
 	}
     
-	@Step("Verify the added Hospital record name exist in the Hospitalization page")
-	public boolean viewAddedHospFacilityName(String facilityName) throws TimeoutException, WaitException
+	@Step("Verify the added Hospital record exist in the Hospitalization page")
+	public void viewAddedHospitalizationRecordExists(Map<String, String> map) throws TimeoutException, WaitException, InterruptedException
 	{
-		final By LBL_FACILITY = By.xpath("//hospitalization//div/strong[contains(., '" + facilityName + "')]");//span[text()='Height (" + labValue + ")']");
-		return webActions.getVisibiltyOfElementLocatedBy(VISIBILITY, LBL_FACILITY);
-	}
-	@Step("Verify the added Admit Type exists in the Hospitalization page")
-	public boolean viewHospitalizationFacilityName(String facilityName) throws TimeoutException, WaitException
-	{
-		final By LBL_FACILITY = By.xpath("//hospitalization//div/strong[contains(., '" + facilityName + "')]");//span[text()='Height (" + labValue + ")']");
+		String admitDateGregorian = appFunctions.adjustCurrentDateBy(map.get("ADMITDATE"), "MM/dd/YYYY");
+		String dischargeDateGregorian = appFunctions.adjustCurrentDateBy(map.get("DISCHARGEDATE"), "MM/dd/YYYY");
 
-		return webActions.getVisibiltyOfElementLocatedBy(VISIBILITY, LBL_FACILITY);
+		List<WebElement> hospitalizationsList = driver.findElements(LBL_HOSPITALIZATIORECORDS);
+		
+		for(int i=1; i <= hospitalizationsList.size(); i++)
+		{
+			WebElement facilityName = driver.findElement(By.xpath("//hospitalization//div[@class='hospitalization-item-borderBottom'][" + i + "]//div/strong"));
+			WebElement admitType = driver.findElement(By.xpath("//hospitalization//div[@class='hospitalization-item-borderBottom'][" + i + "]//td[2]/div"));
+			WebElement admitDate = driver.findElement(By.xpath("//hospitalization//div[@class='hospitalization-item-borderBottom'][" + i + "]//div[4]/span"));
+			WebElement dischargeDate = driver.findElement(By.xpath("//hospitalization//div[@class='hospitalization-item-borderBottom'][" + i + "]//div[5]/span"));
+					
+			String facilityNameAdded = facilityName.getText();
+			String admitTypeAdded = admitType.getText();
+			String admitDateAdded = admitDate.getText();
+			String dischargeDateAdded = dischargeDate.getText();
+			
+			System.out.println(facilityNameAdded);
+			System.out.println(admitTypeAdded);
+			System.out.println(admitDateAdded);
+			System.out.println(dischargeDateAdded);
+
+			if (facilityNameAdded.equals(map.get("ADMITTANCEFACILITYNAME")) && admitTypeAdded.equals(map.get("ADMITTYPE")) && admitDateAdded.equals(admitDateGregorian) && dischargeDateAdded.equals(dischargeDateGregorian)) {
+
+				webActions.javascriptClick(facilityName);
+				viewAddedHospitalizationRecord(map, admitDateGregorian);
+				break;				
+			}
+		}
 	}
-	//hospitalization//div/span[contains(., '6765456578')]
-	//hospitalization//section/div/div/div/div/div/div/div[1]//table//div[contains(., 'Hospital Admit')]
- }
+    
+	@Step("Verify the added Hospital record name exist in the Hospitalization page")
+	public void viewAddedHospitalizationRecord(Map<String, String> map, String admitDateAddedHosPage) throws TimeoutException, WaitException
+	{		
+		String admit_item_locator = "//div[@class='hospitalization-admit-item']/div[@class ='row']";
+		String transfer_item_locator = "//div[@class='hospitalization-transfer-item']/div[@class ='row']";
+		String discharge_item_locator = "//div[@class='hospitalization-discharge-item']/div[@class ='row']";
+		
+		String notificationDateGregorian = appFunctions.adjustCurrentDateBy(map.get("ADMITTANCENOTIFICATIONDATE"), "MM/dd/YYYY");
+		String transferDateGregorian = appFunctions.adjustCurrentDateBy(map.get("TRANSFERDATE"), "MM/dd/YYYY");
+		String dischargeNotificationDateGregorian = appFunctions.adjustCurrentDateBy(map.get("ADMITTANCENOTIFICATIONDATE"), "MM/dd/YYYY");
+		String dischargePlanDateGregorian = appFunctions.adjustCurrentDateBy(map.get("ADMITTANCENOTIFICATIONDATE"), "MM/dd/YYYY");
+
+		Assert.assertEquals(driver.findElement(By.xpath(admit_item_locator + "[3]/div[1]/span")).getText(), notificationDateGregorian, "The Notification date in UI and excel do not match");
+		Assert.assertEquals(driver.findElement(By.xpath(admit_item_locator + "[3]/div[2]/span")).getText(), (map.get("NOTIFIEDBY")), "The Notified by in UI and excel do not match");
+		Assert.assertEquals(driver.findElement(By.xpath(admit_item_locator + "[5]/div[2]/span")).getText(), (map.get("REASON")), "The Reason in UI and excel do not match");
+//		Assert.assertEquals(driver.findElement(By.xpath(admit_item_locator + "[7]/div[1]/span")).getText(), (map.get("ADMITTANCETABPHONE")), "The Admittance Tab Phone in UI and excel do not match");
+		Assert.assertEquals(driver.findElement(By.xpath(admit_item_locator + "[7]/div[2]/span")).getText(), (map.get("ADMITTANCETABFAX")), "The Admittance Tab Fax in UI and excel do not match");
+		Assert.assertEquals(driver.findElement(By.xpath(admit_item_locator + "[9]/div[1]/span")).getText(), (map.get("SOURCEOFADMIT")), "The Source of Admit in UI and excel do not match");
+		Assert.assertEquals(driver.findElement(By.xpath(admit_item_locator + "[9]/div[2]/span")).getText(), (map.get("PRIORLOCATION")), "The Prior Location in UI and excel do not match");
+		Assert.assertEquals(driver.findElement(By.xpath(admit_item_locator + "[11]/div[1]/span")).getText(), (map.get("ADMITTINGDIAGNOSIS")), "The Admittinng Diagnosis in UI and excel do not match");
+		Assert.assertEquals(driver.findElement(By.xpath(admit_item_locator + "[11]/div[2]/span")).getText(), (map.get("ADMITTANCERELATEDSUBCATEGORY")), "The Admittance Related Diagnosis in UI and excel do not match");
+		Assert.assertEquals(driver.findElement(By.xpath(admit_item_locator + "[13]/div[1]/span")).getText(), (map.get("WORKINGDIAGNOSIS")), "The Working Diagnosis in UI and excel do not match");
+		Assert.assertEquals(driver.findElement(By.xpath(admit_item_locator + "[17]/div/span")).getText(), (map.get("COMMENT")), "The Comment in UI and excel do not match");
+		
+		Assert.assertEquals(driver.findElement(By.xpath(transfer_item_locator + "[3]/div[1]/span")).getText(), (map.get("TRANSFERFACILITYNAME")), "The Transfer Facility Name in UI and excel do not match");
+		Assert.assertEquals(driver.findElement(By.xpath(transfer_item_locator + "[3]/div[2]/span")).getText(), transferDateGregorian, "The Transfer Date in UI and excel do not match");
+		Assert.assertEquals(driver.findElement(By.xpath(transfer_item_locator + "[3]/div[3]/span")).getText(), (map.get("TRANSFERTABPHONE")), "The Transfer Tab Phone in UI and excel do not match");
+		Assert.assertEquals(driver.findElement(By.xpath(transfer_item_locator + "[3]/div[4]/span")).getText(), (map.get("TRANSFERTABFAX")), "The Transfer Tab Fax in UI and excel do not match");
+			
+		Assert.assertEquals(driver.findElement(By.xpath(discharge_item_locator + "[3]/div[1]/span")).getText(), dischargeNotificationDateGregorian, "The Discharge Notification date in UI and excel do not match");
+		Assert.assertEquals(driver.findElement(By.xpath(discharge_item_locator + "[3]/div[2]/span")).getText(), dischargePlanDateGregorian, "The Discharge Plan date in UI and excel do not match");
+		Assert.assertEquals(driver.findElement(By.xpath(discharge_item_locator + "[5]/div[2]/span")).getText(), (map.get("DISCHARGEDIAGNOSIS")), "The Discharge Diagnosis in UI and excel do not match");
+		Assert.assertEquals(driver.findElement(By.xpath(discharge_item_locator + "[7]/div[1]/span")).getText(), (map.get("DISCHARGERELATEDSUBCATEGORY")), "The Discharge Related Diagnosis in UI and excel do not match");
+		Assert.assertEquals(driver.findElement(By.xpath(discharge_item_locator + "[7]/div[2]/span")).getText(), (map.get("DISCHARGEDISPOSITION")), "The Disposition in UI and excel do not match");
+		Assert.assertEquals(driver.findElement(By.xpath(discharge_item_locator + "[9]/div[2]/span")).getText(), (map.get("DISCHARGEHOMEHEALTHNAME")), "The Home Health Name in UI and excel do not match");
+		Assert.assertEquals(driver.findElement(By.xpath(discharge_item_locator + "[11]/div/span")).getText(), (map.get("DISCHARGEHOMEHEALTHREASON")), "The Home Health Reason in UI and excel do not match");
+	}
+}

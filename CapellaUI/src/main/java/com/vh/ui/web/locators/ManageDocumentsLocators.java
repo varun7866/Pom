@@ -22,7 +22,7 @@ public class ManageDocumentsLocators {
 	
 	public static final By BTN_ADDDOCUMENTCANCEL = By.xpath("//button[contains(., 'Cancel')]");
 	public static final By BTN_ADDDOCUMENTADD = By.xpath("//button[contains(., 'Add')]");
-	public static final By BTN_ADDDOCUMENTSELECTAFILE = By.xpath("//div/label[contains(., 'SELECT A FILE')]");	//By.xpath("//div/input[@id='fileName']");
+	public static final By BTN_ADDDOCUMENTSELECTAFILE = By.xpath("//div/label[contains(., 'SELECT A FILE')]");
 	public static final By BTN_ADDDOCUMENTLINKREFERRAL = By.id("link-referral-button");
 	public static final By BTN_ADDDOCUMENTLINKTOHOSPITALIZATION = By.id("link-hospitalization-button");
 	public static final By BTN_ADDDOCUMENTDATEOFSIGNATURECAL = By.xpath("//my-date-picker//div/button");
@@ -65,6 +65,5 @@ public class ManageDocumentsLocators {
 	public static final By LBL_CONNECTAHOSPITALIZATIONDISCHARGE = By.xpath("//div[@class='divTableCell divTableHeadCell hospitalization-dischargeDate-column']");
 	
 	public static final By BTN_CONNECTAHOSPITALIZATIONCANCEL = By.xpath("//hospitalization-connect-dialog//button[contains(., 'Cancel')]");
-	public static final By BTN_CONNECTAHOSPITALIZATIONCONNECT = By.xpath("//hospitalization-connect-dialog//button[contains(., 'Connect')]");		
+	public static final By BTN_CONNECTAHOSPITALIZATIONCONNECT = By.xpath("//hospitalization-connect-dialog//button[contains(., 'Connect')]");
 }
-

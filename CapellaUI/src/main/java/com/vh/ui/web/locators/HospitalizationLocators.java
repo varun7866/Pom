@@ -133,5 +133,8 @@ public class HospitalizationLocators {
 	public static final By LBL_NEWHOSPPOPUPADMITTANCETABSUBCATEGORYERRORMESSAGE = By.xpath("//modal-content//form/div/div/div/div[contains(., 'Subcategory for Admit Diagnosis is required')]");
 	public static final By LBL_NEWHOSPPOPUPADMITTANCETABWORKINGDIAGNOSISERRORMESSAGE = By.xpath("//modal-content//form/div/div/div/div[contains(., 'Working Diagnosis is required')]");
 	public static final By LBL_NEWHOSPPOPUPDISCHARGETABWDISPOSITIONERRORMESSAGE = By.xpath("//modal-content//form/div/div/div/div[contains(., 'Working Diagnosis is required')]");
+	
+	public static final By LBL_HOSPITALIZATIORECORDS = By.xpath("//hospitalization//div[@class='hospitalization-item-borderBottom']");
+
 }
 

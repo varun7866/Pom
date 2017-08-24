@@ -111,7 +111,7 @@ public class ManageDocumentsTest extends TestBase {
 	}
 	
 	@Test(priority = 5)
-	@Step("Verify the Connect a Referral popup")
+	@Step("Verify the Connect a Hospitalization popup")
 	public void verify_ConnectaHospitalizationPopup() throws WaitException, URLNavigationException, InterruptedException
 	{
 		manageDocumentsPage.clickLinktoHospitalizationButton();

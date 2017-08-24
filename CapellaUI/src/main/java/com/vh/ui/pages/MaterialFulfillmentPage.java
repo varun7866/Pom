@@ -107,7 +107,7 @@ public class MaterialFulfillmentPage extends WebPage
 	@Step("Select an option form the Material popup 2 REQUESTED BY combo box")
 	public void selectMaterialsPopup2RequestedByComboBox(String value) throws TimeoutException, WaitException
 	{
-		webActions.selectFromDropDownOld(VISIBILITY, CBO_MATERIALSPOPUP2REQUESTEDBY, value);
+		webActions.selectFromDropDown(VISIBILITY, CBO_MATERIALSPOPUP2REQUESTEDBY, value);
 	}
 
 	@Step("Enter {0} in the Materials popup 2 Follow-up check box")
@@ -122,13 +122,13 @@ public class MaterialFulfillmentPage extends WebPage
 	@Step("Select an option form the Material popup 2 ORDER TYPE combo box")
 	public void selectMaterialsPopup2OrderTypeComboBox(String value) throws TimeoutException, WaitException
 	{
-		webActions.selectFromDropDownOld(VISIBILITY, CBO_MATERIALSPOPUP2ORDERTYPE, value);
+		webActions.selectFromDropDown(VISIBILITY, CBO_MATERIALSPOPUP2ORDERTYPE, value);
 	}
 
 	@Step("Select an option form the Material popup 2 FULFILLED BY combo box")
 	public void selectMaterialsPopup2FulfilledByComboBox(String value) throws TimeoutException, WaitException
 	{
-		webActions.selectFromDropDownOld(VISIBILITY, CBO_MATERIALSPOPUP2FULFILLEDBY, value);
+		webActions.selectFromDropDown(VISIBILITY, CBO_MATERIALSPOPUP2FULFILLEDBY, value);
 	}
 
 	@Step("Click the Materials popup 2 FULFILLED ON date picker button")
