@@ -16,7 +16,7 @@ public class ProvidersTeamLocators
 	public static final By BTN_NEWTEAMPOPUPPATIENTSEEINGSINCE = By.xpath("//label[text()='PATIENT SEEING SINCE ']/../../..//button[@class='mat-datepicker-toggle']");
 	public static final By BTN_NEWPROVIDERPOPUPSEARCH = By.xpath("//button//span[text()='Search']");
 	public static final By BTN_NEWPROVIDERPOPUPADDPROVIDER = By.xpath("//button//span[contains(., 'ADD PROVIDER')]");
-	public static final By BTN_NEWTEAMPOPUPX = By.xpath("//button[@class='dialog-close mat-icon-button']");
+	public static final By BTN_NEWTEAMPOPUPX = By.xpath("//div[@class='dialog-header-actions']//button");
 
 	public static final By CBO_ACTIVEINACTIVE = By.xpath("//select");
 	public static final By CBO_NEWTEAMPOPUPTEAMTYPE = By.xpath("//providers-team-add-team//md-select/div/span[contains(., 'TEAM TYPE')]");
@@ -31,7 +31,7 @@ public class ProvidersTeamLocators
 	public static final By LBL_ADDRESSCOLUMNHEADER = By.xpath("//span[text()='ADDRESS']");
 	public static final By LBL_DATESCOLUMNHEADER = By.xpath("//span[text()='DATES']");
 	public static final By LBL_ALLOWCONTACTCOLUMNHEADER = By.xpath("//span[text()='ALLOW CONTACT']");
-	public static final By LBL_NEWTEAMPOPUPHEADER = By.id("md-dialog-title-0");
+	public static final By LBL_NEWTEAMPOPUPHEADER = By.xpath("//h2[contains(., 'New Team')]");
 	public static final By LBL_NEWTEAMPOPUPTEAMTYPE = By.xpath("//providers-team-add-team//span[contains(., 'TEAM TYPE')]");
 	public static final By LBL_NEWTEAMPOPUPNAME = By.xpath("//providers-team-add-team//label[contains(., 'NAME')]/span[text()='*']");
 	public static final By LBL_NEWTEAMPOPUPEMAIL = By.xpath("//providers-team-add-team//label[contains(., 'EMAIL')]");
