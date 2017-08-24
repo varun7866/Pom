@@ -25,7 +25,7 @@ public class ReferralsLocators {
 
 	public static final By CBO_NEWREFERRALPOPUPPROVIDERSTEAMTABPROVIDERSTEAM = By.id("referralsDropDownPvdTeam");
 	public static final By CBO_NEWREFERRALPOPUPPROVIDERNAME = By.id("referralsTextBoxPvdName");
-	public static final By CBO_NEWREFERRALPOPUPREFFEREDTO = By.id("referralsDropDownReferredTo");
+	public static final By CBO_NEWREFERRALPOPUPREFFEREDTO = By.xpath("//select[@id='referralsDropDownReferredTo']");
 	public static final By CBO_NEWREFERRALPOPUPSTREET = By.id("referralsTextBoxStreet");
 	public static final By CBO_NEWREFERRALPOPUPAPTSUITE = By.id("referralsTextBoxAptSuite");
 	public static final By CBO_NEWREFERRALPOPUPCITY = By.id("referralsTextBoxCity");

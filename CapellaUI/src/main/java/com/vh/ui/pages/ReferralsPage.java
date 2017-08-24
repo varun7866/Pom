@@ -43,6 +43,8 @@ import static com.vh.ui.web.locators.ReferralsLocators.MNU_REFERRALSMENU;
 import static com.vh.ui.web.locators.ReferralsLocators.TAB_NEWREFERRALPOPUPAPPOINTMENT;
 import static com.vh.ui.web.locators.ReferralsLocators.TAB_NEWREFERRALPOPUPREASONS;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Map;
 
 import org.openqa.selenium.TimeoutException;
@@ -108,6 +110,95 @@ public class ReferralsPage extends WebPage
 		return webActions.getVisibiltyOfElementLocatedBy(VISIBILITY, BTN_ADDAREFERRAL);
 	}
 
+	@Step("Verify the options of the Add Referral popup REFERRED TO combo box")
+	public boolean verifyAddReferralReferredToComboBoxOptions() throws TimeoutException, WaitException, InterruptedException
+	{
+		// webActions.click(VISIBILITY, CBO_NEWREFERRALPOPUPREFFEREDTO);
+		// Thread.sleep(2000);
+
+		List<String> dropDownOptions = new ArrayList<String>();
+		dropDownOptions.add("Select a value");
+		dropDownOptions.add("Administrative Assistant");
+		dropDownOptions.add("Assessment Nurse");
+		dropDownOptions.add("Behavioral Health Specialist");
+		dropDownOptions.add("Brother");
+		dropDownOptions.add("Cardiologist");
+		dropDownOptions.add("Caregiver, Primary");
+		dropDownOptions.add("Caregiver, Secondary");
+		dropDownOptions.add("Case Manager");
+		dropDownOptions.add("Clinic Lead");
+		dropDownOptions.add("Clinic Nurse");
+		dropDownOptions.add("Community Resource");
+		dropDownOptions.add("Cook");
+		dropDownOptions.add("Daughter");
+		dropDownOptions.add("Davita Pharmacist");
+		dropDownOptions.add("Dentist");
+		dropDownOptions.add("Diabetic Educator");
+		dropDownOptions.add("Dialysis Center");
+		dropDownOptions.add("Dietitian");
+		dropDownOptions.add("Emergency Contact");
+		dropDownOptions.add("Employer");
+		dropDownOptions.add("Endocrinologist");
+		dropDownOptions.add("Facility Administrator");
+		dropDownOptions.add("Friend");
+		dropDownOptions.add("Gastroenterologist");
+		dropDownOptions.add("Health Care Proxy");
+		dropDownOptions.add("Health Plan");
+		dropDownOptions.add("Home Health");
+		dropDownOptions.add("Hospital");
+		dropDownOptions.add("Kidney Smart Class");
+		dropDownOptions.add("Laboratory");
+		dropDownOptions.add("Legal Guardian");
+		dropDownOptions.add("License Practitioner");
+		dropDownOptions.add("Medical Director");
+		dropDownOptions.add("Nephrologist");
+		dropDownOptions.add("Neurologist");
+		dropDownOptions.add("Nurse Practitioner");
+		dropDownOptions.add("Occupational Therapist");
+		dropDownOptions.add("Oncologist");
+		dropDownOptions.add("Ophthalmologist");
+		dropDownOptions.add("Optometrist");
+		dropDownOptions.add("Orthopedist");
+		dropDownOptions.add("Other");
+		dropDownOptions.add("Parent");
+		dropDownOptions.add("Patient Care Technician");
+		dropDownOptions.add("Patient Only");
+		dropDownOptions.add("PCP");
+		dropDownOptions.add("Pharmacist Tech");
+		dropDownOptions.add("Pharmacy");
+		dropDownOptions.add("Physical Therapist");
+		dropDownOptions.add("Physicians Assistant");
+		dropDownOptions.add("Podiatrist");
+		dropDownOptions.add("Post Discharge VHN");
+		dropDownOptions.add("Power of Attorney");
+		dropDownOptions.add("PRL");
+		dropDownOptions.add("Psychiatrist");
+		dropDownOptions.add("Psychologist");
+		dropDownOptions.add("Pulmonologist");
+		dropDownOptions.add("RCM");
+		dropDownOptions.add("Reviewer");
+		dropDownOptions.add("Rheumatologist");
+		dropDownOptions.add("Significant Other");
+		dropDownOptions.add("Sister");
+		dropDownOptions.add("SNF");
+		dropDownOptions.add("Social Services");
+		dropDownOptions.add("Social Worker");
+		dropDownOptions.add("Son");
+		dropDownOptions.add("Spouse");
+		dropDownOptions.add("Surgeon");
+		dropDownOptions.add("Transplant Center");
+		dropDownOptions.add("Transplant Coordinator");
+		dropDownOptions.add("Transporter");
+		dropDownOptions.add("Urologist");
+		dropDownOptions.add("Vascular Surgeon");
+		dropDownOptions.add("VHN");
+		dropDownOptions.add("Vocational Therapist");
+		dropDownOptions.add("Wound Care Center");
+
+		return appFunctions.verifyDropDownOptions(CBO_NEWREFERRALPOPUPREFFEREDTO, dropDownOptions);
+
+	}
+
 // Add a New Referral //
 	
 	@Step("Verify able to Add A referral")
@@ -135,7 +226,7 @@ public class ReferralsPage extends WebPage
 	@Step("Select New Referral Popup Providers/Team tab, Providers/Team Combo box")
 	public void selectNewReferralPopupProvidersTeamTabProvidersTeamComboBox(String value) throws TimeoutException, WaitException
 	{
-		webActions.selectFromDropDownOld(VISIBILITY, CBO_NEWREFERRALPOPUPPROVIDERSTEAMTABPROVIDERSTEAM, value);
+		webActions.selectFromDropDown(VISIBILITY, CBO_NEWREFERRALPOPUPPROVIDERSTEAMTABPROVIDERSTEAM, value);
 	}
 
 	@Step("Click on New Referral Popup 2.APPOINTMENT Tab")
