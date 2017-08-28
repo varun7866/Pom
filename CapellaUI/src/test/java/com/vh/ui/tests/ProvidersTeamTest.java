@@ -71,7 +71,7 @@ public class ProvidersTeamTest extends TestBase
 
 	@Test(priority = 2)
 	@Step("Verify the New Team popup")
-	public void verify_NewTeamPopup() throws WaitException, URLNavigationException, InterruptedException
+	public void verify_NewTeamPopup() throws WaitException, URLNavigationException, InterruptedException, TimeoutException, SQLException
 	{
 		providersTeamPage.clickAddATeamMemberButton();
 
@@ -81,7 +81,7 @@ public class ProvidersTeamTest extends TestBase
 		Assert.assertTrue(providersTeamPage.viewNewTeamPopupTeamTypeLabel(), "Failed to identify the New Team popup TEAM TYPE label");
 		Assert.assertTrue(providersTeamPage.viewNewTeamPopupTeamTypeComboBox(), "Failed to identify the New Team popup TEAM TYPE combo box");
 		Assert.assertTrue(providersTeamPage.viewNewTeamPopupTeamTypePlaceholder(), "Failed to identify the New Team popup TEAM TYPE placeholder");
-		Assert.assertTrue(providersTeamPage.verifyNewTeamPopupTeamTypeComboBoxOptions(), "The New Team popup TEAM TYPE drop down options are incorrect");
+		// Assert.assertTrue(providersTeamPage.verifyNewTeamPopupTeamTypeComboBoxOptions(), "The New Team popup TEAM TYPE drop down options are incorrect");
 
 		Assert.assertTrue(providersTeamPage.viewNewTeamPopupNameLabel(), "Failed to identify the New Team popup NAME label");
 		Assert.assertTrue(providersTeamPage.viewNewTeamPopupNameTextBox(), "Failed to identify the New Team popup NAME text box");
@@ -97,6 +97,11 @@ public class ProvidersTeamTest extends TestBase
 
 		Assert.assertTrue(providersTeamPage.viewNewTeamPopupCityLabel(), "Failed to identify the New Team popup CITY label");
 		Assert.assertTrue(providersTeamPage.viewNewTeamPopupCityTextBox(), "Failed to identify the New Team popup CITY text box");
+
+		Assert.assertTrue(providersTeamPage.viewNewTeamPopupStateLabel(), "Failed to identify the New Team popup STATE label");
+		Assert.assertTrue(providersTeamPage.viewNewTeamPopupStateComboBox(), "Failed to identify the New Team popup STATE combo box");
+		Assert.assertTrue(providersTeamPage.viewNewTeamPopupStatePlaceholder(), "Failed to identify the New Team popup STATE placeholder");
+		Assert.assertTrue(providersTeamPage.verifyNewTeamPopupStateComboBoxOptions(), "The New Team popup STATE drop down options are incorrect");
 	}
 
 	// @Test(priority = 3)

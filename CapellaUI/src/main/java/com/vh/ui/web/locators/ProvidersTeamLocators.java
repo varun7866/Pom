@@ -38,9 +38,11 @@ public class ProvidersTeamLocators
 	public static final By LBL_NEWTEAMPOPUPADDRESS = By.xpath("//providers-team-add-team//label[contains(., 'ADDRESS')]");
 	public static final By LBL_NEWTEAMPOPUPAPTSUITE = By.xpath("//providers-team-add-team//label[contains(., 'APT/SUITE')]");
 	public static final By LBL_NEWTEAMPOPUPCITY = By.xpath("//providers-team-add-team//label[contains(., 'CITY')]");
+	public static final By LBL_NEWTEAMPOPUPSTATE = By.xpath("//providers-team-add-team//label[contains(., 'STATE')]");
 
 	public static final By PLH_ACTIVEINACTIVE = By.xpath("//select//option[@value='0: Active']");
-	public static final By PLH_NEWTEAMPOPUPTEAMTYPE = By.xpath("//providers-team-add-team//md-select//span[text()='Select a value']");
+	public static final By PLH_NEWTEAMPOPUPTEAMTYPE = By.xpath("//providers-team-add-team//span[contains(., 'TEAM TYPE')]/..//span[text()='Select a value']");
+	public static final By PLH_NEWTEAMPOPUPSTATE = By.xpath("//providers-team-add-team//span[contains(., 'STATE')]/..//span[text()='Select a value']");
 
 	public static final By TXT_NEWTEAMPOPUPNAME = By.xpath("//providers-team-add-team//label[contains(., 'NAME')]/../../input");
 	public static final By TXT_NEWTEAMPOPUPEMAIL = By.xpath("//providers-team-add-team//label[contains(., 'EMAIL')]/../../input");

@@ -1,5 +1,7 @@
 package com.vh.ui.actions;
 
+import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -24,9 +26,12 @@ public class ApplicationFunctions4 extends WebPage
 	protected static final Logger LOGGER = Logg.createLogger();
 	protected final WebDriverWaits wait = new WebDriverWaits();
 
+	ApplicationFunctions appFunctions;
+
 	public ApplicationFunctions4(WebDriver driver) throws WaitException
 	{
 		super(driver);
+		appFunctions = new ApplicationFunctions(driver);
 		webActions = new WebActions(driver);
 	}
 
@@ -35,17 +40,35 @@ public class ApplicationFunctions4 extends WebPage
 	 * 
 	 * @param dropDownLocator
 	 *            The <span> tag locator of the drop down that contains the drop down label
-	 * @param dropDownOptions
-	 *            The list of drop down options to verify against
+	 * @param lookUpValueTypeUID
+	 *            The value from the LOOKUP_VALUE_TYPE_UID column for your drop down in the LOOKUP_VALUES table
 	 * @return True if the options match, false if they don't
 	 * @throws TimeoutException
 	 * @throws WaitException
+	 * @throws SQLException
 	 */
-	public boolean verifyDropDownOptions(By dropDownLocator, List<String> dropDownOptions) throws TimeoutException, WaitException
+	public boolean verifyDropDownOptions(By dropDownLocator, String lookUpValueTypeUID) throws TimeoutException, WaitException, SQLException
 	{
+		List<String> dropDownOptionsTextFromUI = new ArrayList<String>();
+		List<String> dropDownOptionsTextFromDB = new ArrayList<String>();
+
+		// Database processing
+		dropDownOptionsTextFromDB.add("Select a value"); // Adding this to make it match the UI
+
+		final String SQL_SELECT_LOOKUP_VALUES = "SELECT LOOKUP_VALUE_TEXT FROM LOOKUP_VALUES WHERE LOOKUP_VALUE_TYPE_UID = '" + lookUpValueTypeUID
+		        + "' AND LOOKUP_VALUE_SHOWNUI_YN = 'Y' ORDER BY LOOKUP_VALUE_TEXT";
+		ResultSet queryResultSet = appFunctions.queryDatabase(SQL_SELECT_LOOKUP_VALUES);
+
+		while (queryResultSet.next())
+		{
+			dropDownOptionsTextFromDB.add(queryResultSet.getString("LOOKUP_VALUE_TEXT"));
+		}
+
+		appFunctions.closeDatabaseConnection();
+
+		// UI processing
 		webActions.click(VISIBILITY, dropDownLocator);
 
-		List<String> dropDownOptionsTextFromUI = new ArrayList<String>();
 		List<WebElement> dropDownOptionsFromUI = driver.findElements(By.xpath("//div[@class='mat-select-content ng-trigger ng-trigger-fadeInContent']/md-option"));
 
 		for (WebElement webElement : dropDownOptionsFromUI)
@@ -53,7 +76,7 @@ public class ApplicationFunctions4 extends WebPage
 			dropDownOptionsTextFromUI.add(webElement.getText());
 		}
 
-		if (dropDownOptionsTextFromUI.equals(dropDownOptions))
+		if (dropDownOptionsTextFromUI.equals(dropDownOptionsTextFromDB))
 		{
 			return true;
 		} else
