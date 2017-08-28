@@ -23,4 +23,6 @@ public class ApplicationLocators
 	public static final By LBL_PATIENTCONTACTS = By.xpath("//h2[@class='page-title contacts-title']");
 
     public static final By TXT_MENUBAR_USERNAME = By.xpath("//h4[contains(., 'Welcome')]");
+    
+    public static final By TXT_MYPATIENTS_LOADING = By.xpath("//div[@class='row']//div[@class='row']/div/div[contains(., 'Loading')]");
 }

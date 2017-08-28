@@ -13,9 +13,7 @@ import static com.vh.ui.web.locators.MyTasksLocators.TXT_PATIENTNAME;
 import static com.vh.ui.web.locators.MyTasksLocators.TXT_TASKDATE;
 import static com.vh.ui.web.locators.MyTasksLocators.TXT_TASKDESCRIPTION;
 import static com.vh.ui.web.locators.MyTasksLocators.TXT_TASKTITLE;
-import static com.vh.ui.web.locators.MyTasksLocators.LBL_LOADING;
 
-import org.openqa.selenium.By;
 import org.openqa.selenium.TimeoutException;
 import org.openqa.selenium.WebDriver;
 
@@ -58,7 +56,6 @@ public class MyTasksPage extends WebPage
         try {
             return webActions.getVisibiltyOfElementLocatedBy(VISIBILITY, TXT_PATIENTNAME);
         } catch (WaitException e) {
-            // TODO Auto-generated catch block
             e.printStackTrace();
             return false;
         }
@@ -69,7 +66,6 @@ public class MyTasksPage extends WebPage
         try {
             return webActions.getVisibiltyOfElementLocatedBy(VISIBILITY, TXT_ASSIGNEDTO);
         } catch (WaitException e) {
-            // TODO Auto-generated catch block
             e.printStackTrace();
             return false;
         }
@@ -80,7 +76,6 @@ public class MyTasksPage extends WebPage
         try {
             return webActions.getVisibiltyOfElementLocatedBy(VISIBILITY, LBL_TASKDATE);
         } catch (WaitException e) {
-            // TODO Auto-generated catch block
             e.printStackTrace();
             return false;
         }
@@ -91,7 +86,6 @@ public class MyTasksPage extends WebPage
         try {
             return webActions.getVisibiltyOfElementLocatedBy(VISIBILITY, TXT_TASKDATE);
         } catch (WaitException e) {
-            // TODO Auto-generated catch block
             e.printStackTrace();
             return false;
         }
@@ -102,7 +96,6 @@ public class MyTasksPage extends WebPage
         try {
             return webActions.getVisibiltyOfElementLocatedBy(VISIBILITY, LBL_PRIORITY);
         } catch (WaitException e) {
-            // TODO Auto-generated catch block
             e.printStackTrace();
             return false;
         }
@@ -113,7 +106,6 @@ public class MyTasksPage extends WebPage
         try {
             return webActions.getVisibiltyOfElementLocatedBy(VISIBILITY, CMB_PRIORITY);
         } catch (WaitException e) {
-            // TODO Auto-generated catch block
             e.printStackTrace();
             return false;
         }
@@ -124,7 +116,6 @@ public class MyTasksPage extends WebPage
         try {
             return webActions.getVisibiltyOfElementLocatedBy(VISIBILITY, TXT_TASKTITLE);
         } catch (WaitException e) {
-            // TODO Auto-generated catch block
             e.printStackTrace();
             return false;
         }
@@ -135,7 +126,6 @@ public class MyTasksPage extends WebPage
         try {
             return webActions.getVisibiltyOfElementLocatedBy(VISIBILITY, TXT_TASKDESCRIPTION);
         } catch (WaitException e) {
-            // TODO Auto-generated catch block
             e.printStackTrace();
             return false;
         }
@@ -146,7 +136,6 @@ public class MyTasksPage extends WebPage
         try {
             return webActions.getVisibiltyOfElementLocatedBy(VISIBILITY, BTN_CANCEL);
         } catch (WaitException e) {
-            // TODO Auto-generated catch block
             e.printStackTrace();
             return false;
         }

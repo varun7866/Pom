@@ -91,8 +91,8 @@ public class LocalBrowserDriver {
 	}
 
 	public void removeDriver() {
-		driver.get().quit();
 		driver.get().close();
+		driver.get().quit();
 		driver.remove();
 	}
 }

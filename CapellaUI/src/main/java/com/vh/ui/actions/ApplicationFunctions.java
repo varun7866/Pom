@@ -6,6 +6,7 @@ import static com.vh.ui.web.locators.ApplicationLocators.LNK_MENUBAR_MYPATIENTS;
 import static com.vh.ui.web.locators.ApplicationLocators.LNK_MENUBAR_MYSCHEDULE;
 import static com.vh.ui.web.locators.ApplicationLocators.LNK_MENUBAR_MYTASKS;
 import static com.vh.ui.web.locators.ApplicationLocators.TXT_MENUBAR_USERNAME;
+import static com.vh.ui.web.locators.ApplicationLocators.TXT_MYPATIENTS_LOADING;
 import static com.vh.ui.web.locators.LoginLocators.BTN_YESALLOW;
 import static com.vh.ui.web.locators.LoginLocators.TXT_USERNAME;
 
@@ -97,7 +98,7 @@ public class ApplicationFunctions extends WebPage
 			loginPage.clickYesAllow();
 		}
 
-//		 loginPage.verifyLandingPage();
+		 loginPage.verifyLandingPage();
 	}
 
 	/**
@@ -133,6 +134,7 @@ public class ApplicationFunctions extends WebPage
 		Thread.sleep(200);
 		clickMyPatientsMenuBar();
 
+		waitForMyPatientsLoaded();
 		webActions.click(VISIBILITY, By.xpath("//a[text()='" + patientName + "']"));
 	}
 
@@ -1033,7 +1035,7 @@ public class ApplicationFunctions extends WebPage
 
 		return databaseFunctions.runQuery(sqlquery);
 	}
-
+	
 	/**
 	 * Calls the DatabaseFunctions close() Method to close the database connection.
 	 * 
@@ -1044,23 +1046,31 @@ public class ApplicationFunctions extends WebPage
 	{
 		databaseFunctions.close();
 	}
-
+	
 	/**
-	 * Gets the Member UID from the passed in Member ID.
-	 * 
-	 * @param memberID
-	 *            The Member ID
-	 * @throws WaitException
-	 * @throws SQLException
-	 */
+	  * Gets the Member UID from the passed in Member ID.
+	  *		 
+	  * @param memberID		 
+	  * The Member ID		 
+	  * @throws WaitException		 
+	  * @throws SQLException		 
+	  */
 	public String getMemberUIDFromMemberID(String memberID) throws WaitException, SQLException
 	{
-		final String SQL_SELECT_MEM_MEMBER = "SELECT MEM_UID FROM MEM_MEMBER WHERE MEM_ID = '" + memberID + "'";
+		final String SQL_SELECT_MEM_MEMBER = "SELECT MEM_UID FROM MEM_MEMBER WHERE MEM_ID = '" + memberID + "'";		 
+  
+		ResultSet queryResultSet = queryDatabase(SQL_SELECT_MEM_MEMBER);		 
+  
+		queryResultSet.next();		 
+  
+		return queryResultSet.getString("MEM_UID");		 
+	}
 
-		ResultSet queryResultSet = queryDatabase(SQL_SELECT_MEM_MEMBER);
-
-		queryResultSet.next();
-
-		return queryResultSet.getString("MEM_UID");
+	
+	/**
+	 * Wait for the Patients are loaded in My Patients
+	 */
+	public void waitForMyPatientsLoaded() {
+		wait.waitForElementInvisible(driver, TXT_MYPATIENTS_LOADING);
 	}
 }

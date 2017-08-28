@@ -4,7 +4,9 @@ import org.openqa.selenium.TimeoutException;
 import org.openqa.selenium.WebDriver;
 import org.testng.Assert;
 import org.testng.annotations.AfterClass;
+import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeClass;
+import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
 
 import com.vh.test.base.TestBase;
@@ -14,6 +16,7 @@ import com.vh.ui.exceptions.WaitException;
 import com.vh.ui.page.base.WebPage;
 import com.vh.ui.pages.LoginPage;
 import com.vh.ui.pages.MyPatientsPage;
+import com.vh.ui.utilities.Utilities;
 
 import ru.yandex.qatools.allure.annotations.Step;
 
@@ -27,6 +30,7 @@ import ru.yandex.qatools.allure.annotations.Step;
  * 2. Clear your browser's cache
  */
 
+@Listeners(com.vh.listeners.TestListener.class)
 public class LoginTest extends TestBase
 {	
 	WebPage pageBase;
@@ -93,7 +97,7 @@ public class LoginTest extends TestBase
 		loginPage.clickRememberMyDecision();
 //		Thread.sleep(1000);
 		loginPage.clickYesAllow();
-//		Thread.sleep(5000);
+		Thread.sleep(30000);
 
 		// Assert.assertTrue(myPatients.viewMyPatientsPage(), "Failed to identify My Patients page");
 		
@@ -106,6 +110,7 @@ public class LoginTest extends TestBase
 	public void tearDown() throws TimeoutException, WaitException
 	{
 		appFunctions.capellaLogout();
-		pageBase.quit();
+//		pageBase.quit();
+		closeDrivers();
 	}
 }

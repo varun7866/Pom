@@ -302,4 +302,16 @@ public class WebDriverWaits {
 		WebDriverWait wait = new WebDriverWait(driver, 15, 100);
 		wait.until(AdditionalConditions.angularHasFinishedProcessing());
 	}
+	
+	public void waitForBusyIndicatorCompleted(WebDriver driver) {
+		try {
+			Thread.sleep(1000);
+		} catch (InterruptedException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		LOGGER.info("waiting for busy indicator to complete");
+		waitForElementInvisible(driver, By.xpath("//md-spinner"));
+		LOGGER.info("waiting for busy indicator to completed...");
+	}
 }

@@ -3,12 +3,15 @@
  */
 package com.vh.ui.utilities;
 
-import java.awt.Robot;
 import java.io.File;
 import java.nio.file.Files;
 import java.nio.file.Paths;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Base64;
+import java.util.Calendar;
+import java.util.Date;
 import java.util.List;
 import java.util.Properties;
 import java.util.Random;
@@ -22,7 +25,10 @@ import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 
+import com.vh.ui.drivers.LocalBrowserDriver;
+
 import ru.yandex.qatools.allure.annotations.Attachment;
+import ru.yandex.qatools.allure.annotations.Step;
 
 /**
  * @author SUBALIVADA
@@ -35,6 +41,8 @@ public class Utilities {
 	private static final Logger LOGGER = Logg.createLogger();
 	private static final Properties FRAMEWORKPROPERTIES = PropertyManager
 			.loadFrameworkPropertyFile("framework.properties");
+	private static String resultsFolder;
+	private static String currentTestClassResultsFolder;
 
 	public static String getCurrentThreadId() {
 		return "Thread:" + Thread.currentThread().getId() + "	-";
@@ -125,12 +133,27 @@ public class Utilities {
 	    	File screenshot;
 	    	screenshot = ((TakesScreenshot) driver).getScreenshotAs(OutputType.FILE);
 	    	attachName = attachName + ".png";
-	    	FileUtils.copyFile(screenshot, new File("./screenshots/" + attachName));
+	    	LOGGER.info("In Capture Screenshot :: " + Utilities.getCurrentTestClassResultsFolder() + "//" + attachName);
+	    	FileUtils.copyFile(screenshot, new File(Utilities.getCurrentTestClassResultsFolder() + "//" + attachName));
 	    	return Files.readAllBytes(Paths.get(screenshot.getPath()));
 	    } catch (Exception e) {
 	        e.printStackTrace();
 	    }
 	    return new byte[0];
+	}
+
+	/**
+	 * @return the resultsFolder
+	 */
+	public static String getResultsFolder() {
+		return resultsFolder;
+	}
+
+	/**
+	 * @param resultsFolder the resultsFolder to set
+	 */
+	public static void setResultsFolder(String resultsFolder) {
+		Utilities.resultsFolder = resultsFolder;
 	}
 	
 	
@@ -144,4 +167,75 @@ public class Utilities {
 	// driver.findElement(By.id("file-submit")).click();
 	// String text = driver.findElement(By.id("uploaded-files")).getText();
 	// }
+	
+	public static void createResultsFolder() {
+		LOGGER.info("Creating Results folder...");
+		String projectRootFolder = System.getProperty("user.dir");
+		System.out.println(projectRootFolder);
+		
+		String screenshotsFolderPath = projectRootFolder + "\\screenshots";
+		File screenshotsFolder = new File(screenshotsFolderPath);
+		if(!screenshotsFolder.exists()) {
+			screenshotsFolder.mkdir();
+		}
+		
+		 String format = "yyyy-MM-dd";
+		 Date date = new Date();
+	     DateFormat dateFormatter = new SimpleDateFormat(format);
+	     String todaysDate = dateFormatter.format(date);
+	     
+	     String todaysDateFolderPath = screenshotsFolderPath + "\\" + todaysDate;
+	     File todaysDateFolder = new File(todaysDateFolderPath);
+	     
+	     if(!todaysDateFolder.exists()) {
+	    	 todaysDateFolder.mkdir();
+	     }
+	     
+	     String timeFormat = "hh:mm:ss";
+	     Calendar cal = Calendar.getInstance();
+	     SimpleDateFormat sdf = new SimpleDateFormat(timeFormat);
+	     String currentTime = sdf.format(cal.getTime());
+	     currentTime = currentTime.replace(":", "");
+	     System.out.println(currentTime);
+	     String timeFolderPath = todaysDateFolderPath + "\\" + currentTime;
+	     System.out.println(timeFolderPath);
+	     File timeFolder = new File(timeFolderPath);
+	     if(!timeFolder.exists()) {
+	    	 timeFolder.mkdir();
+	     }
+	     
+	     Utilities.setResultsFolder(timeFolderPath);
+	     
+	     LOGGER.info("Created results folder - " + Utilities.getResultsFolder());
+	}
+	
+	public static void createCurrentTestResultsFolder(String currentClassName) {
+		String currentTestFolderPath = Utilities.getResultsFolder() + "\\" + currentClassName;
+		
+		File currentTestFolder = new File(currentTestFolderPath);
+		if(!currentTestFolder.exists()) {
+			currentTestFolder.mkdir();
+		}
+	
+		Utilities.setCurrentTestClassResultsFolder(currentTestFolderPath);
+	}
+
+	/**
+	 * @return the currentTestClassResultsFolder
+	 */
+	public static String getCurrentTestClassResultsFolder() {
+		return currentTestClassResultsFolder;
+	}
+
+	/**
+	 * @param currentTestClassResultsFolder the currentTestClassResultsFolder to set
+	 */
+	public static void setCurrentTestClassResultsFolder(String currentTestClassResultsFolder) {
+		Utilities.currentTestClassResultsFolder = currentTestClassResultsFolder;
+	}
+	
+//	@Step("Launching the browser")
+//	public static WebDriver getWebDriver() {
+//		return LocalBrowserDriver.getInstance().getDriver();
+//	}
 }

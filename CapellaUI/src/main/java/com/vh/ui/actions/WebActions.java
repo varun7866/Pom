@@ -532,11 +532,7 @@ public class WebActions {
 	{
 		WebElement element = driver.findElement(locator);
 		if(element!=null) {
-//			element.sendKeys(Keys.ENTER);
-//			new Actions(driver).moveToElement(element).click().perform();
-//			new JavascriptLibrary().callEmbeddedSelenium(driver, "triggerMouseEventAt", element, "click", "0,0");
-			JavascriptExecutor executor = (JavascriptExecutor) driver;
-			executor.executeScript("arguments[0].click();", element);
+			new JavascriptLibrary().callEmbeddedSelenium(driver, "triggerMouseEventAt", element, "click", "0,0");
 		}
 	}
 	
