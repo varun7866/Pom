@@ -17,6 +17,9 @@ import static com.vh.ui.web.locators.ProvidersTeamLocators.LBL_ADDRESSCOLUMNHEAD
 import static com.vh.ui.web.locators.ProvidersTeamLocators.LBL_ALLOWCONTACTCOLUMNHEADER;
 import static com.vh.ui.web.locators.ProvidersTeamLocators.LBL_DATESCOLUMNHEADER;
 import static com.vh.ui.web.locators.ProvidersTeamLocators.LBL_NAMETYPECOLUMNHEADER;
+import static com.vh.ui.web.locators.ProvidersTeamLocators.LBL_NEWTEAMPOPUPADDRESS;
+import static com.vh.ui.web.locators.ProvidersTeamLocators.LBL_NEWTEAMPOPUPAPTSUITE;
+import static com.vh.ui.web.locators.ProvidersTeamLocators.LBL_NEWTEAMPOPUPCITY;
 import static com.vh.ui.web.locators.ProvidersTeamLocators.LBL_NEWTEAMPOPUPEMAIL;
 import static com.vh.ui.web.locators.ProvidersTeamLocators.LBL_NEWTEAMPOPUPHEADER;
 import static com.vh.ui.web.locators.ProvidersTeamLocators.LBL_NEWTEAMPOPUPNAME;
@@ -185,6 +188,15 @@ public class ProvidersTeamPage extends WebPage
 		dropDownOptions.add("Select a value");
 		dropDownOptions.add("Administrative Assistant");
 		dropDownOptions.add("Behavioral Health Specialist");
+		dropDownOptions.add("Brother");
+		dropDownOptions.add("Cardiologist");
+		dropDownOptions.add("Caregiver, Primary");
+		dropDownOptions.add("Caregiver, Secondary");
+		dropDownOptions.add("Case Manager");
+		dropDownOptions.add("Clinic Lead");
+		dropDownOptions.add("Clinic Nurse");
+		dropDownOptions.add("Community Resource");
+		dropDownOptions.add("Cook");
 
 		return appFunctions4.verifyDropDownOptions(CBO_NEWTEAMPOPUPTEAMTYPE, dropDownOptions);
 	}
@@ -213,7 +225,41 @@ public class ProvidersTeamPage extends WebPage
 		return webActions.getVisibiltyOfElementLocatedBy(VISIBILITY, TXT_NEWTEAMPOPUPEMAIL);
 	}
 
-	// *********************************************************************************************************************
+	@Step("Verify the visibility of the New Team popup ADDRESS label")
+	public boolean viewNewTeamPopupAddressLabel() throws TimeoutException, WaitException
+	{
+		return webActions.getVisibiltyOfElementLocatedBy(VISIBILITY, LBL_NEWTEAMPOPUPADDRESS);
+	}
+
+	@Step("Verify the visibility of the New Team popup ADDRESS text box")
+	public boolean viewNewTeamPopupAddressTextBox() throws TimeoutException, WaitException
+	{
+		return webActions.getVisibiltyOfElementLocatedBy(VISIBILITY, TXT_NEWTEAMPOPUPADDRESS);
+	}
+
+	@Step("Verify the visibility of the New Team popup APT/SUITE label")
+	public boolean viewNewTeamPopupAptSuiteLabel() throws TimeoutException, WaitException
+	{
+		return webActions.getVisibiltyOfElementLocatedBy(VISIBILITY, LBL_NEWTEAMPOPUPAPTSUITE);
+	}
+
+	@Step("Verify the visibility of the New Team popup APT/SUITE text box")
+	public boolean viewNewTeamPopupAptSuiteTextBox() throws TimeoutException, WaitException
+	{
+		return webActions.getVisibiltyOfElementLocatedBy(VISIBILITY, TXT_NEWTEAMPOPUPAPTSUITE);
+	}
+
+	@Step("Verify the visibility of the New Team popup CITY label")
+	public boolean viewNewTeamPopupCityLabel() throws TimeoutException, WaitException
+	{
+		return webActions.getVisibiltyOfElementLocatedBy(VISIBILITY, LBL_NEWTEAMPOPUPCITY);
+	}
+
+	@Step("Verify the visibility of the New Team popup CITY text box")
+	public boolean viewNewTeamPopupCityTextBox() throws TimeoutException, WaitException
+	{
+		return webActions.getVisibiltyOfElementLocatedBy(VISIBILITY, TXT_NEWTEAMPOPUPCITY);
+	}
 
 	@Step("Adds a Team Member to the table")
 	public void addATeamMember(Map<String, String> map) throws TimeoutException, WaitException, InterruptedException

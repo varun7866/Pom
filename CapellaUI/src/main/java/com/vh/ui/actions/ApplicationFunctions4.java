@@ -31,10 +31,10 @@ public class ApplicationFunctions4 extends WebPage
 	}
 
 	/**
-	 * DO NOT USE. NOT FINISHED YET. Verifies if the options in the passed in drop down match the option in the passed in list
+	 * Verifies if the options in the passed in drop down match the option in the passed in list
 	 * 
 	 * @param dropDownLocator
-	 *            The <select> tag locator of the drop down
+	 *            The <span> tag locator of the drop down that contains the drop down label
 	 * @param dropDownOptions
 	 *            The list of drop down options to verify against
 	 * @return True if the options match, false if they don't
@@ -43,8 +43,10 @@ public class ApplicationFunctions4 extends WebPage
 	 */
 	public boolean verifyDropDownOptions(By dropDownLocator, List<String> dropDownOptions) throws TimeoutException, WaitException
 	{
+		webActions.click(VISIBILITY, dropDownLocator);
+
 		List<String> dropDownOptionsTextFromUI = new ArrayList<String>();
-		List<WebElement> dropDownOptionsFromUI = driver.findElements(By.xpath(dropDownLocator.toString().substring(10) + "/option"));
+		List<WebElement> dropDownOptionsFromUI = driver.findElements(By.xpath("//div[@class='mat-select-content ng-trigger ng-trigger-fadeInContent']/md-option"));
 
 		for (WebElement webElement : dropDownOptionsFromUI)
 		{

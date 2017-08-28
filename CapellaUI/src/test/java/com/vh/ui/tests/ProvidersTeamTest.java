@@ -81,13 +81,22 @@ public class ProvidersTeamTest extends TestBase
 		Assert.assertTrue(providersTeamPage.viewNewTeamPopupTeamTypeLabel(), "Failed to identify the New Team popup TEAM TYPE label");
 		Assert.assertTrue(providersTeamPage.viewNewTeamPopupTeamTypeComboBox(), "Failed to identify the New Team popup TEAM TYPE combo box");
 		Assert.assertTrue(providersTeamPage.viewNewTeamPopupTeamTypePlaceholder(), "Failed to identify the New Team popup TEAM TYPE placeholder");
-		// Assert.assertTrue(providersTeamPage.verifyNewTeamPopupTeamTypeComboBoxOptions(), "The New Team popup TEAM TYPE drop down options are incorrect");
+		Assert.assertTrue(providersTeamPage.verifyNewTeamPopupTeamTypeComboBoxOptions(), "The New Team popup TEAM TYPE drop down options are incorrect");
 
 		Assert.assertTrue(providersTeamPage.viewNewTeamPopupNameLabel(), "Failed to identify the New Team popup NAME label");
 		Assert.assertTrue(providersTeamPage.viewNewTeamPopupNameTextBox(), "Failed to identify the New Team popup NAME text box");
 
 		Assert.assertTrue(providersTeamPage.viewNewTeamPopupEmailLabel(), "Failed to identify the New Team popup EMAIL label");
 		Assert.assertTrue(providersTeamPage.viewNewTeamPopupEmailTextBox(), "Failed to identify the New Team popup EMAIL text box");
+
+		Assert.assertTrue(providersTeamPage.viewNewTeamPopupAddressLabel(), "Failed to identify the New Team popup ADDRESS label");
+		Assert.assertTrue(providersTeamPage.viewNewTeamPopupAddressTextBox(), "Failed to identify the New Team popup ADDRESS text box");
+
+		Assert.assertTrue(providersTeamPage.viewNewTeamPopupAptSuiteLabel(), "Failed to identify the New Team popup APT/SUITE label");
+		Assert.assertTrue(providersTeamPage.viewNewTeamPopupAptSuiteTextBox(), "Failed to identify the New Team popup APT/SUITE text box");
+
+		Assert.assertTrue(providersTeamPage.viewNewTeamPopupCityLabel(), "Failed to identify the New Team popup CITY label");
+		Assert.assertTrue(providersTeamPage.viewNewTeamPopupCityTextBox(), "Failed to identify the New Team popup CITY text box");
 	}
 
 	// @Test(priority = 3)
