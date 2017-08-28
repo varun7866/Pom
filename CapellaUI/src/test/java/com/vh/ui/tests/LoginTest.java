@@ -4,7 +4,6 @@ import org.openqa.selenium.TimeoutException;
 import org.openqa.selenium.WebDriver;
 import org.testng.Assert;
 import org.testng.annotations.AfterClass;
-import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
@@ -16,7 +15,6 @@ import com.vh.ui.exceptions.WaitException;
 import com.vh.ui.page.base.WebPage;
 import com.vh.ui.pages.LoginPage;
 import com.vh.ui.pages.MyPatientsPage;
-import com.vh.ui.utilities.Utilities;
 
 import ru.yandex.qatools.allure.annotations.Step;
 
