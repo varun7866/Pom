@@ -1,10 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
-<suite name="Failed suite [Capella UI Jan Releast Test]">
+<suite guice-stage="DEVELOPMENT" name="Failed suite [Capella UI Jan Releast Test]">
   <test name="UISmokeTest">
     <classes>
-      <class name="com.vh.ui.tests.UnitTest"/>
-      <class name="com.vh.ui.tests.NewTest"/>
+      <class name="com.vh.ui.tests.LoginTest"/>
     </classes>
   </test> <!-- UISmokeTest -->
+  <test name="UISmokeTest(failed)">
+    <classes>
+      <class name="com.vh.ui.tests.LoginTest">
+        <methods>
+          <include name="verify_SuccessfulLogin"/>
+          <include name="buildUp"/>
+          <include name="afterTest"/>
+          <include name="tearDown"/>
+        </methods>
+      </class> <!-- com.vh.ui.tests.LoginTest -->
+    </classes>
+  </test> <!-- UISmokeTest(failed) -->
 </suite> <!-- Failed suite [Capella UI Jan Releast Test] -->

@@ -1,114 +1,81 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testng-results skipped="0" failed="0" total="4" passed="4">
+<testng-results skipped="0" failed="0" total="3" passed="3">
   <reporter-output>
   </reporter-output>
-  <suite name="Capella UI Jan Releast Test" duration-ms="1382" started-at="2017-01-25T21:36:36Z" finished-at="2017-01-25T21:36:37Z">
+  <suite name="Default suite" duration-ms="365883" started-at="2017-07-21T03:05:27Z" finished-at="2017-07-21T03:11:33Z">
     <groups>
     </groups>
-    <test name="UISmokeTest" duration-ms="1382" started-at="2017-01-25T21:36:36Z" finished-at="2017-01-25T21:36:37Z">
-      <class name="com.vh.ui.tests.UnitTest">
-        <test-method status="PASS" signature="createNewPatient()[pri:0, instance:com.vh.ui.tests.UnitTest@2bfaba70]" name="createNewPatient" duration-ms="328" started-at="2017-01-25T15:36:36Z" finished-at="2017-01-25T15:36:36Z">
+    <test name="Default test" duration-ms="365883" started-at="2017-07-21T03:05:27Z" finished-at="2017-07-21T03:11:33Z">
+      <class name="com.vh.ui.tests.MyTasksTest">
+        <test-method status="PASS" signature="buildUp()[pri:0, instance:com.vh.ui.tests.MyTasksTest@594d9f07]" name="buildUp" is-config="true" duration-ms="173084" started-at="2017-07-20T22:05:27Z" finished-at="2017-07-20T22:08:21Z">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- createNewPatient -->
-        <test-method status="PASS" signature="afterTest(java.lang.reflect.Method, org.testng.ITestResult)[pri:0, instance:com.vh.ui.tests.UnitTest@2bfaba70]" name="afterTest" is-config="true" duration-ms="20" started-at="2017-01-25T15:36:36Z" finished-at="2017-01-25T15:36:36Z">
+        </test-method> <!-- buildUp -->
+        <test-method status="PASS" signature="verify_MyTasksPage()[pri:1, instance:com.vh.ui.tests.MyTasksTest@594d9f07]" name="verify_MyTasksPage" duration-ms="8215" started-at="2017-07-20T22:08:21Z" finished-at="2017-07-20T22:08:29Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- verify_MyTasksPage -->
+        <test-method status="PASS" signature="afterTest(java.lang.reflect.Method, org.testng.ITestResult)[pri:0, instance:com.vh.ui.tests.MyTasksTest@594d9f07]" name="afterTest" is-config="true" duration-ms="2" started-at="2017-07-20T22:08:29Z" finished-at="2017-07-20T22:08:29Z">
           <params>
             <param index="0">
               <value>
-                <![CDATA[public void com.vh.ui.tests.UnitTest.createNewPatient() throws com.vh.ui.exceptions.URLNavigationException,com.vh.ui.exceptions.WaitException,java.lang.InterruptedException]]>
+                <![CDATA[public void com.vh.ui.tests.MyTasksTest.verify_MyTasksPage() throws com.vh.ui.exceptions.WaitException,com.vh.ui.exceptions.URLNavigationException,java.lang.InterruptedException]]>
               </value>
             </param>
             <param index="1">
               <value>
-                <![CDATA[[TestResult name=createNewPatient status=SUCCESS method=UnitTest.createNewPatient()[pri:0, instance:com.vh.ui.tests.UnitTest@2bfaba70] output={null}]]]>
+                <![CDATA[[TestResult name=verify_MyTasksPage status=SUCCESS method=MyTasksTest.verify_MyTasksPage()[pri:1, instance:com.vh.ui.tests.MyTasksTest@594d9f07] output={null}]]]>
               </value>
             </param>
           </params>
           <reporter-output>
           </reporter-output>
         </test-method> <!-- afterTest -->
-        <test-method status="PASS" signature="excelReadTest(java.util.Map)[pri:0, instance:com.vh.ui.tests.UnitTest@2bfaba70]" name="excelReadTest" duration-ms="3" started-at="2017-01-25T15:36:37Z" data-provider="dp1" finished-at="2017-01-25T15:36:37Z">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[{Param7=95 yrs old, FirstName=paige, Param6=7485, Param5=295-807-3629, Param4=test.automation@gmail.com, Param3=11575, Param2=chen}]]>
-              </value>
-            </param>
-          </params>
+        <test-method status="PASS" signature="verify_NewTaskPopUp()[pri:2, instance:com.vh.ui.tests.MyTasksTest@594d9f07]" name="verify_NewTaskPopUp" duration-ms="121334" started-at="2017-07-20T22:08:29Z" finished-at="2017-07-20T22:10:30Z">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- excelReadTest -->
-        <test-method status="PASS" signature="excelReadTest(java.util.Map)[pri:0, instance:com.vh.ui.tests.UnitTest@2bfaba70]" name="excelReadTest" duration-ms="3" started-at="2017-01-25T15:36:37Z" data-provider="dp1" finished-at="2017-01-25T15:36:37Z">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[{Param7=97 yrs old, FirstName=paige2, Param6=7485, Param5=295-807-3629, Param4=test.automation@gmail.com2, Param3=11577, Param2=chen}]]>
-              </value>
-            </param>
-          </params>
+        </test-method> <!-- verify_NewTaskPopUp -->
+        <test-method status="PASS" signature="addNewTask()[pri:3, instance:com.vh.ui.tests.MyTasksTest@594d9f07]" name="addNewTask" duration-ms="60872" started-at="2017-07-20T22:10:30Z" finished-at="2017-07-20T22:11:31Z">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- excelReadTest -->
-        <test-method status="PASS" signature="afterTest(java.lang.reflect.Method, org.testng.ITestResult)[pri:0, instance:com.vh.ui.tests.UnitTest@2bfaba70]" name="afterTest" is-config="true" duration-ms="0" started-at="2017-01-25T15:36:37Z" finished-at="2017-01-25T15:36:37Z">
+        </test-method> <!-- addNewTask -->
+        <test-method status="PASS" signature="afterTest(java.lang.reflect.Method, org.testng.ITestResult)[pri:0, instance:com.vh.ui.tests.MyTasksTest@594d9f07]" name="afterTest" is-config="true" duration-ms="0" started-at="2017-07-20T22:10:30Z" finished-at="2017-07-20T22:10:30Z">
           <params>
             <param index="0">
               <value>
-                <![CDATA[public void com.vh.ui.tests.UnitTest.excelReadTest(java.util.Map) throws java.io.IOException]]>
+                <![CDATA[public void com.vh.ui.tests.MyTasksTest.verify_NewTaskPopUp() throws org.openqa.selenium.TimeoutException,com.vh.ui.exceptions.WaitException]]>
               </value>
             </param>
             <param index="1">
               <value>
-                <![CDATA[[TestResult name=excelReadTest status=SUCCESS method=UnitTest.excelReadTest(java.util.Map)[pri:0, instance:com.vh.ui.tests.UnitTest@2bfaba70] output={null}]]]>
+                <![CDATA[[TestResult name=verify_NewTaskPopUp status=SUCCESS method=MyTasksTest.verify_NewTaskPopUp()[pri:2, instance:com.vh.ui.tests.MyTasksTest@594d9f07] output={null}]]]>
               </value>
             </param>
           </params>
           <reporter-output>
           </reporter-output>
         </test-method> <!-- afterTest -->
-        <test-method status="PASS" signature="afterTest(java.lang.reflect.Method, org.testng.ITestResult)[pri:0, instance:com.vh.ui.tests.UnitTest@2bfaba70]" name="afterTest" is-config="true" duration-ms="2" started-at="2017-01-25T15:36:37Z" finished-at="2017-01-25T15:36:37Z">
+        <test-method status="PASS" signature="afterTest(java.lang.reflect.Method, org.testng.ITestResult)[pri:0, instance:com.vh.ui.tests.MyTasksTest@594d9f07]" name="afterTest" is-config="true" duration-ms="1" started-at="2017-07-20T22:11:31Z" finished-at="2017-07-20T22:11:31Z">
           <params>
             <param index="0">
               <value>
-                <![CDATA[public void com.vh.ui.tests.UnitTest.excelReadTest(java.util.Map) throws java.io.IOException]]>
+                <![CDATA[public void com.vh.ui.tests.MyTasksTest.addNewTask() throws org.openqa.selenium.TimeoutException,com.vh.ui.exceptions.WaitException]]>
               </value>
             </param>
             <param index="1">
               <value>
-                <![CDATA[[TestResult name=excelReadTest status=SUCCESS method=UnitTest.excelReadTest(java.util.Map)[pri:0, instance:com.vh.ui.tests.UnitTest@2bfaba70] output={null}]]]>
+                <![CDATA[[TestResult name=addNewTask status=SUCCESS method=MyTasksTest.addNewTask()[pri:3, instance:com.vh.ui.tests.MyTasksTest@594d9f07] output={null}]]]>
               </value>
             </param>
           </params>
           <reporter-output>
           </reporter-output>
         </test-method> <!-- afterTest -->
-        <test-method status="PASS" signature="excelReadTest(java.util.Map)[pri:0, instance:com.vh.ui.tests.UnitTest@2bfaba70]" name="excelReadTest" duration-ms="5" started-at="2017-01-25T15:36:37Z" data-provider="dp1" finished-at="2017-01-25T15:36:37Z">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[{Param7=99 yrs old, FirstName=paige4, Param6=7485, Param5=295-807-3629, Param4=test.automation@gmail.com4, Param3=11579, Param2=chen}]]>
-              </value>
-            </param>
-          </params>
+        <test-method status="PASS" signature="tearDown()[pri:0, instance:com.vh.ui.tests.MyTasksTest@594d9f07]" name="tearDown" is-config="true" duration-ms="2316" started-at="2017-07-20T22:11:31Z" finished-at="2017-07-20T22:11:33Z">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- excelReadTest -->
-        <test-method status="PASS" signature="afterTest(java.lang.reflect.Method, org.testng.ITestResult)[pri:0, instance:com.vh.ui.tests.UnitTest@2bfaba70]" name="afterTest" is-config="true" duration-ms="1" started-at="2017-01-25T15:36:37Z" finished-at="2017-01-25T15:36:37Z">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[public void com.vh.ui.tests.UnitTest.excelReadTest(java.util.Map) throws java.io.IOException]]>
-              </value>
-            </param>
-            <param index="1">
-              <value>
-                <![CDATA[[TestResult name=excelReadTest status=SUCCESS method=UnitTest.excelReadTest(java.util.Map)[pri:0, instance:com.vh.ui.tests.UnitTest@2bfaba70] output={null}]]]>
-              </value>
-            </param>
-          </params>
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- afterTest -->
-      </class> <!-- com.vh.ui.tests.UnitTest -->
-    </test> <!-- UISmokeTest -->
-  </suite> <!-- Capella UI Jan Releast Test -->
+        </test-method> <!-- tearDown -->
+      </class> <!-- com.vh.ui.tests.MyTasksTest -->
+    </test> <!-- Default test -->
+  </suite> <!-- Default suite -->
 </testng-results>

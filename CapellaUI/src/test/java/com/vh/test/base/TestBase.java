@@ -1,16 +1,10 @@
-/**
- * 
- */
 package com.vh.test.base;
 
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.io.StringWriter;
 import java.lang.reflect.Method;
-import java.sql.Connection;
-import java.sql.ResultSet;
-import java.sql.Statement;
-import java.util.ArrayList;
+import java.sql.SQLException;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Properties;
@@ -29,38 +23,22 @@ import com.vh.ui.utilities.Utilities;
 
 import ru.yandex.qatools.allure.annotations.Step;
 
-/**
+/*
  * @author SUBALIVADA
  * @date   Nov 21, 2016
  * @class  TestBase.java
- *
  */
-public class TestBase {
+
+public class TestBase
+{
 	protected static final Properties frameworkProperty = PropertyManager
 			.loadFrameworkPropertyFile("framework.properties");
 	protected static final Logger log = Logg.createLogger();
 	protected final static Utilities util = new Utilities();
 	protected static String[][] strorage = null;
 	protected final static Properties applicationProperty = PropertyManager
-			.loadApplicationPropertyFile("application.properties");
+			.loadApplicationPropertyFile("resources/application.properties");
 	WebDriver driver;
-
-//	@DataProvider(name = "ReadExcel")
-//	public String[][] readDataFromExcel(Method m) throws Exception {
-//		log.info(Utilities.getCurrentThreadId() + "Data Provider: Read Excel");
-//		log.info(Utilities.getCurrentThreadId() + "Data Provider: Running for Method: " + m.getName());
-//		if ("smokeTest3".equals(m.getName())) {
-//			strorage = ReadExcel.readTestData("Patients");
-//			log.info(Utilities.getCurrentThreadId()
-//					+ "Data Provider: Retrieved data from the Patients Sheet of Test Data Excel");
-//		} else if ("".equals(m.getName())) {
-//			strorage = ReadExcel.readTestData("Sheet2");
-//		} else {
-//			log.info(Utilities.getCurrentThreadId()
-//					+ "NO MATCHING METHOD FOUND. PLEASE CHECK THE METHOD NAME IN THE DATA PROVIDER");
-//		}
-//		return strorage;
-//	}
 
 	protected void logErrorMessage(Throwable ex) {
 		StringWriter stw = new StringWriter();
@@ -77,43 +55,31 @@ public class TestBase {
 	}
 
 	@AfterMethod(alwaysRun = true)
-	protected void afterTest(Method m, ITestResult result) throws IOException {
-
+	protected void afterTest(Method m, ITestResult result) throws IOException, SQLException
+	{
 		if (result.isSuccess()) {
 			log.info(Utilities.getCurrentThreadId() + "Test Case PASSED.");
 		} else if(result.getStatus() == ITestResult.FAILURE) {
 			Utilities.captureScreenshot(driver, m.getName());
 			log.info(Utilities.getCurrentThreadId() + "Test Case Failed.");
 		}
+
 		log.info(Utilities.getCurrentThreadId() + "Proceeding to close the driver for method " + m.getName());
 	}
 
-//	@Step("Launching the mobile app")
-//	protected AppiumDriver<MobileElement> getMobileDriver() {
-//
-//		if ("Android".equals(AppConfig.getPlatform())) {
-//			log.info(Utilities.getCurrentThreadId() + "Getting the Android mobile driver");
-//			return AppiumAndroidDriver.getInstance().getDriver();
-//		} else if ("iOS".equals(AppConfig.getPlatform())) {
-//			log.info(Utilities.getCurrentThreadId() + "Getting the iOS mobile driver");
-//			return AppiumiOSDriver.getInstance().getDriver();
-//		} else {
-//			log.warn(Utilities.getCurrentThreadId() + "Platform name not set. Set it in the framework.properties file");
-//			return null;
-//		}
-//	}
-//
 	@Step("Launching the browser")
 	protected WebDriver getWebDriver() {
 		driver = LocalBrowserDriver.getInstance().getDriver();
 		return driver;
 	}
 	
-	@DataProvider(name="dp1")
-	public Iterator<Object[]> readTestData() throws IOException
+	@DataProvider(name = "CapellaDataProvider")
+	public Iterator<Object[]> readTestData(Method m) throws IOException
 	{
-		System.out.println("inside test base : " + this.getClass().getSimpleName());
-		List list = ReadExcel.readTestData(this.getClass().getSimpleName(), this.getClass().getSimpleName());		
+		System.out.println("inside test base : Class Name = " + this.getClass().getSimpleName() + " and test method = " + m.getName());
+
+		List<Object[]> list = ReadExcel.readTestData(this.getClass().getSimpleName(), m.getName());
+
 		return list.iterator();
 	}
 }

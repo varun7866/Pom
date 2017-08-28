@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<qualifiedTypeNameHistroy>
+<fullyQualifiedTypeName name="com.vh.ui.web.locators.MyDashboardLocators"/>
+<fullyQualifiedTypeName name="org.openqa.selenium.net.UrlChecker.TimeoutException"/>
+<fullyQualifiedTypeName name="org.testng.annotations.BeforeClass"/>
+<fullyQualifiedTypeName name="com.vh.ui.pages.MyPatientsPage"/>
+<fullyQualifiedTypeName name="com.vh.ui.web.locators.MyPatientsLocators"/>
+<fullyQualifiedTypeName name="com.vh.ui.web.locators.AdminLocators"/>
+<fullyQualifiedTypeName name="com.vh.ui.utilities.Utilities"/>
+<fullyQualifiedTypeName name="java.lang.System"/>
+<fullyQualifiedTypeName name="com.vh.ui.web.locators.MedicalEquipmentLocators"/>
+<fullyQualifiedTypeName name="com.vh.ui.web.locators.LoginLocators"/>
+<fullyQualifiedTypeName name="java.text.DateFormat"/>
+<fullyQualifiedTypeName name="java.util.Date"/>
+<fullyQualifiedTypeName name="org.openqa.selenium.By.ByXPath"/>
+<fullyQualifiedTypeName name="java.util.Calendar"/>
+<fullyQualifiedTypeName name="com.vh.ui.pages.MyTasksPage"/>
+<fullyQualifiedTypeName name="com.vh.ui.pages.MySchedulePage"/>
+<fullyQualifiedTypeName name="org.openqa.selenium.WebDriver"/>
+<fullyQualifiedTypeName name="org.openqa.selenium.By"/>
+<fullyQualifiedTypeName name="java.awt.List"/>
+<fullyQualifiedTypeName name="java.util.List"/>
+<fullyQualifiedTypeName name="com.vh.ui.pages.CurrentLabsPage"/>
+<fullyQualifiedTypeName name="com.vh.ui.web.locators.PatientBannerLocators"/>
+<fullyQualifiedTypeName name="com.vh.ui.web.locators.ApplicationLocators"/>
+<fullyQualifiedTypeName name="com.vh.ui.web.locators.CurrentLabsLocators"/>
+<fullyQualifiedTypeName name="com.thoughtworks.selenium.webdriven.commands.Highlight"/>
+<fullyQualifiedTypeName name="com.vh.ui.web.locators.MyTasksLocators"/>
+<fullyQualifiedTypeName name="org.seleniumhq.jetty9.server.handler.ContextHandler.ApprovePathPrefixAliases"/>
+<fullyQualifiedTypeName name="com.vh.ui.pages.PatientNavigationPage"/>
+<fullyQualifiedTypeName name="com.vh.ui.web.locators.PatientNavigationLocators"/>
+<fullyQualifiedTypeName name="java.lang.Thread"/>
+<fullyQualifiedTypeName name="com.thoughtworks.selenium.webdriven.commands.GetAttribute"/>
+<fullyQualifiedTypeName name="com.vh.ui.actions.WebActions"/>
+</qualifiedTypeNameHistroy>

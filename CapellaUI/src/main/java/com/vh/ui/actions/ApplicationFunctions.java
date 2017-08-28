@@ -1,104 +1,208 @@
-/**
- * 
- */
 package com.vh.ui.actions;
 
-import static com.vh.ui.web.locators.WebMyDashboardPageLocators.*;
+import static com.vh.ui.web.locators.ApplicationLocators.BTN_LOGOUT;
+import static com.vh.ui.web.locators.ApplicationLocators.LNK_MENUBAR_ADMIN;
+import static com.vh.ui.web.locators.ApplicationLocators.LNK_MENUBAR_MYPATIENTS;
+import static com.vh.ui.web.locators.ApplicationLocators.LNK_MENUBAR_MYSCHEDULE;
+import static com.vh.ui.web.locators.ApplicationLocators.LNK_MENUBAR_MYTASKS;
+import static com.vh.ui.web.locators.ApplicationLocators.TXT_MENUBAR_USERNAME;
+import static com.vh.ui.web.locators.LoginLocators.BTN_YESALLOW;
+import static com.vh.ui.web.locators.LoginLocators.TXT_USERNAME;
 
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.Collections;
+import java.util.Date;
 import java.util.List;
+import java.util.Properties;
 
 import org.apache.log4j.Logger;
 import org.openqa.selenium.By;
-import org.openqa.selenium.Cookie;
 import org.openqa.selenium.TimeoutException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.testng.Assert;
 
+import com.vh.db.jdbc.DatabaseFunctions;
+import com.vh.ui.exceptions.URLNavigationException;
 import com.vh.ui.exceptions.WaitException;
+import com.vh.ui.page.base.WebPage;
+import com.vh.ui.pages.AdminPage;
+import com.vh.ui.pages.LoginPage;
+import com.vh.ui.pages.MyPatientsPage;
+import com.vh.ui.pages.MySchedulePage;
+import com.vh.ui.pages.MyTasksPage;
 import com.vh.ui.utilities.Logg;
+import com.vh.ui.utilities.PropertyManager;
 import com.vh.ui.utilities.Utilities;
 import com.vh.ui.waits.WebDriverWaits;
 
 import ru.yandex.qatools.allure.annotations.Step;
 
-/**
+/*
  * @author SUBALIVADA
  * @date   Jan 9, 2017
  * @class  ApplicationFunctions.java
- *
  */
-public class ApplicationFunctions {
-	protected WebDriver driver;
+public class ApplicationFunctions extends WebPage
+{
 	protected static final Logger LOGGER = Logg.createLogger();
 	protected final WebDriverWaits wait = new WebDriverWaits();
-	private static Cookie cookie;
 	private WebActions webActions = null;
+	private WebPage pageBase;
+	private LoginPage loginPage;
+	private DatabaseFunctions databaseFunctions;
 	
-	public ApplicationFunctions(WebDriver driver)
+	private final static Properties applicationProperty = PropertyManager
+			.loadApplicationPropertyFile("resources/application.properties");
+
+	public ApplicationFunctions(WebDriver driver) throws WaitException
 	{
-		this.driver = driver;
-		this.webActions = new WebActions(driver);
+		super(driver);
+		webActions = new WebActions(driver);
+		pageBase = new WebPage(driver);
+		databaseFunctions = new DatabaseFunctions();
 	}
 	
 	/**
-	 * Navigate to Menu in CPP
+	 * Login to the Capella application
 	 * 
-	 * @param menuToNavigate the path of menu to navigate to. i.e. Screenings->Cognitive Screening
+	 * @throws TimeoutException
+	 * @throws WaitException
+	 * @throws URLNavigationException
+	 * @throws InterruptedException
+	 * @param menu
 	 */
-	@Step("Navigate to {0} menu")
-	public boolean navigateToMenu(String menuToNavigate)
+	@Step("Login to Capella")
+	public void capellaLogin() throws TimeoutException, WaitException, URLNavigationException, InterruptedException
 	{
-		LOGGER.debug("In ApplicationFunctions - navigateToMenu");
-		String menu[] = menuToNavigate.split("->");		
+		LOGGER.debug("In ApplicationFunctions - capellaLogin");
+
+		loginPage = (LoginPage) pageBase.navigateTo(applicationProperty.getProperty("webURL"));
 		
-		if(menu.length != 1)
-		{
-			By mainMenu = By.xpath("//span[text() = '" + menu[0] + "']");
-			WebElement mainEle = driver.findElement(mainMenu);
-			Utilities.highlightElement(driver, mainEle);
+		waitForLoginScreen();
 		
-			webActions.javascriptClick(mainEle);
-			
-			By subMenu = By.xpath("//a[text() = '" + menu[1] + "']");
-			Utilities.highlightElement(driver, subMenu);
-			webActions.javascriptClick(subMenu);
-		}
-		else if(menu.length == 1)
+		loginPage.enterUserName(applicationProperty.getProperty("username"));
+		loginPage.enterPassword(applicationProperty.getProperty("password"));
+		loginPage.clickLogin();
+
+		if (wait.checkForElementVisibility(driver, BTN_YESALLOW))
 		{
-			By subMenu = By.xpath("//a[text() = '" + menu[0] + "']");
-			Utilities.highlightElement(driver, subMenu);
-			webActions.javascriptClick(subMenu);
+			loginPage.clickRememberMyDecision();
+
+			loginPage.clickYesAllow();
 		}
-		else
-		{
-			return false;
-		}
-		return true;
+
+//		 loginPage.verifyLandingPage();
 	}
-	
+
 	/**
-	 * Click Logout button in CPP and logout of application
+	 * Logout of the Capella application
 	 * 
 	 * @throws TimeoutException
 	 * @throws WaitException
 	 */
 	@Step("Logout of Capella")
-	public void capellaLogOut() throws TimeoutException, WaitException
+	public void capellaLogout() throws TimeoutException, WaitException
 	{
-		LOGGER.debug("In ApplicationFunctions - capellaLogOut");
-		Utilities.highlightElement(driver, BTN_LOGOUT);
+		LOGGER.debug("In ApplicationFunctions - capellaLogout");
+
 		webActions.javascriptClick(BTN_LOGOUT);
-		String Invalid_Errormessage = webActions.getText("visibility", LBL_LOGOUT_MSG);
-		System.out.println(Invalid_Errormessage);
-		
-		WebElement btnOk = driver.findElement(BTN_LOGOUT_OK);
-		Utilities.highlightElement(driver, BTN_LOGOUT_OK);
-		webActions.javascriptClick(btnOk);	
 	}
-	
+
 	/**
-	 * Click on Main Menu's like My Patients, My Dashboard, Patient Engagement, etc.
+	 * Opens a Patient by clicking on the Patient name in My Patients
+	 * 
+	 * @param patientName
+	 *            The name of the Patient to open
+	 * @throws TimeoutException
+	 * @throws WaitException
+	 * @throws InterruptedException
+	 */
+	@Step("Open {0} Patient")
+	public void selectPatientFromMyPatients(String patientName) throws TimeoutException, WaitException, InterruptedException
+	{
+		LOGGER.debug("In ApplicationFunctions - selectPatientFromMyPatients");
+
+		// A double click is needed sometimes
+		clickMyPatientsMenuBar();
+		Thread.sleep(200);
+		clickMyPatientsMenuBar();
+
+		webActions.click(VISIBILITY, By.xpath("//a[text()='" + patientName + "']"));
+	}
+
+	/**
+	 * Navigate Menu in Capella
+	 * 
+	 * @param menuToNavigate
+	 *            The menu path to navigate. i.e. Screenings->Cognitive Screening
+	 * @throws TimeoutException
+	 * @throws WaitException
+	 * @throws InterruptedException
+	 */
+	@Step("Navigate to {0} menu option")
+	public boolean navigateToMenu(String menuToNavigate) throws TimeoutException, WaitException, InterruptedException
+	{
+		LOGGER.debug("In ApplicationFunctions - navigateToMenu");
+
+		String menu[] = menuToNavigate.split("->");		
+		
+		if(menu.length == 1)
+		{
+			By mainMenu = By.xpath("//a[text()='" + menu[0] + "']");
+			WebElement mainEle = driver.findElement(mainMenu);
+			// Utilities.highlightElement(driver, mainMenu);
+			webActions.javascriptClick(mainEle);
+		}
+		else
+		{
+			if (menu.length == 2)
+			{
+				By mainMenu = By.xpath("//a[text()='" + menu[0] + "']");
+				WebElement mainEle = driver.findElement(mainMenu);
+				// Utilities.highlightElement(driver, mainMenu);
+				webActions.javascriptClick(mainEle);
+				
+				By subMenu = By.xpath("//a[contains(., '" + menu[1] + "')]");
+				WebElement subEle = driver.findElement(subMenu);
+				// Utilities.highlightElement(driver, subMenu);
+				webActions.javascriptClick(subEle);
+			}
+			else
+			{
+				if (menu.length == 3)
+				{
+					By mainMenu = By.xpath("//a[text()='" + menu[0] + "']");
+					WebElement mainEle = driver.findElement(mainMenu);
+					// Utilities.highlightElement(driver, mainMenu);
+					webActions.javascriptClick(mainEle);
+
+					By subMenu = By.xpath("//a[text()='" + menu[1] + "']");
+					WebElement subEle = driver.findElement(subMenu);
+					// Utilities.highlightElement(driver, subMenu);
+					webActions.javascriptClick(subEle);
+
+					By subSubMenu = By.xpath("//span[text()='" + menu[2] + "']");
+					WebElement subSubEle = driver.findElement(subSubMenu);
+					// Utilities.highlightElement(driver, subSubMenu);
+					webActions.javascriptClick(subSubEle);
+				} else
+				{
+					return false;
+				}
+			}
+		}
+		return true;
+	}
+
+	/**
+	 * Click on Main Menu's like My Patients, My Dashboard, Patient Engagement,
+	 * etc.
 	 * 
 	 * @param menu
 	 */
@@ -113,11 +217,6 @@ public class ApplicationFunctions {
 		webActions.javascriptClick(mainEle);
 	}
 	
-	
-	public void selectPatientFromMyPatient()
-	{
-		
-	}
 	/**
 	 * Click on a particular cell of a table identified by the table locator
 	 * 
@@ -153,7 +252,7 @@ public class ApplicationFunctions {
 	 * @param reqColumn required column number to identify the cell
 	 * @return value in cell
 	 */
-	public String getTextFromTable(String tableLocator, int reqRow, int reqColumn)
+	public String getTextFromTableCell(String tableLocator, int reqRow, int reqColumn)
 	{
 		LOGGER.debug("In ApplicationFunctions - getTextFromTable");
 		String colValue = null;
@@ -181,7 +280,7 @@ public class ApplicationFunctions {
 		
 		for(int i=1; i<=rowCount; i++)
 		{
-			colValue = getTextFromTable(tableLocator, i, searchColumn);
+			colValue = getTextFromTableCell(tableLocator, i, searchColumn);
 			if(colValue.equals(searchValue))
 			{
 				return i;
@@ -250,118 +349,112 @@ public class ApplicationFunctions {
 	 * @throws WaitException
 	 * @throws InterruptedException
 	 */
-	@Step("Close All Patients")
-	public boolean closeAllPatients() throws TimeoutException, WaitException, InterruptedException
-	{
-		LOGGER.debug("In WebMyDashboardPage - closeAllPatients");
-		if(!wait.checkForElementVisibility(driver, BTN_EXPAND_OPENPATIENT)){
-			return false;
-		}
-		
-		if(!wait.checkForElementVisibility(driver, LBL_NO_OF_PATIENTS)){
-			return true;
-		}
-		
-		int count = Integer.parseInt(webActions.getText("visibility", LBL_NO_OF_PATIENTS));
-		System.out.println(count);
-		if(count == 0)
-		{
-			return true;
-		}
-		
-		Utilities.highlightElement(driver, BTN_EXPAND_OPENPATIENT);
-//		webActions.actionClick(CLICKABILITY, BTN_EXPAND_OPENPATIENT);
-		WebElement btnExpandOpenPatient = driver.findElement(BTN_EXPAND_OPENPATIENT);
-		webActions.javascriptClick(btnExpandOpenPatient);
-		
-		Thread.sleep(5000);
-		
-		Utilities.highlightElement(driver, OPEN_PATIENT_CONTAINER);
-		WebElement container = driver.findElement(OPEN_PATIENT_CONTAINER);
-		
-		List<WebElement> finalize = null;
-		finalize =  container.findElements(By.xpath("//div[@title='Finalize Patient']"));
-		do
-		{
-			System.out.println(finalize.size());
-			Utilities.highlightElement(driver, finalize.get(2));
-			Thread.sleep(3000);
-
-			webActions.javascriptClick(finalize.get(2));
-			
-			clickButtonOnMessageBox(POPUP_CLOSE_PATIENT, LBL_DO_YOU_WANT_TO_FINALIZE, "Do you want to finalize and close this patient record?", BTN_CLOSE_PATIENT_YES);
-			Thread.sleep(5000);
-//			boolean isVisible = new WebDriverWaits().checkForElementVisibility(driver, POPUP_CLOSE_PATIENT);
-//			if(!isVisible)
-//			{
-//				return false;
-//			}
-//			String doYouWantToFinalize = webActions.getText("presence", LBL_DO_YOU_WANT_TO_FINALIZE);
-//			if(doYouWantToFinalize.equalsIgnoreCase("Do you want to finalize and close this patient record?"))
-//			{
-////				webActions.click(CLICKABILITY, BTN_CLOSE_PATIENT_YES);
-//				WebElement btnYes = driver.findElement(BTN_CLOSE_PATIENT_YES);
-//				Utilities.highlightElement(driver, BTN_CLOSE_PATIENT_YES);
-//				webActions.javascriptClick(btnYes);
-//				Thread.sleep(3000);
-//			}
-			finalize =  container.findElements(By.xpath("//div[@title='Finalize Patient']"));
-			
-		}while(finalize.size() != 0);
-		if(wait.checkForElementVisibility(driver, BTN_COLLAPSE_OPENPATIENT)){
-			webActions.javascriptClick(BTN_COLLAPSE_OPENPATIENT);
-		}
-		
-		return true;						
-	}
+	// @Step("Close All Patients")
+	// public boolean closeAllPatients() throws TimeoutException, WaitException,
+	// InterruptedException
+	// {
+	// LOGGER.debug("In WebMyDashboardPage - closeAllPatients");
+	// if(!wait.checkForElementVisibility(driver, BTN_EXPAND_OPENPATIENT)){
+	// return false;
+	// }
+	//
+	// if(!wait.checkForElementVisibility(driver, LBL_NO_OF_PATIENTS)){
+	// return true;
+	// }
+	//
+	// int count = Integer.parseInt(webActions.getText("visibility",
+	// LBL_NO_OF_PATIENTS));
+	// System.out.println(count);
+	// if(count == 0)
+	// {
+	// return true;
+	// }
+	//
+	// Utilities.highlightElement(driver, BTN_EXPAND_OPENPATIENT);
+	//// webActions.actionClick(CLICKABILITY, BTN_EXPAND_OPENPATIENT);
+	// WebElement btnExpandOpenPatient =
+	// driver.findElement(BTN_EXPAND_OPENPATIENT);
+	// webActions.javascriptClick(btnExpandOpenPatient);
+	//
+	// Thread.sleep(5000);
+	//
+	// Utilities.highlightElement(driver, OPEN_PATIENT_CONTAINER);
+	// WebElement container = driver.findElement(OPEN_PATIENT_CONTAINER);
+	//
+	// List<WebElement> finalize = null;
+	// finalize = container.findElements(By.xpath("//div[@title='Finalize
+	// Patient']"));
+	// do
+	// {
+	// System.out.println(finalize.size());
+	// Utilities.highlightElement(driver, finalize.get(2));
+	// Thread.sleep(3000);
+	//
+	// webActions.javascriptClick(finalize.get(2));
+	//
+	// clickButtonOnMessageBox(POPUP_CLOSE_PATIENT, LBL_DO_YOU_WANT_TO_FINALIZE,
+	// "Do you want to finalize and close this patient record?",
+	// BTN_CLOSE_PATIENT_YES);
+	// Thread.sleep(5000);
+	//// boolean isVisible = new
+	// WebDriverWaits().checkForElementVisibility(driver, POPUP_CLOSE_PATIENT);
+	//// if(!isVisible)
+	//// {
+	//// return false;
+	//// }
+	//// String doYouWantToFinalize = webActions.getText("presence",
+	// LBL_DO_YOU_WANT_TO_FINALIZE);
+	//// if(doYouWantToFinalize.equalsIgnoreCase("Do you want to finalize and
+	// close this patient record?"))
+	//// {
+	////// webActions.click(CLICKABILITY, BTN_CLOSE_PATIENT_YES);
+	//// WebElement btnYes = driver.findElement(BTN_CLOSE_PATIENT_YES);
+	//// Utilities.highlightElement(driver, BTN_CLOSE_PATIENT_YES);
+	//// webActions.javascriptClick(btnYes);
+	//// Thread.sleep(3000);
+	//// }
+	// finalize = container.findElements(By.xpath("//div[@title='Finalize
+	// Patient']"));
+	//
+	// }while(finalize.size() != 0);
+	// if(wait.checkForElementVisibility(driver, BTN_COLLAPSE_OPENPATIENT)){
+	// webActions.javascriptClick(BTN_COLLAPSE_OPENPATIENT);
+	// }
+	//
+	// return true;
+	// }
 	
 	/**
-	 * Select an item from drop down in capella application
+	 * Select an item from the passed in combo box
 	 * 
-	 * @param dropDownLocator the div locator of the dropdown
-	 * @param itemToSelect the item to be selected
+	 * @param dropDownLocator
+	 *            The locator <div> tag of the combo box
+	 * @param itemToSelect
+	 *            The item to be selected
 	 * @return true if the item is selected, else false
 	 * @throws WaitException
 	 */
-	public boolean selectAnItemFromComboBox(By dropDownLocator, String itemToSelect) throws WaitException
-	{
-		boolean isPass = false;
-		isPass = wait.checkForElementVisibility(driver, dropDownLocator); 
-		Utilities.highlightElement(driver, dropDownLocator);
-		String dropDownDivString = getWebElementLocator(dropDownLocator);
-		String dropDownButtonString = dropDownDivString+"/button[1]";
-		By drpDwnLocator = By.xpath(dropDownButtonString);
-		Utilities.highlightElement(driver, drpDwnLocator);
-		if(!isPass){
-			return false;
-		}
-		
-		webActions.javascriptClick(drpDwnLocator);
-//		webActions.click("visibility", dropDownLocator);
-		
-		String ulString = dropDownDivString + "/ul[1]";
-		By childLocator = By.xpath(ulString);
-		isPass = wait.checkForElementVisibility(driver, childLocator);
-		if(!isPass){
-			return false;
-		}
-		
-		Utilities.highlightElement(driver, childLocator);
-		String liString = ulString + "/li";
-		boolean isSelected = false;
-		List<WebElement> list = driver.findElements(By.xpath(liString));
-		for(WebElement el : list)
-		{
-			Utilities.highlightElement(driver, el);
-			if(el.getText().trim().equalsIgnoreCase(itemToSelect))
-			{
-				webActions.javascriptClick(el);
-				isSelected = true;
-				break;
-			}
-		}
-		return isSelected;
-	}
+	/*
+	 * public boolean selectAnItemFromComboBox(By dropDownLocator, String
+	 * itemToSelect) throws WaitException { boolean isPass = false; isPass =
+	 * wait.checkForElementVisibility(driver, dropDownLocator);
+	 * Utilities.highlightElement(driver, dropDownLocator); String
+	 * dropDownDivString = getWebElementLocator(dropDownLocator); String
+	 * dropDownButtonString = dropDownDivString+"/button[1]"; By drpDwnLocator =
+	 * By.xpath(dropDownButtonString); Utilities.highlightElement(driver,
+	 * drpDwnLocator); if(!isPass){ return false; }
+	 * webActions.javascriptClick(drpDwnLocator); //
+	 * webActions.click("visibility", dropDownLocator); String ulString =
+	 * dropDownDivString + "/ul[1]"; By childLocator = By.xpath(ulString);
+	 * isPass = wait.checkForElementVisibility(driver, childLocator);
+	 * if(!isPass){ return false; } Utilities.highlightElement(driver,
+	 * childLocator); String liString = ulString + "/li"; boolean isSelected =
+	 * false; List<WebElement> list = driver.findElements(By.xpath(liString));
+	 * for(WebElement el : list) { Utilities.highlightElement(driver, el);
+	 * if(el.getText().trim().equalsIgnoreCase(itemToSelect)) {
+	 * webActions.javascriptClick(el); isSelected = true; break; } } return
+	 * isSelected; }
+	 */
 	
 	public String getWebElementLocator(WebElement element) throws AssertionError{
         if ((element instanceof WebElement)){
@@ -400,26 +493,574 @@ public class ApplicationFunctions {
         return "";
     }
 
-	public boolean selectDateFromCalendar(By calendarLocator, String dateToSelect) throws WaitException, InterruptedException
+	/**
+	 * Selects the passed in date from the date picker
+	 * 
+	 * @param datePickerLocator
+	 *            The <input> tag locator of the date picker
+	 * @parm dateToSelect The date to select as d
+	 * @throws WaitException
+	 * @throws InterruptedException
+	 */
+	public void selectDateFromCalendarAsd(By datePickerLocator, String dateToSelect) throws WaitException, InterruptedException
 	{
-		boolean isPass = false;
-		isPass = wait.checkForElementVisibility(driver, calendarLocator);
-		if(!isPass){
+		int currentDayInt;
+		int dateToSelectInt;
+		String currentDay;
+		String datePickerLocatorXpathString;
+		By DayLocator;
+		By calendarPrevMMonthButton;
+
+		DateFormat dateFormat = new SimpleDateFormat("d");
+		Date dateObject = new Date();
+		currentDay = dateFormat.format(dateObject);
+		currentDayInt = Integer.parseInt(currentDay);
+
+		dateToSelectInt = Integer.parseInt(dateToSelect);
+
+		datePickerLocatorXpathString = datePickerLocator.toString().substring(10);
+
+		if (dateToSelectInt > currentDayInt)
+		{
+			calendarPrevMMonthButton = By.xpath(datePickerLocatorXpathString + "/../..//button[@class='headerbtn mydpicon icon-mydpleft headerbtnenabled']");
+			webActions.click(VISIBILITY, calendarPrevMMonthButton);
+
+			DayLocator = By.xpath(datePickerLocatorXpathString + "/../..//td[@class='daycell currmonth tablesingleday']/div[contains(@class,'datevalue currmonth')]/span[text()='"
+			        + dateToSelectInt + "']");
+			webActions.click(VISIBILITY, DayLocator);
+		} else
+		{
+			if (dateToSelectInt == currentDayInt)
+			{
+				DayLocator = By.xpath(datePickerLocatorXpathString + "/../..//span[@class='markcurrday']");
+				webActions.click(VISIBILITY, DayLocator);
+			} else
+			{
+				DayLocator = By.xpath(datePickerLocatorXpathString + "/../..//td[@class='daycell currmonth tablesingleday']/div[contains(@class,'datevalue currmonth')]/span[text()='"
+				        + dateToSelectInt + "']");
+				webActions.click(VISIBILITY, DayLocator);
+			}
+		}
+	}
+
+	/**
+	 * Selects the passed in date from the date picker
+	 * 
+	 * @param datePickerLocator
+	 *            The <input> tag locator of the date picker
+	 * @parm dateToSelect The date to select as M/d/YYY, zero suppressed for month and day
+	 * @throws WaitException
+	 * @throws InterruptedException
+	 */
+	public void selectDateFromCalendarAsMdYYYY(By datePickerLocator, String dateToSelect) throws WaitException, InterruptedException
+	{
+		int currentMonthInt;
+		int currentYearInt;
+		int dateToSelectMonthInt;
+		int dateToSelectYearInt;
+		int yearDifference;
+		int monthDifference;
+
+		String currentMonth;
+		String currentYear;
+		String dateToSelectMonth;
+		String dateToSelectDay;
+		String dateToSelectYear;
+		String datePickerLocatorXpathString;
+
+		By calendarPrevYearButton;
+		By calendarNextYearButton;
+		By calendarPrevMonthButton;
+		By calendarNextMonthButton;
+		By calendarDayButton;
+
+		// Get and format current date
+		DateFormat dateFormatM = new SimpleDateFormat("M");
+		DateFormat dateFormatYYYY = new SimpleDateFormat("YYYY");
+
+		Date dateObject = new Date();
+
+		currentMonth = dateFormatM.format(dateObject);
+		currentYear = dateFormatYYYY.format(dateObject);
+
+		currentMonthInt = Integer.parseInt(currentMonth);
+		currentYearInt = Integer.parseInt(currentYear);
+
+		// Parse passed in date to select
+		dateToSelectMonth = dateToSelect.substring(0, dateToSelect.indexOf("/"));
+		dateToSelectDay = dateToSelect.substring(dateToSelect.indexOf("/") + 1, dateToSelect.lastIndexOf("/"));
+		dateToSelectYear = dateToSelect.substring(dateToSelect.lastIndexOf("/") + 1);
+
+		dateToSelectMonthInt = Integer.parseInt(dateToSelectMonth);
+		dateToSelectYearInt = Integer.parseInt(dateToSelectYear);
+
+		datePickerLocatorXpathString = datePickerLocator.toString().substring(10);
+
+		// Change Year backwards
+		if (dateToSelectYearInt < currentYearInt)
+		{
+			yearDifference = currentYearInt - dateToSelectYearInt;
+			calendarPrevYearButton = By.xpath(datePickerLocatorXpathString + "/../..//button[@aria-label='Previous Year']");
+
+			for (int x = 1; x <= yearDifference; x++)
+			{
+				webActions.click(VISIBILITY, calendarPrevYearButton);
+			}
+		} else // Change Year forwards
+		{
+			if (dateToSelectYearInt > currentYearInt)
+			{
+				yearDifference = dateToSelectYearInt - currentYearInt;
+				calendarNextYearButton = By.xpath(datePickerLocatorXpathString + "/../..//button[@aria-label='Next Year']");
+
+				for (int x = 1; x <= yearDifference; x++)
+				{
+					webActions.click(VISIBILITY, calendarNextYearButton);
+				}
+			}
+		}
+
+		// Change Month backwards
+		if (dateToSelectMonthInt < currentMonthInt)
+		{
+			monthDifference = currentMonthInt - dateToSelectMonthInt;
+			calendarPrevMonthButton = By.xpath(datePickerLocatorXpathString + "/../..//button[@aria-label='Previous Month']");
+
+			for (int x = 1; x <= monthDifference; x++)
+			{
+				webActions.click(VISIBILITY, calendarPrevMonthButton);
+			}
+		} else // Change Month forwards
+		{
+			if (dateToSelectMonthInt > currentMonthInt)
+			{
+				monthDifference = dateToSelectMonthInt - currentMonthInt;
+				calendarNextMonthButton = By.xpath(datePickerLocatorXpathString + "/../..//button[@aria-label='Next Month']");
+
+				for (int x = 1; x <= monthDifference; x++)
+				{
+					webActions.click(VISIBILITY, calendarNextMonthButton);
+				}
+			}
+		}
+
+		// Select Day
+		calendarDayButton = By.xpath(datePickerLocatorXpathString + "/../..//div[@class='datevalue currmonth']/span[text()='" + dateToSelectDay + "']");
+		webActions.click(VISIBILITY, calendarDayButton);
+	}
+
+	/**
+	 * Verifies if the date picker's currently selected date is equal to the current date
+	 * 
+	 * @param datePickerLocator
+	 *            The <input> tag locator of the date picker
+	 * @return True if the currently selected date in the date picker is equal to the current date, else false
+	 * @throws WaitException
+	 * @throws InterruptedException
+	 */
+	public boolean isCalendarDateEqualToCurrentDate(By datePickerLocator) throws WaitException, InterruptedException
+	{
+		DateFormat dateFormat = new SimpleDateFormat("MM/dd/yyyy");
+		Date dateObject = new Date();
+
+		String attributeValue = webActions.getAttributeValue("visibility", datePickerLocator, "ng-reflect-model");
+
+		return attributeValue.equals(dateFormat.format(dateObject));
+	}
+
+	/**
+	 * Checks if the date picker's enabled date range is correct
+	 * 
+	 * @param datePickerLocator
+	 *            The <input> tag locator of the date picker
+	 * @return True if the date range is valid, else false
+	 * @throws WaitException
+	 * @throws InterruptedException
+	 */
+	public boolean isCalendarEnabledDateRangeValid(By datePickerLocator) throws WaitException, InterruptedException
+	{
+		int x;
+		int currentDayInt;
+		int currentDayMinusXInt;
+		boolean alreadyClicked = false;
+		String currentDay;
+		String currentDayMinusX;
+		String datePickerLocatorXpathString;
+		By DayLocator;
+		By calendarPrevMonthButton;
+		By calendarNextMonthButton;
+
+		Calendar cal = Calendar.getInstance();
+
+		DateFormat dateFormat = new SimpleDateFormat("d");
+		Date dateObject = new Date();
+		currentDay = dateFormat.format(dateObject);
+		currentDayInt = Integer.parseInt(currentDay);
+		currentDayMinusX = currentDay;
+
+		datePickerLocatorXpathString = datePickerLocator.toString().substring(10);
+
+		for (x = 1; x <= 7; x++)
+		{
+			currentDayMinusXInt = Integer.parseInt(currentDayMinusX);
+			
+			if (currentDayMinusXInt > currentDayInt)
+			{
+				try
+				{
+					DayLocator = By.xpath(datePickerLocatorXpathString + "/../..//td[@class='daycell']/div[contains(@class,'datevalue prevmonth')]/span[text()='" + currentDayMinusX + "']");
+					// If not found, that means the date to choose is not displayed. Flow will jump to the Catch where it will click the previous month button, then verify the date.
+					driver.findElement(DayLocator).isDisplayed();
+				}
+				catch (Exception ex)
+				{
+					if (!alreadyClicked)
+					{
+						calendarPrevMonthButton = By.xpath(datePickerLocatorXpathString + "/../..//button[@class='headerbtn mydpicon icon-mydpleft headerbtnenabled']");
+						webActions.click(VISIBILITY, calendarPrevMonthButton);
+						alreadyClicked = true;
+					}
+
+					DayLocator = By
+					        .xpath(datePickerLocatorXpathString + "/../..//td[@class='daycell currmonth tablesingleday']/div[contains(@class,'datevalue currmonth')]/span[text()='" + currentDayMinusX
+					                + "']");
+
+					if (!driver.findElement(DayLocator).isDisplayed())
+					{
+						return false;
+					}
+				}
+			}
+			else
+			{
+				if (currentDayMinusXInt == currentDayInt)
+				{
+					DayLocator = By.xpath(datePickerLocatorXpathString + "/../..//span[@class='markcurrday']");
+
+					if (!driver.findElement(DayLocator).isDisplayed())
+					{
+						return false;
+					}
+				} else
+				{
+					DayLocator = By
+					        .xpath(datePickerLocatorXpathString + "/../..//td[@class='daycell currmonth tablesingleday']/div[contains(@class,'datevalue currmonth')]/span[text()='" + currentDayMinusX
+					                + "']");
+
+					if (!driver.findElement(DayLocator).isDisplayed())
+					{
+						return false;
+					}
+				}
+			}
+
+			cal.add(Calendar.DATE, -1);
+			currentDayMinusX = dateFormat.format(new Date(cal.getTimeInMillis()));
+		}
+
+		if (alreadyClicked)
+		{
+			calendarNextMonthButton = By.xpath(datePickerLocatorXpathString + "/../..//button[@class='headerbtn mydpicon icon-mydpright headerbtnenabled']");
+			webActions.click(VISIBILITY, calendarNextMonthButton);
+		}
+
+		return true;
+	}
+
+	/**
+	 * Returns all the text from a table identified by the locator
+	 * 
+	 * @param tableLocator
+	 *            The
+	 *            <table>
+	 *            tag locator of the table
+	 * @param numberOfColumns
+	 *            The number of columns in the table
+	 * @return A two dimensional List of strings
+	 * @throws TimeoutException
+	 * @throws WaitException
+	 */
+	public String[][] getTextFromTable(By tableLocator, int numberOfColumns) throws TimeoutException, WaitException
+	{
+		List<WebElement> trCollection = driver.findElements(By.xpath(tableLocator.toString().substring(10) + "/tbody/tr"));
+		
+		String[][] tableData = new String[trCollection.size()][numberOfColumns];
+
+		int row_num, col_num;
+		row_num = 0;
+		
+		for (WebElement trElement : trCollection)
+		{
+			List<WebElement> tdCollection = trElement.findElements(By.xpath("td"));
+			col_num = 0;
+
+			for (WebElement tdElement : tdCollection)
+			{
+				tableData[row_num][col_num] = tdElement.getText();
+				col_num++;
+			}
+
+			row_num++;
+		}
+
+		return tableData;
+	}
+
+	@Step("Get the User Name from the Menu Bar")
+	public String getUserNameTextMenuBar() throws TimeoutException, WaitException
+	{
+		String User_Name_With_Welcome = webActions.getText(VISIBILITY, TXT_MENUBAR_USERNAME);
+		String User_Name = User_Name_With_Welcome.substring(9);
+		System.out.println(User_Name);
+
+		return User_Name;
+	}
+
+	@Step("Click on My Patients Menu Bar option")
+	public MyPatientsPage clickMyPatientsMenuBar() throws TimeoutException, WaitException
+	{
+		webActions.click(VISIBILITY, LNK_MENUBAR_MYPATIENTS);
+		return new MyPatientsPage(getDriver());
+	}
+
+	@Step("Click on My Tasks Menu Bar option")
+	public MyTasksPage clickMyTasksMenuBar() throws TimeoutException, WaitException
+	{
+		webActions.click(VISIBILITY, LNK_MENUBAR_MYTASKS);
+		return new MyTasksPage(getDriver());
+	}
+
+	@Step("Click on My Schedule Menu Bar option")
+	public MySchedulePage clickMyScheduleMenuBar() throws TimeoutException, WaitException
+	{
+		webActions.click(VISIBILITY, LNK_MENUBAR_MYSCHEDULE);
+		return new MySchedulePage(getDriver());
+	}
+
+	@Step("Click on Admin Menu Bar option")
+	public AdminPage clickAdminMenuBar() throws TimeoutException, WaitException
+	{
+		webActions.click(VISIBILITY, LNK_MENUBAR_ADMIN);
+		return new AdminPage(getDriver());
+	}
+
+	/**
+	 * Clicks on the passed in column header in the passed in table to sort it according to the passed in sort order. It will then verify if the column is properly sorted.
+	 * 
+	 * @param tableLocator
+	 *            The
+	 *            <table>
+	 *            tag locator of the table
+	 * @param columnNumber
+	 *            The column number of the column to be retrieved
+	 * @param sortOrder
+	 *            "A" for ascending or "D" for descending
+	 * @param controlType
+	 *            The type of control in the column to be sorted (text, drop down, check box)
+	 * @return True if the column is sorted and false if not
+	 * @throws TimeoutException
+	 * @throws WaitException
+	 */
+	public boolean isColumnSorted(By tableLocator, int columnNumber, String sortOrder, String controlType) throws TimeoutException, WaitException
+	{
+		String attributeValue;
+		String innerText;
+		
+		List<String> columnTextOriginal = new ArrayList<String>();
+		List<String> columnTextSorted = new ArrayList<String>();
+
+		List<WebElement> columnElements = driver.findElements(By.xpath(tableLocator.toString().substring(10) + "//tr/td[" + columnNumber + "]"));
+		
+		for (WebElement columnElement : columnElements)
+		{
+			if (controlType.equals("text"))
+			{
+				columnTextOriginal.add(columnElement.getText());
+				columnTextSorted.add(columnElement.getText());
+			}
+			else
+			{
+				if (controlType.equals("dropdown"))
+				{
+					attributeValue = columnElement.findElement(By.xpath("./select")).getAttribute("ng-reflect-model");
+					innerText = columnElement.findElement(By.xpath("./select//option[@ng-reflect-value='" + attributeValue + "']")).getText();
+					columnTextOriginal.add(innerText);
+					columnTextSorted.add(innerText);
+				}
+				else
+				{
+					if (controlType.equals("checkbox"))
+					{
+						attributeValue = columnElement.findElement(By.xpath("./input")).getAttribute("class");
+
+						if (attributeValue.contains("checked"))
+						{
+							columnTextOriginal.add("true");
+							columnTextSorted.add("true");
+						} else
+						{
+							columnTextOriginal.add("false");
+							columnTextSorted.add("false");
+						}
+					}
+				}
+			}
+		}
+				
+		Collections.sort(columnTextSorted);
+
+		if (sortOrder.equals("D"))
+		{
+			Collections.reverse(columnTextSorted);
+		}
+
+		if (columnTextOriginal.equals(columnTextSorted))
+		{
+			return true;
+		} else
+		{
 			return false;
 		}
-		Utilities.highlightElement(driver, calendarLocator);
-		
-		webActions.javascriptClick(calendarLocator);
-		Thread.sleep(5000);
-		By ulLocator = By.cssSelector("ul[class^='dropdown-menu ']");
-		isPass = wait.checkForElementVisibility(driver, ulLocator);
-		if(!isPass){
+	}
+
+	/**
+	 * Verifies if the options in the passed in drop down match the option in the passed in list
+	 * 
+	 * @param dropDownLocator
+	 *            The <select> tag locator of the drop down
+	 * @param dropDownOptions
+	 *            The list of drop down options to verify against
+	 * @return True if the options match, false if they don't
+	 * @throws TimeoutException
+	 * @throws WaitException
+	 */
+	public boolean verifyDropDownOptions(By dropDownLocator, List<String> dropDownOptions) throws TimeoutException, WaitException
+	{
+		List<String> dropDownOptionsTextFromUI = new ArrayList<String>();
+		List<WebElement> dropDownOptionsFromUI = driver.findElements(By.xpath(dropDownLocator.toString().substring(10) + "/option"));
+
+		for (WebElement webElement : dropDownOptionsFromUI)
+		{
+			dropDownOptionsTextFromUI.add(webElement.getText());
+		}
+	
+		if (dropDownOptionsTextFromUI.equals(dropDownOptions))
+		{
+			return true;
+		} else
+		{
 			return false;
 		}
-		Utilities.highlightElement(driver, ulLocator);
-		
-		WebElement ulElement = driver.findElement(ulLocator);
-//		ulElement.findElement(by)
-		return isPass;
+	}
+
+	/**
+	 * Adjusts the current date by the value passed in. Ex. If you pass in -1, one day will be subtracted from the currents date. Ex. If you pass in 1, one day will be added to the current date.
+	 * 
+	 * @param dayChangeBy
+	 *            The value to change the date by
+	 * @param dateFormatMask
+	 *            The format of the date to be returned. Ex. MM/dd/YYYY.
+	 * @throws WaitException
+	 */
+	public String adjustCurrentDateBy(String dayChangeBy, String dateFormatMask) throws WaitException
+	{
+		String adjustedDate;
+		DateFormat dateFormatObject = null;
+
+		Calendar cal = Calendar.getInstance();
+		dateFormatObject = new SimpleDateFormat(dateFormatMask);
+		cal.add(Calendar.DATE, Integer.parseInt(dayChangeBy));
+		adjustedDate = dateFormatObject.format(new Date(cal.getTimeInMillis()));
+
+		return adjustedDate;
+	}
+	
+	
+	/**
+	 *  Waits 100 seconds for username field to be visible on login screen
+	 */
+	public void waitForLoginScreen() {
+		try {
+			wait.checkForElementVisibility(driver, TXT_USERNAME, 100);
+		} catch (WaitException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
+	
+	
+	/**
+	 * Verify the text on the success message
+	 * @param popUpText the text on the success message to valid
+	 * @return true if the valid success message exists, else false
+	 */
+	public boolean verifySuccessMessage(String popUpText)
+	{
+		String xpathExpression = "//snack-bar-container/simple-snack-bar[text()=contains(.,'" + popUpText + "')]";
+
+		By locator = By.xpath(xpathExpression);
+
+		try {
+			WebElement element = wait.waitForElementVisible(driver, locator);
+			if(element!=null) {
+				boolean isSuccess = wait.waitForElementInvisible(driver, locator);
+				if(isSuccess) {
+					return true;
+				}
+			}
+		} catch (TimeoutException e) {
+			e.printStackTrace();
+			return false;
+		} catch (WaitException e) {
+			e.printStackTrace();
+			return false;
+		}
+
+		return false;
+	}
+
+	/**
+	 * Executes the passed in SQL query.
+	 * 
+	 * @param sqlStatement
+	 *            The SQL statement used to query the database.
+	 * @throws WaitException
+	 * @throws SQLException
+	 */
+	public ResultSet queryDatabase(String sqlquery) throws WaitException, SQLException
+	{
+		databaseFunctions.connectToDatabase();
+
+		return databaseFunctions.runQuery(sqlquery);
+	}
+
+	/**
+	 * Calls the DatabaseFunctions close() Method to close the database connection.
+	 * 
+	 * @throws WaitException
+	 * @throws SQLException
+	 */
+	public void closeDatabaseConnection() throws WaitException, SQLException
+	{
+		databaseFunctions.close();
+	}
+
+	/**
+	 * Gets the Member UID from the passed in Member ID.
+	 * 
+	 * @param memberID
+	 *            The Member ID
+	 * @throws WaitException
+	 * @throws SQLException
+	 */
+	public String getMemberUIDFromMemberID(String memberID) throws WaitException, SQLException
+	{
+		final String SQL_SELECT_MEM_MEMBER = "SELECT MEM_UID FROM MEM_MEMBER WHERE MEM_ID = '" + memberID + "'";
+
+		ResultSet queryResultSet = queryDatabase(SQL_SELECT_MEM_MEMBER);
+
+		queryResultSet.next();
+
+		return queryResultSet.getString("MEM_UID");
 	}
 }

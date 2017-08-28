@@ -1,6 +1,6 @@
 package com.vh.ui.actions;
 
-import java.net.URL;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Set;
@@ -34,7 +34,7 @@ import com.vh.ui.waits.WebDriverWaits;
  * @Company:CitiusTech
  */
 public class WebActions {
-
+	
 	protected WebDriver driver;
 	protected final Comparator compare = new Comparator();
 	protected static final Logger LOGGER = Logg.createLogger();
@@ -122,6 +122,12 @@ public class WebActions {
 		webElement.sendKeys(text);
 		LOGGER.info(Utilities.getCurrentThreadId() + "Entered text:" + webElement.getText()
 				+ " in text box with locator:" + locator);
+	}
+	
+	public void selectValueFromAutoCompleteText(By locator, String value) throws TimeoutException, WaitException {
+		enterText("visibility", locator, value);
+		String xpathExpression = ".//md-option/span[text()=contains(., '" + value + "')]";
+		click("visibility", By.xpath(xpathExpression));
 	}
 	
 	/**
@@ -313,15 +319,18 @@ public class WebActions {
 	}
 
 	/**
-	 * Select an item from the dropdown
+	 * Select an item from the passed in drop down
 	 * 
-	 * @param expectedCondition to wait for. The conditions can be notrequired, visibility, clickability, and presence
-	 * @param locator used to identify the element
-	 * @param itemToSelect 
+	 * @param expectedCondition
+	 *            The condition to wait for (notrequired, visibility, clickability, presence)
+	 * @param locator
+	 *            The <select> tag of the drop down
+	 * @param itemToSelect
 	 * @throws TimeoutException
 	 * @throws WaitException
 	 */
-	public void selectFromDropDown(String expectedCondition, By locator, String itemToSelect) throws TimeoutException, WaitException {
+	public void selectFromDropDown(String expectedCondition, By locator, String itemToSelect) throws TimeoutException, WaitException
+	{
 		LOGGER.info(Utilities.getCurrentThreadId() + "Selecting " + itemToSelect + " from drop-down with locator:" + locator);
 
 		WebElement element;
@@ -372,45 +381,38 @@ public class WebActions {
 	}
 
 	/**
-	 * Get the value of a the given attribute of the element. Will return the current value, even if
-     * this has been modified after the page has been loaded. More exactly, this method will return
-     * the value of the given attribute, unless that attribute is not present, in which case the value
-     * of the property with the same name is returned (for example for the "value" property of a
-     * textarea element). If neither value is set, null is returned. The "style" attribute is
-     * converted as best can be to a text representation with a trailing semi-colon. The following are
-     * deemed to be "boolean" attributes, and will return either "true" or null:
-     *
-     * async, autofocus, autoplay, checked, compact, complete, controls, declare, defaultchecked,
-     * defaultselected, defer, disabled, draggable, ended, formnovalidate, hidden, indeterminate,
-     * iscontenteditable, ismap, itemscope, loop, multiple, muted, nohref, noresize, noshade,
-     * novalidate, nowrap, open, paused, pubdate, readonly, required, reversed, scoped, seamless,
-     * seeking, selected, spellcheck, truespeed, willvalidate
-     *
-     * Finally, the following commonly mis-capitalized attribute/property names are evaluated as
-     * expected:
-     *
-     * <ul>
-     * <li>"class"
-     * <li>"readonly"
-     * </ul>
+	 * Get the value of a the given attribute of the element. Will return the current value, even if this has been modified after the page has been loaded. More exactly, this method will return the
+	 * value of the given attribute, unless that attribute is not present. In which case, the value of the property with the same name is returned (for example, for the "value" property of a text area
+	 * element). If neither value is set, null is returned. The "style" attribute is converted as best can be to a text representation with a trailing semi-colon. The following are deemed to be
+	 * "boolean" attributes, and will return either "true" or null: async, autofocus, autoplay, checked, compact, complete, controls, declare, defaultchecked, defaultselected, defer, disabled,
+	 * draggable, ended, formnovalidate, hidden, indeterminate, iscontenteditable, ismap, itemscope, loop, multiple, muted, nohref, noresize, noshade, novalidate, nowrap, open, paused, pubdate,
+	 * readonly, required, reversed, scoped, seamless, seeking, selected, spellcheck, truespeed, willvalidate Finally, the following commonly mis-capitalized attribute/property names are evaluated as
+	 * expected:
+	 * <ul>
+	 * <li>"class"
+	 * <li>"readonly"
+	 * </ul>
 	 * 
-	 * @param expectedCondition to wait for. The conditions can be notrequired, visibility, clickability, and presence
-	 * @param locator used to identify the element
-	 * @param attribute The name of the attribute
+	 * @param expectedCondition
+	 *            to wait for. The conditions can be notrequired, visibility, clickability, and presence
+	 * @param locator
+	 *            used to identify the element
+	 * @param attribute
+	 *            The name of the attribute
 	 * @return The attribute/property's current value or null if the value is not set.
 	 * @throws TimeoutException
 	 * @throws WaitException
 	 */
-	public String getAttributeValue(String expectedCondition, By locator, String attribute)
-			throws TimeoutException, WaitException {
-		LOGGER.info(
-				Utilities.getCurrentThreadId() + "Retrieving the attribute " + attribute + " of element " + locator);
-
+	public String getAttributeValue(String expectedCondition, By locator, String attribute) throws TimeoutException, WaitException
+	{
 		String attributeValue;
+
+		LOGGER.info(Utilities.getCurrentThreadId() + "Retrieving the attribute " + attribute + " of element " + locator);
 
 		if ("notrequired".equals(expectedCondition)) {
 			attributeValue = driver.findElement(locator).getAttribute(attribute);
-		} else {
+		} else
+		{
 			attributeValue = wait.syncLocatorUsing(expectedCondition, driver, locator).getAttribute(attribute);
 		}
 
@@ -466,6 +468,9 @@ public class WebActions {
 		} else {
 			isVisible = wait.checkForElementVisibility(driver, locator);
 		}
+
+		Utilities.highlightElement(driver, locator);
+
 		return isVisible;
 	}
 
@@ -526,7 +531,29 @@ public class WebActions {
 	public void javascriptClick(By locator)
 	{
 		WebElement element = driver.findElement(locator);
-		new JavascriptLibrary().callEmbeddedSelenium(driver, "triggerMouseEventAt", element, "click", "0,0");
+		if(element!=null) {
+//			element.sendKeys(Keys.ENTER);
+//			new Actions(driver).moveToElement(element).click().perform();
+//			new JavascriptLibrary().callEmbeddedSelenium(driver, "triggerMouseEventAt", element, "click", "0,0");
+			JavascriptExecutor executor = (JavascriptExecutor) driver;
+			executor.executeScript("arguments[0].click();", element);
+		}
+	}
+	
+	public void sampleClick(By locator) {
+		try {
+			WebElement element = driver.findElement(locator);
+			
+			String mouseOverScript = "if(document.createEvent){var evObj = document.createEvent('MouseEvents');evObj.initEvent('mouseover',	true, false); arguments[0].dispatchEvent(evObj);} else if(document.createEventObject){ arguments[0].fireEvent('onmouseover');}";
+
+			String onClickScript = "if(document.createEvent){var evObj = document.createEvent('MouseEvents');evObj.initEvent('click', true, false); arguments[0].dispatchEvent(evObj);} else if(document.createEventObject)	{ arguments[0].fireEvent('onclick');}";
+			JavascriptExecutor js = (JavascriptExecutor) driver;
+			js.executeScript(mouseOverScript, element);
+
+			js.executeScript(onClickScript, element);
+		} catch(Exception e) {
+			e.printStackTrace();
+		}
 	}
 
 	/**
@@ -625,5 +652,85 @@ public class WebActions {
 		LOGGER.info(Utilities.getCurrentThreadId() + "List of size=" + weblElementList.size() + " elements created");
 
 		return weblElementList.size();
+	}
+
+	/**
+	 * Determines if the passed element is enabled
+	 * 
+	 * @param locator - Used to identify the element
+	 *            
+	 * @return true or false depending on if the element is enabled or not
+	 * 
+	 * @throws WaitException
+	 */
+	public boolean isElementEnabledLocatedBy(By locator) throws WaitException
+	{
+		LOGGER.info(Utilities.getCurrentThreadId() + "Determining if element is enabled");
+
+		return driver.findElement(locator).isEnabled();
+	}
+
+	/**
+	 * Clear the passed in text box
+	 * 
+	 * @param expectedCondition
+	 *            to wait for. The conditions can be notrequired, visibility, clickability, and presence
+	 * @param locator
+	 *            used to identify the element
+	 * @throws WaitException
+	 */
+	public void clearTextBox(String expectedCondition, By locator) throws WaitException
+	{
+		LOGGER.info(Utilities.getCurrentThreadId() + "Clearing text box");
+
+		wait.syncLocatorUsing(expectedCondition, driver, locator).clear();
+	}
+
+	/**
+	 * Moves the mouse pointer to the passed in locator
+	 * 
+	 * @param expectedCondition
+	 *            to wait for. The conditions can be notrequired, visibility, clickability, and presence
+	 * @param locator
+	 *            used to identify the element
+	 * @throws WaitException
+	 */
+	public void moveMouseToElement(String expectedCondition, By locator) throws WaitException
+	{
+		LOGGER.info(Utilities.getCurrentThreadId() + "Moving the mouse pointer");
+
+		Actions builder = new Actions(driver);
+		WebElement targetElement = wait.syncLocatorUsing(expectedCondition, driver, locator);
+		builder.moveToElement(targetElement);
+		builder.perform();
+	}
+
+	/**
+	 * Waits until the progress bar is invisible 
+	 * @return
+	 */
+	public boolean waitUntilLoaded()
+	{
+		wait.waitForElementInvisible(driver, By.xpath("//md-progress-bar"));
+		return false;
+
+	}
+	
+	/**
+	 * 
+	 * @param autoItExeFileName
+	 * @param fileToUploadPath
+	 */
+	public void fileUploadByAutoIt(String autoItExeFileName, String fileToUploadPath)
+	{
+		String autoItExeFilePath = System.getProperty("user.dir") + "\\AutoIt\\" + autoItExeFileName;
+
+		System.out.println("AutoIt :: " + autoItExeFileName);
+
+		try {
+			Runtime.getRuntime().exec(autoItExeFilePath + " " + fileToUploadPath);
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
 	}
 }

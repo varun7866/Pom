@@ -3,6 +3,7 @@
  */
 package com.vh.ui.utilities;
 
+import java.awt.Robot;
 import java.io.File;
 import java.nio.file.Files;
 import java.nio.file.Paths;
@@ -97,7 +98,7 @@ public class Utilities {
 	
 	public static void highlightElement(WebDriver driver, WebElement element) 
     {
-        for (int i = 0; i <5; i++)
+		for (int i = 0; i < 5; i++)
         {
             JavascriptExecutor js = (JavascriptExecutor) driver;
             js.executeScript("arguments[0].setAttribute('style', arguments[1]);", element, "color: red; border: 2px solid red;");
@@ -108,7 +109,8 @@ public class Utilities {
 	public static void highlightElement(WebDriver driver, By locator)
 	{
 		WebElement element = driver.findElement(locator);
-		for (int i = 0; i <5; i++)
+
+		for (int i = 0; i < 1; i++)
         {
             JavascriptExecutor js = (JavascriptExecutor) driver;
             js.executeScript("arguments[0].setAttribute('style', arguments[1]);", element, "color: red; border: 2px solid red;");
@@ -130,4 +132,16 @@ public class Utilities {
 	    }
 	    return new byte[0];
 	}
+	
+	
+	// public void uploadFile() throws Exception {
+	// String filename = "some-file.txt";
+	// File file = new File(filename);
+	// String path = file.getAbsolutePath();
+	// WebDriver driver = getWebDriver();
+	// driver.get("http://the-internet.herokuapp.com/upload");
+	// driver.findElement(By.id("file-upload")).sendKeys(path);
+	// driver.findElement(By.id("file-submit")).click();
+	// String text = driver.findElement(By.id("uploaded-files")).getText();
+	// }
 }
