@@ -40,6 +40,9 @@ public class ProvidersTeamLocators
 	public static final By LBL_NEWTEAMPOPUPCITY = By.xpath("//providers-team-add-team//label[contains(., 'CITY')]");
 	public static final By LBL_NEWTEAMPOPUPSTATE = By.xpath("//providers-team-add-team//span[contains(., 'STATE')]");
 	public static final By LBL_NEWTEAMPOPUPZIP = By.xpath("//providers-team-add-team//span[contains(., 'ZIP')]");
+	public static final By LBL_NEWTEAMPOPUPPHONE = By.xpath("//providers-team-add-team//span[contains(., 'PHONE')]");
+	public static final By LBL_NEWTEAMPOPUPFAX = By.xpath("//providers-team-add-team//span[contains(., 'FAX')]");
+	public static final By LBL_NEWTEAMPOPUPOTHERPHONE = By.xpath("//providers-team-add-team//span[contains(., 'OTHER PHONE')]");
 
 	public static final By PLH_ACTIVEINACTIVE = By.xpath("//select//option[@value='0: Active']");
 	public static final By PLH_NEWTEAMPOPUPTEAMTYPE = By.xpath("//providers-team-add-team//span[contains(., 'TEAM TYPE')]/..//span[text()='Select a value']");

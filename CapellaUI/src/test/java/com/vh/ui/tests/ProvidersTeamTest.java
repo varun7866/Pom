@@ -105,6 +105,15 @@ public class ProvidersTeamTest extends TestBase
 
 		Assert.assertTrue(providersTeamPage.viewNewTeamPopupZipLabel(), "Failed to identify the New Team popup ZIP label");
 		Assert.assertTrue(providersTeamPage.viewNewTeamPopupZipTextBox(), "Failed to identify the New Team popup ZIP text box");
+
+		Assert.assertTrue(providersTeamPage.viewNewTeamPopupPhoneLabel(), "Failed to identify the New Team popup PHONE label");
+		Assert.assertTrue(providersTeamPage.viewNewTeamPopupPhoneTextBox(), "Failed to identify the New Team popup PHONE text box");
+
+		Assert.assertTrue(providersTeamPage.viewNewTeamPopupFaxLabel(), "Failed to identify the New Team popup FAX label");
+		Assert.assertTrue(providersTeamPage.viewNewTeamPopupFaxTextBox(), "Failed to identify the New Team popup FAX text box");
+
+		Assert.assertTrue(providersTeamPage.viewNewTeamPopupOtherPhoneLabel(), "Failed to identify the New Team popup OTHER PHONE label");
+		Assert.assertTrue(providersTeamPage.viewNewTeamPopupOtherPhoneTextBox(), "Failed to identify the New Team popup OTHER PHONE text box");
 	}
 
 	// @Test(priority = 3)

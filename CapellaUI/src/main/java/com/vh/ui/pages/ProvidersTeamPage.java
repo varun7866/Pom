@@ -21,8 +21,11 @@ import static com.vh.ui.web.locators.ProvidersTeamLocators.LBL_NEWTEAMPOPUPADDRE
 import static com.vh.ui.web.locators.ProvidersTeamLocators.LBL_NEWTEAMPOPUPAPTSUITE;
 import static com.vh.ui.web.locators.ProvidersTeamLocators.LBL_NEWTEAMPOPUPCITY;
 import static com.vh.ui.web.locators.ProvidersTeamLocators.LBL_NEWTEAMPOPUPEMAIL;
+import static com.vh.ui.web.locators.ProvidersTeamLocators.LBL_NEWTEAMPOPUPFAX;
 import static com.vh.ui.web.locators.ProvidersTeamLocators.LBL_NEWTEAMPOPUPHEADER;
 import static com.vh.ui.web.locators.ProvidersTeamLocators.LBL_NEWTEAMPOPUPNAME;
+import static com.vh.ui.web.locators.ProvidersTeamLocators.LBL_NEWTEAMPOPUPOTHERPHONE;
+import static com.vh.ui.web.locators.ProvidersTeamLocators.LBL_NEWTEAMPOPUPPHONE;
 import static com.vh.ui.web.locators.ProvidersTeamLocators.LBL_NEWTEAMPOPUPSTATE;
 import static com.vh.ui.web.locators.ProvidersTeamLocators.LBL_NEWTEAMPOPUPTEAMTYPE;
 import static com.vh.ui.web.locators.ProvidersTeamLocators.LBL_NEWTEAMPOPUPZIP;
@@ -309,6 +312,42 @@ public class ProvidersTeamPage extends WebPage
 	public boolean viewNewTeamPopupZipTextBox() throws TimeoutException, WaitException
 	{
 		return webActions.getVisibiltyOfElementLocatedBy(VISIBILITY, TXT_NEWTEAMPOPUPZIP);
+	}
+
+	@Step("Verify the visibility of the New Team popup PHONE label")
+	public boolean viewNewTeamPopupPhoneLabel() throws TimeoutException, WaitException
+	{
+		return webActions.getVisibiltyOfElementLocatedBy(VISIBILITY, LBL_NEWTEAMPOPUPPHONE);
+	}
+
+	@Step("Verify the visibility of the New Team popup PHONE text box")
+	public boolean viewNewTeamPopupPhoneTextBox() throws TimeoutException, WaitException
+	{
+		return webActions.getVisibiltyOfElementLocatedBy(VISIBILITY, TXT_NEWTEAMPOPUPPHONE);
+	}
+
+	@Step("Verify the visibility of the New Team popup FAX label")
+	public boolean viewNewTeamPopupFaxLabel() throws TimeoutException, WaitException
+	{
+		return webActions.getVisibiltyOfElementLocatedBy(VISIBILITY, LBL_NEWTEAMPOPUPFAX);
+	}
+
+	@Step("Verify the visibility of the New Team popup FAX text box")
+	public boolean viewNewTeamPopupFaxTextBox() throws TimeoutException, WaitException
+	{
+		return webActions.getVisibiltyOfElementLocatedBy(VISIBILITY, TXT_NEWTEAMPOPUPFAX);
+	}
+
+	@Step("Verify the visibility of the New Team popup OTHER PHONE label")
+	public boolean viewNewTeamPopupOtherPhoneLabel() throws TimeoutException, WaitException
+	{
+		return webActions.getVisibiltyOfElementLocatedBy(VISIBILITY, LBL_NEWTEAMPOPUPOTHERPHONE);
+	}
+
+	@Step("Verify the visibility of the New Team popup OTHER PHONE text box")
+	public boolean viewNewTeamPopupOtherPhoneTextBox() throws TimeoutException, WaitException
+	{
+		return webActions.getVisibiltyOfElementLocatedBy(VISIBILITY, TXT_NEWTEAMPOPUPOTHERPHONE);
 	}
 
 	@Step("Adds a Team Member to the table")
