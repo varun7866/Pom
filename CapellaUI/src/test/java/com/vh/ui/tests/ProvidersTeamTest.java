@@ -81,7 +81,7 @@ public class ProvidersTeamTest extends TestBase
 		Assert.assertTrue(providersTeamPage.viewNewTeamPopupTeamTypeLabel(), "Failed to identify the New Team popup TEAM TYPE label");
 		Assert.assertTrue(providersTeamPage.viewNewTeamPopupTeamTypeComboBox(), "Failed to identify the New Team popup TEAM TYPE combo box");
 		Assert.assertTrue(providersTeamPage.viewNewTeamPopupTeamTypePlaceholder(), "Failed to identify the New Team popup TEAM TYPE placeholder");
-		// Assert.assertTrue(providersTeamPage.verifyNewTeamPopupTeamTypeComboBoxOptions(), "The New Team popup TEAM TYPE drop down options are incorrect");
+		Assert.assertTrue(providersTeamPage.verifyNewTeamPopupTeamTypeComboBoxOptions(), "The New Team popup TEAM TYPE drop down options are incorrect");
 
 		Assert.assertTrue(providersTeamPage.viewNewTeamPopupNameLabel(), "Failed to identify the New Team popup NAME label");
 		Assert.assertTrue(providersTeamPage.viewNewTeamPopupNameTextBox(), "Failed to identify the New Team popup NAME text box");
@@ -102,6 +102,9 @@ public class ProvidersTeamTest extends TestBase
 		Assert.assertTrue(providersTeamPage.viewNewTeamPopupStateComboBox(), "Failed to identify the New Team popup STATE combo box");
 		Assert.assertTrue(providersTeamPage.viewNewTeamPopupStatePlaceholder(), "Failed to identify the New Team popup STATE placeholder");
 		Assert.assertTrue(providersTeamPage.verifyNewTeamPopupStateComboBoxOptions(), "The New Team popup STATE drop down options are incorrect");
+
+		Assert.assertTrue(providersTeamPage.viewNewTeamPopupZipLabel(), "Failed to identify the New Team popup ZIP label");
+		Assert.assertTrue(providersTeamPage.viewNewTeamPopupZipTextBox(), "Failed to identify the New Team popup ZIP text box");
 	}
 
 	// @Test(priority = 3)

@@ -25,6 +25,7 @@ import static com.vh.ui.web.locators.ProvidersTeamLocators.LBL_NEWTEAMPOPUPHEADE
 import static com.vh.ui.web.locators.ProvidersTeamLocators.LBL_NEWTEAMPOPUPNAME;
 import static com.vh.ui.web.locators.ProvidersTeamLocators.LBL_NEWTEAMPOPUPSTATE;
 import static com.vh.ui.web.locators.ProvidersTeamLocators.LBL_NEWTEAMPOPUPTEAMTYPE;
+import static com.vh.ui.web.locators.ProvidersTeamLocators.LBL_NEWTEAMPOPUPZIP;
 import static com.vh.ui.web.locators.ProvidersTeamLocators.LBL_PAGEHEADER;
 import static com.vh.ui.web.locators.ProvidersTeamLocators.PLH_ACTIVEINACTIVE;
 import static com.vh.ui.web.locators.ProvidersTeamLocators.PLH_NEWTEAMPOPUPSTATE;
@@ -40,6 +41,7 @@ import static com.vh.ui.web.locators.ProvidersTeamLocators.TXT_NEWTEAMPOPUPPATIE
 import static com.vh.ui.web.locators.ProvidersTeamLocators.TXT_NEWTEAMPOPUPPHONE;
 import static com.vh.ui.web.locators.ProvidersTeamLocators.TXT_NEWTEAMPOPUPZIP;
 
+import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
@@ -186,7 +188,20 @@ public class ProvidersTeamPage extends WebPage
 	@Step("Verify the options of the New Team popup TEAM TYPE combo box")
 	public boolean verifyNewTeamPopupTeamTypeComboBoxOptions() throws TimeoutException, WaitException, SQLException
 	{
-		return appFunctions4.verifyDropDownOptions(CBO_NEWTEAMPOPUPTEAMTYPE, "132");
+		List<String> dropDownOptionsTextFromDB = appFunctions4.getDropDownOptionsByLookUpValueType("132");
+
+		dropDownOptionsTextFromDB.remove("Assessment Nurse");
+		dropDownOptionsTextFromDB.remove("Davita Pharmacist");
+		dropDownOptionsTextFromDB.remove("Dialysis Center");
+		dropDownOptionsTextFromDB.remove("Nephrologist");
+		dropDownOptionsTextFromDB.remove("PCP");
+		dropDownOptionsTextFromDB.remove("PRL");
+		dropDownOptionsTextFromDB.remove("Pharmacist Tech");
+		dropDownOptionsTextFromDB.remove("RCM");
+		dropDownOptionsTextFromDB.remove("Reviewer");
+		dropDownOptionsTextFromDB.remove("VHN");
+
+		return appFunctions4.verifyDropDownOptionsByPassedInList(CBO_NEWTEAMPOPUPTEAMTYPE, dropDownOptionsTextFromDB);
 	}
 
 	@Step("Verify the visibility of the New Team popup NAME label")
@@ -270,7 +285,30 @@ public class ProvidersTeamPage extends WebPage
 	@Step("Verify the options of the New Team popup STATE combo box")
 	public boolean verifyNewTeamPopupStateComboBoxOptions() throws TimeoutException, WaitException, SQLException
 	{
-		return appFunctions4.verifyDropDownOptions(CBO_NEWTEAMPOPUPSTATE, "132");
+		List<String> dropDownOptionsTextFromDB = new ArrayList<String>();
+		
+		ResultSet queryResultSet = appFunctions.queryDatabase("SELECT STA_DESC FROM STA_STATE_PROVINCE WHERE STA_RECORD_STATUS = 'A' ORDER BY STA_DESC");
+
+		while (queryResultSet.next())
+		{
+			dropDownOptionsTextFromDB.add(queryResultSet.getString("STA_DESC"));
+		}
+
+		appFunctions.closeDatabaseConnection();
+		
+		return appFunctions4.verifyDropDownOptionsByPassedInList(CBO_NEWTEAMPOPUPSTATE, dropDownOptionsTextFromDB);
+	}
+
+	@Step("Verify the visibility of the New Team popup ZIP label")
+	public boolean viewNewTeamPopupZipLabel() throws TimeoutException, WaitException
+	{
+		return webActions.getVisibiltyOfElementLocatedBy(VISIBILITY, LBL_NEWTEAMPOPUPZIP);
+	}
+
+	@Step("Verify the visibility of the New Team popup ZIP text box")
+	public boolean viewNewTeamPopupZipTextBox() throws TimeoutException, WaitException
+	{
+		return webActions.getVisibiltyOfElementLocatedBy(VISIBILITY, TXT_NEWTEAMPOPUPZIP);
 	}
 
 	@Step("Adds a Team Member to the table")
