@@ -7,6 +7,7 @@ import static com.vh.ui.web.locators.ProvidersTeamLocators.BTN_NEWPROVIDERPOPUPS
 import static com.vh.ui.web.locators.ProvidersTeamLocators.BTN_NEWTEAMPOPUPPATIENTSEEINGSINCE;
 import static com.vh.ui.web.locators.ProvidersTeamLocators.BTN_NEWTEAMPOPUPSUBMIT;
 import static com.vh.ui.web.locators.ProvidersTeamLocators.BTN_NEWTEAMPOPUPX;
+import static com.vh.ui.web.locators.ProvidersTeamLocators.CAL_NEWTEAMPOPUPPATIENTSEEINGSINCE;
 import static com.vh.ui.web.locators.ProvidersTeamLocators.CBO_ACTIVEINACTIVE;
 import static com.vh.ui.web.locators.ProvidersTeamLocators.CBO_NEWPROVIDERPOPUPASSOCIATEAS;
 import static com.vh.ui.web.locators.ProvidersTeamLocators.CBO_NEWTEAMPOPUPSTATE;
@@ -18,13 +19,16 @@ import static com.vh.ui.web.locators.ProvidersTeamLocators.LBL_ALLOWCONTACTCOLUM
 import static com.vh.ui.web.locators.ProvidersTeamLocators.LBL_DATESCOLUMNHEADER;
 import static com.vh.ui.web.locators.ProvidersTeamLocators.LBL_NAMETYPECOLUMNHEADER;
 import static com.vh.ui.web.locators.ProvidersTeamLocators.LBL_NEWTEAMPOPUPADDRESS;
+import static com.vh.ui.web.locators.ProvidersTeamLocators.LBL_NEWTEAMPOPUPALLOWCOMMUNICATION;
 import static com.vh.ui.web.locators.ProvidersTeamLocators.LBL_NEWTEAMPOPUPAPTSUITE;
 import static com.vh.ui.web.locators.ProvidersTeamLocators.LBL_NEWTEAMPOPUPCITY;
 import static com.vh.ui.web.locators.ProvidersTeamLocators.LBL_NEWTEAMPOPUPEMAIL;
 import static com.vh.ui.web.locators.ProvidersTeamLocators.LBL_NEWTEAMPOPUPFAX;
+import static com.vh.ui.web.locators.ProvidersTeamLocators.LBL_NEWTEAMPOPUPFAXNUMBERVERIFIED;
 import static com.vh.ui.web.locators.ProvidersTeamLocators.LBL_NEWTEAMPOPUPHEADER;
 import static com.vh.ui.web.locators.ProvidersTeamLocators.LBL_NEWTEAMPOPUPNAME;
 import static com.vh.ui.web.locators.ProvidersTeamLocators.LBL_NEWTEAMPOPUPOTHERPHONE;
+import static com.vh.ui.web.locators.ProvidersTeamLocators.LBL_NEWTEAMPOPUPPATIENTSEEINGSINCE;
 import static com.vh.ui.web.locators.ProvidersTeamLocators.LBL_NEWTEAMPOPUPPHONE;
 import static com.vh.ui.web.locators.ProvidersTeamLocators.LBL_NEWTEAMPOPUPSTATE;
 import static com.vh.ui.web.locators.ProvidersTeamLocators.LBL_NEWTEAMPOPUPTEAMTYPE;
@@ -348,6 +352,48 @@ public class ProvidersTeamPage extends WebPage
 	public boolean viewNewTeamPopupOtherPhoneTextBox() throws TimeoutException, WaitException
 	{
 		return webActions.getVisibiltyOfElementLocatedBy(VISIBILITY, TXT_NEWTEAMPOPUPOTHERPHONE);
+	}
+
+	@Step("Verify the visibility of the New Team popup Allow Communication label")
+	public boolean viewNewTeamPopupAllowCommunicationLabel() throws TimeoutException, WaitException
+	{
+		return webActions.getVisibiltyOfElementLocatedBy(VISIBILITY, LBL_NEWTEAMPOPUPALLOWCOMMUNICATION);
+	}
+
+	@Step("Verify the visibility of the New Team popup Allow Communication text box")
+	public boolean viewNewTeamPopupAllowCommunicationCheckBox() throws TimeoutException, WaitException
+	{
+		return webActions.getVisibiltyOfElementLocatedBy(VISIBILITY, CHK_NEWTEAMPOPUPALLOWCOMMUNICATION);
+	}
+
+	@Step("Verify the visibility of the New Team popup Fax Number Verified label")
+	public boolean viewNewTeamPopupFaxNumberVerifiedLabel() throws TimeoutException, WaitException
+	{
+		return webActions.getVisibiltyOfElementLocatedBy(VISIBILITY, LBL_NEWTEAMPOPUPFAXNUMBERVERIFIED);
+	}
+
+	@Step("Verify the visibility of the New Team popup Fax Number Verified text box")
+	public boolean viewNewTeamPopupFaxNumberVerifiedCheckBox() throws TimeoutException, WaitException
+	{
+		return webActions.getVisibiltyOfElementLocatedBy(VISIBILITY, CHK_NEWTEAMPOPUPFAXNUMBERVERIFIED);
+	}
+
+	@Step("Verify the visibility of the New Team popup PATIENT SEEING SINCE label")
+	public boolean viewNewTeamPopupPatientSeeingSinceLabel() throws TimeoutException, WaitException
+	{
+		return webActions.getVisibiltyOfElementLocatedBy(VISIBILITY, LBL_NEWTEAMPOPUPPATIENTSEEINGSINCE);
+	}
+
+	@Step("Verify the visibility of the New Team popup PATIENT SEEING SINCE date picker")
+	public boolean viewNewTeamPopupPatientSeeingSinceDatePicker() throws TimeoutException, WaitException
+	{
+		return webActions.getVisibiltyOfElementLocatedBy(VISIBILITY, CAL_NEWTEAMPOPUPPATIENTSEEINGSINCE);
+	}
+
+	@Step("Verify the visibility of the New Team popup PATIENT SEEING SINCE date picker button")
+	public boolean viewNewTeamPopupPatientSeeingSinceDatePickerButton() throws TimeoutException, WaitException
+	{
+		return webActions.getVisibiltyOfElementLocatedBy(VISIBILITY, BTN_NEWTEAMPOPUPPATIENTSEEINGSINCE);
 	}
 
 	@Step("Adds a Team Member to the table")

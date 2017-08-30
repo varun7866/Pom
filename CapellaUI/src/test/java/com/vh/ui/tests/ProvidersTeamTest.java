@@ -114,6 +114,17 @@ public class ProvidersTeamTest extends TestBase
 
 		Assert.assertTrue(providersTeamPage.viewNewTeamPopupOtherPhoneLabel(), "Failed to identify the New Team popup OTHER PHONE label");
 		Assert.assertTrue(providersTeamPage.viewNewTeamPopupOtherPhoneTextBox(), "Failed to identify the New Team popup OTHER PHONE text box");
+
+		Assert.assertTrue(providersTeamPage.viewNewTeamPopupAllowCommunicationLabel(), "Failed to identify the New Team popup Allow Communication label");
+		Assert.assertTrue(providersTeamPage.viewNewTeamPopupAllowCommunicationCheckBox(), "Failed to identify the New Team popup Allow Communication check box");
+
+		Assert.assertTrue(providersTeamPage.viewNewTeamPopupFaxNumberVerifiedLabel(), "Failed to identify the New Team popup Fax Number Verified label");
+		Assert.assertTrue(providersTeamPage.viewNewTeamPopupFaxNumberVerifiedCheckBox(), "Failed to identify the New Team popup Fax Number Verified check box");
+
+		Assert.assertTrue(providersTeamPage.viewNewTeamPopupPatientSeeingSinceLabel(), "Failed to identify the New Team popup PATIENT SEEING SINCE label");
+		Assert.assertTrue(providersTeamPage.viewNewTeamPopupPatientSeeingSinceDatePicker(), "Failed to identify the New Team popup PATIENT SEEING SINCE date picker");
+		Assert.assertTrue(providersTeamPage.viewNewTeamPopupPatientSeeingSinceDatePickerButton(),
+		        "Failed to identify the Add Medical Equipment popup PATIENT SEEING SINCE date picker button");
 	}
 
 	// @Test(priority = 3)
@@ -149,6 +160,6 @@ public class ProvidersTeamTest extends TestBase
 	public void tearDown() throws TimeoutException, WaitException
 	{
 		appFunctions.capellaLogout();
-		pageBase.quit();
+		closeDrivers();
 	}
 }

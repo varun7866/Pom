@@ -18,6 +18,8 @@ public class ProvidersTeamLocators
 	public static final By BTN_NEWPROVIDERPOPUPADDPROVIDER = By.xpath("//button//span[contains(., 'ADD PROVIDER')]");
 	public static final By BTN_NEWTEAMPOPUPX = By.xpath("//div[@class='dialog-header-actions']//button");
 
+	public static final By CAL_NEWTEAMPOPUPPATIENTSEEINGSINCE = By.xpath("//providers-team-add-team//label[contains(., 'PATIENT SEEING SINCE')]/../../input");
+
 	public static final By CBO_ACTIVEINACTIVE = By.xpath("//select");
 	public static final By CBO_NEWTEAMPOPUPTEAMTYPE = By.xpath("//providers-team-add-team//md-select/div/span[contains(., 'TEAM TYPE')]");
 	public static final By CBO_NEWTEAMPOPUPSTATE = By.xpath("//providers-team-add-team//md-select/div/span[contains(., 'STATE')]");
@@ -43,6 +45,9 @@ public class ProvidersTeamLocators
 	public static final By LBL_NEWTEAMPOPUPPHONE = By.xpath("//providers-team-add-team//span[contains(., 'PHONE')]");
 	public static final By LBL_NEWTEAMPOPUPFAX = By.xpath("//providers-team-add-team//span[contains(., 'FAX')]");
 	public static final By LBL_NEWTEAMPOPUPOTHERPHONE = By.xpath("//providers-team-add-team//span[contains(., 'OTHER PHONE')]");
+	public static final By LBL_NEWTEAMPOPUPALLOWCOMMUNICATION = By.xpath("//span[contains(., 'Allow Communication')]");
+	public static final By LBL_NEWTEAMPOPUPFAXNUMBERVERIFIED = By.xpath("//span[contains(., 'Fax Number Verified')]");
+	public static final By LBL_NEWTEAMPOPUPPATIENTSEEINGSINCE = By.xpath("//span[contains(., 'PATIENT SEEING SINCE')]");
 
 	public static final By PLH_ACTIVEINACTIVE = By.xpath("//select//option[@value='0: Active']");
 	public static final By PLH_NEWTEAMPOPUPTEAMTYPE = By.xpath("//providers-team-add-team//span[contains(., 'TEAM TYPE')]/..//span[text()='Select a value']");
