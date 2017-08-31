@@ -125,6 +125,9 @@ public class ProvidersTeamTest extends TestBase
 		Assert.assertTrue(providersTeamPage.viewNewTeamPopupPatientSeeingSinceDatePicker(), "Failed to identify the New Team popup PATIENT SEEING SINCE date picker");
 		Assert.assertTrue(providersTeamPage.viewNewTeamPopupPatientSeeingSinceDatePickerButton(),
 		        "Failed to identify the Add Medical Equipment popup PATIENT SEEING SINCE date picker button");
+
+		Assert.assertTrue(providersTeamPage.viewNewTeamPopupCancelButton(), "Failed to identify the New Team popup CANCEL button");
+		Assert.assertTrue(providersTeamPage.viewNewTeamPopupSubmitButton(), "Failed to identify the New Team popup SUBMIT button");
 	}
 
 	// @Test(priority = 3)

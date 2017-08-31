@@ -12,7 +12,8 @@ public class ProvidersTeamLocators
 {
 	public static final By BTN_ADDATEAMMEMBER = By.xpath("//button//span[text()='ADD A TEAM MEMBER']");
 	public static final By BTN_ADDAPROVIDER = By.xpath("//button//span[text()='ADD A PROVIDER']");
-	public static final By BTN_NEWTEAMPOPUPSUBMIT = By.xpath("//button//span[text()='Submit']");
+	public static final By BTN_NEWTEAMPOPUPCANCEL = By.xpath("//providers-team-add-team//button//span[text()='Cancel']");
+	public static final By BTN_NEWTEAMPOPUPSUBMIT = By.xpath("//providers-team-add-team//button//span[text()='Submit']");
 	public static final By BTN_NEWTEAMPOPUPPATIENTSEEINGSINCE = By.xpath("//label[text()='PATIENT SEEING SINCE ']/../../..//button[@class='mat-datepicker-toggle']");
 	public static final By BTN_NEWPROVIDERPOPUPSEARCH = By.xpath("//button//span[text()='Search']");
 	public static final By BTN_NEWPROVIDERPOPUPADDPROVIDER = By.xpath("//button//span[contains(., 'ADD PROVIDER')]");

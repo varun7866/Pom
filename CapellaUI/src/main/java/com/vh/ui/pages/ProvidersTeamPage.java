@@ -4,6 +4,7 @@ import static com.vh.ui.web.locators.ProvidersTeamLocators.BTN_ADDAPROVIDER;
 import static com.vh.ui.web.locators.ProvidersTeamLocators.BTN_ADDATEAMMEMBER;
 import static com.vh.ui.web.locators.ProvidersTeamLocators.BTN_NEWPROVIDERPOPUPADDPROVIDER;
 import static com.vh.ui.web.locators.ProvidersTeamLocators.BTN_NEWPROVIDERPOPUPSEARCH;
+import static com.vh.ui.web.locators.ProvidersTeamLocators.BTN_NEWTEAMPOPUPCANCEL;
 import static com.vh.ui.web.locators.ProvidersTeamLocators.BTN_NEWTEAMPOPUPPATIENTSEEINGSINCE;
 import static com.vh.ui.web.locators.ProvidersTeamLocators.BTN_NEWTEAMPOPUPSUBMIT;
 import static com.vh.ui.web.locators.ProvidersTeamLocators.BTN_NEWTEAMPOPUPX;
@@ -394,6 +395,18 @@ public class ProvidersTeamPage extends WebPage
 	public boolean viewNewTeamPopupPatientSeeingSinceDatePickerButton() throws TimeoutException, WaitException
 	{
 		return webActions.getVisibiltyOfElementLocatedBy(VISIBILITY, BTN_NEWTEAMPOPUPPATIENTSEEINGSINCE);
+	}
+
+	@Step("Verify the visibility of the New Team popup CANCEL button")
+	public boolean viewNewTeamPopupCancelButton() throws TimeoutException, WaitException
+	{
+		return webActions.getVisibiltyOfElementLocatedBy(VISIBILITY, BTN_NEWTEAMPOPUPCANCEL);
+	}
+
+	@Step("Verify the visibility of the New Team popup SUBMIT button")
+	public boolean viewNewTeamPopupSubmitButton() throws TimeoutException, WaitException
+	{
+		return webActions.getVisibiltyOfElementLocatedBy(VISIBILITY, BTN_NEWTEAMPOPUPSUBMIT);
 	}
 
 	@Step("Adds a Team Member to the table")
