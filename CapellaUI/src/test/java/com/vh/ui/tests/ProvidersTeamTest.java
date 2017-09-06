@@ -128,6 +128,29 @@ public class ProvidersTeamTest extends TestBase
 
 		Assert.assertTrue(providersTeamPage.viewNewTeamPopupCancelButton(), "Failed to identify the New Team popup CANCEL button");
 		Assert.assertTrue(providersTeamPage.viewNewTeamPopupSubmitButton(), "Failed to identify the New Team popup SUBMIT button");
+
+		Assert.assertFalse(providersTeamPage.isNewTeamPopupSubmitButtonEnabled(), "The New Team popup SUBMIT button should not be enabled at this point (1)");
+
+		providersTeamPage.selectNewTeamPopupTeamTypeComboBox("Brother");
+		Assert.assertFalse(providersTeamPage.isNewTeamPopupSubmitButtonEnabled(), "The New Team popup SUBMIT button should not be enabled at this point (2)");
+
+		providersTeamPage.enterNewTeamPopupName("John Smith");
+		Assert.assertTrue(providersTeamPage.isNewTeamPopupSubmitButtonEnabled(), "The New Team popup SUBMIT button should not be disabled at this point");
+
+		providersTeamPage.enterNewTeamPopupEmail("john.smith.com");
+		providersTeamPage.clickNewTeamPopupSubmitButton();
+		Assert.assertTrue(providersTeamPage.viewNewTeamPopupErrorMessage("'EmailAddress' is not a valid Email ID"), "Failed to identify the New Team popup EMAIL error message");
+
+		providersTeamPage.enterNewTeamPopupEmail("john.smith@villagehealth.com");
+		providersTeamPage.enterNewTeamPopupZip("qwerty");
+		providersTeamPage.clickNewTeamPopupSubmitButton();
+		Assert.assertTrue(providersTeamPage.viewNewTeamPopupErrorMessage("'Zip' is not a valid ZipCode"), "Failed to identify the New Team popup ZIP error message");
+
+		providersTeamPage.enterNewTeamPopupZip("60061");
+		providersTeamPage.enterNewTeamPopupPatientSeeingSince(appFunctions.adjustCurrentDateBy("1", "M/d/YYYY"));
+		providersTeamPage.clickNewTeamPopupSubmitButton();
+		Assert.assertTrue(providersTeamPage.viewNewTeamPopupErrorMessage("Patient Seeing Since date shoud not be greater than today's date"),
+		        "Failed to identify the New Team popup PATIENT SEEING SINCE error message");
 	}
 
 	// @Test(priority = 3)

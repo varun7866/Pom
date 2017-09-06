@@ -7,6 +7,7 @@ import static com.vh.ui.web.locators.ProvidersTeamLocators.BTN_NEWPROVIDERPOPUPS
 import static com.vh.ui.web.locators.ProvidersTeamLocators.BTN_NEWTEAMPOPUPCANCEL;
 import static com.vh.ui.web.locators.ProvidersTeamLocators.BTN_NEWTEAMPOPUPPATIENTSEEINGSINCE;
 import static com.vh.ui.web.locators.ProvidersTeamLocators.BTN_NEWTEAMPOPUPSUBMIT;
+import static com.vh.ui.web.locators.ProvidersTeamLocators.BTN_NEWTEAMPOPUPSUBMITENABLE;
 import static com.vh.ui.web.locators.ProvidersTeamLocators.BTN_NEWTEAMPOPUPX;
 import static com.vh.ui.web.locators.ProvidersTeamLocators.CAL_NEWTEAMPOPUPPATIENTSEEINGSINCE;
 import static com.vh.ui.web.locators.ProvidersTeamLocators.CBO_ACTIVEINACTIVE;
@@ -407,6 +408,20 @@ public class ProvidersTeamPage extends WebPage
 	public boolean viewNewTeamPopupSubmitButton() throws TimeoutException, WaitException
 	{
 		return webActions.getVisibiltyOfElementLocatedBy(VISIBILITY, BTN_NEWTEAMPOPUPSUBMIT);
+	}
+
+	@Step("Verify if the New Team popup SUBMIT button is enabled")
+	public boolean isNewTeamPopupSubmitButtonEnabled() throws TimeoutException, WaitException
+	{
+		return webActions.isElementEnabledLocatedBy(BTN_NEWTEAMPOPUPSUBMITENABLE);
+	}
+
+	@Step("Verify the visibility of the passed in error message on the New Team popup")
+	public boolean viewNewTeamPopupErrorMessage(String errorMessage) throws TimeoutException, WaitException
+	{
+		final By LBL_NEWTEAMPOPUPERRORMESSAGE = By.xpath("//div[@class='error-message' and text()=\"" + errorMessage + "\"]");
+		
+		return webActions.getVisibiltyOfElementLocatedBy(VISIBILITY, LBL_NEWTEAMPOPUPERRORMESSAGE);
 	}
 
 	@Step("Adds a Team Member to the table")
