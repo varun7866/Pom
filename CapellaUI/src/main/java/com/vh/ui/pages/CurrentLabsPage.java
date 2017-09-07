@@ -304,10 +304,16 @@ public class CurrentLabsPage extends WebPage
 		return webActions.getVisibiltyOfElementLocatedBy(VISIBILITY, TXT_ADDPOPUPKTV);
 	}
 
-	@Step("Verify the visibility of the Add Lab Results popup KT/V goal")
-	public boolean viewAddpopupKTVGoal() throws TimeoutException, WaitException
+	@Step("Verify the visibility of the Add Lab Results popup KT/V goal 1")
+	public boolean viewAddpopupKTVGoal1() throws TimeoutException, WaitException
 	{
-		return webActions.getVisibiltyOfElementLocatedBy(VISIBILITY, LBL_ADDPOPUPKTVGOAL);
+		return webActions.getVisibiltyOfElementLocatedBy(VISIBILITY, LBL_ADDPOPUPKTVGOAL1);
+	}
+
+	@Step("Verify the visibility of the Add Lab Results popup KT/V goal 2")
+	public boolean viewAddpopupKTVGoal2() throws TimeoutException, WaitException
+	{
+		return webActions.getVisibiltyOfElementLocatedBy(VISIBILITY, LBL_ADDPOPUPKTVGOAL2);
 	}
 
 	@Step("Verify the visibility of the Add Lab Results popup POTASSIUM label")
@@ -1480,7 +1486,7 @@ public class CurrentLabsPage extends WebPage
 		}
 		else
 		{
-			if (location.equals("P")) // Grapg popup
+			if (location.equals("P")) // Graph popup
 			{
 				classAttributeValue = webActions.getAttributeValue(VISIBILITY, LBL_GRAPHPOPUPPHOSPHOROUSCOLOR, "class");
 			}
@@ -2512,10 +2518,16 @@ public class CurrentLabsPage extends WebPage
 		return webActions.getVisibiltyOfElementLocatedBy(VISIBILITY, LBL_KTV);
 	}
 
-	@Step("Verify the visibility of the KT/V Goal")
-	public boolean viewKTVGoal() throws TimeoutException, WaitException
+	@Step("Verify the visibility of the KT/V Goal 1")
+	public boolean viewKTVGoal1() throws TimeoutException, WaitException
 	{
-		return webActions.getVisibiltyOfElementLocatedBy(VISIBILITY, LBL_KTVGOAL);
+		return webActions.getVisibiltyOfElementLocatedBy(VISIBILITY, LBL_KTVGOAL1);
+	}
+
+	@Step("Verify the visibility of the KT/V Goal 2")
+	public boolean viewKTVGoal2() throws TimeoutException, WaitException
+	{
+		return webActions.getVisibiltyOfElementLocatedBy(VISIBILITY, LBL_KTVGOAL2);
 	}
 
 	@Step("Verify the visibility of the KT/V draw date")
