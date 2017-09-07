@@ -660,114 +660,9 @@ public class CurrentLabsPage extends WebPage
 
 		appFunctions.selectDateFromCalendarAsd(CAL_ADDPOPUPAPPLYTHISDATETOALLVALUES, drawDateDay);
 
-		if (map.get("HEIGHT") != null)
-		{
-			enterHeight(map.get("HEIGHT"));
-		}
-
-		if (map.get("WEIGHT") != null)
-		{
-			enterWeight(map.get("WEIGHT"));
-		}
-
-		if (map.get("TARGETDRYWEIGHT") != null)
-		{
-			enterTargetDryWeight(map.get("TARGETDRYWEIGHT"));
-		}
-
-		if (map.get("CALCIUMXPHOSPHOROUS") != null)
-		{
-			enterCalciumXPhosphorous(map.get("CALCIUMXPHOSPHOROUS"));
-		}
-
-		if (map.get("PHOSPHOROUS") != null)
-		{
-			enterPhosphorous(map.get("PHOSPHOROUS"));
-		}
-
-		if (map.get("CREATININE") != null)
-		{
-			enterCreatinine(map.get("CREATININE"));
-		}
-
-		if (map.get("GFR") != null)
-		{
-			enterGFR(map.get("GFR"));
-		}
-
-		if (map.get("HGBA1C") != null)
-		{
-			enterHGBA1C(map.get("HGBA1C"));
-		}
-
-		if (map.get("LDL") != null)
-		{
-			enterLDL(map.get("LDL"));
-		}
-
-		if (map.get("HGB") != null)
-		{
-			enterHGB(map.get("HGB"));
-		}
-
 		if (map.get("ALBUMIN") != null)
 		{
 			enterAlbumin(map.get("ALBUMIN"));
-		}
-
-		if (map.get("URINEALBUMINCREATININERATIO") != null)
-		{
-			enterUrineAlbuminCreatinineRatio(map.get("URINEALBUMINCREATININERATIO"));
-		}
-
-		if (map.get("DIPSTICKFORPROTEIN") != null)
-		{
-			enterDipstickForProtein(map.get("DIPSTICKFORPROTEIN"));
-		}
-
-		if (map.get("CO2LEVEL") != null)
-		{
-			enterCO2Level(map.get("CO2LEVEL"));
-		}
-
-		if (map.get("CALCIUM") != null)
-		{
-			enterCalcium(map.get("CALCIUM"));
-		}
-
-		if (map.get("KTV") != null)
-		{
-			enterKTV(map.get("KTV"));
-		}
-
-		if (map.get("URR") != null)
-		{
-			enterURR(map.get("URR"));
-		}
-
-		if (map.get("POTASIUM") != null)
-		{
-			enterPotassium(map.get("POTASIUM"));
-		}
-
-		if (map.get("PTH") != null)
-		{
-			enterPTH(map.get("PTH"));
-		}
-
-		if (map.get("HEPATITISBTITER") != null)
-		{
-			enterHepatitisBTiter(map.get("HEPATITISBTITER"));
-		}
-
-		if (map.get("FERRITIN") != null)
-		{
-			enterFerritin(map.get("FERRITIN"));
-		}
-
-		if (map.get("TSAT") != null)
-		{
-			enterTSAT(map.get("TSAT"));
 		}
 
 		if (map.get("BLOODPRESSURESYSTOLIC") != null)
@@ -778,6 +673,111 @@ public class CurrentLabsPage extends WebPage
 		if (map.get("BLOODPRESSUREDIASTOLIC") != null)
 		{
 			enterBloodPressureDiastolic(map.get("BLOODPRESSUREDIASTOLIC"));
+		}
+
+		if (map.get("CALCIUM") != null)
+		{
+			enterCalcium(map.get("CALCIUM"));
+		}
+
+		if (map.get("CALCIUMXPHOSPHOROUS") != null)
+		{
+			enterCalciumXPhosphorous(map.get("CALCIUMXPHOSPHOROUS"));
+		}
+
+		if (map.get("CO2LEVEL") != null)
+		{
+			enterCO2Level(map.get("CO2LEVEL"));
+		}
+
+		if (map.get("CREATININE") != null)
+		{
+			enterCreatinine(map.get("CREATININE"));
+		}
+
+		if (map.get("DIPSTICKFORPROTEIN") != null)
+		{
+			enterDipstickForProtein(map.get("DIPSTICKFORPROTEIN"));
+		}
+
+		if (map.get("FERRITIN") != null)
+		{
+			enterFerritin(map.get("FERRITIN"));
+		}
+
+		if (map.get("GFR") != null)
+		{
+			enterGFR(map.get("GFR"));
+		}
+
+		if (map.get("HEIGHT") != null)
+		{
+			enterHeight(map.get("HEIGHT"));
+		}
+
+		if (map.get("HEPATITISBTITER") != null)
+		{
+			enterHepatitisBTiter(map.get("HEPATITISBTITER"));
+		}
+
+		if (map.get("HGB") != null)
+		{
+			enterHGB(map.get("HGB"));
+		}
+
+		if (map.get("HGBA1C") != null)
+		{
+			enterHGBA1C(map.get("HGBA1C"));
+		}
+
+		if (map.get("KTV") != null)
+		{
+			enterKTV(map.get("KTV"));
+		}
+
+		if (map.get("LDL") != null)
+		{
+			enterLDL(map.get("LDL"));
+		}
+
+		if (map.get("PTH") != null)
+		{
+			enterPTH(map.get("PTH"));
+		}
+
+		if (map.get("PHOSPHOROUS") != null)
+		{
+			enterPhosphorous(map.get("PHOSPHOROUS"));
+		}
+
+		if (map.get("POTASIUM") != null)
+		{
+			enterPotassium(map.get("POTASIUM"));
+		}
+
+		if (map.get("TSAT") != null)
+		{
+			enterTSAT(map.get("TSAT"));
+		}
+
+		if (map.get("TARGETDRYWEIGHT") != null)
+		{
+			enterTargetDryWeight(map.get("TARGETDRYWEIGHT"));
+		}
+
+		if (map.get("URR") != null)
+		{
+			enterURR(map.get("URR"));
+		}
+
+		if (map.get("URINEALBUMINCREATININERATIO") != null)
+		{
+			enterUrineAlbuminCreatinineRatio(map.get("URINEALBUMINCREATININERATIO"));
+		}
+
+		if (map.get("WEIGHT") != null)
+		{
+			enterWeight(map.get("WEIGHT"));
 		}
 	}
 
@@ -790,109 +790,9 @@ public class CurrentLabsPage extends WebPage
 
 		appFunctions.selectDateFromCalendarAsd(CAL_ADDPOPUPAPPLYTHISDATETOALLVALUES, drawDateDay);
 
-		if (map.get("HEIGHT") != null)
-		{
-			enterHeight(map.get("HEIGHT"));
-		}
-
-		if (map.get("WEIGHT") != null)
-		{
-			enterWeight(map.get("WEIGHT"));
-		}
-
-		if (map.get("TARGETDRYWEIGHT") != null)
-		{
-			enterTargetDryWeight(map.get("TARGETDRYWEIGHT"));
-		}
-
-		if (map.get("CALCIUMXPHOSPHOROUS") != null)
-		{
-			enterCalciumXPhosphorous(map.get("CALCIUMXPHOSPHOROUS"));
-		}
-
-		if (map.get("PHOSPHOROUS") != null)
-		{
-			enterPhosphorous(map.get("PHOSPHOROUS"));
-		}
-
-		if (map.get("CREATININE") != null)
-		{
-			enterCreatinine(map.get("CREATININE"));
-		}
-
-		if (map.get("GFR") != null)
-		{
-			enterGFR(map.get("GFR"));
-		}
-
-		if (map.get("HGBA1C") != null)
-		{
-			enterHGBA1C(map.get("HGBA1C"));
-		}
-
-		if (map.get("LDL") != null)
-		{
-			enterLDL(map.get("LDL"));
-		}
-
-		if (map.get("HGB") != null)
-		{
-			enterHGB(map.get("HGB"));
-		}
-
 		if (map.get("ALBUMIN") != null)
 		{
 			enterAlbumin(map.get("ALBUMIN"));
-		}
-
-		if (map.get("URINEALBUMINCREATININERATIO") != null)
-		{
-			enterUrineAlbuminCreatinineRatio(map.get("URINEALBUMINCREATININERATIO"));
-		}
-
-		if (map.get("CO2LEVEL") != null)
-		{
-			enterCO2Level(map.get("CO2LEVEL"));
-		}
-
-		if (map.get("CALCIUM") != null)
-		{
-			enterCalcium(map.get("CALCIUM"));
-		}
-
-		if (map.get("KTV") != null)
-		{
-			enterKTV(map.get("KTV"));
-		}
-
-		if (map.get("URR") != null)
-		{
-			enterURR(map.get("URR"));
-		}
-
-		if (map.get("POTASIUM") != null)
-		{
-			enterPotassium(map.get("POTASIUM"));
-		}
-
-		if (map.get("PTH") != null)
-		{
-			enterPTH(map.get("PTH"));
-		}
-
-		if (map.get("HEPATITISBTITER") != null)
-		{
-			enterHepatitisBTiter(map.get("HEPATITISBTITER"));
-		}
-
-		if (map.get("FERRITIN") != null)
-		{
-			enterFerritin(map.get("FERRITIN"));
-		}
-
-		if (map.get("TSAT") != null)
-		{
-			enterTSAT(map.get("TSAT"));
 		}
 
 		if (map.get("BLOODPRESSURESYSTOLIC") != null)
@@ -903,6 +803,106 @@ public class CurrentLabsPage extends WebPage
 		if (map.get("BLOODPRESSUREDIASTOLIC") != null)
 		{
 			enterBloodPressureDiastolic(map.get("BLOODPRESSUREDIASTOLIC"));
+		}
+
+		if (map.get("CALCIUM") != null)
+		{
+			enterCalcium(map.get("CALCIUM"));
+		}
+
+		if (map.get("CALCIUMXPHOSPHOROUS") != null)
+		{
+			enterCalciumXPhosphorous(map.get("CALCIUMXPHOSPHOROUS"));
+		}
+
+		if (map.get("CO2LEVEL") != null)
+		{
+			enterCO2Level(map.get("CO2LEVEL"));
+		}
+
+		if (map.get("CREATININE") != null)
+		{
+			enterCreatinine(map.get("CREATININE"));
+		}
+
+		if (map.get("FERRITIN") != null)
+		{
+			enterFerritin(map.get("FERRITIN"));
+		}
+
+		if (map.get("GFR") != null)
+		{
+			enterGFR(map.get("GFR"));
+		}
+
+		if (map.get("HEIGHT") != null)
+		{
+			enterHeight(map.get("HEIGHT"));
+		}
+
+		if (map.get("HEPATITISBTITER") != null)
+		{
+			enterHepatitisBTiter(map.get("HEPATITISBTITER"));
+		}
+
+		if (map.get("HGB") != null)
+		{
+			enterHGB(map.get("HGB"));
+		}
+
+		if (map.get("HGBA1C") != null)
+		{
+			enterHGBA1C(map.get("HGBA1C"));
+		}
+
+		if (map.get("KTV") != null)
+		{
+			enterKTV(map.get("KTV"));
+		}
+
+		if (map.get("LDL") != null)
+		{
+			enterLDL(map.get("LDL"));
+		}
+
+		if (map.get("PTH") != null)
+		{
+			enterPTH(map.get("PTH"));
+		}
+
+		if (map.get("PHOSPHOROUS") != null)
+		{
+			enterPhosphorous(map.get("PHOSPHOROUS"));
+		}
+
+		if (map.get("POTASIUM") != null)
+		{
+			enterPotassium(map.get("POTASIUM"));
+		}
+
+		if (map.get("TSAT") != null)
+		{
+			enterTSAT(map.get("TSAT"));
+		}
+
+		if (map.get("TARGETDRYWEIGHT") != null)
+		{
+			enterTargetDryWeight(map.get("TARGETDRYWEIGHT"));
+		}
+
+		if (map.get("URR") != null)
+		{
+			enterURR(map.get("URR"));
+		}
+
+		if (map.get("URINEALBUMINCREATININERATIO") != null)
+		{
+			enterUrineAlbuminCreatinineRatio(map.get("URINEALBUMINCREATININERATIO"));
+		}
+
+		if (map.get("WEIGHT") != null)
+		{
+			enterWeight(map.get("WEIGHT"));
 		}
 	}
 
