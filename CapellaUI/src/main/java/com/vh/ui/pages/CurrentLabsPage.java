@@ -574,6 +574,12 @@ public class CurrentLabsPage extends WebPage
 		return webActions.getVisibiltyOfElementLocatedBy(VISIBILITY, LBL_ADDPOPUPPTH5GOAL);
 	}
 
+	@Step("Verify the visibility of the Add Lab Results popup PTH goal 6")
+	public boolean viewAddpopupPTHGoal6() throws TimeoutException, WaitException
+	{
+		return webActions.getVisibiltyOfElementLocatedBy(VISIBILITY, LBL_ADDPOPUPPTH6GOAL);
+	}
+
 	@Step("Verify the visibility of the Add Lab Results popup FERRITIN label")
 	public boolean viewAddpopupFerritinLabel() throws TimeoutException, WaitException
 	{
@@ -1492,7 +1498,7 @@ public class CurrentLabsPage extends WebPage
 			}
 		}
 
-		if (labValue < .5 || labValue > 5.5) // If out of range
+		if (labValue < 3 || labValue > 5.5) // If out of range
 		{
 			if (classAttributeValue.contains("redtext"))
 			{
@@ -1589,7 +1595,7 @@ public class CurrentLabsPage extends WebPage
 			}
 		}
 
-		if (labValue < .5 || labValue > 1.5) // If out of range
+		if (labValue < .7 || labValue > 1.5) // If out of range
 		{
 			if (classAttributeValue.contains("redtext"))
 			{
@@ -1880,7 +1886,7 @@ public class CurrentLabsPage extends WebPage
 			}
 		}
 
-		if (labValue < 0 || labValue > 100) // If out of range
+		if (labValue < 0 || labValue > 99) // If out of range
 		{
 			if (classAttributeValue.contains("redtext"))
 			{
@@ -1977,7 +1983,7 @@ public class CurrentLabsPage extends WebPage
 			}
 		}
 
-		if (labValue < 0 || labValue > 11) // If out of range
+		if (labValue < 8 || labValue > 15) // If out of range
 		{
 			if (classAttributeValue.contains("redtext"))
 			{
@@ -2322,7 +2328,7 @@ public class CurrentLabsPage extends WebPage
 			}
 		}
 
-		if (labValue < 22 || labValue > 31) // If out of range
+		if (labValue < 20 || labValue > 30) // If out of range
 		{
 			if (classAttributeValue.contains("redtext"))
 			{
@@ -2427,7 +2433,7 @@ public class CurrentLabsPage extends WebPage
 
 		if (patientType.equals("CKD"))
 		{
-			if (labValue < 8.6 || labValue > 10.3) // If out of range
+			if (labValue < 8.4 || labValue > 10.2) // If out of range
 			{
 				if (classAttributeValue.contains("redtext"))
 				{
@@ -2451,7 +2457,7 @@ public class CurrentLabsPage extends WebPage
 		{
 			if (patientType.equals("ESRD"))
 			{
-				if (labValue < 8.4 || labValue > 9.5) // If out of range
+				if (labValue < 8.4 || labValue > 10.2) // If out of range
 				{
 					if (classAttributeValue.contains("redtext"))
 					{
@@ -2754,7 +2760,7 @@ public class CurrentLabsPage extends WebPage
 			}
 		}
 
-		if (labValue < 3.5 || labValue > 5.2) // If out of range
+		if (labValue < 3.5 || labValue > 5.5) // If out of range
 		{
 			if (classAttributeValue.contains("redtext"))
 			{
@@ -3152,7 +3158,7 @@ public class CurrentLabsPage extends WebPage
 			}
 		}
 
-		if (labValue < 100 || labValue > 500) // If out of range
+		if (labValue < 200 || labValue > 800) // If out of range
 		{
 			if (classAttributeValue.contains("redtext"))
 			{
@@ -3346,7 +3352,7 @@ public class CurrentLabsPage extends WebPage
 			}
 		}
 
-		if (labValue < 60 || labValue > 130) // If out of range
+		if (labValue < 110 || labValue > 160) // If out of range
 		{
 			if (classAttributeValue.contains("redtext"))
 			{
@@ -3443,7 +3449,7 @@ public class CurrentLabsPage extends WebPage
 			}
 		}
 
-		if (labValue < 0 || labValue > 80) // If out of range
+		if (labValue < 50 || labValue > 90) // If out of range
 		{
 			if (classAttributeValue.contains("redtext"))
 			{

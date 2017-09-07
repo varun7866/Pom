@@ -31,6 +31,7 @@ import ru.yandex.qatools.allure.annotations.Step;
  * 4. It's not required, but it would be a good idea to delete all existing Labs from table PTLB_PATIENT_LABS for your Patients
  * Note: KT/V & URR are invalid for a CKD Patient
  * Note: URINE ALBUMIN/CREATININE RATIO is invalid for an ESRD Patient
+ * Note: All checks for KT/V Goals are currently commented out
  */
 
 public class CurrentLabsTest extends TestBase
@@ -144,8 +145,8 @@ public class CurrentLabsTest extends TestBase
 
 		Assert.assertTrue(currentLabsPage.viewAddpopupKTVLabel(), "Failed to identify the Add Lab Results popup KT/V label");
 		Assert.assertTrue(currentLabsPage.viewAddpopupKTVTextBox(), "Failed to identify the Add Lab Results popup KT/V text box");
-		Assert.assertTrue(currentLabsPage.viewAddpopupKTVGoal1(), "Failed to identify the Add Lab Results popup KT/V Goal 1");
-		Assert.assertTrue(currentLabsPage.viewAddpopupKTVGoal2(), "Failed to identify the Add Lab Results popup KT/V Goal 2");
+		// Assert.assertTrue(currentLabsPage.viewAddpopupKTVGoal1(), "Failed to identify the Add Lab Results popup KT/V Goal 1");
+		// Assert.assertTrue(currentLabsPage.viewAddpopupKTVGoal2(), "Failed to identify the Add Lab Results popup KT/V Goal 2");
 
 		Assert.assertTrue(currentLabsPage.viewAddpopupLDLLabel(), "Failed to identify the Add Lab Results popup LDL label");
 		Assert.assertTrue(currentLabsPage.viewAddpopupLDLTextBox(), "Failed to identify the Add Lab Results popup LDL text box");
@@ -158,6 +159,7 @@ public class CurrentLabsTest extends TestBase
 		Assert.assertTrue(currentLabsPage.viewAddpopupPTHGoal3(), "Failed to identify the Add Lab Results popup PTH Goal 3");
 		Assert.assertTrue(currentLabsPage.viewAddpopupPTHGoal4(), "Failed to identify the Add Lab Results popup PTH Goal 4");
 		Assert.assertTrue(currentLabsPage.viewAddpopupPTHGoal5(), "Failed to identify the Add Lab Results popup PTH Goal 5");
+		Assert.assertTrue(currentLabsPage.viewAddpopupPTHGoal6(), "Failed to identify the Add Lab Results popup PTH Goal 6");
 
 		Assert.assertTrue(currentLabsPage.viewAddpopupPhosphorousLabel(), "Failed to identify the Add Lab Results popup PHOSPHOROUS label");
 		Assert.assertTrue(currentLabsPage.viewAddpopupPhosphorousTextBox(), "Failed to identify the Add Lab Results popup PHOSPHOROUS text box");
@@ -264,8 +266,8 @@ public class CurrentLabsTest extends TestBase
 
 		Assert.assertTrue(currentLabsPage.viewAddpopupKTVLabel(), "Failed to identify the Add Lab Results popup KT/V label");
 		Assert.assertTrue(currentLabsPage.viewAddpopupKTVTextBox(), "Failed to identify the Add Lab Results popup KT/V text box");
-		Assert.assertTrue(currentLabsPage.viewAddpopupKTVGoal1(), "Failed to identify the Add Lab Results popup KT/V Goal 1");
-		Assert.assertTrue(currentLabsPage.viewAddpopupKTVGoal2(), "Failed to identify the Add Lab Results popup KT/V Goal 2");
+		// Assert.assertTrue(currentLabsPage.viewAddpopupKTVGoal1(), "Failed to identify the Add Lab Results popup KT/V Goal 1");
+		// Assert.assertTrue(currentLabsPage.viewAddpopupKTVGoal2(), "Failed to identify the Add Lab Results popup KT/V Goal 2");
 
 		Assert.assertTrue(currentLabsPage.viewAddpopupLDLLabel(), "Failed to identify the Add Lab Results popup LDL label");
 		Assert.assertTrue(currentLabsPage.viewAddpopupLDLTextBox(), "Failed to identify the Add Lab Results popup LDL text box");
@@ -605,13 +607,13 @@ public class CurrentLabsTest extends TestBase
 		if (map.get("KTV") != null && map.get("PatientType").equals("ESRD"))
 		{
 			Assert.assertTrue(currentLabsPage.viewKTVLabelValue(map.get("KTV")), "Failed to identify the KT/V label/value");
-			Assert.assertTrue(currentLabsPage.viewKTVGoal1(), "Failed to identify the KT/V Goal 1");
-			Assert.assertTrue(currentLabsPage.viewKTVGoal2(), "Failed to identify the KT/V Goal 2");
+			// Assert.assertTrue(currentLabsPage.viewKTVGoal1(), "Failed to identify the KT/V Goal 1");
+			// Assert.assertTrue(currentLabsPage.viewKTVGoal2(), "Failed to identify the KT/V Goal 2");
 			Assert.assertTrue(currentLabsPage.viewKTVDrawDate(drawDateGregorian), "Failed to identify the KT/V draw date");
 			Assert.assertTrue(currentLabsPage.viewKTVSource(), "Failed to identify the KT/V Source");
 			Assert.assertTrue(currentLabsPage.viewKTVColor(Double.parseDouble(map.get("KTV")), "T"), "Failed to identify KTV as the correct color");
 			Assert.assertTrue(currentLabsPage.viewGraphPopupKTVLabelValue(map.get("KTV")), "Failed to identify the graph popup KTV label/value");
-			Assert.assertTrue(currentLabsPage.viewGraphPopupKTVGoal(), "Failed to identify the graph popup KTV Goal");
+			// Assert.assertTrue(currentLabsPage.viewGraphPopupKTVGoal(), "Failed to identify the graph popup KTV Goal");
 			Assert.assertTrue(currentLabsPage.viewKTVColor(Double.parseDouble(map.get("KTV")), "P"), "Failed to identify graph popup KTV as the correct color");
 			Assert.assertTrue(currentLabsPage.viewGraphPopupKTVPoint(map.get("KTV")), "Failed to identify the graph popup KTV point");
 			Assert.assertTrue(currentLabsPage.viewGraphPopupKTVDrawDate(drawDateGregorian), "Failed to identify the graph popup KTV draw date");
