@@ -754,8 +754,8 @@ public class CurrentLabsTest extends TestBase
 		if (map.get("WEIGHT") != null)
 		{
 			Assert.assertTrue(currentLabsPage.viewWeightLabelValue(map.get("WEIGHT")), "Failed to identify the WEIGHT label/value");
-			Assert.assertTrue(currentLabsPage.viewWeightDrawDate(drawDateGregorian), "Failed to identify the WEIGHT draw date");
-			Assert.assertTrue(currentLabsPage.viewWeightSource(), "Failed to identify the WEIGHT Source");
+			Assert.assertTrue(currentLabsPage.viewWeightDrawDate(map.get("WEIGHT"), drawDateGregorian), "Failed to identify the WEIGHT draw date");
+			Assert.assertTrue(currentLabsPage.viewWeightSource(map.get("WEIGHT")), "Failed to identify the WEIGHT Source");
 			Assert.assertTrue(currentLabsPage.viewWeightColor("T"), "Failed to identify WEIGHT as the correct color");
 			Assert.assertTrue(currentLabsPage.viewGraphPopupWeightLabelValue(map.get("WEIGHT")), "Failed to identify the graph popup WEIGHT label/value");
 			Assert.assertTrue(currentLabsPage.viewWeightColor("P"), "Failed to identify graph popup WEIGHT as the correct color");

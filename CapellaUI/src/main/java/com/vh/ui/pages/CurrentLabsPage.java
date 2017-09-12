@@ -1230,16 +1230,18 @@ public class CurrentLabsPage extends WebPage
 	}
 
 	@Step("Verify the visibility of the WEIGHT draw date")
-	public boolean viewWeightDrawDate(String drawDate) throws TimeoutException, WaitException
+	public boolean viewWeightDrawDate(String labValue, String drawDate) throws TimeoutException, WaitException
 	{
-		final By LBL_WEIGHTDRAWDATE = By.xpath("//span[contains(., 'Weight (')]/../../..//span[text()='" + drawDate + "']");
+		final By LBL_WEIGHTDRAWDATE = By.xpath("//span[text()='Weight (" + labValue + ")']/../../..//span[text()='" + drawDate + "']");
 
 		return webActions.getVisibiltyOfElementLocatedBy(VISIBILITY, LBL_WEIGHTDRAWDATE);
 	}
 
 	@Step("Verify the visibility of the WEIGHT Source")
-	public boolean viewWeightSource() throws TimeoutException, WaitException
+	public boolean viewWeightSource(String labValue) throws TimeoutException, WaitException
 	{
+		final By LBL_WEIGHTSOURCE = By.xpath("//span[text()='Weight (" + labValue + ")']/../../..//span[text()='Source: VH']");
+
 		return webActions.getVisibiltyOfElementLocatedBy(VISIBILITY, LBL_WEIGHTSOURCE);
 	}
 
@@ -1271,6 +1273,8 @@ public class CurrentLabsPage extends WebPage
 	@Step("Verify the visibility of the graph popup WEIGHT Label/Value")
 	public boolean viewGraphPopupWeightLabelValue(String labValue) throws TimeoutException, WaitException
 	{
+		final By LBL_WEIGHTSOURCE = By.xpath("//span[text()='Weight (" + labValue + ")']/../../..//span[text()='Source: VH']");
+
 		webActions.click(VISIBILITY, LBL_WEIGHTSOURCE);
 
 		final By LBL_GRAPHPOPUPWEIGHT = By.xpath("//div[@class='lab-history-modal-header-div']//span[text()='Weight (" + labValue + ")']");
@@ -1482,7 +1486,7 @@ public class CurrentLabsPage extends WebPage
 	@Step("Verify the visibility of the PHOSPHOROUS draw date")
 	public boolean viewPhosphorousDrawDate(String drawDate) throws TimeoutException, WaitException
 	{
-		final By LBL_PHOSPHOROUSDRAWDATE = By.xpath("//span[text()='Goal: Between 0.5 and 5.5']/../../..//span[text()='" + drawDate + "']");
+		final By LBL_PHOSPHOROUSDRAWDATE = By.xpath("//span[text()='Goal: Between 3 and 5.5']/../../..//span[text()='" + drawDate + "']");
 
 		return webActions.getVisibiltyOfElementLocatedBy(VISIBILITY, LBL_PHOSPHOROUSDRAWDATE);
 	}
