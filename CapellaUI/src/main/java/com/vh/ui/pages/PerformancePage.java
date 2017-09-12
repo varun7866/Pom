@@ -73,7 +73,8 @@ public class PerformancePage extends WebPage {
 		
 	}
 	
-	public void performanceTestCurrentLabsPage(Map<String, String> map) throws TimeoutException, WaitException, InterruptedException {
+	public void performanceTestCurrentLabsPage(Map<String, String> map) throws TimeoutException, WaitException, InterruptedException, AWTException
+	{
 		//navigate to current labs
 		appFunctions.navigateToMenu("Patient Experience->Labs->Current Labs");
 		currentLabsPage = new CurrentLabsPage(driver);

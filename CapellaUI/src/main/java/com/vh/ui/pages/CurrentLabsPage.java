@@ -2,6 +2,9 @@ package com.vh.ui.pages;
 
 import static com.vh.ui.web.locators.CurrentLabsLocators.*;
 
+import java.awt.AWTException;
+import java.awt.Robot;
+import java.awt.event.KeyEvent;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
@@ -28,11 +31,14 @@ import ru.yandex.qatools.allure.annotations.Step;
 public class CurrentLabsPage extends WebPage
 {
 	ApplicationFunctions appFunctions;
+	Robot r;
 
-	public CurrentLabsPage(WebDriver driver) throws WaitException {
+	public CurrentLabsPage(WebDriver driver) throws WaitException, AWTException
+	{
 		super(driver);
 
 		appFunctions = new ApplicationFunctions(driver);
+		r = new Robot();
 	}
 
 	@Step("Delete all Current Labs for the given Patient")
@@ -62,6 +68,12 @@ public class CurrentLabsPage extends WebPage
 	public void clickAddLabButton() throws TimeoutException, WaitException
 	{
 		webActions.javascriptClick(BTN_ADDLAB);
+	}
+
+	@Step("Sends the ESC key sequence")
+	public void sendESCKey() throws TimeoutException, WaitException
+	{
+		r.keyPress(KeyEvent.VK_ESCAPE);
 	}
 
 	@Step("Click the Cancel button")

@@ -1,5 +1,6 @@
 package com.vh.ui.tests;
 
+import java.awt.AWTException;
 import java.sql.SQLException;
 import java.util.Map;
 
@@ -42,7 +43,8 @@ public class CurrentLabsTest extends TestBase
 	CurrentLabsPage currentLabsPage;
 	
 	@BeforeClass
-	public void buildUp() throws TimeoutException, WaitException, URLNavigationException, InterruptedException {
+	public void buildUp() throws TimeoutException, WaitException, URLNavigationException, InterruptedException, AWTException
+	{
 		WebDriver driver = getWebDriver();
 		pageBase = new WebPage(driver);
 		appFunctions = new ApplicationFunctions(driver);
@@ -366,46 +368,77 @@ public class CurrentLabsTest extends TestBase
 
 		String drawDateGregorian = appFunctions.adjustCurrentDateBy(map.get("APPLYTHISDATETOALLVALUES"), "MM/dd/YYYY");
 
-		if (map.get("HEIGHT") != null)
+		if (map.get("ALBUMIN") != null)
 		{
-			Assert.assertTrue(currentLabsPage.viewHeightLabelValue(map.get("HEIGHT")), "Failed to identify the HEIGHT label/value");
-			Assert.assertTrue(currentLabsPage.viewHeightDrawDate(drawDateGregorian), "Failed to identify the HEIGHT draw date");
-			Assert.assertTrue(currentLabsPage.viewHeightSource(), "Failed to identify the HEIGHT Source");
-			Assert.assertTrue(currentLabsPage.viewHeightColor("T"), "Failed to identify HEIGHT as the correct color");
-			Assert.assertTrue(currentLabsPage.viewGraphPopupHeightLabelValue(map.get("HEIGHT")), "Failed to identify the graph popup HEIGHT label/value");
-			Assert.assertTrue(currentLabsPage.viewHeightColor("P"), "Failed to identify graph popup HEIGHT as the correct color");
-			Assert.assertTrue(currentLabsPage.viewGraphPopupHeightPoint(map.get("HEIGHT")), "Failed to identify the graph popup HEIGHT point");
-			Assert.assertTrue(currentLabsPage.viewGraphPopupHeightDrawDate(drawDateGregorian), "Failed to identify the graph popup HEIGHT draw date");
+			Assert.assertTrue(currentLabsPage.viewAlbuminLabelValue(map.get("ALBUMIN")), "Failed to identify the ALBUMIN label/value");
+			Assert.assertTrue(currentLabsPage.viewAlbuminGoal(), "Failed to identify the ALBUMIN Goal");
+			Assert.assertTrue(currentLabsPage.viewAlbuminDrawDate(drawDateGregorian), "Failed to identify the ALBUMIN draw date");
+			Assert.assertTrue(currentLabsPage.viewAlbuminSource(), "Failed to identify the ALBUMIN Source");
+			Assert.assertTrue(currentLabsPage.viewAlbuminColor(Integer.parseInt(map.get("ALBUMIN")), "T"), "Failed to identify ALBUMIN as the correct color");
+			Assert.assertTrue(currentLabsPage.viewGraphPopupAlbuminLabelValue(map.get("ALBUMIN")), "Failed to identify the graph popup ALBUMIN label/value");
+			Assert.assertTrue(currentLabsPage.viewGraphPopupAlbuminGoal(), "Failed to identify the graph popup ALBUMIN Goal");
+			Assert.assertTrue(currentLabsPage.viewAlbuminColor(Integer.parseInt(map.get("ALBUMIN")), "P"), "Failed to identify graph popup ALBUMIN as the correct color");
+			Assert.assertTrue(currentLabsPage.viewGraphPopupAlbuminPoint(map.get("ALBUMIN")), "Failed to identify the graph popup ALBUMIN point");
+			Assert.assertTrue(currentLabsPage.viewGraphPopupAlbuminDrawDate(drawDateGregorian), "Failed to identify the graph popup ALBUMIN draw date");
 
-			currentLabsPage.clickAddLabButton();
+			currentLabsPage.sendESCKey();
 		}
 
-		if (map.get("WEIGHT") != null)
+		if (map.get("BLOODPRESSUREDIASTOLIC") != null && map.get("CheckValidation").equals("N"))
 		{
-			Assert.assertTrue(currentLabsPage.viewWeightLabelValue(map.get("WEIGHT")), "Failed to identify the WEIGHT label/value");
-			Assert.assertTrue(currentLabsPage.viewWeightDrawDate(drawDateGregorian), "Failed to identify the WEIGHT draw date");
-			Assert.assertTrue(currentLabsPage.viewWeightSource(), "Failed to identify the WEIGHT Source");
-			Assert.assertTrue(currentLabsPage.viewWeightColor("T"), "Failed to identify WEIGHT as the correct color");
-			Assert.assertTrue(currentLabsPage.viewGraphPopupWeightLabelValue(map.get("WEIGHT")), "Failed to identify the graph popup WEIGHT label/value");
-			Assert.assertTrue(currentLabsPage.viewWeightColor("P"), "Failed to identify graph popup WEIGHT as the correct color");
-			Assert.assertTrue(currentLabsPage.viewGraphPopupWeightPoint(map.get("WEIGHT")), "Failed to identify the graph popup WEIGHT point");
-			Assert.assertTrue(currentLabsPage.viewGraphPopupWeightDrawDate(drawDateGregorian), "Failed to identify the graph popup WEIGHT draw date");
+			Assert.assertTrue(currentLabsPage.viewBloodPressureDiastolicLabelValue(map.get("BLOODPRESSUREDIASTOLIC")), "Failed to identify the BLOOD PRESSURE DIASTOLIC label/value");
+			Assert.assertTrue(currentLabsPage.viewBloodPressureDiastolicGoal(), "Failed to identify the BLOOD PRESSURE DIASTOLIC Goal");
+			Assert.assertTrue(currentLabsPage.viewBloodPressureDiastolicDrawDate(drawDateGregorian), "Failed to identify the BLOOD PRESSURE DIASTOLIC draw date");
+			Assert.assertTrue(currentLabsPage.viewBloodPressureDiastolicSource(), "Failed to identify the BLOOD PRESSURE DIASTOLIC Source");
+			Assert.assertTrue(currentLabsPage.viewBloodPressureDiastolicColor(Integer.parseInt(map.get("BLOODPRESSUREDIASTOLIC")), "T"),
+			        "Failed to identify BLOOD PRESSURE DIASTOLIC as the correct color");
+			Assert.assertTrue(currentLabsPage.viewGraphPopupBloodPressureDiastolicLabelValue(map.get("BLOODPRESSUREDIASTOLIC")),
+			        "Failed to identify the graph popup BLOOD PRESSURE DIASTOLIC label/value");
+			Assert.assertTrue(currentLabsPage.viewGraphPopupBloodPressureDiastolicGoal(), "Failed to identify the graph popup BLOOD PRESSURE DIASTOLIC Goal");
+			Assert.assertTrue(currentLabsPage.viewBloodPressureDiastolicColor(Integer.parseInt(map.get("BLOODPRESSUREDIASTOLIC")), "P"),
+			        "Failed to identify graph popup BLOOD PRESSURE DIASTOLIC as the correct color");
+			Assert.assertTrue(currentLabsPage.viewGraphPopupBloodPressureDiastolicPoint(map.get("BLOODPRESSUREDIASTOLIC")),
+			        "Failed to identify the graph popup BLOOD PRESSURE DIASTOLIC point");
+			Assert.assertTrue(currentLabsPage.viewGraphPopupBloodPressureDiastolicDrawDate(drawDateGregorian), "Failed to identify the graph popup BLOOD PRESSURE DIASTOLIC draw date");
 
-			currentLabsPage.clickAddLabButton();
+			currentLabsPage.sendESCKey();
 		}
 
-		if (map.get("TARGETDRYWEIGHT") != null)
+		if (map.get("BLOODPRESSURESYSTOLIC") != null && map.get("CheckValidation").equals("N"))
 		{
-			Assert.assertTrue(currentLabsPage.viewTargetDryWeightLabelValue(map.get("TARGETDRYWEIGHT")), "Failed to identify the TARGET DRY WEIGHT label/value");
-			Assert.assertTrue(currentLabsPage.viewTargetDryWeightDrawDate(drawDateGregorian), "Failed to identify the TARGET DRY WEIGHT draw date");
-			Assert.assertTrue(currentLabsPage.viewTargetDryWeightSource(), "Failed to identify the TARGET DRY WEIGHT Source");
-			Assert.assertTrue(currentLabsPage.viewTargetDryWeightColor("T"), "Failed to identify TARGET DRY WEIGHT as the correct color");
-			Assert.assertTrue(currentLabsPage.viewGraphPopupTargetDryWeightLabelValue(map.get("TARGETDRYWEIGHT")), "Failed to identify the graph popup TARGETDRYWEIGHT label/value");
-			Assert.assertTrue(currentLabsPage.viewTargetDryWeightColor("P"), "Failed to identify graph popup TARGET DRY WEIGHT as the correct color");
-			Assert.assertTrue(currentLabsPage.viewGraphPopupTargetDryWeightPoint(map.get("TARGETDRYWEIGHT")), "Failed to identify the graph popup TARGET DRY WEIGHT point");
-			Assert.assertTrue(currentLabsPage.viewGraphPopupTargetDryWeightDrawDate(drawDateGregorian), "Failed to identify the graph popup TARGET DRY WEIGHT draw date");
+			Assert.assertTrue(currentLabsPage.viewBloodPressureSystolicLabelValue(map.get("BLOODPRESSURESYSTOLIC")), "Failed to identify the BLOOD PRESSURE SYSTOLIC label/value");
+			Assert.assertTrue(currentLabsPage.viewBloodPressureSystolicGoal(), "Failed to identify the BLOOD PRESSURE SYSTOLIC Goal");
+			Assert.assertTrue(currentLabsPage.viewBloodPressureSystolicDrawDate(drawDateGregorian), "Failed to identify the BLOOD PRESSURE SYSTOLIC draw date");
+			Assert.assertTrue(currentLabsPage.viewBloodPressureSystolicSource(), "Failed to identify the BLOOD PRESSURE SYSTOLIC Source");
+			Assert.assertTrue(currentLabsPage.viewBloodPressureSystolicColor(Integer.parseInt(map.get("BLOODPRESSURESYSTOLIC")), "T"),
+			        "Failed to identify BLOOD PRESSURE SYSTOLIC as the correct color");
+			Assert.assertTrue(currentLabsPage.viewGraphPopupBloodPressureSystolicLabelValue(map.get("BLOODPRESSURESYSTOLIC")),
+			        "Failed to identify the graph popup BLOOD PRESSURE SYSTOLIC label/value");
+			Assert.assertTrue(currentLabsPage.viewGraphPopupBloodPressureSystolicGoal(), "Failed to identify the graph popup BLOOD PRESSURE SYSTOLIC Goal");
+			Assert.assertTrue(currentLabsPage.viewBloodPressureSystolicColor(Integer.parseInt(map.get("BLOODPRESSURESYSTOLIC")), "P"),
+			        "Failed to identify graph popup BLOOD PRESSURE SYSTOLIC as the correct color");
+			Assert.assertTrue(currentLabsPage.viewGraphPopupBloodPressureSystolicPoint(map.get("BLOODPRESSURESYSTOLIC")), "Failed to identify the graph popup BLOOD PRESSURE SYSTOLIC point");
+			Assert.assertTrue(currentLabsPage.viewGraphPopupBloodPressureSystolicDrawDate(drawDateGregorian), "Failed to identify the graph popup BLOOD PRESSURE SYSTOLIC draw date");
 
-			currentLabsPage.clickAddLabButton();
+			currentLabsPage.sendESCKey();
+		}
+
+		if (map.get("CALCIUM") != null)
+		{
+			Assert.assertTrue(currentLabsPage.viewCalciumLabelValue(map.get("CALCIUM")), "Failed to identify the CALCIUM label/value");
+			Assert.assertTrue(currentLabsPage.viewCalciumGoal1(), "Failed to identify the CALCIUM Goal1");
+			Assert.assertTrue(currentLabsPage.viewCalciumGoal2(), "Failed to identify the CALCIUM Goal2");
+			Assert.assertTrue(currentLabsPage.viewCalciumDrawDate(drawDateGregorian), "Failed to identify the CALCIUM draw date");
+			Assert.assertTrue(currentLabsPage.viewCalciumSource(), "Failed to identify the CALCIUM Source");
+			Assert.assertTrue(currentLabsPage.viewCalciumColor(Double.parseDouble(map.get("CALCIUM")), map.get("PatientType"), "T"), "Failed to identify CALCIUM as the correct color");
+			Assert.assertTrue(currentLabsPage.viewGraphPopupCalciumLabelValue(map.get("CALCIUM")), "Failed to identify the graph popup CALCIUM label/value");
+			Assert.assertTrue(currentLabsPage.viewGraphPopupCalciumGoal(), "Failed to identify the graph popup CALCIUM Goal");
+			Assert.assertTrue(currentLabsPage.viewCalciumColor(Double.parseDouble(map.get("CALCIUM")), map.get("PatientType"), "P"),
+			        "Failed to identify graph popup CALCIUM as the correct color");
+			Assert.assertTrue(currentLabsPage.viewGraphPopupCalciumPoint(map.get("CALCIUM")), "Failed to identify the graph popup CALCIUM point");
+			Assert.assertTrue(currentLabsPage.viewGraphPopupCalciumDrawDate(drawDateGregorian), "Failed to identify the graph popup CALCIUM draw date");
+
+			currentLabsPage.sendESCKey();
 		}
 
 		if (map.get("CALCIUMXPHOSPHOROUS") != null)
@@ -424,150 +457,7 @@ public class CurrentLabsTest extends TestBase
 			Assert.assertTrue(currentLabsPage.viewGraphPopupCalciumXPhosphorousPoint(map.get("CALCIUMXPHOSPHOROUS")), "Failed to identify the graph popup CALCIUM X PHOSPHOROUS point");
 			Assert.assertTrue(currentLabsPage.viewGraphPopupCalciumXPhosphorousDrawDate(drawDateGregorian), "Failed to identify the graph popup CALCIUM X PHOSPHOROUS draw date");
 
-			currentLabsPage.clickAddLabButton();
-		}
-
-		if (map.get("PHOSPHOROUS") != null)
-		{
-			Assert.assertTrue(currentLabsPage.viewPhosphorousLabelValue(map.get("PHOSPHOROUS")), "Failed to identify the PHOSPHOROUS label/value");
-			Assert.assertTrue(currentLabsPage.viewPhosphorousGoal(), "Failed to identify the PHOSPHOROUS Goal");
-			Assert.assertTrue(currentLabsPage.viewPhosphorousDrawDate(drawDateGregorian), "Failed to identify the PHOSPHOROUS draw date");
-			Assert.assertTrue(currentLabsPage.viewPhosphorousSource(), "Failed to identify the PHOSPHOROUS Source");
-			Assert.assertTrue(currentLabsPage.viewPhosphorousColor(Double.parseDouble(map.get("PHOSPHOROUS")), "T"), "Failed to identify PHOSPHOROUS as the correct color");
-			Assert.assertTrue(currentLabsPage.viewGraphPopupPhosphorousLabelValue(map.get("PHOSPHOROUS")), "Failed to identify the graph popup PHOSPHOROUS label/value");
-			Assert.assertTrue(currentLabsPage.viewGraphPopupPhosphorousGoal(), "Failed to identify the graph popup PHOSPHOROUS Goal");
-			Assert.assertTrue(currentLabsPage.viewPhosphorousColor(Double.parseDouble(map.get("PHOSPHOROUS")), "P"), "Failed to identify graph popup PHOSPHOROUS as the correct color");
-			Assert.assertTrue(currentLabsPage.viewGraphPopupPhosphorousPoint(map.get("PHOSPHOROUS")), "Failed to identify the graph popup PHOSPHOROUS point");
-			Assert.assertTrue(currentLabsPage.viewGraphPopupPhosphorousDrawDate(drawDateGregorian), "Failed to identify the graph popup PHOSPHOROUS draw date");
-
-			currentLabsPage.clickAddLabButton();
-		}
-
-		if (map.get("CREATININE") != null)
-		{
-			Assert.assertTrue(currentLabsPage.viewCreatinineLabelValue(map.get("CREATININE")), "Failed to identify the CREATININE label/value");
-			Assert.assertTrue(currentLabsPage.viewCreatinineGoal(), "Failed to identify the CREATININE Goal");
-			Assert.assertTrue(currentLabsPage.viewCreatinineDrawDate(drawDateGregorian), "Failed to identify the CREATININE draw date");
-			Assert.assertTrue(currentLabsPage.viewCreatinineSource(), "Failed to identify the CREATININE Source");
-			Assert.assertTrue(currentLabsPage.viewCreatinineColor(Double.parseDouble(map.get("CREATININE")), "T"), "Failed to identify CREATININE as the correct color");
-			Assert.assertTrue(currentLabsPage.viewGraphPopupCreatinineLabelValue(map.get("CREATININE")), "Failed to identify the graph popup CREATININE label/value");
-			Assert.assertTrue(currentLabsPage.viewGraphPopupCreatinineGoal(), "Failed to identify the graph popup CREATININE Goal");
-			Assert.assertTrue(currentLabsPage.viewCreatinineColor(Double.parseDouble(map.get("CREATININE")), "P"), "Failed to identify graph popup CREATININE as the correct color");
-			Assert.assertTrue(currentLabsPage.viewGraphPopupCreatininePoint(map.get("CREATININE")), "Failed to identify the graph popup CREATININE point");
-			Assert.assertTrue(currentLabsPage.viewGraphPopupCreatinineDrawDate(drawDateGregorian), "Failed to identify the graph popup CREATININE draw date");
-
-			currentLabsPage.clickAddLabButton();
-		}
-
-		if (map.get("GFR") != null)
-		{
-			Assert.assertTrue(currentLabsPage.viewGFRLabelValue(map.get("GFR")), "Failed to identify the GFR label/value");
-			Assert.assertTrue(currentLabsPage.viewGFRGoal(), "Failed to identify the GFR Goal");
-			Assert.assertTrue(currentLabsPage.viewGFRDrawDate(drawDateGregorian), "Failed to identify the GFR draw date");
-			Assert.assertTrue(currentLabsPage.viewGFRSource(), "Failed to identify the GFR Source");
-			Assert.assertTrue(currentLabsPage.viewGFRColor(Integer.parseInt(map.get("GFR")), "T"), "Failed to identify GFR as the correct color");
-			Assert.assertTrue(currentLabsPage.viewGraphPopupGFRLabelValue(map.get("GFR")), "Failed to identify the graph popup GFR label/value");
-			Assert.assertTrue(currentLabsPage.viewGraphPopupGFRGoal(), "Failed to identify the graph popup GFR Goal");
-			Assert.assertTrue(currentLabsPage.viewGFRColor(Integer.parseInt(map.get("GFR")), "P"), "Failed to identify graph popup GFR as the correct color");
-			Assert.assertTrue(currentLabsPage.viewGraphPopupGFRPoint(map.get("GFR")), "Failed to identify the graph popup GFR point");
-			Assert.assertTrue(currentLabsPage.viewGraphPopupGFRDrawDate(drawDateGregorian), "Failed to identify the graph popup GFR draw date");
-
-			currentLabsPage.clickAddLabButton();
-		}
-
-		if (map.get("HGBA1C") != null)
-		{
-			Assert.assertTrue(currentLabsPage.viewHGBA1CLabelValue(map.get("HGBA1C")), "Failed to identify the HGBA1C label/value");
-			Assert.assertTrue(currentLabsPage.viewHGBA1CGoal(), "Failed to identify the HGBA1C Goal");
-			Assert.assertTrue(currentLabsPage.viewHGBA1CDrawDate(drawDateGregorian), "Failed to identify the HGBA1C draw date");
-			Assert.assertTrue(currentLabsPage.viewHGBA1CSource(), "Failed to identify the HGBA1C Source");
-			Assert.assertTrue(currentLabsPage.viewHGBA1CColor(Integer.parseInt(map.get("HGBA1C")), "T"), "Failed to identify HGBA1C as the correct color");
-			Assert.assertTrue(currentLabsPage.viewGraphPopupHGBA1CLabelValue(map.get("HGBA1C")), "Failed to identify the graph popup HGBA1C label/value");
-			Assert.assertTrue(currentLabsPage.viewGraphPopupHGBA1CGoal(), "Failed to identify the graph popup HGBA1C Goal");
-			Assert.assertTrue(currentLabsPage.viewHGBA1CColor(Integer.parseInt(map.get("HGBA1C")), "P"), "Failed to identify graph popup HGBA1C as the correct color");
-			Assert.assertTrue(currentLabsPage.viewGraphPopupHGBA1CPoint(map.get("HGBA1C")), "Failed to identify the graph popup HGBA1C point");
-			Assert.assertTrue(currentLabsPage.viewGraphPopupHGBA1CDrawDate(drawDateGregorian), "Failed to identify the graph popup HGBA1C draw date");
-
-			currentLabsPage.clickAddLabButton();
-		}
-
-		if (map.get("LDL") != null)
-		{
-			Assert.assertTrue(currentLabsPage.viewLDLLabelValue(map.get("LDL")), "Failed to identify the LDL label/value");
-			Assert.assertTrue(currentLabsPage.viewLDLGoal(), "Failed to identify the LDL Goal");
-			Assert.assertTrue(currentLabsPage.viewLDLDrawDate(drawDateGregorian), "Failed to identify the LDL draw date");
-			Assert.assertTrue(currentLabsPage.viewLDLSource(), "Failed to identify the LDL Source");
-			Assert.assertTrue(currentLabsPage.viewLDLColor(Integer.parseInt(map.get("LDL")), "T"), "Failed to identify LDL as the correct color");
-			Assert.assertTrue(currentLabsPage.viewGraphPopupLDLLabelValue(map.get("LDL")), "Failed to identify the graph popup LDL label/value");
-			Assert.assertTrue(currentLabsPage.viewGraphPopupLDLGoal(), "Failed to identify the graph popup LDL Goal");
-			Assert.assertTrue(currentLabsPage.viewLDLColor(Integer.parseInt(map.get("LDL")), "P"), "Failed to identify graph popup LDL as the correct color");
-			Assert.assertTrue(currentLabsPage.viewGraphPopupLDLPoint(map.get("LDL")), "Failed to identify the graph popup LDL point");
-			Assert.assertTrue(currentLabsPage.viewGraphPopupLDLDrawDate(drawDateGregorian), "Failed to identify the graph popup LDL draw date");
-
-			currentLabsPage.clickAddLabButton();
-		}
-
-		if (map.get("HGB") != null)
-		{
-			Assert.assertTrue(currentLabsPage.viewHGBLabelValue(map.get("HGB")), "Failed to identify the HGB label/value");
-			Assert.assertTrue(currentLabsPage.viewHGBGoal(), "Failed to identify the HGB Goal");
-			Assert.assertTrue(currentLabsPage.viewHGBDrawDate(drawDateGregorian), "Failed to identify the HGB draw date");
-			Assert.assertTrue(currentLabsPage.viewHGBSource(), "Failed to identify the HGB Source");
-			Assert.assertTrue(currentLabsPage.viewHGBColor(Integer.parseInt(map.get("HGB")), "T"), "Failed to identify HGB as the correct color");
-			Assert.assertTrue(currentLabsPage.viewGraphPopupHGBLabelValue(map.get("HGB")), "Failed to identify the graph popup HGB label/value");
-			Assert.assertTrue(currentLabsPage.viewGraphPopupHGBGoal(), "Failed to identify the graph popup HGB Goal");
-			Assert.assertTrue(currentLabsPage.viewHGBColor(Integer.parseInt(map.get("HGB")), "P"), "Failed to identify graph popup HGB as the correct color");
-			Assert.assertTrue(currentLabsPage.viewGraphPopupHGBPoint(map.get("HGB")), "Failed to identify the graph popup HGB point");
-			Assert.assertTrue(currentLabsPage.viewGraphPopupHGBDrawDate(drawDateGregorian), "Failed to identify the graph popup HGB draw date");
-
-			currentLabsPage.clickAddLabButton();
-		}
-
-		if (map.get("ALBUMIN") != null)
-		{
-			Assert.assertTrue(currentLabsPage.viewAlbuminLabelValue(map.get("ALBUMIN")), "Failed to identify the ALBUMIN label/value");
-			Assert.assertTrue(currentLabsPage.viewAlbuminGoal(), "Failed to identify the ALBUMIN Goal");
-			Assert.assertTrue(currentLabsPage.viewAlbuminDrawDate(drawDateGregorian), "Failed to identify the ALBUMIN draw date");
-			Assert.assertTrue(currentLabsPage.viewAlbuminSource(), "Failed to identify the ALBUMIN Source");
-			Assert.assertTrue(currentLabsPage.viewAlbuminColor(Integer.parseInt(map.get("ALBUMIN")), "T"), "Failed to identify ALBUMIN as the correct color");
-			Assert.assertTrue(currentLabsPage.viewGraphPopupAlbuminLabelValue(map.get("ALBUMIN")), "Failed to identify the graph popup ALBUMIN label/value");
-			Assert.assertTrue(currentLabsPage.viewGraphPopupAlbuminGoal(), "Failed to identify the graph popup ALBUMIN Goal");
-			Assert.assertTrue(currentLabsPage.viewAlbuminColor(Integer.parseInt(map.get("ALBUMIN")), "P"), "Failed to identify graph popup ALBUMIN as the correct color");
-			Assert.assertTrue(currentLabsPage.viewGraphPopupAlbuminPoint(map.get("ALBUMIN")), "Failed to identify the graph popup ALBUMIN point");
-			Assert.assertTrue(currentLabsPage.viewGraphPopupAlbuminDrawDate(drawDateGregorian), "Failed to identify the graph popup ALBUMIN draw date");
-
-			currentLabsPage.clickAddLabButton();
-		}
-
-		if (map.get("URINEALBUMINCREATININERATIO") != null && map.get("PatientType").equals("CKD"))
-		{
-			Assert.assertTrue(currentLabsPage.viewUrineAlbuminCreatinineRatioLabelValue(map.get("URINEALBUMINCREATININERATIO")),
-			        "Failed to identify the URINE ALBUMIN CREATININE RATIO label/value");
-			Assert.assertTrue(currentLabsPage.viewUrineAlbuminCreatinineRatioGoal(), "Failed to identify the URINE ALBUMIN/CREATININE RATIO Goal");
-			Assert.assertTrue(currentLabsPage.viewUrineAlbuminCreatinineRatioDrawDate(drawDateGregorian), "Failed to identify the URINE ALBUMIN/CREATININE RATIO draw date");
-			Assert.assertTrue(currentLabsPage.viewUrineAlbuminCreatinineRatioSource(), "Failed to identify the URINE ALBUMIN/CREATININE RATIO Source");
-			Assert.assertTrue(currentLabsPage.viewUrineAlbuminCreatinineRatioColor(Integer.parseInt(map.get("URINEALBUMINCREATININERATIO")), "T"),
-			        "Failed to identify URINE ALBUMIN/CREATININE RATIO as the correct color");
-			Assert.assertTrue(currentLabsPage.viewGraphPopupUrineAlbuminCreatinineRatioLabelValue(map.get("URINEALBUMINCREATININERATIO")),
-			        "Failed to identify the graph popup URINE ALBUMIN/CREATININE RATIO label/value");
-			Assert.assertTrue(currentLabsPage.viewGraphPopupUrineAlbuminCreatinineRatioGoal(), "Failed to identify the graph popup URINE ALBUMIN/CREATININE RATIO Goal");
-			Assert.assertTrue(currentLabsPage.viewUrineAlbuminCreatinineRatioColor(Integer.parseInt(map.get("URINEALBUMINCREATININERATIO")), "P"),
-			        "Failed to identify graph popup URINE ALBUMIN/CREATININE RATIO as the correct color");
-			Assert.assertTrue(currentLabsPage.viewGraphPopupUrineAlbuminCreatinineRatioPoint(map.get("URINEALBUMINCREATININERATIO")),
-			        "Failed to identify the graph popup URINE ALBUMIN/CREATININE RATIO point");
-			Assert.assertTrue(currentLabsPage.viewGraphPopupUrineAlbuminCreatinineRatioDrawDate(drawDateGregorian),
-			        "Failed to identify the graph popup URINE ALBUMIN/CREATININE RATIO draw date");
-
-			currentLabsPage.clickAddLabButton();
-		}
-
-		if (map.get("DIPSTICKFORPROTEIN") != null)
-		{
-			Assert.assertTrue(currentLabsPage.viewDipstickForProteinLabelValue(map.get("DIPSTICKFORPROTEIN")), "Failed to identify the DIPSTICK FOR PROTEIN label/value");
-			Assert.assertTrue(currentLabsPage.viewDipstickForProteinGoal(), "Failed to identify the DIPSTICK FOR PROTEIN Goal");
-			Assert.assertTrue(currentLabsPage.viewDipstickForProteinDrawDate(drawDateGregorian), "Failed to identify the DIPSTICK FOR PROTEIN draw date");
-			Assert.assertTrue(currentLabsPage.viewDipstickForProteinSource(), "Failed to identify the URINE DIPSTICK FOR PROTEIN Source");
-			Assert.assertTrue(currentLabsPage.viewDipstickForProteinColor(map.get("DIPSTICKFORPROTEIN")), "Failed to identify DIPSTICK FOR PROTEIN as the correct color");
+			currentLabsPage.sendESCKey();
 		}
 
 		if (map.get("CO2LEVEL") != null)
@@ -583,25 +473,127 @@ public class CurrentLabsTest extends TestBase
 			Assert.assertTrue(currentLabsPage.viewGraphPopupCO2LevelPoint(map.get("CO2LEVEL")), "Failed to identify the graph popup CO2 LEVEL point");
 			Assert.assertTrue(currentLabsPage.viewGraphPopupCO2LevelDrawDate(drawDateGregorian), "Failed to identify the graph popup CO2 LEVEL draw date");
 
-			currentLabsPage.clickAddLabButton();
+			currentLabsPage.sendESCKey();
 		}
 
-		if (map.get("CALCIUM") != null)
+		if (map.get("CREATININE") != null)
 		{
-			Assert.assertTrue(currentLabsPage.viewCalciumLabelValue(map.get("CALCIUM")), "Failed to identify the CALCIUM label/value");
-			Assert.assertTrue(currentLabsPage.viewCalciumGoal1(), "Failed to identify the CALCIUM Goal1");
-			Assert.assertTrue(currentLabsPage.viewCalciumGoal2(), "Failed to identify the CALCIUM Goal2");
-			Assert.assertTrue(currentLabsPage.viewCalciumDrawDate(drawDateGregorian), "Failed to identify the CALCIUM draw date");
-			Assert.assertTrue(currentLabsPage.viewCalciumSource(), "Failed to identify the CALCIUM Source");
-			Assert.assertTrue(currentLabsPage.viewCalciumColor(Double.parseDouble(map.get("CALCIUM")), map.get("PatientType"), "T"), "Failed to identify CALCIUM as the correct color");
-			Assert.assertTrue(currentLabsPage.viewGraphPopupCalciumLabelValue(map.get("CALCIUM")), "Failed to identify the graph popup CALCIUM label/value");
-			Assert.assertTrue(currentLabsPage.viewGraphPopupCalciumGoal(), "Failed to identify the graph popup CALCIUM Goal");
-			Assert.assertTrue(currentLabsPage.viewCalciumColor(Double.parseDouble(map.get("CALCIUM")), map.get("PatientType"), "P"),
-			        "Failed to identify graph popup CALCIUM as the correct color");
-			Assert.assertTrue(currentLabsPage.viewGraphPopupCalciumPoint(map.get("CALCIUM")), "Failed to identify the graph popup CALCIUM point");
-			Assert.assertTrue(currentLabsPage.viewGraphPopupCalciumDrawDate(drawDateGregorian), "Failed to identify the graph popup CALCIUM draw date");
+			Assert.assertTrue(currentLabsPage.viewCreatinineLabelValue(map.get("CREATININE")), "Failed to identify the CREATININE label/value");
+			Assert.assertTrue(currentLabsPage.viewCreatinineGoal(), "Failed to identify the CREATININE Goal");
+			Assert.assertTrue(currentLabsPage.viewCreatinineDrawDate(drawDateGregorian), "Failed to identify the CREATININE draw date");
+			Assert.assertTrue(currentLabsPage.viewCreatinineSource(), "Failed to identify the CREATININE Source");
+			Assert.assertTrue(currentLabsPage.viewCreatinineColor(Double.parseDouble(map.get("CREATININE")), "T"), "Failed to identify CREATININE as the correct color");
+			Assert.assertTrue(currentLabsPage.viewGraphPopupCreatinineLabelValue(map.get("CREATININE")), "Failed to identify the graph popup CREATININE label/value");
+			Assert.assertTrue(currentLabsPage.viewGraphPopupCreatinineGoal(), "Failed to identify the graph popup CREATININE Goal");
+			Assert.assertTrue(currentLabsPage.viewCreatinineColor(Double.parseDouble(map.get("CREATININE")), "P"), "Failed to identify graph popup CREATININE as the correct color");
+			Assert.assertTrue(currentLabsPage.viewGraphPopupCreatininePoint(map.get("CREATININE")), "Failed to identify the graph popup CREATININE point");
+			Assert.assertTrue(currentLabsPage.viewGraphPopupCreatinineDrawDate(drawDateGregorian), "Failed to identify the graph popup CREATININE draw date");
 
-			currentLabsPage.clickAddLabButton();
+			currentLabsPage.sendESCKey();
+		}
+
+		if (map.get("DIPSTICKFORPROTEIN") != null)
+		{
+			Assert.assertTrue(currentLabsPage.viewDipstickForProteinLabelValue(map.get("DIPSTICKFORPROTEIN")), "Failed to identify the DIPSTICK FOR PROTEIN label/value");
+			Assert.assertTrue(currentLabsPage.viewDipstickForProteinGoal(), "Failed to identify the DIPSTICK FOR PROTEIN Goal");
+			Assert.assertTrue(currentLabsPage.viewDipstickForProteinDrawDate(drawDateGregorian), "Failed to identify the DIPSTICK FOR PROTEIN draw date");
+			Assert.assertTrue(currentLabsPage.viewDipstickForProteinSource(), "Failed to identify the URINE DIPSTICK FOR PROTEIN Source");
+			Assert.assertTrue(currentLabsPage.viewDipstickForProteinColor(map.get("DIPSTICKFORPROTEIN")), "Failed to identify DIPSTICK FOR PROTEIN as the correct color");
+		}
+
+		if (map.get("FERRITIN") != null)
+		{
+			Assert.assertTrue(currentLabsPage.viewFerritinLabelValue(map.get("FERRITIN")), "Failed to identify the FERRITIN label/value");
+			Assert.assertTrue(currentLabsPage.viewFerritinGoal(), "Failed to identify the FERRITIN Goal");
+			Assert.assertTrue(currentLabsPage.viewFerritinDrawDate(drawDateGregorian), "Failed to identify the FERRITIN draw date");
+			Assert.assertTrue(currentLabsPage.viewFerritinSource(), "Failed to identify the FERRITIN Source");
+			Assert.assertTrue(currentLabsPage.viewFerritinColor(Integer.parseInt(map.get("FERRITIN")), "T"), "Failed to identify FERRITIN as the correct color");
+			Assert.assertTrue(currentLabsPage.viewGraphPopupFerritinLabelValue(map.get("FERRITIN")), "Failed to identify the graph popup FERRITIN label/value");
+			Assert.assertTrue(currentLabsPage.viewGraphPopupFerritinGoal(), "Failed to identify the graph popup FERRITIN Goal");
+			Assert.assertTrue(currentLabsPage.viewFerritinColor(Integer.parseInt(map.get("FERRITIN")), "P"), "Failed to identify graph popup FERRITIN as the correct color");
+			Assert.assertTrue(currentLabsPage.viewGraphPopupFerritinPoint(map.get("FERRITIN")), "Failed to identify the graph popup FERRITIN point");
+			Assert.assertTrue(currentLabsPage.viewGraphPopupFerritinDrawDate(drawDateGregorian), "Failed to identify the graph popup FERRITIN draw date");
+
+			currentLabsPage.sendESCKey();
+		}
+
+		if (map.get("GFR") != null)
+		{
+			Assert.assertTrue(currentLabsPage.viewGFRLabelValue(map.get("GFR")), "Failed to identify the GFR label/value");
+			Assert.assertTrue(currentLabsPage.viewGFRGoal(), "Failed to identify the GFR Goal");
+			Assert.assertTrue(currentLabsPage.viewGFRDrawDate(drawDateGregorian), "Failed to identify the GFR draw date");
+			Assert.assertTrue(currentLabsPage.viewGFRSource(), "Failed to identify the GFR Source");
+			Assert.assertTrue(currentLabsPage.viewGFRColor(Integer.parseInt(map.get("GFR")), "T"), "Failed to identify GFR as the correct color");
+			Assert.assertTrue(currentLabsPage.viewGraphPopupGFRLabelValue(map.get("GFR")), "Failed to identify the graph popup GFR label/value");
+			Assert.assertTrue(currentLabsPage.viewGraphPopupGFRGoal(), "Failed to identify the graph popup GFR Goal");
+			Assert.assertTrue(currentLabsPage.viewGFRColor(Integer.parseInt(map.get("GFR")), "P"), "Failed to identify graph popup GFR as the correct color");
+			Assert.assertTrue(currentLabsPage.viewGraphPopupGFRPoint(map.get("GFR")), "Failed to identify the graph popup GFR point");
+			Assert.assertTrue(currentLabsPage.viewGraphPopupGFRDrawDate(drawDateGregorian), "Failed to identify the graph popup GFR draw date");
+
+			currentLabsPage.sendESCKey();
+		}
+
+		if (map.get("HEIGHT") != null)
+		{
+			Assert.assertTrue(currentLabsPage.viewHeightLabelValue(map.get("HEIGHT")), "Failed to identify the HEIGHT label/value");
+			Assert.assertTrue(currentLabsPage.viewHeightDrawDate(drawDateGregorian), "Failed to identify the HEIGHT draw date");
+			Assert.assertTrue(currentLabsPage.viewHeightSource(), "Failed to identify the HEIGHT Source");
+			Assert.assertTrue(currentLabsPage.viewHeightColor("T"), "Failed to identify HEIGHT as the correct color");
+			Assert.assertTrue(currentLabsPage.viewGraphPopupHeightLabelValue(map.get("HEIGHT")), "Failed to identify the graph popup HEIGHT label/value");
+			Assert.assertTrue(currentLabsPage.viewHeightColor("P"), "Failed to identify graph popup HEIGHT as the correct color");
+			Assert.assertTrue(currentLabsPage.viewGraphPopupHeightPoint(map.get("HEIGHT")), "Failed to identify the graph popup HEIGHT point");
+			Assert.assertTrue(currentLabsPage.viewGraphPopupHeightDrawDate(drawDateGregorian), "Failed to identify the graph popup HEIGHT draw date");
+
+			currentLabsPage.sendESCKey();
+		}
+
+		if (map.get("HEPATITISBTITER") != null)
+		{
+			Assert.assertTrue(currentLabsPage.viewHepatitisBTiterLabelValue(map.get("HEPATITISBTITER")), "Failed to identify the HEPATITIS B TITER label/value");
+			Assert.assertTrue(currentLabsPage.viewHepatitisBTiterGoal(), "Failed to identify the HEPATITIS B TITER Goal");
+			Assert.assertTrue(currentLabsPage.viewHepatitisBTiterDrawDate(drawDateGregorian), "Failed to identify the HEPATITIS B TITER draw date");
+			Assert.assertTrue(currentLabsPage.viewHepatitisBTiterSource(), "Failed to identify the HEPATITIS B TITER Source");
+			Assert.assertTrue(currentLabsPage.viewHepatitisBTiterColor(Integer.parseInt(map.get("HEPATITISBTITER")), "T"), "Failed to identify HEPATITIS B TITER as the correct color");
+			Assert.assertTrue(currentLabsPage.viewGraphPopupHepatitisBTiterLabelValue(map.get("HEPATITISBTITER")), "Failed to identify the graph popup HEPATITIS B TITER label/value");
+			Assert.assertTrue(currentLabsPage.viewGraphPopupHepatitisBTiterGoal(), "Failed to identify the graph popup HEPATITIS B TITER Goal");
+			Assert.assertTrue(currentLabsPage.viewHepatitisBTiterColor(Integer.parseInt(map.get("HEPATITISBTITER")), "P"),
+			        "Failed to identify graph popup HEPATITIS B TITER as the correct color");
+			Assert.assertTrue(currentLabsPage.viewGraphPopupHepatitisBTiterPoint(map.get("HEPATITISBTITER")), "Failed to identify the graph popup HEPATITIS B TITER point");
+			Assert.assertTrue(currentLabsPage.viewGraphPopupHepatitisBTiterDrawDate(drawDateGregorian), "Failed to identify the graph popup HEPATITIS B TITER draw date");
+
+			currentLabsPage.sendESCKey();
+		}
+
+		if (map.get("HGB") != null)
+		{
+			Assert.assertTrue(currentLabsPage.viewHGBLabelValue(map.get("HGB")), "Failed to identify the HGB label/value");
+			Assert.assertTrue(currentLabsPage.viewHGBGoal(), "Failed to identify the HGB Goal");
+			Assert.assertTrue(currentLabsPage.viewHGBDrawDate(drawDateGregorian), "Failed to identify the HGB draw date");
+			Assert.assertTrue(currentLabsPage.viewHGBSource(), "Failed to identify the HGB Source");
+			Assert.assertTrue(currentLabsPage.viewHGBColor(Integer.parseInt(map.get("HGB")), "T"), "Failed to identify HGB as the correct color");
+			Assert.assertTrue(currentLabsPage.viewGraphPopupHGBLabelValue(map.get("HGB")), "Failed to identify the graph popup HGB label/value");
+			Assert.assertTrue(currentLabsPage.viewGraphPopupHGBGoal(), "Failed to identify the graph popup HGB Goal");
+			Assert.assertTrue(currentLabsPage.viewHGBColor(Integer.parseInt(map.get("HGB")), "P"), "Failed to identify graph popup HGB as the correct color");
+			Assert.assertTrue(currentLabsPage.viewGraphPopupHGBPoint(map.get("HGB")), "Failed to identify the graph popup HGB point");
+			Assert.assertTrue(currentLabsPage.viewGraphPopupHGBDrawDate(drawDateGregorian), "Failed to identify the graph popup HGB draw date");
+
+			currentLabsPage.sendESCKey();
+		}
+
+		if (map.get("HGBA1C") != null)
+		{
+			Assert.assertTrue(currentLabsPage.viewHGBA1CLabelValue(map.get("HGBA1C")), "Failed to identify the HGBA1C label/value");
+			Assert.assertTrue(currentLabsPage.viewHGBA1CGoal(), "Failed to identify the HGBA1C Goal");
+			Assert.assertTrue(currentLabsPage.viewHGBA1CDrawDate(drawDateGregorian), "Failed to identify the HGBA1C draw date");
+			Assert.assertTrue(currentLabsPage.viewHGBA1CSource(), "Failed to identify the HGBA1C Source");
+			Assert.assertTrue(currentLabsPage.viewHGBA1CColor(Integer.parseInt(map.get("HGBA1C")), "T"), "Failed to identify HGBA1C as the correct color");
+			Assert.assertTrue(currentLabsPage.viewGraphPopupHGBA1CLabelValue(map.get("HGBA1C")), "Failed to identify the graph popup HGBA1C label/value");
+			Assert.assertTrue(currentLabsPage.viewGraphPopupHGBA1CGoal(), "Failed to identify the graph popup HGBA1C Goal");
+			Assert.assertTrue(currentLabsPage.viewHGBA1CColor(Integer.parseInt(map.get("HGBA1C")), "P"), "Failed to identify graph popup HGBA1C as the correct color");
+			Assert.assertTrue(currentLabsPage.viewGraphPopupHGBA1CPoint(map.get("HGBA1C")), "Failed to identify the graph popup HGBA1C point");
+			Assert.assertTrue(currentLabsPage.viewGraphPopupHGBA1CDrawDate(drawDateGregorian), "Failed to identify the graph popup HGBA1C draw date");
+
+			currentLabsPage.sendESCKey();
 		}
 
 		if (map.get("KTV") != null && map.get("PatientType").equals("ESRD"))
@@ -618,39 +610,23 @@ public class CurrentLabsTest extends TestBase
 			Assert.assertTrue(currentLabsPage.viewGraphPopupKTVPoint(map.get("KTV")), "Failed to identify the graph popup KTV point");
 			Assert.assertTrue(currentLabsPage.viewGraphPopupKTVDrawDate(drawDateGregorian), "Failed to identify the graph popup KTV draw date");
 
-			currentLabsPage.clickAddLabButton();
+			currentLabsPage.sendESCKey();
 		}
 
-		if (map.get("URR") != null && map.get("PatientType").equals("ESRD"))
+		if (map.get("LDL") != null)
 		{
-			Assert.assertTrue(currentLabsPage.viewURRLabelValue(map.get("URR")), "Failed to identify the URR label/value");
-			Assert.assertTrue(currentLabsPage.viewURRGoal(), "Failed to identify the URR Goal");
-			Assert.assertTrue(currentLabsPage.viewURRDrawDate(drawDateGregorian), "Failed to identify the URR draw date");
-			Assert.assertTrue(currentLabsPage.viewURRSource(), "Failed to identify the URR Source");
-			Assert.assertTrue(currentLabsPage.viewURRColor(Integer.parseInt(map.get("URR")), "T"), "Failed to identify URR as the correct color");
-			Assert.assertTrue(currentLabsPage.viewGraphPopupURRLabelValue(map.get("URR")), "Failed to identify the graph popup URR label/value");
-			Assert.assertTrue(currentLabsPage.viewGraphPopupURRGoal(), "Failed to identify the graph popup URR Goal");
-			Assert.assertTrue(currentLabsPage.viewURRColor(Integer.parseInt(map.get("URR")), "P"), "Failed to identify graph popup URR as the correct color");
-			Assert.assertTrue(currentLabsPage.viewGraphPopupURRPoint(map.get("URR")), "Failed to identify the graph popup URR point");
-			Assert.assertTrue(currentLabsPage.viewGraphPopupURRDrawDate(drawDateGregorian), "Failed to identify the graph popup URR draw date");
+			Assert.assertTrue(currentLabsPage.viewLDLLabelValue(map.get("LDL")), "Failed to identify the LDL label/value");
+			Assert.assertTrue(currentLabsPage.viewLDLGoal(), "Failed to identify the LDL Goal");
+			Assert.assertTrue(currentLabsPage.viewLDLDrawDate(drawDateGregorian), "Failed to identify the LDL draw date");
+			Assert.assertTrue(currentLabsPage.viewLDLSource(), "Failed to identify the LDL Source");
+			Assert.assertTrue(currentLabsPage.viewLDLColor(Integer.parseInt(map.get("LDL")), "T"), "Failed to identify LDL as the correct color");
+			Assert.assertTrue(currentLabsPage.viewGraphPopupLDLLabelValue(map.get("LDL")), "Failed to identify the graph popup LDL label/value");
+			Assert.assertTrue(currentLabsPage.viewGraphPopupLDLGoal(), "Failed to identify the graph popup LDL Goal");
+			Assert.assertTrue(currentLabsPage.viewLDLColor(Integer.parseInt(map.get("LDL")), "P"), "Failed to identify graph popup LDL as the correct color");
+			Assert.assertTrue(currentLabsPage.viewGraphPopupLDLPoint(map.get("LDL")), "Failed to identify the graph popup LDL point");
+			Assert.assertTrue(currentLabsPage.viewGraphPopupLDLDrawDate(drawDateGregorian), "Failed to identify the graph popup LDL draw date");
 
-			currentLabsPage.clickAddLabButton();
-		}
-
-		if (map.get("POTASIUM") != null)
-		{
-			Assert.assertTrue(currentLabsPage.viewPotassiumLabelValue(map.get("POTASIUM")), "Failed to identify the POTASIUM label/value");
-			Assert.assertTrue(currentLabsPage.viewPotassiumGoal(), "Failed to identify the POTASIUM Goal");
-			Assert.assertTrue(currentLabsPage.viewPotassiumDrawDate(drawDateGregorian), "Failed to identify the POTASIUM draw date");
-			Assert.assertTrue(currentLabsPage.viewPotassiumSource(), "Failed to identify the POTASIUM Source");
-			Assert.assertTrue(currentLabsPage.viewPotassiumColor(Double.parseDouble(map.get("POTASIUM")), "T"), "Failed to identify POTASIUM as the correct color");
-			Assert.assertTrue(currentLabsPage.viewGraphPopupPotassiumLabelValue(map.get("POTASIUM")), "Failed to identify the graph popup POTASIUM label/value");
-			Assert.assertTrue(currentLabsPage.viewGraphPopupPotassiumGoal(), "Failed to identify the graph popup POTASIUM Goal");
-			Assert.assertTrue(currentLabsPage.viewPotassiumColor(Double.parseDouble(map.get("POTASIUM")), "P"), "Failed to identify graph popup POTASIUM as the correct color");
-			Assert.assertTrue(currentLabsPage.viewGraphPopupPotassiumPoint(map.get("POTASIUM")), "Failed to identify the graph popup POTASIUM point");
-			Assert.assertTrue(currentLabsPage.viewGraphPopupPotassiumDrawDate(drawDateGregorian), "Failed to identify the graph popup POTASIUM draw date");
-
-			currentLabsPage.clickAddLabButton();
+			currentLabsPage.sendESCKey();
 		}
 
 		if (map.get("PTH") != null)
@@ -672,40 +648,39 @@ public class CurrentLabsTest extends TestBase
 			Assert.assertTrue(currentLabsPage.viewGraphPopupPTHPoint(map.get("PTH")), "Failed to identify the graph popup PTH point");
 			Assert.assertTrue(currentLabsPage.viewGraphPopupPTHDrawDate(drawDateGregorian), "Failed to identify the graph popup PTH draw date");
 
-			currentLabsPage.clickAddLabButton();
+			currentLabsPage.sendESCKey();
 		}
 
-		if (map.get("HEPATITISBTITER") != null)
+		if (map.get("PHOSPHOROUS") != null)
 		{
-			Assert.assertTrue(currentLabsPage.viewHepatitisBTiterLabelValue(map.get("HEPATITISBTITER")), "Failed to identify the HEPATITIS B TITER label/value");
-			Assert.assertTrue(currentLabsPage.viewHepatitisBTiterGoal(), "Failed to identify the HEPATITIS B TITER Goal");
-			Assert.assertTrue(currentLabsPage.viewHepatitisBTiterDrawDate(drawDateGregorian), "Failed to identify the HEPATITIS B TITER draw date");
-			Assert.assertTrue(currentLabsPage.viewHepatitisBTiterSource(), "Failed to identify the HEPATITIS B TITER Source");
-			Assert.assertTrue(currentLabsPage.viewHepatitisBTiterColor(Integer.parseInt(map.get("HEPATITISBTITER")), "T"), "Failed to identify HEPATITIS B TITER as the correct color");
-			Assert.assertTrue(currentLabsPage.viewGraphPopupHepatitisBTiterLabelValue(map.get("HEPATITISBTITER")), "Failed to identify the graph popup HEPATITIS B TITER label/value");
-			Assert.assertTrue(currentLabsPage.viewGraphPopupHepatitisBTiterGoal(), "Failed to identify the graph popup HEPATITIS B TITER Goal");
-			Assert.assertTrue(currentLabsPage.viewHepatitisBTiterColor(Integer.parseInt(map.get("HEPATITISBTITER")), "P"),
-			        "Failed to identify graph popup HEPATITIS B TITER as the correct color");
-			Assert.assertTrue(currentLabsPage.viewGraphPopupHepatitisBTiterPoint(map.get("HEPATITISBTITER")), "Failed to identify the graph popup HEPATITIS B TITER point");
-			Assert.assertTrue(currentLabsPage.viewGraphPopupHepatitisBTiterDrawDate(drawDateGregorian), "Failed to identify the graph popup HEPATITIS B TITER draw date");
+			Assert.assertTrue(currentLabsPage.viewPhosphorousLabelValue(map.get("PHOSPHOROUS")), "Failed to identify the PHOSPHOROUS label/value");
+			Assert.assertTrue(currentLabsPage.viewPhosphorousGoal(), "Failed to identify the PHOSPHOROUS Goal");
+			Assert.assertTrue(currentLabsPage.viewPhosphorousDrawDate(drawDateGregorian), "Failed to identify the PHOSPHOROUS draw date");
+			Assert.assertTrue(currentLabsPage.viewPhosphorousSource(), "Failed to identify the PHOSPHOROUS Source");
+			Assert.assertTrue(currentLabsPage.viewPhosphorousColor(Double.parseDouble(map.get("PHOSPHOROUS")), "T"), "Failed to identify PHOSPHOROUS as the correct color");
+			Assert.assertTrue(currentLabsPage.viewGraphPopupPhosphorousLabelValue(map.get("PHOSPHOROUS")), "Failed to identify the graph popup PHOSPHOROUS label/value");
+			Assert.assertTrue(currentLabsPage.viewGraphPopupPhosphorousGoal(), "Failed to identify the graph popup PHOSPHOROUS Goal");
+			Assert.assertTrue(currentLabsPage.viewPhosphorousColor(Double.parseDouble(map.get("PHOSPHOROUS")), "P"), "Failed to identify graph popup PHOSPHOROUS as the correct color");
+			Assert.assertTrue(currentLabsPage.viewGraphPopupPhosphorousPoint(map.get("PHOSPHOROUS")), "Failed to identify the graph popup PHOSPHOROUS point");
+			Assert.assertTrue(currentLabsPage.viewGraphPopupPhosphorousDrawDate(drawDateGregorian), "Failed to identify the graph popup PHOSPHOROUS draw date");
 
-			currentLabsPage.clickAddLabButton();
+			currentLabsPage.sendESCKey();
 		}
 
-		if (map.get("FERRITIN") != null)
+		if (map.get("POTASIUM") != null)
 		{
-			Assert.assertTrue(currentLabsPage.viewFerritinLabelValue(map.get("FERRITIN")), "Failed to identify the FERRITIN label/value");
-			Assert.assertTrue(currentLabsPage.viewFerritinGoal(), "Failed to identify the FERRITIN Goal");
-			Assert.assertTrue(currentLabsPage.viewFerritinDrawDate(drawDateGregorian), "Failed to identify the FERRITIN draw date");
-			Assert.assertTrue(currentLabsPage.viewFerritinSource(), "Failed to identify the FERRITIN Source");
-			Assert.assertTrue(currentLabsPage.viewFerritinColor(Integer.parseInt(map.get("FERRITIN")), "T"), "Failed to identify FERRITIN as the correct color");
-			Assert.assertTrue(currentLabsPage.viewGraphPopupFerritinLabelValue(map.get("FERRITIN")), "Failed to identify the graph popup FERRITIN label/value");
-			Assert.assertTrue(currentLabsPage.viewGraphPopupFerritinGoal(), "Failed to identify the graph popup FERRITIN Goal");
-			Assert.assertTrue(currentLabsPage.viewFerritinColor(Integer.parseInt(map.get("FERRITIN")), "P"), "Failed to identify graph popup FERRITIN as the correct color");
-			Assert.assertTrue(currentLabsPage.viewGraphPopupFerritinPoint(map.get("FERRITIN")), "Failed to identify the graph popup FERRITIN point");
-			Assert.assertTrue(currentLabsPage.viewGraphPopupFerritinDrawDate(drawDateGregorian), "Failed to identify the graph popup FERRITIN draw date");
+			Assert.assertTrue(currentLabsPage.viewPotassiumLabelValue(map.get("POTASIUM")), "Failed to identify the POTASIUM label/value");
+			Assert.assertTrue(currentLabsPage.viewPotassiumGoal(), "Failed to identify the POTASIUM Goal");
+			Assert.assertTrue(currentLabsPage.viewPotassiumDrawDate(drawDateGregorian), "Failed to identify the POTASIUM draw date");
+			Assert.assertTrue(currentLabsPage.viewPotassiumSource(), "Failed to identify the POTASIUM Source");
+			Assert.assertTrue(currentLabsPage.viewPotassiumColor(Double.parseDouble(map.get("POTASIUM")), "T"), "Failed to identify POTASIUM as the correct color");
+			Assert.assertTrue(currentLabsPage.viewGraphPopupPotassiumLabelValue(map.get("POTASIUM")), "Failed to identify the graph popup POTASIUM label/value");
+			Assert.assertTrue(currentLabsPage.viewGraphPopupPotassiumGoal(), "Failed to identify the graph popup POTASIUM Goal");
+			Assert.assertTrue(currentLabsPage.viewPotassiumColor(Double.parseDouble(map.get("POTASIUM")), "P"), "Failed to identify graph popup POTASIUM as the correct color");
+			Assert.assertTrue(currentLabsPage.viewGraphPopupPotassiumPoint(map.get("POTASIUM")), "Failed to identify the graph popup POTASIUM point");
+			Assert.assertTrue(currentLabsPage.viewGraphPopupPotassiumDrawDate(drawDateGregorian), "Failed to identify the graph popup POTASIUM draw date");
 
-			currentLabsPage.clickAddLabButton();
+			currentLabsPage.sendESCKey();
 		}
 
 		if (map.get("TSAT") != null)
@@ -721,44 +696,73 @@ public class CurrentLabsTest extends TestBase
 			Assert.assertTrue(currentLabsPage.viewGraphPopupTSATPoint(map.get("TSAT")), "Failed to identify the graph popup TSAT point");
 			Assert.assertTrue(currentLabsPage.viewGraphPopupTSATDrawDate(drawDateGregorian), "Failed to identify the graph popup TSAT draw date");
 
-			currentLabsPage.clickAddLabButton();
+			currentLabsPage.sendESCKey();
 		}
 
-		if (map.get("BLOODPRESSURESYSTOLIC") != null && map.get("CheckValidation").equals("N"))
+		if (map.get("TARGETDRYWEIGHT") != null)
 		{
-			Assert.assertTrue(currentLabsPage.viewBloodPressureSystolicLabelValue(map.get("BLOODPRESSURESYSTOLIC")), "Failed to identify the BLOOD PRESSURE SYSTOLIC label/value");
-			Assert.assertTrue(currentLabsPage.viewBloodPressureSystolicGoal(), "Failed to identify the BLOOD PRESSURE SYSTOLIC Goal");
-			Assert.assertTrue(currentLabsPage.viewBloodPressureSystolicDrawDate(drawDateGregorian), "Failed to identify the BLOOD PRESSURE SYSTOLIC draw date");
-			Assert.assertTrue(currentLabsPage.viewBloodPressureSystolicSource(), "Failed to identify the BLOOD PRESSURE SYSTOLIC Source");
-			Assert.assertTrue(currentLabsPage.viewBloodPressureSystolicColor(Integer.parseInt(map.get("BLOODPRESSURESYSTOLIC")), "T"),
-			        "Failed to identify BLOOD PRESSURE SYSTOLIC as the correct color");
-			Assert.assertTrue(currentLabsPage.viewGraphPopupBloodPressureSystolicLabelValue(map.get("BLOODPRESSURESYSTOLIC")),
-			        "Failed to identify the graph popup BLOOD PRESSURE SYSTOLIC label/value");
-			Assert.assertTrue(currentLabsPage.viewGraphPopupBloodPressureSystolicGoal(), "Failed to identify the graph popup BLOOD PRESSURE SYSTOLIC Goal");
-			Assert.assertTrue(currentLabsPage.viewBloodPressureSystolicColor(Integer.parseInt(map.get("BLOODPRESSURESYSTOLIC")), "P"),
-			        "Failed to identify graph popup BLOOD PRESSURE SYSTOLIC as the correct color");
-			Assert.assertTrue(currentLabsPage.viewGraphPopupBloodPressureSystolicPoint(map.get("BLOODPRESSURESYSTOLIC")), "Failed to identify the graph popup BLOOD PRESSURE SYSTOLIC point");
-			Assert.assertTrue(currentLabsPage.viewGraphPopupBloodPressureSystolicDrawDate(drawDateGregorian), "Failed to identify the graph popup BLOOD PRESSURE SYSTOLIC draw date");
+			Assert.assertTrue(currentLabsPage.viewTargetDryWeightLabelValue(map.get("TARGETDRYWEIGHT")), "Failed to identify the TARGET DRY WEIGHT label/value");
+			Assert.assertTrue(currentLabsPage.viewTargetDryWeightDrawDate(drawDateGregorian), "Failed to identify the TARGET DRY WEIGHT draw date");
+			Assert.assertTrue(currentLabsPage.viewTargetDryWeightSource(), "Failed to identify the TARGET DRY WEIGHT Source");
+			Assert.assertTrue(currentLabsPage.viewTargetDryWeightColor("T"), "Failed to identify TARGET DRY WEIGHT as the correct color");
+			Assert.assertTrue(currentLabsPage.viewGraphPopupTargetDryWeightLabelValue(map.get("TARGETDRYWEIGHT")), "Failed to identify the graph popup TARGETDRYWEIGHT label/value");
+			Assert.assertTrue(currentLabsPage.viewTargetDryWeightColor("P"), "Failed to identify graph popup TARGET DRY WEIGHT as the correct color");
+			Assert.assertTrue(currentLabsPage.viewGraphPopupTargetDryWeightPoint(map.get("TARGETDRYWEIGHT")), "Failed to identify the graph popup TARGET DRY WEIGHT point");
+			Assert.assertTrue(currentLabsPage.viewGraphPopupTargetDryWeightDrawDate(drawDateGregorian), "Failed to identify the graph popup TARGET DRY WEIGHT draw date");
 
-			currentLabsPage.clickAddLabButton();
+			currentLabsPage.sendESCKey();
 		}
 
-		if (map.get("BLOODPRESSUREDIASTOLIC") != null && map.get("CheckValidation").equals("N"))
+		if (map.get("URR") != null && map.get("PatientType").equals("ESRD"))
 		{
-			Assert.assertTrue(currentLabsPage.viewBloodPressureDiastolicLabelValue(map.get("BLOODPRESSUREDIASTOLIC")), "Failed to identify the BLOOD PRESSURE DIASTOLIC label/value");
-			Assert.assertTrue(currentLabsPage.viewBloodPressureDiastolicGoal(), "Failed to identify the BLOOD PRESSURE DIASTOLIC Goal");
-			Assert.assertTrue(currentLabsPage.viewBloodPressureDiastolicDrawDate(drawDateGregorian), "Failed to identify the BLOOD PRESSURE DIASTOLIC draw date");
-			Assert.assertTrue(currentLabsPage.viewBloodPressureDiastolicSource(), "Failed to identify the BLOOD PRESSURE DIASTOLIC Source");
-			Assert.assertTrue(currentLabsPage.viewBloodPressureDiastolicColor(Integer.parseInt(map.get("BLOODPRESSUREDIASTOLIC")), "T"),
-			        "Failed to identify BLOOD PRESSURE DIASTOLIC as the correct color");
-			Assert.assertTrue(currentLabsPage.viewGraphPopupBloodPressureDiastolicLabelValue(map.get("BLOODPRESSUREDIASTOLIC")),
-			        "Failed to identify the graph popup BLOOD PRESSURE DIASTOLIC label/value");
-			Assert.assertTrue(currentLabsPage.viewGraphPopupBloodPressureDiastolicGoal(), "Failed to identify the graph popup BLOOD PRESSURE DIASTOLIC Goal");
-			Assert.assertTrue(currentLabsPage.viewBloodPressureDiastolicColor(Integer.parseInt(map.get("BLOODPRESSUREDIASTOLIC")), "P"),
-			        "Failed to identify graph popup BLOOD PRESSURE DIASTOLIC as the correct color");
-			Assert.assertTrue(currentLabsPage.viewGraphPopupBloodPressureDiastolicPoint(map.get("BLOODPRESSUREDIASTOLIC")),
-			        "Failed to identify the graph popup BLOOD PRESSURE DIASTOLIC point");
-			Assert.assertTrue(currentLabsPage.viewGraphPopupBloodPressureDiastolicDrawDate(drawDateGregorian), "Failed to identify the graph popup BLOOD PRESSURE DIASTOLIC draw date");
+			Assert.assertTrue(currentLabsPage.viewURRLabelValue(map.get("URR")), "Failed to identify the URR label/value");
+			Assert.assertTrue(currentLabsPage.viewURRGoal(), "Failed to identify the URR Goal");
+			Assert.assertTrue(currentLabsPage.viewURRDrawDate(drawDateGregorian), "Failed to identify the URR draw date");
+			Assert.assertTrue(currentLabsPage.viewURRSource(), "Failed to identify the URR Source");
+			Assert.assertTrue(currentLabsPage.viewURRColor(Integer.parseInt(map.get("URR")), "T"), "Failed to identify URR as the correct color");
+			Assert.assertTrue(currentLabsPage.viewGraphPopupURRLabelValue(map.get("URR")), "Failed to identify the graph popup URR label/value");
+			Assert.assertTrue(currentLabsPage.viewGraphPopupURRGoal(), "Failed to identify the graph popup URR Goal");
+			Assert.assertTrue(currentLabsPage.viewURRColor(Integer.parseInt(map.get("URR")), "P"), "Failed to identify graph popup URR as the correct color");
+			Assert.assertTrue(currentLabsPage.viewGraphPopupURRPoint(map.get("URR")), "Failed to identify the graph popup URR point");
+			Assert.assertTrue(currentLabsPage.viewGraphPopupURRDrawDate(drawDateGregorian), "Failed to identify the graph popup URR draw date");
+
+			currentLabsPage.sendESCKey();
+		}
+
+		if (map.get("URINEALBUMINCREATININERATIO") != null && map.get("PatientType").equals("CKD"))
+		{
+			Assert.assertTrue(currentLabsPage.viewUrineAlbuminCreatinineRatioLabelValue(map.get("URINEALBUMINCREATININERATIO")),
+			        "Failed to identify the URINE ALBUMIN CREATININE RATIO label/value");
+			Assert.assertTrue(currentLabsPage.viewUrineAlbuminCreatinineRatioGoal(), "Failed to identify the URINE ALBUMIN/CREATININE RATIO Goal");
+			Assert.assertTrue(currentLabsPage.viewUrineAlbuminCreatinineRatioDrawDate(drawDateGregorian), "Failed to identify the URINE ALBUMIN/CREATININE RATIO draw date");
+			Assert.assertTrue(currentLabsPage.viewUrineAlbuminCreatinineRatioSource(), "Failed to identify the URINE ALBUMIN/CREATININE RATIO Source");
+			Assert.assertTrue(currentLabsPage.viewUrineAlbuminCreatinineRatioColor(Integer.parseInt(map.get("URINEALBUMINCREATININERATIO")), "T"),
+			        "Failed to identify URINE ALBUMIN/CREATININE RATIO as the correct color");
+			Assert.assertTrue(currentLabsPage.viewGraphPopupUrineAlbuminCreatinineRatioLabelValue(map.get("URINEALBUMINCREATININERATIO")),
+			        "Failed to identify the graph popup URINE ALBUMIN/CREATININE RATIO label/value");
+			Assert.assertTrue(currentLabsPage.viewGraphPopupUrineAlbuminCreatinineRatioGoal(), "Failed to identify the graph popup URINE ALBUMIN/CREATININE RATIO Goal");
+			Assert.assertTrue(currentLabsPage.viewUrineAlbuminCreatinineRatioColor(Integer.parseInt(map.get("URINEALBUMINCREATININERATIO")), "P"),
+			        "Failed to identify graph popup URINE ALBUMIN/CREATININE RATIO as the correct color");
+			Assert.assertTrue(currentLabsPage.viewGraphPopupUrineAlbuminCreatinineRatioPoint(map.get("URINEALBUMINCREATININERATIO")),
+			        "Failed to identify the graph popup URINE ALBUMIN/CREATININE RATIO point");
+			Assert.assertTrue(currentLabsPage.viewGraphPopupUrineAlbuminCreatinineRatioDrawDate(drawDateGregorian),
+			        "Failed to identify the graph popup URINE ALBUMIN/CREATININE RATIO draw date");
+
+			currentLabsPage.sendESCKey();
+		}
+
+		if (map.get("WEIGHT") != null)
+		{
+			Assert.assertTrue(currentLabsPage.viewWeightLabelValue(map.get("WEIGHT")), "Failed to identify the WEIGHT label/value");
+			Assert.assertTrue(currentLabsPage.viewWeightDrawDate(drawDateGregorian), "Failed to identify the WEIGHT draw date");
+			Assert.assertTrue(currentLabsPage.viewWeightSource(), "Failed to identify the WEIGHT Source");
+			Assert.assertTrue(currentLabsPage.viewWeightColor("T"), "Failed to identify WEIGHT as the correct color");
+			Assert.assertTrue(currentLabsPage.viewGraphPopupWeightLabelValue(map.get("WEIGHT")), "Failed to identify the graph popup WEIGHT label/value");
+			Assert.assertTrue(currentLabsPage.viewWeightColor("P"), "Failed to identify graph popup WEIGHT as the correct color");
+			Assert.assertTrue(currentLabsPage.viewGraphPopupWeightPoint(map.get("WEIGHT")), "Failed to identify the graph popup WEIGHT point");
+			Assert.assertTrue(currentLabsPage.viewGraphPopupWeightDrawDate(drawDateGregorian), "Failed to identify the graph popup WEIGHT draw date");
+
+			currentLabsPage.sendESCKey();
 		}
 	}
 

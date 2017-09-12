@@ -1,5 +1,6 @@
 package com.vh.ui.tests;
 
+import java.awt.AWTException;
 import java.util.Map;
 
 import org.openqa.selenium.TimeoutException;
@@ -43,7 +44,8 @@ public class PerformanceTest extends TestBase {
 	}
 	
 	@Test(dataProvider = "CapellaDataProvider")
-	public void performanceTest(Map<String, String> map) throws TimeoutException, WaitException, InterruptedException {
+	public void performanceTest(Map<String, String> map) throws TimeoutException, WaitException, InterruptedException, AWTException
+	{
 		
 		//open patient
 		appFunctions.selectPatientFromMyPatients(map.get("PatientName"));
