@@ -29,10 +29,8 @@ import ru.yandex.qatools.allure.annotations.Step;
  * 1. Change the "username" and "password" parameters in the "resources\application.properties" file to your own
  * 2. Clear your browser's cache
  * 3. You will need a CKD and an ESRD Patient
- * 4. It's not required, but it would be a good idea to delete all existing Labs from table PTLB_PATIENT_LABS for your Patients
  * Note: KT/V & URR are invalid for a CKD Patient
  * Note: URINE ALBUMIN/CREATININE RATIO is invalid for an ESRD Patient
- * Note: All checks for KT/V Goals are currently commented out
  */
 
 public class CurrentLabsTest extends TestBase
@@ -599,13 +597,13 @@ public class CurrentLabsTest extends TestBase
 		if (map.get("KTV") != null && map.get("PatientType").equals("ESRD"))
 		{
 			Assert.assertTrue(currentLabsPage.viewKTVLabelValue(map.get("KTV")), "Failed to identify the KT/V label/value");
-			// Assert.assertTrue(currentLabsPage.viewKTVGoal1(), "Failed to identify the KT/V Goal 1");
-			// Assert.assertTrue(currentLabsPage.viewKTVGoal2(), "Failed to identify the KT/V Goal 2");
+			Assert.assertTrue(currentLabsPage.viewKTVGoal1(), "Failed to identify the KT/V Goal 1");
+			Assert.assertTrue(currentLabsPage.viewKTVGoal2(), "Failed to identify the KT/V Goal 2");
 			Assert.assertTrue(currentLabsPage.viewKTVDrawDate(drawDateGregorian), "Failed to identify the KT/V draw date");
 			Assert.assertTrue(currentLabsPage.viewKTVSource(), "Failed to identify the KT/V Source");
 			Assert.assertTrue(currentLabsPage.viewKTVColor(Double.parseDouble(map.get("KTV")), "T"), "Failed to identify KTV as the correct color");
 			Assert.assertTrue(currentLabsPage.viewGraphPopupKTVLabelValue(map.get("KTV")), "Failed to identify the graph popup KTV label/value");
-			// Assert.assertTrue(currentLabsPage.viewGraphPopupKTVGoal(), "Failed to identify the graph popup KTV Goal");
+			Assert.assertTrue(currentLabsPage.viewGraphPopupKTVGoal(), "Failed to identify the graph popup KTV Goal");
 			Assert.assertTrue(currentLabsPage.viewKTVColor(Double.parseDouble(map.get("KTV")), "P"), "Failed to identify graph popup KTV as the correct color");
 			Assert.assertTrue(currentLabsPage.viewGraphPopupKTVPoint(map.get("KTV")), "Failed to identify the graph popup KTV point");
 			Assert.assertTrue(currentLabsPage.viewGraphPopupKTVDrawDate(drawDateGregorian), "Failed to identify the graph popup KTV draw date");
