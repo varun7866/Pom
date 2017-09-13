@@ -145,8 +145,8 @@ public class CurrentLabsTest extends TestBase
 
 		Assert.assertTrue(currentLabsPage.viewAddpopupKTVLabel(), "Failed to identify the Add Lab Results popup KT/V label");
 		Assert.assertTrue(currentLabsPage.viewAddpopupKTVTextBox(), "Failed to identify the Add Lab Results popup KT/V text box");
-		// Assert.assertTrue(currentLabsPage.viewAddpopupKTVGoal1(), "Failed to identify the Add Lab Results popup KT/V Goal 1");
-		// Assert.assertTrue(currentLabsPage.viewAddpopupKTVGoal2(), "Failed to identify the Add Lab Results popup KT/V Goal 2");
+		Assert.assertTrue(currentLabsPage.viewAddpopupKTVGoal1(), "Failed to identify the Add Lab Results popup KT/V Goal 1");
+		Assert.assertTrue(currentLabsPage.viewAddpopupKTVGoal2(), "Failed to identify the Add Lab Results popup KT/V Goal 2");
 
 		Assert.assertTrue(currentLabsPage.viewAddpopupLDLLabel(), "Failed to identify the Add Lab Results popup LDL label");
 		Assert.assertTrue(currentLabsPage.viewAddpopupLDLTextBox(), "Failed to identify the Add Lab Results popup LDL text box");
@@ -266,8 +266,8 @@ public class CurrentLabsTest extends TestBase
 
 		Assert.assertTrue(currentLabsPage.viewAddpopupKTVLabel(), "Failed to identify the Add Lab Results popup KT/V label");
 		Assert.assertTrue(currentLabsPage.viewAddpopupKTVTextBox(), "Failed to identify the Add Lab Results popup KT/V text box");
-		// Assert.assertTrue(currentLabsPage.viewAddpopupKTVGoal1(), "Failed to identify the Add Lab Results popup KT/V Goal 1");
-		// Assert.assertTrue(currentLabsPage.viewAddpopupKTVGoal2(), "Failed to identify the Add Lab Results popup KT/V Goal 2");
+		Assert.assertTrue(currentLabsPage.viewAddpopupKTVGoal1(), "Failed to identify the Add Lab Results popup KT/V Goal 1");
+		Assert.assertTrue(currentLabsPage.viewAddpopupKTVGoal2(), "Failed to identify the Add Lab Results popup KT/V Goal 2");
 
 		Assert.assertTrue(currentLabsPage.viewAddpopupLDLLabel(), "Failed to identify the Add Lab Results popup LDL label");
 		Assert.assertTrue(currentLabsPage.viewAddpopupLDLTextBox(), "Failed to identify the Add Lab Results popup LDL text box");

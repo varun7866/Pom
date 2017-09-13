@@ -28,8 +28,8 @@ public class CurrentLabsLocators
 	public static final By LBL_ADDPOPUPLDLGOAL = By.xpath("//span[text()='LDL']/../../../div[3]/div/div/span[text()='Goal: CKD between 0 and 99']");
 	public static final By LBL_ADDPOPUPALBUMINGOAL = By.xpath("//span[text()='Albumin']/../../../div[3]/div/div/span[text()='Goal: Between 4 and 7']");
 	public static final By LBL_ADDPOPUPCO2LEVELGOAL = By.xpath("//span[text()='Co2 Level']/../../../div[3]/div/div/span[text()='Goal: Between 20 and 30']");
-	public static final By LBL_ADDPOPUPKTVGOAL1 = By.xpath("//span[text()='KT/V']/../../../div[3]/div/div/span[text()='HD: greater than or equal to 1.2']");
-	public static final By LBL_ADDPOPUPKTVGOAL2 = By.xpath("//span[text()='KT/V']/../../../div[3]/div/div/span[text()=' PD: between 1.7 and 2.3']");
+	public static final By LBL_ADDPOPUPKTVGOAL1 = By.xpath("//span[text()='KT/V']/../../../div[3]/div/div/span[text()='Goals: ESRD between 1.2 and 3']");
+	public static final By LBL_ADDPOPUPKTVGOAL2 = By.xpath("//span[text()='KT/V']/../../../div[3]/div/div/span[text()=' ESRD between 1.7 and 2.3']");
 	public static final By LBL_ADDPOPUPPOTASSIUMGOAL = By.xpath("//span[text()='Potassium']/../../../div[3]/div/div/span[text()='Goal: Between 3.5 and 5.5']");
 	public static final By LBL_ADDPOPUPHEPATITISBTITERGOAL = By.xpath("//span[text()='Hepatitis B Titer']/../../../div[3]/div/div/span[text()='Goal: Between 10 and 100']");
 	public static final By LBL_ADDPOPUPTSATGOAL = By.xpath("//span[text()='TSAT']/../../../div[3]/div/div/span[text()='Goal: Between 20 and 100']");
