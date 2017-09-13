@@ -480,10 +480,12 @@ public class CurrentLabsTest extends TestBase
 			Assert.assertTrue(currentLabsPage.viewCreatinineGoal(), "Failed to identify the CREATININE Goal");
 			Assert.assertTrue(currentLabsPage.viewCreatinineDrawDate(drawDateGregorian), "Failed to identify the CREATININE draw date");
 			Assert.assertTrue(currentLabsPage.viewCreatinineSource(), "Failed to identify the CREATININE Source");
-			Assert.assertTrue(currentLabsPage.viewCreatinineColor(Double.parseDouble(map.get("CREATININE")), "T"), "Failed to identify CREATININE as the correct color");
+			Assert.assertTrue(currentLabsPage.viewCreatinineColor(map.get("PatientType"), Double.parseDouble(map.get("CREATININE")), "T"),
+			        "Failed to identify CREATININE as the correct color");
 			Assert.assertTrue(currentLabsPage.viewGraphPopupCreatinineLabelValue(map.get("CREATININE")), "Failed to identify the graph popup CREATININE label/value");
 			Assert.assertTrue(currentLabsPage.viewGraphPopupCreatinineGoal(), "Failed to identify the graph popup CREATININE Goal");
-			Assert.assertTrue(currentLabsPage.viewCreatinineColor(Double.parseDouble(map.get("CREATININE")), "P"), "Failed to identify graph popup CREATININE as the correct color");
+			Assert.assertTrue(currentLabsPage.viewCreatinineColor(map.get("PatientType"), Double.parseDouble(map.get("CREATININE")), "P"),
+			        "Failed to identify graph popup CREATININE as the correct color");
 			Assert.assertTrue(currentLabsPage.viewGraphPopupCreatininePoint(map.get("CREATININE")), "Failed to identify the graph popup CREATININE point");
 			Assert.assertTrue(currentLabsPage.viewGraphPopupCreatinineDrawDate(drawDateGregorian), "Failed to identify the graph popup CREATININE draw date");
 
@@ -521,10 +523,10 @@ public class CurrentLabsTest extends TestBase
 			Assert.assertTrue(currentLabsPage.viewGFRGoal(), "Failed to identify the GFR Goal");
 			Assert.assertTrue(currentLabsPage.viewGFRDrawDate(drawDateGregorian), "Failed to identify the GFR draw date");
 			Assert.assertTrue(currentLabsPage.viewGFRSource(), "Failed to identify the GFR Source");
-			Assert.assertTrue(currentLabsPage.viewGFRColor(Integer.parseInt(map.get("GFR")), "T"), "Failed to identify GFR as the correct color");
+			Assert.assertTrue(currentLabsPage.viewGFRColor(map.get("PatientType"), Integer.parseInt(map.get("GFR")), "T"), "Failed to identify GFR as the correct color");
 			Assert.assertTrue(currentLabsPage.viewGraphPopupGFRLabelValue(map.get("GFR")), "Failed to identify the graph popup GFR label/value");
 			Assert.assertTrue(currentLabsPage.viewGraphPopupGFRGoal(), "Failed to identify the graph popup GFR Goal");
-			Assert.assertTrue(currentLabsPage.viewGFRColor(Integer.parseInt(map.get("GFR")), "P"), "Failed to identify graph popup GFR as the correct color");
+			Assert.assertTrue(currentLabsPage.viewGFRColor(map.get("PatientType"), Integer.parseInt(map.get("GFR")), "P"), "Failed to identify graph popup GFR as the correct color");
 			Assert.assertTrue(currentLabsPage.viewGraphPopupGFRPoint(map.get("GFR")), "Failed to identify the graph popup GFR point");
 			Assert.assertTrue(currentLabsPage.viewGraphPopupGFRDrawDate(drawDateGregorian), "Failed to identify the graph popup GFR draw date");
 
@@ -617,10 +619,10 @@ public class CurrentLabsTest extends TestBase
 			Assert.assertTrue(currentLabsPage.viewLDLGoal(), "Failed to identify the LDL Goal");
 			Assert.assertTrue(currentLabsPage.viewLDLDrawDate(drawDateGregorian), "Failed to identify the LDL draw date");
 			Assert.assertTrue(currentLabsPage.viewLDLSource(), "Failed to identify the LDL Source");
-			Assert.assertTrue(currentLabsPage.viewLDLColor(Integer.parseInt(map.get("LDL")), "T"), "Failed to identify LDL as the correct color");
+			Assert.assertTrue(currentLabsPage.viewLDLColor(map.get("PatientType"), Integer.parseInt(map.get("LDL")), "T"), "Failed to identify LDL as the correct color");
 			Assert.assertTrue(currentLabsPage.viewGraphPopupLDLLabelValue(map.get("LDL")), "Failed to identify the graph popup LDL label/value");
 			Assert.assertTrue(currentLabsPage.viewGraphPopupLDLGoal(), "Failed to identify the graph popup LDL Goal");
-			Assert.assertTrue(currentLabsPage.viewLDLColor(Integer.parseInt(map.get("LDL")), "P"), "Failed to identify graph popup LDL as the correct color");
+			Assert.assertTrue(currentLabsPage.viewLDLColor(map.get("PatientType"), Integer.parseInt(map.get("LDL")), "P"), "Failed to identify graph popup LDL as the correct color");
 			Assert.assertTrue(currentLabsPage.viewGraphPopupLDLPoint(map.get("LDL")), "Failed to identify the graph popup LDL point");
 			Assert.assertTrue(currentLabsPage.viewGraphPopupLDLDrawDate(drawDateGregorian), "Failed to identify the graph popup LDL draw date");
 

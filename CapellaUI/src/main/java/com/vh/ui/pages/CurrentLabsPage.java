@@ -1596,7 +1596,7 @@ public class CurrentLabsPage extends WebPage
 	}
 
 	@Step("Verify the color of the CREATININE label/value")
-	public boolean viewCreatinineColor(Double labValue, String location) throws TimeoutException, WaitException
+	public boolean viewCreatinineColor(String patientType, Double labValue, String location) throws TimeoutException, WaitException
 	{
 		String classAttributeValue = "";
 
@@ -1610,24 +1610,36 @@ public class CurrentLabsPage extends WebPage
 				classAttributeValue = webActions.getAttributeValue(VISIBILITY, LBL_GRAPHPOPUPCREATININECOLOR, "class");
 			}
 		}
-
-		if (labValue < .7 || labValue > 1.5) // If out of range
+		
+		if (patientType.equals("ESRD"))
 		{
-			if (classAttributeValue.contains("redtext"))
+			if (classAttributeValue.contains("greytext"))
 			{
 				return true;
 			} else
 			{
 				return false;
 			}
-		} else // In range
+		} else
 		{
-			if (classAttributeValue.contains("greentext"))
+			if (labValue < .7 || labValue > 1.5) // If out of range
 			{
-				return true;
-			} else
+				if (classAttributeValue.contains("redtext"))
+				{
+					return true;
+				} else
+				{
+					return false;
+				}
+			} else // In range
 			{
-				return false;
+				if (classAttributeValue.contains("greentext"))
+				{
+					return true;
+				} else
+				{
+					return false;
+				}
 			}
 		}
 	}
@@ -1693,7 +1705,7 @@ public class CurrentLabsPage extends WebPage
 	}
 
 	@Step("Verify the color of the GFR label/value")
-	public boolean viewGFRColor(int labValue, String location) throws TimeoutException, WaitException
+	public boolean viewGFRColor(String patientType, int labValue, String location) throws TimeoutException, WaitException
 	{
 		String classAttributeValue = "";
 
@@ -1708,23 +1720,35 @@ public class CurrentLabsPage extends WebPage
 			}
 		}
 
-		if (labValue < 30 || labValue > 125) // If out of range
+		if (patientType.equals("ESRD"))
 		{
-			if (classAttributeValue.contains("redtext"))
+			if (classAttributeValue.contains("greytext"))
 			{
 				return true;
 			} else
 			{
 				return false;
 			}
-		} else // In range
+		} else
 		{
-			if (classAttributeValue.contains("greentext"))
+			if (labValue < 30 || labValue > 125) // If out of range
 			{
-				return true;
-			} else
+				if (classAttributeValue.contains("redtext"))
+				{
+					return true;
+				} else
+				{
+					return false;
+				}
+			} else // In range
 			{
-				return false;
+				if (classAttributeValue.contains("greentext"))
+				{
+					return true;
+				} else
+				{
+					return false;
+				}
 			}
 		}
 	}
@@ -1887,7 +1911,7 @@ public class CurrentLabsPage extends WebPage
 	}
 
 	@Step("Verify the color of the LDL label/value")
-	public boolean viewLDLColor(int labValue, String location) throws TimeoutException, WaitException
+	public boolean viewLDLColor(String patientType, int labValue, String location) throws TimeoutException, WaitException
 	{
 		String classAttributeValue = "";
 
@@ -1902,23 +1926,35 @@ public class CurrentLabsPage extends WebPage
 			}
 		}
 
-		if (labValue < 0 || labValue > 99) // If out of range
+		if (patientType.equals("ESRD"))
 		{
-			if (classAttributeValue.contains("redtext"))
+			if (classAttributeValue.contains("greytext"))
 			{
 				return true;
 			} else
 			{
 				return false;
 			}
-		} else // In range
+		} else
 		{
-			if (classAttributeValue.contains("greentext"))
+			if (labValue < 0 || labValue > 99) // If out of range
 			{
-				return true;
-			} else
+				if (classAttributeValue.contains("redtext"))
+				{
+					return true;
+				} else
+				{
+					return false;
+				}
+			} else // In range
 			{
-				return false;
+				if (classAttributeValue.contains("greentext"))
+			{
+					return true;
+				} else
+				{
+					return false;
+				}
 			}
 		}
 	}
