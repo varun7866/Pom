@@ -5,6 +5,7 @@ import static com.vh.ui.web.locators.CurrentLabsLocators.*;
 import java.awt.AWTException;
 import java.awt.Robot;
 import java.awt.event.KeyEvent;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
@@ -32,6 +33,7 @@ public class CurrentLabsPage extends WebPage
 {
 	ApplicationFunctions appFunctions;
 	Robot r;
+	String memberUID;
 
 	public CurrentLabsPage(WebDriver driver) throws WaitException, AWTException
 	{
@@ -44,7 +46,7 @@ public class CurrentLabsPage extends WebPage
 	@Step("Delete all Current Labs for the given Patient")
 	public void deleteCurrentLabsDatabase(String memberID) throws TimeoutException, WaitException, SQLException
 	{
-		String memberUID = appFunctions.getMemberUIDFromMemberID(memberID);
+		memberUID = appFunctions.getMemberUIDFromMemberID(memberID);
 
 		final String SQL_DELETE_PTLB_PATIENT_LABS = "DELETE PTLB_PATIENT_LABS WHERE PTLB_MEM_UID = '" + memberUID + "'";
 		appFunctions.queryDatabase(SQL_DELETE_PTLB_PATIENT_LABS);
@@ -2470,7 +2472,7 @@ public class CurrentLabsPage extends WebPage
 	}
 
 	@Step("Verify the color of the KT/V label/value")
-	public boolean viewKTVColor(Double labValue, String location) throws TimeoutException, WaitException
+	public boolean viewKTVColor(Double labValue, String location) throws TimeoutException, WaitException, SQLException
 	{
 		String classAttributeValue = "";
 
@@ -2485,25 +2487,63 @@ public class CurrentLabsPage extends WebPage
 			}
 		}
 
-		if (labValue < 1.2 || labValue > 3) // If out of range
+		final String SQL_SELECT_M2PROD_MRX_MEM_PRESCRIPTION = "SELECT MRX_DIALYSIS_SHIFT FROM M2PROD.MRX_MEM_PRESCRIPTION WHERE MRX_MEM_UID = '" + memberUID + "'";
+		ResultSet queryResultSet = appFunctions.queryDatabase(SQL_SELECT_M2PROD_MRX_MEM_PRESCRIPTION);
+
+		queryResultSet.next();
+		
+		if (queryResultSet.getString("MRX_DIALYSIS_SHIFT").equals("H")) // If Hemo Dialysis
 		{
-			if (classAttributeValue.contains("redtext"))
+			appFunctions.closeDatabaseConnection();
+
+			if (labValue < 1.2 || labValue > 3) // If out of range for Hemo Dialysis
 			{
-				return true;
-			} else
+				if (classAttributeValue.contains("redtext"))
+				{
+					return true;
+				} else
+				{
+					return false;
+				}
+			} else // In range for Hemo Dialysis
 			{
-				return false;
+				if (classAttributeValue.contains("greentext"))
+				{
+					return true;
+				} else
+				{
+					return false;
+				}
 			}
-		} else // In range
+		} else
 		{
-			if (classAttributeValue.contains("greentext"))
+			if (queryResultSet.getString("MRX_DIALYSIS_SHIFT").equals("P")) // If Peritoneal Dialysis
 			{
-				return true;
-			} else
-			{
-				return false;
+				appFunctions.closeDatabaseConnection();
+
+				if (labValue < 1.7 || labValue > 2.3) // If out of range for Peritoneal Dialysis
+				{
+					if (classAttributeValue.contains("redtext"))
+					{
+						return true;
+					} else
+					{
+						return false;
+					}
+				} else // In range for Peritoneal Dialysis
+				{
+					if (classAttributeValue.contains("greentext"))
+					{
+						return true;
+					} else
+					{
+						return false;
+					}
+				}
 			}
 		}
+
+		return false;
 	}
 
 	@Step("Verify the visibility of the graph popup KT/V Label/Value")

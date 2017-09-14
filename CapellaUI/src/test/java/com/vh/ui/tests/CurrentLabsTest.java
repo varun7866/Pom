@@ -306,7 +306,7 @@ public class CurrentLabsTest extends TestBase
 
 	@Test(priority = 4, dataProvider = "CapellaDataProvider")
 	@Step("Verify Aading Labs with different scenarios")
-	public void verify_AddingLabs(Map<String, String> map) throws WaitException, URLNavigationException, InterruptedException
+	public void verify_AddingLabs(Map<String, String> map) throws WaitException, URLNavigationException, InterruptedException, TimeoutException, NumberFormatException, SQLException
 	{
 		appFunctions.selectPatientFromMyPatients(map.get("PatientName"));
 
