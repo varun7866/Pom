@@ -101,10 +101,6 @@ public class CurrentLabsTest extends TestBase
 		Assert.assertTrue(currentLabsPage.viewAddpopupCalciumGoal1(), "Failed to identify the Add Lab Results popup CALCIUM Goal 1");
 		Assert.assertTrue(currentLabsPage.viewAddpopupCalciumGoal2(), "Failed to identify the Add Lab Results popup CALCIUM Goal 2");
 
-		Assert.assertTrue(currentLabsPage.viewAddpopupCalciumXPhosphorousLabel(), "Failed to identify the Add Lab Results popup CALCIUM X PHOSPHOROUS label");
-		Assert.assertTrue(currentLabsPage.viewAddpopupCalciumXPhosphorousTextBox(), "Failed to identify the Add Lab Results popup CALCIUM X PHOSPHOROUS text box");
-		Assert.assertTrue(currentLabsPage.viewAddpopupCalciumXPhosphorousGoal(), "Failed to identify the Add Lab Results popup CALCIUM X PHOSPHOROUS Goal");
-
 		Assert.assertTrue(currentLabsPage.viewAddpopupCo2LevelLabel(), "Failed to identify the Add Lab Results popup CO2 LEVEL label");
 		Assert.assertTrue(currentLabsPage.viewAddpopupCo2LevelTextBox(), "Failed to identify the Add Lab Results popup CO2 LEVEL text box");
 		Assert.assertTrue(currentLabsPage.viewAddpopupCo2LevelGoal(), "Failed to identify the Add Lab Results popup CO2 LEVEL Goal");
@@ -227,10 +223,6 @@ public class CurrentLabsTest extends TestBase
 		Assert.assertTrue(currentLabsPage.viewAddpopupCalciumTextBox(), "Failed to identify the Add Lab Results popup CALCIUM text box");
 		Assert.assertTrue(currentLabsPage.viewAddpopupCalciumGoal1(), "Failed to identify the Add Lab Results popup CALCIUM Goal 1");
 		Assert.assertTrue(currentLabsPage.viewAddpopupCalciumGoal2(), "Failed to identify the Add Lab Results popup CALCIUM Goal 2");
-
-		Assert.assertTrue(currentLabsPage.viewAddpopupCalciumXPhosphorousLabel(), "Failed to identify the Add Lab Results popup CALCIUM X PHOSPHOROUS label");
-		Assert.assertTrue(currentLabsPage.viewAddpopupCalciumXPhosphorousTextBox(), "Failed to identify the Add Lab Results popup CALCIUM X PHOSPHOROUS text box");
-		Assert.assertTrue(currentLabsPage.viewAddpopupCalciumXPhosphorousGoal(), "Failed to identify the Add Lab Results popup CALCIUM X PHOSPHOROUS Goal");
 
 		Assert.assertTrue(currentLabsPage.viewAddpopupCo2LevelLabel(), "Failed to identify the Add Lab Results popup CO2 LEVEL label");
 		Assert.assertTrue(currentLabsPage.viewAddpopupCo2LevelTextBox(), "Failed to identify the Add Lab Results popup CO2 LEVEL text box");
@@ -435,25 +427,6 @@ public class CurrentLabsTest extends TestBase
 			        "Failed to identify graph popup CALCIUM as the correct color");
 			Assert.assertTrue(currentLabsPage.viewGraphPopupCalciumPoint(map.get("CALCIUM")), "Failed to identify the graph popup CALCIUM point");
 			Assert.assertTrue(currentLabsPage.viewGraphPopupCalciumDrawDate(drawDateGregorian), "Failed to identify the graph popup CALCIUM draw date");
-
-			currentLabsPage.sendESCKey();
-		}
-
-		if (map.get("CALCIUMXPHOSPHOROUS") != null)
-		{
-			Assert.assertTrue(currentLabsPage.viewCalciumXPhosphorousLabelValue(map.get("CALCIUMXPHOSPHOROUS")), "Failed to identify the CALCIUM X PHOSPHOROUS label/value");
-			Assert.assertTrue(currentLabsPage.viewCalciumXPhosphorousGoal(), "Failed to identify the CALCIUM X PHOSPHOROUS Goal");
-			Assert.assertTrue(currentLabsPage.viewCalciumXPhosphorousDrawDate(drawDateGregorian), "Failed to identify the CALCIUM X PHOSPHOROUS draw date");
-			Assert.assertTrue(currentLabsPage.viewCalciumXPhosphorousSource(), "Failed to identify the CALCIUM X PHOSPHOROUS Source");
-			Assert.assertTrue(currentLabsPage.viewCalciumXPhosphorousColor(Integer.parseInt(map.get("CALCIUMXPHOSPHOROUS")), "T"),
-			        "Failed to identify CALCIUM X PHOSPHOROUS as the correct color");
-			Assert.assertTrue(currentLabsPage.viewGraphPopupCalciumXPhosphorousLabelValue(map.get("CALCIUMXPHOSPHOROUS")),
-			        "Failed to identify the graph popup CALCIUM X PHOSPHOROUS label/value");
-			Assert.assertTrue(currentLabsPage.viewGraphPopupCalciumXPhosphorousGoal(), "Failed to identify the graph popup CALCIUM X PHOSPHOROUS Goal");
-			Assert.assertTrue(currentLabsPage.viewCalciumXPhosphorousColor(Integer.parseInt(map.get("CALCIUMXPHOSPHOROUS")), "P"),
-			        "Failed to identify graph popup CALCIUM X PHOSPHOROUS as the correct color");
-			Assert.assertTrue(currentLabsPage.viewGraphPopupCalciumXPhosphorousPoint(map.get("CALCIUMXPHOSPHOROUS")), "Failed to identify the graph popup CALCIUM X PHOSPHOROUS point");
-			Assert.assertTrue(currentLabsPage.viewGraphPopupCalciumXPhosphorousDrawDate(drawDateGregorian), "Failed to identify the graph popup CALCIUM X PHOSPHOROUS draw date");
 
 			currentLabsPage.sendESCKey();
 		}

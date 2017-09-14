@@ -410,25 +410,7 @@ public class CurrentLabsPage extends WebPage
 	public boolean viewAddpopupWeightPlaceholder() throws TimeoutException, WaitException
 	{
 		return webActions.getVisibiltyOfElementLocatedBy(VISIBILITY, PLH_ADDPOPUPWEIGHT);
-	}
-
-	@Step("Verify the visibility of the Add Lab Results popup CALCIUM X PHOSPHOROUS label")
-	public boolean viewAddpopupCalciumXPhosphorousLabel() throws TimeoutException, WaitException
-	{
-		return webActions.getVisibiltyOfElementLocatedBy(VISIBILITY, LBL_ADDPOPUPCALCIUMXPHOSPHOROUS);
-	}
-
-	@Step("Verify the visibility of the Add Lab Results popup CALCIUM X PHOSPHOROUS text box")
-	public boolean viewAddpopupCalciumXPhosphorousTextBox() throws TimeoutException, WaitException
-	{
-		return webActions.getVisibiltyOfElementLocatedBy(VISIBILITY, TXT_ADDPOPUPCALCIUMXPHOSPHOROUS);
-	}
-
-	@Step("Verify the visibility of the Add Lab Results popup CALCIUM X PHOSPHOROUS goal")
-	public boolean viewAddpopupCalciumXPhosphorousGoal() throws TimeoutException, WaitException
-	{
-		return webActions.getVisibiltyOfElementLocatedBy(VISIBILITY, LBL_ADDPOPUPCALCIUMXPHOSPHOROUSGOAL);
-	}
+	}	
 
 	@Step("Verify the visibility of the Add Lab Results popup CREATININE label")
 	public boolean viewAddpopupCreatinineLabel() throws TimeoutException, WaitException
@@ -692,11 +674,6 @@ public class CurrentLabsPage extends WebPage
 			enterCalcium(map.get("CALCIUM"));
 		}
 
-		if (map.get("CALCIUMXPHOSPHOROUS") != null)
-		{
-			enterCalciumXPhosphorous(map.get("CALCIUMXPHOSPHOROUS"));
-		}
-
 		if (map.get("CO2LEVEL") != null)
 		{
 			enterCO2Level(map.get("CO2LEVEL"));
@@ -820,11 +797,6 @@ public class CurrentLabsPage extends WebPage
 		if (map.get("CALCIUM") != null)
 		{
 			enterCalcium(map.get("CALCIUM"));
-		}
-
-		if (map.get("CALCIUMXPHOSPHOROUS") != null)
-		{
-			enterCalciumXPhosphorous(map.get("CALCIUMXPHOSPHOROUS"));
 		}
 
 		if (map.get("CO2LEVEL") != null)
@@ -1006,13 +978,6 @@ public class CurrentLabsPage extends WebPage
 	public CurrentLabsPage enterWeight(String weightVal) throws TimeoutException, WaitException
 	{
 		webActions.enterText(VISIBILITY, TXT_ADDPOPUPWEIGHT, weightVal);
-		return this;
-	}
-
-	@Step("Enter {0} in the CALCIUM X PHOSPHOROUS text field")
-	public CurrentLabsPage enterCalciumXPhosphorous(String calciumXPhosphorousVal) throws TimeoutException, WaitException
-	{
-		webActions.enterText(VISIBILITY, TXT_ADDPOPUPCALCIUMXPHOSPHOROUS, calciumXPhosphorousVal);
 		return this;
 	}
 	
@@ -1371,104 +1336,6 @@ public class CurrentLabsPage extends WebPage
 		return webActions.getVisibiltyOfElementLocatedBy(VISIBILITY, LBL_GRAPHPOPUPTARGETDTYWEIGHTDRAWDATE);
 	}
 
-	@Step("Verify the visibility of the CALCIUM X PHOSPHOROUS label/value")
-	public boolean viewCalciumXPhosphorousLabelValue(String labValue) throws TimeoutException, WaitException
-	{
-		final By LBL_CALCIUMXPHOSPHOROUS = By.xpath("//span[text()='Calcium X Phosphorous (" + labValue + ")']");
-
-		return webActions.getVisibiltyOfElementLocatedBy(VISIBILITY, LBL_CALCIUMXPHOSPHOROUS);
-	}
-
-	@Step("Verify the visibility of the CALCIUM X PHOSPHOROUS Goal")
-	public boolean viewCalciumXPhosphorousGoal() throws TimeoutException, WaitException
-	{
-		return webActions.getVisibiltyOfElementLocatedBy(VISIBILITY, LBL_CALCIUMXPHOSPHOROUSGOAL);
-	}
-
-	@Step("Verify the visibility of the CALCIUM X PHOSPHOROUS draw date")
-	public boolean viewCalciumXPhosphorousDrawDate(String drawDate) throws TimeoutException, WaitException
-	{
-		final By LBL_CALCIUMXPHOSPHOROUSDRAWDATE = By.xpath("//span[contains(., 'Calcium X Phosphorous (')]/../../..//span[text()='" + drawDate + "']");
-
-		return webActions.getVisibiltyOfElementLocatedBy(VISIBILITY, LBL_CALCIUMXPHOSPHOROUSDRAWDATE);
-	}
-
-	@Step("Verify the visibility of the CALCIUM X PHOSPHOROUS Source")
-	public boolean viewCalciumXPhosphorousSource() throws TimeoutException, WaitException
-	{
-		return webActions.getVisibiltyOfElementLocatedBy(VISIBILITY, LBL_CALCIUMXPHOSPHOROUSSOURCE);
-	}
-
-	@Step("Verify the color of the CALCIUM X PHOSPHOROUS label/value")
-	public boolean viewCalciumXPhosphorousColor(int labValue, String location) throws TimeoutException, WaitException
-	{
-		String classAttributeValue = "";
-
-		if (location.equals("T")) // Labs table
-		{
-			classAttributeValue = webActions.getAttributeValue(VISIBILITY, LBL_CALCIUMXPHOSPHOROUSCOLOR, "class");
-		} else
-		{
-			if (location.equals("P")) // Graph popup
-			{
-				classAttributeValue = webActions.getAttributeValue(VISIBILITY, LBL_GRAPHPOPUPCALCIUMXPHOSPHOROUSCOLOR, "class");
-			}
-		}
-
-		if (labValue < 30 || labValue > 60) // If out of range
-		{
-			if (classAttributeValue.contains("redtext"))
-			{
-				return true;
-			} else
-			{
-				return false;
-			}
-		}
-		else // In range
-		{
-			if (classAttributeValue.contains("greentext"))
-			{
-				return true;
-			} else
-			{
-				return false;
-			}
-		}
-	}
-
-	@Step("Verify the visibility of the graph popup CALCIUM X PHOSPHOROUS Label/Value")
-	public boolean viewGraphPopupCalciumXPhosphorousLabelValue(String labValue) throws TimeoutException, WaitException
-	{
-		webActions.click(VISIBILITY, LBL_CALCIUMXPHOSPHOROUSSOURCE);
-
-		final By LBL_GRAPHPOPUPCALCIUMXPHOSPHOROUS = By.xpath("//div[@class='lab-history-modal-header-div']//span[text()='Calcium X Phosphorous (" + labValue + ")']");
-
-		return webActions.getVisibiltyOfElementLocatedBy(VISIBILITY, LBL_GRAPHPOPUPCALCIUMXPHOSPHOROUS);
-	}
-
-	@Step("Verify the visibility of the graph popup CALCIUM X PHOSPHOROUS Goal")
-	public boolean viewGraphPopupCalciumXPhosphorousGoal() throws TimeoutException, WaitException
-	{
-		return webActions.getVisibiltyOfElementLocatedBy(VISIBILITY, LBL_GRAPHPOPUPCALCIUMXPHOSPHOROUSGOAL);
-	}
-
-	@Step("Verify the visibility of the graph popup CALCIUM X PHOSPHOROUS point")
-	public boolean viewGraphPopupCalciumXPhosphorousPoint(String labValue) throws TimeoutException, WaitException
-	{
-		final By LBL_GRAPHPOPUPCALCIUMXPHOSPHOROUSPOINT = By.xpath("//div[@class='modal-body']//text[text()='" + labValue + "']/../..//circle");
-
-		return webActions.getVisibiltyOfElementLocatedBy(VISIBILITY, LBL_GRAPHPOPUPCALCIUMXPHOSPHOROUSPOINT);
-	}
-
-	@Step("Verify the visibility of the graph popup CALCIUM X PHOSPHOROUS draw date")
-	public boolean viewGraphPopupCalciumXPhosphorousDrawDate(String drawDate) throws TimeoutException, WaitException
-	{
-		final By LBL_GRAPHPOPUPCALCIUMXPHOSPHOROUSDRAWDATE = By.xpath("//div[@class='modal-body']//text[text()='" + drawDate + "']");
-
-		return webActions.getVisibiltyOfElementLocatedBy(VISIBILITY, LBL_GRAPHPOPUPCALCIUMXPHOSPHOROUSDRAWDATE);
-	}
-
 	@Step("Verify the visibility of the PHOSPHOROUS label/value")
 	public boolean viewPhosphorousLabelValue(String labValue) throws TimeoutException, WaitException
 	{
@@ -1613,7 +1480,7 @@ public class CurrentLabsPage extends WebPage
 		
 		if (patientType.equals("ESRD"))
 		{
-			if (classAttributeValue.contains("greytext"))
+			if (classAttributeValue.contains("graytext"))
 			{
 				return true;
 			} else
@@ -1722,7 +1589,7 @@ public class CurrentLabsPage extends WebPage
 
 		if (patientType.equals("ESRD"))
 		{
-			if (classAttributeValue.contains("greytext"))
+			if (classAttributeValue.contains("graytext"))
 			{
 				return true;
 			} else
@@ -1928,7 +1795,7 @@ public class CurrentLabsPage extends WebPage
 
 		if (patientType.equals("ESRD"))
 		{
-			if (classAttributeValue.contains("greytext"))
+			if (classAttributeValue.contains("graytext"))
 			{
 				return true;
 			} else
