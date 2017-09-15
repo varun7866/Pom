@@ -74,11 +74,11 @@ public class PatientNavigationTest extends TestBase
 		Assert.assertTrue(patientNavigationPage.verifyHospitalizationsStatusIcon(), "Failed to identify Hospitalizations status icon");
 		Assert.assertTrue(patientNavigationPage.verifyHoverHospitalizations(), "Failed to hover over HospitalizationsTooltip");
 
-		// Assert.assertTrue(patientNavigationPage.viewPatientExperienceFluidScreen(), "Failed to display the Fluid screen");
+		Assert.assertTrue(patientNavigationPage.viewPatientExperienceFluidScreen(), "Failed to display the Fluid screen");
 		Assert.assertTrue(patientNavigationPage.verifyFluidStatusIcon(), "Failed to identify Fluid status icon");
 		Assert.assertTrue(patientNavigationPage.verifyHoverFluid(), "Failed to hover over FluidTooltip");
 
-		// Assert.assertTrue(patientNavigationPage.viewPatientExperienceAccessScreen(), "Failed to display the Access screen");
+		Assert.assertTrue(patientNavigationPage.viewPatientExperienceAccessScreen(), "Failed to display the Access screen");
 		Assert.assertTrue(patientNavigationPage.verifyAccessStatusIcon(), "Failed to identify Access status icon");
 		Assert.assertTrue(patientNavigationPage.verifyHoverAccess(), "Failed to hover over AccessTooltip");
 
@@ -87,7 +87,7 @@ public class PatientNavigationTest extends TestBase
 		Assert.assertTrue(patientNavigationPage.verifyHoverMedications(), "Failed to hover over MedicationsTooltip");
 
 		// Assert.assertTrue(patientNavigationPage.viewPatientExperienceDiabetesScreen(), "Failed to display the Diabetes screen");
-		// Assert.assertTrue(patientNavigationPage.verifyDiabetesStatusIcon(), "Failed to identify Diabetes status icon");
+		Assert.assertTrue(patientNavigationPage.verifyDiabetesStatusIcon(), "Failed to identify Diabetes status icon");
 		Assert.assertTrue(patientNavigationPage.verifyHoverDiabetes(), "Failed to hover over DiabetesTooltip");
 
 		// Assert.assertTrue(patientNavigationPage.viewPatientExperienceDepressionScreen(), "Failed to display the Depression screen");
@@ -99,7 +99,7 @@ public class PatientNavigationTest extends TestBase
 
 		// Assert.assertTrue(patientNavigationPage.viewPatientExperienceIPathwaysScreeningsScreen(), "Failed to display the Pathways/Screenings screen");
 		// Assert.assertTrue(patientNavigationPage.viewPatientExperienceIComorbidsComplaintsScreen(), "Failed to display the Comorbids/Complaints screen");
-		Assert.assertTrue(patientNavigationPage.verifyHoverComorbidsComplaints(), "Failed to hover over ComorbidsComplaintsTooltip");
+		// Assert.assertTrue(patientNavigationPage.verifyHoverComorbidsComplaints(), "Failed to hover over ComorbidsComplaintsTooltip");
 
 		// Labs
 		Assert.assertTrue(patientNavigationPage.viewPatientExperienceLabsMenu(), "Failed to identify the Patient Experience Labs menu");

@@ -20,7 +20,7 @@ public class PatientNavigationLocators
 	public static final By ICO_DIABETESINFO = By.xpath("//a[@id='Diabetes-13']//button");
 	public static final By ICO_DEPRESSIONINFO = By.xpath("//a[@id='Depression-14']//button");
 	public static final By ICO_IMMUNIZATIONSINFO = By.xpath("//a[@id='Immunizations-15']//button");
-	public static final By ICO_COMORBIDSCOMPLAINTSINFO = By.xpath("//a[@id='Comorbids-17']//button");
+	public static final By ICO_COMORBIDSCOMPLAINTSINFO = By.xpath("//a[@id='ComorbidsComplaints-17']//button");
 	public static final By ICO_HOSPITALIZATIONSTATUS = By.xpath("//a[@id='Hospitalizations-9']/span[contains(@class, 'circle')]");
 	public static final By ICO_FLUIDSTATUS = By.xpath("//a[@id='Fluid-10']/span[contains(@class, 'circle')]");
 	public static final By ICO_ACCESSSTATUS = By.xpath("//a[@id='Access-11']/span[contains(@class, 'circle')]");
