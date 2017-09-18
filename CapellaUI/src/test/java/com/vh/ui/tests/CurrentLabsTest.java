@@ -305,7 +305,46 @@ public class CurrentLabsTest extends TestBase
 	}
 
 	@Test(priority = 4, dataProvider = "CapellaDataProvider")
-	@Step("Verify Aading Labs with different scenarios")
+	@Step("Verify validation messages")
+	public void verify_ValidationMessages(Map<String, String> map) throws WaitException, URLNavigationException, InterruptedException, TimeoutException, NumberFormatException, SQLException
+	{
+		appFunctions.selectPatientFromMyPatients(map.get("PatientName"));
+
+		appFunctions.navigateToMenu("Patient Experience->Labs->Current Labs");
+
+		currentLabsPage.clickAddLabButton();
+
+		if (map.get("PatientType").equals("CKD"))
+		{
+			currentLabsPage.populateAddPopupAllCKD(map);
+
+			currentLabsPage.clickAddPopupSaveButton();
+
+			Assert.assertTrue(currentLabsPage.viewAddpopupAlbuminFormatMessage(), "Failed to identify the Add Lab Results popup ALBUMIN format message");
+			Assert.assertTrue(currentLabsPage.viewAddpopupAlbuminRangeMessage(), "Failed to identify the Add Lab Results popup ALBUMIN range message");
+
+			//Assert.assertTrue(currentLabsPage.viewAddpopupKTVErrorMessage(), "Failed to identify the Add Lab Results popup KT/V error message");
+			//Assert.assertTrue(currentLabsPage.viewAddpopupURRErrorMessage(), "Failed to identify the Add Lab Results popup URR error message");
+			//Assert.assertTrue(currentLabsPage.viewAddpopupBloodPressureErrorMessage(), "Failed to identify the Add Lab Results popup BLOOD PRESSURE error message");
+		} else
+		{
+			if (map.get("PatientType").equals("ESRD"))
+			{
+				currentLabsPage.populateAddPopupAllESRD(map);
+
+				currentLabsPage.clickAddPopupSaveButton();
+
+				// Assert.assertTrue(currentLabsPage.viewAddpopupUrineAlbuminCreatinineRatioErrorMessage(),
+				// "Failed to identify the Add Lab Results popup Urine Albumin Creatinine Ratio error message");
+				// Assert.assertTrue(currentLabsPage.viewAddpopupBloodPressureErrorMessage(), "Failed to identify the Add Lab Results popup BLOOD PRESSURE error message");
+			}
+		}
+
+		currentLabsPage.clickAddPopupCancelButton();
+	}
+
+	@Test(priority = 5, dataProvider = "CapellaDataProvider")
+	@Step("Verify Adding Labs with different scenarios")
 	public void verify_AddingLabs(Map<String, String> map) throws WaitException, URLNavigationException, InterruptedException, TimeoutException, NumberFormatException, SQLException
 	{
 		appFunctions.selectPatientFromMyPatients(map.get("PatientName"));
@@ -327,35 +366,6 @@ public class CurrentLabsTest extends TestBase
 
 		currentLabsPage.clickAddPopupSaveButton();
 
-		if (map.get("PatientType").equals("CKD") && map.get("CheckValidation").equals("Y"))
-		{
-			Assert.assertTrue(currentLabsPage.viewAddpopupKTVErrorMessage(), "Failed to identify the Add Lab Results popup KT/V error message");
-			Assert.assertTrue(currentLabsPage.viewAddpopupURRErrorMessage(), "Failed to identify the Add Lab Results popup URR error message");
-			Assert.assertTrue(currentLabsPage.viewAddpopupBloodPressureErrorMessage(), "Failed to identify the Add Lab Results popup BLOOD PRESSURE error message");
-
-			currentLabsPage.clearKTVTextBox();
-			currentLabsPage.clearURRTextBox();
-			currentLabsPage.clearBloodPressureSystolicTextBox();
-			currentLabsPage.clearBloodPressureDiastolicTextBox();
-
-			currentLabsPage.clickAddPopupSaveButton();
-		}
-		else
-		{
-			if (map.get("PatientType").equals("ESRD") && map.get("CheckValidation").equals("Y"))
-			{
-				Assert.assertTrue(currentLabsPage.viewAddpopupUrineAlbuminCreatinineRatioErrorMessage(),
-				        "Failed to identify the Add Lab Results popup Urine Albumin Creatinine Ratio error message");
-				Assert.assertTrue(currentLabsPage.viewAddpopupBloodPressureErrorMessage(), "Failed to identify the Add Lab Results popup BLOOD PRESSURE error message");
-
-				currentLabsPage.clearUrineAlbuminCreatinineRatioTextBox();
-				currentLabsPage.clearBloodPressureSystolicTextBox();
-				currentLabsPage.clearBloodPressureDiastolicTextBox();
-
-				currentLabsPage.clickAddPopupSaveButton();
-			}
-		}
-
 		String drawDateGregorian = appFunctions.adjustCurrentDateBy(map.get("APPLYTHISDATETOALLVALUES"), "MM/dd/YYYY");
 
 		if (map.get("ALBUMIN") != null)
@@ -374,7 +384,7 @@ public class CurrentLabsTest extends TestBase
 			currentLabsPage.sendESCKey();
 		}
 
-		if (map.get("BLOODPRESSUREDIASTOLIC") != null && map.get("CheckValidation").equals("N"))
+		if (map.get("BLOODPRESSUREDIASTOLIC") != null)
 		{
 			Assert.assertTrue(currentLabsPage.viewBloodPressureDiastolicLabelValue(map.get("BLOODPRESSUREDIASTOLIC")), "Failed to identify the BLOOD PRESSURE DIASTOLIC label/value");
 			Assert.assertTrue(currentLabsPage.viewBloodPressureDiastolicGoal(), "Failed to identify the BLOOD PRESSURE DIASTOLIC Goal");
@@ -394,7 +404,7 @@ public class CurrentLabsTest extends TestBase
 			currentLabsPage.sendESCKey();
 		}
 
-		if (map.get("BLOODPRESSURESYSTOLIC") != null && map.get("CheckValidation").equals("N"))
+		if (map.get("BLOODPRESSURESYSTOLIC") != null)
 		{
 			Assert.assertTrue(currentLabsPage.viewBloodPressureSystolicLabelValue(map.get("BLOODPRESSURESYSTOLIC")), "Failed to identify the BLOOD PRESSURE SYSTOLIC label/value");
 			Assert.assertTrue(currentLabsPage.viewBloodPressureSystolicGoal(), "Failed to identify the BLOOD PRESSURE SYSTOLIC Goal");

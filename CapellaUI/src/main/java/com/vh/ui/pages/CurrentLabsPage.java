@@ -12,7 +12,6 @@ import java.util.List;
 import java.util.Map;
 
 import org.openqa.selenium.By;
-import org.openqa.selenium.Keys;
 import org.openqa.selenium.TimeoutException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -1053,6 +1052,18 @@ public class CurrentLabsPage extends WebPage
 		return this;
 	}
 
+	@Step("Verify the visibility of the Add Lab Results popup ALBUMIN format message")
+	public boolean viewAddpopupAlbuminFormatMessage() throws TimeoutException, WaitException
+	{
+		return webActions.getVisibiltyOfElementLocatedBy(VISIBILITY, LBL_ADDPOPUPALBUMINFORMATMESSAGE);
+	}
+
+	@Step("Verify the visibility of the Add Lab Results popup ALBUMIN range message")
+	public boolean viewAddpopupAlbuminRangeMessage() throws TimeoutException, WaitException
+	{
+		return webActions.getVisibiltyOfElementLocatedBy(VISIBILITY, LBL_ADDPOPUPALBUMINRANGEMESSAGE);
+	}
+
 	@Step("Verify the visibility of the Add Lab Results popup KT/VD error message")
 	public boolean viewAddpopupKTVErrorMessage() throws TimeoutException, WaitException
 	{
@@ -1075,44 +1086,6 @@ public class CurrentLabsPage extends WebPage
 	public boolean viewAddpopupBloodPressureErrorMessage() throws TimeoutException, WaitException
 	{
 		return webActions.getVisibiltyOfElementLocatedBy(VISIBILITY, LBL_ADDPOPUPBLOODPRESSUREERRORMESSAGE);
-	}
-
-	@Step("clear the KTV text box")
-	public void clearKTVTextBox() throws TimeoutException, WaitException
-	{
-		webActions.pressKey(VISIBILITY, TXT_ADDPOPUPKTV, Keys.BACK_SPACE);
-		webActions.pressKey(VISIBILITY, TXT_ADDPOPUPKTV, Keys.BACK_SPACE);
-		webActions.pressKey(VISIBILITY, TXT_ADDPOPUPKTV, Keys.BACK_SPACE);
-	}
-
-	@Step("clear the URR text box")
-	public void clearURRTextBox() throws TimeoutException, WaitException
-	{
-		webActions.pressKey(VISIBILITY, TXT_ADDPOPUPURR, Keys.BACK_SPACE);
-		webActions.pressKey(VISIBILITY, TXT_ADDPOPUPURR, Keys.BACK_SPACE);
-	}
-
-	@Step("clear the Urine Albumin Creatinine Ratio text box")
-	public void clearUrineAlbuminCreatinineRatioTextBox() throws TimeoutException, WaitException
-	{
-		webActions.pressKey(VISIBILITY, TXT_ADDPOPUPURINEALBUMINCREATININERATIO, Keys.BACK_SPACE);
-		webActions.pressKey(VISIBILITY, TXT_ADDPOPUPURINEALBUMINCREATININERATIO, Keys.BACK_SPACE);
-	}
-
-	@Step("clear the BLOOD PRESSURE SYSTOLIC text box")
-	public void clearBloodPressureSystolicTextBox() throws TimeoutException, WaitException
-	{
-		webActions.pressKey(VISIBILITY, TXT_ADDPOPUPBLOODPRESURESYSTOLIC, Keys.BACK_SPACE);
-		webActions.pressKey(VISIBILITY, TXT_ADDPOPUPBLOODPRESURESYSTOLIC, Keys.BACK_SPACE);
-		webActions.pressKey(VISIBILITY, TXT_ADDPOPUPBLOODPRESURESYSTOLIC, Keys.BACK_SPACE);
-	}
-
-	@Step("clear the BLOOD PRESSURE DIASTOLIC text box")
-	public void clearBloodPressureDiastolicTextBox() throws TimeoutException, WaitException
-	{
-		webActions.pressKey(VISIBILITY, TXT_ADDPOPUPBLOODPRESUREDIASTOLIC, Keys.BACK_SPACE);
-		webActions.pressKey(VISIBILITY, TXT_ADDPOPUPBLOODPRESUREDIASTOLIC, Keys.BACK_SPACE);
-		webActions.pressKey(VISIBILITY, TXT_ADDPOPUPBLOODPRESUREDIASTOLIC, Keys.BACK_SPACE);
 	}
 
 	@Step("Verify the visibility of the HEIGHT label/value")

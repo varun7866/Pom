@@ -76,6 +76,11 @@ public class CurrentLabsLocators
 	public static final By LBL_ADDPOPUPFERRITIN = By.xpath("//div[@class='modal-dialog modal-lg']//span[text()='Ferritin']");
 	public static final By LBL_ADDPOPUPBLOODPRESURE = By.xpath("//div[@class='modal-dialog modal-lg']//span[text()='Blood Pressure']");
 	public static final By LBL_ADDPOPUPDIPSTICKFORPROTEIN = By.xpath("//div[@class='modal-dialog modal-lg']//span[text()='Dipstick For Protein']");
+	public static final By LBL_ADDPOPUPALBUMINFORMATMESSAGE = By
+	        .xpath("//div[@class='modal-dialog modal-lg']//div[@role='alert']//div[contains(., \"'Albumin Value' should be in correct format\")]");
+	public static final By LBL_ADDPOPUPALBUMINRANGEMESSAGE = By
+	        .xpath("//div[@class='modal-dialog modal-lg']//div[@role='alert']//div[contains(., \"'Albumin Value' should be between 0 and 10.\")]");
+
 	public static final By LBL_ADDPOPUPKTVERRORMESSAGE = By
 	        .xpath("//div[@class='modal-dialog modal-lg']//div[@role='alert']//div[contains(., \"Labtype 'KTV' not valid for this patient\")]");
 	public static final By LBL_ADDPOPUPURRERRORMESSAGE = By
